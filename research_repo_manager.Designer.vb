@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class research_repo_manager
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,20 +20,13 @@ Partial Class research_repo_manager
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.Button2 = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.Button5 = New System.Windows.Forms.Button()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -44,84 +37,49 @@ Partial Class research_repo_manager
         Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Button4 = New System.Windows.Forms.Button()
+        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button5 = New System.Windows.Forms.Button()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'Button1
-        '
-        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.System
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Button1.Location = New System.Drawing.Point(15, 467)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(102, 34)
-        Me.Button1.TabIndex = 2
-        Me.Button1.Text = "Add"
-        Me.Button1.UseVisualStyleBackColor = True
         '
         'TextBox1
         '
         Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBox1.ForeColor = System.Drawing.SystemColors.AppWorkspace
-        Me.TextBox1.Location = New System.Drawing.Point(221, 20)
+        Me.TextBox1.Location = New System.Drawing.Point(228, 20)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(303, 21)
         Me.TextBox1.TabIndex = 3
         Me.TextBox1.Text = "Search Title, Author, Keyword, Abstract, Etc."
         '
-        'Button2
-        '
-        Me.Button2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.Button2.BackColor = System.Drawing.Color.Transparent
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.System
-        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(530, 20)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(62, 22)
-        Me.Button2.TabIndex = 4
-        Me.Button2.Text = "Search"
-        Me.Button2.UseVisualStyleBackColor = False
-        '
         'Label1
         '
         Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(12, 23)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(62, 13)
+        Me.Label1.Size = New System.Drawing.Size(73, 13)
         Me.Label1.TabIndex = 5
         Me.Label1.Text = "Search By :"
-        '
-        'ComboBox1
-        '
-        Me.ComboBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ComboBox1.ForeColor = System.Drawing.SystemColors.AppWorkspace
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"Research Agenda", "Title", "Author(s)", "Abstract", "Degree Program", "Date Completed"})
-        Me.ComboBox1.Location = New System.Drawing.Point(80, 20)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(135, 21)
-        Me.ComboBox1.TabIndex = 6
-        Me.ComboBox1.Text = "Default"
-        '
-        'ComboBox2
-        '
-        Me.ComboBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ComboBox2.ForeColor = System.Drawing.SystemColors.AppWorkspace
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Items.AddRange(New Object() {"Role", "Degree Program", "Status", "Published", "Presented"})
-        Me.ComboBox2.Location = New System.Drawing.Point(80, 47)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(135, 21)
-        Me.ComboBox2.TabIndex = 8
-        Me.ComboBox2.Text = "Default"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(12, 50)
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(617, 24)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(50, 13)
+        Me.Label2.Size = New System.Drawing.Size(61, 13)
         Me.Label2.TabIndex = 7
         Me.Label2.Text = "Filter By :"
         '
@@ -144,45 +102,6 @@ Partial Class research_repo_manager
         Me.DataGridView2.RowHeadersVisible = False
         Me.DataGridView2.Size = New System.Drawing.Size(1231, 376)
         Me.DataGridView2.TabIndex = 1
-        '
-        'Button3
-        '
-        Me.Button3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.System
-        Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Button3.Location = New System.Drawing.Point(135, 467)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(102, 34)
-        Me.Button3.TabIndex = 9
-        Me.Button3.Text = "Edit"
-        Me.Button3.UseVisualStyleBackColor = True
-        '
-        'Button4
-        '
-        Me.Button4.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.System
-        Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Button4.Location = New System.Drawing.Point(375, 467)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(102, 34)
-        Me.Button4.TabIndex = 11
-        Me.Button4.Text = "Delete"
-        Me.Button4.UseVisualStyleBackColor = True
-        '
-        'Button5
-        '
-        Me.Button5.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.System
-        Me.Button5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Button5.Location = New System.Drawing.Point(255, 467)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(102, 34)
-        Me.Button5.TabIndex = 10
-        Me.Button5.Text = "Update"
-        Me.Button5.UseVisualStyleBackColor = True
         '
         'Column1
         '
@@ -262,18 +181,155 @@ Partial Class research_repo_manager
         Me.Column10.ReadOnly = True
         Me.Column10.Width = 65
         '
+        'Button4
+        '
+        Me.Button4.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Button4.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_delete_211
+        Me.Button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button4.Location = New System.Drawing.Point(1140, 465)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(102, 34)
+        Me.Button4.TabIndex = 11
+        Me.Button4.Text = "Delete"
+        Me.Button4.UseVisualStyleBackColor = True
+        '
+        'DateTimePicker1
+        '
+        Me.DateTimePicker1.Location = New System.Drawing.Point(43, 1)
+        Me.DateTimePicker1.Name = "DateTimePicker1"
+        Me.DateTimePicker1.Size = New System.Drawing.Size(182, 20)
+        Me.DateTimePicker1.TabIndex = 12
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(3, 5)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(34, 13)
+        Me.Label3.TabIndex = 13
+        Me.Label3.Text = "From"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(231, 5)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(22, 13)
+        Me.Label4.TabIndex = 14
+        Me.Label4.Text = "To"
+        '
+        'DateTimePicker2
+        '
+        Me.DateTimePicker2.Location = New System.Drawing.Point(259, 1)
+        Me.DateTimePicker2.Name = "DateTimePicker2"
+        Me.DateTimePicker2.Size = New System.Drawing.Size(182, 20)
+        Me.DateTimePicker2.TabIndex = 15
+        '
+        'Panel1
+        '
+        Me.Panel1.Controls.Add(Me.DateTimePicker1)
+        Me.Panel1.Controls.Add(Me.Label4)
+        Me.Panel1.Controls.Add(Me.DateTimePicker2)
+        Me.Panel1.Controls.Add(Me.Label3)
+        Me.Panel1.Location = New System.Drawing.Point(689, 45)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(447, 22)
+        Me.Panel1.TabIndex = 16
+        '
+        'ComboBox1
+        '
+        Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Items.AddRange(New Object() {"Title", "Research Agenda", "Author(s)", "Abstract", "Degree Program", "Date Completed"})
+        Me.ComboBox1.Location = New System.Drawing.Point(84, 20)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(136, 21)
+        Me.ComboBox1.TabIndex = 17
+        '
+        'ComboBox2
+        '
+        Me.ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBox2.FormattingEnabled = True
+        Me.ComboBox2.Items.AddRange(New Object() {"Role", "Date", "Status", "Published", "Presented"})
+        Me.ComboBox2.Location = New System.Drawing.Point(689, 20)
+        Me.ComboBox2.Name = "ComboBox2"
+        Me.ComboBox2.Size = New System.Drawing.Size(136, 21)
+        Me.ComboBox2.TabIndex = 18
+        '
+        'Button2
+        '
+        Me.Button2.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.Button2.ImageAlign = System.Drawing.ContentAlignment.TopLeft
+        Me.Button2.Location = New System.Drawing.Point(537, 20)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(65, 21)
+        Me.Button2.TabIndex = 4
+        Me.Button2.Text = "Search"
+        Me.Button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Button2.UseVisualStyleBackColor = False
+        '
+        'Button5
+        '
+        Me.Button5.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Button5.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_update_done_21__1_
+        Me.Button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button5.Location = New System.Drawing.Point(1020, 465)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(102, 34)
+        Me.Button5.TabIndex = 10
+        Me.Button5.Text = "Update"
+        Me.Button5.UseVisualStyleBackColor = True
+        '
+        'Button3
+        '
+        Me.Button3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Button3.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_edit_211
+        Me.Button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button3.Location = New System.Drawing.Point(900, 465)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(102, 34)
+        Me.Button3.TabIndex = 9
+        Me.Button3.Text = "Edit"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
+        'Button1
+        '
+        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Button1.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_add_21
+        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button1.Location = New System.Drawing.Point(780, 465)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(102, 34)
+        Me.Button1.TabIndex = 2
+        Me.Button1.Text = "Add"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'research_repo_manager
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.Maroon
+        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1255, 513)
+        Me.Controls.Add(Me.ComboBox2)
+        Me.Controls.Add(Me.ComboBox1)
+        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.Button5)
         Me.Controls.Add(Me.Button3)
-        Me.Controls.Add(Me.ComboBox2)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.TextBox1)
@@ -282,8 +338,11 @@ Partial Class research_repo_manager
         Me.ForeColor = System.Drawing.SystemColors.HighlightText
         Me.Name = "research_repo_manager"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Research Repository Manager"
+        Me.Text = "RESEARCH REPOSITORY MANAGER"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -292,8 +351,6 @@ Partial Class research_repo_manager
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents Button2 As Button
     Friend WithEvents Label1 As Label
-    Friend WithEvents ComboBox1 As ComboBox
-    Friend WithEvents ComboBox2 As ComboBox
     Friend WithEvents Label2 As Label
     Friend WithEvents DataGridView2 As DataGridView
     Friend WithEvents Button3 As Button
@@ -309,4 +366,11 @@ Partial Class research_repo_manager
     Friend WithEvents Column10 As DataGridViewTextBoxColumn
     Friend WithEvents Button4 As Button
     Friend WithEvents Button5 As Button
+    Friend WithEvents DateTimePicker1 As DateTimePicker
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Label4 As Label
+    Friend WithEvents DateTimePicker2 As DateTimePicker
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents ComboBox2 As ComboBox
 End Class
