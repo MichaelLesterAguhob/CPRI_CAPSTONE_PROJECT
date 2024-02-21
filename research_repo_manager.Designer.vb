@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class research_repo_manager
+Partial Class ResearchRepoManager
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -22,6 +22,7 @@ Partial Class research_repo_manager
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -42,15 +43,41 @@ Partial Class research_repo_manager
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
-        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.PnlFilter = New System.Windows.Forms.Panel()
+        Me.RadioButton5 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton6 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
+        Me.Button7 = New System.Windows.Forms.Button()
+        Me.Button6 = New System.Windows.Forms.Button()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.BtnCloseFilter = New System.Windows.Forms.Button()
+        Me.BtnFilter = New System.Windows.Forms.Button()
+        Me.TmOpenFilter = New System.Windows.Forms.Timer(Me.components)
+        Me.TmCloseFilter = New System.Windows.Forms.Timer(Me.components)
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.RadioButton7 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton8 = New System.Windows.Forms.RadioButton()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+        Me.CheckBox2 = New System.Windows.Forms.CheckBox()
+        Me.CheckBox3 = New System.Windows.Forms.CheckBox()
+        Me.CheckBox4 = New System.Windows.Forms.CheckBox()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PnlFilter.SuspendLayout()
         Me.Panel1.SuspendLayout()
+        Me.Panel2.SuspendLayout()
+        Me.Panel3.SuspendLayout()
         Me.SuspendLayout()
         '
         'TextBox1
@@ -76,12 +103,13 @@ Partial Class research_repo_manager
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(617, 24)
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label2.Location = New System.Drawing.Point(12, 6)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(61, 13)
+        Me.Label2.Size = New System.Drawing.Size(64, 20)
         Me.Label2.TabIndex = 7
-        Me.Label2.Text = "Filter By :"
+        Me.Label2.Text = "Filters:"
         '
         'DataGridView2
         '
@@ -197,7 +225,8 @@ Partial Class research_repo_manager
         '
         'DateTimePicker1
         '
-        Me.DateTimePicker1.Location = New System.Drawing.Point(43, 1)
+        Me.DateTimePicker1.CalendarMonthBackground = System.Drawing.Color.DarkGray
+        Me.DateTimePicker1.Location = New System.Drawing.Point(63, 303)
         Me.DateTimePicker1.Name = "DateTimePicker1"
         Me.DateTimePicker1.Size = New System.Drawing.Size(182, 20)
         Me.DateTimePicker1.TabIndex = 12
@@ -205,40 +234,30 @@ Partial Class research_repo_manager
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(3, 5)
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(23, 307)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(34, 13)
+        Me.Label3.Size = New System.Drawing.Size(30, 13)
         Me.Label3.TabIndex = 13
         Me.Label3.Text = "From"
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(231, 5)
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(251, 307)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(22, 13)
+        Me.Label4.Size = New System.Drawing.Size(20, 13)
         Me.Label4.TabIndex = 14
         Me.Label4.Text = "To"
         '
         'DateTimePicker2
         '
-        Me.DateTimePicker2.Location = New System.Drawing.Point(259, 1)
+        Me.DateTimePicker2.CalendarMonthBackground = System.Drawing.Color.DarkGray
+        Me.DateTimePicker2.Location = New System.Drawing.Point(279, 303)
         Me.DateTimePicker2.Name = "DateTimePicker2"
         Me.DateTimePicker2.Size = New System.Drawing.Size(182, 20)
         Me.DateTimePicker2.TabIndex = 15
-        '
-        'Panel1
-        '
-        Me.Panel1.Controls.Add(Me.DateTimePicker1)
-        Me.Panel1.Controls.Add(Me.Label4)
-        Me.Panel1.Controls.Add(Me.DateTimePicker2)
-        Me.Panel1.Controls.Add(Me.Label3)
-        Me.Panel1.Location = New System.Drawing.Point(689, 45)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(447, 22)
-        Me.Panel1.TabIndex = 16
         '
         'ComboBox1
         '
@@ -250,22 +269,13 @@ Partial Class research_repo_manager
         Me.ComboBox1.Size = New System.Drawing.Size(136, 21)
         Me.ComboBox1.TabIndex = 17
         '
-        'ComboBox2
-        '
-        Me.ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Items.AddRange(New Object() {"Role", "Date", "Status", "Published", "Presented"})
-        Me.ComboBox2.Location = New System.Drawing.Point(689, 20)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(136, 21)
-        Me.ComboBox2.TabIndex = 18
-        '
         'Button2
         '
         Me.Button2.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button2.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.Button2.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_search_13
         Me.Button2.ImageAlign = System.Drawing.ContentAlignment.TopLeft
         Me.Button2.Location = New System.Drawing.Point(537, 20)
         Me.Button2.Name = "Button2"
@@ -317,32 +327,326 @@ Partial Class research_repo_manager
         Me.Button1.Text = "Add"
         Me.Button1.UseVisualStyleBackColor = True
         '
-        'research_repo_manager
+        'PnlFilter
+        '
+        Me.PnlFilter.BackColor = System.Drawing.Color.LightGray
+        Me.PnlFilter.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.PnlFilter.Controls.Add(Me.CheckBox4)
+        Me.PnlFilter.Controls.Add(Me.CheckBox3)
+        Me.PnlFilter.Controls.Add(Me.CheckBox2)
+        Me.PnlFilter.Controls.Add(Me.CheckBox1)
+        Me.PnlFilter.Controls.Add(Me.Panel3)
+        Me.PnlFilter.Controls.Add(Me.Panel2)
+        Me.PnlFilter.Controls.Add(Me.Panel1)
+        Me.PnlFilter.Controls.Add(Me.DateTimePicker1)
+        Me.PnlFilter.Controls.Add(Me.Label4)
+        Me.PnlFilter.Controls.Add(Me.DateTimePicker2)
+        Me.PnlFilter.Controls.Add(Me.Label3)
+        Me.PnlFilter.Controls.Add(Me.Button7)
+        Me.PnlFilter.Controls.Add(Me.Button6)
+        Me.PnlFilter.Controls.Add(Me.Label6)
+        Me.PnlFilter.Controls.Add(Me.Label5)
+        Me.PnlFilter.Controls.Add(Me.BtnCloseFilter)
+        Me.PnlFilter.Controls.Add(Me.Label2)
+        Me.PnlFilter.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.PnlFilter.Location = New System.Drawing.Point(688, 21)
+        Me.PnlFilter.Name = "PnlFilter"
+        Me.PnlFilter.Size = New System.Drawing.Size(500, 400)
+        Me.PnlFilter.TabIndex = 19
+        '
+        'RadioButton5
+        '
+        Me.RadioButton5.AutoSize = True
+        Me.RadioButton5.Location = New System.Drawing.Point(97, 5)
+        Me.RadioButton5.Name = "RadioButton5"
+        Me.RadioButton5.Size = New System.Drawing.Size(39, 17)
+        Me.RadioButton5.TabIndex = 33
+        Me.RadioButton5.TabStop = True
+        Me.RadioButton5.Text = "No"
+        Me.RadioButton5.UseVisualStyleBackColor = True
+        '
+        'RadioButton6
+        '
+        Me.RadioButton6.AutoSize = True
+        Me.RadioButton6.Location = New System.Drawing.Point(166, 5)
+        Me.RadioButton6.Name = "RadioButton6"
+        Me.RadioButton6.Size = New System.Drawing.Size(43, 17)
+        Me.RadioButton6.TabIndex = 32
+        Me.RadioButton6.TabStop = True
+        Me.RadioButton6.Text = "Yes"
+        Me.RadioButton6.UseVisualStyleBackColor = True
+        '
+        'RadioButton2
+        '
+        Me.RadioButton2.AutoSize = True
+        Me.RadioButton2.Location = New System.Drawing.Point(166, 5)
+        Me.RadioButton2.Name = "RadioButton2"
+        Me.RadioButton2.Size = New System.Drawing.Size(75, 17)
+        Me.RadioButton2.TabIndex = 29
+        Me.RadioButton2.TabStop = True
+        Me.RadioButton2.Text = "Completed"
+        Me.RadioButton2.UseVisualStyleBackColor = True
+        '
+        'RadioButton1
+        '
+        Me.RadioButton1.AutoSize = True
+        Me.RadioButton1.Location = New System.Drawing.Point(97, 5)
+        Me.RadioButton1.Name = "RadioButton1"
+        Me.RadioButton1.Size = New System.Drawing.Size(65, 17)
+        Me.RadioButton1.TabIndex = 28
+        Me.RadioButton1.TabStop = True
+        Me.RadioButton1.Text = "Ongoing"
+        Me.RadioButton1.UseVisualStyleBackColor = True
+        '
+        'Button7
+        '
+        Me.Button7.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.Button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button7.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.Button7.ImageAlign = System.Drawing.ContentAlignment.TopLeft
+        Me.Button7.Location = New System.Drawing.Point(269, 357)
+        Me.Button7.Name = "Button7"
+        Me.Button7.Size = New System.Drawing.Size(65, 24)
+        Me.Button7.TabIndex = 27
+        Me.Button7.Text = "Reset"
+        Me.Button7.TextAlign = System.Drawing.ContentAlignment.TopRight
+        Me.Button7.UseVisualStyleBackColor = False
+        '
+        'Button6
+        '
+        Me.Button6.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button6.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.Button6.ImageAlign = System.Drawing.ContentAlignment.TopLeft
+        Me.Button6.Location = New System.Drawing.Point(181, 357)
+        Me.Button6.Name = "Button6"
+        Me.Button6.Size = New System.Drawing.Size(65, 24)
+        Me.Button6.TabIndex = 26
+        Me.Button6.Text = "Apply"
+        Me.Button6.TextAlign = System.Drawing.ContentAlignment.TopRight
+        Me.Button6.UseVisualStyleBackColor = False
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label8.Location = New System.Drawing.Point(3, 8)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(72, 13)
+        Me.Label8.TabIndex = 24
+        Me.Label8.Text = "Presented :"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label6.Location = New System.Drawing.Point(20, 282)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(42, 13)
+        Me.Label6.TabIndex = 22
+        Me.Label6.Text = "Date :"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label5.Location = New System.Drawing.Point(21, 50)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(41, 13)
+        Me.Label5.TabIndex = 16
+        Me.Label5.Text = "Role :"
+        '
+        'BtnCloseFilter
+        '
+        Me.BtnCloseFilter.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnCloseFilter.BackColor = System.Drawing.Color.Red
+        Me.BtnCloseFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnCloseFilter.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnCloseFilter.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.BtnCloseFilter.ImageAlign = System.Drawing.ContentAlignment.TopLeft
+        Me.BtnCloseFilter.Location = New System.Drawing.Point(468, 5)
+        Me.BtnCloseFilter.Name = "BtnCloseFilter"
+        Me.BtnCloseFilter.Size = New System.Drawing.Size(25, 21)
+        Me.BtnCloseFilter.TabIndex = 21
+        Me.BtnCloseFilter.Text = "X"
+        Me.BtnCloseFilter.UseVisualStyleBackColor = False
+        '
+        'BtnFilter
+        '
+        Me.BtnFilter.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnFilter.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnFilter.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.BtnFilter.ImageAlign = System.Drawing.ContentAlignment.TopLeft
+        Me.BtnFilter.Location = New System.Drawing.Point(621, 21)
+        Me.BtnFilter.Name = "BtnFilter"
+        Me.BtnFilter.Size = New System.Drawing.Size(65, 21)
+        Me.BtnFilter.TabIndex = 20
+        Me.BtnFilter.Text = "Filter"
+        Me.BtnFilter.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.BtnFilter.UseVisualStyleBackColor = False
+        '
+        'TmOpenFilter
+        '
+        Me.TmOpenFilter.Interval = 10
+        '
+        'TmCloseFilter
+        '
+        Me.TmCloseFilter.Interval = 10
+        '
+        'Panel1
+        '
+        Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel1.Controls.Add(Me.Label8)
+        Me.Panel1.Controls.Add(Me.RadioButton5)
+        Me.Panel1.Controls.Add(Me.RadioButton6)
+        Me.Panel1.Location = New System.Drawing.Point(16, 230)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(248, 29)
+        Me.Panel1.TabIndex = 34
+        '
+        'Panel2
+        '
+        Me.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel2.Controls.Add(Me.Label10)
+        Me.Panel2.Controls.Add(Me.RadioButton7)
+        Me.Panel2.Controls.Add(Me.RadioButton8)
+        Me.Panel2.Location = New System.Drawing.Point(16, 195)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(248, 29)
+        Me.Panel2.TabIndex = 35
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label10.Location = New System.Drawing.Point(3, 8)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(70, 13)
+        Me.Label10.TabIndex = 24
+        Me.Label10.Text = "Published :"
+        '
+        'RadioButton7
+        '
+        Me.RadioButton7.AutoSize = True
+        Me.RadioButton7.Location = New System.Drawing.Point(97, 5)
+        Me.RadioButton7.Name = "RadioButton7"
+        Me.RadioButton7.Size = New System.Drawing.Size(39, 17)
+        Me.RadioButton7.TabIndex = 33
+        Me.RadioButton7.TabStop = True
+        Me.RadioButton7.Text = "No"
+        Me.RadioButton7.UseVisualStyleBackColor = True
+        '
+        'RadioButton8
+        '
+        Me.RadioButton8.AutoSize = True
+        Me.RadioButton8.Location = New System.Drawing.Point(166, 5)
+        Me.RadioButton8.Name = "RadioButton8"
+        Me.RadioButton8.Size = New System.Drawing.Size(43, 17)
+        Me.RadioButton8.TabIndex = 32
+        Me.RadioButton8.TabStop = True
+        Me.RadioButton8.Text = "Yes"
+        Me.RadioButton8.UseVisualStyleBackColor = True
+        '
+        'Panel3
+        '
+        Me.Panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel3.Controls.Add(Me.Label9)
+        Me.Panel3.Controls.Add(Me.RadioButton2)
+        Me.Panel3.Controls.Add(Me.RadioButton1)
+        Me.Panel3.Location = New System.Drawing.Point(16, 160)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(248, 29)
+        Me.Panel3.TabIndex = 36
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label9.Location = New System.Drawing.Point(3, 7)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(51, 13)
+        Me.Label9.TabIndex = 24
+        Me.Label9.Text = "Status :"
+        '
+        'CheckBox1
+        '
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.Location = New System.Drawing.Point(23, 72)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(60, 17)
+        Me.CheckBox1.TabIndex = 37
+        Me.CheckBox1.Text = "Faculty"
+        Me.CheckBox1.UseVisualStyleBackColor = True
+        '
+        'CheckBox2
+        '
+        Me.CheckBox2.AutoSize = True
+        Me.CheckBox2.Location = New System.Drawing.Point(23, 95)
+        Me.CheckBox2.Name = "CheckBox2"
+        Me.CheckBox2.Size = New System.Drawing.Size(55, 17)
+        Me.CheckBox2.TabIndex = 38
+        Me.CheckBox2.Text = "Admin"
+        Me.CheckBox2.UseVisualStyleBackColor = True
+        '
+        'CheckBox3
+        '
+        Me.CheckBox3.AutoSize = True
+        Me.CheckBox3.Location = New System.Drawing.Point(23, 118)
+        Me.CheckBox3.Name = "CheckBox3"
+        Me.CheckBox3.Size = New System.Drawing.Size(48, 17)
+        Me.CheckBox3.TabIndex = 39
+        Me.CheckBox3.Text = "Staff"
+        Me.CheckBox3.UseVisualStyleBackColor = True
+        '
+        'CheckBox4
+        '
+        Me.CheckBox4.AutoSize = True
+        Me.CheckBox4.Location = New System.Drawing.Point(119, 72)
+        Me.CheckBox4.Name = "CheckBox4"
+        Me.CheckBox4.Size = New System.Drawing.Size(63, 17)
+        Me.CheckBox4.TabIndex = 40
+        Me.CheckBox4.Text = "Student"
+        Me.CheckBox4.UseVisualStyleBackColor = True
+        '
+        'ResearchRepoManager
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1255, 513)
-        Me.Controls.Add(Me.ComboBox2)
+        Me.Controls.Add(Me.BtnFilter)
+        Me.Controls.Add(Me.PnlFilter)
         Me.Controls.Add(Me.ComboBox1)
-        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.Button5)
         Me.Controls.Add(Me.Button3)
-        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.DataGridView2)
         Me.ForeColor = System.Drawing.SystemColors.HighlightText
-        Me.Name = "research_repo_manager"
+        Me.Name = "ResearchRepoManager"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "RESEARCH REPOSITORY MANAGER"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.PnlFilter.ResumeLayout(False)
+        Me.PnlFilter.PerformLayout()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        Me.Panel2.ResumeLayout(False)
+        Me.Panel2.PerformLayout()
+        Me.Panel3.ResumeLayout(False)
+        Me.Panel3.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -370,7 +674,30 @@ Partial Class research_repo_manager
     Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents DateTimePicker2 As DateTimePicker
-    Friend WithEvents Panel1 As Panel
     Friend WithEvents ComboBox1 As ComboBox
-    Friend WithEvents ComboBox2 As ComboBox
+    Friend WithEvents PnlFilter As Panel
+    Friend WithEvents BtnFilter As Button
+    Friend WithEvents TmOpenFilter As Timer
+    Friend WithEvents BtnCloseFilter As Button
+    Friend WithEvents TmCloseFilter As Timer
+    Friend WithEvents Button7 As Button
+    Friend WithEvents Button6 As Button
+    Friend WithEvents Label8 As Label
+    Friend WithEvents Label6 As Label
+    Friend WithEvents Label5 As Label
+    Friend WithEvents RadioButton5 As RadioButton
+    Friend WithEvents RadioButton6 As RadioButton
+    Friend WithEvents RadioButton2 As RadioButton
+    Friend WithEvents RadioButton1 As RadioButton
+    Friend WithEvents Panel3 As Panel
+    Friend WithEvents Label9 As Label
+    Friend WithEvents Panel2 As Panel
+    Friend WithEvents Label10 As Label
+    Friend WithEvents RadioButton7 As RadioButton
+    Friend WithEvents RadioButton8 As RadioButton
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents CheckBox4 As CheckBox
+    Friend WithEvents CheckBox3 As CheckBox
+    Friend WithEvents CheckBox2 As CheckBox
+    Friend WithEvents CheckBox1 As CheckBox
 End Class

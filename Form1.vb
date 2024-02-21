@@ -4,7 +4,7 @@
     End Sub
 
     Private Sub MenuToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MenuToolStripMenuItem.Click
-        Dim rrm As New research_repo_manager
+        Dim rrm As New ResearchRepoManager
         rrm.Show()
 
     End Sub
