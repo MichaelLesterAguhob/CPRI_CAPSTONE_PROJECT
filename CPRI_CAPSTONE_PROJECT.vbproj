@@ -71,6 +71,18 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddWorks.Designer.vb">
+      <DependentUpon>AddWorks.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AddWorks.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BorrowingAndReturningSystem.Designer.vb">
+      <DependentUpon>BorrowingAndReturningSystem.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BorrowingAndReturningSystem.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +114,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AddWorks.resx">
+      <DependentUpon>AddWorks.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BorrowingAndReturningSystem.resx">
+      <DependentUpon>BorrowingAndReturningSystem.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>
@@ -149,6 +167,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-delete-211.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-filter-21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-filter-14.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-filter-211.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-filtered-file-14.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-reset-14.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-add-14.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-add-141.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-upload-24.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
