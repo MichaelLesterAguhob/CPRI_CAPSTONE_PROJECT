@@ -97,16 +97,20 @@ Public Class AddWorks
 
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    'ADDING AND SUBTRACTING TO FIELDS COUNT
+    Private Sub BtnAddToFieldsCnt_Click(sender As Object, e As EventArgs) Handles BtnAddToFieldsCnt.Click
         Dim taax As Integer = TxtAddAuthX.Text
         TxtAddAuthX.Text = taax + 1
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+    Private Sub BtnMinusToFieldsCnt_Click(sender As Object, e As EventArgs) Handles BtnMinusToFieldsCnt.Click
         Dim taax As Integer = TxtAddAuthX.Text
         TxtAddAuthX.Text = taax - 1
     End Sub
+    '=======================================
 
+    'RESTRICTING TEXTBOX FOR TOTAL COUNT FOR NEW CO-AUTHOR FIELDS
+    'FIELDS IS NOT ALLOWED TO BE BLANK, 0, GREATER THAN 50,
     Private Sub TxtAddAuthX_TextChanged(sender As Object, e As EventArgs) Handles TxtAddAuthX.TextChanged
         Dim field_count As String = TxtAddAuthX.Text
         If field_count = "" Then
@@ -118,6 +122,7 @@ Public Class AddWorks
         End If
     End Sub
 
+    'ONGOING OR COMPLETED EVENT HANDLES. SHOW OR HIDE 4 CHECKBOXES PANEL
     Private Sub RdStatCmpltd_MouseClick(sender As Object, e As MouseEventArgs) Handles RdStatCmpltd.MouseClick
         If RdStatCmpltd.Checked = True Then
             PnlStatCmpltd.Visible = True
@@ -126,8 +131,14 @@ Public Class AddWorks
 
     Private Sub RdStatOngng_MouseClick(sender As Object, e As MouseEventArgs) Handles RdStatOngng.MouseClick
         PnlStatCmpltd.Visible = False
+        CbxSftCpySbmttd.Checked = False
+        CbxHrdCpySbmttd.Checked = False
+        CbxDgiSbmttd.Checked = False
+        CbxRgaEfSbmttd.Checked = False
     End Sub
+    '===================================================================
 
+    'SHOWING AND HIDING THEIR DATE PICKER ONCE CHECKED OR UNCHECKED
     Private Sub CbxSftCpySbmttd_CheckedChanged(sender As Object, e As EventArgs) Handles CbxSftCpySbmttd.CheckedChanged
         If CbxSftCpySbmttd.Checked = True Then
             DtSftCpySbmttdDate.Visible = True
@@ -163,7 +174,9 @@ Public Class AddWorks
         End If
         PrintThesisClearance()
     End Sub
+    '============================================================
 
+    'SHOW THESIS CLEARANCE BUTTON WHEN 4 OF CHECKBOX CONDITION IS CHECKED
     Public Sub PrintThesisClearance()
         If CbxSftCpySbmttd.Checked = True And CbxHrdCpySbmttd.Checked = True And CbxDgiSbmttd.Checked = True And CbxRgaEfSbmttd.Checked = True Then
             BtnThssClrnc.Enabled = True
@@ -174,9 +187,13 @@ Public Class AddWorks
         End If
     End Sub
 
+    'FUNCTIONS WHEN ADDWORKS FORM IS LOAD
     Private Sub AddWorks_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'generate 6 fields for new co-author
         TxtAddAuthX.Text = "6"
         BtnAddNewCoAuthor.PerformClick()
 
     End Sub
+
+
 End Class
