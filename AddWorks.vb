@@ -195,5 +195,27 @@ Public Class AddWorks
 
     End Sub
 
+    Private Sub RdBtnPub_MouseClick(sender As Object, e As MouseEventArgs) Handles RdBtnPub.MouseClick
+        If RdBtnPub.Checked = True Then
+            PnlPresented.Enabled = False
+            PnlPresented.Height = 0
+            PnlPublished.Enabled = True
+            PnlPublished.Height = 261
+        Else
+            PnlPublished.Enabled = False
+            PnlPublished.Height = 0
+        End If
+    End Sub
 
+    Private Sub RdBtnPresented_MouseClick(sender As Object, e As MouseEventArgs) Handles RdBtnPresented.MouseClick
+        If RdBtnPresented.Checked = True Then
+            PnlPublished.Enabled = False
+            PnlPublished.Height = 0
+            PnlPresented.Enabled = True
+            PnlPresented.Height = 261
+        Else
+            PnlPresented.Enabled = False
+            PnlPresented.Height = 0
+        End If
+    End Sub
 End Class

@@ -56,42 +56,63 @@ Partial Class AddWorks
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
+        Me.RdBtnPresented = New System.Windows.Forms.RadioButton()
+        Me.RdBtnPub = New System.Windows.Forms.RadioButton()
         Me.Label11 = New System.Windows.Forms.Label()
-        Me.PnlPubPre = New System.Windows.Forms.Panel()
-        Me.Label15 = New System.Windows.Forms.Label()
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.Label13 = New System.Windows.Forms.Label()
-        Me.Label14 = New System.Windows.Forms.Label()
-        Me.Label17 = New System.Windows.Forms.Label()
-        Me.Label16 = New System.Windows.Forms.Label()
-        Me.Label18 = New System.Windows.Forms.Label()
-        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.PnlPublished = New System.Windows.Forms.Panel()
+        Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.TextBox8 = New System.Windows.Forms.TextBox()
+        Me.TextBox11 = New System.Windows.Forms.TextBox()
+        Me.TextBox6 = New System.Windows.Forms.TextBox()
+        Me.TextBox10 = New System.Windows.Forms.TextBox()
+        Me.TextBox7 = New System.Windows.Forms.TextBox()
+        Me.TextBox9 = New System.Windows.Forms.TextBox()
         Me.Panel4 = New System.Windows.Forms.Panel()
-        Me.RadioButton3 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton4 = New System.Windows.Forms.RadioButton()
         Me.RadioButton5 = New System.Windows.Forms.RadioButton()
         Me.RadioButton6 = New System.Windows.Forms.RadioButton()
-        Me.TextBox6 = New System.Windows.Forms.TextBox()
-        Me.TextBox7 = New System.Windows.Forms.TextBox()
-        Me.TextBox8 = New System.Windows.Forms.TextBox()
-        Me.TextBox9 = New System.Windows.Forms.TextBox()
-        Me.TextBox10 = New System.Windows.Forms.TextBox()
-        Me.TextBox11 = New System.Windows.Forms.TextBox()
-        Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.RadioButton3 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton4 = New System.Windows.Forms.RadioButton()
+        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Label18 = New System.Windows.Forms.Label()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.Label15 = New System.Windows.Forms.Label()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.BtnMinusToFieldsCnt = New System.Windows.Forms.Button()
         Me.BtnAddToFieldsCnt = New System.Windows.Forms.Button()
         Me.BtnAddNewCoAuthor = New System.Windows.Forms.Button()
+        Me.PnlPresented = New System.Windows.Forms.Panel()
+        Me.Panel7 = New System.Windows.Forms.Panel()
+        Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
+        Me.TextBox13 = New System.Windows.Forms.TextBox()
+        Me.TextBox16 = New System.Windows.Forms.TextBox()
+        Me.Panel8 = New System.Windows.Forms.Panel()
+        Me.RadioButton7 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton8 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton9 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton10 = New System.Windows.Forms.RadioButton()
+        Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Label22 = New System.Windows.Forms.Label()
+        Me.Label23 = New System.Windows.Forms.Label()
+        Me.Label24 = New System.Windows.Forms.Label()
+        Me.Label25 = New System.Windows.Forms.Label()
+        Me.Label19 = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.PnlTxtCont.SuspendLayout()
         Me.PnlStatCmpltd.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
-        Me.PnlPubPre.SuspendLayout()
-        Me.TableLayoutPanel1.SuspendLayout()
-        Me.Panel4.SuspendLayout()
+        Me.PnlPublished.SuspendLayout()
         Me.Panel5.SuspendLayout()
+        Me.Panel4.SuspendLayout()
+        Me.TableLayoutPanel1.SuspendLayout()
+        Me.PnlPresented.SuspendLayout()
+        Me.Panel7.SuspendLayout()
+        Me.Panel8.SuspendLayout()
+        Me.TableLayoutPanel2.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label2
@@ -264,7 +285,7 @@ Partial Class AddWorks
         Me.PnlTxtCont.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.PnlTxtCont.Location = New System.Drawing.Point(15, 197)
         Me.PnlTxtCont.Name = "PnlTxtCont"
-        Me.PnlTxtCont.Size = New System.Drawing.Size(1335, 202)
+        Me.PnlTxtCont.Size = New System.Drawing.Size(1335, 178)
         Me.PnlTxtCont.TabIndex = 30
         '
         'PnlStatCmpltd
@@ -280,9 +301,9 @@ Partial Class AddWorks
         Me.PnlStatCmpltd.Controls.Add(Me.DtHrdCpySbmttdDate)
         Me.PnlStatCmpltd.Controls.Add(Me.DtSftCpySbmttdDate)
         Me.PnlStatCmpltd.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.PnlStatCmpltd.Location = New System.Drawing.Point(30, 530)
+        Me.PnlStatCmpltd.Location = New System.Drawing.Point(30, 549)
         Me.PnlStatCmpltd.Name = "PnlStatCmpltd"
-        Me.PnlStatCmpltd.Size = New System.Drawing.Size(332, 174)
+        Me.PnlStatCmpltd.Size = New System.Drawing.Size(332, 152)
         Me.PnlStatCmpltd.TabIndex = 47
         Me.PnlStatCmpltd.Visible = False
         '
@@ -294,7 +315,7 @@ Partial Class AddWorks
         Me.BtnThssClrnc.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnThssClrnc.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.BtnThssClrnc.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnThssClrnc.Location = New System.Drawing.Point(110, 143)
+        Me.BtnThssClrnc.Location = New System.Drawing.Point(111, 119)
         Me.BtnThssClrnc.Name = "BtnThssClrnc"
         Me.BtnThssClrnc.Size = New System.Drawing.Size(99, 22)
         Me.BtnThssClrnc.TabIndex = 48
@@ -307,7 +328,7 @@ Partial Class AddWorks
         Me.DtRgaSbmttdDate.Cursor = System.Windows.Forms.Cursors.Hand
         Me.DtRgaSbmttdDate.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DtRgaSbmttdDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DtRgaSbmttdDate.Location = New System.Drawing.Point(228, 108)
+        Me.DtRgaSbmttdDate.Location = New System.Drawing.Point(228, 83)
         Me.DtRgaSbmttdDate.Name = "DtRgaSbmttdDate"
         Me.DtRgaSbmttdDate.Size = New System.Drawing.Size(93, 18)
         Me.DtRgaSbmttdDate.TabIndex = 55
@@ -318,7 +339,7 @@ Partial Class AddWorks
         Me.DtDgiSbmttdDate.Cursor = System.Windows.Forms.Cursors.Hand
         Me.DtDgiSbmttdDate.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DtDgiSbmttdDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DtDgiSbmttdDate.Location = New System.Drawing.Point(228, 76)
+        Me.DtDgiSbmttdDate.Location = New System.Drawing.Point(228, 60)
         Me.DtDgiSbmttdDate.Name = "DtDgiSbmttdDate"
         Me.DtDgiSbmttdDate.Size = New System.Drawing.Size(93, 18)
         Me.DtDgiSbmttdDate.TabIndex = 54
@@ -327,7 +348,7 @@ Partial Class AddWorks
         'CbxRgaEfSbmttd
         '
         Me.CbxRgaEfSbmttd.AutoSize = True
-        Me.CbxRgaEfSbmttd.Location = New System.Drawing.Point(7, 109)
+        Me.CbxRgaEfSbmttd.Location = New System.Drawing.Point(7, 84)
         Me.CbxRgaEfSbmttd.Name = "CbxRgaEfSbmttd"
         Me.CbxRgaEfSbmttd.Size = New System.Drawing.Size(201, 17)
         Me.CbxRgaEfSbmttd.TabIndex = 53
@@ -337,7 +358,7 @@ Partial Class AddWorks
         'CbxDgiSbmttd
         '
         Me.CbxDgiSbmttd.AutoSize = True
-        Me.CbxDgiSbmttd.Location = New System.Drawing.Point(7, 77)
+        Me.CbxDgiSbmttd.Location = New System.Drawing.Point(7, 61)
         Me.CbxDgiSbmttd.Name = "CbxDgiSbmttd"
         Me.CbxDgiSbmttd.Size = New System.Drawing.Size(220, 17)
         Me.CbxDgiSbmttd.TabIndex = 52
@@ -347,7 +368,7 @@ Partial Class AddWorks
         'CbxHrdCpySbmttd
         '
         Me.CbxHrdCpySbmttd.AutoSize = True
-        Me.CbxHrdCpySbmttd.Location = New System.Drawing.Point(7, 44)
+        Me.CbxHrdCpySbmttd.Location = New System.Drawing.Point(7, 36)
         Me.CbxHrdCpySbmttd.Name = "CbxHrdCpySbmttd"
         Me.CbxHrdCpySbmttd.Size = New System.Drawing.Size(141, 17)
         Me.CbxHrdCpySbmttd.TabIndex = 51
@@ -369,7 +390,7 @@ Partial Class AddWorks
         Me.DtHrdCpySbmttdDate.Cursor = System.Windows.Forms.Cursors.Hand
         Me.DtHrdCpySbmttdDate.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DtHrdCpySbmttdDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DtHrdCpySbmttdDate.Location = New System.Drawing.Point(228, 44)
+        Me.DtHrdCpySbmttdDate.Location = New System.Drawing.Point(228, 36)
         Me.DtHrdCpySbmttdDate.Name = "DtHrdCpySbmttdDate"
         Me.DtHrdCpySbmttdDate.Size = New System.Drawing.Size(93, 18)
         Me.DtHrdCpySbmttdDate.TabIndex = 49
@@ -391,7 +412,7 @@ Partial Class AddWorks
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label8.Location = New System.Drawing.Point(26, 448)
+        Me.Label8.Location = New System.Drawing.Point(26, 467)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(112, 16)
         Me.Label8.TabIndex = 44
@@ -402,7 +423,7 @@ Partial Class AddWorks
         Me.DateTimePicker1.Cursor = System.Windows.Forms.Cursors.Hand
         Me.DateTimePicker1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateTimePicker1.Location = New System.Drawing.Point(142, 446)
+        Me.DateTimePicker1.Location = New System.Drawing.Point(142, 465)
         Me.DateTimePicker1.Name = "DateTimePicker1"
         Me.DateTimePicker1.Size = New System.Drawing.Size(101, 20)
         Me.DateTimePicker1.TabIndex = 43
@@ -434,7 +455,7 @@ Partial Class AddWorks
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label9.Location = New System.Drawing.Point(86, 475)
+        Me.Label9.Location = New System.Drawing.Point(86, 494)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(51, 16)
         Me.Label9.TabIndex = 46
@@ -445,7 +466,7 @@ Partial Class AddWorks
         Me.Panel2.Controls.Add(Me.RdStatCmpltd)
         Me.Panel2.Controls.Add(Me.RdStatOngng)
         Me.Panel2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Panel2.Location = New System.Drawing.Point(143, 472)
+        Me.Panel2.Location = New System.Drawing.Point(143, 491)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(104, 52)
         Me.Panel2.TabIndex = 45
@@ -455,7 +476,7 @@ Partial Class AddWorks
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label10.Location = New System.Drawing.Point(369, 415)
+        Me.Label10.Location = New System.Drawing.Point(369, 403)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(142, 16)
         Me.Label10.TabIndex = 48
@@ -463,135 +484,172 @@ Partial Class AddWorks
         '
         'Panel3
         '
-        Me.Panel3.Controls.Add(Me.RadioButton1)
-        Me.Panel3.Controls.Add(Me.RadioButton2)
+        Me.Panel3.Controls.Add(Me.RdBtnPresented)
+        Me.Panel3.Controls.Add(Me.RdBtnPub)
         Me.Panel3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Panel3.Location = New System.Drawing.Point(517, 413)
+        Me.Panel3.Location = New System.Drawing.Point(517, 401)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(205, 21)
         Me.Panel3.TabIndex = 46
         '
-        'RadioButton1
+        'RdBtnPresented
         '
-        Me.RadioButton1.AutoSize = True
-        Me.RadioButton1.Location = New System.Drawing.Point(109, 3)
-        Me.RadioButton1.Name = "RadioButton1"
-        Me.RadioButton1.Size = New System.Drawing.Size(90, 17)
-        Me.RadioButton1.TabIndex = 1
-        Me.RadioButton1.TabStop = True
-        Me.RadioButton1.Text = "Is Presented?"
-        Me.RadioButton1.UseVisualStyleBackColor = True
+        Me.RdBtnPresented.AutoSize = True
+        Me.RdBtnPresented.Location = New System.Drawing.Point(109, 3)
+        Me.RdBtnPresented.Name = "RdBtnPresented"
+        Me.RdBtnPresented.Size = New System.Drawing.Size(90, 17)
+        Me.RdBtnPresented.TabIndex = 1
+        Me.RdBtnPresented.TabStop = True
+        Me.RdBtnPresented.Text = "Is Presented?"
+        Me.RdBtnPresented.UseVisualStyleBackColor = True
         '
-        'RadioButton2
+        'RdBtnPub
         '
-        Me.RadioButton2.AutoSize = True
-        Me.RadioButton2.Location = New System.Drawing.Point(3, 3)
-        Me.RadioButton2.Name = "RadioButton2"
-        Me.RadioButton2.Size = New System.Drawing.Size(82, 17)
-        Me.RadioButton2.TabIndex = 0
-        Me.RadioButton2.TabStop = True
-        Me.RadioButton2.Text = "Is Publised?"
-        Me.RadioButton2.UseVisualStyleBackColor = True
+        Me.RdBtnPub.AutoSize = True
+        Me.RdBtnPub.Location = New System.Drawing.Point(3, 3)
+        Me.RdBtnPub.Name = "RdBtnPub"
+        Me.RdBtnPub.Size = New System.Drawing.Size(82, 17)
+        Me.RdBtnPub.TabIndex = 0
+        Me.RdBtnPub.TabStop = True
+        Me.RdBtnPub.Text = "Is Publised?"
+        Me.RdBtnPub.UseVisualStyleBackColor = True
         '
         'Label11
         '
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label11.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label11.Location = New System.Drawing.Point(27, 419)
+        Me.Label11.Location = New System.Drawing.Point(27, 438)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(111, 16)
         Me.Label11.TabIndex = 49
         Me.Label11.Text = "Upload Abstract :"
         '
-        'PnlPubPre
+        'PnlPublished
         '
-        Me.PnlPubPre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.PnlPubPre.Controls.Add(Me.Panel5)
-        Me.PnlPubPre.Controls.Add(Me.Panel4)
-        Me.PnlPubPre.Controls.Add(Me.TableLayoutPanel1)
-        Me.PnlPubPre.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.PnlPubPre.Location = New System.Drawing.Point(368, 440)
-        Me.PnlPubPre.Name = "PnlPubPre"
-        Me.PnlPubPre.Size = New System.Drawing.Size(979, 264)
-        Me.PnlPubPre.TabIndex = 56
+        Me.PnlPublished.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.PnlPublished.Controls.Add(Me.Panel5)
+        Me.PnlPublished.Controls.Add(Me.Panel4)
+        Me.PnlPublished.Controls.Add(Me.TableLayoutPanel1)
+        Me.PnlPublished.Enabled = False
+        Me.PnlPublished.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.PnlPublished.Location = New System.Drawing.Point(368, 440)
+        Me.PnlPublished.Name = "PnlPublished"
+        Me.PnlPublished.Size = New System.Drawing.Size(979, 261)
+        Me.PnlPublished.TabIndex = 56
         '
-        'Label15
+        'Panel5
         '
-        Me.Label15.AutoSize = True
-        Me.Label15.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label15.Location = New System.Drawing.Point(422, 2)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(131, 79)
-        Me.Label15.TabIndex = 2
-        Me.Label15.Text = "Issue No."
-        Me.Label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.Panel5.BackColor = System.Drawing.Color.Transparent
+        Me.Panel5.Controls.Add(Me.TextBox8)
+        Me.Panel5.Controls.Add(Me.TextBox11)
+        Me.Panel5.Controls.Add(Me.TextBox6)
+        Me.Panel5.Controls.Add(Me.TextBox10)
+        Me.Panel5.Controls.Add(Me.TextBox7)
+        Me.Panel5.Controls.Add(Me.TextBox9)
+        Me.Panel5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Panel5.Location = New System.Drawing.Point(142, 92)
+        Me.Panel5.Name = "Panel5"
+        Me.Panel5.Size = New System.Drawing.Size(833, 49)
+        Me.Panel5.TabIndex = 47
         '
-        'Label12
+        'TextBox8
         '
-        Me.Label12.AutoSize = True
-        Me.Label12.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label12.Location = New System.Drawing.Point(5, 2)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(131, 79)
-        Me.Label12.TabIndex = 0
-        Me.Label12.Text = "Level"
-        Me.Label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.TextBox8.Location = New System.Drawing.Point(281, 13)
+        Me.TextBox8.Name = "TextBox8"
+        Me.TextBox8.Size = New System.Drawing.Size(133, 20)
+        Me.TextBox8.TabIndex = 49
         '
-        'Label13
+        'TextBox11
         '
-        Me.Label13.AutoSize = True
-        Me.Label13.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label13.Location = New System.Drawing.Point(144, 2)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(131, 79)
-        Me.Label13.TabIndex = 1
-        Me.Label13.Text = "Academic Journal"
-        Me.Label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.TextBox11.Location = New System.Drawing.Point(694, 13)
+        Me.TextBox11.Name = "TextBox11"
+        Me.TextBox11.Size = New System.Drawing.Size(137, 20)
+        Me.TextBox11.TabIndex = 52
         '
-        'Label14
+        'TextBox6
         '
-        Me.Label14.AutoSize = True
-        Me.Label14.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label14.Location = New System.Drawing.Point(283, 2)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(131, 79)
-        Me.Label14.TabIndex = 3
-        Me.Label14.Text = "Volume No."
-        Me.Label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.TextBox6.Location = New System.Drawing.Point(3, 13)
+        Me.TextBox6.Name = "TextBox6"
+        Me.TextBox6.Size = New System.Drawing.Size(133, 20)
+        Me.TextBox6.TabIndex = 47
         '
-        'Label17
+        'TextBox10
         '
-        Me.Label17.AutoSize = True
-        Me.Label17.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label17.Location = New System.Drawing.Point(708, 2)
-        Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(121, 79)
-        Me.Label17.TabIndex = 4
-        Me.Label17.Text = "Date Published"
-        Me.Label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.TextBox10.Location = New System.Drawing.Point(565, 13)
+        Me.TextBox10.Name = "TextBox10"
+        Me.TextBox10.Size = New System.Drawing.Size(123, 20)
+        Me.TextBox10.TabIndex = 51
         '
-        'Label16
+        'TextBox7
         '
-        Me.Label16.AutoSize = True
-        Me.Label16.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label16.Location = New System.Drawing.Point(561, 2)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(139, 79)
-        Me.Label16.TabIndex = 5
-        Me.Label16.Text = "Page Range"
-        Me.Label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.TextBox7.Location = New System.Drawing.Point(142, 13)
+        Me.TextBox7.Name = "TextBox7"
+        Me.TextBox7.Size = New System.Drawing.Size(133, 20)
+        Me.TextBox7.TabIndex = 48
         '
-        'Label18
+        'TextBox9
         '
-        Me.Label18.AutoSize = True
-        Me.Label18.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label18.Location = New System.Drawing.Point(837, 2)
-        Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(135, 79)
-        Me.Label18.TabIndex = 6
-        Me.Label18.Text = "Digital Object Identifier (DOI) or URL"
-        Me.Label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.TextBox9.Location = New System.Drawing.Point(420, 13)
+        Me.TextBox9.Name = "TextBox9"
+        Me.TextBox9.Size = New System.Drawing.Size(139, 20)
+        Me.TextBox9.TabIndex = 50
+        '
+        'Panel4
+        '
+        Me.Panel4.Controls.Add(Me.RadioButton5)
+        Me.Panel4.Controls.Add(Me.RadioButton6)
+        Me.Panel4.Controls.Add(Me.RadioButton3)
+        Me.Panel4.Controls.Add(Me.RadioButton4)
+        Me.Panel4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Panel4.Location = New System.Drawing.Point(3, 89)
+        Me.Panel4.Name = "Panel4"
+        Me.Panel4.Size = New System.Drawing.Size(133, 166)
+        Me.Panel4.TabIndex = 46
+        '
+        'RadioButton5
+        '
+        Me.RadioButton5.AutoSize = True
+        Me.RadioButton5.Location = New System.Drawing.Point(5, 51)
+        Me.RadioButton5.Name = "RadioButton5"
+        Me.RadioButton5.Size = New System.Drawing.Size(64, 17)
+        Me.RadioButton5.TabIndex = 3
+        Me.RadioButton5.TabStop = True
+        Me.RadioButton5.Text = "National"
+        Me.RadioButton5.UseVisualStyleBackColor = True
+        '
+        'RadioButton6
+        '
+        Me.RadioButton6.AutoSize = True
+        Me.RadioButton6.Location = New System.Drawing.Point(6, 74)
+        Me.RadioButton6.Name = "RadioButton6"
+        Me.RadioButton6.Size = New System.Drawing.Size(83, 17)
+        Me.RadioButton6.TabIndex = 2
+        Me.RadioButton6.TabStop = True
+        Me.RadioButton6.Text = "International"
+        Me.RadioButton6.UseVisualStyleBackColor = True
+        '
+        'RadioButton3
+        '
+        Me.RadioButton3.AutoSize = True
+        Me.RadioButton3.Location = New System.Drawing.Point(5, 28)
+        Me.RadioButton3.Name = "RadioButton3"
+        Me.RadioButton3.Size = New System.Drawing.Size(51, 17)
+        Me.RadioButton3.TabIndex = 1
+        Me.RadioButton3.TabStop = True
+        Me.RadioButton3.Text = "Local"
+        Me.RadioButton3.UseVisualStyleBackColor = True
+        '
+        'RadioButton4
+        '
+        Me.RadioButton4.AutoSize = True
+        Me.RadioButton4.Location = New System.Drawing.Point(5, 4)
+        Me.RadioButton4.Name = "RadioButton4"
+        Me.RadioButton4.Size = New System.Drawing.Size(78, 17)
+        Me.RadioButton4.TabIndex = 0
+        Me.RadioButton4.TabStop = True
+        Me.RadioButton4.Text = "Institutional"
+        Me.RadioButton4.UseVisualStyleBackColor = True
         '
         'TableLayoutPanel1
         '
@@ -620,128 +678,92 @@ Partial Class AddWorks
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(977, 83)
         Me.TableLayoutPanel1.TabIndex = 0
         '
-        'Panel4
+        'Label18
         '
-        Me.Panel4.Controls.Add(Me.RadioButton5)
-        Me.Panel4.Controls.Add(Me.RadioButton6)
-        Me.Panel4.Controls.Add(Me.RadioButton3)
-        Me.Panel4.Controls.Add(Me.RadioButton4)
-        Me.Panel4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Panel4.Location = New System.Drawing.Point(3, 89)
-        Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(133, 166)
-        Me.Panel4.TabIndex = 46
+        Me.Label18.AutoSize = True
+        Me.Label18.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label18.Location = New System.Drawing.Point(837, 2)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(135, 79)
+        Me.Label18.TabIndex = 6
+        Me.Label18.Text = "Digital Object Identifier (DOI) or URL"
+        Me.Label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'RadioButton3
+        'Label16
         '
-        Me.RadioButton3.AutoSize = True
-        Me.RadioButton3.Location = New System.Drawing.Point(5, 28)
-        Me.RadioButton3.Name = "RadioButton3"
-        Me.RadioButton3.Size = New System.Drawing.Size(51, 17)
-        Me.RadioButton3.TabIndex = 1
-        Me.RadioButton3.TabStop = True
-        Me.RadioButton3.Text = "Local"
-        Me.RadioButton3.UseVisualStyleBackColor = True
+        Me.Label16.AutoSize = True
+        Me.Label16.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label16.Location = New System.Drawing.Point(561, 2)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(139, 79)
+        Me.Label16.TabIndex = 5
+        Me.Label16.Text = "Page Range"
+        Me.Label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'RadioButton4
+        'Label17
         '
-        Me.RadioButton4.AutoSize = True
-        Me.RadioButton4.Location = New System.Drawing.Point(5, 4)
-        Me.RadioButton4.Name = "RadioButton4"
-        Me.RadioButton4.Size = New System.Drawing.Size(78, 17)
-        Me.RadioButton4.TabIndex = 0
-        Me.RadioButton4.TabStop = True
-        Me.RadioButton4.Text = "Institutional"
-        Me.RadioButton4.UseVisualStyleBackColor = True
+        Me.Label17.AutoSize = True
+        Me.Label17.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label17.Location = New System.Drawing.Point(708, 2)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(121, 79)
+        Me.Label17.TabIndex = 4
+        Me.Label17.Text = "Date Published"
+        Me.Label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'RadioButton5
+        'Label14
         '
-        Me.RadioButton5.AutoSize = True
-        Me.RadioButton5.Location = New System.Drawing.Point(5, 51)
-        Me.RadioButton5.Name = "RadioButton5"
-        Me.RadioButton5.Size = New System.Drawing.Size(64, 17)
-        Me.RadioButton5.TabIndex = 3
-        Me.RadioButton5.TabStop = True
-        Me.RadioButton5.Text = "National"
-        Me.RadioButton5.UseVisualStyleBackColor = True
+        Me.Label14.AutoSize = True
+        Me.Label14.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label14.Location = New System.Drawing.Point(283, 2)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(131, 79)
+        Me.Label14.TabIndex = 3
+        Me.Label14.Text = "Volume No."
+        Me.Label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'RadioButton6
+        'Label13
         '
-        Me.RadioButton6.AutoSize = True
-        Me.RadioButton6.Location = New System.Drawing.Point(6, 74)
-        Me.RadioButton6.Name = "RadioButton6"
-        Me.RadioButton6.Size = New System.Drawing.Size(83, 17)
-        Me.RadioButton6.TabIndex = 2
-        Me.RadioButton6.TabStop = True
-        Me.RadioButton6.Text = "International"
-        Me.RadioButton6.UseVisualStyleBackColor = True
+        Me.Label13.AutoSize = True
+        Me.Label13.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label13.Location = New System.Drawing.Point(144, 2)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(131, 79)
+        Me.Label13.TabIndex = 1
+        Me.Label13.Text = "Academic Journal"
+        Me.Label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'TextBox6
+        'Label12
         '
-        Me.TextBox6.Location = New System.Drawing.Point(3, 13)
-        Me.TextBox6.Name = "TextBox6"
-        Me.TextBox6.Size = New System.Drawing.Size(133, 20)
-        Me.TextBox6.TabIndex = 47
+        Me.Label12.AutoSize = True
+        Me.Label12.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label12.Location = New System.Drawing.Point(5, 2)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(131, 79)
+        Me.Label12.TabIndex = 0
+        Me.Label12.Text = "Level"
+        Me.Label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'TextBox7
+        'Label15
         '
-        Me.TextBox7.Location = New System.Drawing.Point(142, 13)
-        Me.TextBox7.Name = "TextBox7"
-        Me.TextBox7.Size = New System.Drawing.Size(133, 20)
-        Me.TextBox7.TabIndex = 48
-        '
-        'TextBox8
-        '
-        Me.TextBox8.Location = New System.Drawing.Point(281, 13)
-        Me.TextBox8.Name = "TextBox8"
-        Me.TextBox8.Size = New System.Drawing.Size(133, 20)
-        Me.TextBox8.TabIndex = 49
-        '
-        'TextBox9
-        '
-        Me.TextBox9.Location = New System.Drawing.Point(420, 13)
-        Me.TextBox9.Name = "TextBox9"
-        Me.TextBox9.Size = New System.Drawing.Size(139, 20)
-        Me.TextBox9.TabIndex = 50
-        '
-        'TextBox10
-        '
-        Me.TextBox10.Location = New System.Drawing.Point(565, 13)
-        Me.TextBox10.Name = "TextBox10"
-        Me.TextBox10.Size = New System.Drawing.Size(123, 20)
-        Me.TextBox10.TabIndex = 51
-        '
-        'TextBox11
-        '
-        Me.TextBox11.Location = New System.Drawing.Point(694, 13)
-        Me.TextBox11.Name = "TextBox11"
-        Me.TextBox11.Size = New System.Drawing.Size(137, 20)
-        Me.TextBox11.TabIndex = 52
-        '
-        'Panel5
-        '
-        Me.Panel5.BackColor = System.Drawing.Color.Transparent
-        Me.Panel5.Controls.Add(Me.TextBox8)
-        Me.Panel5.Controls.Add(Me.TextBox11)
-        Me.Panel5.Controls.Add(Me.TextBox6)
-        Me.Panel5.Controls.Add(Me.TextBox10)
-        Me.Panel5.Controls.Add(Me.TextBox7)
-        Me.Panel5.Controls.Add(Me.TextBox9)
-        Me.Panel5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Panel5.Location = New System.Drawing.Point(142, 92)
-        Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(833, 49)
-        Me.Panel5.TabIndex = 47
+        Me.Label15.AutoSize = True
+        Me.Label15.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label15.Location = New System.Drawing.Point(422, 2)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(131, 79)
+        Me.Label15.TabIndex = 2
+        Me.Label15.Text = "Issue No."
+        Me.Label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Button3
         '
         Me.Button3.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.Button3.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_browse_20
         Me.Button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button3.Location = New System.Drawing.Point(142, 415)
+        Me.Button3.Location = New System.Drawing.Point(142, 434)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(79, 25)
         Me.Button3.TabIndex = 42
@@ -789,13 +811,211 @@ Partial Class AddWorks
         Me.BtnAddNewCoAuthor.TextAlign = System.Drawing.ContentAlignment.TopRight
         Me.BtnAddNewCoAuthor.UseVisualStyleBackColor = False
         '
+        'PnlPresented
+        '
+        Me.PnlPresented.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.PnlPresented.Controls.Add(Me.Panel7)
+        Me.PnlPresented.Controls.Add(Me.Panel8)
+        Me.PnlPresented.Controls.Add(Me.TableLayoutPanel2)
+        Me.PnlPresented.Enabled = False
+        Me.PnlPresented.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.PnlPresented.Location = New System.Drawing.Point(369, 440)
+        Me.PnlPresented.Name = "PnlPresented"
+        Me.PnlPresented.Size = New System.Drawing.Size(979, 0)
+        Me.PnlPresented.TabIndex = 57
+        '
+        'Panel7
+        '
+        Me.Panel7.BackColor = System.Drawing.Color.Transparent
+        Me.Panel7.Controls.Add(Me.DateTimePicker2)
+        Me.Panel7.Controls.Add(Me.TextBox13)
+        Me.Panel7.Controls.Add(Me.TextBox16)
+        Me.Panel7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Panel7.Location = New System.Drawing.Point(142, 65)
+        Me.Panel7.Name = "Panel7"
+        Me.Panel7.Size = New System.Drawing.Size(834, 49)
+        Me.Panel7.TabIndex = 47
+        '
+        'DateTimePicker2
+        '
+        Me.DateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.DateTimePicker2.Location = New System.Drawing.Point(331, 13)
+        Me.DateTimePicker2.Name = "DateTimePicker2"
+        Me.DateTimePicker2.Size = New System.Drawing.Size(171, 20)
+        Me.DateTimePicker2.TabIndex = 48
+        '
+        'TextBox13
+        '
+        Me.TextBox13.Location = New System.Drawing.Point(508, 13)
+        Me.TextBox13.Name = "TextBox13"
+        Me.TextBox13.Size = New System.Drawing.Size(323, 20)
+        Me.TextBox13.TabIndex = 52
+        '
+        'TextBox16
+        '
+        Me.TextBox16.Location = New System.Drawing.Point(8, 13)
+        Me.TextBox16.Name = "TextBox16"
+        Me.TextBox16.Size = New System.Drawing.Size(317, 20)
+        Me.TextBox16.TabIndex = 48
+        '
+        'Panel8
+        '
+        Me.Panel8.Controls.Add(Me.RadioButton7)
+        Me.Panel8.Controls.Add(Me.RadioButton8)
+        Me.Panel8.Controls.Add(Me.RadioButton9)
+        Me.Panel8.Controls.Add(Me.RadioButton10)
+        Me.Panel8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Panel8.Location = New System.Drawing.Point(2, 65)
+        Me.Panel8.Name = "Panel8"
+        Me.Panel8.Size = New System.Drawing.Size(138, 166)
+        Me.Panel8.TabIndex = 46
+        '
+        'RadioButton7
+        '
+        Me.RadioButton7.AutoSize = True
+        Me.RadioButton7.Location = New System.Drawing.Point(5, 51)
+        Me.RadioButton7.Name = "RadioButton7"
+        Me.RadioButton7.Size = New System.Drawing.Size(64, 17)
+        Me.RadioButton7.TabIndex = 3
+        Me.RadioButton7.TabStop = True
+        Me.RadioButton7.Text = "National"
+        Me.RadioButton7.UseVisualStyleBackColor = True
+        '
+        'RadioButton8
+        '
+        Me.RadioButton8.AutoSize = True
+        Me.RadioButton8.Location = New System.Drawing.Point(6, 74)
+        Me.RadioButton8.Name = "RadioButton8"
+        Me.RadioButton8.Size = New System.Drawing.Size(83, 17)
+        Me.RadioButton8.TabIndex = 2
+        Me.RadioButton8.TabStop = True
+        Me.RadioButton8.Text = "International"
+        Me.RadioButton8.UseVisualStyleBackColor = True
+        '
+        'RadioButton9
+        '
+        Me.RadioButton9.AutoSize = True
+        Me.RadioButton9.Location = New System.Drawing.Point(5, 28)
+        Me.RadioButton9.Name = "RadioButton9"
+        Me.RadioButton9.Size = New System.Drawing.Size(51, 17)
+        Me.RadioButton9.TabIndex = 1
+        Me.RadioButton9.TabStop = True
+        Me.RadioButton9.Text = "Local"
+        Me.RadioButton9.UseVisualStyleBackColor = True
+        '
+        'RadioButton10
+        '
+        Me.RadioButton10.AutoSize = True
+        Me.RadioButton10.Location = New System.Drawing.Point(5, 4)
+        Me.RadioButton10.Name = "RadioButton10"
+        Me.RadioButton10.Size = New System.Drawing.Size(78, 17)
+        Me.RadioButton10.TabIndex = 0
+        Me.RadioButton10.TabStop = True
+        Me.RadioButton10.Text = "Institutional"
+        Me.RadioButton10.UseVisualStyleBackColor = True
+        '
+        'TableLayoutPanel2
+        '
+        Me.TableLayoutPanel2.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Outset
+        Me.TableLayoutPanel2.ColumnCount = 4
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.35897!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.05128!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.15385!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.64103!))
+        Me.TableLayoutPanel2.Controls.Add(Me.Label22, 2, 0)
+        Me.TableLayoutPanel2.Controls.Add(Me.Label23, 1, 0)
+        Me.TableLayoutPanel2.Controls.Add(Me.Label24, 0, 0)
+        Me.TableLayoutPanel2.Controls.Add(Me.Label25, 3, 0)
+        Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top
+        Me.TableLayoutPanel2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TableLayoutPanel2.Location = New System.Drawing.Point(0, 0)
+        Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
+        Me.TableLayoutPanel2.RowCount = 1
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 41.61074!))
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(977, 59)
+        Me.TableLayoutPanel2.TabIndex = 0
+        '
+        'Label22
+        '
+        Me.Label22.AutoSize = True
+        Me.Label22.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label22.Location = New System.Drawing.Point(475, 2)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(169, 55)
+        Me.Label22.TabIndex = 3
+        Me.Label22.Text = "Date Presented "
+        Me.Label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label23
+        '
+        Me.Label23.AutoSize = True
+        Me.Label23.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label23.Location = New System.Drawing.Point(145, 2)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(322, 55)
+        Me.Label23.TabIndex = 1
+        Me.Label23.Text = "Research Conference Name"
+        Me.Label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label24
+        '
+        Me.Label24.AutoSize = True
+        Me.Label24.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label24.Location = New System.Drawing.Point(5, 2)
+        Me.Label24.Name = "Label24"
+        Me.Label24.Size = New System.Drawing.Size(132, 55)
+        Me.Label24.TabIndex = 0
+        Me.Label24.Text = "Level"
+        Me.Label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label25
+        '
+        Me.Label25.AutoSize = True
+        Me.Label25.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label25.Location = New System.Drawing.Point(652, 2)
+        Me.Label25.Name = "Label25"
+        Me.Label25.Size = New System.Drawing.Size(320, 55)
+        Me.Label25.TabIndex = 2
+        Me.Label25.Text = "Place of Presentation"
+        Me.Label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label19
+        '
+        Me.Label19.AutoSize = True
+        Me.Label19.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label19.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label19.Location = New System.Drawing.Point(52, 406)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(84, 16)
+        Me.Label19.TabIndex = 59
+        Me.Label19.Text = "Upload File :"
+        '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Button1.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_browse_20
+        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button1.Location = New System.Drawing.Point(142, 402)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(79, 25)
+        Me.Button1.TabIndex = 58
+        Me.Button1.Text = "Browse"
+        Me.Button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Button1.UseVisualStyleBackColor = False
+        '
         'AddWorks
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.ClientSize = New System.Drawing.Size(1350, 729)
-        Me.Controls.Add(Me.PnlPubPre)
+        Me.Controls.Add(Me.Label19)
+        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.PnlPresented)
+        Me.Controls.Add(Me.PnlPublished)
         Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Label10)
@@ -826,7 +1046,7 @@ Partial Class AddWorks
         Me.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.Name = "AddWorks"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "AddWorks"
+        Me.Text = "Upload Research"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.PnlTxtCont.ResumeLayout(False)
         Me.PnlTxtCont.PerformLayout()
@@ -836,13 +1056,20 @@ Partial Class AddWorks
         Me.Panel2.PerformLayout()
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
-        Me.PnlPubPre.ResumeLayout(False)
-        Me.TableLayoutPanel1.ResumeLayout(False)
-        Me.TableLayoutPanel1.PerformLayout()
-        Me.Panel4.ResumeLayout(False)
-        Me.Panel4.PerformLayout()
+        Me.PnlPublished.ResumeLayout(False)
         Me.Panel5.ResumeLayout(False)
         Me.Panel5.PerformLayout()
+        Me.Panel4.ResumeLayout(False)
+        Me.Panel4.PerformLayout()
+        Me.TableLayoutPanel1.ResumeLayout(False)
+        Me.TableLayoutPanel1.PerformLayout()
+        Me.PnlPresented.ResumeLayout(False)
+        Me.Panel7.ResumeLayout(False)
+        Me.Panel7.PerformLayout()
+        Me.Panel8.ResumeLayout(False)
+        Me.Panel8.PerformLayout()
+        Me.TableLayoutPanel2.ResumeLayout(False)
+        Me.TableLayoutPanel2.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -886,10 +1113,10 @@ Partial Class AddWorks
     Friend WithEvents BtnThssClrnc As Button
     Friend WithEvents Label10 As Label
     Friend WithEvents Panel3 As Panel
-    Friend WithEvents RadioButton1 As RadioButton
-    Friend WithEvents RadioButton2 As RadioButton
+    Friend WithEvents RdBtnPresented As RadioButton
+    Friend WithEvents RdBtnPub As RadioButton
     Friend WithEvents Label11 As Label
-    Friend WithEvents PnlPubPre As Panel
+    Friend WithEvents PnlPublished As Panel
     Friend WithEvents Panel4 As Panel
     Friend WithEvents RadioButton5 As RadioButton
     Friend WithEvents RadioButton6 As RadioButton
@@ -910,4 +1137,21 @@ Partial Class AddWorks
     Friend WithEvents TextBox10 As TextBox
     Friend WithEvents TextBox7 As TextBox
     Friend WithEvents TextBox9 As TextBox
+    Friend WithEvents PnlPresented As Panel
+    Friend WithEvents Panel7 As Panel
+    Friend WithEvents TextBox13 As TextBox
+    Friend WithEvents TextBox16 As TextBox
+    Friend WithEvents Panel8 As Panel
+    Friend WithEvents RadioButton7 As RadioButton
+    Friend WithEvents RadioButton8 As RadioButton
+    Friend WithEvents RadioButton9 As RadioButton
+    Friend WithEvents RadioButton10 As RadioButton
+    Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
+    Friend WithEvents Label22 As Label
+    Friend WithEvents Label23 As Label
+    Friend WithEvents Label24 As Label
+    Friend WithEvents Label25 As Label
+    Friend WithEvents DateTimePicker2 As DateTimePicker
+    Friend WithEvents Label19 As Label
+    Friend WithEvents Button1 As Button
 End Class
