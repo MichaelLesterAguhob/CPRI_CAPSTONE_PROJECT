@@ -189,18 +189,21 @@ Public Class AddWorks
 
     'FUNCTIONS WHEN ADDWORKS FORM IS LOAD
     Private Sub AddWorks_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ConOpen()
+
         'generate 6 fields for new co-author
         TxtAddAuthX.Text = "6"
         BtnAddNewCoAuthor.PerformClick()
 
     End Sub
 
+    'RADIO BUTTON PUBLISHED AND PRESENTED UI RESPONSE
     Private Sub RdBtnPub_MouseClick(sender As Object, e As MouseEventArgs) Handles RdBtnPub.MouseClick
         If RdBtnPub.Checked = True Then
             PnlPresented.Enabled = False
             PnlPresented.Height = 0
             PnlPublished.Enabled = True
-            PnlPublished.Height = 261
+            PnlPublished.Height = 230
         Else
             PnlPublished.Enabled = False
             PnlPublished.Height = 0
@@ -212,7 +215,7 @@ Public Class AddWorks
             PnlPublished.Enabled = False
             PnlPublished.Height = 0
             PnlPresented.Enabled = True
-            PnlPresented.Height = 261
+            PnlPresented.Height = 230
         Else
             PnlPresented.Enabled = False
             PnlPresented.Height = 0
