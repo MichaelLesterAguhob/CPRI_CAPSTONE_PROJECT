@@ -40,7 +40,7 @@ Partial Class AddWorks
         Me.PnlTxtCont = New System.Windows.Forms.Panel()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Label19 = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.BtnBrowseWholeFile = New System.Windows.Forms.Button()
         Me.PnlPresented = New System.Windows.Forms.Panel()
         Me.Panel7 = New System.Windows.Forms.Panel()
         Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
@@ -94,14 +94,16 @@ Partial Class AddWorks
         Me.DtSftCpySbmttdDate = New System.Windows.Forms.DateTimePicker()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
-        Me.Button3 = New System.Windows.Forms.Button()
+        Me.BtnBrowseAbstractFile = New System.Windows.Forms.Button()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.RdStatCmpltd = New System.Windows.Forms.RadioButton()
         Me.RdStatOngng = New System.Windows.Forms.RadioButton()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.BtnSaveResearch = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
+        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
+        Me.PreviewFileButton = New System.Windows.Forms.Button()
         Me.BtnMinusToFieldsCnt = New System.Windows.Forms.Button()
         Me.BtnAddToFieldsCnt = New System.Windows.Forms.Button()
         Me.BtnAddNewCoAuthor = New System.Windows.Forms.Button()
@@ -278,7 +280,7 @@ Partial Class AddWorks
         Me.Panel1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.Panel1.Location = New System.Drawing.Point(8, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1295, 112)
+        Me.Panel1.Size = New System.Drawing.Size(1312, 112)
         Me.Panel1.TabIndex = 31
         '
         'PnlTxtCont
@@ -296,7 +298,7 @@ Partial Class AddWorks
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.Label19)
-        Me.GroupBox1.Controls.Add(Me.Button1)
+        Me.GroupBox1.Controls.Add(Me.BtnBrowseWholeFile)
         Me.GroupBox1.Controls.Add(Me.PnlPresented)
         Me.GroupBox1.Controls.Add(Me.PnlPublished)
         Me.GroupBox1.Controls.Add(Me.Label11)
@@ -305,7 +307,7 @@ Partial Class AddWorks
         Me.GroupBox1.Controls.Add(Me.PnlStatCmpltd)
         Me.GroupBox1.Controls.Add(Me.Label8)
         Me.GroupBox1.Controls.Add(Me.DateTimePicker1)
-        Me.GroupBox1.Controls.Add(Me.Button3)
+        Me.GroupBox1.Controls.Add(Me.BtnBrowseAbstractFile)
         Me.GroupBox1.Controls.Add(Me.Label9)
         Me.GroupBox1.Controls.Add(Me.Panel2)
         Me.GroupBox1.Location = New System.Drawing.Point(15, 360)
@@ -326,21 +328,20 @@ Partial Class AddWorks
         Me.Label19.TabIndex = 72
         Me.Label19.Text = "Upload File :"
         '
-        'Button1
+        'BtnBrowseWholeFile
         '
-        Me.Button1.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Button1.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_browse_20
-        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button1.Location = New System.Drawing.Point(117, 12)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(79, 25)
-        Me.Button1.TabIndex = 71
-        Me.Button1.Text = "Browse"
-        Me.Button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button1.UseVisualStyleBackColor = False
+        Me.BtnBrowseWholeFile.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnBrowseWholeFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnBrowseWholeFile.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnBrowseWholeFile.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.BtnBrowseWholeFile.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_browse_20
+        Me.BtnBrowseWholeFile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnBrowseWholeFile.Location = New System.Drawing.Point(117, 12)
+        Me.BtnBrowseWholeFile.Name = "BtnBrowseWholeFile"
+        Me.BtnBrowseWholeFile.Size = New System.Drawing.Size(97, 25)
+        Me.BtnBrowseWholeFile.TabIndex = 71
+        Me.BtnBrowseWholeFile.Text = "Browse"
+        Me.BtnBrowseWholeFile.UseVisualStyleBackColor = False
         '
         'PnlPresented
         '
@@ -953,21 +954,20 @@ Partial Class AddWorks
         Me.DateTimePicker1.Size = New System.Drawing.Size(101, 20)
         Me.DateTimePicker1.TabIndex = 61
         '
-        'Button3
+        'BtnBrowseAbstractFile
         '
-        Me.Button3.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Button3.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_browse_20
-        Me.Button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button3.Location = New System.Drawing.Point(117, 44)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(79, 25)
-        Me.Button3.TabIndex = 60
-        Me.Button3.Text = "Browse"
-        Me.Button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button3.UseVisualStyleBackColor = False
+        Me.BtnBrowseAbstractFile.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnBrowseAbstractFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnBrowseAbstractFile.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnBrowseAbstractFile.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.BtnBrowseAbstractFile.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_browse_20
+        Me.BtnBrowseAbstractFile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnBrowseAbstractFile.Location = New System.Drawing.Point(117, 44)
+        Me.BtnBrowseAbstractFile.Name = "BtnBrowseAbstractFile"
+        Me.BtnBrowseAbstractFile.Size = New System.Drawing.Size(97, 25)
+        Me.BtnBrowseAbstractFile.TabIndex = 60
+        Me.BtnBrowseAbstractFile.Text = "Browse"
+        Me.BtnBrowseAbstractFile.UseVisualStyleBackColor = False
         '
         'Label9
         '
@@ -1021,19 +1021,19 @@ Partial Class AddWorks
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Authorship"
         '
-        'Button2
+        'BtnSaveResearch
         '
-        Me.Button2.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button2.Location = New System.Drawing.Point(531, 657)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(143, 29)
-        Me.Button2.TabIndex = 56
-        Me.Button2.Text = "Save"
-        Me.Button2.UseVisualStyleBackColor = False
+        Me.BtnSaveResearch.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.BtnSaveResearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnSaveResearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnSaveResearch.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.BtnSaveResearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnSaveResearch.Location = New System.Drawing.Point(531, 657)
+        Me.BtnSaveResearch.Name = "BtnSaveResearch"
+        Me.BtnSaveResearch.Size = New System.Drawing.Size(143, 29)
+        Me.BtnSaveResearch.TabIndex = 56
+        Me.BtnSaveResearch.Text = "Save"
+        Me.BtnSaveResearch.UseVisualStyleBackColor = False
         '
         'Button4
         '
@@ -1048,6 +1048,24 @@ Partial Class AddWorks
         Me.Button4.TabIndex = 62
         Me.Button4.Text = "Cancel"
         Me.Button4.UseVisualStyleBackColor = False
+        '
+        'OpenFileDialog1
+        '
+        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
+        '
+        'PreviewFileButton
+        '
+        Me.PreviewFileButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.PreviewFileButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.PreviewFileButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.PreviewFileButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.PreviewFileButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.PreviewFileButton.Location = New System.Drawing.Point(370, 657)
+        Me.PreviewFileButton.Name = "PreviewFileButton"
+        Me.PreviewFileButton.Size = New System.Drawing.Size(143, 29)
+        Me.PreviewFileButton.TabIndex = 63
+        Me.PreviewFileButton.Text = "Preview"
+        Me.PreviewFileButton.UseVisualStyleBackColor = False
         '
         'BtnMinusToFieldsCnt
         '
@@ -1095,8 +1113,9 @@ Partial Class AddWorks
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.ClientSize = New System.Drawing.Size(1350, 695)
+        Me.Controls.Add(Me.PreviewFileButton)
         Me.Controls.Add(Me.Button4)
-        Me.Controls.Add(Me.Button2)
+        Me.Controls.Add(Me.BtnSaveResearch)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.LblTotalFields)
         Me.Controls.Add(Me.BtnMinusToFieldsCnt)
@@ -1172,9 +1191,9 @@ Partial Class AddWorks
     Friend WithEvents PnlTxtCont As Panel
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents GroupBox2 As GroupBox
-    Friend WithEvents Button2 As Button
+    Friend WithEvents BtnSaveResearch As Button
     Friend WithEvents Label19 As Label
-    Friend WithEvents Button1 As Button
+    Friend WithEvents BtnBrowseWholeFile As Button
     Friend WithEvents PnlPresented As Panel
     Friend WithEvents Panel7 As Panel
     Friend WithEvents DateTimePicker2 As DateTimePicker
@@ -1228,10 +1247,12 @@ Partial Class AddWorks
     Friend WithEvents DtSftCpySbmttdDate As DateTimePicker
     Friend WithEvents Label8 As Label
     Friend WithEvents DateTimePicker1 As DateTimePicker
-    Friend WithEvents Button3 As Button
+    Friend WithEvents BtnBrowseAbstractFile As Button
     Friend WithEvents Label9 As Label
     Friend WithEvents Panel2 As Panel
     Friend WithEvents RdStatCmpltd As RadioButton
     Friend WithEvents RdStatOngng As RadioButton
     Friend WithEvents Button4 As Button
+    Friend WithEvents OpenFileDialog1 As OpenFileDialog
+    Friend WithEvents PreviewFileButton As Button
 End Class
