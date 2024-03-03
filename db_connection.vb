@@ -7,12 +7,10 @@ Module db_connection
     Public ds As New DataSet
     Public dt As New DataTable
 
-    Dim server As String = "localhost"
-    Dim username As String = "root"
-    Dim password As String = ""
-    Dim database As String = "cpri_cdsga_db"
-
-
+    Private ReadOnly server As String = "localhost"
+    Private ReadOnly username As String = "root"
+    Private ReadOnly password As String = ""
+    Private ReadOnly database As String = "cpri_cdsga_db"
 
     Public Sub ConOpen()
 

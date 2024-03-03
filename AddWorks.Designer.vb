@@ -23,14 +23,14 @@ Partial Class AddWorks
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.TxtRsrchAgenda = New System.Windows.Forms.TextBox()
+        Me.TxtRsrchTitle = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.TxtAuthorName = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
+        Me.TxtAthrDegprog = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.TextBox5 = New System.Windows.Forms.TextBox()
+        Me.TxtAthrRole = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TxtAddAuthX = New System.Windows.Forms.TextBox()
@@ -43,14 +43,14 @@ Partial Class AddWorks
         Me.BtnBrowseWholeFile = New System.Windows.Forms.Button()
         Me.PnlPresented = New System.Windows.Forms.Panel()
         Me.Panel7 = New System.Windows.Forms.Panel()
-        Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
-        Me.TextBox13 = New System.Windows.Forms.TextBox()
-        Me.TextBox16 = New System.Windows.Forms.TextBox()
+        Me.TxtPreDate = New System.Windows.Forms.DateTimePicker()
+        Me.TxtPrePlace = New System.Windows.Forms.TextBox()
+        Me.TxtPreResConfName = New System.Windows.Forms.TextBox()
         Me.Panel8 = New System.Windows.Forms.Panel()
-        Me.RadioButton7 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton8 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton9 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton10 = New System.Windows.Forms.RadioButton()
+        Me.RdPreLevelNat = New System.Windows.Forms.RadioButton()
+        Me.RdPreLevelInter = New System.Windows.Forms.RadioButton()
+        Me.RdPreLevelLoc = New System.Windows.Forms.RadioButton()
+        Me.RdPreLevelInsti = New System.Windows.Forms.RadioButton()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.Label22 = New System.Windows.Forms.Label()
         Me.Label23 = New System.Windows.Forms.Label()
@@ -58,17 +58,17 @@ Partial Class AddWorks
         Me.Label25 = New System.Windows.Forms.Label()
         Me.PnlPublished = New System.Windows.Forms.Panel()
         Me.Panel5 = New System.Windows.Forms.Panel()
-        Me.DateTimePicker3 = New System.Windows.Forms.DateTimePicker()
-        Me.TextBox8 = New System.Windows.Forms.TextBox()
-        Me.TextBox11 = New System.Windows.Forms.TextBox()
-        Me.TextBox6 = New System.Windows.Forms.TextBox()
-        Me.TextBox7 = New System.Windows.Forms.TextBox()
-        Me.TextBox9 = New System.Windows.Forms.TextBox()
+        Me.TxtPubDate = New System.Windows.Forms.DateTimePicker()
+        Me.TxtPubIssueNo = New System.Windows.Forms.TextBox()
+        Me.TxtPubDoiUrl = New System.Windows.Forms.TextBox()
+        Me.TxtPubAcadJournal = New System.Windows.Forms.TextBox()
+        Me.TxtPubVolNum = New System.Windows.Forms.TextBox()
+        Me.TxtPubPageRange = New System.Windows.Forms.TextBox()
         Me.Panel4 = New System.Windows.Forms.Panel()
-        Me.RadioButton5 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton6 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton3 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton4 = New System.Windows.Forms.RadioButton()
+        Me.RdPubLevelNat = New System.Windows.Forms.RadioButton()
+        Me.RdPubLevelInter = New System.Windows.Forms.RadioButton()
+        Me.RdPubLevelLoc = New System.Windows.Forms.RadioButton()
+        Me.RdPubLevelInsti = New System.Windows.Forms.RadioButton()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.Label18 = New System.Windows.Forms.Label()
         Me.Label16 = New System.Windows.Forms.Label()
@@ -93,7 +93,7 @@ Partial Class AddWorks
         Me.DtHrdCpySbmttdDate = New System.Windows.Forms.DateTimePicker()
         Me.DtSftCpySbmttdDate = New System.Windows.Forms.DateTimePicker()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.DtDateCompltd = New System.Windows.Forms.DateTimePicker()
         Me.BtnBrowseAbstractFile = New System.Windows.Forms.Button()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
@@ -101,12 +101,13 @@ Partial Class AddWorks
         Me.RdStatOngng = New System.Windows.Forms.RadioButton()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.BtnSaveResearch = New System.Windows.Forms.Button()
-        Me.Button4 = New System.Windows.Forms.Button()
+        Me.BtnCancel = New System.Windows.Forms.Button()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.PreviewFileButton = New System.Windows.Forms.Button()
         Me.BtnMinusToFieldsCnt = New System.Windows.Forms.Button()
         Me.BtnAddToFieldsCnt = New System.Windows.Forms.Button()
         Me.BtnAddNewCoAuthor = New System.Windows.Forms.Button()
+        Me.TxtResearchID = New System.Windows.Forms.TextBox()
         Me.PnlTxtCont.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.PnlPresented.SuspendLayout()
@@ -133,25 +134,25 @@ Partial Class AddWorks
         Me.Label2.TabIndex = 1
         Me.Label2.Text = "Research Agenda :"
         '
-        'TextBox1
+        'TxtRsrchAgenda
         '
-        Me.TextBox1.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.TextBox1.Location = New System.Drawing.Point(142, 70)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(508, 22)
-        Me.TextBox1.TabIndex = 2
+        Me.TxtRsrchAgenda.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.TxtRsrchAgenda.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtRsrchAgenda.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.TxtRsrchAgenda.Location = New System.Drawing.Point(142, 70)
+        Me.TxtRsrchAgenda.Name = "TxtRsrchAgenda"
+        Me.TxtRsrchAgenda.Size = New System.Drawing.Size(508, 22)
+        Me.TxtRsrchAgenda.TabIndex = 2
         '
-        'TextBox2
+        'TxtRsrchTitle
         '
-        Me.TextBox2.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.TextBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.TextBox2.Location = New System.Drawing.Point(142, 98)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(508, 22)
-        Me.TextBox2.TabIndex = 4
+        Me.TxtRsrchTitle.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.TxtRsrchTitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtRsrchTitle.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.TxtRsrchTitle.Location = New System.Drawing.Point(142, 98)
+        Me.TxtRsrchTitle.Name = "TxtRsrchTitle"
+        Me.TxtRsrchTitle.Size = New System.Drawing.Size(508, 22)
+        Me.TxtRsrchTitle.TabIndex = 4
         '
         'Label3
         '
@@ -164,15 +165,15 @@ Partial Class AddWorks
         Me.Label3.TabIndex = 3
         Me.Label3.Text = "Title :"
         '
-        'TextBox3
+        'TxtAuthorName
         '
-        Me.TextBox3.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.TextBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.TextBox3.Location = New System.Drawing.Point(142, 165)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(379, 22)
-        Me.TextBox3.TabIndex = 6
+        Me.TxtAuthorName.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.TxtAuthorName.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtAuthorName.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.TxtAuthorName.Location = New System.Drawing.Point(142, 165)
+        Me.TxtAuthorName.Name = "TxtAuthorName"
+        Me.TxtAuthorName.Size = New System.Drawing.Size(379, 22)
+        Me.TxtAuthorName.TabIndex = 6
         '
         'Label4
         '
@@ -185,15 +186,15 @@ Partial Class AddWorks
         Me.Label4.TabIndex = 5
         Me.Label4.Text = "Author :"
         '
-        'TextBox4
+        'TxtAthrDegprog
         '
-        Me.TextBox4.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.TextBox4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.TextBox4.Location = New System.Drawing.Point(648, 165)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(424, 22)
-        Me.TextBox4.TabIndex = 8
+        Me.TxtAthrDegprog.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.TxtAthrDegprog.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtAthrDegprog.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.TxtAthrDegprog.Location = New System.Drawing.Point(648, 165)
+        Me.TxtAthrDegprog.Name = "TxtAthrDegprog"
+        Me.TxtAthrDegprog.Size = New System.Drawing.Size(424, 22)
+        Me.TxtAthrDegprog.TabIndex = 8
         '
         'Label5
         '
@@ -206,15 +207,15 @@ Partial Class AddWorks
         Me.Label5.TabIndex = 7
         Me.Label5.Text = "Degree Program :"
         '
-        'TextBox5
+        'TxtAthrRole
         '
-        Me.TextBox5.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.TextBox5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.TextBox5.Location = New System.Drawing.Point(1127, 165)
-        Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.Size = New System.Drawing.Size(160, 22)
-        Me.TextBox5.TabIndex = 10
+        Me.TxtAthrRole.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.TxtAthrRole.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtAthrRole.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.TxtAthrRole.Location = New System.Drawing.Point(1127, 165)
+        Me.TxtAthrRole.Name = "TxtAthrRole"
+        Me.TxtAthrRole.Size = New System.Drawing.Size(160, 22)
+        Me.TxtAthrRole.TabIndex = 10
         '
         'Label6
         '
@@ -306,7 +307,7 @@ Partial Class AddWorks
         Me.GroupBox1.Controls.Add(Me.Label10)
         Me.GroupBox1.Controls.Add(Me.PnlStatCmpltd)
         Me.GroupBox1.Controls.Add(Me.Label8)
-        Me.GroupBox1.Controls.Add(Me.DateTimePicker1)
+        Me.GroupBox1.Controls.Add(Me.DtDateCompltd)
         Me.GroupBox1.Controls.Add(Me.BtnBrowseAbstractFile)
         Me.GroupBox1.Controls.Add(Me.Label9)
         Me.GroupBox1.Controls.Add(Me.Panel2)
@@ -315,7 +316,6 @@ Partial Class AddWorks
         Me.GroupBox1.Size = New System.Drawing.Size(1327, 291)
         Me.GroupBox1.TabIndex = 60
         Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Details"
         '
         'Label19
         '
@@ -359,98 +359,98 @@ Partial Class AddWorks
         'Panel7
         '
         Me.Panel7.BackColor = System.Drawing.Color.Transparent
-        Me.Panel7.Controls.Add(Me.DateTimePicker2)
-        Me.Panel7.Controls.Add(Me.TextBox13)
-        Me.Panel7.Controls.Add(Me.TextBox16)
+        Me.Panel7.Controls.Add(Me.TxtPreDate)
+        Me.Panel7.Controls.Add(Me.TxtPrePlace)
+        Me.Panel7.Controls.Add(Me.TxtPreResConfName)
         Me.Panel7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.Panel7.Location = New System.Drawing.Point(130, 65)
         Me.Panel7.Name = "Panel7"
         Me.Panel7.Size = New System.Drawing.Size(783, 49)
         Me.Panel7.TabIndex = 47
         '
-        'DateTimePicker2
+        'TxtPreDate
         '
-        Me.DateTimePicker2.CalendarMonthBackground = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.DateTimePicker2.CalendarTitleBackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.DateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateTimePicker2.Location = New System.Drawing.Point(315, 12)
-        Me.DateTimePicker2.Name = "DateTimePicker2"
-        Me.DateTimePicker2.Size = New System.Drawing.Size(159, 20)
-        Me.DateTimePicker2.TabIndex = 48
+        Me.TxtPreDate.CalendarMonthBackground = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.TxtPreDate.CalendarTitleBackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.TxtPreDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.TxtPreDate.Location = New System.Drawing.Point(315, 12)
+        Me.TxtPreDate.Name = "TxtPreDate"
+        Me.TxtPreDate.Size = New System.Drawing.Size(159, 20)
+        Me.TxtPreDate.TabIndex = 48
         '
-        'TextBox13
+        'TxtPrePlace
         '
-        Me.TextBox13.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.TextBox13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBox13.Location = New System.Drawing.Point(481, 12)
-        Me.TextBox13.Name = "TextBox13"
-        Me.TextBox13.Size = New System.Drawing.Size(299, 20)
-        Me.TextBox13.TabIndex = 52
+        Me.TxtPrePlace.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.TxtPrePlace.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TxtPrePlace.Location = New System.Drawing.Point(481, 12)
+        Me.TxtPrePlace.Name = "TxtPrePlace"
+        Me.TxtPrePlace.Size = New System.Drawing.Size(299, 20)
+        Me.TxtPrePlace.TabIndex = 52
         '
-        'TextBox16
+        'TxtPreResConfName
         '
-        Me.TextBox16.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.TextBox16.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBox16.Location = New System.Drawing.Point(5, 13)
-        Me.TextBox16.Name = "TextBox16"
-        Me.TextBox16.Size = New System.Drawing.Size(303, 20)
-        Me.TextBox16.TabIndex = 48
+        Me.TxtPreResConfName.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.TxtPreResConfName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TxtPreResConfName.Location = New System.Drawing.Point(5, 13)
+        Me.TxtPreResConfName.Name = "TxtPreResConfName"
+        Me.TxtPreResConfName.Size = New System.Drawing.Size(303, 20)
+        Me.TxtPreResConfName.TabIndex = 48
         '
         'Panel8
         '
-        Me.Panel8.Controls.Add(Me.RadioButton7)
-        Me.Panel8.Controls.Add(Me.RadioButton8)
-        Me.Panel8.Controls.Add(Me.RadioButton9)
-        Me.Panel8.Controls.Add(Me.RadioButton10)
+        Me.Panel8.Controls.Add(Me.RdPreLevelNat)
+        Me.Panel8.Controls.Add(Me.RdPreLevelInter)
+        Me.Panel8.Controls.Add(Me.RdPreLevelLoc)
+        Me.Panel8.Controls.Add(Me.RdPreLevelInsti)
         Me.Panel8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.Panel8.Location = New System.Drawing.Point(2, 65)
         Me.Panel8.Name = "Panel8"
         Me.Panel8.Size = New System.Drawing.Size(126, 154)
         Me.Panel8.TabIndex = 46
         '
-        'RadioButton7
+        'RdPreLevelNat
         '
-        Me.RadioButton7.AutoSize = True
-        Me.RadioButton7.Location = New System.Drawing.Point(5, 51)
-        Me.RadioButton7.Name = "RadioButton7"
-        Me.RadioButton7.Size = New System.Drawing.Size(64, 17)
-        Me.RadioButton7.TabIndex = 3
-        Me.RadioButton7.TabStop = True
-        Me.RadioButton7.Text = "National"
-        Me.RadioButton7.UseVisualStyleBackColor = True
+        Me.RdPreLevelNat.AutoSize = True
+        Me.RdPreLevelNat.Location = New System.Drawing.Point(5, 51)
+        Me.RdPreLevelNat.Name = "RdPreLevelNat"
+        Me.RdPreLevelNat.Size = New System.Drawing.Size(64, 17)
+        Me.RdPreLevelNat.TabIndex = 3
+        Me.RdPreLevelNat.TabStop = True
+        Me.RdPreLevelNat.Text = "National"
+        Me.RdPreLevelNat.UseVisualStyleBackColor = True
         '
-        'RadioButton8
+        'RdPreLevelInter
         '
-        Me.RadioButton8.AutoSize = True
-        Me.RadioButton8.Location = New System.Drawing.Point(6, 74)
-        Me.RadioButton8.Name = "RadioButton8"
-        Me.RadioButton8.Size = New System.Drawing.Size(83, 17)
-        Me.RadioButton8.TabIndex = 2
-        Me.RadioButton8.TabStop = True
-        Me.RadioButton8.Text = "International"
-        Me.RadioButton8.UseVisualStyleBackColor = True
+        Me.RdPreLevelInter.AutoSize = True
+        Me.RdPreLevelInter.Location = New System.Drawing.Point(6, 74)
+        Me.RdPreLevelInter.Name = "RdPreLevelInter"
+        Me.RdPreLevelInter.Size = New System.Drawing.Size(83, 17)
+        Me.RdPreLevelInter.TabIndex = 2
+        Me.RdPreLevelInter.TabStop = True
+        Me.RdPreLevelInter.Text = "International"
+        Me.RdPreLevelInter.UseVisualStyleBackColor = True
         '
-        'RadioButton9
+        'RdPreLevelLoc
         '
-        Me.RadioButton9.AutoSize = True
-        Me.RadioButton9.Location = New System.Drawing.Point(5, 28)
-        Me.RadioButton9.Name = "RadioButton9"
-        Me.RadioButton9.Size = New System.Drawing.Size(51, 17)
-        Me.RadioButton9.TabIndex = 1
-        Me.RadioButton9.TabStop = True
-        Me.RadioButton9.Text = "Local"
-        Me.RadioButton9.UseVisualStyleBackColor = True
+        Me.RdPreLevelLoc.AutoSize = True
+        Me.RdPreLevelLoc.Location = New System.Drawing.Point(5, 28)
+        Me.RdPreLevelLoc.Name = "RdPreLevelLoc"
+        Me.RdPreLevelLoc.Size = New System.Drawing.Size(51, 17)
+        Me.RdPreLevelLoc.TabIndex = 1
+        Me.RdPreLevelLoc.TabStop = True
+        Me.RdPreLevelLoc.Text = "Local"
+        Me.RdPreLevelLoc.UseVisualStyleBackColor = True
         '
-        'RadioButton10
+        'RdPreLevelInsti
         '
-        Me.RadioButton10.AutoSize = True
-        Me.RadioButton10.Location = New System.Drawing.Point(5, 4)
-        Me.RadioButton10.Name = "RadioButton10"
-        Me.RadioButton10.Size = New System.Drawing.Size(78, 17)
-        Me.RadioButton10.TabIndex = 0
-        Me.RadioButton10.TabStop = True
-        Me.RadioButton10.Text = "Institutional"
-        Me.RadioButton10.UseVisualStyleBackColor = True
+        Me.RdPreLevelInsti.AutoSize = True
+        Me.RdPreLevelInsti.Location = New System.Drawing.Point(5, 4)
+        Me.RdPreLevelInsti.Name = "RdPreLevelInsti"
+        Me.RdPreLevelInsti.Size = New System.Drawing.Size(78, 17)
+        Me.RdPreLevelInsti.TabIndex = 0
+        Me.RdPreLevelInsti.TabStop = True
+        Me.RdPreLevelInsti.Text = "Institutional"
+        Me.RdPreLevelInsti.UseVisualStyleBackColor = True
         '
         'TableLayoutPanel2
         '
@@ -533,128 +533,128 @@ Partial Class AddWorks
         'Panel5
         '
         Me.Panel5.BackColor = System.Drawing.Color.Transparent
-        Me.Panel5.Controls.Add(Me.DateTimePicker3)
-        Me.Panel5.Controls.Add(Me.TextBox8)
-        Me.Panel5.Controls.Add(Me.TextBox11)
-        Me.Panel5.Controls.Add(Me.TextBox6)
-        Me.Panel5.Controls.Add(Me.TextBox7)
-        Me.Panel5.Controls.Add(Me.TextBox9)
+        Me.Panel5.Controls.Add(Me.TxtPubDate)
+        Me.Panel5.Controls.Add(Me.TxtPubIssueNo)
+        Me.Panel5.Controls.Add(Me.TxtPubDoiUrl)
+        Me.Panel5.Controls.Add(Me.TxtPubAcadJournal)
+        Me.Panel5.Controls.Add(Me.TxtPubVolNum)
+        Me.Panel5.Controls.Add(Me.TxtPubPageRange)
         Me.Panel5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.Panel5.Location = New System.Drawing.Point(105, 78)
         Me.Panel5.Name = "Panel5"
         Me.Panel5.Size = New System.Drawing.Size(870, 49)
         Me.Panel5.TabIndex = 47
         '
-        'DateTimePicker3
+        'TxtPubDate
         '
-        Me.DateTimePicker3.CalendarMonthBackground = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.DateTimePicker3.CalendarTitleBackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.DateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateTimePicker3.Location = New System.Drawing.Point(604, 12)
-        Me.DateTimePicker3.Name = "DateTimePicker3"
-        Me.DateTimePicker3.Size = New System.Drawing.Size(123, 20)
-        Me.DateTimePicker3.TabIndex = 53
+        Me.TxtPubDate.CalendarMonthBackground = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.TxtPubDate.CalendarTitleBackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.TxtPubDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.TxtPubDate.Location = New System.Drawing.Point(604, 12)
+        Me.TxtPubDate.Name = "TxtPubDate"
+        Me.TxtPubDate.Size = New System.Drawing.Size(123, 20)
+        Me.TxtPubDate.TabIndex = 53
         '
-        'TextBox8
+        'TxtPubIssueNo
         '
-        Me.TextBox8.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.TextBox8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBox8.Location = New System.Drawing.Point(316, 12)
-        Me.TextBox8.Name = "TextBox8"
-        Me.TextBox8.Size = New System.Drawing.Size(133, 20)
-        Me.TextBox8.TabIndex = 49
+        Me.TxtPubIssueNo.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.TxtPubIssueNo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TxtPubIssueNo.Location = New System.Drawing.Point(316, 12)
+        Me.TxtPubIssueNo.Name = "TxtPubIssueNo"
+        Me.TxtPubIssueNo.Size = New System.Drawing.Size(133, 20)
+        Me.TxtPubIssueNo.TabIndex = 49
         '
-        'TextBox11
+        'TxtPubDoiUrl
         '
-        Me.TextBox11.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.TextBox11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBox11.Location = New System.Drawing.Point(733, 12)
-        Me.TextBox11.Name = "TextBox11"
-        Me.TextBox11.Size = New System.Drawing.Size(137, 20)
-        Me.TextBox11.TabIndex = 52
+        Me.TxtPubDoiUrl.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.TxtPubDoiUrl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TxtPubDoiUrl.Location = New System.Drawing.Point(733, 12)
+        Me.TxtPubDoiUrl.Name = "TxtPubDoiUrl"
+        Me.TxtPubDoiUrl.Size = New System.Drawing.Size(137, 20)
+        Me.TxtPubDoiUrl.TabIndex = 52
         '
-        'TextBox6
+        'TxtPubAcadJournal
         '
-        Me.TextBox6.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.TextBox6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBox6.Location = New System.Drawing.Point(4, 12)
-        Me.TextBox6.Name = "TextBox6"
-        Me.TextBox6.Size = New System.Drawing.Size(164, 20)
-        Me.TextBox6.TabIndex = 47
+        Me.TxtPubAcadJournal.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.TxtPubAcadJournal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TxtPubAcadJournal.Location = New System.Drawing.Point(4, 12)
+        Me.TxtPubAcadJournal.Name = "TxtPubAcadJournal"
+        Me.TxtPubAcadJournal.Size = New System.Drawing.Size(164, 20)
+        Me.TxtPubAcadJournal.TabIndex = 47
         '
-        'TextBox7
+        'TxtPubVolNum
         '
-        Me.TextBox7.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.TextBox7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBox7.Location = New System.Drawing.Point(178, 12)
-        Me.TextBox7.Name = "TextBox7"
-        Me.TextBox7.Size = New System.Drawing.Size(133, 20)
-        Me.TextBox7.TabIndex = 48
+        Me.TxtPubVolNum.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.TxtPubVolNum.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TxtPubVolNum.Location = New System.Drawing.Point(178, 12)
+        Me.TxtPubVolNum.Name = "TxtPubVolNum"
+        Me.TxtPubVolNum.Size = New System.Drawing.Size(133, 20)
+        Me.TxtPubVolNum.TabIndex = 48
         '
-        'TextBox9
+        'TxtPubPageRange
         '
-        Me.TextBox9.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.TextBox9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBox9.Location = New System.Drawing.Point(456, 12)
-        Me.TextBox9.Name = "TextBox9"
-        Me.TextBox9.Size = New System.Drawing.Size(141, 20)
-        Me.TextBox9.TabIndex = 50
+        Me.TxtPubPageRange.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.TxtPubPageRange.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TxtPubPageRange.Location = New System.Drawing.Point(456, 12)
+        Me.TxtPubPageRange.Name = "TxtPubPageRange"
+        Me.TxtPubPageRange.Size = New System.Drawing.Size(141, 20)
+        Me.TxtPubPageRange.TabIndex = 50
         '
         'Panel4
         '
-        Me.Panel4.Controls.Add(Me.RadioButton5)
-        Me.Panel4.Controls.Add(Me.RadioButton6)
-        Me.Panel4.Controls.Add(Me.RadioButton3)
-        Me.Panel4.Controls.Add(Me.RadioButton4)
+        Me.Panel4.Controls.Add(Me.RdPubLevelNat)
+        Me.Panel4.Controls.Add(Me.RdPubLevelInter)
+        Me.Panel4.Controls.Add(Me.RdPubLevelLoc)
+        Me.Panel4.Controls.Add(Me.RdPubLevelInsti)
         Me.Panel4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.Panel4.Location = New System.Drawing.Point(5, 75)
         Me.Panel4.Name = "Panel4"
         Me.Panel4.Size = New System.Drawing.Size(99, 150)
         Me.Panel4.TabIndex = 46
         '
-        'RadioButton5
+        'RdPubLevelNat
         '
-        Me.RadioButton5.AutoSize = True
-        Me.RadioButton5.Location = New System.Drawing.Point(5, 51)
-        Me.RadioButton5.Name = "RadioButton5"
-        Me.RadioButton5.Size = New System.Drawing.Size(64, 17)
-        Me.RadioButton5.TabIndex = 3
-        Me.RadioButton5.TabStop = True
-        Me.RadioButton5.Text = "National"
-        Me.RadioButton5.UseVisualStyleBackColor = True
+        Me.RdPubLevelNat.AutoSize = True
+        Me.RdPubLevelNat.Location = New System.Drawing.Point(5, 51)
+        Me.RdPubLevelNat.Name = "RdPubLevelNat"
+        Me.RdPubLevelNat.Size = New System.Drawing.Size(64, 17)
+        Me.RdPubLevelNat.TabIndex = 3
+        Me.RdPubLevelNat.TabStop = True
+        Me.RdPubLevelNat.Text = "National"
+        Me.RdPubLevelNat.UseVisualStyleBackColor = True
         '
-        'RadioButton6
+        'RdPubLevelInter
         '
-        Me.RadioButton6.AutoSize = True
-        Me.RadioButton6.Location = New System.Drawing.Point(6, 74)
-        Me.RadioButton6.Name = "RadioButton6"
-        Me.RadioButton6.Size = New System.Drawing.Size(83, 17)
-        Me.RadioButton6.TabIndex = 2
-        Me.RadioButton6.TabStop = True
-        Me.RadioButton6.Text = "International"
-        Me.RadioButton6.UseVisualStyleBackColor = True
+        Me.RdPubLevelInter.AutoSize = True
+        Me.RdPubLevelInter.Location = New System.Drawing.Point(6, 74)
+        Me.RdPubLevelInter.Name = "RdPubLevelInter"
+        Me.RdPubLevelInter.Size = New System.Drawing.Size(83, 17)
+        Me.RdPubLevelInter.TabIndex = 2
+        Me.RdPubLevelInter.TabStop = True
+        Me.RdPubLevelInter.Text = "International"
+        Me.RdPubLevelInter.UseVisualStyleBackColor = True
         '
-        'RadioButton3
+        'RdPubLevelLoc
         '
-        Me.RadioButton3.AutoSize = True
-        Me.RadioButton3.Location = New System.Drawing.Point(5, 28)
-        Me.RadioButton3.Name = "RadioButton3"
-        Me.RadioButton3.Size = New System.Drawing.Size(51, 17)
-        Me.RadioButton3.TabIndex = 1
-        Me.RadioButton3.TabStop = True
-        Me.RadioButton3.Text = "Local"
-        Me.RadioButton3.UseVisualStyleBackColor = True
+        Me.RdPubLevelLoc.AutoSize = True
+        Me.RdPubLevelLoc.Location = New System.Drawing.Point(5, 28)
+        Me.RdPubLevelLoc.Name = "RdPubLevelLoc"
+        Me.RdPubLevelLoc.Size = New System.Drawing.Size(51, 17)
+        Me.RdPubLevelLoc.TabIndex = 1
+        Me.RdPubLevelLoc.TabStop = True
+        Me.RdPubLevelLoc.Text = "Local"
+        Me.RdPubLevelLoc.UseVisualStyleBackColor = True
         '
-        'RadioButton4
+        'RdPubLevelInsti
         '
-        Me.RadioButton4.AutoSize = True
-        Me.RadioButton4.Location = New System.Drawing.Point(5, 4)
-        Me.RadioButton4.Name = "RadioButton4"
-        Me.RadioButton4.Size = New System.Drawing.Size(78, 17)
-        Me.RadioButton4.TabIndex = 0
-        Me.RadioButton4.TabStop = True
-        Me.RadioButton4.Text = "Institutional"
-        Me.RadioButton4.UseVisualStyleBackColor = True
+        Me.RdPubLevelInsti.AutoSize = True
+        Me.RdPubLevelInsti.Location = New System.Drawing.Point(5, 4)
+        Me.RdPubLevelInsti.Name = "RdPubLevelInsti"
+        Me.RdPubLevelInsti.Size = New System.Drawing.Size(78, 17)
+        Me.RdPubLevelInsti.TabIndex = 0
+        Me.RdPubLevelInsti.TabStop = True
+        Me.RdPubLevelInsti.Text = "Institutional"
+        Me.RdPubLevelInsti.UseVisualStyleBackColor = True
         '
         'TableLayoutPanel1
         '
@@ -854,9 +854,9 @@ Partial Class AddWorks
         Me.DtRgaSbmttdDate.Cursor = System.Windows.Forms.Cursors.Hand
         Me.DtRgaSbmttdDate.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DtRgaSbmttdDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DtRgaSbmttdDate.Location = New System.Drawing.Point(228, 83)
+        Me.DtRgaSbmttdDate.Location = New System.Drawing.Point(236, 83)
         Me.DtRgaSbmttdDate.Name = "DtRgaSbmttdDate"
-        Me.DtRgaSbmttdDate.Size = New System.Drawing.Size(93, 18)
+        Me.DtRgaSbmttdDate.Size = New System.Drawing.Size(85, 18)
         Me.DtRgaSbmttdDate.TabIndex = 55
         Me.DtRgaSbmttdDate.Visible = False
         '
@@ -865,9 +865,9 @@ Partial Class AddWorks
         Me.DtDgiSbmttdDate.Cursor = System.Windows.Forms.Cursors.Hand
         Me.DtDgiSbmttdDate.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DtDgiSbmttdDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DtDgiSbmttdDate.Location = New System.Drawing.Point(228, 60)
+        Me.DtDgiSbmttdDate.Location = New System.Drawing.Point(236, 60)
         Me.DtDgiSbmttdDate.Name = "DtDgiSbmttdDate"
-        Me.DtDgiSbmttdDate.Size = New System.Drawing.Size(93, 18)
+        Me.DtDgiSbmttdDate.Size = New System.Drawing.Size(85, 18)
         Me.DtDgiSbmttdDate.TabIndex = 54
         Me.DtDgiSbmttdDate.Visible = False
         '
@@ -916,9 +916,9 @@ Partial Class AddWorks
         Me.DtHrdCpySbmttdDate.Cursor = System.Windows.Forms.Cursors.Hand
         Me.DtHrdCpySbmttdDate.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DtHrdCpySbmttdDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DtHrdCpySbmttdDate.Location = New System.Drawing.Point(228, 36)
+        Me.DtHrdCpySbmttdDate.Location = New System.Drawing.Point(236, 36)
         Me.DtHrdCpySbmttdDate.Name = "DtHrdCpySbmttdDate"
-        Me.DtHrdCpySbmttdDate.Size = New System.Drawing.Size(93, 18)
+        Me.DtHrdCpySbmttdDate.Size = New System.Drawing.Size(85, 18)
         Me.DtHrdCpySbmttdDate.TabIndex = 49
         Me.DtHrdCpySbmttdDate.Visible = False
         '
@@ -927,9 +927,9 @@ Partial Class AddWorks
         Me.DtSftCpySbmttdDate.Cursor = System.Windows.Forms.Cursors.Hand
         Me.DtSftCpySbmttdDate.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DtSftCpySbmttdDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DtSftCpySbmttdDate.Location = New System.Drawing.Point(228, 12)
+        Me.DtSftCpySbmttdDate.Location = New System.Drawing.Point(236, 12)
         Me.DtSftCpySbmttdDate.Name = "DtSftCpySbmttdDate"
-        Me.DtSftCpySbmttdDate.Size = New System.Drawing.Size(93, 18)
+        Me.DtSftCpySbmttdDate.Size = New System.Drawing.Size(85, 18)
         Me.DtSftCpySbmttdDate.TabIndex = 48
         Me.DtSftCpySbmttdDate.Visible = False
         '
@@ -944,15 +944,15 @@ Partial Class AddWorks
         Me.Label8.TabIndex = 62
         Me.Label8.Text = "Date Completed :"
         '
-        'DateTimePicker1
+        'DtDateCompltd
         '
-        Me.DateTimePicker1.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.DateTimePicker1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateTimePicker1.Location = New System.Drawing.Point(117, 75)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(101, 20)
-        Me.DateTimePicker1.TabIndex = 61
+        Me.DtDateCompltd.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.DtDateCompltd.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DtDateCompltd.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.DtDateCompltd.Location = New System.Drawing.Point(117, 75)
+        Me.DtDateCompltd.Name = "DtDateCompltd"
+        Me.DtDateCompltd.Size = New System.Drawing.Size(101, 20)
+        Me.DtDateCompltd.TabIndex = 61
         '
         'BtnBrowseAbstractFile
         '
@@ -1035,19 +1035,19 @@ Partial Class AddWorks
         Me.BtnSaveResearch.Text = "Save"
         Me.BtnSaveResearch.UseVisualStyleBackColor = False
         '
-        'Button4
+        'BtnCancel
         '
-        Me.Button4.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button4.Location = New System.Drawing.Point(723, 657)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(143, 29)
-        Me.Button4.TabIndex = 62
-        Me.Button4.Text = "Cancel"
-        Me.Button4.UseVisualStyleBackColor = False
+        Me.BtnCancel.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.BtnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnCancel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.BtnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnCancel.Location = New System.Drawing.Point(723, 657)
+        Me.BtnCancel.Name = "BtnCancel"
+        Me.BtnCancel.Size = New System.Drawing.Size(143, 29)
+        Me.BtnCancel.TabIndex = 62
+        Me.BtnCancel.Text = "Cancel"
+        Me.BtnCancel.UseVisualStyleBackColor = False
         '
         'OpenFileDialog1
         '
@@ -1062,7 +1062,7 @@ Partial Class AddWorks
         Me.PreviewFileButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.PreviewFileButton.Location = New System.Drawing.Point(370, 657)
         Me.PreviewFileButton.Name = "PreviewFileButton"
-        Me.PreviewFileButton.Size = New System.Drawing.Size(143, 29)
+        Me.PreviewFileButton.Size = New System.Drawing.Size(118, 0)
         Me.PreviewFileButton.TabIndex = 63
         Me.PreviewFileButton.Text = "Preview"
         Me.PreviewFileButton.UseVisualStyleBackColor = False
@@ -1107,14 +1107,26 @@ Partial Class AddWorks
         Me.BtnAddNewCoAuthor.TextAlign = System.Drawing.ContentAlignment.TopRight
         Me.BtnAddNewCoAuthor.UseVisualStyleBackColor = False
         '
+        'TxtResearchID
+        '
+        Me.TxtResearchID.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.TxtResearchID.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtResearchID.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.TxtResearchID.Location = New System.Drawing.Point(142, 42)
+        Me.TxtResearchID.Name = "TxtResearchID"
+        Me.TxtResearchID.ReadOnly = True
+        Me.TxtResearchID.Size = New System.Drawing.Size(200, 22)
+        Me.TxtResearchID.TabIndex = 64
+        '
         'AddWorks
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.ClientSize = New System.Drawing.Size(1350, 695)
+        Me.Controls.Add(Me.TxtResearchID)
         Me.Controls.Add(Me.PreviewFileButton)
-        Me.Controls.Add(Me.Button4)
+        Me.Controls.Add(Me.BtnCancel)
         Me.Controls.Add(Me.BtnSaveResearch)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.LblTotalFields)
@@ -1123,15 +1135,15 @@ Partial Class AddWorks
         Me.Controls.Add(Me.TxtAddAuthX)
         Me.Controls.Add(Me.PnlTxtCont)
         Me.Controls.Add(Me.BtnAddNewCoAuthor)
-        Me.Controls.Add(Me.TextBox5)
+        Me.Controls.Add(Me.TxtAthrRole)
         Me.Controls.Add(Me.Label6)
-        Me.Controls.Add(Me.TextBox4)
+        Me.Controls.Add(Me.TxtAthrDegprog)
         Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.TextBox3)
+        Me.Controls.Add(Me.TxtAuthorName)
         Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.TextBox2)
+        Me.Controls.Add(Me.TxtRsrchTitle)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.TxtRsrchAgenda)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.GroupBox1)
@@ -1172,14 +1184,14 @@ Partial Class AddWorks
 
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents TxtRsrchAgenda As TextBox
+    Friend WithEvents TxtRsrchTitle As TextBox
     Friend WithEvents Label3 As Label
-    Friend WithEvents TextBox3 As TextBox
+    Friend WithEvents TxtAuthorName As TextBox
     Friend WithEvents Label4 As Label
-    Friend WithEvents TextBox4 As TextBox
+    Friend WithEvents TxtAthrDegprog As TextBox
     Friend WithEvents Label5 As Label
-    Friend WithEvents TextBox5 As TextBox
+    Friend WithEvents TxtAthrRole As TextBox
     Friend WithEvents Label6 As Label
     Friend WithEvents BtnAddNewCoAuthor As Button
     Friend WithEvents TxtAddAuthX As TextBox
@@ -1196,14 +1208,13 @@ Partial Class AddWorks
     Friend WithEvents BtnBrowseWholeFile As Button
     Friend WithEvents PnlPresented As Panel
     Friend WithEvents Panel7 As Panel
-    Friend WithEvents DateTimePicker2 As DateTimePicker
-    Friend WithEvents TextBox13 As TextBox
-    Friend WithEvents TextBox16 As TextBox
+    Friend WithEvents TxtPreDate As DateTimePicker
+    Friend WithEvents TxtPrePlace As TextBox
+    Friend WithEvents TxtPreResConfName As TextBox
     Friend WithEvents Panel8 As Panel
-    Friend WithEvents RadioButton7 As RadioButton
-    Friend WithEvents RadioButton8 As RadioButton
-    Friend WithEvents RadioButton9 As RadioButton
-    Friend WithEvents RadioButton10 As RadioButton
+    Friend WithEvents RdPreLevelNat As RadioButton
+    Friend WithEvents RdPreLevelInter As RadioButton
+    Friend WithEvents RdPreLevelInsti As RadioButton
     Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
     Friend WithEvents Label22 As Label
     Friend WithEvents Label23 As Label
@@ -1211,17 +1222,17 @@ Partial Class AddWorks
     Friend WithEvents Label25 As Label
     Friend WithEvents PnlPublished As Panel
     Friend WithEvents Panel5 As Panel
-    Friend WithEvents DateTimePicker3 As DateTimePicker
-    Friend WithEvents TextBox8 As TextBox
-    Friend WithEvents TextBox11 As TextBox
-    Friend WithEvents TextBox6 As TextBox
-    Friend WithEvents TextBox7 As TextBox
-    Friend WithEvents TextBox9 As TextBox
+    Friend WithEvents TxtPubDate As DateTimePicker
+    Friend WithEvents TxtPubIssueNo As TextBox
+    Friend WithEvents TxtPubDoiUrl As TextBox
+    Friend WithEvents TxtPubAcadJournal As TextBox
+    Friend WithEvents TxtPubVolNum As TextBox
+    Friend WithEvents TxtPubPageRange As TextBox
     Friend WithEvents Panel4 As Panel
-    Friend WithEvents RadioButton5 As RadioButton
-    Friend WithEvents RadioButton6 As RadioButton
-    Friend WithEvents RadioButton3 As RadioButton
-    Friend WithEvents RadioButton4 As RadioButton
+    Friend WithEvents RdPubLevelNat As RadioButton
+    Friend WithEvents RdPubLevelInter As RadioButton
+    Friend WithEvents RdPubLevelLoc As RadioButton
+    Friend WithEvents RdPubLevelInsti As RadioButton
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents Label18 As Label
     Friend WithEvents Label16 As Label
@@ -1246,13 +1257,15 @@ Partial Class AddWorks
     Friend WithEvents DtHrdCpySbmttdDate As DateTimePicker
     Friend WithEvents DtSftCpySbmttdDate As DateTimePicker
     Friend WithEvents Label8 As Label
-    Friend WithEvents DateTimePicker1 As DateTimePicker
+    Friend WithEvents DtDateCompltd As DateTimePicker
     Friend WithEvents BtnBrowseAbstractFile As Button
     Friend WithEvents Label9 As Label
     Friend WithEvents Panel2 As Panel
     Friend WithEvents RdStatCmpltd As RadioButton
     Friend WithEvents RdStatOngng As RadioButton
-    Friend WithEvents Button4 As Button
+    Friend WithEvents BtnCancel As Button
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
     Friend WithEvents PreviewFileButton As Button
+    Friend WithEvents RdPreLevelLoc As RadioButton
+    Friend WithEvents TxtResearchID As TextBox
 End Class

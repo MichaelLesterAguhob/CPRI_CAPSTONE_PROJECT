@@ -7,7 +7,10 @@ Imports MySql.Data.MySqlClient
 Public Class AddWorks
 
 
-    'ADDING NEW TEXTBOX COMPONENT 
+
+    ' |||||||||||||||||||||||||||||||| BEGINNING CODES BELOW ARE FOR UI RESPONSES OR FUNCTIONALITIES ||||||||||||||||||||||||||||||||||||||
+
+    'ADDING NEW TEXTBOX COMPONENT OR CONTROL INSIDE THE PANEL CONTAINER
     Dim auth_count As Integer = 0
 
     Public Sub AddNewAuthField()
@@ -54,7 +57,6 @@ Public Class AddWorks
         .BackColor = Color.WhiteSmoke
         }
 
-
         'SET THE LOCATION OF ELEMENTS
         lbl_auth.Location = New Point(25, 10 + ((Panel1.Controls.Count * 30) / 6))
         new_co_auth.Location = New Point(114, 8 + ((Panel1.Controls.Count * 30) / 6))
@@ -77,9 +79,11 @@ Public Class AddWorks
 
         Panel1.Height = Panel1.Height + 24
     End Sub
+    '==============================END=====================================
 
-    Dim cntr As String ' HOLDER OF NUMBER THAT SYSTEM WILL GENERATE TEXTBOX COMPONENT FOR AUTHOR
-    Dim total_fields As String 'VAR HOLDER OF TOTAL FIELD OF EXISTING CO-AUHTOR PRINTED IN LABEL
+    'CODES FOR BUTTON ADD NEW CO-AUTHOR
+    Dim cntr As String 'holder of number that system will generate textbox component for author
+    Dim total_fields As String 'var holder of total field of existing co-auhtor printed in label
     Private Sub BtnAddNewCoAuthor_Click_1(sender As Object, e As EventArgs) Handles BtnAddNewCoAuthor.Click
 
         cntr = TxtAddAuthX.Text
@@ -102,8 +106,8 @@ Public Class AddWorks
             co_auth_field_name.Focus()
 
         End If
-
     End Sub
+    '==============================END=====================================
 
     'ADDING AND SUBTRACTING TO FIELDS COUNT
     Private Sub BtnAddToFieldsCnt_Click(sender As Object, e As EventArgs) Handles BtnAddToFieldsCnt.Click
@@ -115,10 +119,9 @@ Public Class AddWorks
         Dim taax As Integer = TxtAddAuthX.Text
         TxtAddAuthX.Text = taax - 1
     End Sub
-    '=======================================
+    '==============================END=====================================
 
-    'RESTRICTING TEXTBOX FOR TOTAL COUNT FOR NEW CO-AUTHOR FIELDS
-    'FIELDS IS NOT ALLOWED TO BE BLANK, 0, GREATER THAN 50,
+    'RESTRICTING TEXTBOX FOR TOTAL COUNT FOR NEW CO-AUTHOR FIELDS | FIELDS ARE NOT ALLOWED TO BE BLANK, 0, GREATER THAN 50,
     Private Sub TxtAddAuthX_TextChanged(sender As Object, e As EventArgs) Handles TxtAddAuthX.TextChanged
         Dim field_count As String = TxtAddAuthX.Text.Trim
         If IsNumeric(field_count) Then
@@ -133,10 +136,10 @@ Public Class AddWorks
             MessageBox.Show("Invalid!")
             TxtAddAuthX.Text = "1"
         End If
-
     End Sub
+    '==============================END=====================================
 
-    'ONGOING OR COMPLETED EVENT HANDLES. SHOW OR HIDE 4 CHECKBOXES PANEL
+    'ONGOING OR COMPLETED EVENT HANDLES SHOW / HIDE 4 CHECKBOXES PANEL
     Private Sub RdStatCmpltd_MouseClick(sender As Object, e As MouseEventArgs) Handles RdStatCmpltd.MouseClick
         If RdStatCmpltd.Checked = True Then
             PnlStatCmpltd.Visible = True
@@ -150,7 +153,6 @@ Public Class AddWorks
         CbxDgiSbmttd.Checked = False
         CbxRgaEfSbmttd.Checked = False
     End Sub
-    '===================================================================
 
     'SHOWING AND HIDING THEIR DATE PICKER ONCE CHECKED OR UNCHECKED
     Private Sub CbxSftCpySbmttd_CheckedChanged(sender As Object, e As EventArgs) Handles CbxSftCpySbmttd.CheckedChanged
@@ -188,7 +190,7 @@ Public Class AddWorks
         End If
         ShowPrintThesisClearance()
     End Sub
-    '============================================================
+    '==============================END=====================================
 
     'SHOW THESIS CLEARANCE BUTTON WHEN 4 OF CHECKBOX CONDITION IS CHECKED
     Public Sub ShowPrintThesisClearance()
@@ -200,6 +202,7 @@ Public Class AddWorks
             BtnThssClrnc.BackColor = Color.LightGray
         End If
     End Sub
+    '==============================END=====================================
 
     'RADIO BUTTON PUBLISHED AND PRESENTED , HIDING AND SHOWING OF UI
     Private Sub RdBtnPub_MouseClick(sender As Object, e As MouseEventArgs) Handles RdBtnPub.MouseClick
@@ -225,38 +228,97 @@ Public Class AddWorks
             PnlPresented.Height = 0
         End If
     End Sub
-    '====================================================================
+    '===============================END=====================================
+
+    '|||||||||||||||||||||||||||||||||| END OF UI RESPONSE OR FUNCTIONALITES ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+
+
+
+    '|||||||||||||||||||||||||||||||||| BEGINNING CODES BELOW ARE FOR MAIN FUNCTIONALITIES ||||||||||||||||||||||||||||||||||||||||||||
 
     'FUNCTIONS WHEN ADDWORKS FORM IS LOAD
     Private Sub AddWorks_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ConOpen() 'trying to connect to database to determine if connection is ready
+
+        'trying to connect to database to determine if connection is ready
+        Try
+            ConOpen()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Error")
+        Finally
+            con.Close()
+        End Try
 
         'generate 6 fields for new co-author
         TxtAddAuthX.Text = "6"
         BtnAddNewCoAuthor.PerformClick()
+        GenerateControlNumber()
     End Sub
+    '===============================END=====================================
+
+    'GENERATING UNIQUE CONTROL NUMBER THAT WILL BE ASSIGNED TO RESEARCH RECORDS and CHECKING ITS UNIQUENESS
+    Dim control_number As Integer
+    Dim initial_cntrl_nmbr As Long
+    Dim date_time As DateTime = DateTime.Now
+    Dim current_year As Integer = date_time.Year
+
+    Private Sub GenerateControlNumber()
+        Dim rnd As New Random()
+        initial_cntrl_nmbr = rnd.Next(100000, 999999)
+        IsControlNumberUnique()
+    End Sub
+
+    Private Sub IsControlNumberUnique()
+        con.Close()
+
+        Try
+            con.Open()
+            Dim query As String = "SELECT abstract_id FROM sw_abstract WHERE abstract_id=@id"
+            Using cmd As New MySqlCommand(query, con)
+                cmd.Parameters.AddWithValue("@id", initial_cntrl_nmbr)
+                Dim count As Integer = Convert.ToInt32(cmd.ExecuteScalar())
+                If count > 0 Then
+                    GenerateControlNumber()
+                Else
+                    control_number = initial_cntrl_nmbr
+                    TxtResearchID.Text = current_year & control_number
+                End If
+            End Using
+
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Failed to check the uniqueness of generated number")
+        End Try
+    End Sub
+    '===============================END=====================================
 
 
     'OPENING FILE DIALOG TO LET USER FIND AND SELECT THE PDF OR WORD FILES
     Dim abstract_file_path As String
     Dim abstract_file_data As Byte()
-
+    Dim abstract_file_extension As String
     Private Sub BtnBrowseAbstractFile_Click(sender As Object, e As EventArgs) Handles BtnBrowseAbstractFile.Click
         Dim openFileDialog As New OpenFileDialog With {
-        .Filter = "All Files (*.*)|*.*|PDF Files (*.pdf)|*.pdf|Word Documents (*.docx)|*.docx",
+        .Filter = "PDF Files (*.pdf)|*.pdf|Word Documents (*.docx)|*.docx",
         .InitialDirectory = "C:\"
         }
 
         If openFileDialog.ShowDialog() = DialogResult.OK Then
             abstract_file_path = openFileDialog.FileName
             abstract_file_data = File.ReadAllBytes(abstract_file_path)
+            abstract_file_extension = Path.GetExtension(abstract_file_path)
         End If
     End Sub
+    '==============================END=====================================
 
+
+    'CODES FOR SAVING/UPLOADING RESEARCH
     Private Sub BtnSaveResearch_Click(sender As Object, e As EventArgs) Handles BtnSaveResearch.Click
+        SaveSelectedFiles()
+    End Sub
 
+    'INSERTING PDF OR WORD FILES IN THA DATABASE
+    Private Sub SaveSelectedFiles()
         con.Close()
-
         Try
             con.Open()
 
@@ -264,10 +326,10 @@ Public Class AddWorks
                                  VALUES(@no, @id, @filename, @filedata, @filetype)"
             Using cmd As New MySqlCommand(query, con)
                 cmd.Parameters.AddWithValue("@no", 0)
-                cmd.Parameters.AddWithValue("@id", 123)
+                cmd.Parameters.AddWithValue("@id", TxtResearchID.Text)
                 cmd.Parameters.AddWithValue("@filename", Path.GetFileName(abstract_file_path))
                 cmd.Parameters.AddWithValue("@filedata", abstract_file_data)
-                cmd.Parameters.AddWithValue("@filetype", ".pdf")
+                cmd.Parameters.AddWithValue("@filetype", abstract_file_extension)
                 cmd.ExecuteNonQuery()
             End Using
 
@@ -278,15 +340,11 @@ Public Class AddWorks
             MessageBox.Show(ex.Message)
             con.Close()
         End Try
-
     End Sub
+    '==============================END=====================================
 
 
-
-
-    '=====================================
-    'previewing pdf / word file
-
+    'RETRIEVING FILES IN DATABASE AND OPENING IT IN PDF OR WORD
     Private Sub PreviewFileButton_Click(sender As Object, e As EventArgs) Handles PreviewFileButton.Click
         Dim pdfByteArray As Byte() = RetrievePdfFile()
 
@@ -306,17 +364,14 @@ Public Class AddWorks
                 MessageBox.Show("Failed to open PDF file. Error: " & ex.Message)
                 Console.WriteLine(ex.Message)
             End Try
-
         End If
     End Sub
 
     Function RetrievePdfFile() As Byte()
         Dim pdfByteArray As Byte() = Nothing
         con.Close()
-
         Try
             con.Open()
-
             Dim query As String = "SELECT file_data FROM sw_abstract WHERE abstract_id=@abs_id"
             Using cmd As New MySqlCommand(query, con)
                 cmd.Parameters.AddWithValue("@abs_id", 1234)
@@ -327,19 +382,22 @@ Public Class AddWorks
                 End If
                 reader.Close()
             End Using
-
         Catch ex As Exception
             MessageBox.Show("Failed to retrieve PDF file from database. Error: " & ex.Message)
             Console.WriteLine(ex.Message)
         Finally
             con.Close()
         End Try
-
         Return pdfByteArray
     End Function
+    '==============================END=====================================
 
 
 
+
+
+
+    '|||||||||||||||||||||||||||||||||| END OF UI RESPONSE OR FUNCTIONALITES ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
 End Class
 
