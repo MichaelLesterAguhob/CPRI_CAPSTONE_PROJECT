@@ -1,8 +1,9 @@
 ﻿
-Imports System.Windows.Forms
 Imports System.IO
 Imports MySql.Data.MySqlClient
-Imports PdfiumViewer
+'Imports PdfiumViewer
+'Imports System.Runtime.InteropServices
+
 Public Class AddWorks
 
 
@@ -13,40 +14,45 @@ Public Class AddWorks
         auth_count += 1
 
         'CREATING LABEL ELEMENTS AND CONFIGURE ITS PROPERTIES
-        Dim lbl_auth As New Label()
-        lbl_auth.Text = "Co-Author " & auth_count.ToString & " :"
-        lbl_auth.AutoSize = True
-        lbl_auth.Font = New Font("Microsoft Sans Serif", 9.75, FontStyle.Regular)
+        Dim lbl_auth As New Label With {
+        .Text = "Co-Author " & auth_count.ToString & " :",
+        .AutoSize = True,
+        .Font = New Font("Microsoft Sans Serif", 9.75, FontStyle.Regular)
+        }
 
-        Dim lbl_auth_deg As New Label()
-        lbl_auth_deg.Text = "Degree Program :"
-        lbl_auth_deg.AutoSize = True
-        lbl_auth_deg.Font = New Font("Microsoft Sans Serif", 9.75, FontStyle.Regular)
+        Dim lbl_auth_deg As New Label With {
+        .Text = "Degree Program :",
+        .AutoSize = True,
+        .Font = New Font("Microsoft Sans Serif", 9.75, FontStyle.Regular)
+        }
 
-        Dim lbl_auth_role As New Label()
-        lbl_auth_role.Text = "Role :"
-        lbl_auth_role.AutoSize = True
-        lbl_auth_role.Font = New Font("Microsoft Sans Serif", 9.75, FontStyle.Regular)
-
+        Dim lbl_auth_role As New Label With {
+        .Text = "Role :",
+        .AutoSize = True,
+        .Font = New Font("Microsoft Sans Serif", 9.75, FontStyle.Regular)
+        }
 
         'CREATING TEXTBOX ELEMENTSD, CONFIGURE ITS PROPERTIES
-        Dim new_co_auth As New TextBox()
-        new_co_auth.Name = "CoAuthor" & auth_count
-        new_co_auth.Size = New System.Drawing.Size(379, 22)
-        new_co_auth.Font = New Font("Microsoft Sans Serif", 10, FontStyle.Regular)
-        new_co_auth.BackColor = Color.WhiteSmoke
+        Dim new_co_auth As New TextBox With {
+        .Name = "CoAuthor" & auth_count,
+        .Size = New System.Drawing.Size(379, 22),
+        .Font = New Font("Microsoft Sans Serif", 10, FontStyle.Regular),
+        .BackColor = Color.WhiteSmoke
+        }
 
-        Dim new_co_auth_deg As New TextBox()
-        new_co_auth_deg.Name = "CoAuthorDeg" & auth_count
-        new_co_auth_deg.Size = New System.Drawing.Size(424, 22)
-        new_co_auth_deg.Font = New Font("Microsoft Sans Serif", 10, FontStyle.Regular)
-        new_co_auth_deg.BackColor = Color.WhiteSmoke
+        Dim new_co_auth_deg As New TextBox With {
+        .Name = "CoAuthorDeg" & auth_count,
+        .Size = New System.Drawing.Size(424, 22),
+        .Font = New Font("Microsoft Sans Serif", 10, FontStyle.Regular),
+        .BackColor = Color.WhiteSmoke
+        }
 
-        Dim new_co_auth_role As New TextBox()
-        new_co_auth_role.Name = "CoAuthorRole" & auth_count
-        new_co_auth_role.Size = New System.Drawing.Size(160, 22)
-        new_co_auth_role.Font = New Font("Microsoft Sans Serif", 10, FontStyle.Regular)
-        new_co_auth_role.BackColor = Color.WhiteSmoke
+        Dim new_co_auth_role As New TextBox With {
+        .Name = "CoAuthorRole" & auth_count,
+        .Size = New System.Drawing.Size(160, 22),
+        .Font = New Font("Microsoft Sans Serif", 10, FontStyle.Regular),
+        .BackColor = Color.WhiteSmoke
+        }
 
 
         'SET THE LOCATION OF ELEMENTS
@@ -236,9 +242,10 @@ Public Class AddWorks
     Dim abstract_file_data As Byte()
 
     Private Sub BtnBrowseAbstractFile_Click(sender As Object, e As EventArgs) Handles BtnBrowseAbstractFile.Click
-        Dim openFileDialog As New OpenFileDialog()
-        openFileDialog.Filter = "All Files (*.*)|*.*|PDF Files (*.pdf)|*.pdf|Word Documents (*.docx)|*.docx"
-        openFileDialog.InitialDirectory = "C:\"
+        Dim openFileDialog As New OpenFileDialog With {
+        .Filter = "All Files (*.*)|*.*|PDF Files (*.pdf)|*.pdf|Word Documents (*.docx)|*.docx",
+        .InitialDirectory = "C:\"
+        }
 
         If openFileDialog.ShowDialog() = DialogResult.OK Then
             abstract_file_path = openFileDialog.FileName
@@ -260,7 +267,7 @@ Public Class AddWorks
                 cmd.Parameters.AddWithValue("@id", 123)
                 cmd.Parameters.AddWithValue("@filename", Path.GetFileName(abstract_file_path))
                 cmd.Parameters.AddWithValue("@filedata", abstract_file_data)
-                cmd.Parameters.AddWithValue("@filetype", "pdf")
+                cmd.Parameters.AddWithValue("@filetype", ".pdf")
                 cmd.ExecuteNonQuery()
             End Using
 
@@ -274,13 +281,67 @@ Public Class AddWorks
 
     End Sub
 
+
+
+
+    '=====================================
+    'previewing pdf / word file
+
     Private Sub PreviewFileButton_Click(sender As Object, e As EventArgs) Handles PreviewFileButton.Click
-        pdfId = 1234
+        Dim pdfByteArray As Byte() = RetrievePdfFile()
 
-        Dim pdf_viewer As New pdf_viewer
-        pdf_viewer.Show()
+        If pdfByteArray IsNot Nothing AndAlso pdfByteArray.Length > 0 Then
+            Dim tempFilePath As String = Path.GetTempFileName()
+            tempFilePath = Path.ChangeExtension(tempFilePath, ".pdf")
+            Try
+                File.WriteAllBytes(tempFilePath, pdfByteArray)
+                File.SetAttributes(tempFilePath, FileAttributes.ReadOnly)
+                If File.Exists(tempFilePath) Then
 
+                    Process.Start(tempFilePath)
+                Else
+                    MessageBox.Show("File not exists")
+                End If
+            Catch ex As Exception
+                MessageBox.Show("Failed to open PDF file. Error: " & ex.Message)
+                Console.WriteLine(ex.Message)
+            End Try
+
+        End If
     End Sub
+
+    Function RetrievePdfFile() As Byte()
+        Dim pdfByteArray As Byte() = Nothing
+        con.Close()
+
+        Try
+            con.Open()
+
+            Dim query As String = "SELECT file_data FROM sw_abstract WHERE abstract_id=@abs_id"
+            Using cmd As New MySqlCommand(query, con)
+                cmd.Parameters.AddWithValue("@abs_id", 1234)
+                Dim reader As MySqlDataReader = cmd.ExecuteReader()
+
+                If reader.Read() Then
+                    pdfByteArray = DirectCast(reader("file_data"), Byte())
+                End If
+                reader.Close()
+            End Using
+
+        Catch ex As Exception
+            MessageBox.Show("Failed to retrieve PDF file from database. Error: " & ex.Message)
+            Console.WriteLine(ex.Message)
+        Finally
+            con.Close()
+        End Try
+
+        Return pdfByteArray
+    End Function
+
+
 
 
 End Class
+
+
+
