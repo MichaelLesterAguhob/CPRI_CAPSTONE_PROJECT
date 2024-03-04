@@ -235,7 +235,7 @@ Public Class AddWorks
 
 
 
-    '|||||||||||||||||||||||||||||||||| BEGINNING CODES BELOW ARE FOR MAIN FUNCTIONALITIES ||||||||||||||||||||||||||||||||||||||||||||
+    '|||||||||||||||||||||||||||||||||| BEGINNING CODES FOR MAIN FUNCTIONALITIES ||||||||||||||||||||||||||||||||||||||||||||
 
     'FUNCTIONS WHEN ADDWORKS FORM IS LOAD
     Private Sub AddWorks_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -264,7 +264,7 @@ Public Class AddWorks
 
     Private Sub GenerateControlNumber()
         Dim rnd As New Random()
-        initial_cntrl_nmbr = rnd.Next(100000, 999999)
+        initial_cntrl_nmbr = rnd.Next(10000, 99999)
         IsControlNumberUnique()
     End Sub
 
@@ -281,12 +281,14 @@ Public Class AddWorks
                     GenerateControlNumber()
                 Else
                     control_number = initial_cntrl_nmbr
-                    TxtResearchID.Text = current_year & control_number
+                    TxtResearchID.Text = current_year.ToString & control_number.ToString
                 End If
             End Using
 
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Failed to check the uniqueness of generated number")
+        Finally
+            con.Close()
         End Try
     End Sub
     '===============================END=====================================
@@ -306,6 +308,7 @@ Public Class AddWorks
             abstract_file_path = openFileDialog.FileName
             abstract_file_data = File.ReadAllBytes(abstract_file_path)
             abstract_file_extension = Path.GetExtension(abstract_file_path)
+            TxtBrowsedFileAbs.Text = abstract_file_path.ToString
         End If
     End Sub
     '==============================END=====================================
@@ -313,31 +316,96 @@ Public Class AddWorks
 
     'CODES FOR SAVING/UPLOADING RESEARCH
     Private Sub BtnSaveResearch_Click(sender As Object, e As EventArgs) Handles BtnSaveResearch.Click
-        SaveSelectedFiles()
+
+        Dim control_no As Integer = Convert.ToInt64(TxtResearchID.Text)
+        Dim research_agenda As String = TxtRsrchAgenda.Text.Trim
+        Dim research_title As String = TxtRsrchTitle.Text.Trim
+        Dim author_name As String = TxtAuthorName.Text.Trim
+        Dim author_deg As String = TxtAthrDegprog.Text.Trim
+        Dim author_role As String = TxtAthrRole.Text.Trim
+        con.Close()
+
+        If control_no <> 0 And research_agenda <> "" And research_title <> "" And author_name <> "" And author_deg <> "" And author_role <> "" And abstract_file_path <> "" Then
+
+            Try
+                con.Open()
+                Dim query As String = "INSERT INTO `scholarly_works`(`no#`, `sw_id`, `title`, `research_agenda`, `date_completed`, `status_ongoing_completed`, `stat_completed_id`, `author_id`, `co-author_id`, `published`, `published_id`, `presented`, `presented_id`) VALUES (@no, @sw_id, @title, @research_agenda, @date_completed, @status_ongoing_completed, @stat_completed_id, @author_id, @co_author_id, @published, @published_id, @presented, @presented_id)"
+                Using cmd As New MySqlCommand(query, con)
+                    cmd.Parameters.AddWithValue("@no", Nothing)
+                    cmd.Parameters.AddWithValue("@sw_id", control_no)
+                    cmd.Parameters.AddWithValue("@title", research_title)
+                    cmd.Parameters.AddWithValue("@research_agenda", research_agenda)
+                    cmd.Parameters.AddWithValue("@date_completed", "sample==")
+                    cmd.Parameters.AddWithValue("@status_ongoing_completed", 0)
+                    cmd.Parameters.AddWithValue("@stat_completed_id", 0)
+                    cmd.Parameters.AddWithValue("@author_id", control_no)
+                    cmd.Parameters.AddWithValue("@co_author_id", 0)
+                    cmd.Parameters.AddWithValue("@published", "sample==")
+                    cmd.Parameters.AddWithValue("@published_id", 0)
+                    cmd.Parameters.AddWithValue("@presented", "sample==")
+                    cmd.Parameters.AddWithValue("@presented_id", 0)
+                    cmd.ExecuteNonQuery()
+                End Using
+
+                SaveAuthor()
+                SaveAbstractFiles()
+                MessageBox.Show("Successfully Saved")
+            Catch ex As Exception
+                MessageBox.Show(ex.Message, "Failed on Saving Research")
+            Finally
+                con.Close()
+            End Try
+
+        Else
+            MessageBox.Show("Complete fields before saving")
+        End If
+    End Sub
+
+    Private Sub SaveAuthor()
+        con.Close()
+        Dim author_id As Integer = Convert.ToInt64(TxtResearchID.Text)
+        Dim author_name As String = TxtAuthorName.Text.Trim
+        Dim author_deg As String = TxtAthrDegprog.Text.Trim
+        Dim author_role As String = TxtAthrRole.Text.Trim
+
+        Try
+            con.Open()
+            Dim query As String = "INSERT INTO `authors` (`no#`, `authors_id`, `authors_name`, `degree_program`, `role`) VALUES (@no, @auth_id, @auth_name, @deg_prog, @role)"
+            Using cmd As New MySqlCommand(query, con)
+                cmd.Parameters.AddWithValue("@no", Nothing)
+                cmd.Parameters.AddWithValue("@auth_id", author_id)
+                cmd.Parameters.AddWithValue("@auth_name", author_name)
+                cmd.Parameters.AddWithValue("@deg_prog", author_deg)
+                cmd.Parameters.AddWithValue("@role", author_role)
+                cmd.ExecuteNonQuery()
+            End Using
+            cmd.Parameters.Clear()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Failed on Saving Author")
+        Finally
+            con.Close()
+        End Try
     End Sub
 
     'INSERTING PDF OR WORD FILES IN THA DATABASE
-    Private Sub SaveSelectedFiles()
+    Private Sub SaveAbstractFiles()
         con.Close()
+        Dim abstract_id As Integer = Convert.ToInt64(TxtResearchID.Text)
         Try
             con.Open()
-
             Dim query As String = "INSERT INTO `sw_abstract` (`no#`, `abstract_id`, `file_name`, `file_data`, `file_type`) 
                                  VALUES(@no, @id, @filename, @filedata, @filetype)"
             Using cmd As New MySqlCommand(query, con)
-                cmd.Parameters.AddWithValue("@no", 0)
-                cmd.Parameters.AddWithValue("@id", TxtResearchID.Text)
+                cmd.Parameters.AddWithValue("@no", Nothing)
+                cmd.Parameters.AddWithValue("@id", abstract_id)
                 cmd.Parameters.AddWithValue("@filename", Path.GetFileName(abstract_file_path))
                 cmd.Parameters.AddWithValue("@filedata", abstract_file_data)
                 cmd.Parameters.AddWithValue("@filetype", abstract_file_extension)
                 cmd.ExecuteNonQuery()
             End Using
-
-            MessageBox.Show("File saved to database successfully.")
             cmd.Parameters.Clear()
-            con.Close()
         Catch ex As Exception
-            MessageBox.Show(ex.Message)
+            MessageBox.Show(ex.Message, "Failed on Saving Abstract File", MessageBoxButtons.OK, MessageBoxIcon.Error)
             con.Close()
         End Try
     End Sub
@@ -361,7 +429,7 @@ Public Class AddWorks
                     MessageBox.Show("File not exists")
                 End If
             Catch ex As Exception
-                MessageBox.Show("Failed to open PDF file. Error: " & ex.Message)
+                MessageBox.Show(ex.Message, "Failed to open PDF file", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Console.WriteLine(ex.Message)
             End Try
         End If

@@ -40,7 +40,6 @@ Partial Class AddWorks
         Me.PnlTxtCont = New System.Windows.Forms.Panel()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Label19 = New System.Windows.Forms.Label()
-        Me.BtnBrowseWholeFile = New System.Windows.Forms.Button()
         Me.PnlPresented = New System.Windows.Forms.Panel()
         Me.Panel7 = New System.Windows.Forms.Panel()
         Me.TxtPreDate = New System.Windows.Forms.DateTimePicker()
@@ -94,7 +93,6 @@ Partial Class AddWorks
         Me.DtSftCpySbmttdDate = New System.Windows.Forms.DateTimePicker()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.DtDateCompltd = New System.Windows.Forms.DateTimePicker()
-        Me.BtnBrowseAbstractFile = New System.Windows.Forms.Button()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.RdStatCmpltd = New System.Windows.Forms.RadioButton()
@@ -104,10 +102,14 @@ Partial Class AddWorks
         Me.BtnCancel = New System.Windows.Forms.Button()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.PreviewFileButton = New System.Windows.Forms.Button()
+        Me.TxtResearchID = New System.Windows.Forms.TextBox()
         Me.BtnMinusToFieldsCnt = New System.Windows.Forms.Button()
         Me.BtnAddToFieldsCnt = New System.Windows.Forms.Button()
         Me.BtnAddNewCoAuthor = New System.Windows.Forms.Button()
-        Me.TxtResearchID = New System.Windows.Forms.TextBox()
+        Me.BtnBrowseWholeFile = New System.Windows.Forms.Button()
+        Me.BtnBrowseAbstractFile = New System.Windows.Forms.Button()
+        Me.TxtBrowsedFileAbs = New System.Windows.Forms.TextBox()
+        Me.TxtBrowsedFileWhl = New System.Windows.Forms.TextBox()
         Me.PnlTxtCont.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.PnlPresented.SuspendLayout()
@@ -298,6 +300,8 @@ Partial Class AddWorks
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.TxtBrowsedFileWhl)
+        Me.GroupBox1.Controls.Add(Me.TxtBrowsedFileAbs)
         Me.GroupBox1.Controls.Add(Me.Label19)
         Me.GroupBox1.Controls.Add(Me.BtnBrowseWholeFile)
         Me.GroupBox1.Controls.Add(Me.PnlPresented)
@@ -322,26 +326,11 @@ Partial Class AddWorks
         Me.Label19.AutoSize = True
         Me.Label19.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label19.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label19.Location = New System.Drawing.Point(27, 16)
+        Me.Label19.Location = New System.Drawing.Point(28, 20)
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(84, 16)
         Me.Label19.TabIndex = 72
         Me.Label19.Text = "Upload File :"
-        '
-        'BtnBrowseWholeFile
-        '
-        Me.BtnBrowseWholeFile.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.BtnBrowseWholeFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnBrowseWholeFile.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnBrowseWholeFile.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.BtnBrowseWholeFile.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_browse_20
-        Me.BtnBrowseWholeFile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnBrowseWholeFile.Location = New System.Drawing.Point(117, 12)
-        Me.BtnBrowseWholeFile.Name = "BtnBrowseWholeFile"
-        Me.BtnBrowseWholeFile.Size = New System.Drawing.Size(97, 25)
-        Me.BtnBrowseWholeFile.TabIndex = 71
-        Me.BtnBrowseWholeFile.Text = "Browse"
-        Me.BtnBrowseWholeFile.UseVisualStyleBackColor = False
         '
         'PnlPresented
         '
@@ -765,7 +754,7 @@ Partial Class AddWorks
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label11.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label11.Location = New System.Drawing.Point(2, 48)
+        Me.Label11.Location = New System.Drawing.Point(3, 49)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(111, 16)
         Me.Label11.TabIndex = 68
@@ -954,21 +943,6 @@ Partial Class AddWorks
         Me.DtDateCompltd.Size = New System.Drawing.Size(101, 20)
         Me.DtDateCompltd.TabIndex = 61
         '
-        'BtnBrowseAbstractFile
-        '
-        Me.BtnBrowseAbstractFile.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.BtnBrowseAbstractFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnBrowseAbstractFile.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnBrowseAbstractFile.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.BtnBrowseAbstractFile.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_browse_20
-        Me.BtnBrowseAbstractFile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnBrowseAbstractFile.Location = New System.Drawing.Point(117, 44)
-        Me.BtnBrowseAbstractFile.Name = "BtnBrowseAbstractFile"
-        Me.BtnBrowseAbstractFile.Size = New System.Drawing.Size(97, 25)
-        Me.BtnBrowseAbstractFile.TabIndex = 60
-        Me.BtnBrowseAbstractFile.Text = "Browse"
-        Me.BtnBrowseAbstractFile.UseVisualStyleBackColor = False
-        '
         'Label9
         '
         Me.Label9.AutoSize = True
@@ -1067,6 +1041,17 @@ Partial Class AddWorks
         Me.PreviewFileButton.Text = "Preview"
         Me.PreviewFileButton.UseVisualStyleBackColor = False
         '
+        'TxtResearchID
+        '
+        Me.TxtResearchID.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.TxtResearchID.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtResearchID.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.TxtResearchID.Location = New System.Drawing.Point(142, 42)
+        Me.TxtResearchID.Name = "TxtResearchID"
+        Me.TxtResearchID.ReadOnly = True
+        Me.TxtResearchID.Size = New System.Drawing.Size(200, 22)
+        Me.TxtResearchID.TabIndex = 64
+        '
         'BtnMinusToFieldsCnt
         '
         Me.BtnMinusToFieldsCnt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
@@ -1107,16 +1092,59 @@ Partial Class AddWorks
         Me.BtnAddNewCoAuthor.TextAlign = System.Drawing.ContentAlignment.TopRight
         Me.BtnAddNewCoAuthor.UseVisualStyleBackColor = False
         '
-        'TxtResearchID
+        'BtnBrowseWholeFile
         '
-        Me.TxtResearchID.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.TxtResearchID.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtResearchID.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.TxtResearchID.Location = New System.Drawing.Point(142, 42)
-        Me.TxtResearchID.Name = "TxtResearchID"
-        Me.TxtResearchID.ReadOnly = True
-        Me.TxtResearchID.Size = New System.Drawing.Size(200, 22)
-        Me.TxtResearchID.TabIndex = 64
+        Me.BtnBrowseWholeFile.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnBrowseWholeFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnBrowseWholeFile.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnBrowseWholeFile.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.BtnBrowseWholeFile.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_browse_18
+        Me.BtnBrowseWholeFile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnBrowseWholeFile.Location = New System.Drawing.Point(272, 17)
+        Me.BtnBrowseWholeFile.Name = "BtnBrowseWholeFile"
+        Me.BtnBrowseWholeFile.Size = New System.Drawing.Size(65, 21)
+        Me.BtnBrowseWholeFile.TabIndex = 71
+        Me.BtnBrowseWholeFile.Text = "Browse"
+        Me.BtnBrowseWholeFile.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.BtnBrowseWholeFile.UseVisualStyleBackColor = False
+        '
+        'BtnBrowseAbstractFile
+        '
+        Me.BtnBrowseAbstractFile.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnBrowseAbstractFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnBrowseAbstractFile.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnBrowseAbstractFile.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.BtnBrowseAbstractFile.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_browse_18
+        Me.BtnBrowseAbstractFile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnBrowseAbstractFile.Location = New System.Drawing.Point(272, 48)
+        Me.BtnBrowseAbstractFile.Name = "BtnBrowseAbstractFile"
+        Me.BtnBrowseAbstractFile.Size = New System.Drawing.Size(65, 21)
+        Me.BtnBrowseAbstractFile.TabIndex = 60
+        Me.BtnBrowseAbstractFile.Text = "Browse"
+        Me.BtnBrowseAbstractFile.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.BtnBrowseAbstractFile.UseVisualStyleBackColor = False
+        '
+        'TxtBrowsedFileAbs
+        '
+        Me.TxtBrowsedFileAbs.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.TxtBrowsedFileAbs.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtBrowsedFileAbs.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.TxtBrowsedFileAbs.Location = New System.Drawing.Point(117, 48)
+        Me.TxtBrowsedFileAbs.Name = "TxtBrowsedFileAbs"
+        Me.TxtBrowsedFileAbs.ReadOnly = True
+        Me.TxtBrowsedFileAbs.Size = New System.Drawing.Size(149, 21)
+        Me.TxtBrowsedFileAbs.TabIndex = 65
+        '
+        'TxtBrowsedFileWhl
+        '
+        Me.TxtBrowsedFileWhl.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.TxtBrowsedFileWhl.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtBrowsedFileWhl.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.TxtBrowsedFileWhl.Location = New System.Drawing.Point(118, 17)
+        Me.TxtBrowsedFileWhl.Name = "TxtBrowsedFileWhl"
+        Me.TxtBrowsedFileWhl.ReadOnly = True
+        Me.TxtBrowsedFileWhl.Size = New System.Drawing.Size(149, 21)
+        Me.TxtBrowsedFileWhl.TabIndex = 73
         '
         'AddWorks
         '
@@ -1268,4 +1296,6 @@ Partial Class AddWorks
     Friend WithEvents PreviewFileButton As Button
     Friend WithEvents RdPreLevelLoc As RadioButton
     Friend WithEvents TxtResearchID As TextBox
+    Friend WithEvents TxtBrowsedFileWhl As TextBox
+    Friend WithEvents TxtBrowsedFileAbs As TextBox
 End Class
