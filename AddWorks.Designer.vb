@@ -45,7 +45,7 @@ Partial Class AddWorks
         Me.BtnBrowseWholeFile = New System.Windows.Forms.Button()
         Me.PnlPresented = New System.Windows.Forms.Panel()
         Me.Panel7 = New System.Windows.Forms.Panel()
-        Me.TxtPreDate = New System.Windows.Forms.DateTimePicker()
+        Me.DtPrsntdDate = New System.Windows.Forms.DateTimePicker()
         Me.TxtPrePlace = New System.Windows.Forms.TextBox()
         Me.TxtPreResConfName = New System.Windows.Forms.TextBox()
         Me.Panel8 = New System.Windows.Forms.Panel()
@@ -83,6 +83,7 @@ Partial Class AddWorks
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.RdBtnPresented = New System.Windows.Forms.RadioButton()
         Me.RdBtnPub = New System.Windows.Forms.RadioButton()
+        Me.BtnCancelSelection = New System.Windows.Forms.Button()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.PnlStatCmpltd = New System.Windows.Forms.Panel()
         Me.BtnThssClrnc = New System.Windows.Forms.Button()
@@ -112,6 +113,7 @@ Partial Class AddWorks
         Me.BtnAddToFieldsCnt = New System.Windows.Forms.Button()
         Me.BtnAddNewCoAuthor = New System.Windows.Forms.Button()
         Me.ProgressBar1 = New System.Windows.Forms.ProgressBar()
+        Me.Label20 = New System.Windows.Forms.Label()
         Me.PnlTxtCont.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.PnlPresented.SuspendLayout()
@@ -175,7 +177,7 @@ Partial Class AddWorks
         Me.TxtAuthorName.BackColor = System.Drawing.Color.WhiteSmoke
         Me.TxtAuthorName.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtAuthorName.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.TxtAuthorName.Location = New System.Drawing.Point(142, 165)
+        Me.TxtAuthorName.Location = New System.Drawing.Point(142, 139)
         Me.TxtAuthorName.Name = "TxtAuthorName"
         Me.TxtAuthorName.Size = New System.Drawing.Size(379, 22)
         Me.TxtAuthorName.TabIndex = 6
@@ -185,7 +187,7 @@ Partial Class AddWorks
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label4.Location = New System.Drawing.Point(84, 168)
+        Me.Label4.Location = New System.Drawing.Point(84, 142)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(52, 16)
         Me.Label4.TabIndex = 5
@@ -196,7 +198,7 @@ Partial Class AddWorks
         Me.TxtAthrDegprog.BackColor = System.Drawing.Color.WhiteSmoke
         Me.TxtAthrDegprog.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtAthrDegprog.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.TxtAthrDegprog.Location = New System.Drawing.Point(648, 165)
+        Me.TxtAthrDegprog.Location = New System.Drawing.Point(648, 139)
         Me.TxtAthrDegprog.Name = "TxtAthrDegprog"
         Me.TxtAthrDegprog.Size = New System.Drawing.Size(424, 22)
         Me.TxtAthrDegprog.TabIndex = 8
@@ -206,7 +208,7 @@ Partial Class AddWorks
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label5.Location = New System.Drawing.Point(527, 168)
+        Me.Label5.Location = New System.Drawing.Point(527, 142)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(115, 16)
         Me.Label5.TabIndex = 7
@@ -217,7 +219,7 @@ Partial Class AddWorks
         Me.TxtAthrRole.BackColor = System.Drawing.Color.WhiteSmoke
         Me.TxtAthrRole.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtAthrRole.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.TxtAthrRole.Location = New System.Drawing.Point(1127, 165)
+        Me.TxtAthrRole.Location = New System.Drawing.Point(1127, 139)
         Me.TxtAthrRole.Name = "TxtAthrRole"
         Me.TxtAthrRole.Size = New System.Drawing.Size(160, 22)
         Me.TxtAthrRole.TabIndex = 10
@@ -227,7 +229,7 @@ Partial Class AddWorks
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label6.Location = New System.Drawing.Point(1078, 168)
+        Me.Label6.Location = New System.Drawing.Point(1078, 142)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(43, 16)
         Me.Label6.TabIndex = 9
@@ -252,7 +254,7 @@ Partial Class AddWorks
         Me.TxtAddAuthX.BackColor = System.Drawing.SystemColors.Window
         Me.TxtAddAuthX.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtAddAuthX.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.TxtAddAuthX.Location = New System.Drawing.Point(280, 139)
+        Me.TxtAddAuthX.Location = New System.Drawing.Point(280, 172)
         Me.TxtAddAuthX.Name = "TxtAddAuthX"
         Me.TxtAddAuthX.Size = New System.Drawing.Size(32, 20)
         Me.TxtAddAuthX.TabIndex = 31
@@ -262,7 +264,7 @@ Partial Class AddWorks
         '
         Me.LblTotalFields.AutoSize = True
         Me.LblTotalFields.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.LblTotalFields.Location = New System.Drawing.Point(430, 144)
+        Me.LblTotalFields.Location = New System.Drawing.Point(430, 177)
         Me.LblTotalFields.Name = "LblTotalFields"
         Me.LblTotalFields.Size = New System.Drawing.Size(13, 13)
         Me.LblTotalFields.TabIndex = 34
@@ -272,7 +274,7 @@ Partial Class AddWorks
         '
         Me.Label7.AutoSize = True
         Me.Label7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label7.Location = New System.Drawing.Point(348, 143)
+        Me.Label7.Location = New System.Drawing.Point(348, 176)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(79, 13)
         Me.Label7.TabIndex = 35
@@ -332,8 +334,9 @@ Partial Class AddWorks
         Me.TxtBrowsedFileWhl.Location = New System.Drawing.Point(118, 17)
         Me.TxtBrowsedFileWhl.Name = "TxtBrowsedFileWhl"
         Me.TxtBrowsedFileWhl.ReadOnly = True
-        Me.TxtBrowsedFileWhl.Size = New System.Drawing.Size(149, 21)
+        Me.TxtBrowsedFileWhl.Size = New System.Drawing.Size(139, 21)
         Me.TxtBrowsedFileWhl.TabIndex = 73
+        Me.TxtBrowsedFileWhl.Text = "No Selected File"
         '
         'TxtBrowsedFileAbs
         '
@@ -343,8 +346,9 @@ Partial Class AddWorks
         Me.TxtBrowsedFileAbs.Location = New System.Drawing.Point(117, 48)
         Me.TxtBrowsedFileAbs.Name = "TxtBrowsedFileAbs"
         Me.TxtBrowsedFileAbs.ReadOnly = True
-        Me.TxtBrowsedFileAbs.Size = New System.Drawing.Size(149, 21)
+        Me.TxtBrowsedFileAbs.Size = New System.Drawing.Size(139, 21)
         Me.TxtBrowsedFileAbs.TabIndex = 65
+        Me.TxtBrowsedFileAbs.Text = "No Selected File"
         '
         'Label19
         '
@@ -365,7 +369,7 @@ Partial Class AddWorks
         Me.BtnBrowseWholeFile.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.BtnBrowseWholeFile.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_browse_18
         Me.BtnBrowseWholeFile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnBrowseWholeFile.Location = New System.Drawing.Point(272, 17)
+        Me.BtnBrowseWholeFile.Location = New System.Drawing.Point(262, 17)
         Me.BtnBrowseWholeFile.Name = "BtnBrowseWholeFile"
         Me.BtnBrowseWholeFile.Size = New System.Drawing.Size(65, 21)
         Me.BtnBrowseWholeFile.TabIndex = 71
@@ -383,13 +387,13 @@ Partial Class AddWorks
         Me.PnlPresented.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.PnlPresented.Location = New System.Drawing.Point(344, 50)
         Me.PnlPresented.Name = "PnlPresented"
-        Me.PnlPresented.Size = New System.Drawing.Size(918, 0)
+        Me.PnlPresented.Size = New System.Drawing.Size(918, 230)
         Me.PnlPresented.TabIndex = 70
         '
         'Panel7
         '
         Me.Panel7.BackColor = System.Drawing.Color.Transparent
-        Me.Panel7.Controls.Add(Me.TxtPreDate)
+        Me.Panel7.Controls.Add(Me.DtPrsntdDate)
         Me.Panel7.Controls.Add(Me.TxtPrePlace)
         Me.Panel7.Controls.Add(Me.TxtPreResConfName)
         Me.Panel7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
@@ -398,15 +402,15 @@ Partial Class AddWorks
         Me.Panel7.Size = New System.Drawing.Size(783, 49)
         Me.Panel7.TabIndex = 47
         '
-        'TxtPreDate
+        'DtPrsntdDate
         '
-        Me.TxtPreDate.CalendarMonthBackground = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.TxtPreDate.CalendarTitleBackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.TxtPreDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.TxtPreDate.Location = New System.Drawing.Point(315, 12)
-        Me.TxtPreDate.Name = "TxtPreDate"
-        Me.TxtPreDate.Size = New System.Drawing.Size(159, 20)
-        Me.TxtPreDate.TabIndex = 48
+        Me.DtPrsntdDate.CalendarMonthBackground = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.DtPrsntdDate.CalendarTitleBackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.DtPrsntdDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.DtPrsntdDate.Location = New System.Drawing.Point(315, 12)
+        Me.DtPrsntdDate.Name = "DtPrsntdDate"
+        Me.DtPrsntdDate.Size = New System.Drawing.Size(159, 20)
+        Me.DtPrsntdDate.TabIndex = 48
         '
         'TxtPrePlace
         '
@@ -557,7 +561,7 @@ Partial Class AddWorks
         Me.PnlPublished.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.PnlPublished.Location = New System.Drawing.Point(343, 50)
         Me.PnlPublished.Name = "PnlPublished"
-        Me.PnlPublished.Size = New System.Drawing.Size(979, 230)
+        Me.PnlPublished.Size = New System.Drawing.Size(979, 0)
         Me.PnlPublished.TabIndex = 69
         '
         'Panel5
@@ -805,10 +809,11 @@ Partial Class AddWorks
         '
         Me.Panel3.Controls.Add(Me.RdBtnPresented)
         Me.Panel3.Controls.Add(Me.RdBtnPub)
+        Me.Panel3.Controls.Add(Me.BtnCancelSelection)
         Me.Panel3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Panel3.Location = New System.Drawing.Point(492, 11)
+        Me.Panel3.Location = New System.Drawing.Point(492, 18)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(205, 21)
+        Me.Panel3.Size = New System.Drawing.Size(350, 21)
         Me.Panel3.TabIndex = 64
         '
         'RdBtnPresented
@@ -833,12 +838,28 @@ Partial Class AddWorks
         Me.RdBtnPub.Text = "Is Publised?"
         Me.RdBtnPub.UseVisualStyleBackColor = True
         '
+        'BtnCancelSelection
+        '
+        Me.BtnCancelSelection.FlatAppearance.BorderSize = 0
+        Me.BtnCancelSelection.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.BtnCancelSelection.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.BtnCancelSelection.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnCancelSelection.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.7!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnCancelSelection.ForeColor = System.Drawing.Color.DarkGoldenrod
+        Me.BtnCancelSelection.Location = New System.Drawing.Point(198, 2)
+        Me.BtnCancelSelection.Name = "BtnCancelSelection"
+        Me.BtnCancelSelection.Size = New System.Drawing.Size(119, 18)
+        Me.BtnCancelSelection.TabIndex = 2
+        Me.BtnCancelSelection.Text = "Cancel Selection"
+        Me.BtnCancelSelection.UseVisualStyleBackColor = True
+        Me.BtnCancelSelection.Visible = False
+        '
         'Label10
         '
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label10.Location = New System.Drawing.Point(344, 13)
+        Me.Label10.Location = New System.Drawing.Point(344, 20)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(142, 16)
         Me.Label10.TabIndex = 67
@@ -992,7 +1013,7 @@ Partial Class AddWorks
         Me.BtnBrowseAbstractFile.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.BtnBrowseAbstractFile.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_browse_18
         Me.BtnBrowseAbstractFile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnBrowseAbstractFile.Location = New System.Drawing.Point(272, 48)
+        Me.BtnBrowseAbstractFile.Location = New System.Drawing.Point(262, 48)
         Me.BtnBrowseAbstractFile.Name = "BtnBrowseAbstractFile"
         Me.BtnBrowseAbstractFile.Size = New System.Drawing.Size(65, 21)
         Me.BtnBrowseAbstractFile.TabIndex = 60
@@ -1051,7 +1072,6 @@ Partial Class AddWorks
         Me.GroupBox2.Size = New System.Drawing.Size(1327, 228)
         Me.GroupBox2.TabIndex = 61
         Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "Authorship"
         '
         'BtnRemoveField
         '
@@ -1061,7 +1081,7 @@ Partial Class AddWorks
         Me.BtnRemoveField.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.BtnRemoveField.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_x_10
         Me.BtnRemoveField.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.BtnRemoveField.Location = New System.Drawing.Point(434, 14)
+        Me.BtnRemoveField.Location = New System.Drawing.Point(434, 47)
         Me.BtnRemoveField.Name = "BtnRemoveField"
         Me.BtnRemoveField.Size = New System.Drawing.Size(104, 20)
         Me.BtnRemoveField.TabIndex = 65
@@ -1117,13 +1137,15 @@ Partial Class AddWorks
         '
         'TxtResearchID
         '
-        Me.TxtResearchID.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.TxtResearchID.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.TxtResearchID.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TxtResearchID.Enabled = False
         Me.TxtResearchID.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtResearchID.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.TxtResearchID.Location = New System.Drawing.Point(142, 42)
+        Me.TxtResearchID.Location = New System.Drawing.Point(142, 48)
         Me.TxtResearchID.Name = "TxtResearchID"
         Me.TxtResearchID.ReadOnly = True
-        Me.TxtResearchID.Size = New System.Drawing.Size(200, 22)
+        Me.TxtResearchID.Size = New System.Drawing.Size(130, 15)
         Me.TxtResearchID.TabIndex = 64
         '
         'BtnMinusToFieldsCnt
@@ -1132,7 +1154,7 @@ Partial Class AddWorks
         Me.BtnMinusToFieldsCnt.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnMinusToFieldsCnt.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.BtnMinusToFieldsCnt.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_minus_13
-        Me.BtnMinusToFieldsCnt.Location = New System.Drawing.Point(257, 141)
+        Me.BtnMinusToFieldsCnt.Location = New System.Drawing.Point(257, 174)
         Me.BtnMinusToFieldsCnt.Name = "BtnMinusToFieldsCnt"
         Me.BtnMinusToFieldsCnt.Size = New System.Drawing.Size(16, 16)
         Me.BtnMinusToFieldsCnt.TabIndex = 33
@@ -1144,7 +1166,7 @@ Partial Class AddWorks
         Me.BtnAddToFieldsCnt.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnAddToFieldsCnt.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.BtnAddToFieldsCnt.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_add_131
-        Me.BtnAddToFieldsCnt.Location = New System.Drawing.Point(317, 141)
+        Me.BtnAddToFieldsCnt.Location = New System.Drawing.Point(317, 174)
         Me.BtnAddToFieldsCnt.Name = "BtnAddToFieldsCnt"
         Me.BtnAddToFieldsCnt.Size = New System.Drawing.Size(16, 16)
         Me.BtnAddToFieldsCnt.TabIndex = 32
@@ -1158,7 +1180,7 @@ Partial Class AddWorks
         Me.BtnAddNewCoAuthor.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.BtnAddNewCoAuthor.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_add_141
         Me.BtnAddNewCoAuthor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnAddNewCoAuthor.Location = New System.Drawing.Point(142, 138)
+        Me.BtnAddNewCoAuthor.Location = New System.Drawing.Point(142, 171)
         Me.BtnAddNewCoAuthor.Name = "BtnAddNewCoAuthor"
         Me.BtnAddNewCoAuthor.Size = New System.Drawing.Size(101, 21)
         Me.BtnAddNewCoAuthor.TabIndex = 29
@@ -1174,24 +1196,36 @@ Partial Class AddWorks
         Me.ProgressBar1.TabIndex = 0
         Me.ProgressBar1.Visible = False
         '
+        'Label20
+        '
+        Me.Label20.AutoSize = True
+        Me.Label20.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label20.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label20.Location = New System.Drawing.Point(49, 48)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(80, 16)
+        Me.Label20.TabIndex = 65
+        Me.Label20.Text = "Control No. :"
+        '
         'AddWorks
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.ClientSize = New System.Drawing.Size(1350, 695)
-        Me.Controls.Add(Me.ProgressBar1)
-        Me.Controls.Add(Me.TxtResearchID)
-        Me.Controls.Add(Me.PreviewFileButton)
-        Me.Controls.Add(Me.BtnCancel)
-        Me.Controls.Add(Me.BtnSaveResearch)
+        Me.Controls.Add(Me.Label20)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.LblTotalFields)
         Me.Controls.Add(Me.BtnMinusToFieldsCnt)
         Me.Controls.Add(Me.BtnAddToFieldsCnt)
         Me.Controls.Add(Me.TxtAddAuthX)
-        Me.Controls.Add(Me.PnlTxtCont)
         Me.Controls.Add(Me.BtnAddNewCoAuthor)
+        Me.Controls.Add(Me.ProgressBar1)
+        Me.Controls.Add(Me.TxtResearchID)
+        Me.Controls.Add(Me.PreviewFileButton)
+        Me.Controls.Add(Me.BtnCancel)
+        Me.Controls.Add(Me.BtnSaveResearch)
+        Me.Controls.Add(Me.PnlTxtCont)
         Me.Controls.Add(Me.TxtAthrRole)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.TxtAthrDegprog)
@@ -1266,7 +1300,7 @@ Partial Class AddWorks
     Friend WithEvents BtnBrowseWholeFile As Button
     Friend WithEvents PnlPresented As Panel
     Friend WithEvents Panel7 As Panel
-    Friend WithEvents TxtPreDate As DateTimePicker
+    Friend WithEvents DtPrsntdDate As DateTimePicker
     Friend WithEvents TxtPrePlace As TextBox
     Friend WithEvents TxtPreResConfName As TextBox
     Friend WithEvents Panel8 As Panel
@@ -1330,4 +1364,6 @@ Partial Class AddWorks
     Friend WithEvents TxtBrowsedFileAbs As TextBox
     Friend WithEvents BtnRemoveField As Button
     Friend WithEvents ProgressBar1 As ProgressBar
+    Friend WithEvents BtnCancelSelection As Button
+    Friend WithEvents Label20 As Label
 End Class
