@@ -17,7 +17,7 @@ Module db_connection
         If con.State = System.Data.ConnectionState.Open Then con.Close()
 
         Try
-            con.ConnectionString = "server='" & server & "';username='" & username & "';password='" & password & "';database='" & database & "'"
+            con.ConnectionString = "server=" & server & ";user=" & username & ";password=" & password & ";database=" & database
             con.Open()
             ' MessageBox.Show("Connection Stablished", "Successfully Connected to the Database", MessageBoxButtons.OK, MessageBoxIcon.Information)
 

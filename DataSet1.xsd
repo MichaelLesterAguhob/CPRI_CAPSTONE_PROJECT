@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSet1" targetNamespace="http://tempuri.org/DataSet1.xsd" xmlns:mstns="http://tempuri.org/DataSet1.xsd" xmlns="http://tempuri.org/DataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet1" msprop:Generator_UserDSName="DataSet1">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="scholarly_works.sw_id" msprop:Generator_ColumnVarNameInTable="_columnscholarly_works_sw_id" msprop:Generator_ColumnPropNameInRow="_scholarly_works_sw_id" msprop:Generator_ColumnPropNameInTable="_scholarly_works_sw_idColumn" msprop:Generator_UserColumnName="scholarly_works.sw_id" type="xs:string" minOccurs="0" />
+              <xs:element name="scholarly_works.title" msprop:Generator_ColumnVarNameInTable="_columnscholarly_works_title" msprop:Generator_ColumnPropNameInRow="_scholarly_works_title" msprop:Generator_ColumnPropNameInTable="_scholarly_works_titleColumn" msprop:Generator_UserColumnName="scholarly_works.title" type="xs:string" minOccurs="0" />
+              <xs:element name="scholarly_works.research_agenda" msprop:Generator_ColumnVarNameInTable="_columnscholarly_works_research_agenda" msprop:Generator_ColumnPropNameInRow="_scholarly_works_research_agenda" msprop:Generator_ColumnPropNameInTable="_scholarly_works_research_agendaColumn" msprop:Generator_UserColumnName="scholarly_works.research_agenda" type="xs:string" minOccurs="0" />
+              <xs:element name="sw_abstract.display_text" msprop:Generator_ColumnVarNameInTable="_columnsw_abstract_display_text" msprop:Generator_ColumnPropNameInRow="_sw_abstract_display_text" msprop:Generator_ColumnPropNameInTable="_sw_abstract_display_textColumn" msprop:Generator_UserColumnName="sw_abstract.display_text" type="xs:string" minOccurs="0" />
+              <xs:element name="authors_and_co_authors" msprop:Generator_ColumnVarNameInTable="columnauthors_and_co_authors" msprop:Generator_ColumnPropNameInRow="authors_and_co_authors" msprop:Generator_ColumnPropNameInTable="authors_and_co_authorsColumn" msprop:Generator_UserColumnName="authors_and_co_authors" type="xs:string" minOccurs="0" />
+              <xs:element name="auth_and_co_auth_deg_prog" msprop:Generator_ColumnVarNameInTable="columnauth_and_co_auth_deg_prog" msprop:Generator_ColumnPropNameInRow="auth_and_co_auth_deg_prog" msprop:Generator_ColumnPropNameInTable="auth_and_co_auth_deg_progColumn" msprop:Generator_UserColumnName="auth_and_co_auth_deg_prog" type="xs:string" minOccurs="0" />
+              <xs:element name="auth_and_co_auth_role" msprop:Generator_ColumnVarNameInTable="columnauth_and_co_auth_role" msprop:Generator_ColumnPropNameInRow="auth_and_co_auth_role" msprop:Generator_ColumnPropNameInTable="auth_and_co_auth_roleColumn" msprop:Generator_UserColumnName="auth_and_co_auth_role" type="xs:string" minOccurs="0" />
+              <xs:element name="scholarly_works.date_completed" msprop:Generator_ColumnVarNameInTable="_columnscholarly_works_date_completed" msprop:Generator_ColumnPropNameInRow="_scholarly_works_date_completed" msprop:Generator_ColumnPropNameInTable="_scholarly_works_date_completedColumn" msprop:Generator_UserColumnName="scholarly_works.date_completed" type="xs:string" minOccurs="0" />
+              <xs:element name="scholarly_works.status_ongoing_completed" msprop:Generator_ColumnVarNameInTable="_columnscholarly_works_status_ongoing_completed" msprop:Generator_ColumnPropNameInRow="_scholarly_works_status_ongoing_completed" msprop:Generator_ColumnPropNameInTable="_scholarly_works_status_ongoing_completedColumn" msprop:Generator_UserColumnName="scholarly_works.status_ongoing_completed" type="xs:string" minOccurs="0" />
+              <xs:element name="scholarly_works.published" msprop:Generator_ColumnVarNameInTable="_columnscholarly_works_published" msprop:Generator_ColumnPropNameInRow="_scholarly_works_published" msprop:Generator_ColumnPropNameInTable="_scholarly_works_publishedColumn" msprop:Generator_UserColumnName="scholarly_works.published" type="xs:string" minOccurs="0" />
+              <xs:element name="scholarly_works.presented" msprop:Generator_ColumnVarNameInTable="_columnscholarly_works_presented" msprop:Generator_ColumnPropNameInRow="_scholarly_works_presented" msprop:Generator_ColumnPropNameInTable="_scholarly_works_presentedColumn" msprop:Generator_UserColumnName="scholarly_works.presented" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -62,6 +62,17 @@ Public Class AddWorks
     End Sub
     '===============================END=====================================
 
+
+    'CODES TO LOAD RESEARCH WORK
+    Private ReadOnly rrm As ResearchRepoManager
+    Public Sub New(ByVal rrm As ResearchRepoManager)
+        ' This call is required by the designer.
+        InitializeComponent()
+        ' Add any initialization after the InitializeComponent() call.
+        Me.rrm = rrm
+    End Sub
+
+
     'CODES FOR SAVING/UPLOADING RESEARCH
     Dim publish_level As String = ""
     Dim presented_level As String = ""
@@ -125,6 +136,8 @@ Public Class AddWorks
                     MessageBox.Show("Fill in the blanks in Co-Author Fields.", "Fill in the Blank(s)")
                     auth_no = co_author_fields_to_save
                     isDynamicFieldsNotBlanks = False
+                Else
+                    isDynamicFieldsNotBlanks = True
                 End If
             End While
 
@@ -164,6 +177,8 @@ Public Class AddWorks
                     Else
                         MessageBox.Show("Fill in the blank(s)", "No Input | Check Additional Info", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                     End If
+                Else
+                    SaveUpperInputs()
 
                 End If
 
@@ -173,7 +188,9 @@ Public Class AddWorks
             MessageBox.Show("Fill in the blank field(s) before saving", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End If
         BtnSaveResearch.Enabled = True
+        rrm.LoadScholarlyWorks()
     End Sub
+
 
     Private Sub SaveUpperInputs()
         con.Close()
@@ -230,6 +247,7 @@ Public Class AddWorks
             con.Close()
             ClearTextBox(Me)
             GenerateControlNumber()
+            TxtAddAuthX.Text = "1"
         End Try
     End Sub
 
@@ -448,28 +466,37 @@ Public Class AddWorks
 
     'SAVING COMPLETED CHECKED BOX INFO
     Public Sub SaveStatCmpltdChckdbx()
-        con.Close()
-        Dim sftCpyDate As String = ""
-        Dim hrdCopyDate As String = " "
-        Dim dgiDate As String = ""
-        Dim rgaDate As String = ""
-        Dim id As Integer = Convert.ToInt64(TxtResearchID.Text)
-        If isSftCpySubmttd = "YES" Then
-            sftCpyDate = DtSftCpySbmttdDate.Value.Date.ToString("MM-dd-yyyy")
-        End If
-        If isHrdCpySubmttd = "YES" Then
-            hrdCopyDate = DtHrdCpySbmttdDate.Value.Date.ToString("MM-dd-yyyy")
-        End If
-        If isDgiSubmttd = "YES" Then
-            dgiDate = DtDgiSbmttdDate.Value.Date.ToString("MM-dd-yyyy")
-        End If
-        If isRgaSubmttd = "YES" Then
-            rgaDate = DtRgaSbmttdDate.Value.Date.ToString("MM-dd-yyyy")
-        End If
+        If status = "Completed" Then
+            con.Close()
+            Dim sftCpyDate As String
+            Dim hrdCopyDate As String
+            Dim dgiDate As String
+            Dim rgaDate As String
+            Dim id As Integer = Convert.ToInt64(TxtResearchID.Text)
+            If isSftCpySubmttd = "YES" Then
+                sftCpyDate = DtSftCpySbmttdDate.Value.Date.ToString("MM-dd-yyyy")
+            Else
+                sftCpyDate = "NO"
+            End If
+            If isHrdCpySubmttd = "YES" Then
+                hrdCopyDate = DtHrdCpySbmttdDate.Value.Date.ToString("MM-dd-yyyy")
+            Else
+                hrdCopyDate = "NO"
+            End If
+            If isDgiSubmttd = "YES" Then
+                dgiDate = DtDgiSbmttdDate.Value.Date.ToString("MM-dd-yyyy")
+            Else
+                dgiDate = "NO"
+            End If
+            If isRgaSubmttd = "YES" Then
+                rgaDate = DtRgaSbmttdDate.Value.Date.ToString("MM-dd-yyyy")
+            Else
+                rgaDate = "NO"
+            End If
 
-        Try
-            con.Open()
-            Dim query As String = "
+            Try
+                con.Open()
+                Dim query As String = "
             INSERT INTO `status_completed_info`
                 (
                     `no#`,
@@ -488,21 +515,23 @@ Public Class AddWorks
                     @dgi,
                     @rga
                 )"
-            Using cmd As New MySqlCommand(query, con)
-                cmd.Parameters.AddWithValue("@no", Nothing)
-                cmd.Parameters.AddWithValue("@sci", id)
-                cmd.Parameters.AddWithValue("@scsd", sftCpyDate)
-                cmd.Parameters.AddWithValue("@hcsd", hrdCopyDate)
-                cmd.Parameters.AddWithValue("@dgi", dgiDate)
-                cmd.Parameters.AddWithValue("@rga", rgaDate)
-                cmd.ExecuteNonQuery()
-            End Using
-        Catch ex As Exception
-            MessageBox.Show(ex.Message, "Failed to Save Completed Info", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            con.Close()
-        Finally
-            con.Close()
-        End Try
+                Using cmd As New MySqlCommand(query, con)
+                    cmd.Parameters.AddWithValue("@no", Nothing)
+                    cmd.Parameters.AddWithValue("@sci", id)
+                    cmd.Parameters.AddWithValue("@scsd", sftCpyDate)
+                    cmd.Parameters.AddWithValue("@hcsd", hrdCopyDate)
+                    cmd.Parameters.AddWithValue("@dgi", dgiDate)
+                    cmd.Parameters.AddWithValue("@rga", rgaDate)
+                    cmd.ExecuteNonQuery()
+                End Using
+            Catch ex As Exception
+                MessageBox.Show(ex.Message, "Failed to Save Completed Info", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                con.Close()
+            Finally
+                con.Close()
+            End Try
+        End If
+
     End Sub
     '==============================END=====================================
 
@@ -610,6 +639,15 @@ Public Class AddWorks
                 ClearTextBox(cntrl)
             End If
         Next
+        PnlStatCmpltd.Visible = False
+        CbxSftCpySbmttd.Checked = False
+        CbxHrdCpySbmttd.Checked = False
+        CbxDgiSbmttd.Checked = False
+        CbxRgaEfSbmttd.Checked = False
+        RdStatCmpltd.Checked = False
+        RdStatOngng.Checked = False
+        status = ""
+        BtnCancelSelection.PerformClick()
     End Sub
     '==============================END=====================================
 
@@ -643,57 +681,6 @@ Public Class AddWorks
     '==============================END=====================================
 
     '|||||||||||||||||||||||||||||||||| END OF MAIN FUNCTIONALITIES ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-
-
-    'RETRIEVING FILES IN DATABASE AND OPENING IT IN PDF OR WORD
-    Private Sub PreviewFileButton_Click(sender As Object, e As EventArgs) Handles PreviewFileButton.Click
-        Dim pdfByteArray As Byte() = RetrievePdfFile()
-
-        If pdfByteArray IsNot Nothing AndAlso pdfByteArray.Length > 0 Then
-            Dim tempFilePath As String = Path.GetTempFileName()
-            tempFilePath = Path.ChangeExtension(tempFilePath, ".pdf")
-            Try
-                File.WriteAllBytes(tempFilePath, pdfByteArray)
-                File.SetAttributes(tempFilePath, FileAttributes.ReadOnly)
-                If File.Exists(tempFilePath) Then
-
-                    Process.Start(tempFilePath)
-                Else
-                    MessageBox.Show("File not exists")
-                End If
-            Catch ex As Exception
-                MessageBox.Show(ex.Message, "Failed to open PDF file", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                Console.WriteLine(ex.Message)
-            End Try
-        End If
-    End Sub
-
-    Function RetrievePdfFile() As Byte()
-        Dim pdfByteArray As Byte() = Nothing
-        con.Close()
-        Try
-            con.Open()
-            Dim query As String = "SELECT file_data FROM sw_abstract WHERE abstract_id=@abs_id"
-            Using cmd As New MySqlCommand(query, con)
-                cmd.Parameters.AddWithValue("@abs_id", 1234)
-                Dim reader As MySqlDataReader = cmd.ExecuteReader()
-
-                If reader.Read() Then
-                    pdfByteArray = DirectCast(reader("file_data"), Byte())
-                End If
-                reader.Close()
-            End Using
-        Catch ex As Exception
-            MessageBox.Show("Failed to retrieve PDF file from database. Error: " & ex.Message)
-            Console.WriteLine(ex.Message)
-        Finally
-            con.Close()
-        End Try
-        Return pdfByteArray
-    End Function
-
-
-
 
 
     ' |||||||||||||||||||||||||||||||| BEGINNING CODES BELOW ARE FOR UI RESPONSES OR FUNCTIONALITIES ||||||||||||||||||||||||||||||||||||||
@@ -1005,7 +992,22 @@ Public Class AddWorks
         PnlPublished.Height = 230
 
         BtnCancelSelection.Visible = False
+
+        RdBtnPresented.Checked = False
+        RdBtnPub.Checked = False
+
+        RdPubLevelInsti.Checked = False
+        RdPubLevelInter.Checked = False
+        RdPubLevelLoc.Checked = False
+        RdPubLevelNat.Checked = False
+
+        RdPreLevelInsti.Checked = False
+        RdPreLevelInter.Checked = False
+        RdPreLevelLoc.Checked = False
+        RdPreLevelNat.Checked = False
     End Sub
+
+
     '==============================END=====================================
     '|||||||||||||||||||||||||||||||||| END OF UI RESPONSE OR FUNCTIONALITES ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 

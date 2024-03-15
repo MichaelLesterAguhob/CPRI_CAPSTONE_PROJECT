@@ -24,20 +24,15 @@ Partial Class ResearchRepoManager
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.DataGridView2 = New System.Windows.Forms.DataGridView()
-        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DtpRange1 = New System.Windows.Forms.DateTimePicker()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -69,23 +64,35 @@ Partial Class ResearchRepoManager
         Me.TmOpenFilter = New System.Windows.Forms.Timer(Me.components)
         Me.TmCloseFilter = New System.Windows.Forms.Timer(Me.components)
         Me.BtnFilter = New System.Windows.Forms.Button()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.Button5 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
+        Me.BtnDelete = New System.Windows.Forms.Button()
+        Me.BtnEdit = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.DgvSwData = New System.Windows.Forms.DataGridView()
+        Me.Control_No = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.research_agenda = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.title = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_btn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.date_completed = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.status_ongoing_completed = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.published = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.presented = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BtnRemoveSelection = New System.Windows.Forms.Button()
         Me.PnlFilter.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
+        CType(Me.DgvSwData, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TextBox1
         '
         Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBox1.ForeColor = System.Drawing.SystemColors.AppWorkspace
-        Me.TextBox1.Location = New System.Drawing.Point(230, 37)
+        Me.TextBox1.Location = New System.Drawing.Point(227, 37)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(303, 21)
         Me.TextBox1.TabIndex = 3
@@ -95,7 +102,7 @@ Partial Class ResearchRepoManager
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(14, 41)
+        Me.Label1.Location = New System.Drawing.Point(11, 41)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(73, 13)
         Me.Label1.TabIndex = 5
@@ -112,110 +119,13 @@ Partial Class ResearchRepoManager
         Me.Label2.TabIndex = 7
         Me.Label2.Text = "Filter:"
         '
-        'DataGridView2
-        '
-        Me.DataGridView2.AllowUserToAddRows = False
-        Me.DataGridView2.AllowUserToDeleteRows = False
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.Gainsboro
-        Me.DataGridView2.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
-        Me.DataGridView2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.DataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.DataGridView2.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView2.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6, Me.Column7, Me.Column8, Me.Column9, Me.Column10})
-        Me.DataGridView2.Location = New System.Drawing.Point(12, 73)
-        Me.DataGridView2.Name = "DataGridView2"
-        Me.DataGridView2.ReadOnly = True
-        Me.DataGridView2.RowHeadersVisible = False
-        Me.DataGridView2.Size = New System.Drawing.Size(1231, 376)
-        Me.DataGridView2.TabIndex = 1
-        '
-        'Column1
-        '
-        Me.Column1.FillWeight = 85.10638!
-        Me.Column1.HeaderText = "Research Agenda"
-        Me.Column1.Name = "Column1"
-        Me.Column1.ReadOnly = True
-        '
-        'Column2
-        '
-        Me.Column2.FillWeight = 85.10638!
-        Me.Column2.HeaderText = "Title"
-        Me.Column2.Name = "Column2"
-        Me.Column2.ReadOnly = True
-        '
-        'Column3
-        '
-        Me.Column3.FillWeight = 85.10638!
-        Me.Column3.HeaderText = "Authors / Co-Authors"
-        Me.Column3.Name = "Column3"
-        Me.Column3.ReadOnly = True
-        '
-        'Column4
-        '
-        Me.Column4.FillWeight = 85.10638!
-        Me.Column4.HeaderText = "Abstract"
-        Me.Column4.Name = "Column4"
-        Me.Column4.ReadOnly = True
-        '
-        'Column5
-        '
-        Me.Column5.FillWeight = 85.10638!
-        Me.Column5.HeaderText = "Degree Program"
-        Me.Column5.Name = "Column5"
-        Me.Column5.ReadOnly = True
-        '
-        'Column6
-        '
-        Me.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
-        Me.Column6.FillWeight = 85.10638!
-        Me.Column6.HeaderText = "Role"
-        Me.Column6.Name = "Column6"
-        Me.Column6.ReadOnly = True
-        Me.Column6.Width = 85
-        '
-        'Column7
-        '
-        Me.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
-        Me.Column7.FillWeight = 85.10638!
-        Me.Column7.HeaderText = "Date Completed"
-        Me.Column7.Name = "Column7"
-        Me.Column7.ReadOnly = True
-        Me.Column7.Width = 75
-        '
-        'Column8
-        '
-        Me.Column8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
-        Me.Column8.FillWeight = 204.2553!
-        Me.Column8.HeaderText = "Status (Ongoing/Completed)"
-        Me.Column8.Name = "Column8"
-        Me.Column8.ReadOnly = True
-        Me.Column8.Width = 115
-        '
-        'Column9
-        '
-        Me.Column9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
-        Me.Column9.HeaderText = "Published (Yes/No)"
-        Me.Column9.Name = "Column9"
-        Me.Column9.ReadOnly = True
-        Me.Column9.Width = 65
-        '
-        'Column10
-        '
-        Me.Column10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
-        Me.Column10.HeaderText = "Presented (Year/No)"
-        Me.Column10.Name = "Column10"
-        Me.Column10.ReadOnly = True
-        Me.Column10.Width = 65
-        '
         'DtpRange1
         '
         Me.DtpRange1.CalendarMonthBackground = System.Drawing.Color.DarkGray
+        Me.DtpRange1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.DtpRange1.Location = New System.Drawing.Point(63, 303)
         Me.DtpRange1.Name = "DtpRange1"
-        Me.DtpRange1.Size = New System.Drawing.Size(182, 20)
+        Me.DtpRange1.Size = New System.Drawing.Size(123, 20)
         Me.DtpRange1.TabIndex = 12
         '
         'Label3
@@ -232,7 +142,7 @@ Partial Class ResearchRepoManager
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(251, 307)
+        Me.Label4.Location = New System.Drawing.Point(204, 307)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(20, 13)
         Me.Label4.TabIndex = 14
@@ -241,9 +151,10 @@ Partial Class ResearchRepoManager
         'DtpRange2
         '
         Me.DtpRange2.CalendarMonthBackground = System.Drawing.Color.DarkGray
-        Me.DtpRange2.Location = New System.Drawing.Point(279, 303)
+        Me.DtpRange2.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.DtpRange2.Location = New System.Drawing.Point(244, 303)
         Me.DtpRange2.Name = "DtpRange2"
-        Me.DtpRange2.Size = New System.Drawing.Size(182, 20)
+        Me.DtpRange2.Size = New System.Drawing.Size(123, 20)
         Me.DtpRange2.TabIndex = 15
         '
         'CbbxSearch
@@ -251,7 +162,7 @@ Partial Class ResearchRepoManager
         Me.CbbxSearch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.CbbxSearch.FormattingEnabled = True
         Me.CbbxSearch.Items.AddRange(New Object() {"Default", "Title", "Research Agenda", "Author(s)", "Abstract", "Degree Program", "Date Completed"})
-        Me.CbbxSearch.Location = New System.Drawing.Point(86, 37)
+        Me.CbbxSearch.Location = New System.Drawing.Point(83, 37)
         Me.CbbxSearch.Name = "CbbxSearch"
         Me.CbbxSearch.Size = New System.Drawing.Size(136, 21)
         Me.CbbxSearch.TabIndex = 17
@@ -549,7 +460,7 @@ Partial Class ResearchRepoManager
         Me.BtnFilter.ForeColor = System.Drawing.SystemColors.WindowText
         Me.BtnFilter.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_filter_14
         Me.BtnFilter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnFilter.Location = New System.Drawing.Point(17, 10)
+        Me.BtnFilter.Location = New System.Drawing.Point(14, 10)
         Me.BtnFilter.Name = "BtnFilter"
         Me.BtnFilter.Size = New System.Drawing.Size(67, 21)
         Me.BtnFilter.TabIndex = 20
@@ -557,47 +468,33 @@ Partial Class ResearchRepoManager
         Me.BtnFilter.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.BtnFilter.UseVisualStyleBackColor = False
         '
-        'Button4
+        'BtnDelete
         '
-        Me.Button4.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Button4.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_delete_211
-        Me.Button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button4.Location = New System.Drawing.Point(1140, 465)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(102, 34)
-        Me.Button4.TabIndex = 11
-        Me.Button4.Text = "Delete"
-        Me.Button4.UseVisualStyleBackColor = True
+        Me.BtnDelete.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnDelete.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnDelete.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.BtnDelete.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_delete_211
+        Me.BtnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnDelete.Location = New System.Drawing.Point(1143, 469)
+        Me.BtnDelete.Name = "BtnDelete"
+        Me.BtnDelete.Size = New System.Drawing.Size(102, 34)
+        Me.BtnDelete.TabIndex = 11
+        Me.BtnDelete.Text = "Delete"
+        Me.BtnDelete.UseVisualStyleBackColor = True
         '
-        'Button5
+        'BtnEdit
         '
-        Me.Button5.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Button5.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_update_done_21__1_
-        Me.Button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button5.Location = New System.Drawing.Point(1020, 465)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(102, 34)
-        Me.Button5.TabIndex = 10
-        Me.Button5.Text = "Update"
-        Me.Button5.UseVisualStyleBackColor = True
-        '
-        'Button3
-        '
-        Me.Button3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Button3.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_edit_211
-        Me.Button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button3.Location = New System.Drawing.Point(900, 465)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(102, 34)
-        Me.Button3.TabIndex = 9
-        Me.Button3.Text = "Edit"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.BtnEdit.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnEdit.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnEdit.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.BtnEdit.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_edit_211
+        Me.BtnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnEdit.Location = New System.Drawing.Point(963, 469)
+        Me.BtnEdit.Name = "BtnEdit"
+        Me.BtnEdit.Size = New System.Drawing.Size(102, 34)
+        Me.BtnEdit.TabIndex = 9
+        Me.BtnEdit.Text = "Edit"
+        Me.BtnEdit.UseVisualStyleBackColor = True
         '
         'Button2
         '
@@ -607,7 +504,7 @@ Partial Class ResearchRepoManager
         Me.Button2.ForeColor = System.Drawing.SystemColors.WindowText
         Me.Button2.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_search_13
         Me.Button2.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.Button2.Location = New System.Drawing.Point(539, 37)
+        Me.Button2.Location = New System.Drawing.Point(536, 37)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(65, 21)
         Me.Button2.TabIndex = 4
@@ -622,12 +519,198 @@ Partial Class ResearchRepoManager
         Me.Button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.Button1.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_add_21
         Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button1.Location = New System.Drawing.Point(780, 465)
+        Me.Button1.Location = New System.Drawing.Point(780, 469)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(102, 34)
         Me.Button1.TabIndex = 2
         Me.Button1.Text = "Add"
         Me.Button1.UseVisualStyleBackColor = True
+        '
+        'DgvSwData
+        '
+        Me.DgvSwData.AllowUserToAddRows = False
+        Me.DgvSwData.AllowUserToDeleteRows = False
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.Gainsboro
+        Me.DgvSwData.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        Me.DgvSwData.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.DgvSwData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.DgvSwData.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.DgvSwData.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DgvSwData.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        Me.DgvSwData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DgvSwData.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Control_No, Me.research_agenda, Me.title, Me.col_btn, Me.Column3, Me.Column5, Me.Column6, Me.date_completed, Me.status_ongoing_completed, Me.published, Me.presented})
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.LightSteelBlue
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DgvSwData.DefaultCellStyle = DataGridViewCellStyle6
+        Me.DgvSwData.Location = New System.Drawing.Point(14, 72)
+        Me.DgvSwData.MultiSelect = False
+        Me.DgvSwData.Name = "DgvSwData"
+        Me.DgvSwData.ReadOnly = True
+        Me.DgvSwData.RowHeadersVisible = False
+        DataGridViewCellStyle7.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
+        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DgvSwData.RowsDefaultCellStyle = DataGridViewCellStyle7
+        Me.DgvSwData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DgvSwData.ShowRowErrors = False
+        Me.DgvSwData.Size = New System.Drawing.Size(1231, 391)
+        Me.DgvSwData.TabIndex = 21
+        '
+        'Control_No
+        '
+        Me.Control_No.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.Control_No.DataPropertyName = "sw_id"
+        Me.Control_No.HeaderText = "Control No"
+        Me.Control_No.MinimumWidth = 70
+        Me.Control_No.Name = "Control_No"
+        Me.Control_No.ReadOnly = True
+        '
+        'research_agenda
+        '
+        Me.research_agenda.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.research_agenda.DataPropertyName = "research_agenda"
+        Me.research_agenda.FillWeight = 85.10638!
+        Me.research_agenda.HeaderText = "Research Agenda"
+        Me.research_agenda.MinimumWidth = 200
+        Me.research_agenda.Name = "research_agenda"
+        Me.research_agenda.ReadOnly = True
+        Me.research_agenda.Width = 300
+        '
+        'title
+        '
+        Me.title.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.title.DataPropertyName = "title"
+        Me.title.FillWeight = 85.10638!
+        Me.title.HeaderText = "Title"
+        Me.title.MinimumWidth = 200
+        Me.title.Name = "title"
+        Me.title.ReadOnly = True
+        Me.title.Width = 300
+        '
+        'col_btn
+        '
+        Me.col_btn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.col_btn.DataPropertyName = "display_text"
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.col_btn.DefaultCellStyle = DataGridViewCellStyle3
+        Me.col_btn.FillWeight = 85.10638!
+        Me.col_btn.HeaderText = "Abstract"
+        Me.col_btn.MinimumWidth = 70
+        Me.col_btn.Name = "col_btn"
+        Me.col_btn.ReadOnly = True
+        Me.col_btn.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.col_btn.ToolTipText = "Open Abstract File"
+        Me.col_btn.Width = 125
+        '
+        'Column3
+        '
+        Me.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.Column3.DataPropertyName = "authors_and_co_authors"
+        Me.Column3.FillWeight = 85.10638!
+        Me.Column3.HeaderText = "Authors / Co-Authors"
+        Me.Column3.MinimumWidth = 200
+        Me.Column3.Name = "Column3"
+        Me.Column3.ReadOnly = True
+        Me.Column3.Width = 200
+        '
+        'Column5
+        '
+        Me.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.Column5.DataPropertyName = "auth_and_co_auth_deg_prog"
+        Me.Column5.FillWeight = 85.10638!
+        Me.Column5.HeaderText = "Degree Program"
+        Me.Column5.MinimumWidth = 250
+        Me.Column5.Name = "Column5"
+        Me.Column5.ReadOnly = True
+        Me.Column5.Width = 300
+        '
+        'Column6
+        '
+        Me.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.Column6.DataPropertyName = "auth_and_co_auth_role"
+        Me.Column6.FillWeight = 85.10638!
+        Me.Column6.HeaderText = "Role"
+        Me.Column6.MinimumWidth = 70
+        Me.Column6.Name = "Column6"
+        Me.Column6.ReadOnly = True
+        '
+        'date_completed
+        '
+        Me.date_completed.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.date_completed.DataPropertyName = "date_completed"
+        Me.date_completed.FillWeight = 85.10638!
+        Me.date_completed.HeaderText = "Date Completed"
+        Me.date_completed.MinimumWidth = 70
+        Me.date_completed.Name = "date_completed"
+        Me.date_completed.ReadOnly = True
+        Me.date_completed.Width = 80
+        '
+        'status_ongoing_completed
+        '
+        Me.status_ongoing_completed.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.status_ongoing_completed.DataPropertyName = "status_ongoing_completed"
+        Me.status_ongoing_completed.FillWeight = 204.2553!
+        Me.status_ongoing_completed.HeaderText = "Status"
+        Me.status_ongoing_completed.MinimumWidth = 70
+        Me.status_ongoing_completed.Name = "status_ongoing_completed"
+        Me.status_ongoing_completed.ReadOnly = True
+        Me.status_ongoing_completed.Width = 70
+        '
+        'published
+        '
+        Me.published.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.published.DataPropertyName = "published"
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.published.DefaultCellStyle = DataGridViewCellStyle4
+        Me.published.HeaderText = "Published"
+        Me.published.MinimumWidth = 70
+        Me.published.Name = "published"
+        Me.published.ReadOnly = True
+        Me.published.Width = 80
+        '
+        'presented
+        '
+        Me.presented.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.presented.DataPropertyName = "presented"
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.presented.DefaultCellStyle = DataGridViewCellStyle5
+        Me.presented.HeaderText = "Presented"
+        Me.presented.MinimumWidth = 70
+        Me.presented.Name = "presented"
+        Me.presented.ReadOnly = True
+        Me.presented.Width = 80
+        '
+        'BtnRemoveSelection
+        '
+        Me.BtnRemoveSelection.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnRemoveSelection.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.BtnRemoveSelection.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnRemoveSelection.FlatAppearance.BorderSize = 0
+        Me.BtnRemoveSelection.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnRemoveSelection.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnRemoveSelection.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.BtnRemoveSelection.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnRemoveSelection.Location = New System.Drawing.Point(1143, 40)
+        Me.BtnRemoveSelection.Name = "BtnRemoveSelection"
+        Me.BtnRemoveSelection.Size = New System.Drawing.Size(102, 26)
+        Me.BtnRemoveSelection.TabIndex = 22
+        Me.BtnRemoveSelection.Text = "Remove Selection"
+        Me.BtnRemoveSelection.UseVisualStyleBackColor = False
+        Me.BtnRemoveSelection.Visible = False
         '
         'ResearchRepoManager
         '
@@ -635,23 +718,22 @@ Partial Class ResearchRepoManager
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.ClientSize = New System.Drawing.Size(1255, 513)
+        Me.Controls.Add(Me.BtnRemoveSelection)
         Me.Controls.Add(Me.BtnFilter)
         Me.Controls.Add(Me.PnlFilter)
         Me.Controls.Add(Me.CbbxSearch)
-        Me.Controls.Add(Me.Button4)
-        Me.Controls.Add(Me.Button5)
-        Me.Controls.Add(Me.Button3)
+        Me.Controls.Add(Me.BtnDelete)
+        Me.Controls.Add(Me.BtnEdit)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.DataGridView2)
+        Me.Controls.Add(Me.DgvSwData)
         Me.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.Name = "ResearchRepoManager"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "RESEARCH REPOSITORY MANAGER"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PnlFilter.ResumeLayout(False)
         Me.PnlFilter.PerformLayout()
         Me.Panel3.ResumeLayout(False)
@@ -660,6 +742,7 @@ Partial Class ResearchRepoManager
         Me.Panel2.PerformLayout()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        CType(Me.DgvSwData, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -669,10 +752,8 @@ Partial Class ResearchRepoManager
     Friend WithEvents Button2 As Button
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents DataGridView2 As DataGridView
-    Friend WithEvents Button3 As Button
-    Friend WithEvents Button4 As Button
-    Friend WithEvents Button5 As Button
+    Friend WithEvents BtnEdit As Button
+    Friend WithEvents BtnDelete As Button
     Friend WithEvents DtpRange1 As DateTimePicker
     Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As Label
@@ -703,15 +784,18 @@ Partial Class ResearchRepoManager
     Friend WithEvents CbxStaff As CheckBox
     Friend WithEvents CbxAdmin As CheckBox
     Friend WithEvents CbxFaculty As CheckBox
-    Friend WithEvents Column1 As DataGridViewTextBoxColumn
-    Friend WithEvents Column2 As DataGridViewTextBoxColumn
+    Friend WithEvents CbxAllRole As CheckBox
+    Friend WithEvents DgvSwData As DataGridView
+    Friend WithEvents Control_No As DataGridViewTextBoxColumn
+    Friend WithEvents research_agenda As DataGridViewTextBoxColumn
+    Friend WithEvents title As DataGridViewTextBoxColumn
+    Friend WithEvents col_btn As DataGridViewTextBoxColumn
     Friend WithEvents Column3 As DataGridViewTextBoxColumn
-    Friend WithEvents Column4 As DataGridViewTextBoxColumn
     Friend WithEvents Column5 As DataGridViewTextBoxColumn
     Friend WithEvents Column6 As DataGridViewTextBoxColumn
-    Friend WithEvents Column7 As DataGridViewTextBoxColumn
-    Friend WithEvents Column8 As DataGridViewTextBoxColumn
-    Friend WithEvents Column9 As DataGridViewTextBoxColumn
-    Friend WithEvents Column10 As DataGridViewTextBoxColumn
-    Friend WithEvents CbxAllRole As CheckBox
+    Friend WithEvents date_completed As DataGridViewTextBoxColumn
+    Friend WithEvents status_ongoing_completed As DataGridViewTextBoxColumn
+    Friend WithEvents published As DataGridViewTextBoxColumn
+    Friend WithEvents presented As DataGridViewTextBoxColumn
+    Friend WithEvents BtnRemoveSelection As Button
 End Class

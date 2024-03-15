@@ -148,7 +148,7 @@ Partial Class AddWorks
         Me.TxtRsrchAgenda.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.TxtRsrchAgenda.Location = New System.Drawing.Point(142, 70)
         Me.TxtRsrchAgenda.Name = "TxtRsrchAgenda"
-        Me.TxtRsrchAgenda.Size = New System.Drawing.Size(508, 22)
+        Me.TxtRsrchAgenda.Size = New System.Drawing.Size(930, 22)
         Me.TxtRsrchAgenda.TabIndex = 2
         '
         'TxtRsrchTitle
@@ -158,7 +158,7 @@ Partial Class AddWorks
         Me.TxtRsrchTitle.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.TxtRsrchTitle.Location = New System.Drawing.Point(142, 98)
         Me.TxtRsrchTitle.Name = "TxtRsrchTitle"
-        Me.TxtRsrchTitle.Size = New System.Drawing.Size(508, 22)
+        Me.TxtRsrchTitle.Size = New System.Drawing.Size(930, 22)
         Me.TxtRsrchTitle.TabIndex = 4
         '
         'Label3
@@ -331,7 +331,7 @@ Partial Class AddWorks
         Me.TxtBrowsedFileWhl.BackColor = System.Drawing.Color.WhiteSmoke
         Me.TxtBrowsedFileWhl.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtBrowsedFileWhl.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.TxtBrowsedFileWhl.Location = New System.Drawing.Point(118, 17)
+        Me.TxtBrowsedFileWhl.Location = New System.Drawing.Point(127, 17)
         Me.TxtBrowsedFileWhl.Name = "TxtBrowsedFileWhl"
         Me.TxtBrowsedFileWhl.ReadOnly = True
         Me.TxtBrowsedFileWhl.Size = New System.Drawing.Size(139, 21)
@@ -343,7 +343,7 @@ Partial Class AddWorks
         Me.TxtBrowsedFileAbs.BackColor = System.Drawing.Color.WhiteSmoke
         Me.TxtBrowsedFileAbs.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtBrowsedFileAbs.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.TxtBrowsedFileAbs.Location = New System.Drawing.Point(117, 48)
+        Me.TxtBrowsedFileAbs.Location = New System.Drawing.Point(126, 48)
         Me.TxtBrowsedFileAbs.Name = "TxtBrowsedFileAbs"
         Me.TxtBrowsedFileAbs.ReadOnly = True
         Me.TxtBrowsedFileAbs.Size = New System.Drawing.Size(139, 21)
@@ -355,7 +355,7 @@ Partial Class AddWorks
         Me.Label19.AutoSize = True
         Me.Label19.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label19.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label19.Location = New System.Drawing.Point(28, 20)
+        Me.Label19.Location = New System.Drawing.Point(37, 20)
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(84, 16)
         Me.Label19.TabIndex = 72
@@ -369,7 +369,7 @@ Partial Class AddWorks
         Me.BtnBrowseWholeFile.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.BtnBrowseWholeFile.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_browse_18
         Me.BtnBrowseWholeFile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnBrowseWholeFile.Location = New System.Drawing.Point(262, 17)
+        Me.BtnBrowseWholeFile.Location = New System.Drawing.Point(271, 17)
         Me.BtnBrowseWholeFile.Name = "BtnBrowseWholeFile"
         Me.BtnBrowseWholeFile.Size = New System.Drawing.Size(65, 21)
         Me.BtnBrowseWholeFile.TabIndex = 71
@@ -799,7 +799,7 @@ Partial Class AddWorks
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label11.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label11.Location = New System.Drawing.Point(3, 49)
+        Me.Label11.Location = New System.Drawing.Point(12, 49)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(111, 16)
         Me.Label11.TabIndex = 68
@@ -925,7 +925,7 @@ Partial Class AddWorks
         'CbxRgaEfSbmttd
         '
         Me.CbxRgaEfSbmttd.AutoSize = True
-        Me.CbxRgaEfSbmttd.Location = New System.Drawing.Point(7, 84)
+        Me.CbxRgaEfSbmttd.Location = New System.Drawing.Point(9, 84)
         Me.CbxRgaEfSbmttd.Name = "CbxRgaEfSbmttd"
         Me.CbxRgaEfSbmttd.Size = New System.Drawing.Size(201, 17)
         Me.CbxRgaEfSbmttd.TabIndex = 53
@@ -935,7 +935,7 @@ Partial Class AddWorks
         'CbxDgiSbmttd
         '
         Me.CbxDgiSbmttd.AutoSize = True
-        Me.CbxDgiSbmttd.Location = New System.Drawing.Point(7, 61)
+        Me.CbxDgiSbmttd.Location = New System.Drawing.Point(9, 61)
         Me.CbxDgiSbmttd.Name = "CbxDgiSbmttd"
         Me.CbxDgiSbmttd.Size = New System.Drawing.Size(220, 17)
         Me.CbxDgiSbmttd.TabIndex = 52
@@ -945,7 +945,7 @@ Partial Class AddWorks
         'CbxHrdCpySbmttd
         '
         Me.CbxHrdCpySbmttd.AutoSize = True
-        Me.CbxHrdCpySbmttd.Location = New System.Drawing.Point(7, 36)
+        Me.CbxHrdCpySbmttd.Location = New System.Drawing.Point(9, 36)
         Me.CbxHrdCpySbmttd.Name = "CbxHrdCpySbmttd"
         Me.CbxHrdCpySbmttd.Size = New System.Drawing.Size(141, 17)
         Me.CbxHrdCpySbmttd.TabIndex = 51
@@ -955,7 +955,7 @@ Partial Class AddWorks
         'CbxSftCpySbmttd
         '
         Me.CbxSftCpySbmttd.AutoSize = True
-        Me.CbxSftCpySbmttd.Location = New System.Drawing.Point(7, 12)
+        Me.CbxSftCpySbmttd.Location = New System.Drawing.Point(9, 12)
         Me.CbxSftCpySbmttd.Name = "CbxSftCpySbmttd"
         Me.CbxSftCpySbmttd.Size = New System.Drawing.Size(140, 17)
         Me.CbxSftCpySbmttd.TabIndex = 50
@@ -989,7 +989,7 @@ Partial Class AddWorks
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label8.Location = New System.Drawing.Point(1, 77)
+        Me.Label8.Location = New System.Drawing.Point(10, 77)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(112, 16)
         Me.Label8.TabIndex = 62
@@ -1000,9 +1000,9 @@ Partial Class AddWorks
         Me.DtDateCompltd.Cursor = System.Windows.Forms.Cursors.Hand
         Me.DtDateCompltd.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DtDateCompltd.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DtDateCompltd.Location = New System.Drawing.Point(117, 75)
+        Me.DtDateCompltd.Location = New System.Drawing.Point(126, 75)
         Me.DtDateCompltd.Name = "DtDateCompltd"
-        Me.DtDateCompltd.Size = New System.Drawing.Size(101, 20)
+        Me.DtDateCompltd.Size = New System.Drawing.Size(139, 20)
         Me.DtDateCompltd.TabIndex = 61
         '
         'BtnBrowseAbstractFile
@@ -1013,7 +1013,7 @@ Partial Class AddWorks
         Me.BtnBrowseAbstractFile.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.BtnBrowseAbstractFile.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_browse_18
         Me.BtnBrowseAbstractFile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnBrowseAbstractFile.Location = New System.Drawing.Point(262, 48)
+        Me.BtnBrowseAbstractFile.Location = New System.Drawing.Point(271, 48)
         Me.BtnBrowseAbstractFile.Name = "BtnBrowseAbstractFile"
         Me.BtnBrowseAbstractFile.Size = New System.Drawing.Size(65, 21)
         Me.BtnBrowseAbstractFile.TabIndex = 60
@@ -1026,7 +1026,7 @@ Partial Class AddWorks
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label9.Location = New System.Drawing.Point(61, 104)
+        Me.Label9.Location = New System.Drawing.Point(70, 104)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(51, 16)
         Me.Label9.TabIndex = 65
@@ -1037,15 +1037,15 @@ Partial Class AddWorks
         Me.Panel2.Controls.Add(Me.RdStatCmpltd)
         Me.Panel2.Controls.Add(Me.RdStatOngng)
         Me.Panel2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Panel2.Location = New System.Drawing.Point(118, 101)
+        Me.Panel2.Location = New System.Drawing.Point(126, 101)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(219, 22)
+        Me.Panel2.Size = New System.Drawing.Size(163, 22)
         Me.Panel2.TabIndex = 63
         '
         'RdStatCmpltd
         '
         Me.RdStatCmpltd.AutoSize = True
-        Me.RdStatCmpltd.Location = New System.Drawing.Point(74, 4)
+        Me.RdStatCmpltd.Location = New System.Drawing.Point(75, 4)
         Me.RdStatCmpltd.Name = "RdStatCmpltd"
         Me.RdStatCmpltd.Size = New System.Drawing.Size(75, 17)
         Me.RdStatCmpltd.TabIndex = 1
@@ -1056,7 +1056,7 @@ Partial Class AddWorks
         'RdStatOngng
         '
         Me.RdStatOngng.AutoSize = True
-        Me.RdStatOngng.Location = New System.Drawing.Point(3, 3)
+        Me.RdStatOngng.Location = New System.Drawing.Point(4, 3)
         Me.RdStatOngng.Name = "RdStatOngng"
         Me.RdStatOngng.Size = New System.Drawing.Size(65, 17)
         Me.RdStatOngng.TabIndex = 0
@@ -1213,6 +1213,12 @@ Partial Class AddWorks
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.ClientSize = New System.Drawing.Size(1350, 695)
+        Me.Controls.Add(Me.TxtAthrRole)
+        Me.Controls.Add(Me.Label6)
+        Me.Controls.Add(Me.TxtAthrDegprog)
+        Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.TxtAuthorName)
+        Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label20)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.LblTotalFields)
@@ -1226,12 +1232,6 @@ Partial Class AddWorks
         Me.Controls.Add(Me.BtnCancel)
         Me.Controls.Add(Me.BtnSaveResearch)
         Me.Controls.Add(Me.PnlTxtCont)
-        Me.Controls.Add(Me.TxtAthrRole)
-        Me.Controls.Add(Me.Label6)
-        Me.Controls.Add(Me.TxtAthrDegprog)
-        Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.TxtAuthorName)
-        Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.TxtRsrchTitle)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.TxtRsrchAgenda)
