@@ -55,6 +55,8 @@ Public Class AddWorks
         'generate 6 fields for new co-author
         TxtAddAuthX.Text = "5"
         BtnAddNewCoAuthor.PerformClick()
+
+        'find the component to enable focusing on it
         Dim co_author_dynamic_name As String = "CoAuthor1".ToString()
         Dim co_auth_field_name As TextBox = CType(Me.Controls.Find(co_author_dynamic_name, True).FirstOrDefault(), TextBox)
         co_auth_field_name.Focus()
@@ -338,14 +340,14 @@ Public Class AddWorks
     '==============================END=====================================
 
 
-    'OPENING FILE DIALOG TO LET USER FIND AND SELECT THE PDF OR WORD FILES
+    'OPENING FILE DIALOG TO LET USER FIND AND SELECT THE PDF FILES
     'whole file
     Dim whole_file_path As String
     Dim whole_file_data As Byte()
     Dim whole_file_extension As String
     Private Sub BtnBrowseWholeFile_Click(sender As Object, e As EventArgs) Handles BtnBrowseWholeFile.Click
         Dim openFileDialog As New OpenFileDialog With {
-        .Filter = "PDF Files (*.pdf)|*.pdf|Word Documents (*.docx)|*.docx",
+        .Filter = "PDF Files (*.pdf)|*.pdf",
         .InitialDirectory = "C:\"
         }
 
@@ -366,7 +368,7 @@ Public Class AddWorks
     Dim abstract_file_extension As String
     Private Sub BtnBrowseAbstractFile_Click(sender As Object, e As EventArgs) Handles BtnBrowseAbstractFile.Click
         Dim openFileDialog As New OpenFileDialog With {
-        .Filter = "PDF Files (*.pdf)|*.pdf|Word Documents (*.docx)|*.docx",
+        .Filter = "PDF Files (*.pdf)|*.pdf",
         .InitialDirectory = "C:\"
         }
 
@@ -382,7 +384,7 @@ Public Class AddWorks
     End Sub
     '==============================END=====================================
 
-    'INSERTING PDF / WORD ABSTRACT FILES INTO DATABASE
+    'INSERTING PDF ABSTRACT FILES INTO DATABASE
     Private Sub SaveWholeFiles()
         con.Close()
         Dim whole_file_id As Integer = Convert.ToInt64(TxtResearchID.Text)
@@ -422,7 +424,7 @@ Public Class AddWorks
         End Try
     End Sub
 
-    'INSERTING PDF / WORD ABSTRACT FILES IN THA DATABASE
+    'INSERTING PDF ABSTRACT FILES IN THA DATABASE
     Private Sub SaveAbstractFiles()
         con.Close()
         Dim abstract_id As Integer = Convert.ToInt64(TxtResearchID.Text)

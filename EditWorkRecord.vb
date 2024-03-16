@@ -1,8 +1,28 @@
-﻿
+﻿Imports System.Globalization
 Imports MySql.Data.MySqlClient
 Imports System.IO
 
 Public Class EditWorkRecord
+
+    ' Variables declaration
+    Dim publish_level As String = ""
+    Dim presented_level As String = ""
+
+    Dim whole_file_path As String
+    Dim whole_file_data As Byte()
+    Dim whole_file_extension As String
+
+    Dim abstract_file_path As String
+    Dim abstract_file_data As Byte()
+    Dim abstract_file_extension As String
+
+    Dim auth_count As Integer = 0
+
+    Dim co_author_name As String = ""
+    Dim co_author_deg As String = ""
+    Dim co_author_role As String = ""
+
+
 
     ReadOnly edit_id As Integer
     Public Sub New(sw_edit_id As Integer)
@@ -10,71 +30,182 @@ Public Class EditWorkRecord
         edit_id = sw_edit_id
     End Sub
 
-    Dim publish_level As String = ""
-    Dim presented_level As String = ""
 
     '|||||||||||||||||||||||||||||||||| BEGINNING CODES FOR MAIN FUNCTIONALITIES ||||||||||||||||||||||||||||||||||||||||||||
 
-
     Private Sub EditWorkRecord_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        'generate 6 fields for new co-author
-        TxtAuthToAddCount.Text = "5"
-        BtnEditCoAuthFld.PerformClick()
-        Dim co_author_dynamic_name As String = "CoAuthor1".ToString()
-        Dim co_auth_field_name As TextBox = CType(Me.Controls.Find(co_author_dynamic_name, True).FirstOrDefault(), TextBox)
-        co_auth_field_name.Focus()
+        LoadToEditRecord()
 
+    End Sub
+
+    Private Sub LoadToEditRecord()
         con.Close()
-        ConOpen()
 
         Try
+            ConOpen()
             Dim query As String = "
                                 SELECT 
                                     scholarly_works.sw_id,
                                     scholarly_works.title,
                                     scholarly_works.research_agenda,
+                                    scholarly_works.status_ongoing_completed,
                                     authors.authors_name,
                                     authors.degree_program,
-                                    authors.role
+                                    authors.role,
+                                    sw_whole_file.file_name AS whl_file_name,
+                                    sw_abstract.file_name AS abs_file_name
                                 FROM scholarly_works 
                                 INNER JOIN authors
-                                ON authors.authors_id=@edit_id
+                                    ON authors.authors_id = @edit_id
+                                INNER JOIN sw_abstract
+                                    ON abstract_id = @edit_id
+                                INNER JOIN sw_whole_file
+                                    ON whole_file_id = @edit_id
                                 WHERE sw_id=@edit_id"
 
             Using cmd As New MySqlCommand(query, con)
                 cmd.Parameters.AddWithValue("@edit_id", edit_id)
-
                 Dim reader As MySqlDataReader = cmd.ExecuteReader()
                 If reader.HasRows Then
                     If reader.Read() Then
-                        TxtEditRsrchTitle.Text = reader("title").ToString()
                         TxtEditResearchID.Text = reader("sw_id").ToString()
+                        TxtEditRsrchTitle.Text = reader("title").ToString()
                         TxtEditRsrchAgenda.Text = reader("research_agenda").ToString()
+
                         TxtEditAuthName.Text = reader("authors_name").ToString()
                         TxtEditAuthDeg.Text = reader("degree_program").ToString()
                         TxtEditAuthRole.Text = reader("role").ToString()
+
+                        TxtUplddWhlFileName.Text = reader("whl_file_name").ToString()
+                        TxtUplddAbsFileName.Text = reader("abs_file_name").ToString()
+
+                        ' check if the status is completed and execute codes if true
+                        If reader("status_ongoing_completed") = "Completed" Then
+                            'get completed checked list
+                            reader.Close()
+
+                            Dim clrnc_chcklst As String = "SELECT * FROM status_completed_info WHERE stat_completed_id=@edit_id"
+                                Using clrnc_cmd As New MySqlCommand(clrnc_chcklst, con)
+                                    clrnc_cmd.Parameters.AddWithValue("@edit_id", edit_id)
+                                Dim clrnc_reader As MySqlDataReader = clrnc_cmd.ExecuteReader()
+
+                                If clrnc_reader.HasRows Then
+                                    If clrnc_reader.Read() Then
+
+                                        If clrnc_reader("soft_copy_sbmttd_date") <> "" Then
+
+                                            Dim dateString As String = clrnc_reader("soft_copy_sbmttd_date")
+                                            Dim parsedDate As DateTime
+                                            If DateTime.TryParseExact(dateString, "MM-dd-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, parsedDate) Then
+                                                ' if Parsing
+                                                CbxSftCpySbmttdEdtMode.Checked = True
+                                                DtSftCpySbmttdDateEdtMode.Value = parsedDate
+                                            Else
+                                                ' if Parsing faile
+                                                MessageBox.Show("soft_copy_sbmttd_date Invalid date format")
+                                            End If
+                                        End If
+
+
+                                        If clrnc_reader("hard_copy_sbmttd_date") <> "" Then
+                                            Dim dateString As String = clrnc_reader("hard_copy_sbmttd_date")
+                                            Dim parsedDate As DateTime
+                                            If DateTime.TryParseExact(dateString, "MM-dd-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, parsedDate) Then
+                                                ' if Parsing
+                                                CbxHrdCpySbmttdEdtMode.Checked = True
+                                                DtHrdCpySbmttdDateEdtMode.Value = parsedDate
+                                            Else
+                                                ' if Parsing faile
+                                                MessageBox.Show("hard_copy_sbmttd_date Invalid date format")
+                                            End If
+                                        End If
+
+
+                                        If clrnc_reader("dgi_sbmttd_date") <> "" Then
+                                            Dim dateString As String = clrnc_reader("dgi_sbmttd_date")
+                                            Dim parsedDate As DateTime
+                                            If DateTime.TryParseExact(dateString, "MM-dd-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, parsedDate) Then
+                                                ' if Parsing
+                                                CbxDgiSbmttdEdtMode.Checked = True
+                                                DtDgiSbmttdDateEdtMode.Value = parsedDate
+                                            Else
+                                                ' if Parsing faile
+                                                MessageBox.Show("Dgi_copy_sbmttd_date Invalid date format")
+                                            End If
+                                        End If
+
+
+                                        If clrnc_reader("rga_ef_sbmttd_date") <> "" Then
+                                            Dim dateString As String = clrnc_reader("rga_ef_sbmttd_date")
+                                            Dim parsedDate As DateTime
+
+                                            If DateTime.TryParseExact(dateString, "MM-dd-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, parsedDate) Then
+                                                ' if Parsing
+                                                CbxRgaEfSbmttdEdtMode.Checked = True
+                                                DtRgaSbmttdDateEdtMode.Value = parsedDate
+                                            Else
+                                                ' if Parsing faile
+                                                MessageBox.Show("Rga_copy_sbmttd_date Invalid date format")
+                                            End If
+                                        End If
+
+                                    End If
+                                End If
+                                    clrnc_reader.Close()
+                                End Using
+
+                                'check the Conmpleted Radio Button and show the panel for clearance checklist
+                                RdEdtStatCmpltd.Checked = True
+                                PnlStatCmpltdEdtMode.Visible = True
+
+                        Else
+                            'set the ongoing radio button checked
+                            RdEdtStatOngng.Checked = True
+                        End If
+
+
+                        'getting co authors record and loaded it to dynamic textbix component
+                        Dim query2 As String = "SELECT * FROM co_authors WHERE co_authors_id= @edit_id"
+                            Using cmd2 As New MySqlCommand(query2, con)
+                                cmd2.Parameters.AddWithValue("@edit_id", edit_id)
+
+                                Dim reader2 As MySqlDataReader = cmd2.ExecuteReader()
+                                While reader2.Read()
+                                    co_author_name = reader2("co_authors_name").ToString
+                                    co_author_deg = reader2("degree_program").ToString
+                                    co_author_role = reader2("role").ToString
+                                    AddOrLoadCoAuthField()
+                                End While
+                                LblTotalCoAuthFlds.Text = auth_count.ToString()
+                                co_author_name = ""
+                                co_author_deg = ""
+                            co_author_role = ""
+                            reader2.Close()
+                        End Using
+
                     End If
-                Else
+                    Else
                     MessageBox.Show("No Data Found")
+
                 End If
                 reader.Close()
             End Using
         Catch ex As Exception
-            MsgBox(ex.Message)
+            MessageBox.Show(ex.Message, "Error Occurred", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Console.WriteLine(ex.Message)
+            con.Close()
+        Finally
+            con.Close()
         End Try
     End Sub
-
     '===============================END=====================================
 
-    'OPENING FILE DIALOG TO LET USER FIND AND SELECT THE PDF OR WORD FILES
+    'OPENING FILE DIALOG TO LET USER FIND AND SELECT THE PDF FILE
     'whole file
-    Dim whole_file_path As String
-    Dim whole_file_data As Byte()
-    Dim whole_file_extension As String
     Private Sub BtnBrowseWholeFile_Click(sender As Object, e As EventArgs) Handles BtnBrwsWhl.Click
         Dim openFileDialog As New OpenFileDialog With {
-        .Filter = "PDF Files (*.pdf)|*.pdf|Word Documents (*.docx)|*.docx",
+        .Filter = "PDF Files (*.pdf)|*.pdf",
         .InitialDirectory = "C:\"
         }
 
@@ -82,20 +213,17 @@ Public Class EditWorkRecord
             whole_file_path = openFileDialog.FileName
             whole_file_data = File.ReadAllBytes(whole_file_path)
             whole_file_extension = Path.GetExtension(whole_file_path)
-            TxtBrowsedWhl.Text = whole_file_path.ToString
+            TxtUplddWhlFileName.Text = whole_file_path.ToString
         Else
             whole_file_path = ""
-            TxtBrowsedWhl.Text = "No Selected File"
+            TxtUplddWhlFileName.Text = "No Selected File"
         End If
     End Sub
 
     'abstract file
-    Dim abstract_file_path As String
-    Dim abstract_file_data As Byte()
-    Dim abstract_file_extension As String
     Private Sub BtnBrowseAbstractFile_Click(sender As Object, e As EventArgs) Handles BtnBrwsAbstrct.Click
         Dim openFileDialog As New OpenFileDialog With {
-        .Filter = "PDF Files (*.pdf)|*.pdf|Word Documents (*.docx)|*.docx",
+        .Filter = "PDF Files (*.pdf)|*.pdf",
         .InitialDirectory = "C:\"
         }
 
@@ -103,14 +231,13 @@ Public Class EditWorkRecord
             abstract_file_path = openFileDialog.FileName
             abstract_file_data = File.ReadAllBytes(abstract_file_path)
             abstract_file_extension = Path.GetExtension(abstract_file_path)
-            TxtBrowsedAbs.Text = abstract_file_path.ToString
+            TxtUplddAbsFileName.Text = abstract_file_path.ToString
         Else
             abstract_file_path = ""
-            TxtBrowsedAbs.Text = "No Selected File"
+            TxtUplddAbsFileName.Text = "No Selected File"
         End If
     End Sub
     '==============================END=====================================
-
 
 
     'CLEARING ALL TEXTBOX FIELDS
@@ -123,11 +250,11 @@ Public Class EditWorkRecord
                 ClearTextBox(cntrl)
             End If
         Next
-        PnlStatCmpltd.Visible = False
-        CbxSftCpySbmttdEdt.Checked = False
-        CbxHrdCpySbmttdEdt.Checked = False
-        CbxDgiSbmttdEdt.Checked = False
-        CbxRgaEfSbmttdEdt.Checked = False
+        PnlStatCmpltdEdtMode.Visible = False
+        CbxSftCpySbmttdEdtMode.Checked = False
+        CbxHrdCpySbmttdEdtMode.Checked = False
+        CbxDgiSbmttdEdtMode.Checked = False
+        CbxRgaEfSbmttdEdtMode.Checked = False
         RdEdtStatCmpltd.Checked = False
         RdEdtStatOngng.Checked = False
         status = ""
@@ -170,9 +297,7 @@ Public Class EditWorkRecord
     ' |||||||||||||||||||||||||||||||| BEGINNING CODES BELOW ARE FOR UI RESPONSES OR FUNCTIONALITIES ||||||||||||||||||||||||||||||||||||||
 
     'ADDING NEW TEXTBOX COMPONENT OR CONTROL INSIDE THE PANEL CONTAINER
-    Dim auth_count As Integer = 0
-
-    Public Sub AddNewAuthField()
+    Public Sub AddOrLoadCoAuthField()
         auth_count += 1
 
         'CREATING LABEL ELEMENTS AND CONFIGURE ITS PROPERTIES
@@ -200,6 +325,7 @@ Public Class EditWorkRecord
         'CREATING TEXTBOX ELEMENTS, CONFIGURED ITS PROPERTIES
         Dim new_co_auth As New TextBox With {
         .Name = "CoAuthor" & auth_count,
+        .Text = co_author_name,
         .Size = New System.Drawing.Size(379, 22),
         .Font = New Font("Microsoft Sans Serif", 10, FontStyle.Regular),
         .BackColor = Color.WhiteSmoke
@@ -207,6 +333,7 @@ Public Class EditWorkRecord
 
         Dim new_co_auth_deg As New TextBox With {
         .Name = "CoAuthorDeg" & auth_count,
+        .Text = co_author_deg,
         .Size = New System.Drawing.Size(424, 22),
         .Font = New Font("Microsoft Sans Serif", 10, FontStyle.Regular),
         .BackColor = Color.WhiteSmoke
@@ -214,6 +341,7 @@ Public Class EditWorkRecord
 
         Dim new_co_auth_role As New TextBox With {
         .Name = "CoAuthorRole" & auth_count,
+        .Text = co_author_role,
         .Size = New System.Drawing.Size(160, 22),
         .Font = New Font("Microsoft Sans Serif", 10, FontStyle.Regular),
         .BackColor = Color.WhiteSmoke
@@ -246,22 +374,22 @@ Public Class EditWorkRecord
     'CODES FOR BUTTON ADD NEW CO-AUTHOR
     Dim cntr As String 'holder of number that system will generate textbox component for author
     Dim total_fields As String 'var holder of total field of existing co-auhtor displayed in label
-    Private Sub BtnAddNewCoAuthor_Click_1(sender As Object, e As EventArgs) Handles BtnEditCoAuthFld.Click
+    Private Sub BtnAddNewCoAuthor_Click_1(sender As Object, e As EventArgs) Handles BtnAddCoAuthFldEdt.Click
 
         cntr = TxtAuthToAddCount.Text
         total_fields = LblTotalCoAuthFlds.Text
-        BtnEditCoAuthFld.Enabled = False
+        BtnAddCoAuthFldEdt.Enabled = False
 
         If cntr > 50 Or cntr < 1 Then
             MsgBox("Maximum of 50 every adding of fields")
         Else
             While cntr <> 0
-                AddNewAuthField()
+                AddOrLoadCoAuthField()
                 cntr -= 1
                 total_fields += 1
                 LblTotalCoAuthFlds.Text = total_fields.ToString()
             End While
-            BtnEditCoAuthFld.Enabled = True
+            BtnAddCoAuthFldEdt.Enabled = True
             TxtAuthToAddCount.Text = "1"
             Dim co_author_dynamic_name As String = "CoAuthor" & auth_count.ToString()
             Dim co_auth_field_name As TextBox = CType(Me.Controls.Find(co_author_dynamic_name, True).FirstOrDefault(), TextBox)
@@ -352,17 +480,17 @@ Public Class EditWorkRecord
     Dim status As String = ""
     Private Sub RdStatCmpltd_MouseClick(sender As Object, e As MouseEventArgs) Handles RdEdtStatCmpltd.MouseClick
         If RdEdtStatCmpltd.Checked = True Then
-            PnlStatCmpltd.Visible = True
+            PnlStatCmpltdEdtMode.Visible = True
             status = "Completed"
         End If
     End Sub
 
     Private Sub RdStatOngng_MouseClick(sender As Object, e As MouseEventArgs) Handles RdEdtStatOngng.MouseClick
-        PnlStatCmpltd.Visible = False
-        CbxSftCpySbmttdEdt.Checked = False
-        CbxHrdCpySbmttdEdt.Checked = False
-        CbxDgiSbmttdEdt.Checked = False
-        CbxRgaEfSbmttdEdt.Checked = False
+        PnlStatCmpltdEdtMode.Visible = False
+        CbxSftCpySbmttdEdtMode.Checked = False
+        CbxHrdCpySbmttdEdtMode.Checked = False
+        CbxDgiSbmttdEdtMode.Checked = False
+        CbxRgaEfSbmttdEdtMode.Checked = False
         status = "Ongoing"
     End Sub
 
@@ -373,45 +501,45 @@ Public Class EditWorkRecord
     Dim isRgaSubmttd As String = "NO"
 
     'SHOWING AND HIDING THEIR DATE PICKER ONCE CHECKED OR UNCHECKED
-    Private Sub CbxSftCpySbmttd_CheckedChanged(sender As Object, e As EventArgs) Handles CbxSftCpySbmttdEdt.CheckedChanged
-        If CbxSftCpySbmttdEdt.Checked = True Then
-            DtSftCpySbmttdDateEdt.Visible = True
+    Private Sub CbxSftCpySbmttd_CheckedChanged(sender As Object, e As EventArgs) Handles CbxSftCpySbmttdEdtMode.CheckedChanged
+        If CbxSftCpySbmttdEdtMode.Checked = True Then
+            DtSftCpySbmttdDateEdtMode.Visible = True
             isSftCpySubmttd = "YES"
         Else
-            DtSftCpySbmttdDateEdt.Visible = False
+            DtSftCpySbmttdDateEdtMode.Visible = False
             isSftCpySubmttd = "NO"
         End If
         ShowPrintThesisClearance()
     End Sub
 
-    Private Sub CbxHrdCpySbmttd_CheckedChanged(sender As Object, e As EventArgs) Handles CbxHrdCpySbmttdEdt.CheckedChanged
-        If CbxHrdCpySbmttdEdt.Checked = True Then
-            DtHrdCpySbmttdDateEdt.Visible = True
+    Private Sub CbxHrdCpySbmttd_CheckedChanged(sender As Object, e As EventArgs) Handles CbxHrdCpySbmttdEdtMode.CheckedChanged
+        If CbxHrdCpySbmttdEdtMode.Checked = True Then
+            DtHrdCpySbmttdDateEdtMode.Visible = True
             isHrdCpySubmttd = "YES"
         Else
-            DtHrdCpySbmttdDateEdt.Visible = False
+            DtHrdCpySbmttdDateEdtMode.Visible = False
             isHrdCpySubmttd = "NO"
         End If
         ShowPrintThesisClearance()
     End Sub
 
-    Private Sub CbxDgiSbmttd_CheckedChanged(sender As Object, e As EventArgs) Handles CbxDgiSbmttdEdt.CheckedChanged
-        If CbxDgiSbmttdEdt.Checked = True Then
-            DtDgiSbmttdDateEdt.Visible = True
+    Private Sub CbxDgiSbmttd_CheckedChanged(sender As Object, e As EventArgs) Handles CbxDgiSbmttdEdtMode.CheckedChanged
+        If CbxDgiSbmttdEdtMode.Checked = True Then
+            DtDgiSbmttdDateEdtMode.Visible = True
             isDgiSubmttd = "YES"
         Else
-            DtDgiSbmttdDateEdt.Visible = False
+            DtDgiSbmttdDateEdtMode.Visible = False
             isDgiSubmttd = "NO"
         End If
         ShowPrintThesisClearance()
     End Sub
 
-    Private Sub CbxRgaEfSbmttd_CheckedChanged(sender As Object, e As EventArgs) Handles CbxRgaEfSbmttdEdt.CheckedChanged
-        If CbxRgaEfSbmttdEdt.Checked = True Then
-            DtRgaSbmttdDateEdt.Visible = True
+    Private Sub CbxRgaEfSbmttd_CheckedChanged(sender As Object, e As EventArgs) Handles CbxRgaEfSbmttdEdtMode.CheckedChanged
+        If CbxRgaEfSbmttdEdtMode.Checked = True Then
+            DtRgaSbmttdDateEdtMode.Visible = True
             isRgaSubmttd = "YES"
         Else
-            DtRgaSbmttdDateEdt.Visible = False
+            DtRgaSbmttdDateEdtMode.Visible = False
             isRgaSubmttd = "NO"
         End If
         ShowPrintThesisClearance()
@@ -420,7 +548,7 @@ Public Class EditWorkRecord
 
     'SHOW THESIS CLEARANCE BUTTON WHEN 4 OF CHECKBOX CONDITION IS CHECKED
     Public Sub ShowPrintThesisClearance()
-        If CbxSftCpySbmttdEdt.Checked = True And CbxHrdCpySbmttdEdt.Checked = True And CbxDgiSbmttdEdt.Checked = True And CbxRgaEfSbmttdEdt.Checked = True Then
+        If CbxSftCpySbmttdEdtMode.Checked = True And CbxHrdCpySbmttdEdtMode.Checked = True And CbxDgiSbmttdEdtMode.Checked = True And CbxRgaEfSbmttdEdtMode.Checked = True Then
             BtnThssClrnc.Enabled = True
             BtnThssClrnc.BackColor = Color.LimeGreen
         Else
@@ -490,6 +618,8 @@ Public Class EditWorkRecord
         RdEdtPreLevelLoc.Checked = False
         RdEdtPreLevelNat.Checked = False
     End Sub
+
+
 
 
     '==============================END=====================================

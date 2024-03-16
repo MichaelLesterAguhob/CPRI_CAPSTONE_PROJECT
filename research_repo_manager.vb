@@ -108,7 +108,7 @@ Public Class ResearchRepoManager
         Next
     End Sub
 
-    'RETRIEVING FILES IN DATABASE AND OPENING IT IN PDF OR WORD
+    'RETRIEVING FILES IN DATABASE AND OPENING IT IN PDF
     Private Sub OpenFile(file_id)
         Dim pdfByteArray As Byte() = RetrievePdfFile(file_id)
 
@@ -233,58 +233,68 @@ Public Class ResearchRepoManager
         If selected_research = 0 Then
             MessageBox.Show("No Selected File to Open", "Try Again!", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Else
-            Dim delete_confirmation As DialogResult = MessageBox.Show("Are you sure you want to delete this record?", "Click Yes to Confirm.", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
-            If delete_confirmation = DialogResult.Yes Then
-                con.Close()
+            If on_edit_mode = selected_research Then
+                MessageBox.Show("Can't Delete the selected record. Currently open in edit form.", "Unable to delete this record.", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Else
 
-                'delete on scholarly work
-                Dim delete_queries() As String = {
-                    "DELETE FROM authors WHERE authors_id = @to_delete_id",
-                    "DELETE FROM co_authors WHERE co_authors_id = @to_delete_id",
-                    "DELETE FROM presented_details WHERE presented_id = @to_delete_id",
-                    "DELETE FROM published_details WHERE published_id = @to_delete_id",
-                    "DELETE FROM scholarly_works WHERE sw_id = @to_delete_id",
-                    "DELETE FROM status_completed_info WHERE stat_completed_id = @to_delete_id",
-                    "DELETE FROM sw_abstract WHERE abstract_id= @to_delete_id",
-                    "DELETE FROM sw_whole_file WHERE whole_file_id = @to_delete_id"
-                }
+                Dim delete_confirmation As DialogResult = MessageBox.Show("Are you sure you want to delete this record?", "Click Yes to Confirm.", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
+                If delete_confirmation = DialogResult.Yes Then
+                    con.Close()
 
-                con.Open()
-                Using transaction As MySqlTransaction = con.BeginTransaction()
+                    'delete on scholarly work
+                    Dim delete_queries() As String = {
+                        "DELETE FROM authors WHERE authors_id = @to_delete_id",
+                        "DELETE FROM co_authors WHERE co_authors_id = @to_delete_id",
+                        "DELETE FROM presented_details WHERE presented_id = @to_delete_id",
+                        "DELETE FROM published_details WHERE published_id = @to_delete_id",
+                        "DELETE FROM scholarly_works WHERE sw_id = @to_delete_id",
+                        "DELETE FROM status_completed_info WHERE stat_completed_id = @to_delete_id",
+                        "DELETE FROM sw_abstract WHERE abstract_id= @to_delete_id",
+                        "DELETE FROM sw_whole_file WHERE whole_file_id = @to_delete_id"
+                    }
 
-                    Try
-                        For Each queries As String In delete_queries
-                            Using cmd_multiple As New MySqlCommand(queries, con, transaction)
-                                cmd_multiple.Parameters.AddWithValue("@to_delete_id", selected_research)
-                                cmd_multiple.ExecuteNonQuery()
-                            End Using
-                        Next
-                        transaction.Commit()
-                        MessageBox.Show("Successfuly Deleted Records.", "Deleted Successfully.", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    con.Open()
+                    Using transaction As MySqlTransaction = con.BeginTransaction()
 
-                        LoadScholarlyWorks()
-                        BtnRemoveSelection.Visible = False
-                        BtnDelete.Enabled = False
+                        Try
+                            For Each queries As String In delete_queries
+                                Using cmd_multiple As New MySqlCommand(queries, con, transaction)
+                                    cmd_multiple.Parameters.AddWithValue("@to_delete_id", selected_research)
+                                    cmd_multiple.ExecuteNonQuery()
+                                End Using
+                            Next
+                            transaction.Commit()
+                            MessageBox.Show("Successfuly Deleted Records.", "Deleted Successfully.", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
-                    Catch ex As Exception
-                        transaction.Rollback()
-                        MessageBox.Show("Error Occurred: " & ex.Message, "Failed to delete record.", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                    End Try
-                End Using
+                            LoadScholarlyWorks()
+                            BtnRemoveSelection.PerformClick()
+                            BtnRemoveSelection.Visible = False
+                            BtnDelete.Enabled = False
+
+                        Catch ex As Exception
+                            transaction.Rollback()
+                            MessageBox.Show("Error Occurred: " & ex.Message, "Failed to delete record.", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        End Try
+                    End Using
+                End If
+
             End If
         End If
     End Sub
 
     Private Sub BtnRemoveSelection_Click(sender As Object, e As EventArgs) Handles BtnRemoveSelection.Click
         selected_research = 0
+        on_edit_mode = 0
         BtnRemoveSelection.Visible = False
         DgvSwData.ClearSelection()
         BtnDelete.Enabled = False
     End Sub
 
     Dim sw_edit_id As Integer
+    Dim on_edit_mode As Integer
     Private Sub BtnEdit_Click(sender As Object, e As EventArgs) Handles BtnEdit.Click
         sw_edit_id = selected_research
+        on_edit_mode = selected_research
         If sw_edit_id = 0 Then
             MessageBox.Show("No Selected Research", "PLease Select Record", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Else
