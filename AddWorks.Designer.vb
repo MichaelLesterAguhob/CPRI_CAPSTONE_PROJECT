@@ -39,6 +39,9 @@ Partial Class AddWorks
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.PnlTxtCont = New System.Windows.Forms.Panel()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.TxtSchoolYear = New System.Windows.Forms.TextBox()
+        Me.CbxSem = New System.Windows.Forms.ComboBox()
+        Me.Label21 = New System.Windows.Forms.Label()
         Me.TxtBrowsedFileWhl = New System.Windows.Forms.TextBox()
         Me.TxtBrowsedFileAbs = New System.Windows.Forms.TextBox()
         Me.Label19 = New System.Windows.Forms.Label()
@@ -86,7 +89,6 @@ Partial Class AddWorks
         Me.BtnCancelSelection = New System.Windows.Forms.Button()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.PnlStatCmpltd = New System.Windows.Forms.Panel()
-        Me.BtnThssClrnc = New System.Windows.Forms.Button()
         Me.DtRgaSbmttdDate = New System.Windows.Forms.DateTimePicker()
         Me.DtDgiSbmttdDate = New System.Windows.Forms.DateTimePicker()
         Me.CbxRgaEfSbmttd = New System.Windows.Forms.CheckBox()
@@ -95,8 +97,8 @@ Partial Class AddWorks
         Me.CbxSftCpySbmttd = New System.Windows.Forms.CheckBox()
         Me.DtHrdCpySbmttdDate = New System.Windows.Forms.DateTimePicker()
         Me.DtSftCpySbmttdDate = New System.Windows.Forms.DateTimePicker()
+        Me.BtnThssClrnc = New System.Windows.Forms.Button()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.DtDateCompltd = New System.Windows.Forms.DateTimePicker()
         Me.BtnBrowseAbstractFile = New System.Windows.Forms.Button()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
@@ -246,7 +248,7 @@ Partial Class AddWorks
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(1350, 39)
         Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Upload Research"
+        Me.Label1.Text = "ADD RESEARCH WORKS"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'TxtAddAuthX
@@ -305,6 +307,9 @@ Partial Class AddWorks
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.TxtSchoolYear)
+        Me.GroupBox1.Controls.Add(Me.CbxSem)
+        Me.GroupBox1.Controls.Add(Me.Label21)
         Me.GroupBox1.Controls.Add(Me.TxtBrowsedFileWhl)
         Me.GroupBox1.Controls.Add(Me.TxtBrowsedFileAbs)
         Me.GroupBox1.Controls.Add(Me.Label19)
@@ -316,7 +321,6 @@ Partial Class AddWorks
         Me.GroupBox1.Controls.Add(Me.Label10)
         Me.GroupBox1.Controls.Add(Me.PnlStatCmpltd)
         Me.GroupBox1.Controls.Add(Me.Label8)
-        Me.GroupBox1.Controls.Add(Me.DtDateCompltd)
         Me.GroupBox1.Controls.Add(Me.BtnBrowseAbstractFile)
         Me.GroupBox1.Controls.Add(Me.Label9)
         Me.GroupBox1.Controls.Add(Me.Panel2)
@@ -325,6 +329,39 @@ Partial Class AddWorks
         Me.GroupBox1.Size = New System.Drawing.Size(1327, 291)
         Me.GroupBox1.TabIndex = 60
         Me.GroupBox1.TabStop = False
+        '
+        'TxtSchoolYear
+        '
+        Me.TxtSchoolYear.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.TxtSchoolYear.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtSchoolYear.ForeColor = System.Drawing.Color.Gray
+        Me.TxtSchoolYear.Location = New System.Drawing.Point(126, 102)
+        Me.TxtSchoolYear.Name = "TxtSchoolYear"
+        Me.TxtSchoolYear.Size = New System.Drawing.Size(139, 21)
+        Me.TxtSchoolYear.TabIndex = 76
+        Me.TxtSchoolYear.Text = "Enter School Year"
+        '
+        'CbxSem
+        '
+        Me.CbxSem.ForeColor = System.Drawing.Color.Gray
+        Me.CbxSem.FormattingEnabled = True
+        Me.CbxSem.Items.AddRange(New Object() {"1st Semester", "2nd Semester"})
+        Me.CbxSem.Location = New System.Drawing.Point(126, 75)
+        Me.CbxSem.Name = "CbxSem"
+        Me.CbxSem.Size = New System.Drawing.Size(139, 21)
+        Me.CbxSem.TabIndex = 75
+        Me.CbxSem.Text = "Select Semester"
+        '
+        'Label21
+        '
+        Me.Label21.AutoSize = True
+        Me.Label21.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label21.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label21.Location = New System.Drawing.Point(48, 77)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(72, 16)
+        Me.Label21.TabIndex = 74
+        Me.Label21.Text = "Semester :"
         '
         'TxtBrowsedFileWhl
         '
@@ -343,7 +380,7 @@ Partial Class AddWorks
         Me.TxtBrowsedFileAbs.BackColor = System.Drawing.Color.WhiteSmoke
         Me.TxtBrowsedFileAbs.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtBrowsedFileAbs.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.TxtBrowsedFileAbs.Location = New System.Drawing.Point(126, 48)
+        Me.TxtBrowsedFileAbs.Location = New System.Drawing.Point(126, 45)
         Me.TxtBrowsedFileAbs.Name = "TxtBrowsedFileAbs"
         Me.TxtBrowsedFileAbs.ReadOnly = True
         Me.TxtBrowsedFileAbs.Size = New System.Drawing.Size(139, 21)
@@ -799,7 +836,7 @@ Partial Class AddWorks
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label11.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label11.Location = New System.Drawing.Point(12, 49)
+        Me.Label11.Location = New System.Drawing.Point(12, 46)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(111, 16)
         Me.Label11.TabIndex = 68
@@ -832,10 +869,10 @@ Partial Class AddWorks
         Me.RdBtnPub.AutoSize = True
         Me.RdBtnPub.Location = New System.Drawing.Point(3, 3)
         Me.RdBtnPub.Name = "RdBtnPub"
-        Me.RdBtnPub.Size = New System.Drawing.Size(82, 17)
+        Me.RdBtnPub.Size = New System.Drawing.Size(88, 17)
         Me.RdBtnPub.TabIndex = 0
         Me.RdBtnPub.TabStop = True
-        Me.RdBtnPub.Text = "Is Publised?"
+        Me.RdBtnPub.Text = "Is Published?"
         Me.RdBtnPub.UseVisualStyleBackColor = True
         '
         'BtnCancelSelection
@@ -868,7 +905,6 @@ Partial Class AddWorks
         'PnlStatCmpltd
         '
         Me.PnlStatCmpltd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.PnlStatCmpltd.Controls.Add(Me.BtnThssClrnc)
         Me.PnlStatCmpltd.Controls.Add(Me.DtRgaSbmttdDate)
         Me.PnlStatCmpltd.Controls.Add(Me.DtDgiSbmttdDate)
         Me.PnlStatCmpltd.Controls.Add(Me.CbxRgaEfSbmttd)
@@ -877,38 +913,23 @@ Partial Class AddWorks
         Me.PnlStatCmpltd.Controls.Add(Me.CbxSftCpySbmttd)
         Me.PnlStatCmpltd.Controls.Add(Me.DtHrdCpySbmttdDate)
         Me.PnlStatCmpltd.Controls.Add(Me.DtSftCpySbmttdDate)
+        Me.PnlStatCmpltd.Controls.Add(Me.BtnThssClrnc)
         Me.PnlStatCmpltd.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.PnlStatCmpltd.Location = New System.Drawing.Point(5, 128)
+        Me.PnlStatCmpltd.Location = New System.Drawing.Point(6, 154)
         Me.PnlStatCmpltd.Name = "PnlStatCmpltd"
-        Me.PnlStatCmpltd.Size = New System.Drawing.Size(332, 152)
+        Me.PnlStatCmpltd.Size = New System.Drawing.Size(332, 126)
         Me.PnlStatCmpltd.TabIndex = 66
         Me.PnlStatCmpltd.Visible = False
-        '
-        'BtnThssClrnc
-        '
-        Me.BtnThssClrnc.BackColor = System.Drawing.Color.LightGray
-        Me.BtnThssClrnc.Enabled = False
-        Me.BtnThssClrnc.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnThssClrnc.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnThssClrnc.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.BtnThssClrnc.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnThssClrnc.Location = New System.Drawing.Point(111, 119)
-        Me.BtnThssClrnc.Name = "BtnThssClrnc"
-        Me.BtnThssClrnc.Size = New System.Drawing.Size(99, 22)
-        Me.BtnThssClrnc.TabIndex = 48
-        Me.BtnThssClrnc.Text = "Thesis Clearance"
-        Me.BtnThssClrnc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnThssClrnc.UseVisualStyleBackColor = False
         '
         'DtRgaSbmttdDate
         '
         Me.DtRgaSbmttdDate.Cursor = System.Windows.Forms.Cursors.Hand
         Me.DtRgaSbmttdDate.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DtRgaSbmttdDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DtRgaSbmttdDate.Location = New System.Drawing.Point(236, 83)
+        Me.DtRgaSbmttdDate.Location = New System.Drawing.Point(236, 69)
         Me.DtRgaSbmttdDate.Name = "DtRgaSbmttdDate"
         Me.DtRgaSbmttdDate.Size = New System.Drawing.Size(85, 18)
-        Me.DtRgaSbmttdDate.TabIndex = 55
+        Me.DtRgaSbmttdDate.TabIndex = 63
         Me.DtRgaSbmttdDate.Visible = False
         '
         'DtDgiSbmttdDate
@@ -916,49 +937,49 @@ Partial Class AddWorks
         Me.DtDgiSbmttdDate.Cursor = System.Windows.Forms.Cursors.Hand
         Me.DtDgiSbmttdDate.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DtDgiSbmttdDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DtDgiSbmttdDate.Location = New System.Drawing.Point(236, 60)
+        Me.DtDgiSbmttdDate.Location = New System.Drawing.Point(236, 48)
         Me.DtDgiSbmttdDate.Name = "DtDgiSbmttdDate"
         Me.DtDgiSbmttdDate.Size = New System.Drawing.Size(85, 18)
-        Me.DtDgiSbmttdDate.TabIndex = 54
+        Me.DtDgiSbmttdDate.TabIndex = 62
         Me.DtDgiSbmttdDate.Visible = False
         '
         'CbxRgaEfSbmttd
         '
         Me.CbxRgaEfSbmttd.AutoSize = True
-        Me.CbxRgaEfSbmttd.Location = New System.Drawing.Point(9, 84)
+        Me.CbxRgaEfSbmttd.Location = New System.Drawing.Point(9, 70)
         Me.CbxRgaEfSbmttd.Name = "CbxRgaEfSbmttd"
         Me.CbxRgaEfSbmttd.Size = New System.Drawing.Size(201, 17)
-        Me.CbxRgaEfSbmttd.TabIndex = 53
+        Me.CbxRgaEfSbmttd.TabIndex = 61
         Me.CbxRgaEfSbmttd.Text = "Is RGA’s Evaluation Form submitted?"
         Me.CbxRgaEfSbmttd.UseVisualStyleBackColor = True
         '
         'CbxDgiSbmttd
         '
         Me.CbxDgiSbmttd.AutoSize = True
-        Me.CbxDgiSbmttd.Location = New System.Drawing.Point(9, 61)
+        Me.CbxDgiSbmttd.Location = New System.Drawing.Point(9, 49)
         Me.CbxDgiSbmttd.Name = "CbxDgiSbmttd"
         Me.CbxDgiSbmttd.Size = New System.Drawing.Size(220, 17)
-        Me.CbxDgiSbmttd.TabIndex = 52
+        Me.CbxDgiSbmttd.TabIndex = 60
         Me.CbxDgiSbmttd.Text = "Is Data-Gathering Instruments submitted?"
         Me.CbxDgiSbmttd.UseVisualStyleBackColor = True
         '
         'CbxHrdCpySbmttd
         '
         Me.CbxHrdCpySbmttd.AutoSize = True
-        Me.CbxHrdCpySbmttd.Location = New System.Drawing.Point(9, 36)
+        Me.CbxHrdCpySbmttd.Location = New System.Drawing.Point(9, 27)
         Me.CbxHrdCpySbmttd.Name = "CbxHrdCpySbmttd"
         Me.CbxHrdCpySbmttd.Size = New System.Drawing.Size(141, 17)
-        Me.CbxHrdCpySbmttd.TabIndex = 51
+        Me.CbxHrdCpySbmttd.TabIndex = 59
         Me.CbxHrdCpySbmttd.Text = "Is Hard Copy submitted?"
         Me.CbxHrdCpySbmttd.UseVisualStyleBackColor = True
         '
         'CbxSftCpySbmttd
         '
         Me.CbxSftCpySbmttd.AutoSize = True
-        Me.CbxSftCpySbmttd.Location = New System.Drawing.Point(9, 12)
+        Me.CbxSftCpySbmttd.Location = New System.Drawing.Point(9, 6)
         Me.CbxSftCpySbmttd.Name = "CbxSftCpySbmttd"
         Me.CbxSftCpySbmttd.Size = New System.Drawing.Size(140, 17)
-        Me.CbxSftCpySbmttd.TabIndex = 50
+        Me.CbxSftCpySbmttd.TabIndex = 58
         Me.CbxSftCpySbmttd.Text = "Is Soft Copy submitted? "
         Me.CbxSftCpySbmttd.UseVisualStyleBackColor = True
         '
@@ -967,10 +988,10 @@ Partial Class AddWorks
         Me.DtHrdCpySbmttdDate.Cursor = System.Windows.Forms.Cursors.Hand
         Me.DtHrdCpySbmttdDate.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DtHrdCpySbmttdDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DtHrdCpySbmttdDate.Location = New System.Drawing.Point(236, 36)
+        Me.DtHrdCpySbmttdDate.Location = New System.Drawing.Point(236, 27)
         Me.DtHrdCpySbmttdDate.Name = "DtHrdCpySbmttdDate"
         Me.DtHrdCpySbmttdDate.Size = New System.Drawing.Size(85, 18)
-        Me.DtHrdCpySbmttdDate.TabIndex = 49
+        Me.DtHrdCpySbmttdDate.TabIndex = 57
         Me.DtHrdCpySbmttdDate.Visible = False
         '
         'DtSftCpySbmttdDate
@@ -978,32 +999,38 @@ Partial Class AddWorks
         Me.DtSftCpySbmttdDate.Cursor = System.Windows.Forms.Cursors.Hand
         Me.DtSftCpySbmttdDate.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DtSftCpySbmttdDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DtSftCpySbmttdDate.Location = New System.Drawing.Point(236, 12)
+        Me.DtSftCpySbmttdDate.Location = New System.Drawing.Point(236, 6)
         Me.DtSftCpySbmttdDate.Name = "DtSftCpySbmttdDate"
         Me.DtSftCpySbmttdDate.Size = New System.Drawing.Size(85, 18)
-        Me.DtSftCpySbmttdDate.TabIndex = 48
+        Me.DtSftCpySbmttdDate.TabIndex = 56
         Me.DtSftCpySbmttdDate.Visible = False
+        '
+        'BtnThssClrnc
+        '
+        Me.BtnThssClrnc.BackColor = System.Drawing.Color.LightGray
+        Me.BtnThssClrnc.Enabled = False
+        Me.BtnThssClrnc.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnThssClrnc.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnThssClrnc.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.BtnThssClrnc.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnThssClrnc.Location = New System.Drawing.Point(9, 99)
+        Me.BtnThssClrnc.Name = "BtnThssClrnc"
+        Me.BtnThssClrnc.Size = New System.Drawing.Size(90, 22)
+        Me.BtnThssClrnc.TabIndex = 48
+        Me.BtnThssClrnc.Text = "Print Clearance"
+        Me.BtnThssClrnc.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.BtnThssClrnc.UseVisualStyleBackColor = False
         '
         'Label8
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label8.Location = New System.Drawing.Point(10, 77)
+        Me.Label8.Location = New System.Drawing.Point(33, 105)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(112, 16)
+        Me.Label8.Size = New System.Drawing.Size(88, 16)
         Me.Label8.TabIndex = 62
-        Me.Label8.Text = "Date Completed :"
-        '
-        'DtDateCompltd
-        '
-        Me.DtDateCompltd.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.DtDateCompltd.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DtDateCompltd.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DtDateCompltd.Location = New System.Drawing.Point(126, 75)
-        Me.DtDateCompltd.Name = "DtDateCompltd"
-        Me.DtDateCompltd.Size = New System.Drawing.Size(139, 20)
-        Me.DtDateCompltd.TabIndex = 61
+        Me.Label8.Text = "School Year :"
         '
         'BtnBrowseAbstractFile
         '
@@ -1013,7 +1040,7 @@ Partial Class AddWorks
         Me.BtnBrowseAbstractFile.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.BtnBrowseAbstractFile.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_browse_18
         Me.BtnBrowseAbstractFile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnBrowseAbstractFile.Location = New System.Drawing.Point(271, 48)
+        Me.BtnBrowseAbstractFile.Location = New System.Drawing.Point(271, 45)
         Me.BtnBrowseAbstractFile.Name = "BtnBrowseAbstractFile"
         Me.BtnBrowseAbstractFile.Size = New System.Drawing.Size(65, 21)
         Me.BtnBrowseAbstractFile.TabIndex = 60
@@ -1026,7 +1053,7 @@ Partial Class AddWorks
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label9.Location = New System.Drawing.Point(70, 104)
+        Me.Label9.Location = New System.Drawing.Point(70, 130)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(51, 16)
         Me.Label9.TabIndex = 65
@@ -1037,7 +1064,7 @@ Partial Class AddWorks
         Me.Panel2.Controls.Add(Me.RdStatCmpltd)
         Me.Panel2.Controls.Add(Me.RdStatOngng)
         Me.Panel2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Panel2.Location = New System.Drawing.Point(126, 101)
+        Me.Panel2.Location = New System.Drawing.Point(126, 129)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(163, 22)
         Me.Panel2.TabIndex = 63
@@ -1244,7 +1271,7 @@ Partial Class AddWorks
         Me.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.Name = "AddWorks"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Upload Research"
+        Me.Text = "ADD FORM"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.PnlTxtCont.ResumeLayout(False)
         Me.PnlTxtCont.PerformLayout()
@@ -1342,16 +1369,7 @@ Partial Class AddWorks
     Friend WithEvents Label10 As Label
     Friend WithEvents PnlStatCmpltd As Panel
     Friend WithEvents BtnThssClrnc As Button
-    Friend WithEvents DtRgaSbmttdDate As DateTimePicker
-    Friend WithEvents DtDgiSbmttdDate As DateTimePicker
-    Friend WithEvents CbxRgaEfSbmttd As CheckBox
-    Friend WithEvents CbxDgiSbmttd As CheckBox
-    Friend WithEvents CbxHrdCpySbmttd As CheckBox
-    Friend WithEvents CbxSftCpySbmttd As CheckBox
-    Friend WithEvents DtHrdCpySbmttdDate As DateTimePicker
-    Friend WithEvents DtSftCpySbmttdDate As DateTimePicker
     Friend WithEvents Label8 As Label
-    Friend WithEvents DtDateCompltd As DateTimePicker
     Friend WithEvents BtnBrowseAbstractFile As Button
     Friend WithEvents Label9 As Label
     Friend WithEvents Panel2 As Panel
@@ -1368,4 +1386,15 @@ Partial Class AddWorks
     Friend WithEvents ProgressBar1 As ProgressBar
     Friend WithEvents BtnCancelSelection As Button
     Friend WithEvents Label20 As Label
+    Friend WithEvents CbxSem As ComboBox
+    Friend WithEvents Label21 As Label
+    Friend WithEvents DtRgaSbmttdDate As DateTimePicker
+    Friend WithEvents DtDgiSbmttdDate As DateTimePicker
+    Friend WithEvents CbxRgaEfSbmttd As CheckBox
+    Friend WithEvents CbxDgiSbmttd As CheckBox
+    Friend WithEvents CbxHrdCpySbmttd As CheckBox
+    Friend WithEvents CbxSftCpySbmttd As CheckBox
+    Friend WithEvents DtHrdCpySbmttdDate As DateTimePicker
+    Friend WithEvents DtSftCpySbmttdDate As DateTimePicker
+    Friend WithEvents TxtSchoolYear As TextBox
 End Class

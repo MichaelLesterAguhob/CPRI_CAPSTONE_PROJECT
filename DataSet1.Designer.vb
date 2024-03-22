@@ -283,11 +283,11 @@ Partial Public Class DataSet1
     Partial Public Class DataTable1DataTable
         Inherits Global.System.Data.TypedTableBase(Of DataTable1Row)
         
-        Private _columnscholarly_works_sw_id As Global.System.Data.DataColumn
+        Private columnsw_id As Global.System.Data.DataColumn
         
-        Private _columnscholarly_works_title As Global.System.Data.DataColumn
+        Private columntitle As Global.System.Data.DataColumn
         
-        Private _columnscholarly_works_research_agenda As Global.System.Data.DataColumn
+        Private columnresearch_agenda As Global.System.Data.DataColumn
         
         Private _columnsw_abstract_display_text As Global.System.Data.DataColumn
         
@@ -297,13 +297,19 @@ Partial Public Class DataSet1
         
         Private columnauth_and_co_auth_role As Global.System.Data.DataColumn
         
-        Private _columnscholarly_works_date_completed As Global.System.Data.DataColumn
+        Private columnsemester As Global.System.Data.DataColumn
         
-        Private _columnscholarly_works_status_ongoing_completed As Global.System.Data.DataColumn
+        Private columnschool_year As Global.System.Data.DataColumn
         
-        Private _columnscholarly_works_published As Global.System.Data.DataColumn
+        Private columnstatus_ongoing_completed As Global.System.Data.DataColumn
         
-        Private _columnscholarly_works_presented As Global.System.Data.DataColumn
+        Private columnpublished As Global.System.Data.DataColumn
+        
+        Private columnpresented As Global.System.Data.DataColumn
+        
+        Private columnwhole_file_text As Global.System.Data.DataColumn
+        
+        Private _columnno_ As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
@@ -342,25 +348,25 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property _scholarly_works_sw_idColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property sw_idColumn() As Global.System.Data.DataColumn
             Get
-                Return Me._columnscholarly_works_sw_id
+                Return Me.columnsw_id
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property _scholarly_works_titleColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property titleColumn() As Global.System.Data.DataColumn
             Get
-                Return Me._columnscholarly_works_title
+                Return Me.columntitle
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property _scholarly_works_research_agendaColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property research_agendaColumn() As Global.System.Data.DataColumn
             Get
-                Return Me._columnscholarly_works_research_agenda
+                Return Me.columnresearch_agenda
             End Get
         End Property
         
@@ -398,33 +404,57 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property _scholarly_works_date_completedColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property semesterColumn() As Global.System.Data.DataColumn
             Get
-                Return Me._columnscholarly_works_date_completed
+                Return Me.columnsemester
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property _scholarly_works_status_ongoing_completedColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property school_yearColumn() As Global.System.Data.DataColumn
             Get
-                Return Me._columnscholarly_works_status_ongoing_completed
+                Return Me.columnschool_year
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property _scholarly_works_publishedColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property status_ongoing_completedColumn() As Global.System.Data.DataColumn
             Get
-                Return Me._columnscholarly_works_published
+                Return Me.columnstatus_ongoing_completed
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property _scholarly_works_presentedColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property publishedColumn() As Global.System.Data.DataColumn
             Get
-                Return Me._columnscholarly_works_presented
+                Return Me.columnpublished
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property presentedColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnpresented
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property whole_file_textColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnwhole_file_text
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property _no_Column() As Global.System.Data.DataColumn
+            Get
+                Return Me._columnno_
             End Get
         End Property
         
@@ -465,9 +495,9 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddDataTable1Row(ByVal _scholarly_works_sw_id As String, ByVal _scholarly_works_title As String, ByVal _scholarly_works_research_agenda As String, ByVal _sw_abstract_display_text As String, ByVal authors_and_co_authors As String, ByVal auth_and_co_auth_deg_prog As String, ByVal auth_and_co_auth_role As String, ByVal _scholarly_works_date_completed As String, ByVal _scholarly_works_status_ongoing_completed As String, ByVal _scholarly_works_published As String, ByVal _scholarly_works_presented As String) As DataTable1Row
+        Public Overloads Function AddDataTable1Row(ByVal sw_id As String, ByVal title As String, ByVal research_agenda As String, ByVal _sw_abstract_display_text As String, ByVal authors_and_co_authors As String, ByVal auth_and_co_auth_deg_prog As String, ByVal auth_and_co_auth_role As String, ByVal semester As String, ByVal school_year As String, ByVal status_ongoing_completed As String, ByVal published As String, ByVal presented As String, ByVal whole_file_text As String, ByVal _no_ As String) As DataTable1Row
             Dim rowDataTable1Row As DataTable1Row = CType(Me.NewRow,DataTable1Row)
-            Dim columnValuesArray() As Object = New Object() {_scholarly_works_sw_id, _scholarly_works_title, _scholarly_works_research_agenda, _sw_abstract_display_text, authors_and_co_authors, auth_and_co_auth_deg_prog, auth_and_co_auth_role, _scholarly_works_date_completed, _scholarly_works_status_ongoing_completed, _scholarly_works_published, _scholarly_works_presented}
+            Dim columnValuesArray() As Object = New Object() {sw_id, title, research_agenda, _sw_abstract_display_text, authors_and_co_authors, auth_and_co_auth_deg_prog, auth_and_co_auth_role, semester, school_year, status_ongoing_completed, published, presented, whole_file_text, _no_}
             rowDataTable1Row.ItemArray = columnValuesArray
             Me.Rows.Add(rowDataTable1Row)
             Return rowDataTable1Row
@@ -490,34 +520,31 @@ Partial Public Class DataSet1
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Friend Sub InitVars()
-            Me._columnscholarly_works_sw_id = MyBase.Columns("scholarly_works.sw_id")
-            Me._columnscholarly_works_title = MyBase.Columns("scholarly_works.title")
-            Me._columnscholarly_works_research_agenda = MyBase.Columns("scholarly_works.research_agenda")
+            Me.columnsw_id = MyBase.Columns("sw_id")
+            Me.columntitle = MyBase.Columns("title")
+            Me.columnresearch_agenda = MyBase.Columns("research_agenda")
             Me._columnsw_abstract_display_text = MyBase.Columns("sw_abstract.display_text")
             Me.columnauthors_and_co_authors = MyBase.Columns("authors_and_co_authors")
             Me.columnauth_and_co_auth_deg_prog = MyBase.Columns("auth_and_co_auth_deg_prog")
             Me.columnauth_and_co_auth_role = MyBase.Columns("auth_and_co_auth_role")
-            Me._columnscholarly_works_date_completed = MyBase.Columns("scholarly_works.date_completed")
-            Me._columnscholarly_works_status_ongoing_completed = MyBase.Columns("scholarly_works.status_ongoing_completed")
-            Me._columnscholarly_works_published = MyBase.Columns("scholarly_works.published")
-            Me._columnscholarly_works_presented = MyBase.Columns("scholarly_works.presented")
+            Me.columnsemester = MyBase.Columns("semester")
+            Me.columnschool_year = MyBase.Columns("school_year")
+            Me.columnstatus_ongoing_completed = MyBase.Columns("status_ongoing_completed")
+            Me.columnpublished = MyBase.Columns("published")
+            Me.columnpresented = MyBase.Columns("presented")
+            Me.columnwhole_file_text = MyBase.Columns("whole_file_text")
+            Me._columnno_ = MyBase.Columns("no#")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Private Sub InitClass()
-            Me._columnscholarly_works_sw_id = New Global.System.Data.DataColumn("scholarly_works.sw_id", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            Me._columnscholarly_works_sw_id.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_columnscholarly_works_sw_id")
-            Me._columnscholarly_works_sw_id.ExtendedProperties.Add("Generator_UserColumnName", "scholarly_works.sw_id")
-            MyBase.Columns.Add(Me._columnscholarly_works_sw_id)
-            Me._columnscholarly_works_title = New Global.System.Data.DataColumn("scholarly_works.title", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            Me._columnscholarly_works_title.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_columnscholarly_works_title")
-            Me._columnscholarly_works_title.ExtendedProperties.Add("Generator_UserColumnName", "scholarly_works.title")
-            MyBase.Columns.Add(Me._columnscholarly_works_title)
-            Me._columnscholarly_works_research_agenda = New Global.System.Data.DataColumn("scholarly_works.research_agenda", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            Me._columnscholarly_works_research_agenda.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_columnscholarly_works_research_agenda")
-            Me._columnscholarly_works_research_agenda.ExtendedProperties.Add("Generator_UserColumnName", "scholarly_works.research_agenda")
-            MyBase.Columns.Add(Me._columnscholarly_works_research_agenda)
+            Me.columnsw_id = New Global.System.Data.DataColumn("sw_id", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnsw_id)
+            Me.columntitle = New Global.System.Data.DataColumn("title", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columntitle)
+            Me.columnresearch_agenda = New Global.System.Data.DataColumn("research_agenda", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnresearch_agenda)
             Me._columnsw_abstract_display_text = New Global.System.Data.DataColumn("sw_abstract.display_text", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             Me._columnsw_abstract_display_text.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_columnsw_abstract_display_text")
             Me._columnsw_abstract_display_text.ExtendedProperties.Add("Generator_UserColumnName", "sw_abstract.display_text")
@@ -528,22 +555,22 @@ Partial Public Class DataSet1
             MyBase.Columns.Add(Me.columnauth_and_co_auth_deg_prog)
             Me.columnauth_and_co_auth_role = New Global.System.Data.DataColumn("auth_and_co_auth_role", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnauth_and_co_auth_role)
-            Me._columnscholarly_works_date_completed = New Global.System.Data.DataColumn("scholarly_works.date_completed", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            Me._columnscholarly_works_date_completed.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_columnscholarly_works_date_completed")
-            Me._columnscholarly_works_date_completed.ExtendedProperties.Add("Generator_UserColumnName", "scholarly_works.date_completed")
-            MyBase.Columns.Add(Me._columnscholarly_works_date_completed)
-            Me._columnscholarly_works_status_ongoing_completed = New Global.System.Data.DataColumn("scholarly_works.status_ongoing_completed", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            Me._columnscholarly_works_status_ongoing_completed.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_columnscholarly_works_status_ongoing_completed")
-            Me._columnscholarly_works_status_ongoing_completed.ExtendedProperties.Add("Generator_UserColumnName", "scholarly_works.status_ongoing_completed")
-            MyBase.Columns.Add(Me._columnscholarly_works_status_ongoing_completed)
-            Me._columnscholarly_works_published = New Global.System.Data.DataColumn("scholarly_works.published", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            Me._columnscholarly_works_published.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_columnscholarly_works_published")
-            Me._columnscholarly_works_published.ExtendedProperties.Add("Generator_UserColumnName", "scholarly_works.published")
-            MyBase.Columns.Add(Me._columnscholarly_works_published)
-            Me._columnscholarly_works_presented = New Global.System.Data.DataColumn("scholarly_works.presented", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            Me._columnscholarly_works_presented.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_columnscholarly_works_presented")
-            Me._columnscholarly_works_presented.ExtendedProperties.Add("Generator_UserColumnName", "scholarly_works.presented")
-            MyBase.Columns.Add(Me._columnscholarly_works_presented)
+            Me.columnsemester = New Global.System.Data.DataColumn("semester", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnsemester)
+            Me.columnschool_year = New Global.System.Data.DataColumn("school_year", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnschool_year)
+            Me.columnstatus_ongoing_completed = New Global.System.Data.DataColumn("status_ongoing_completed", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnstatus_ongoing_completed)
+            Me.columnpublished = New Global.System.Data.DataColumn("published", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnpublished)
+            Me.columnpresented = New Global.System.Data.DataColumn("presented", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnpresented)
+            Me.columnwhole_file_text = New Global.System.Data.DataColumn("whole_file_text", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnwhole_file_text)
+            Me._columnno_ = New Global.System.Data.DataColumn("no#", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            Me._columnno_.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_columnno_")
+            Me._columnno_.ExtendedProperties.Add("Generator_UserColumnName", "no#")
+            MyBase.Columns.Add(Me._columnno_)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -690,47 +717,46 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property _scholarly_works_sw_id() As String
+        Public Property sw_id() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableDataTable1._scholarly_works_sw_idColumn),String)
+                    Return CType(Me(Me.tableDataTable1.sw_idColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'scholarly_works.sw_id' in table 'DataTable1' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'sw_id' in table 'DataTable1' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableDataTable1._scholarly_works_sw_idColumn) = value
+                Me(Me.tableDataTable1.sw_idColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property _scholarly_works_title() As String
+        Public Property title() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableDataTable1._scholarly_works_titleColumn),String)
+                    Return CType(Me(Me.tableDataTable1.titleColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'scholarly_works.title' in table 'DataTable1' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'title' in table 'DataTable1' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableDataTable1._scholarly_works_titleColumn) = value
+                Me(Me.tableDataTable1.titleColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property _scholarly_works_research_agenda() As String
+        Public Property research_agenda() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableDataTable1._scholarly_works_research_agendaColumn),String)
+                    Return CType(Me(Me.tableDataTable1.research_agendaColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'scholarly_works.research_agenda' in table 'DataTable1' is D"& _ 
-                            "BNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'research_agenda' in table 'DataTable1' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableDataTable1._scholarly_works_research_agendaColumn) = value
+                Me(Me.tableDataTable1.research_agendaColumn) = value
             End Set
         End Property
         
@@ -797,102 +823,143 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property _scholarly_works_date_completed() As String
+        Public Property semester() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableDataTable1._scholarly_works_date_completedColumn),String)
+                    Return CType(Me(Me.tableDataTable1.semesterColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'scholarly_works.date_completed' in table 'DataTable1' is DB"& _ 
-                            "Null.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'semester' in table 'DataTable1' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableDataTable1._scholarly_works_date_completedColumn) = value
+                Me(Me.tableDataTable1.semesterColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property _scholarly_works_status_ongoing_completed() As String
+        Public Property school_year() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableDataTable1._scholarly_works_status_ongoing_completedColumn),String)
+                    Return CType(Me(Me.tableDataTable1.school_yearColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'scholarly_works.status_ongoing_completed' in table 'DataTab"& _ 
-                            "le1' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'school_year' in table 'DataTable1' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableDataTable1._scholarly_works_status_ongoing_completedColumn) = value
+                Me(Me.tableDataTable1.school_yearColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property _scholarly_works_published() As String
+        Public Property status_ongoing_completed() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableDataTable1._scholarly_works_publishedColumn),String)
+                    Return CType(Me(Me.tableDataTable1.status_ongoing_completedColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'scholarly_works.published' in table 'DataTable1' is DBNull."& _ 
-                            "", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'status_ongoing_completed' in table 'DataTable1' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableDataTable1._scholarly_works_publishedColumn) = value
+                Me(Me.tableDataTable1.status_ongoing_completedColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property _scholarly_works_presented() As String
+        Public Property published() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableDataTable1._scholarly_works_presentedColumn),String)
+                    Return CType(Me(Me.tableDataTable1.publishedColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'scholarly_works.presented' in table 'DataTable1' is DBNull."& _ 
-                            "", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'published' in table 'DataTable1' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableDataTable1._scholarly_works_presentedColumn) = value
+                Me(Me.tableDataTable1.publishedColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function Is_scholarly_works_sw_idNull() As Boolean
-            Return Me.IsNull(Me.tableDataTable1._scholarly_works_sw_idColumn)
+        Public Property presented() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableDataTable1.presentedColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'presented' in table 'DataTable1' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDataTable1.presentedColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property whole_file_text() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableDataTable1.whole_file_textColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'whole_file_text' in table 'DataTable1' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDataTable1.whole_file_textColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property _no_() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableDataTable1._no_Column),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'no#' in table 'DataTable1' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDataTable1._no_Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function Issw_idNull() As Boolean
+            Return Me.IsNull(Me.tableDataTable1.sw_idColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub Set_scholarly_works_sw_idNull()
-            Me(Me.tableDataTable1._scholarly_works_sw_idColumn) = Global.System.Convert.DBNull
+        Public Sub Setsw_idNull()
+            Me(Me.tableDataTable1.sw_idColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function Is_scholarly_works_titleNull() As Boolean
-            Return Me.IsNull(Me.tableDataTable1._scholarly_works_titleColumn)
+        Public Function IstitleNull() As Boolean
+            Return Me.IsNull(Me.tableDataTable1.titleColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub Set_scholarly_works_titleNull()
-            Me(Me.tableDataTable1._scholarly_works_titleColumn) = Global.System.Convert.DBNull
+        Public Sub SettitleNull()
+            Me(Me.tableDataTable1.titleColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function Is_scholarly_works_research_agendaNull() As Boolean
-            Return Me.IsNull(Me.tableDataTable1._scholarly_works_research_agendaColumn)
+        Public Function Isresearch_agendaNull() As Boolean
+            Return Me.IsNull(Me.tableDataTable1.research_agendaColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub Set_scholarly_works_research_agendaNull()
-            Me(Me.tableDataTable1._scholarly_works_research_agendaColumn) = Global.System.Convert.DBNull
+        Public Sub Setresearch_agendaNull()
+            Me(Me.tableDataTable1.research_agendaColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -945,50 +1012,86 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function Is_scholarly_works_date_completedNull() As Boolean
-            Return Me.IsNull(Me.tableDataTable1._scholarly_works_date_completedColumn)
+        Public Function IssemesterNull() As Boolean
+            Return Me.IsNull(Me.tableDataTable1.semesterColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub Set_scholarly_works_date_completedNull()
-            Me(Me.tableDataTable1._scholarly_works_date_completedColumn) = Global.System.Convert.DBNull
+        Public Sub SetsemesterNull()
+            Me(Me.tableDataTable1.semesterColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function Is_scholarly_works_status_ongoing_completedNull() As Boolean
-            Return Me.IsNull(Me.tableDataTable1._scholarly_works_status_ongoing_completedColumn)
+        Public Function Isschool_yearNull() As Boolean
+            Return Me.IsNull(Me.tableDataTable1.school_yearColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub Set_scholarly_works_status_ongoing_completedNull()
-            Me(Me.tableDataTable1._scholarly_works_status_ongoing_completedColumn) = Global.System.Convert.DBNull
+        Public Sub Setschool_yearNull()
+            Me(Me.tableDataTable1.school_yearColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function Is_scholarly_works_publishedNull() As Boolean
-            Return Me.IsNull(Me.tableDataTable1._scholarly_works_publishedColumn)
+        Public Function Isstatus_ongoing_completedNull() As Boolean
+            Return Me.IsNull(Me.tableDataTable1.status_ongoing_completedColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub Set_scholarly_works_publishedNull()
-            Me(Me.tableDataTable1._scholarly_works_publishedColumn) = Global.System.Convert.DBNull
+        Public Sub Setstatus_ongoing_completedNull()
+            Me(Me.tableDataTable1.status_ongoing_completedColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function Is_scholarly_works_presentedNull() As Boolean
-            Return Me.IsNull(Me.tableDataTable1._scholarly_works_presentedColumn)
+        Public Function IspublishedNull() As Boolean
+            Return Me.IsNull(Me.tableDataTable1.publishedColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub Set_scholarly_works_presentedNull()
-            Me(Me.tableDataTable1._scholarly_works_presentedColumn) = Global.System.Convert.DBNull
+        Public Sub SetpublishedNull()
+            Me(Me.tableDataTable1.publishedColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IspresentedNull() As Boolean
+            Return Me.IsNull(Me.tableDataTable1.presentedColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetpresentedNull()
+            Me(Me.tableDataTable1.presentedColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function Iswhole_file_textNull() As Boolean
+            Return Me.IsNull(Me.tableDataTable1.whole_file_textColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub Setwhole_file_textNull()
+            Me(Me.tableDataTable1.whole_file_textColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function Is_no_Null() As Boolean
+            Return Me.IsNull(Me.tableDataTable1._no_Column)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub Set_no_Null()
+            Me(Me.tableDataTable1._no_Column) = Global.System.Convert.DBNull
         End Sub
     End Class
     

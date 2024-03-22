@@ -4,14 +4,47 @@ Imports MySql.Data.MySqlClient
 
 Public Class AddWorks
 
-    '|||||||||||||||||||||||||||||||||| BEGINNING CODES FOR MAIN FUNCTIONALITIES ||||||||||||||||||||||||||||||||||||||||||||
+    'variables for upper fields
+    Dim control_no As Integer = 0
+    Dim research_agenda As String = ""
+    Dim research_title As String = ""
+    Dim author_name As String = ""
+    Dim author_deg As String = ""
+    Dim author_role As String = ""
+    Dim school_year As String = ""
+    Dim semester As String = ""
+    Dim isDynamicFieldsNotBlanks As Boolean = True
 
-    'GENERATING UNIQUE CONTROL NUMBER THAT WILL BE ASSIGNED TO RESEARCH RECORDS and CHECKING ITS UNIQUENESS
+    Dim status As String = ""
+
+    Dim whole_file_path As String
+    Dim whole_file_data As Byte()
+    Dim whole_file_extension As String
+
+    Dim publish_level As String = ""
+    Dim presented_level As String = ""
+
+    'variables published presented
+    Dim pub_lvl As String = ""
+    Dim acad_jrnl As String = ""
+    Dim vol_no As Integer = 0
+    Dim issue_no As Integer = 0
+    Dim page_range As String = ""
+    Dim date_pub As String = ""
+    Dim doi_url As String = ""
+
+    Dim pre_lvl As String = ""
+    Dim res_conf_name As String = ""
+    Dim date_prsntd As String = ""
+    Dim place_prsnttn As String = ""
+
     Dim control_number As Integer
     Dim initial_cntrl_nmbr As Long
     ReadOnly date_time As DateTime = DateTime.Now
     ReadOnly current_year As Integer = date_time.Year
+    '|||||||||||||||||||||||||||||||||| CODES FOR MAIN FUNCTIONALITIES ||||||||||||||||||||||||||||||||||||||||||||
 
+    'GENERATING UNIQUE CONTROL NUMBER THAT WILL BE ASSIGNED TO RESEARCH RECORDS and CHECKING ITS UNIQUENESS
     Private Sub GenerateControlNumber()
         Dim rnd As New Random()
         initial_cntrl_nmbr = rnd.Next(10000, 99999)
@@ -39,7 +72,7 @@ Public Class AddWorks
             con.Close()
         End Try
     End Sub
-    '===============================END=====================================
+
 
     'FUNCTIONS WHEN ADDWORKS FORM IS LOAD
     Private Sub AddWorks_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -62,7 +95,6 @@ Public Class AddWorks
         co_auth_field_name.Focus()
         GenerateControlNumber()
     End Sub
-    '===============================END=====================================
 
 
     'CODES TO LOAD RESEARCH WORK
@@ -75,49 +107,20 @@ Public Class AddWorks
     End Sub
 
 
-    'CODES FOR SAVING/UPLOADING RESEARCH
-    Dim publish_level As String = ""
-    Dim presented_level As String = ""
-
-    'variables for upper fields
-    Dim control_no As Integer = 0
-    Dim research_agenda As String = ""
-    Dim research_title As String = ""
-    Dim author_name As String = ""
-    Dim author_deg As String = ""
-    Dim author_role As String = ""
-    Dim completed_date As String = ""
-    Dim isDynamicFieldsNotBlanks As Boolean = True
-
-    'variables published presented
-    Dim pub_lvl As String = ""
-    Dim acad_jrnl As String = ""
-    Dim vol_no As Integer = 0
-    Dim issue_no As Integer = 0
-    Dim page_range As String = ""
-    Dim date_pub As String = ""
-    Dim doi_url As String = ""
-
-    Dim pre_lvl As String = ""
-    Dim res_conf_name As String = ""
-    Dim date_prsntd As String = ""
-    Dim place_prsnttn As String = ""
-
     Private Sub BtnSaveResearch_Click(sender As Object, e As EventArgs) Handles BtnSaveResearch.Click
         BtnSaveResearch.Enabled = False
-
-        'variables for upper fields
         control_no = Convert.ToInt64(TxtResearchID.Text)
         research_agenda = TxtRsrchAgenda.Text.Trim
         research_title = TxtRsrchTitle.Text.Trim
         author_name = TxtAuthorName.Text.Trim
         author_deg = TxtAthrDegprog.Text.Trim
         author_role = TxtAthrRole.Text.Trim
-        completed_date = DtDateCompltd.Value.Date.ToString("MM-dd-yyyy")
+        school_year = TxtSchoolYear.Text.Trim
+        semester = CbxSem.Text.Trim
 
         con.Close()
 
-        If control_no <> 0 And research_agenda <> "" And research_title <> "" And author_name <> "" And author_deg <> "" And author_role <> "" And whole_file_path <> "" And abstract_file_path <> "" Then
+        If control_no <> 0 And research_agenda <> "" And research_title <> "" And author_name <> "" And author_deg <> "" And author_role <> "" And whole_file_path <> "" And abstract_file_path <> "" And semester <> "Select Semester" And school_year <> "Enter School Year" And status <> "" Then
 
             'Checking the dynamic textbox component if not blank
             Dim auth_no As Integer = 0
@@ -149,17 +152,21 @@ Public Class AddWorks
                 'check if addtional info- published is checked
                 If isPublished = "YES" Then
                     If publish_level <> "" And TxtPubAcadJournal.Text <> "" And TxtPubVolNum.Text <> "" And TxtPubIssueNo.Text <> "" And TxtPubPageRange.Text <> "" And TxtPubDoiUrl.Text <> "" Then
+                        If IsNumeric(TxtPubVolNum.Text) And IsNumeric(TxtPubIssueNo.Text) And IsNumeric(TxtPubPageRange.Text) And TxtPubDoiUrl.Text <> "" Then
+                            pub_lvl = publish_level
+                            acad_jrnl = TxtPubAcadJournal.Text.ToString
+                            vol_no = Convert.ToInt64(TxtPubVolNum.Text)
+                            issue_no = Convert.ToInt64(TxtPubIssueNo.Text)
+                            page_range = TxtPubPageRange.Text.ToString
+                            date_pub = TxtPubDate.Value.Date.ToString("MM-dd-yyyy")
+                            doi_url = TxtPubDoiUrl.Text.ToString
 
-                        pub_lvl = publish_level
-                        acad_jrnl = TxtPubAcadJournal.Text.ToString
-                        vol_no = Convert.ToInt64(TxtPubVolNum.Text)
-                        issue_no = Convert.ToInt64(TxtPubIssueNo.Text)
-                        page_range = TxtPubPageRange.Text.ToString
-                        date_pub = TxtPubDate.Value.Date.ToString("MM-dd-yyyy")
-                        doi_url = TxtPubDoiUrl.Text.ToString
+                            SaveUpperInputs()
+                            SavePublishedInfo()
+                        Else
+                            MessageBox.Show("You entered non-numeric in the in additional information field(s)", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                        End If
 
-                        SaveUpperInputs()
-                        SavePublishedInfo()
                     Else
                         MessageBox.Show("Fill in the blank(s)", "No Input | Check Additional Info", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                     End If
@@ -190,7 +197,8 @@ Public Class AddWorks
             MessageBox.Show("Fill in the blank field(s) before saving", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End If
         BtnSaveResearch.Enabled = True
-        rrm.LoadScholarlyWorks()
+        rrm.LoadScholarlyWorks("default")
+        rrm.BtnRemoveSelection.PerformClick()
     End Sub
 
 
@@ -205,7 +213,8 @@ Public Class AddWorks
                             `sw_id`, 
                             `title`, 
                             `research_agenda`, 
-                            `date_completed`, 
+                            `semester`, 
+                            `school_year`, 
                             `status_ongoing_completed`, 
                             `published`, 
                             `presented` 
@@ -216,7 +225,8 @@ Public Class AddWorks
                             @sw_id, 
                             @title, 
                             @research_agenda, 
-                            @date_completed, 
+                            @sem, 
+                            @sc, 
                             @status_ongoing_completed, 
                             @published,  
                             @presented
@@ -226,7 +236,8 @@ Public Class AddWorks
                 cmd.Parameters.AddWithValue("@sw_id", control_no)
                 cmd.Parameters.AddWithValue("@title", research_title)
                 cmd.Parameters.AddWithValue("@research_agenda", research_agenda)
-                cmd.Parameters.AddWithValue("@date_completed", completed_date)
+                cmd.Parameters.AddWithValue("@sem", semester)
+                cmd.Parameters.AddWithValue("@sc", school_year)
                 cmd.Parameters.AddWithValue("@status_ongoing_completed", status)
                 cmd.Parameters.AddWithValue("@published", isPublished)
                 cmd.Parameters.AddWithValue("@presented", isPresented)
@@ -250,6 +261,8 @@ Public Class AddWorks
             ClearTextBox(Me)
             GenerateControlNumber()
             TxtAddAuthX.Text = "1"
+            TxtBrowsedFileAbs.Text = "No file selected"
+            TxtBrowsedFileWhl.Text = "No file selected"
         End Try
     End Sub
 
@@ -296,7 +309,7 @@ Public Class AddWorks
             con.Close()
         End Try
     End Sub
-    '==============================END=====================================
+
 
     '1 BY 1 SAVING CO-AUTHOR TO DATABASE LOOP
     Private Sub SaveCoAuthors()
@@ -337,14 +350,10 @@ Public Class AddWorks
 
         End While
     End Sub
-    '==============================END=====================================
 
 
     'OPENING FILE DIALOG TO LET USER FIND AND SELECT THE PDF FILES
     'whole file
-    Dim whole_file_path As String
-    Dim whole_file_data As Byte()
-    Dim whole_file_extension As String
     Private Sub BtnBrowseWholeFile_Click(sender As Object, e As EventArgs) Handles BtnBrowseWholeFile.Click
         Dim openFileDialog As New OpenFileDialog With {
         .Filter = "PDF Files (*.pdf)|*.pdf",
@@ -382,7 +391,7 @@ Public Class AddWorks
             TxtBrowsedFileAbs.Text = "No file selected"
         End If
     End Sub
-    '==============================END=====================================
+
 
     'INSERTING PDF ABSTRACT FILES INTO DATABASE
     Private Sub SaveWholeFiles()
@@ -410,7 +419,7 @@ Public Class AddWorks
             Using cmd As New MySqlCommand(query, con)
                 cmd.Parameters.AddWithValue("@no", Nothing)
                 cmd.Parameters.AddWithValue("@id", whole_file_id)
-                cmd.Parameters.AddWithValue("@filename", Path.GetFileName(abstract_file_path))
+                cmd.Parameters.AddWithValue("@filename", Path.GetFileName(whole_file_path))
                 cmd.Parameters.AddWithValue("@filedata", whole_file_data)
                 cmd.Parameters.AddWithValue("@filetype", whole_file_extension)
                 cmd.ExecuteNonQuery()
@@ -463,7 +472,7 @@ Public Class AddWorks
             con.Close()
         End Try
     End Sub
-    '==============================END=====================================
+
 
 
     'SAVING COMPLETED CHECKED BOX INFO
@@ -535,7 +544,7 @@ Public Class AddWorks
         End If
 
     End Sub
-    '==============================END=====================================
+
 
 
     'SAVE ADDITIONAL PUBLISHED DETAILS
@@ -565,7 +574,7 @@ Public Class AddWorks
 		            @vol_no,
 		            @issue_no,
 		            @page_range,
-		            @cmpltd_dt,
+		            @date_pub,
                     @doi_url
 		        )
 			    "
@@ -577,7 +586,7 @@ Public Class AddWorks
                 cmd.Parameters.AddWithValue("@vol_no", vol_no)
                 cmd.Parameters.AddWithValue("@issue_no", issue_no)
                 cmd.Parameters.AddWithValue("@page_range", page_range)
-                cmd.Parameters.AddWithValue("@cmpltd_dt", completed_date)
+                cmd.Parameters.AddWithValue("@date_pub", date_pub)
                 cmd.Parameters.AddWithValue("@doi_url", doi_url)
                 cmd.ExecuteNonQuery()
             End Using
@@ -629,7 +638,7 @@ Public Class AddWorks
             con.Close()
         End Try
     End Sub
-    '==============================END=====================================
+
 
     'CLEARING ALL TEXTBOX FIELDS
     Private Sub ClearTextBox(ByVal parent_control As Control)
@@ -651,11 +660,11 @@ Public Class AddWorks
         status = ""
         BtnCancelSelection.PerformClick()
     End Sub
-    '==============================END=====================================
+
 
     'PUBLISHED LEVEL RADIO BUTTON EVENT
     Private Sub RdPubLevelInsti_MouseClick(sender As Object, e As MouseEventArgs) Handles RdPubLevelInsti.MouseClick
-        publish_level = "Intitutional"
+        publish_level = "Institutional"
     End Sub
     Private Sub RdPubLevelInter_MouseClick(sender As Object, e As MouseEventArgs) Handles RdPubLevelInter.MouseClick
         publish_level = "International"
@@ -669,7 +678,7 @@ Public Class AddWorks
 
     'PRESENTED LEVEL RADIO BUTTON EVENT
     Private Sub RdPreLevelInsti_MouseClick(sender As Object, e As MouseEventArgs) Handles RdPreLevelInsti.MouseClick
-        presented_level = "Intitutional"
+        presented_level = "Institutional"
     End Sub
     Private Sub RdPreLevelInter_MouseClick(sender As Object, e As MouseEventArgs) Handles RdPreLevelInter.MouseClick
         presented_level = "International"
@@ -680,12 +689,7 @@ Public Class AddWorks
     Private Sub RdPreLevelNat_MouseClick(sender As Object, e As MouseEventArgs) Handles RdPreLevelNat.MouseClick
         presented_level = "National"
     End Sub
-    '==============================END=====================================
 
-    '|||||||||||||||||||||||||||||||||| END OF MAIN FUNCTIONALITIES ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-
-
-    ' |||||||||||||||||||||||||||||||| BEGINNING CODES BELOW ARE FOR UI RESPONSES OR FUNCTIONALITIES ||||||||||||||||||||||||||||||||||||||
 
     'ADDING NEW TEXTBOX COMPONENT OR CONTROL INSIDE THE PANEL CONTAINER
     Dim auth_count As Integer = 0
@@ -759,7 +763,7 @@ Public Class AddWorks
 
         Panel1.Height = Panel1.Height + 24
     End Sub
-    '==============================END=====================================
+
 
     'CODES FOR BUTTON ADD NEW CO-AUTHOR
     Dim cntr As String 'holder of number that system will generate textbox component for author
@@ -787,7 +791,7 @@ Public Class AddWorks
 
         End If
     End Sub
-    '==============================END=====================================
+
 
     'REMOVING UNUSED CO-AUTHOR FIELDS AT THE BOTTOM OF PANEL CONTAINER
     Private Sub BtnRemoveField_Click(sender As Object, e As EventArgs) Handles BtnRemoveField.Click
@@ -833,7 +837,7 @@ Public Class AddWorks
         End If
 
     End Sub
-    '==============================END=====================================
+
 
     'ADDING AND SUBTRACTING TO FIELDS COUNT
     Private Sub BtnAddToFieldsCnt_Click(sender As Object, e As EventArgs) Handles BtnAddToFieldsCnt.Click
@@ -845,7 +849,7 @@ Public Class AddWorks
         Dim taax As Integer = TxtAddAuthX.Text
         TxtAddAuthX.Text = taax - 1
     End Sub
-    '==============================END=====================================
+
 
     'RESTRICTING TEXTBOX FOR TOTAL COUNT FOR NEW CO-AUTHOR FIELDS | FIELDS ARE NOT ALLOWED TO BE BLANK, 0, GREATER THAN 50,
     Private Sub TxtAddAuthX_TextChanged(sender As Object, e As EventArgs) Handles TxtAddAuthX.TextChanged
@@ -864,10 +868,9 @@ Public Class AddWorks
         End If
 
     End Sub
-    '==============================END=====================================
+
 
     'ONGOING OR COMPLETED EVENT HANDLES SHOW / HIDE 4 CHECKBOXES PANEL
-    Dim status As String = ""
     Private Sub RdStatCmpltd_MouseClick(sender As Object, e As MouseEventArgs) Handles RdStatCmpltd.MouseClick
         If RdStatCmpltd.Checked = True Then
             PnlStatCmpltd.Visible = True
@@ -934,7 +937,7 @@ Public Class AddWorks
         End If
         ShowPrintThesisClearance()
     End Sub
-    '==============================END=====================================
+
 
     'SHOW THESIS CLEARANCE BUTTON WHEN 4 OF CHECKBOX CONDITION IS CHECKED
     Public Sub ShowPrintThesisClearance()
@@ -946,7 +949,7 @@ Public Class AddWorks
             BtnThssClrnc.BackColor = Color.LightGray
         End If
     End Sub
-    '==============================END=====================================
+
 
     'RADIO BUTTON PUBLISHED AND PRESENTED , HIDING AND SHOWING OF UI
     Dim isPublished As String = "NO"
@@ -1009,8 +1012,65 @@ Public Class AddWorks
         RdPreLevelNat.Checked = False
     End Sub
 
+    Private Sub CbxSem_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CbxSem.SelectedIndexChanged
+        If CbxSem.Text = "" Then
+            CbxSem.Text = "Select Semester"
+            CbxSem.ForeColor = Color.Gray
+        ElseIf CbxSem.Text <> "Select Semester" Then
+            CbxSem.ForeColor = Color.Black
+        End If
+    End Sub
 
-    '==============================END=====================================
+    Private Sub CbxSem_Leave(sender As Object, e As EventArgs) Handles CbxSem.Leave
+        If CbxSem.Text = "" Then
+            CbxSem.Text = "Select Semester"
+            CbxSem.ForeColor = Color.Gray
+        End If
+    End Sub
+
+    Private Sub TxtSchoolYear_TextChanged(sender As Object, e As EventArgs) Handles TxtSchoolYear.TextChanged
+        If TxtSchoolYear.Text <> "Enter School Year" Then
+            TxtSchoolYear.ForeColor = Color.Black
+        End If
+    End Sub
+
+    Private Sub TxtSchoolYear_Leave(sender As Object, e As EventArgs) Handles TxtSchoolYear.Leave
+        If TxtSchoolYear.Text = "" Then
+            TxtSchoolYear.Text = "Enter School Year"
+            TxtSchoolYear.ForeColor = Color.Gray
+        End If
+    End Sub
+
+    Private Sub TxtSchoolYear_GotFocus(sender As Object, e As EventArgs) Handles TxtSchoolYear.GotFocus
+
+        TxtSchoolYear.Text = ""
+        TxtSchoolYear.ForeColor = Color.Black
+
+    End Sub
+
+
+
+    Private Sub BtnCancel_Click(sender As Object, e As EventArgs) Handles BtnCancel.Click
+        Me.Close()
+    End Sub
+
+    Private Sub AddWorks_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+
+        Dim close_window As DialogResult = MessageBox.Show("Are you sure you want to close this form? Entered data will not be saved.", "Click Yes to close this form.", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+            If close_window = DialogResult.Yes Then
+                e.Cancel = False
+            Else
+                e.Cancel = True
+            End If
+
+    End Sub
+
+
+
+
+
+
+
     '|||||||||||||||||||||||||||||||||| END OF UI RESPONSE OR FUNCTIONALITES ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
 

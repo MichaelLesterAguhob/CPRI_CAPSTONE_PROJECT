@@ -26,8 +26,8 @@ Partial Class EditWorkRecord
         Me.DtRgaSbmttdDateEdtMode = New System.Windows.Forms.DateTimePicker()
         Me.DtDgiSbmttdDateEdtMode = New System.Windows.Forms.DateTimePicker()
         Me.CbxDgiSbmttdEdtMode = New System.Windows.Forms.CheckBox()
-        Me.RdEdtBtnPresented = New System.Windows.Forms.RadioButton()
-        Me.RdEdtBtnPub = New System.Windows.Forms.RadioButton()
+        Me.RdBtnPresentedEdtMode = New System.Windows.Forms.RadioButton()
+        Me.RdBtnPubEdtMode = New System.Windows.Forms.RadioButton()
         Me.BtnEdtCnclSlctn = New System.Windows.Forms.Button()
         Me.CbxRgaEfSbmttdEdtMode = New System.Windows.Forms.CheckBox()
         Me.Label11 = New System.Windows.Forms.Label()
@@ -47,16 +47,14 @@ Partial Class EditWorkRecord
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.Panel4 = New System.Windows.Forms.Panel()
-        Me.RdPubLevelNat = New System.Windows.Forms.RadioButton()
-        Me.RdPubLevelInter = New System.Windows.Forms.RadioButton()
-        Me.RdPubLevelLoc = New System.Windows.Forms.RadioButton()
-        Me.RdPubLevelInsti = New System.Windows.Forms.RadioButton()
+        Me.RdPubLevelNatEdtMode = New System.Windows.Forms.RadioButton()
+        Me.RdPubLevelInterEdtMode = New System.Windows.Forms.RadioButton()
+        Me.RdPubLevelLocEdtMode = New System.Windows.Forms.RadioButton()
+        Me.RdPubLevelInstiEdtMode = New System.Windows.Forms.RadioButton()
         Me.Label20 = New System.Windows.Forms.Label()
-        Me.BtnAddCoAuthFldEdt = New System.Windows.Forms.Button()
         Me.TxtEditResearchID = New System.Windows.Forms.TextBox()
         Me.PreviewFileButton = New System.Windows.Forms.Button()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
-        Me.BtnRemoveField = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.Panel6 = New System.Windows.Forms.Panel()
         Me.PnlEditCoAuthFlds = New System.Windows.Forms.Panel()
@@ -71,31 +69,27 @@ Partial Class EditWorkRecord
         Me.Label26 = New System.Windows.Forms.Label()
         Me.TxtEditAuthName = New System.Windows.Forms.TextBox()
         Me.Label27 = New System.Windows.Forms.Label()
+        Me.BtnRemoveField = New System.Windows.Forms.Button()
         Me.RdEdtStatCmpltd = New System.Windows.Forms.RadioButton()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.DtEdtDateCompltd = New System.Windows.Forms.DateTimePicker()
-        Me.BtnBrwsAbstrct = New System.Windows.Forms.Button()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.RdEdtStatOngng = New System.Windows.Forms.RadioButton()
-        Me.TxtPubPageRange = New System.Windows.Forms.TextBox()
+        Me.TxtPubPageRangeEdtMode = New System.Windows.Forms.TextBox()
         Me.TxtUplddWhlFileName = New System.Windows.Forms.TextBox()
         Me.TxtUplddAbsFileName = New System.Windows.Forms.TextBox()
         Me.Label19 = New System.Windows.Forms.Label()
-        Me.BtnBrwsWhl = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.LblTotalFields = New System.Windows.Forms.Label()
         Me.PnlPresented = New System.Windows.Forms.Panel()
         Me.Panel7 = New System.Windows.Forms.Panel()
-        Me.DtEdtPrsntdDate = New System.Windows.Forms.DateTimePicker()
-        Me.TxtEdtPrePlace = New System.Windows.Forms.TextBox()
-        Me.TxtEdtPreResConfName = New System.Windows.Forms.TextBox()
+        Me.DtPrsntdDateEdtMode = New System.Windows.Forms.DateTimePicker()
+        Me.TxtPrePlaceEdtMode = New System.Windows.Forms.TextBox()
+        Me.TxtPreResConfNameEdtMode = New System.Windows.Forms.TextBox()
         Me.Panel8 = New System.Windows.Forms.Panel()
-        Me.RdEdtPreLevelNat = New System.Windows.Forms.RadioButton()
-        Me.RdEdtPreLevelInter = New System.Windows.Forms.RadioButton()
-        Me.RdEdtPreLevelLoc = New System.Windows.Forms.RadioButton()
-        Me.RdEdtPreLevelInsti = New System.Windows.Forms.RadioButton()
+        Me.RdPreLevelNatEdtMode = New System.Windows.Forms.RadioButton()
+        Me.RdPreLevelInterEdtMode = New System.Windows.Forms.RadioButton()
+        Me.RdPreLevelLocEdtMode = New System.Windows.Forms.RadioButton()
+        Me.RdPreLevelInstiEdtMode = New System.Windows.Forms.RadioButton()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.Label22 = New System.Windows.Forms.Label()
         Me.Label23 = New System.Windows.Forms.Label()
@@ -115,15 +109,22 @@ Partial Class EditWorkRecord
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.TxtSchoolYear = New System.Windows.Forms.TextBox()
+        Me.CbxSem = New System.Windows.Forms.ComboBox()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label29 = New System.Windows.Forms.Label()
+        Me.BtnBrwsWhl = New System.Windows.Forms.Button()
         Me.PnlPublished = New System.Windows.Forms.Panel()
         Me.Panel5 = New System.Windows.Forms.Panel()
-        Me.TxtPubDate = New System.Windows.Forms.DateTimePicker()
-        Me.TxtPubIssueNo = New System.Windows.Forms.TextBox()
-        Me.TxtPubDoiUrl = New System.Windows.Forms.TextBox()
-        Me.TxtPubAcadJournal = New System.Windows.Forms.TextBox()
-        Me.TxtPubVolNum = New System.Windows.Forms.TextBox()
-        Me.Btn_Update = New System.Windows.Forms.Button()
+        Me.DtPubDateEdtMode = New System.Windows.Forms.DateTimePicker()
+        Me.TxtPubIssueNoEdtMode = New System.Windows.Forms.TextBox()
+        Me.TxtPubDoiUrlEdtMode = New System.Windows.Forms.TextBox()
+        Me.TxtPubAcadJournalEdtMode = New System.Windows.Forms.TextBox()
+        Me.TxtPubVolNumEdtMode = New System.Windows.Forms.TextBox()
+        Me.BtnBrwsAbstrct = New System.Windows.Forms.Button()
         Me.BtnCancel = New System.Windows.Forms.Button()
+        Me.Btn_Update = New System.Windows.Forms.Button()
+        Me.BtnAddCoAuthFldEdt = New System.Windows.Forms.Button()
         Me.Panel3.SuspendLayout()
         Me.PnlStatCmpltdEdtMode.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
@@ -146,15 +147,15 @@ Partial Class EditWorkRecord
         Me.BtnThssClrnc.BackColor = System.Drawing.Color.LightGray
         Me.BtnThssClrnc.Enabled = False
         Me.BtnThssClrnc.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnThssClrnc.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnThssClrnc.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnThssClrnc.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.BtnThssClrnc.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnThssClrnc.Location = New System.Drawing.Point(111, 119)
+        Me.BtnThssClrnc.Location = New System.Drawing.Point(9, 98)
         Me.BtnThssClrnc.Name = "BtnThssClrnc"
-        Me.BtnThssClrnc.Size = New System.Drawing.Size(99, 22)
+        Me.BtnThssClrnc.Size = New System.Drawing.Size(90, 23)
         Me.BtnThssClrnc.TabIndex = 48
-        Me.BtnThssClrnc.Text = "Thesis Clearance"
-        Me.BtnThssClrnc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnThssClrnc.Text = "Print Clearance"
+        Me.BtnThssClrnc.TextAlign = System.Drawing.ContentAlignment.TopCenter
         Me.BtnThssClrnc.UseVisualStyleBackColor = False
         '
         'DtRgaSbmttdDateEdtMode
@@ -162,7 +163,7 @@ Partial Class EditWorkRecord
         Me.DtRgaSbmttdDateEdtMode.Cursor = System.Windows.Forms.Cursors.Hand
         Me.DtRgaSbmttdDateEdtMode.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DtRgaSbmttdDateEdtMode.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DtRgaSbmttdDateEdtMode.Location = New System.Drawing.Point(236, 83)
+        Me.DtRgaSbmttdDateEdtMode.Location = New System.Drawing.Point(236, 70)
         Me.DtRgaSbmttdDateEdtMode.Name = "DtRgaSbmttdDateEdtMode"
         Me.DtRgaSbmttdDateEdtMode.Size = New System.Drawing.Size(85, 18)
         Me.DtRgaSbmttdDateEdtMode.TabIndex = 55
@@ -173,7 +174,7 @@ Partial Class EditWorkRecord
         Me.DtDgiSbmttdDateEdtMode.Cursor = System.Windows.Forms.Cursors.Hand
         Me.DtDgiSbmttdDateEdtMode.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DtDgiSbmttdDateEdtMode.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DtDgiSbmttdDateEdtMode.Location = New System.Drawing.Point(236, 60)
+        Me.DtDgiSbmttdDateEdtMode.Location = New System.Drawing.Point(236, 49)
         Me.DtDgiSbmttdDateEdtMode.Name = "DtDgiSbmttdDateEdtMode"
         Me.DtDgiSbmttdDateEdtMode.Size = New System.Drawing.Size(85, 18)
         Me.DtDgiSbmttdDateEdtMode.TabIndex = 54
@@ -182,34 +183,34 @@ Partial Class EditWorkRecord
         'CbxDgiSbmttdEdtMode
         '
         Me.CbxDgiSbmttdEdtMode.AutoSize = True
-        Me.CbxDgiSbmttdEdtMode.Location = New System.Drawing.Point(9, 61)
+        Me.CbxDgiSbmttdEdtMode.Location = New System.Drawing.Point(9, 50)
         Me.CbxDgiSbmttdEdtMode.Name = "CbxDgiSbmttdEdtMode"
         Me.CbxDgiSbmttdEdtMode.Size = New System.Drawing.Size(220, 17)
         Me.CbxDgiSbmttdEdtMode.TabIndex = 52
         Me.CbxDgiSbmttdEdtMode.Text = "Is Data-Gathering Instruments submitted?"
         Me.CbxDgiSbmttdEdtMode.UseVisualStyleBackColor = True
         '
-        'RdEdtBtnPresented
+        'RdBtnPresentedEdtMode
         '
-        Me.RdEdtBtnPresented.AutoSize = True
-        Me.RdEdtBtnPresented.Location = New System.Drawing.Point(109, 3)
-        Me.RdEdtBtnPresented.Name = "RdEdtBtnPresented"
-        Me.RdEdtBtnPresented.Size = New System.Drawing.Size(90, 17)
-        Me.RdEdtBtnPresented.TabIndex = 1
-        Me.RdEdtBtnPresented.TabStop = True
-        Me.RdEdtBtnPresented.Text = "Is Presented?"
-        Me.RdEdtBtnPresented.UseVisualStyleBackColor = True
+        Me.RdBtnPresentedEdtMode.AutoSize = True
+        Me.RdBtnPresentedEdtMode.Location = New System.Drawing.Point(109, 3)
+        Me.RdBtnPresentedEdtMode.Name = "RdBtnPresentedEdtMode"
+        Me.RdBtnPresentedEdtMode.Size = New System.Drawing.Size(90, 17)
+        Me.RdBtnPresentedEdtMode.TabIndex = 1
+        Me.RdBtnPresentedEdtMode.TabStop = True
+        Me.RdBtnPresentedEdtMode.Text = "Is Presented?"
+        Me.RdBtnPresentedEdtMode.UseVisualStyleBackColor = True
         '
-        'RdEdtBtnPub
+        'RdBtnPubEdtMode
         '
-        Me.RdEdtBtnPub.AutoSize = True
-        Me.RdEdtBtnPub.Location = New System.Drawing.Point(3, 3)
-        Me.RdEdtBtnPub.Name = "RdEdtBtnPub"
-        Me.RdEdtBtnPub.Size = New System.Drawing.Size(82, 17)
-        Me.RdEdtBtnPub.TabIndex = 0
-        Me.RdEdtBtnPub.TabStop = True
-        Me.RdEdtBtnPub.Text = "Is Publised?"
-        Me.RdEdtBtnPub.UseVisualStyleBackColor = True
+        Me.RdBtnPubEdtMode.AutoSize = True
+        Me.RdBtnPubEdtMode.Location = New System.Drawing.Point(3, 3)
+        Me.RdBtnPubEdtMode.Name = "RdBtnPubEdtMode"
+        Me.RdBtnPubEdtMode.Size = New System.Drawing.Size(88, 17)
+        Me.RdBtnPubEdtMode.TabIndex = 0
+        Me.RdBtnPubEdtMode.TabStop = True
+        Me.RdBtnPubEdtMode.Text = "Is Published?"
+        Me.RdBtnPubEdtMode.UseVisualStyleBackColor = True
         '
         'BtnEdtCnclSlctn
         '
@@ -230,7 +231,7 @@ Partial Class EditWorkRecord
         'CbxRgaEfSbmttdEdtMode
         '
         Me.CbxRgaEfSbmttdEdtMode.AutoSize = True
-        Me.CbxRgaEfSbmttdEdtMode.Location = New System.Drawing.Point(9, 84)
+        Me.CbxRgaEfSbmttdEdtMode.Location = New System.Drawing.Point(9, 71)
         Me.CbxRgaEfSbmttdEdtMode.Name = "CbxRgaEfSbmttdEdtMode"
         Me.CbxRgaEfSbmttdEdtMode.Size = New System.Drawing.Size(201, 17)
         Me.CbxRgaEfSbmttdEdtMode.TabIndex = 53
@@ -242,16 +243,16 @@ Partial Class EditWorkRecord
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label11.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label11.Location = New System.Drawing.Point(12, 49)
+        Me.Label11.Location = New System.Drawing.Point(59, 49)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(111, 16)
+        Me.Label11.Size = New System.Drawing.Size(63, 16)
         Me.Label11.TabIndex = 68
-        Me.Label11.Text = "Upload Abstract :"
+        Me.Label11.Text = "Abstract :"
         '
         'Panel3
         '
-        Me.Panel3.Controls.Add(Me.RdEdtBtnPresented)
-        Me.Panel3.Controls.Add(Me.RdEdtBtnPub)
+        Me.Panel3.Controls.Add(Me.RdBtnPresentedEdtMode)
+        Me.Panel3.Controls.Add(Me.RdBtnPubEdtMode)
         Me.Panel3.Controls.Add(Me.BtnEdtCnclSlctn)
         Me.Panel3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.Panel3.Location = New System.Drawing.Point(492, 18)
@@ -327,16 +328,16 @@ Partial Class EditWorkRecord
         Me.PnlStatCmpltdEdtMode.Controls.Add(Me.DtHrdCpySbmttdDateEdtMode)
         Me.PnlStatCmpltdEdtMode.Controls.Add(Me.DtSftCpySbmttdDateEdtMode)
         Me.PnlStatCmpltdEdtMode.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.PnlStatCmpltdEdtMode.Location = New System.Drawing.Point(5, 128)
+        Me.PnlStatCmpltdEdtMode.Location = New System.Drawing.Point(5, 154)
         Me.PnlStatCmpltdEdtMode.Name = "PnlStatCmpltdEdtMode"
-        Me.PnlStatCmpltdEdtMode.Size = New System.Drawing.Size(332, 152)
+        Me.PnlStatCmpltdEdtMode.Size = New System.Drawing.Size(332, 126)
         Me.PnlStatCmpltdEdtMode.TabIndex = 66
         Me.PnlStatCmpltdEdtMode.Visible = False
         '
         'CbxHrdCpySbmttdEdtMode
         '
         Me.CbxHrdCpySbmttdEdtMode.AutoSize = True
-        Me.CbxHrdCpySbmttdEdtMode.Location = New System.Drawing.Point(9, 36)
+        Me.CbxHrdCpySbmttdEdtMode.Location = New System.Drawing.Point(9, 28)
         Me.CbxHrdCpySbmttdEdtMode.Name = "CbxHrdCpySbmttdEdtMode"
         Me.CbxHrdCpySbmttdEdtMode.Size = New System.Drawing.Size(141, 17)
         Me.CbxHrdCpySbmttdEdtMode.TabIndex = 51
@@ -346,7 +347,7 @@ Partial Class EditWorkRecord
         'CbxSftCpySbmttdEdtMode
         '
         Me.CbxSftCpySbmttdEdtMode.AutoSize = True
-        Me.CbxSftCpySbmttdEdtMode.Location = New System.Drawing.Point(9, 12)
+        Me.CbxSftCpySbmttdEdtMode.Location = New System.Drawing.Point(9, 7)
         Me.CbxSftCpySbmttdEdtMode.Name = "CbxSftCpySbmttdEdtMode"
         Me.CbxSftCpySbmttdEdtMode.Size = New System.Drawing.Size(140, 17)
         Me.CbxSftCpySbmttdEdtMode.TabIndex = 50
@@ -358,7 +359,7 @@ Partial Class EditWorkRecord
         Me.DtHrdCpySbmttdDateEdtMode.Cursor = System.Windows.Forms.Cursors.Hand
         Me.DtHrdCpySbmttdDateEdtMode.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DtHrdCpySbmttdDateEdtMode.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DtHrdCpySbmttdDateEdtMode.Location = New System.Drawing.Point(236, 36)
+        Me.DtHrdCpySbmttdDateEdtMode.Location = New System.Drawing.Point(236, 28)
         Me.DtHrdCpySbmttdDateEdtMode.Name = "DtHrdCpySbmttdDateEdtMode"
         Me.DtHrdCpySbmttdDateEdtMode.Size = New System.Drawing.Size(85, 18)
         Me.DtHrdCpySbmttdDateEdtMode.TabIndex = 49
@@ -369,7 +370,7 @@ Partial Class EditWorkRecord
         Me.DtSftCpySbmttdDateEdtMode.Cursor = System.Windows.Forms.Cursors.Hand
         Me.DtSftCpySbmttdDateEdtMode.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DtSftCpySbmttdDateEdtMode.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DtSftCpySbmttdDateEdtMode.Location = New System.Drawing.Point(236, 12)
+        Me.DtSftCpySbmttdDateEdtMode.Location = New System.Drawing.Point(236, 7)
         Me.DtSftCpySbmttdDateEdtMode.Name = "DtSftCpySbmttdDateEdtMode"
         Me.DtSftCpySbmttdDateEdtMode.Size = New System.Drawing.Size(85, 18)
         Me.DtSftCpySbmttdDateEdtMode.TabIndex = 48
@@ -437,59 +438,59 @@ Partial Class EditWorkRecord
         '
         'Panel4
         '
-        Me.Panel4.Controls.Add(Me.RdPubLevelNat)
-        Me.Panel4.Controls.Add(Me.RdPubLevelInter)
-        Me.Panel4.Controls.Add(Me.RdPubLevelLoc)
-        Me.Panel4.Controls.Add(Me.RdPubLevelInsti)
+        Me.Panel4.Controls.Add(Me.RdPubLevelNatEdtMode)
+        Me.Panel4.Controls.Add(Me.RdPubLevelInterEdtMode)
+        Me.Panel4.Controls.Add(Me.RdPubLevelLocEdtMode)
+        Me.Panel4.Controls.Add(Me.RdPubLevelInstiEdtMode)
         Me.Panel4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.Panel4.Location = New System.Drawing.Point(5, 75)
         Me.Panel4.Name = "Panel4"
         Me.Panel4.Size = New System.Drawing.Size(99, 150)
         Me.Panel4.TabIndex = 46
         '
-        'RdPubLevelNat
+        'RdPubLevelNatEdtMode
         '
-        Me.RdPubLevelNat.AutoSize = True
-        Me.RdPubLevelNat.Location = New System.Drawing.Point(5, 51)
-        Me.RdPubLevelNat.Name = "RdPubLevelNat"
-        Me.RdPubLevelNat.Size = New System.Drawing.Size(64, 17)
-        Me.RdPubLevelNat.TabIndex = 3
-        Me.RdPubLevelNat.TabStop = True
-        Me.RdPubLevelNat.Text = "National"
-        Me.RdPubLevelNat.UseVisualStyleBackColor = True
+        Me.RdPubLevelNatEdtMode.AutoSize = True
+        Me.RdPubLevelNatEdtMode.Location = New System.Drawing.Point(5, 51)
+        Me.RdPubLevelNatEdtMode.Name = "RdPubLevelNatEdtMode"
+        Me.RdPubLevelNatEdtMode.Size = New System.Drawing.Size(64, 17)
+        Me.RdPubLevelNatEdtMode.TabIndex = 3
+        Me.RdPubLevelNatEdtMode.TabStop = True
+        Me.RdPubLevelNatEdtMode.Text = "National"
+        Me.RdPubLevelNatEdtMode.UseVisualStyleBackColor = True
         '
-        'RdPubLevelInter
+        'RdPubLevelInterEdtMode
         '
-        Me.RdPubLevelInter.AutoSize = True
-        Me.RdPubLevelInter.Location = New System.Drawing.Point(6, 74)
-        Me.RdPubLevelInter.Name = "RdPubLevelInter"
-        Me.RdPubLevelInter.Size = New System.Drawing.Size(83, 17)
-        Me.RdPubLevelInter.TabIndex = 2
-        Me.RdPubLevelInter.TabStop = True
-        Me.RdPubLevelInter.Text = "International"
-        Me.RdPubLevelInter.UseVisualStyleBackColor = True
+        Me.RdPubLevelInterEdtMode.AutoSize = True
+        Me.RdPubLevelInterEdtMode.Location = New System.Drawing.Point(6, 74)
+        Me.RdPubLevelInterEdtMode.Name = "RdPubLevelInterEdtMode"
+        Me.RdPubLevelInterEdtMode.Size = New System.Drawing.Size(83, 17)
+        Me.RdPubLevelInterEdtMode.TabIndex = 2
+        Me.RdPubLevelInterEdtMode.TabStop = True
+        Me.RdPubLevelInterEdtMode.Text = "International"
+        Me.RdPubLevelInterEdtMode.UseVisualStyleBackColor = True
         '
-        'RdPubLevelLoc
+        'RdPubLevelLocEdtMode
         '
-        Me.RdPubLevelLoc.AutoSize = True
-        Me.RdPubLevelLoc.Location = New System.Drawing.Point(5, 28)
-        Me.RdPubLevelLoc.Name = "RdPubLevelLoc"
-        Me.RdPubLevelLoc.Size = New System.Drawing.Size(51, 17)
-        Me.RdPubLevelLoc.TabIndex = 1
-        Me.RdPubLevelLoc.TabStop = True
-        Me.RdPubLevelLoc.Text = "Local"
-        Me.RdPubLevelLoc.UseVisualStyleBackColor = True
+        Me.RdPubLevelLocEdtMode.AutoSize = True
+        Me.RdPubLevelLocEdtMode.Location = New System.Drawing.Point(5, 28)
+        Me.RdPubLevelLocEdtMode.Name = "RdPubLevelLocEdtMode"
+        Me.RdPubLevelLocEdtMode.Size = New System.Drawing.Size(51, 17)
+        Me.RdPubLevelLocEdtMode.TabIndex = 1
+        Me.RdPubLevelLocEdtMode.TabStop = True
+        Me.RdPubLevelLocEdtMode.Text = "Local"
+        Me.RdPubLevelLocEdtMode.UseVisualStyleBackColor = True
         '
-        'RdPubLevelInsti
+        'RdPubLevelInstiEdtMode
         '
-        Me.RdPubLevelInsti.AutoSize = True
-        Me.RdPubLevelInsti.Location = New System.Drawing.Point(5, 4)
-        Me.RdPubLevelInsti.Name = "RdPubLevelInsti"
-        Me.RdPubLevelInsti.Size = New System.Drawing.Size(78, 17)
-        Me.RdPubLevelInsti.TabIndex = 0
-        Me.RdPubLevelInsti.TabStop = True
-        Me.RdPubLevelInsti.Text = "Institutional"
-        Me.RdPubLevelInsti.UseVisualStyleBackColor = True
+        Me.RdPubLevelInstiEdtMode.AutoSize = True
+        Me.RdPubLevelInstiEdtMode.Location = New System.Drawing.Point(5, 4)
+        Me.RdPubLevelInstiEdtMode.Name = "RdPubLevelInstiEdtMode"
+        Me.RdPubLevelInstiEdtMode.Size = New System.Drawing.Size(78, 17)
+        Me.RdPubLevelInstiEdtMode.TabIndex = 0
+        Me.RdPubLevelInstiEdtMode.TabStop = True
+        Me.RdPubLevelInstiEdtMode.Text = "Institutional"
+        Me.RdPubLevelInstiEdtMode.UseVisualStyleBackColor = True
         '
         'Label20
         '
@@ -501,22 +502,6 @@ Partial Class EditWorkRecord
         Me.Label20.Size = New System.Drawing.Size(80, 16)
         Me.Label20.TabIndex = 91
         Me.Label20.Text = "Control No. :"
-        '
-        'BtnAddCoAuthFldEdt
-        '
-        Me.BtnAddCoAuthFldEdt.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.BtnAddCoAuthFldEdt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnAddCoAuthFldEdt.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnAddCoAuthFldEdt.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.BtnAddCoAuthFldEdt.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_add_141
-        Me.BtnAddCoAuthFldEdt.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnAddCoAuthFldEdt.Location = New System.Drawing.Point(142, 173)
-        Me.BtnAddCoAuthFldEdt.Name = "BtnAddCoAuthFldEdt"
-        Me.BtnAddCoAuthFldEdt.Size = New System.Drawing.Size(101, 21)
-        Me.BtnAddCoAuthFldEdt.TabIndex = 78
-        Me.BtnAddCoAuthFldEdt.Text = "Add Co-Author"
-        Me.BtnAddCoAuthFldEdt.TextAlign = System.Drawing.ContentAlignment.TopRight
-        Me.BtnAddCoAuthFldEdt.UseVisualStyleBackColor = False
         '
         'TxtEditResearchID
         '
@@ -548,22 +533,6 @@ Partial Class EditWorkRecord
         'OpenFileDialog1
         '
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
-        '
-        'BtnRemoveField
-        '
-        Me.BtnRemoveField.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.BtnRemoveField.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnRemoveField.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnRemoveField.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.BtnRemoveField.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_x_10
-        Me.BtnRemoveField.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.BtnRemoveField.Location = New System.Drawing.Point(434, 47)
-        Me.BtnRemoveField.Name = "BtnRemoveField"
-        Me.BtnRemoveField.Size = New System.Drawing.Size(104, 20)
-        Me.BtnRemoveField.TabIndex = 65
-        Me.BtnRemoveField.Text = "Remove  last Field"
-        Me.BtnRemoveField.TextAlign = System.Drawing.ContentAlignment.TopRight
-        Me.BtnRemoveField.UseVisualStyleBackColor = False
         '
         'GroupBox2
         '
@@ -728,6 +697,22 @@ Partial Class EditWorkRecord
         Me.Label27.TabIndex = 66
         Me.Label27.Text = "Author :"
         '
+        'BtnRemoveField
+        '
+        Me.BtnRemoveField.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnRemoveField.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnRemoveField.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnRemoveField.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.BtnRemoveField.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_x_10
+        Me.BtnRemoveField.ImageAlign = System.Drawing.ContentAlignment.TopLeft
+        Me.BtnRemoveField.Location = New System.Drawing.Point(434, 47)
+        Me.BtnRemoveField.Name = "BtnRemoveField"
+        Me.BtnRemoveField.Size = New System.Drawing.Size(104, 20)
+        Me.BtnRemoveField.TabIndex = 65
+        Me.BtnRemoveField.Text = "Remove  last Field"
+        Me.BtnRemoveField.TextAlign = System.Drawing.ContentAlignment.TopRight
+        Me.BtnRemoveField.UseVisualStyleBackColor = False
+        '
         'RdEdtStatCmpltd
         '
         Me.RdEdtStatCmpltd.AutoSize = True
@@ -739,49 +724,12 @@ Partial Class EditWorkRecord
         Me.RdEdtStatCmpltd.Text = "Completed"
         Me.RdEdtStatCmpltd.UseVisualStyleBackColor = True
         '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label8.Location = New System.Drawing.Point(10, 77)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(112, 16)
-        Me.Label8.TabIndex = 62
-        Me.Label8.Text = "Date Completed :"
-        '
-        'DtEdtDateCompltd
-        '
-        Me.DtEdtDateCompltd.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.DtEdtDateCompltd.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DtEdtDateCompltd.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DtEdtDateCompltd.Location = New System.Drawing.Point(126, 75)
-        Me.DtEdtDateCompltd.Name = "DtEdtDateCompltd"
-        Me.DtEdtDateCompltd.Size = New System.Drawing.Size(131, 20)
-        Me.DtEdtDateCompltd.TabIndex = 61
-        '
-        'BtnBrwsAbstrct
-        '
-        Me.BtnBrwsAbstrct.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.BtnBrwsAbstrct.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnBrwsAbstrct.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnBrwsAbstrct.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.BtnBrwsAbstrct.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_browse_18
-        Me.BtnBrwsAbstrct.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnBrwsAbstrct.Location = New System.Drawing.Point(265, 48)
-        Me.BtnBrwsAbstrct.Name = "BtnBrwsAbstrct"
-        Me.BtnBrwsAbstrct.Size = New System.Drawing.Size(71, 21)
-        Me.BtnBrwsAbstrct.TabIndex = 60
-        Me.BtnBrwsAbstrct.Text = "Change"
-        Me.BtnBrwsAbstrct.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.BtnBrwsAbstrct.UseVisualStyleBackColor = False
-        '
         'Label9
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label9.Location = New System.Drawing.Point(70, 104)
+        Me.Label9.Location = New System.Drawing.Point(71, 133)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(51, 16)
         Me.Label9.TabIndex = 65
@@ -792,7 +740,7 @@ Partial Class EditWorkRecord
         Me.Panel2.Controls.Add(Me.RdEdtStatCmpltd)
         Me.Panel2.Controls.Add(Me.RdEdtStatOngng)
         Me.Panel2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Panel2.Location = New System.Drawing.Point(126, 101)
+        Me.Panel2.Location = New System.Drawing.Point(127, 130)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(163, 22)
         Me.Panel2.TabIndex = 63
@@ -808,14 +756,14 @@ Partial Class EditWorkRecord
         Me.RdEdtStatOngng.Text = "Ongoing"
         Me.RdEdtStatOngng.UseVisualStyleBackColor = True
         '
-        'TxtPubPageRange
+        'TxtPubPageRangeEdtMode
         '
-        Me.TxtPubPageRange.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.TxtPubPageRange.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TxtPubPageRange.Location = New System.Drawing.Point(456, 12)
-        Me.TxtPubPageRange.Name = "TxtPubPageRange"
-        Me.TxtPubPageRange.Size = New System.Drawing.Size(141, 20)
-        Me.TxtPubPageRange.TabIndex = 50
+        Me.TxtPubPageRangeEdtMode.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.TxtPubPageRangeEdtMode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TxtPubPageRangeEdtMode.Location = New System.Drawing.Point(456, 12)
+        Me.TxtPubPageRangeEdtMode.Name = "TxtPubPageRangeEdtMode"
+        Me.TxtPubPageRangeEdtMode.Size = New System.Drawing.Size(141, 20)
+        Me.TxtPubPageRangeEdtMode.TabIndex = 50
         '
         'TxtUplddWhlFileName
         '
@@ -846,27 +794,11 @@ Partial Class EditWorkRecord
         Me.Label19.AutoSize = True
         Me.Label19.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label19.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label19.Location = New System.Drawing.Point(37, 20)
+        Me.Label19.Location = New System.Drawing.Point(44, 21)
         Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(84, 16)
+        Me.Label19.Size = New System.Drawing.Size(78, 16)
         Me.Label19.TabIndex = 72
-        Me.Label19.Text = "Upload File :"
-        '
-        'BtnBrwsWhl
-        '
-        Me.BtnBrwsWhl.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.BtnBrwsWhl.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnBrwsWhl.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnBrwsWhl.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.BtnBrwsWhl.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_browse_18
-        Me.BtnBrwsWhl.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnBrwsWhl.Location = New System.Drawing.Point(265, 17)
-        Me.BtnBrwsWhl.Name = "BtnBrwsWhl"
-        Me.BtnBrwsWhl.Size = New System.Drawing.Size(71, 21)
-        Me.BtnBrwsWhl.TabIndex = 71
-        Me.BtnBrwsWhl.Text = "Change"
-        Me.BtnBrwsWhl.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.BtnBrwsWhl.UseVisualStyleBackColor = False
+        Me.Label19.Text = "Whole File :"
         '
         'Panel1
         '
@@ -889,16 +821,6 @@ Partial Class EditWorkRecord
         Me.Label7.TabIndex = 84
         Me.Label7.Text = "Existing Fields :"
         '
-        'LblTotalFields
-        '
-        Me.LblTotalFields.AutoSize = True
-        Me.LblTotalFields.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.LblTotalFields.Location = New System.Drawing.Point(430, 179)
-        Me.LblTotalFields.Name = "LblTotalFields"
-        Me.LblTotalFields.Size = New System.Drawing.Size(13, 13)
-        Me.LblTotalFields.TabIndex = 83
-        Me.LblTotalFields.Text = "0"
-        '
         'PnlPresented
         '
         Me.PnlPresented.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
@@ -915,98 +837,98 @@ Partial Class EditWorkRecord
         'Panel7
         '
         Me.Panel7.BackColor = System.Drawing.Color.Transparent
-        Me.Panel7.Controls.Add(Me.DtEdtPrsntdDate)
-        Me.Panel7.Controls.Add(Me.TxtEdtPrePlace)
-        Me.Panel7.Controls.Add(Me.TxtEdtPreResConfName)
+        Me.Panel7.Controls.Add(Me.DtPrsntdDateEdtMode)
+        Me.Panel7.Controls.Add(Me.TxtPrePlaceEdtMode)
+        Me.Panel7.Controls.Add(Me.TxtPreResConfNameEdtMode)
         Me.Panel7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.Panel7.Location = New System.Drawing.Point(130, 65)
         Me.Panel7.Name = "Panel7"
         Me.Panel7.Size = New System.Drawing.Size(783, 49)
         Me.Panel7.TabIndex = 47
         '
-        'DtEdtPrsntdDate
+        'DtPrsntdDateEdtMode
         '
-        Me.DtEdtPrsntdDate.CalendarMonthBackground = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.DtEdtPrsntdDate.CalendarTitleBackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.DtEdtPrsntdDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DtEdtPrsntdDate.Location = New System.Drawing.Point(315, 12)
-        Me.DtEdtPrsntdDate.Name = "DtEdtPrsntdDate"
-        Me.DtEdtPrsntdDate.Size = New System.Drawing.Size(159, 20)
-        Me.DtEdtPrsntdDate.TabIndex = 48
+        Me.DtPrsntdDateEdtMode.CalendarMonthBackground = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.DtPrsntdDateEdtMode.CalendarTitleBackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.DtPrsntdDateEdtMode.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.DtPrsntdDateEdtMode.Location = New System.Drawing.Point(315, 12)
+        Me.DtPrsntdDateEdtMode.Name = "DtPrsntdDateEdtMode"
+        Me.DtPrsntdDateEdtMode.Size = New System.Drawing.Size(159, 20)
+        Me.DtPrsntdDateEdtMode.TabIndex = 48
         '
-        'TxtEdtPrePlace
+        'TxtPrePlaceEdtMode
         '
-        Me.TxtEdtPrePlace.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.TxtEdtPrePlace.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TxtEdtPrePlace.Location = New System.Drawing.Point(481, 12)
-        Me.TxtEdtPrePlace.Name = "TxtEdtPrePlace"
-        Me.TxtEdtPrePlace.Size = New System.Drawing.Size(299, 20)
-        Me.TxtEdtPrePlace.TabIndex = 52
+        Me.TxtPrePlaceEdtMode.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.TxtPrePlaceEdtMode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TxtPrePlaceEdtMode.Location = New System.Drawing.Point(481, 12)
+        Me.TxtPrePlaceEdtMode.Name = "TxtPrePlaceEdtMode"
+        Me.TxtPrePlaceEdtMode.Size = New System.Drawing.Size(299, 20)
+        Me.TxtPrePlaceEdtMode.TabIndex = 52
         '
-        'TxtEdtPreResConfName
+        'TxtPreResConfNameEdtMode
         '
-        Me.TxtEdtPreResConfName.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.TxtEdtPreResConfName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TxtEdtPreResConfName.Location = New System.Drawing.Point(5, 13)
-        Me.TxtEdtPreResConfName.Name = "TxtEdtPreResConfName"
-        Me.TxtEdtPreResConfName.Size = New System.Drawing.Size(303, 20)
-        Me.TxtEdtPreResConfName.TabIndex = 48
+        Me.TxtPreResConfNameEdtMode.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.TxtPreResConfNameEdtMode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TxtPreResConfNameEdtMode.Location = New System.Drawing.Point(5, 13)
+        Me.TxtPreResConfNameEdtMode.Name = "TxtPreResConfNameEdtMode"
+        Me.TxtPreResConfNameEdtMode.Size = New System.Drawing.Size(303, 20)
+        Me.TxtPreResConfNameEdtMode.TabIndex = 48
         '
         'Panel8
         '
-        Me.Panel8.Controls.Add(Me.RdEdtPreLevelNat)
-        Me.Panel8.Controls.Add(Me.RdEdtPreLevelInter)
-        Me.Panel8.Controls.Add(Me.RdEdtPreLevelLoc)
-        Me.Panel8.Controls.Add(Me.RdEdtPreLevelInsti)
+        Me.Panel8.Controls.Add(Me.RdPreLevelNatEdtMode)
+        Me.Panel8.Controls.Add(Me.RdPreLevelInterEdtMode)
+        Me.Panel8.Controls.Add(Me.RdPreLevelLocEdtMode)
+        Me.Panel8.Controls.Add(Me.RdPreLevelInstiEdtMode)
         Me.Panel8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.Panel8.Location = New System.Drawing.Point(2, 65)
         Me.Panel8.Name = "Panel8"
         Me.Panel8.Size = New System.Drawing.Size(126, 154)
         Me.Panel8.TabIndex = 46
         '
-        'RdEdtPreLevelNat
+        'RdPreLevelNatEdtMode
         '
-        Me.RdEdtPreLevelNat.AutoSize = True
-        Me.RdEdtPreLevelNat.Location = New System.Drawing.Point(5, 51)
-        Me.RdEdtPreLevelNat.Name = "RdEdtPreLevelNat"
-        Me.RdEdtPreLevelNat.Size = New System.Drawing.Size(64, 17)
-        Me.RdEdtPreLevelNat.TabIndex = 3
-        Me.RdEdtPreLevelNat.TabStop = True
-        Me.RdEdtPreLevelNat.Text = "National"
-        Me.RdEdtPreLevelNat.UseVisualStyleBackColor = True
+        Me.RdPreLevelNatEdtMode.AutoSize = True
+        Me.RdPreLevelNatEdtMode.Location = New System.Drawing.Point(5, 51)
+        Me.RdPreLevelNatEdtMode.Name = "RdPreLevelNatEdtMode"
+        Me.RdPreLevelNatEdtMode.Size = New System.Drawing.Size(64, 17)
+        Me.RdPreLevelNatEdtMode.TabIndex = 3
+        Me.RdPreLevelNatEdtMode.TabStop = True
+        Me.RdPreLevelNatEdtMode.Text = "National"
+        Me.RdPreLevelNatEdtMode.UseVisualStyleBackColor = True
         '
-        'RdEdtPreLevelInter
+        'RdPreLevelInterEdtMode
         '
-        Me.RdEdtPreLevelInter.AutoSize = True
-        Me.RdEdtPreLevelInter.Location = New System.Drawing.Point(6, 74)
-        Me.RdEdtPreLevelInter.Name = "RdEdtPreLevelInter"
-        Me.RdEdtPreLevelInter.Size = New System.Drawing.Size(83, 17)
-        Me.RdEdtPreLevelInter.TabIndex = 2
-        Me.RdEdtPreLevelInter.TabStop = True
-        Me.RdEdtPreLevelInter.Text = "International"
-        Me.RdEdtPreLevelInter.UseVisualStyleBackColor = True
+        Me.RdPreLevelInterEdtMode.AutoSize = True
+        Me.RdPreLevelInterEdtMode.Location = New System.Drawing.Point(6, 74)
+        Me.RdPreLevelInterEdtMode.Name = "RdPreLevelInterEdtMode"
+        Me.RdPreLevelInterEdtMode.Size = New System.Drawing.Size(83, 17)
+        Me.RdPreLevelInterEdtMode.TabIndex = 2
+        Me.RdPreLevelInterEdtMode.TabStop = True
+        Me.RdPreLevelInterEdtMode.Text = "International"
+        Me.RdPreLevelInterEdtMode.UseVisualStyleBackColor = True
         '
-        'RdEdtPreLevelLoc
+        'RdPreLevelLocEdtMode
         '
-        Me.RdEdtPreLevelLoc.AutoSize = True
-        Me.RdEdtPreLevelLoc.Location = New System.Drawing.Point(5, 28)
-        Me.RdEdtPreLevelLoc.Name = "RdEdtPreLevelLoc"
-        Me.RdEdtPreLevelLoc.Size = New System.Drawing.Size(51, 17)
-        Me.RdEdtPreLevelLoc.TabIndex = 1
-        Me.RdEdtPreLevelLoc.TabStop = True
-        Me.RdEdtPreLevelLoc.Text = "Local"
-        Me.RdEdtPreLevelLoc.UseVisualStyleBackColor = True
+        Me.RdPreLevelLocEdtMode.AutoSize = True
+        Me.RdPreLevelLocEdtMode.Location = New System.Drawing.Point(5, 28)
+        Me.RdPreLevelLocEdtMode.Name = "RdPreLevelLocEdtMode"
+        Me.RdPreLevelLocEdtMode.Size = New System.Drawing.Size(51, 17)
+        Me.RdPreLevelLocEdtMode.TabIndex = 1
+        Me.RdPreLevelLocEdtMode.TabStop = True
+        Me.RdPreLevelLocEdtMode.Text = "Local"
+        Me.RdPreLevelLocEdtMode.UseVisualStyleBackColor = True
         '
-        'RdEdtPreLevelInsti
+        'RdPreLevelInstiEdtMode
         '
-        Me.RdEdtPreLevelInsti.AutoSize = True
-        Me.RdEdtPreLevelInsti.Location = New System.Drawing.Point(5, 4)
-        Me.RdEdtPreLevelInsti.Name = "RdEdtPreLevelInsti"
-        Me.RdEdtPreLevelInsti.Size = New System.Drawing.Size(78, 17)
-        Me.RdEdtPreLevelInsti.TabIndex = 0
-        Me.RdEdtPreLevelInsti.TabStop = True
-        Me.RdEdtPreLevelInsti.Text = "Institutional"
-        Me.RdEdtPreLevelInsti.UseVisualStyleBackColor = True
+        Me.RdPreLevelInstiEdtMode.AutoSize = True
+        Me.RdPreLevelInstiEdtMode.Location = New System.Drawing.Point(5, 4)
+        Me.RdPreLevelInstiEdtMode.Name = "RdPreLevelInstiEdtMode"
+        Me.RdPreLevelInstiEdtMode.Size = New System.Drawing.Size(78, 17)
+        Me.RdPreLevelInstiEdtMode.TabIndex = 0
+        Me.RdPreLevelInstiEdtMode.TabStop = True
+        Me.RdPreLevelInstiEdtMode.Text = "Institutional"
+        Me.RdPreLevelInstiEdtMode.UseVisualStyleBackColor = True
         '
         'TableLayoutPanel2
         '
@@ -1212,11 +1134,15 @@ Partial Class EditWorkRecord
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(1350, 39)
         Me.Label1.TabIndex = 66
-        Me.Label1.Text = "Edit Details"
+        Me.Label1.Text = "EDIT DETAILS"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.TxtSchoolYear)
+        Me.GroupBox1.Controls.Add(Me.CbxSem)
+        Me.GroupBox1.Controls.Add(Me.Label8)
+        Me.GroupBox1.Controls.Add(Me.Label29)
         Me.GroupBox1.Controls.Add(Me.TxtUplddWhlFileName)
         Me.GroupBox1.Controls.Add(Me.TxtUplddAbsFileName)
         Me.GroupBox1.Controls.Add(Me.Label19)
@@ -1227,8 +1153,6 @@ Partial Class EditWorkRecord
         Me.GroupBox1.Controls.Add(Me.Panel3)
         Me.GroupBox1.Controls.Add(Me.Label10)
         Me.GroupBox1.Controls.Add(Me.PnlStatCmpltdEdtMode)
-        Me.GroupBox1.Controls.Add(Me.Label8)
-        Me.GroupBox1.Controls.Add(Me.DtEdtDateCompltd)
         Me.GroupBox1.Controls.Add(Me.BtnBrwsAbstrct)
         Me.GroupBox1.Controls.Add(Me.Label9)
         Me.GroupBox1.Controls.Add(Me.Panel2)
@@ -1237,6 +1161,66 @@ Partial Class EditWorkRecord
         Me.GroupBox1.Size = New System.Drawing.Size(1327, 291)
         Me.GroupBox1.TabIndex = 86
         Me.GroupBox1.TabStop = False
+        '
+        'TxtSchoolYear
+        '
+        Me.TxtSchoolYear.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.TxtSchoolYear.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtSchoolYear.ForeColor = System.Drawing.SystemColors.AppWorkspace
+        Me.TxtSchoolYear.Location = New System.Drawing.Point(126, 102)
+        Me.TxtSchoolYear.Name = "TxtSchoolYear"
+        Me.TxtSchoolYear.Size = New System.Drawing.Size(139, 21)
+        Me.TxtSchoolYear.TabIndex = 80
+        Me.TxtSchoolYear.Text = "Enter School Year"
+        '
+        'CbxSem
+        '
+        Me.CbxSem.ForeColor = System.Drawing.SystemColors.AppWorkspace
+        Me.CbxSem.FormattingEnabled = True
+        Me.CbxSem.Items.AddRange(New Object() {"1st Semester", "2nd Semester"})
+        Me.CbxSem.Location = New System.Drawing.Point(126, 75)
+        Me.CbxSem.Name = "CbxSem"
+        Me.CbxSem.Size = New System.Drawing.Size(139, 21)
+        Me.CbxSem.TabIndex = 79
+        Me.CbxSem.Text = "Select Semester"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label8.Location = New System.Drawing.Point(48, 77)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(72, 16)
+        Me.Label8.TabIndex = 78
+        Me.Label8.Text = "Semester :"
+        '
+        'Label29
+        '
+        Me.Label29.AutoSize = True
+        Me.Label29.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label29.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label29.Location = New System.Drawing.Point(33, 105)
+        Me.Label29.Name = "Label29"
+        Me.Label29.Size = New System.Drawing.Size(88, 16)
+        Me.Label29.TabIndex = 77
+        Me.Label29.Text = "School Year :"
+        '
+        'BtnBrwsWhl
+        '
+        Me.BtnBrwsWhl.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnBrwsWhl.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnBrwsWhl.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnBrwsWhl.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.BtnBrwsWhl.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_browse_18
+        Me.BtnBrwsWhl.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnBrwsWhl.Location = New System.Drawing.Point(265, 17)
+        Me.BtnBrwsWhl.Name = "BtnBrwsWhl"
+        Me.BtnBrwsWhl.Size = New System.Drawing.Size(71, 21)
+        Me.BtnBrwsWhl.TabIndex = 71
+        Me.BtnBrwsWhl.Text = "Change"
+        Me.BtnBrwsWhl.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.BtnBrwsWhl.UseVisualStyleBackColor = False
         '
         'PnlPublished
         '
@@ -1254,63 +1238,94 @@ Partial Class EditWorkRecord
         'Panel5
         '
         Me.Panel5.BackColor = System.Drawing.Color.Transparent
-        Me.Panel5.Controls.Add(Me.TxtPubDate)
-        Me.Panel5.Controls.Add(Me.TxtPubIssueNo)
-        Me.Panel5.Controls.Add(Me.TxtPubDoiUrl)
-        Me.Panel5.Controls.Add(Me.TxtPubAcadJournal)
-        Me.Panel5.Controls.Add(Me.TxtPubVolNum)
-        Me.Panel5.Controls.Add(Me.TxtPubPageRange)
+        Me.Panel5.Controls.Add(Me.DtPubDateEdtMode)
+        Me.Panel5.Controls.Add(Me.TxtPubIssueNoEdtMode)
+        Me.Panel5.Controls.Add(Me.TxtPubDoiUrlEdtMode)
+        Me.Panel5.Controls.Add(Me.TxtPubAcadJournalEdtMode)
+        Me.Panel5.Controls.Add(Me.TxtPubVolNumEdtMode)
+        Me.Panel5.Controls.Add(Me.TxtPubPageRangeEdtMode)
         Me.Panel5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.Panel5.Location = New System.Drawing.Point(105, 78)
         Me.Panel5.Name = "Panel5"
         Me.Panel5.Size = New System.Drawing.Size(870, 49)
         Me.Panel5.TabIndex = 47
         '
-        'TxtPubDate
+        'DtPubDateEdtMode
         '
-        Me.TxtPubDate.CalendarMonthBackground = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.TxtPubDate.CalendarTitleBackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.TxtPubDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.TxtPubDate.Location = New System.Drawing.Point(604, 12)
-        Me.TxtPubDate.Name = "TxtPubDate"
-        Me.TxtPubDate.Size = New System.Drawing.Size(123, 20)
-        Me.TxtPubDate.TabIndex = 53
+        Me.DtPubDateEdtMode.CalendarMonthBackground = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.DtPubDateEdtMode.CalendarTitleBackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.DtPubDateEdtMode.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.DtPubDateEdtMode.Location = New System.Drawing.Point(604, 12)
+        Me.DtPubDateEdtMode.Name = "DtPubDateEdtMode"
+        Me.DtPubDateEdtMode.Size = New System.Drawing.Size(123, 20)
+        Me.DtPubDateEdtMode.TabIndex = 53
         '
-        'TxtPubIssueNo
+        'TxtPubIssueNoEdtMode
         '
-        Me.TxtPubIssueNo.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.TxtPubIssueNo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TxtPubIssueNo.Location = New System.Drawing.Point(316, 12)
-        Me.TxtPubIssueNo.Name = "TxtPubIssueNo"
-        Me.TxtPubIssueNo.Size = New System.Drawing.Size(133, 20)
-        Me.TxtPubIssueNo.TabIndex = 49
+        Me.TxtPubIssueNoEdtMode.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.TxtPubIssueNoEdtMode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TxtPubIssueNoEdtMode.Location = New System.Drawing.Point(316, 12)
+        Me.TxtPubIssueNoEdtMode.Name = "TxtPubIssueNoEdtMode"
+        Me.TxtPubIssueNoEdtMode.Size = New System.Drawing.Size(133, 20)
+        Me.TxtPubIssueNoEdtMode.TabIndex = 49
         '
-        'TxtPubDoiUrl
+        'TxtPubDoiUrlEdtMode
         '
-        Me.TxtPubDoiUrl.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.TxtPubDoiUrl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TxtPubDoiUrl.Location = New System.Drawing.Point(733, 12)
-        Me.TxtPubDoiUrl.Name = "TxtPubDoiUrl"
-        Me.TxtPubDoiUrl.Size = New System.Drawing.Size(137, 20)
-        Me.TxtPubDoiUrl.TabIndex = 52
+        Me.TxtPubDoiUrlEdtMode.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.TxtPubDoiUrlEdtMode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TxtPubDoiUrlEdtMode.Location = New System.Drawing.Point(733, 12)
+        Me.TxtPubDoiUrlEdtMode.Name = "TxtPubDoiUrlEdtMode"
+        Me.TxtPubDoiUrlEdtMode.Size = New System.Drawing.Size(137, 20)
+        Me.TxtPubDoiUrlEdtMode.TabIndex = 52
         '
-        'TxtPubAcadJournal
+        'TxtPubAcadJournalEdtMode
         '
-        Me.TxtPubAcadJournal.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.TxtPubAcadJournal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TxtPubAcadJournal.Location = New System.Drawing.Point(4, 12)
-        Me.TxtPubAcadJournal.Name = "TxtPubAcadJournal"
-        Me.TxtPubAcadJournal.Size = New System.Drawing.Size(164, 20)
-        Me.TxtPubAcadJournal.TabIndex = 47
+        Me.TxtPubAcadJournalEdtMode.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.TxtPubAcadJournalEdtMode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TxtPubAcadJournalEdtMode.Location = New System.Drawing.Point(4, 12)
+        Me.TxtPubAcadJournalEdtMode.Name = "TxtPubAcadJournalEdtMode"
+        Me.TxtPubAcadJournalEdtMode.Size = New System.Drawing.Size(164, 20)
+        Me.TxtPubAcadJournalEdtMode.TabIndex = 47
         '
-        'TxtPubVolNum
+        'TxtPubVolNumEdtMode
         '
-        Me.TxtPubVolNum.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.TxtPubVolNum.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TxtPubVolNum.Location = New System.Drawing.Point(178, 12)
-        Me.TxtPubVolNum.Name = "TxtPubVolNum"
-        Me.TxtPubVolNum.Size = New System.Drawing.Size(133, 20)
-        Me.TxtPubVolNum.TabIndex = 48
+        Me.TxtPubVolNumEdtMode.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.TxtPubVolNumEdtMode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TxtPubVolNumEdtMode.Location = New System.Drawing.Point(178, 12)
+        Me.TxtPubVolNumEdtMode.Name = "TxtPubVolNumEdtMode"
+        Me.TxtPubVolNumEdtMode.Size = New System.Drawing.Size(133, 20)
+        Me.TxtPubVolNumEdtMode.TabIndex = 48
+        '
+        'BtnBrwsAbstrct
+        '
+        Me.BtnBrwsAbstrct.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnBrwsAbstrct.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnBrwsAbstrct.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnBrwsAbstrct.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.BtnBrwsAbstrct.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_browse_18
+        Me.BtnBrwsAbstrct.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnBrwsAbstrct.Location = New System.Drawing.Point(265, 48)
+        Me.BtnBrwsAbstrct.Name = "BtnBrwsAbstrct"
+        Me.BtnBrwsAbstrct.Size = New System.Drawing.Size(71, 21)
+        Me.BtnBrwsAbstrct.TabIndex = 60
+        Me.BtnBrwsAbstrct.Text = "Change"
+        Me.BtnBrwsAbstrct.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.BtnBrwsAbstrct.UseVisualStyleBackColor = False
+        '
+        'BtnCancel
+        '
+        Me.BtnCancel.Anchor = System.Windows.Forms.AnchorStyles.Bottom
+        Me.BtnCancel.BackColor = System.Drawing.Color.Khaki
+        Me.BtnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnCancel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.BtnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnCancel.Location = New System.Drawing.Point(745, 655)
+        Me.BtnCancel.Name = "BtnCancel"
+        Me.BtnCancel.Size = New System.Drawing.Size(123, 34)
+        Me.BtnCancel.TabIndex = 92
+        Me.BtnCancel.Text = "Cancel"
+        Me.BtnCancel.UseVisualStyleBackColor = False
         '
         'Btn_Update
         '
@@ -1328,20 +1343,21 @@ Partial Class EditWorkRecord
         Me.Btn_Update.Text = "Update"
         Me.Btn_Update.UseVisualStyleBackColor = False
         '
-        'BtnCancel
+        'BtnAddCoAuthFldEdt
         '
-        Me.BtnCancel.Anchor = System.Windows.Forms.AnchorStyles.Bottom
-        Me.BtnCancel.BackColor = System.Drawing.Color.Khaki
-        Me.BtnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnCancel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.BtnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnCancel.Location = New System.Drawing.Point(745, 655)
-        Me.BtnCancel.Name = "BtnCancel"
-        Me.BtnCancel.Size = New System.Drawing.Size(123, 34)
-        Me.BtnCancel.TabIndex = 92
-        Me.BtnCancel.Text = "Cancel"
-        Me.BtnCancel.UseVisualStyleBackColor = False
+        Me.BtnAddCoAuthFldEdt.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnAddCoAuthFldEdt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnAddCoAuthFldEdt.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnAddCoAuthFldEdt.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.BtnAddCoAuthFldEdt.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_add_141
+        Me.BtnAddCoAuthFldEdt.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnAddCoAuthFldEdt.Location = New System.Drawing.Point(142, 173)
+        Me.BtnAddCoAuthFldEdt.Name = "BtnAddCoAuthFldEdt"
+        Me.BtnAddCoAuthFldEdt.Size = New System.Drawing.Size(101, 21)
+        Me.BtnAddCoAuthFldEdt.TabIndex = 78
+        Me.BtnAddCoAuthFldEdt.Text = "Add Co-Author"
+        Me.BtnAddCoAuthFldEdt.TextAlign = System.Drawing.ContentAlignment.TopRight
+        Me.BtnAddCoAuthFldEdt.UseVisualStyleBackColor = False
         '
         'EditWorkRecord
         '
@@ -1357,7 +1373,6 @@ Partial Class EditWorkRecord
         Me.Controls.Add(Me.PreviewFileButton)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.Label7)
-        Me.Controls.Add(Me.LblTotalFields)
         Me.Controls.Add(Me.TxtAddAuthX)
         Me.Controls.Add(Me.PnlTxtCont)
         Me.Controls.Add(Me.TxtAthrRole)
@@ -1374,7 +1389,7 @@ Partial Class EditWorkRecord
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "EditWorkRecord"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "EditWorkRecord"
+        Me.Text = "EDIT FORM"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
@@ -1413,8 +1428,8 @@ Partial Class EditWorkRecord
     Friend WithEvents DtRgaSbmttdDateEdtMode As DateTimePicker
     Friend WithEvents DtDgiSbmttdDateEdtMode As DateTimePicker
     Friend WithEvents CbxDgiSbmttdEdtMode As CheckBox
-    Friend WithEvents RdEdtBtnPresented As RadioButton
-    Friend WithEvents RdEdtBtnPub As RadioButton
+    Friend WithEvents RdBtnPresentedEdtMode As RadioButton
+    Friend WithEvents RdBtnPubEdtMode As RadioButton
     Friend WithEvents BtnEdtCnclSlctn As Button
     Friend WithEvents CbxRgaEfSbmttdEdtMode As CheckBox
     Friend WithEvents Label11 As Label
@@ -1434,10 +1449,10 @@ Partial Class EditWorkRecord
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents Label15 As Label
     Friend WithEvents Panel4 As Panel
-    Friend WithEvents RdPubLevelNat As RadioButton
-    Friend WithEvents RdPubLevelInter As RadioButton
-    Friend WithEvents RdPubLevelLoc As RadioButton
-    Friend WithEvents RdPubLevelInsti As RadioButton
+    Friend WithEvents RdPubLevelNatEdtMode As RadioButton
+    Friend WithEvents RdPubLevelInterEdtMode As RadioButton
+    Friend WithEvents RdPubLevelLocEdtMode As RadioButton
+    Friend WithEvents RdPubLevelInstiEdtMode As RadioButton
     Friend WithEvents Label20 As Label
     Friend WithEvents BtnAddCoAuthFldEdt As Button
     Friend WithEvents TxtEditResearchID As TextBox
@@ -1446,30 +1461,27 @@ Partial Class EditWorkRecord
     Friend WithEvents BtnRemoveField As Button
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents RdEdtStatCmpltd As RadioButton
-    Friend WithEvents Label8 As Label
-    Friend WithEvents DtEdtDateCompltd As DateTimePicker
     Friend WithEvents BtnBrwsAbstrct As Button
     Friend WithEvents Label9 As Label
     Friend WithEvents Panel2 As Panel
     Friend WithEvents RdEdtStatOngng As RadioButton
-    Friend WithEvents TxtPubPageRange As TextBox
+    Friend WithEvents TxtPubPageRangeEdtMode As TextBox
     Friend WithEvents TxtUplddWhlFileName As TextBox
     Friend WithEvents TxtUplddAbsFileName As TextBox
     Friend WithEvents Label19 As Label
     Friend WithEvents BtnBrwsWhl As Button
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Label7 As Label
-    Friend WithEvents LblTotalFields As Label
     Friend WithEvents PnlPresented As Panel
     Friend WithEvents Panel7 As Panel
-    Friend WithEvents DtEdtPrsntdDate As DateTimePicker
-    Friend WithEvents TxtEdtPrePlace As TextBox
-    Friend WithEvents TxtEdtPreResConfName As TextBox
+    Friend WithEvents DtPrsntdDateEdtMode As DateTimePicker
+    Friend WithEvents TxtPrePlaceEdtMode As TextBox
+    Friend WithEvents TxtPreResConfNameEdtMode As TextBox
     Friend WithEvents Panel8 As Panel
-    Friend WithEvents RdEdtPreLevelNat As RadioButton
-    Friend WithEvents RdEdtPreLevelInter As RadioButton
-    Friend WithEvents RdEdtPreLevelLoc As RadioButton
-    Friend WithEvents RdEdtPreLevelInsti As RadioButton
+    Friend WithEvents RdPreLevelNatEdtMode As RadioButton
+    Friend WithEvents RdPreLevelInterEdtMode As RadioButton
+    Friend WithEvents RdPreLevelLocEdtMode As RadioButton
+    Friend WithEvents RdPreLevelInstiEdtMode As RadioButton
     Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
     Friend WithEvents Label22 As Label
     Friend WithEvents Label23 As Label
@@ -1491,11 +1503,11 @@ Partial Class EditWorkRecord
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents PnlPublished As Panel
     Friend WithEvents Panel5 As Panel
-    Friend WithEvents TxtPubDate As DateTimePicker
-    Friend WithEvents TxtPubIssueNo As TextBox
-    Friend WithEvents TxtPubDoiUrl As TextBox
-    Friend WithEvents TxtPubAcadJournal As TextBox
-    Friend WithEvents TxtPubVolNum As TextBox
+    Friend WithEvents DtPubDateEdtMode As DateTimePicker
+    Friend WithEvents TxtPubIssueNoEdtMode As TextBox
+    Friend WithEvents TxtPubDoiUrlEdtMode As TextBox
+    Friend WithEvents TxtPubAcadJournalEdtMode As TextBox
+    Friend WithEvents TxtPubVolNumEdtMode As TextBox
     Friend WithEvents TxtEditAuthRole As TextBox
     Friend WithEvents Label21 As Label
     Friend WithEvents TxtEditAuthDeg As TextBox
@@ -1511,4 +1523,8 @@ Partial Class EditWorkRecord
     Friend WithEvents PnlEditCoAuthFlds As Panel
     Friend WithEvents Btn_Update As Button
     Friend WithEvents BtnCancel As Button
+    Friend WithEvents TxtSchoolYear As TextBox
+    Friend WithEvents CbxSem As ComboBox
+    Friend WithEvents Label8 As Label
+    Friend WithEvents Label29 As Label
 End Class

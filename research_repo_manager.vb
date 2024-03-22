@@ -3,18 +3,17 @@ Imports MySql.Data.MySqlClient
 
 Public Class ResearchRepoManager
 
-    '||||||||||||||||||||||||||||||| MAIN FUNCTIONALITIES |||||||||||||||||||||||||||||
-
     'VARIABLES DECLARATION
     Dim selected_research As Integer = 0
+
+    Dim sw_edit_id As Integer
 
     'MAIN FORM LOAD
     Private Sub ResearchRepoManager_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         PnlFilter.Width = 0
         PnlFilter.Height = 0
-        CbbxSearch.SelectedIndex = 0
 
-        LoadScholarlyWorks()
+        LoadScholarlyWorks("default")
 
         'setting the height of rows in datagrid
         For i = 0 To DgvSwData.Rows.Count - 1
@@ -26,74 +25,86 @@ Public Class ResearchRepoManager
     End Sub
 
     'LOADING ALL DATA FROM SCHOLARLY WORKS IN DATAGRIDVIEW FROM DATABASE 
-    Public Sub LoadScholarlyWorks()
-        Try
-            ConOpen()
-            Dim query As String = "
+    Public Sub LoadScholarlyWorks(to_load_data)
+        If to_load_data = "default" Then
+            Try
+                ConOpen()
+                Dim query As String = "
                 SELECT 
-                    scholarly_works.sw_id, 
-                    scholarly_works.research_agenda, 
-                    scholarly_works.title, 
+                    scholarly_works.*, 
                     sw_abstract.display_text,
-            CONCAT('Author: ', '\n', authors.authors_name, '\n','\n','Co-Author:','\n',
+                    sw_whole_file.display_text AS whole_file_text,
+            CONCAT('Author: ', '\n', authors.authors_name, '\n','\n','Co-Author(s):','\n',
                 (SELECT GROUP_CONCAT(co_authors.co_authors_name SEPARATOR'\n')
                      FROM co_authors
                     WHERE co_authors.co_authors_id = scholarly_works.sw_id )) AS authors_and_co_authors,
-            CONCAT('Author: ', '\n', authors.degree_program, '\n','\n','Co-Author: ','\n',
+            CONCAT('Author: ', '\n', authors.degree_program, '\n','\n','Co-Author(s): ','\n',
                 (SELECT GROUP_CONCAT(co_authors.degree_program SEPARATOR'\n')
                     FROM co_authors   
                      WHERE co_authors.co_authors_id = scholarly_works.sw_id)) AS auth_and_co_auth_deg_prog,
-            CONCAT('Author: ', '\n',authors.role, '\n','\n','Co-Author: ','\n',
+            CONCAT('Author: ', '\n',authors.role, '\n','\n','Co-Author(s): ','\n',
                 (SELECT GROUP_CONCAT(co_authors.role SEPARATOR'\n')
                     FROM co_authors
-                    WHERE co_authors.co_authors_id = scholarly_works.sw_id)) AS auth_and_co_auth_role,
-                    scholarly_works.date_completed, 
-                    scholarly_works.status_ongoing_completed, 
-                    scholarly_works.published, 
-                    scholarly_works.presented
-
+                    WHERE co_authors.co_authors_id = scholarly_works.sw_id)) AS auth_and_co_auth_role
                 FROM scholarly_works
                 INNER JOIN authors 
                     ON authors.authors_id = scholarly_works.sw_id
                 INNER JOIN sw_abstract 
-                    ON sw_abstract.abstract_id = scholarly_works.sw_id"
+                    ON sw_abstract.abstract_id = scholarly_works.sw_id
+                INNER JOIN sw_whole_file 
+                    ON sw_whole_file.whole_file_id = scholarly_works.sw_id"
 
-            Using cmd As New MySqlCommand(query, con)
-                Using adptr As New MySqlDataAdapter(cmd)
-                    Dim dt As New DataTable()
-                    adptr.Fill(dt)
+                Using cmd As New MySqlCommand(query, con)
+                    Using adptr As New MySqlDataAdapter(cmd)
+                        Dim dt As New DataTable()
+                        adptr.Fill(dt)
 
-                    DgvSwData.DataSource = dt
-                    DgvSwData.Refresh()
-                    For i = 0 To DgvSwData.Rows.Count - 1
-                        DgvSwData.Rows(i).Height = 35
-                    Next
+                        DgvSwData.DataSource = dt
+                        DgvSwData.Refresh()
+                        For i = 0 To DgvSwData.Rows.Count - 1
+                            DgvSwData.Rows(i).Height = 35
+                        Next
+                    End Using
                 End Using
-            End Using
-            DgvSwData.Refresh()
-        Catch ex As Exception
-            MessageBox.Show(ex.Message, "ERROR OCCURRED: Failed in Loading Scholarly Works")
-            Console.WriteLine(ex.Message)
-        Finally
-            DgvSwData.ClearSelection()
-        End Try
+                DgvSwData.Refresh()
+            Catch ex As Exception
+                MessageBox.Show(ex.Message, "ERROR OCCURRED: Failed in Loading Scholarly Works")
+                Console.WriteLine(ex.Message)
+            Finally
+                DgvSwData.ClearSelection()
+            End Try
+        End If
+
     End Sub
 
-    ' HANDLE CELL CLICK AND CODES FOR ITS FUNCTION
+    ' HANDLE CELL CLICK FUNCTION
+    Dim whl_abs As String
     Private Sub DgvSwData_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DgvSwData.CellClick
         If e.RowIndex >= 0 And e.ColumnIndex >= 0 Then
-            If e.ColumnIndex = 3 Then
+            If e.ColumnIndex = 9 Then
                 Dim open_file As DialogResult
-                open_file = MessageBox.Show("Open this file?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                open_file = MessageBox.Show("Open this abstract file?", "Click Yes to proceed.", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
                 If open_file = DialogResult.Yes Then
                     Dim i As Integer = DgvSwData.CurrentRow.Index
-                    selected_research = DgvSwData.Item(0, i).Value
+                    selected_research = DgvSwData.Item(1, i).Value
+                    whl_abs = "abstract"
                     OpenFile(selected_research)
+
+                End If
+            ElseIf e.ColumnIndex = 10 Then
+                Dim open_file As DialogResult
+                open_file = MessageBox.Show("Open this whole file?", "Click Yes to proceed.", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                If open_file = DialogResult.Yes Then
+                    Dim i As Integer = DgvSwData.CurrentRow.Index
+                    selected_research = DgvSwData.Item(1, i).Value
+                    whl_abs = "whole"
+                    OpenFile(selected_research)
+
                 End If
                 'MsgBox("You've selected abstract file with the ID of : " & selected_research)
             Else
                 Dim i As Integer = DgvSwData.CurrentRow.Index
-                selected_research = DgvSwData.Item(0, i).Value
+                selected_research = DgvSwData.Item(1, i).Value
                 'MsgBox("You've selected " & selected_research)
             End If
             BtnRemoveSelection.Visible = True
@@ -117,9 +128,7 @@ Public Class ResearchRepoManager
             tempFilePath = Path.ChangeExtension(tempFilePath, ".pdf")
             Try
                 File.WriteAllBytes(tempFilePath, pdfByteArray)
-                File.SetAttributes(tempFilePath, FileAttributes.ReadOnly)
                 If File.Exists(tempFilePath) Then
-
                     Process.Start(tempFilePath)
                 Else
                     MessageBox.Show("File not exists")
@@ -132,34 +141,57 @@ Public Class ResearchRepoManager
     End Sub
 
     Function RetrievePdfFile(file_id) As Byte()
-        Dim pdfByteArray As Byte() = Nothing
-        con.Close()
-        Try
-            con.Open()
-            Dim query As String = "SELECT file_data FROM sw_abstract WHERE abstract_id=@abs_id"
-            Using cmd As New MySqlCommand(query, con)
-                cmd.Parameters.AddWithValue("@abs_id", file_id)
-                Dim reader As MySqlDataReader = cmd.ExecuteReader()
 
-                If reader.Read() Then
-                    pdfByteArray = DirectCast(reader("file_data"), Byte())
-                End If
-                reader.Close()
-            End Using
-        Catch ex As Exception
-            MessageBox.Show("Failed to retrieve PDF file from database. Error: " & ex.Message)
-            Console.WriteLine(ex.Message)
-        Finally
+        Dim pdfByteArray As Byte() = Nothing
+
+        If whl_abs = "abstract" Then
             con.Close()
-        End Try
+            Try
+                con.Open()
+                Dim query As String = "SELECT file_data FROM sw_abstract WHERE abstract_id=@file_id"
+                Using cmd As New MySqlCommand(query, con)
+                    cmd.Parameters.AddWithValue("@file_id", file_id)
+                    Dim reader As MySqlDataReader = cmd.ExecuteReader()
+
+                    If reader.Read() Then
+                        pdfByteArray = DirectCast(reader("file_data"), Byte())
+                    End If
+                    reader.Close()
+                End Using
+            Catch ex As Exception
+                MessageBox.Show(ex.Message, "Failed to retrieve whole file from database.")
+                Console.WriteLine(ex.Message)
+            Finally
+                con.Close()
+            End Try
+
+        ElseIf whl_abs = "whole" Then
+            con.Close()
+            Try
+                con.Open()
+                Dim query As String = "SELECT file_data FROM sw_whole_file WHERE whole_file_id=@file_id"
+                Using cmd As New MySqlCommand(query, con)
+                    cmd.Parameters.AddWithValue("@file_id", file_id)
+                    Dim reader As MySqlDataReader = cmd.ExecuteReader()
+
+                    If reader.Read() Then
+                        pdfByteArray = DirectCast(reader("file_data"), Byte())
+                    End If
+                    reader.Close()
+                End Using
+            Catch ex As Exception
+                MessageBox.Show(ex.Message, "Failed to retrieve whole file from database.")
+                Console.WriteLine(ex.Message)
+            Finally
+                con.Close()
+            End Try
+
+
+        End If
+
         Return pdfByteArray
     End Function
 
-
-
-    '||||||||||||||||||||||||||||||| UI FUNCTIONALITIES |||||||||||||||||||||||||||||||
-
-    'SHOWING ADD WORK WINDOW WHEN ADD BUTTON IS CLICKED
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Dim add_work As New AddWorks(Me)
         add_work.Show()
@@ -167,13 +199,17 @@ Public Class ResearchRepoManager
 
     ' ENTERING AND LEAVING THE SPECIFIC CELL
     Private Sub DgvSwData_CellMouseEnter(sender As Object, e As DataGridViewCellEventArgs) Handles DgvSwData.CellMouseEnter
-        If e.ColumnIndex = 3 Then
+        If e.ColumnIndex = 9 Then
+            DgvSwData.Cursor = Cursors.Hand
+        ElseIf e.ColumnIndex = 10 Then
             DgvSwData.Cursor = Cursors.Hand
         End If
     End Sub
 
     Private Sub DgvSwData_CellMouseLeave(sender As Object, e As DataGridViewCellEventArgs) Handles DgvSwData.CellMouseLeave
-        If e.ColumnIndex = 3 Then
+        If e.ColumnIndex = 9 Then
+            DgvSwData.Cursor = Cursors.Default
+        ElseIf e.ColumnIndex = 10 Then
             DgvSwData.Cursor = Cursors.Default
         End If
     End Sub
@@ -234,10 +270,10 @@ Public Class ResearchRepoManager
             MessageBox.Show("No Selected File to Open", "Try Again!", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Else
             If on_edit_mode = selected_research Then
-                MessageBox.Show("Can't Delete the selected record. Currently open in edit form.", "Unable to delete this record.", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                MessageBox.Show("Can't Delete the selected item because it currently in edit form.", "Unable to delete this item.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Else
 
-                Dim delete_confirmation As DialogResult = MessageBox.Show("Are you sure you want to delete this record?", "Click Yes to Confirm.", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
+                Dim delete_confirmation As DialogResult = MessageBox.Show("Are you sure you want to delete this item?", "Click Yes to Confirm.", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
                 If delete_confirmation = DialogResult.Yes Then
                     con.Close()
 
@@ -264,16 +300,14 @@ Public Class ResearchRepoManager
                                 End Using
                             Next
                             transaction.Commit()
-                            MessageBox.Show("Successfuly Deleted Records.", "Deleted Successfully.", MessageBoxButtons.OK, MessageBoxIcon.Information)
-
-                            LoadScholarlyWorks()
+                            LoadScholarlyWorks("default")
                             BtnRemoveSelection.PerformClick()
                             BtnRemoveSelection.Visible = False
                             BtnDelete.Enabled = False
-
+                            MessageBox.Show("Successfuly Deleted Item.", "Deleted Successfully.", MessageBoxButtons.OK, MessageBoxIcon.Information)
                         Catch ex As Exception
                             transaction.Rollback()
-                            MessageBox.Show("Error Occurred: " & ex.Message, "Failed to delete record.", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            MessageBox.Show("Error Occurred: " & ex.Message, "Failed to delete selected item.", MessageBoxButtons.OK, MessageBoxIcon.Error)
                         End Try
                     End Using
                 End If
@@ -290,18 +324,27 @@ Public Class ResearchRepoManager
         BtnDelete.Enabled = False
     End Sub
 
-    Dim sw_edit_id As Integer
-    Dim on_edit_mode As Integer
     Private Sub BtnEdit_Click(sender As Object, e As EventArgs) Handles BtnEdit.Click
         sw_edit_id = selected_research
-        on_edit_mode = selected_research
+
         If sw_edit_id = 0 Then
-            MessageBox.Show("No Selected Research", "PLease Select Record", MessageBoxButtons.OK, MessageBoxIcon.Information)
-        Else
-            Dim edit_work_record As New EditWorkRecord(sw_edit_id)
+            MessageBox.Show("PLease select an item first", "No Selected Item", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        ElseIf isEditModeActive = False Then
+            Dim edit_work_record As New EditWorkRecord(Me, sw_edit_id)
             edit_work_record.Show()
+            isEditModeActive = True
+            on_edit_mode = selected_research
+        Else
+            MessageBox.Show("There is currently in edit mode. Close it and try again.", "Invalid!", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
 
     End Sub
+
+
+    'SEARCHING FUNCTION
+    Private Sub Search()
+
+    End Sub
+
 
 End Class
