@@ -291,7 +291,7 @@ Partial Public Class DataSet1
         
         Private _columnsw_abstract_display_text As Global.System.Data.DataColumn
         
-        Private columnauthors_and_co_authors As Global.System.Data.DataColumn
+        Private columnauthors As Global.System.Data.DataColumn
         
         Private columnauth_and_co_auth_deg_prog As Global.System.Data.DataColumn
         
@@ -310,6 +310,8 @@ Partial Public Class DataSet1
         Private columnwhole_file_text As Global.System.Data.DataColumn
         
         Private _columnno_ As Global.System.Data.DataColumn
+        
+        Private columnco_authors As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
@@ -380,9 +382,9 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property authors_and_co_authorsColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property authorsColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnauthors_and_co_authors
+                Return Me.columnauthors
             End Get
         End Property
         
@@ -459,6 +461,14 @@ Partial Public Class DataSet1
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property co_authorsColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnco_authors
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -495,9 +505,9 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddDataTable1Row(ByVal sw_id As String, ByVal title As String, ByVal research_agenda As String, ByVal _sw_abstract_display_text As String, ByVal authors_and_co_authors As String, ByVal auth_and_co_auth_deg_prog As String, ByVal auth_and_co_auth_role As String, ByVal semester As String, ByVal school_year As String, ByVal status_ongoing_completed As String, ByVal published As String, ByVal presented As String, ByVal whole_file_text As String, ByVal _no_ As String) As DataTable1Row
+        Public Overloads Function AddDataTable1Row(ByVal sw_id As String, ByVal title As String, ByVal research_agenda As String, ByVal _sw_abstract_display_text As String, ByVal authors As String, ByVal auth_and_co_auth_deg_prog As String, ByVal auth_and_co_auth_role As String, ByVal semester As String, ByVal school_year As String, ByVal status_ongoing_completed As String, ByVal published As String, ByVal presented As String, ByVal whole_file_text As String, ByVal _no_ As String, ByVal co_authors As String) As DataTable1Row
             Dim rowDataTable1Row As DataTable1Row = CType(Me.NewRow,DataTable1Row)
-            Dim columnValuesArray() As Object = New Object() {sw_id, title, research_agenda, _sw_abstract_display_text, authors_and_co_authors, auth_and_co_auth_deg_prog, auth_and_co_auth_role, semester, school_year, status_ongoing_completed, published, presented, whole_file_text, _no_}
+            Dim columnValuesArray() As Object = New Object() {sw_id, title, research_agenda, _sw_abstract_display_text, authors, auth_and_co_auth_deg_prog, auth_and_co_auth_role, semester, school_year, status_ongoing_completed, published, presented, whole_file_text, _no_, co_authors}
             rowDataTable1Row.ItemArray = columnValuesArray
             Me.Rows.Add(rowDataTable1Row)
             Return rowDataTable1Row
@@ -524,7 +534,7 @@ Partial Public Class DataSet1
             Me.columntitle = MyBase.Columns("title")
             Me.columnresearch_agenda = MyBase.Columns("research_agenda")
             Me._columnsw_abstract_display_text = MyBase.Columns("sw_abstract.display_text")
-            Me.columnauthors_and_co_authors = MyBase.Columns("authors_and_co_authors")
+            Me.columnauthors = MyBase.Columns("authors")
             Me.columnauth_and_co_auth_deg_prog = MyBase.Columns("auth_and_co_auth_deg_prog")
             Me.columnauth_and_co_auth_role = MyBase.Columns("auth_and_co_auth_role")
             Me.columnsemester = MyBase.Columns("semester")
@@ -534,6 +544,7 @@ Partial Public Class DataSet1
             Me.columnpresented = MyBase.Columns("presented")
             Me.columnwhole_file_text = MyBase.Columns("whole_file_text")
             Me._columnno_ = MyBase.Columns("no#")
+            Me.columnco_authors = MyBase.Columns("co_authors")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -549,8 +560,8 @@ Partial Public Class DataSet1
             Me._columnsw_abstract_display_text.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_columnsw_abstract_display_text")
             Me._columnsw_abstract_display_text.ExtendedProperties.Add("Generator_UserColumnName", "sw_abstract.display_text")
             MyBase.Columns.Add(Me._columnsw_abstract_display_text)
-            Me.columnauthors_and_co_authors = New Global.System.Data.DataColumn("authors_and_co_authors", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnauthors_and_co_authors)
+            Me.columnauthors = New Global.System.Data.DataColumn("authors", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnauthors)
             Me.columnauth_and_co_auth_deg_prog = New Global.System.Data.DataColumn("auth_and_co_auth_deg_prog", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnauth_and_co_auth_deg_prog)
             Me.columnauth_and_co_auth_role = New Global.System.Data.DataColumn("auth_and_co_auth_role", GetType(String), Nothing, Global.System.Data.MappingType.Element)
@@ -571,6 +582,8 @@ Partial Public Class DataSet1
             Me._columnno_.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_columnno_")
             Me._columnno_.ExtendedProperties.Add("Generator_UserColumnName", "no#")
             MyBase.Columns.Add(Me._columnno_)
+            Me.columnco_authors = New Global.System.Data.DataColumn("co_authors", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnco_authors)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -777,16 +790,16 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property authors_and_co_authors() As String
+        Public Property authors() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableDataTable1.authors_and_co_authorsColumn),String)
+                    Return CType(Me(Me.tableDataTable1.authorsColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'authors_and_co_authors' in table 'DataTable1' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'authors' in table 'DataTable1' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableDataTable1.authors_and_co_authorsColumn) = value
+                Me(Me.tableDataTable1.authorsColumn) = value
             End Set
         End Property
         
@@ -928,6 +941,21 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property co_authors() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableDataTable1.co_authorsColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'co_authors' in table 'DataTable1' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDataTable1.co_authorsColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function Issw_idNull() As Boolean
             Return Me.IsNull(Me.tableDataTable1.sw_idColumn)
         End Function
@@ -976,14 +1004,14 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function Isauthors_and_co_authorsNull() As Boolean
-            Return Me.IsNull(Me.tableDataTable1.authors_and_co_authorsColumn)
+        Public Function IsauthorsNull() As Boolean
+            Return Me.IsNull(Me.tableDataTable1.authorsColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub Setauthors_and_co_authorsNull()
-            Me(Me.tableDataTable1.authors_and_co_authorsColumn) = Global.System.Convert.DBNull
+        Public Sub SetauthorsNull()
+            Me(Me.tableDataTable1.authorsColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1092,6 +1120,18 @@ Partial Public Class DataSet1
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub Set_no_Null()
             Me(Me.tableDataTable1._no_Column) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function Isco_authorsNull() As Boolean
+            Return Me.IsNull(Me.tableDataTable1.co_authorsColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub Setco_authorsNull()
+            Me(Me.tableDataTable1.co_authorsColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     

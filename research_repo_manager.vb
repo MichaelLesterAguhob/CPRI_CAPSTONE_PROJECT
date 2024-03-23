@@ -1,5 +1,6 @@
 ﻿Imports System.IO
 Imports MySql.Data.MySqlClient
+Imports System.Threading.Tasks
 
 Public Class ResearchRepoManager
 
@@ -13,7 +14,7 @@ Public Class ResearchRepoManager
         PnlFilter.Width = 0
         PnlFilter.Height = 0
 
-        LoadScholarlyWorks("default")
+        LoadScholarlyWorks()
 
         'setting the height of rows in datagrid
         For i = 0 To DgvSwData.Rows.Count - 1
@@ -25,19 +26,19 @@ Public Class ResearchRepoManager
     End Sub
 
     'LOADING ALL DATA FROM SCHOLARLY WORKS IN DATAGRIDVIEW FROM DATABASE 
-    Public Sub LoadScholarlyWorks(to_load_data)
-        If to_load_data = "default" Then
-            Try
-                ConOpen()
-                Dim query As String = "
+    Public Sub LoadScholarlyWorks()
+
+        Try
+            ConOpen()
+            Dim query As String = "
                 SELECT 
                     scholarly_works.*, 
                     sw_abstract.display_text,
                     sw_whole_file.display_text AS whole_file_text,
-            CONCAT('Author: ', '\n', authors.authors_name, '\n','\n','Co-Author(s):','\n',
-                (SELECT GROUP_CONCAT(co_authors.co_authors_name SEPARATOR'\n')
-                     FROM co_authors
-                    WHERE co_authors.co_authors_id = scholarly_works.sw_id )) AS authors_and_co_authors,
+                    authors.authors_name AS authors,
+                (SELECT GROUP_CONCAT('\n',co_authors.co_authors_name SEPARATOR'\n')
+                    FROM co_authors
+                    WHERE co_authors.co_authors_id = scholarly_works.sw_id) AS co_authors,
             CONCAT('Author: ', '\n', authors.degree_program, '\n','\n','Co-Author(s): ','\n',
                 (SELECT GROUP_CONCAT(co_authors.degree_program SEPARATOR'\n')
                     FROM co_authors   
@@ -46,34 +47,37 @@ Public Class ResearchRepoManager
                 (SELECT GROUP_CONCAT(co_authors.role SEPARATOR'\n')
                     FROM co_authors
                     WHERE co_authors.co_authors_id = scholarly_works.sw_id)) AS auth_and_co_auth_role
+
                 FROM scholarly_works
                 INNER JOIN authors 
                     ON authors.authors_id = scholarly_works.sw_id
                 INNER JOIN sw_abstract 
                     ON sw_abstract.abstract_id = scholarly_works.sw_id
                 INNER JOIN sw_whole_file 
-                    ON sw_whole_file.whole_file_id = scholarly_works.sw_id"
+                    ON sw_whole_file.whole_file_id = scholarly_works.sw_id
 
-                Using cmd As New MySqlCommand(query, con)
-                    Using adptr As New MySqlDataAdapter(cmd)
-                        Dim dt As New DataTable()
-                        adptr.Fill(dt)
+                
+                "
 
-                        DgvSwData.DataSource = dt
-                        DgvSwData.Refresh()
-                        For i = 0 To DgvSwData.Rows.Count - 1
-                            DgvSwData.Rows(i).Height = 35
-                        Next
-                    End Using
+            Using cmd As New MySqlCommand(query, con)
+                Using adptr As New MySqlDataAdapter(cmd)
+                    Dim dt As New DataTable()
+                    adptr.Fill(dt)
+
+                    DgvSwData.DataSource = dt
+                    DgvSwData.Refresh()
+                    For i = 0 To DgvSwData.Rows.Count - 1
+                        DgvSwData.Rows(i).Height = 35
+                    Next
                 End Using
-                DgvSwData.Refresh()
-            Catch ex As Exception
-                MessageBox.Show(ex.Message, "ERROR OCCURRED: Failed in Loading Scholarly Works")
-                Console.WriteLine(ex.Message)
-            Finally
-                DgvSwData.ClearSelection()
-            End Try
-        End If
+            End Using
+            DgvSwData.Refresh()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "ERROR OCCURRED: Failed in Loading Scholarly Works")
+            Console.WriteLine(ex.Message)
+        Finally
+            DgvSwData.ClearSelection()
+        End Try
 
     End Sub
 
@@ -300,7 +304,7 @@ Public Class ResearchRepoManager
                                 End Using
                             Next
                             transaction.Commit()
-                            LoadScholarlyWorks("default")
+                            LoadScholarlyWorks()
                             BtnRemoveSelection.PerformClick()
                             BtnRemoveSelection.Visible = False
                             BtnDelete.Enabled = False
@@ -342,9 +346,108 @@ Public Class ResearchRepoManager
 
 
     'SEARCHING FUNCTION
-    Private Sub Search()
+    Private Sub Search(search_term As String)
+        con.Close()
+        Try
+            ConOpen()
+            Dim query As String = "
+            SELECT 
+                scholarly_works.*, 
+                sw_abstract.display_text,
+                sw_whole_file.display_text AS whole_file_text,
+                authors.authors_name AS authors,
+                (SELECT GROUP_CONCAT('\n', co_authors.co_authors_name SEPARATOR'\n')
+                    FROM co_authors
+                    WHERE co_authors.co_authors_id = scholarly_works.sw_id) AS co_authors,
+                CONCAT('Author: ', '\n', authors.degree_program, '\n','\n','Co-Author(s): ','\n',
+                    (SELECT GROUP_CONCAT(co_authors.degree_program SEPARATOR'\n')
+                        FROM co_authors   
+                        WHERE co_authors.co_authors_id = scholarly_works.sw_id)) AS auth_and_co_auth_deg_prog,
+                CONCAT('Author: ', '\n', authors.role, '\n','\n','Co-Author(s): ','\n',
+                    (SELECT GROUP_CONCAT(co_authors.role SEPARATOR'\n')
+                        FROM co_authors
+                        WHERE co_authors.co_authors_id = scholarly_works.sw_id)) AS auth_and_co_auth_role
+            FROM scholarly_works
+            INNER JOIN authors 
+                ON authors.authors_id = scholarly_works.sw_id
+            INNER JOIN sw_abstract 
+                ON sw_abstract.abstract_id = scholarly_works.sw_id
+            INNER JOIN sw_whole_file 
+                ON sw_whole_file.whole_file_id = scholarly_works.sw_id
 
+            WHERE scholarly_works.sw_id LIKE @searchTerm
+            OR scholarly_works.title LIKE @searchTerm
+            OR scholarly_works.research_agenda LIKE @searchTerm
+            OR scholarly_works.semester LIKE @searchTerm
+            OR scholarly_works.school_year LIKE @searchTerm
+            OR scholarly_works.status_ongoing_completed LIKE @searchTerm
+            OR scholarly_works.published LIKE @searchTerm
+            OR scholarly_works.presented LIKE @searchTerm
+            OR authors.authors_name LIKE @searchTerm
+            OR authors.degree_program LIKE @searchTerm
+            OR authors.role LIKE @searchTerm
+            OR sw_abstract.display_text LIKE @searchTerm
+            OR sw_whole_file.display_text LIKE @searchTerm
+        "
+
+            Using cmd As New MySqlCommand(query, con)
+                cmd.Parameters.AddWithValue("@searchTerm", "%" & search_term & "%")
+                Using adptr As New MySqlDataAdapter(cmd)
+                    Dim dt As New DataTable()
+                    adptr.Fill(dt)
+
+                    DgvSwData.DataSource = dt
+                    DgvSwData.Refresh()
+                    For i = 0 To DgvSwData.Rows.Count - 1
+                        DgvSwData.Rows(i).Height = 35
+                    Next
+                End Using
+            End Using
+            DgvSwData.Refresh()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "ERROR OCCURRED: Failed in Loading Scholarly Works")
+            Console.WriteLine(ex.Message)
+        Finally
+            con.Close()
+            DgvSwData.ClearSelection()
+        End Try
     End Sub
 
 
+    Private Sub TxtSearch_Click(sender As Object, e As EventArgs) Handles TxtSearch.Click
+        If TxtSearch.Text = "Search Title, Author, Keyword, Abstract, Etc." Then
+            TxtSearch.Text = ""
+            TxtSearch.ForeColor = Color.Black
+            BtnRemoveSelection.PerformClick()
+        End If
+
+    End Sub
+
+    Private Sub TxtSearch_Leave(sender As Object, e As EventArgs) Handles TxtSearch.Leave
+        If TxtSearch.Text = "" Then
+            TxtSearch.Text = "Search Title, Author, Keyword, Abstract, Etc."
+            TxtSearch.ForeColor = Color.Gray
+            LoadScholarlyWorks()
+        ElseIf TxtSearch.Text = "Search Title, Author, Keyword, Abstract, Etc." Then
+            TxtSearch.ForeColor = Color.Gray
+            LoadScholarlyWorks()
+        End If
+        BtnRemoveSelection.PerformClick()
+    End Sub
+
+    Private Sub BtnSearch_Click(sender As Object, e As EventArgs) Handles BtnSearch.Click
+        If TxtSearch.Text <> "Search Title, Author, Keyword, Abstract, Etc." And TxtSearch.Text <> "" Then
+            Dim search_term As String = TxtSearch.Text.Trim
+            Search(search_term)
+        Else
+            LoadScholarlyWorks()
+        End If
+
+    End Sub
+
+    Private Sub TxtSearch_KeyDown(sender As Object, e As KeyEventArgs) Handles TxtSearch.KeyDown
+        If e.KeyCode = 13 Then
+            BtnSearch.PerformClick()
+        End If
+    End Sub
 End Class

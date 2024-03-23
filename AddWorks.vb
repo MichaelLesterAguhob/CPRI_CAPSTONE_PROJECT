@@ -150,7 +150,7 @@ Public Class AddWorks
             If isDynamicFieldsNotBlanks Then
 
                 'check if addtional info- published is checked
-                If isPublished = "YES" Then
+                If isPublished = "Publised" Then
                     If publish_level <> "" And TxtPubAcadJournal.Text <> "" And TxtPubVolNum.Text <> "" And TxtPubIssueNo.Text <> "" And TxtPubPageRange.Text <> "" And TxtPubDoiUrl.Text <> "" Then
                         If IsNumeric(TxtPubVolNum.Text) And IsNumeric(TxtPubIssueNo.Text) And IsNumeric(TxtPubPageRange.Text) And TxtPubDoiUrl.Text <> "" Then
                             pub_lvl = publish_level
@@ -172,7 +172,7 @@ Public Class AddWorks
                     End If
 
                     'check if additonal info-presented is checked
-                ElseIf isPresented = "YES" Then
+                ElseIf isPresented = "Presented" Then
 
                     If TxtPreResConfName.Text <> "" And TxtPrePlace.Text <> "" And presented_level <> "" Then
 
@@ -197,7 +197,7 @@ Public Class AddWorks
             MessageBox.Show("Fill in the blank field(s) before saving", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End If
         BtnSaveResearch.Enabled = True
-        rrm.LoadScholarlyWorks("default")
+        rrm.LoadScholarlyWorks()
         rrm.BtnRemoveSelection.PerformClick()
     End Sub
 
@@ -961,7 +961,7 @@ Public Class AddWorks
             PnlPresented.Height = 0
             PnlPublished.Enabled = True
             PnlPublished.Height = 230
-            isPublished = "YES"
+            isPublished = "Published"
             isPresented = "NO"
             BtnCancelSelection.Visible = True
         Else
@@ -974,7 +974,7 @@ Public Class AddWorks
             PnlPublished.Height = 0
             PnlPresented.Enabled = True
             PnlPresented.Height = 230
-            isPresented = "YES"
+            isPresented = "Presented"
             isPublished = "NO"
             BtnCancelSelection.Visible = True
         Else

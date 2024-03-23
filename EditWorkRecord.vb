@@ -50,7 +50,7 @@ Public Class EditWorkRecord
 
 
     Dim cntr As String 'holder of number that system will generate textbox component for author
-    Dim total_fields As String 'var holder of total field of existing co-auhtor displayed in label
+    Dim total_fields As Integer = 0 'var holder of total field of existing co-auhtor displayed in label
 
     ReadOnly edit_id As Integer
     'Public Sub New(sw_edit_id As Integer)
@@ -141,7 +141,7 @@ Public Class EditWorkRecord
                 End If
 
                 'checking additional information details
-                If isPublished = "YES" Then
+                If isPublished = "Published" Then
                     RdBtnPubEdtMode.Checked = True
 
                     PnlPresented.Enabled = False
@@ -150,20 +150,20 @@ Public Class EditWorkRecord
                     PnlPublished.Enabled = True
                     PnlPublished.Height = 230
 
-                    isPublished = "YES"
+                    isPublished = "Published"
                     isPresented = "NO"
                     BtnEdtCnclSlctn.Visible = True
                     record_addtnl_info = "published"
                     Addtnl_Info("published")
 
-                ElseIf isPresented = "YES" Then
+                ElseIf isPresented = "Presented" Then
                     RdBtnPresentedEdtMode.Checked = True
                     PnlPublished.Height = 0
 
                     PnlPresented.Enabled = True
                     PnlPresented.Height = 230
 
-                    isPresented = "YES"
+                    isPresented = "Presented"
                     isPublished = "NO"
                     BtnEdtCnclSlctn.Visible = True
                     record_addtnl_info = "presented"
@@ -194,7 +194,12 @@ Public Class EditWorkRecord
                 co_author_role = reader2("role").ToString
                 AddOrLoadCoAuthField()
             End While
-            LblTotalCoAuthFlds.Text = total_fields.ToString()
+            If total_fields <= 0 Then
+                AddOrLoadCoAuthField()
+            Else
+                LblTotalCoAuthFlds.Text = total_fields.ToString()
+            End If
+
             co_author_name = ""
             co_author_deg = ""
             co_author_role = ""
@@ -770,7 +775,7 @@ Public Class EditWorkRecord
             If isDynamicFieldsNotBlanks Then
 
                 'check if addtional info- published is checked
-                If isPublished = "YES" Then
+                If isPublished = "Published" Then
 
                     'checking the fields if not blank
                     If publish_level <> "" And TxtPubAcadJournalEdtMode.Text <> "" And TxtPubVolNumEdtMode.Text <> "" And TxtPubIssueNoEdtMode.Text <> "" And TxtPubPageRangeEdtMode.Text <> "" And TxtPubDoiUrlEdtMode.Text <> "" Then
@@ -796,7 +801,7 @@ Public Class EditWorkRecord
 
                             isEditModeActive = False
                             iscloseUsingWinControl = False
-                            rrm.LoadScholarlyWorks("default")
+                            rrm.LoadScholarlyWorks()
                             rrm.BtnRemoveSelection.PerformClick()
                             Me.Close()
                             MessageBox.Show("Successfully Updated", "Successful")
@@ -810,7 +815,7 @@ Public Class EditWorkRecord
 
 
                     'check if additonal info-presented is checked
-                ElseIf isPresented = "YES" Then
+                ElseIf isPresented = "Presented" Then
 
                     'checking the fields if not blank
                     If TxtPreResConfNameEdtMode.Text <> "" And TxtPrePlaceEdtMode.Text <> "" And presented_level <> "" Then
@@ -830,7 +835,7 @@ Public Class EditWorkRecord
 
                         isEditModeActive = False
                         iscloseUsingWinControl = False
-                        rrm.LoadScholarlyWorks("default")
+                        rrm.LoadScholarlyWorks()
                         rrm.BtnRemoveSelection.PerformClick()
                         Me.Close()
                         MessageBox.Show("Successfully Updated", "Successful")
@@ -847,7 +852,7 @@ Public Class EditWorkRecord
                     UpdateAddtnlInfo()
                     isEditModeActive = False
                     iscloseUsingWinControl = False
-                    rrm.LoadScholarlyWorks("default")
+                    rrm.LoadScholarlyWorks()
                     rrm.BtnRemoveSelection.PerformClick()
                     Me.Close()
                     MessageBox.Show("Successfully Updated", "Successful")
@@ -860,7 +865,7 @@ Public Class EditWorkRecord
 
                     isEditModeActive = False
                     iscloseUsingWinControl = False
-                    rrm.LoadScholarlyWorks("default")
+                    rrm.LoadScholarlyWorks()
                     rrm.BtnRemoveSelection.PerformClick()
                     Me.Close()
                     MessageBox.Show("Successfully Updated", "Successful")
@@ -1614,7 +1619,7 @@ Public Class EditWorkRecord
             PnlPresented.Height = 0
             PnlPublished.Enabled = True
             PnlPublished.Height = 230
-            isPublished = "YES"
+            isPublished = "Published"
             isPresented = "NO"
             BtnEdtCnclSlctn.Visible = True
             new_addtnl_info = "published"
@@ -1628,7 +1633,7 @@ Public Class EditWorkRecord
             PnlPublished.Height = 0
             PnlPresented.Enabled = True
             PnlPresented.Height = 230
-            isPresented = "YES"
+            isPresented = "Presented"
             isPublished = "NO"
             BtnEdtCnclSlctn.Visible = True
             new_addtnl_info = "presented"

@@ -31,7 +31,7 @@ Partial Class ResearchRepoManager
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.TxtSearch = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.DtpRange1 = New System.Windows.Forms.DateTimePicker()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -68,7 +68,7 @@ Partial Class ResearchRepoManager
         Me.BtnFilter = New System.Windows.Forms.Button()
         Me.BtnDelete = New System.Windows.Forms.Button()
         Me.BtnEdit = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.BtnSearch = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.count = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -78,6 +78,7 @@ Partial Class ResearchRepoManager
         Me.col_btn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.semester = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -92,15 +93,15 @@ Partial Class ResearchRepoManager
         CType(Me.DgvSwData, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'TextBox1
+        'TxtSearch
         '
-        Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.ForeColor = System.Drawing.SystemColors.AppWorkspace
-        Me.TextBox1.Location = New System.Drawing.Point(113, 57)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(303, 21)
-        Me.TextBox1.TabIndex = 3
-        Me.TextBox1.Text = "Search Title, Author, Keyword, Abstract, Etc."
+        Me.TxtSearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtSearch.ForeColor = System.Drawing.Color.Gray
+        Me.TxtSearch.Location = New System.Drawing.Point(113, 57)
+        Me.TxtSearch.Name = "TxtSearch"
+        Me.TxtSearch.Size = New System.Drawing.Size(303, 21)
+        Me.TxtSearch.TabIndex = 3
+        Me.TxtSearch.Text = "Search Title, Author, Keyword, Abstract, Etc."
         '
         'Label2
         '
@@ -450,14 +451,15 @@ Partial Class ResearchRepoManager
         Me.DgvSwData.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle2.Padding = New System.Windows.Forms.Padding(0, 10, 0, 10)
         DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.DgvSwData.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.DgvSwData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DgvSwData.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.count, Me.Control_No, Me.research_agenda, Me.title, Me.col_btn, Me.Column1, Me.Column3, Me.Column5, Me.Column6, Me.semester, Me.school_year, Me.status_ongoing_completed, Me.published, Me.presented})
+        Me.DgvSwData.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.count, Me.Control_No, Me.research_agenda, Me.title, Me.col_btn, Me.Column1, Me.Column3, Me.Column2, Me.Column5, Me.Column6, Me.semester, Me.school_year, Me.status_ongoing_completed, Me.published, Me.presented})
         DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window
         DataGridViewCellStyle7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -555,21 +557,21 @@ Partial Class ResearchRepoManager
         Me.BtnEdit.Text = "Edit"
         Me.BtnEdit.UseVisualStyleBackColor = True
         '
-        'Button2
+        'BtnSearch
         '
-        Me.Button2.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.Button2.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_search_13
-        Me.Button2.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.Button2.Location = New System.Drawing.Point(422, 57)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(65, 21)
-        Me.Button2.TabIndex = 4
-        Me.Button2.Text = "Search"
-        Me.Button2.TextAlign = System.Drawing.ContentAlignment.TopRight
-        Me.Button2.UseVisualStyleBackColor = False
+        Me.BtnSearch.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnSearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnSearch.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.BtnSearch.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_search_13
+        Me.BtnSearch.ImageAlign = System.Drawing.ContentAlignment.TopLeft
+        Me.BtnSearch.Location = New System.Drawing.Point(422, 57)
+        Me.BtnSearch.Name = "BtnSearch"
+        Me.BtnSearch.Size = New System.Drawing.Size(65, 21)
+        Me.BtnSearch.TabIndex = 4
+        Me.BtnSearch.Text = "Search"
+        Me.BtnSearch.TextAlign = System.Drawing.ContentAlignment.TopRight
+        Me.BtnSearch.UseVisualStyleBackColor = False
         '
         'Button1
         '
@@ -616,6 +618,7 @@ Partial Class ResearchRepoManager
         Me.Control_No.MinimumWidth = 70
         Me.Control_No.Name = "Control_No"
         Me.Control_No.ReadOnly = True
+        Me.Control_No.Width = 110
         '
         'research_agenda
         '
@@ -668,13 +671,23 @@ Partial Class ResearchRepoManager
         'Column3
         '
         Me.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
-        Me.Column3.DataPropertyName = "authors_and_co_authors"
+        Me.Column3.DataPropertyName = "authors"
         Me.Column3.FillWeight = 85.10638!
-        Me.Column3.HeaderText = "Authors / Co-Authors"
+        Me.Column3.HeaderText = "Author"
         Me.Column3.MinimumWidth = 200
         Me.Column3.Name = "Column3"
         Me.Column3.ReadOnly = True
         Me.Column3.Width = 200
+        '
+        'Column2
+        '
+        Me.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.Column2.DataPropertyName = "co_authors"
+        Me.Column2.HeaderText = "Co-Author(s)"
+        Me.Column2.MinimumWidth = 200
+        Me.Column2.Name = "Column2"
+        Me.Column2.ReadOnly = True
+        Me.Column2.Width = 200
         '
         'Column5
         '
@@ -682,10 +695,10 @@ Partial Class ResearchRepoManager
         Me.Column5.DataPropertyName = "auth_and_co_auth_deg_prog"
         Me.Column5.FillWeight = 85.10638!
         Me.Column5.HeaderText = "Degree Program"
-        Me.Column5.MinimumWidth = 250
+        Me.Column5.MinimumWidth = 200
         Me.Column5.Name = "Column5"
         Me.Column5.ReadOnly = True
-        Me.Column5.Width = 300
+        Me.Column5.Width = 200
         '
         'Column6
         '
@@ -765,8 +778,8 @@ Partial Class ResearchRepoManager
         Me.Controls.Add(Me.PnlFilter)
         Me.Controls.Add(Me.BtnDelete)
         Me.Controls.Add(Me.BtnEdit)
-        Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.BtnSearch)
+        Me.Controls.Add(Me.TxtSearch)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.DgvSwData)
         Me.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
@@ -788,8 +801,8 @@ Partial Class ResearchRepoManager
 
     End Sub
     Friend WithEvents Button1 As Button
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents Button2 As Button
+    Friend WithEvents TxtSearch As TextBox
+    Friend WithEvents BtnSearch As Button
     Friend WithEvents Label2 As Label
     Friend WithEvents BtnEdit As Button
     Friend WithEvents BtnDelete As Button
@@ -834,6 +847,7 @@ Partial Class ResearchRepoManager
     Friend WithEvents col_btn As DataGridViewTextBoxColumn
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents Column3 As DataGridViewTextBoxColumn
+    Friend WithEvents Column2 As DataGridViewTextBoxColumn
     Friend WithEvents Column5 As DataGridViewTextBoxColumn
     Friend WithEvents Column6 As DataGridViewTextBoxColumn
     Friend WithEvents semester As DataGridViewTextBoxColumn
