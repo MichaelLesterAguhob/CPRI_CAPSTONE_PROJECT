@@ -39,6 +39,8 @@ Partial Class AddWorks
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.PnlTxtCont = New System.Windows.Forms.Panel()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.DtCompletedDate = New System.Windows.Forms.DateTimePicker()
+        Me.Label30 = New System.Windows.Forms.Label()
         Me.TxtSchoolYear = New System.Windows.Forms.TextBox()
         Me.CbxSem = New System.Windows.Forms.ComboBox()
         Me.Label21 = New System.Windows.Forms.Label()
@@ -114,7 +116,6 @@ Partial Class AddWorks
         Me.BtnMinusToFieldsCnt = New System.Windows.Forms.Button()
         Me.BtnAddToFieldsCnt = New System.Windows.Forms.Button()
         Me.BtnAddNewCoAuthor = New System.Windows.Forms.Button()
-        Me.ProgressBar1 = New System.Windows.Forms.ProgressBar()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.PnlTxtCont.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -307,6 +308,8 @@ Partial Class AddWorks
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.DtCompletedDate)
+        Me.GroupBox1.Controls.Add(Me.Label30)
         Me.GroupBox1.Controls.Add(Me.TxtSchoolYear)
         Me.GroupBox1.Controls.Add(Me.CbxSem)
         Me.GroupBox1.Controls.Add(Me.Label21)
@@ -330,12 +333,35 @@ Partial Class AddWorks
         Me.GroupBox1.TabIndex = 60
         Me.GroupBox1.TabStop = False
         '
+        'DtCompletedDate
+        '
+        Me.DtCompletedDate.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DtCompletedDate.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.DtCompletedDate.Enabled = False
+        Me.DtCompletedDate.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DtCompletedDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.DtCompletedDate.Location = New System.Drawing.Point(126, 143)
+        Me.DtCompletedDate.Name = "DtCompletedDate"
+        Me.DtCompletedDate.Size = New System.Drawing.Size(89, 18)
+        Me.DtCompletedDate.TabIndex = 84
+        '
+        'Label30
+        '
+        Me.Label30.AutoSize = True
+        Me.Label30.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label30.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label30.Location = New System.Drawing.Point(34, 145)
+        Me.Label30.Name = "Label30"
+        Me.Label30.Size = New System.Drawing.Size(86, 13)
+        Me.Label30.TabIndex = 83
+        Me.Label30.Text = "Date Completed:"
+        '
         'TxtSchoolYear
         '
         Me.TxtSchoolYear.BackColor = System.Drawing.Color.WhiteSmoke
         Me.TxtSchoolYear.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtSchoolYear.ForeColor = System.Drawing.Color.Gray
-        Me.TxtSchoolYear.Location = New System.Drawing.Point(126, 102)
+        Me.TxtSchoolYear.Location = New System.Drawing.Point(126, 89)
         Me.TxtSchoolYear.Name = "TxtSchoolYear"
         Me.TxtSchoolYear.Size = New System.Drawing.Size(139, 21)
         Me.TxtSchoolYear.TabIndex = 76
@@ -345,8 +371,8 @@ Partial Class AddWorks
         '
         Me.CbxSem.ForeColor = System.Drawing.Color.Gray
         Me.CbxSem.FormattingEnabled = True
-        Me.CbxSem.Items.AddRange(New Object() {"1st Semester", "2nd Semester"})
-        Me.CbxSem.Location = New System.Drawing.Point(126, 75)
+        Me.CbxSem.Items.AddRange(New Object() {"1st Semester", "2nd Semester", "Summer"})
+        Me.CbxSem.Location = New System.Drawing.Point(126, 64)
         Me.CbxSem.Name = "CbxSem"
         Me.CbxSem.Size = New System.Drawing.Size(139, 21)
         Me.CbxSem.TabIndex = 75
@@ -357,7 +383,7 @@ Partial Class AddWorks
         Me.Label21.AutoSize = True
         Me.Label21.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label21.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label21.Location = New System.Drawing.Point(48, 77)
+        Me.Label21.Location = New System.Drawing.Point(48, 66)
         Me.Label21.Name = "Label21"
         Me.Label21.Size = New System.Drawing.Size(72, 16)
         Me.Label21.TabIndex = 74
@@ -368,7 +394,7 @@ Partial Class AddWorks
         Me.TxtBrowsedFileWhl.BackColor = System.Drawing.Color.WhiteSmoke
         Me.TxtBrowsedFileWhl.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtBrowsedFileWhl.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.TxtBrowsedFileWhl.Location = New System.Drawing.Point(127, 17)
+        Me.TxtBrowsedFileWhl.Location = New System.Drawing.Point(127, 14)
         Me.TxtBrowsedFileWhl.Name = "TxtBrowsedFileWhl"
         Me.TxtBrowsedFileWhl.ReadOnly = True
         Me.TxtBrowsedFileWhl.Size = New System.Drawing.Size(139, 21)
@@ -380,7 +406,7 @@ Partial Class AddWorks
         Me.TxtBrowsedFileAbs.BackColor = System.Drawing.Color.WhiteSmoke
         Me.TxtBrowsedFileAbs.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtBrowsedFileAbs.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.TxtBrowsedFileAbs.Location = New System.Drawing.Point(126, 45)
+        Me.TxtBrowsedFileAbs.Location = New System.Drawing.Point(126, 39)
         Me.TxtBrowsedFileAbs.Name = "TxtBrowsedFileAbs"
         Me.TxtBrowsedFileAbs.ReadOnly = True
         Me.TxtBrowsedFileAbs.Size = New System.Drawing.Size(139, 21)
@@ -392,7 +418,7 @@ Partial Class AddWorks
         Me.Label19.AutoSize = True
         Me.Label19.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label19.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label19.Location = New System.Drawing.Point(37, 20)
+        Me.Label19.Location = New System.Drawing.Point(37, 17)
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(84, 16)
         Me.Label19.TabIndex = 72
@@ -406,7 +432,7 @@ Partial Class AddWorks
         Me.BtnBrowseWholeFile.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.BtnBrowseWholeFile.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_browse_18
         Me.BtnBrowseWholeFile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnBrowseWholeFile.Location = New System.Drawing.Point(271, 17)
+        Me.BtnBrowseWholeFile.Location = New System.Drawing.Point(271, 14)
         Me.BtnBrowseWholeFile.Name = "BtnBrowseWholeFile"
         Me.BtnBrowseWholeFile.Size = New System.Drawing.Size(65, 21)
         Me.BtnBrowseWholeFile.TabIndex = 71
@@ -424,7 +450,7 @@ Partial Class AddWorks
         Me.PnlPresented.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.PnlPresented.Location = New System.Drawing.Point(344, 50)
         Me.PnlPresented.Name = "PnlPresented"
-        Me.PnlPresented.Size = New System.Drawing.Size(918, 230)
+        Me.PnlPresented.Size = New System.Drawing.Size(918, 235)
         Me.PnlPresented.TabIndex = 70
         '
         'Panel7
@@ -836,7 +862,7 @@ Partial Class AddWorks
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label11.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label11.Location = New System.Drawing.Point(12, 46)
+        Me.Label11.Location = New System.Drawing.Point(12, 40)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(111, 16)
         Me.Label11.TabIndex = 68
@@ -915,9 +941,9 @@ Partial Class AddWorks
         Me.PnlStatCmpltd.Controls.Add(Me.DtSftCpySbmttdDate)
         Me.PnlStatCmpltd.Controls.Add(Me.BtnThssClrnc)
         Me.PnlStatCmpltd.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.PnlStatCmpltd.Location = New System.Drawing.Point(6, 154)
+        Me.PnlStatCmpltd.Location = New System.Drawing.Point(6, 167)
         Me.PnlStatCmpltd.Name = "PnlStatCmpltd"
-        Me.PnlStatCmpltd.Size = New System.Drawing.Size(332, 126)
+        Me.PnlStatCmpltd.Size = New System.Drawing.Size(332, 118)
         Me.PnlStatCmpltd.TabIndex = 66
         Me.PnlStatCmpltd.Visible = False
         '
@@ -926,7 +952,7 @@ Partial Class AddWorks
         Me.DtRgaSbmttdDate.Cursor = System.Windows.Forms.Cursors.Hand
         Me.DtRgaSbmttdDate.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DtRgaSbmttdDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DtRgaSbmttdDate.Location = New System.Drawing.Point(236, 69)
+        Me.DtRgaSbmttdDate.Location = New System.Drawing.Point(236, 68)
         Me.DtRgaSbmttdDate.Name = "DtRgaSbmttdDate"
         Me.DtRgaSbmttdDate.Size = New System.Drawing.Size(85, 18)
         Me.DtRgaSbmttdDate.TabIndex = 63
@@ -937,7 +963,7 @@ Partial Class AddWorks
         Me.DtDgiSbmttdDate.Cursor = System.Windows.Forms.Cursors.Hand
         Me.DtDgiSbmttdDate.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DtDgiSbmttdDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DtDgiSbmttdDate.Location = New System.Drawing.Point(236, 48)
+        Me.DtDgiSbmttdDate.Location = New System.Drawing.Point(236, 47)
         Me.DtDgiSbmttdDate.Name = "DtDgiSbmttdDate"
         Me.DtDgiSbmttdDate.Size = New System.Drawing.Size(85, 18)
         Me.DtDgiSbmttdDate.TabIndex = 62
@@ -946,7 +972,7 @@ Partial Class AddWorks
         'CbxRgaEfSbmttd
         '
         Me.CbxRgaEfSbmttd.AutoSize = True
-        Me.CbxRgaEfSbmttd.Location = New System.Drawing.Point(9, 70)
+        Me.CbxRgaEfSbmttd.Location = New System.Drawing.Point(9, 69)
         Me.CbxRgaEfSbmttd.Name = "CbxRgaEfSbmttd"
         Me.CbxRgaEfSbmttd.Size = New System.Drawing.Size(201, 17)
         Me.CbxRgaEfSbmttd.TabIndex = 61
@@ -956,7 +982,7 @@ Partial Class AddWorks
         'CbxDgiSbmttd
         '
         Me.CbxDgiSbmttd.AutoSize = True
-        Me.CbxDgiSbmttd.Location = New System.Drawing.Point(9, 49)
+        Me.CbxDgiSbmttd.Location = New System.Drawing.Point(9, 48)
         Me.CbxDgiSbmttd.Name = "CbxDgiSbmttd"
         Me.CbxDgiSbmttd.Size = New System.Drawing.Size(220, 17)
         Me.CbxDgiSbmttd.TabIndex = 60
@@ -966,7 +992,7 @@ Partial Class AddWorks
         'CbxHrdCpySbmttd
         '
         Me.CbxHrdCpySbmttd.AutoSize = True
-        Me.CbxHrdCpySbmttd.Location = New System.Drawing.Point(9, 27)
+        Me.CbxHrdCpySbmttd.Location = New System.Drawing.Point(9, 26)
         Me.CbxHrdCpySbmttd.Name = "CbxHrdCpySbmttd"
         Me.CbxHrdCpySbmttd.Size = New System.Drawing.Size(141, 17)
         Me.CbxHrdCpySbmttd.TabIndex = 59
@@ -976,7 +1002,7 @@ Partial Class AddWorks
         'CbxSftCpySbmttd
         '
         Me.CbxSftCpySbmttd.AutoSize = True
-        Me.CbxSftCpySbmttd.Location = New System.Drawing.Point(9, 6)
+        Me.CbxSftCpySbmttd.Location = New System.Drawing.Point(9, 5)
         Me.CbxSftCpySbmttd.Name = "CbxSftCpySbmttd"
         Me.CbxSftCpySbmttd.Size = New System.Drawing.Size(140, 17)
         Me.CbxSftCpySbmttd.TabIndex = 58
@@ -988,7 +1014,7 @@ Partial Class AddWorks
         Me.DtHrdCpySbmttdDate.Cursor = System.Windows.Forms.Cursors.Hand
         Me.DtHrdCpySbmttdDate.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DtHrdCpySbmttdDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DtHrdCpySbmttdDate.Location = New System.Drawing.Point(236, 27)
+        Me.DtHrdCpySbmttdDate.Location = New System.Drawing.Point(236, 26)
         Me.DtHrdCpySbmttdDate.Name = "DtHrdCpySbmttdDate"
         Me.DtHrdCpySbmttdDate.Size = New System.Drawing.Size(85, 18)
         Me.DtHrdCpySbmttdDate.TabIndex = 57
@@ -999,7 +1025,7 @@ Partial Class AddWorks
         Me.DtSftCpySbmttdDate.Cursor = System.Windows.Forms.Cursors.Hand
         Me.DtSftCpySbmttdDate.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DtSftCpySbmttdDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DtSftCpySbmttdDate.Location = New System.Drawing.Point(236, 6)
+        Me.DtSftCpySbmttdDate.Location = New System.Drawing.Point(236, 5)
         Me.DtSftCpySbmttdDate.Name = "DtSftCpySbmttdDate"
         Me.DtSftCpySbmttdDate.Size = New System.Drawing.Size(85, 18)
         Me.DtSftCpySbmttdDate.TabIndex = 56
@@ -1013,7 +1039,7 @@ Partial Class AddWorks
         Me.BtnThssClrnc.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnThssClrnc.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.BtnThssClrnc.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnThssClrnc.Location = New System.Drawing.Point(9, 99)
+        Me.BtnThssClrnc.Location = New System.Drawing.Point(9, 91)
         Me.BtnThssClrnc.Name = "BtnThssClrnc"
         Me.BtnThssClrnc.Size = New System.Drawing.Size(90, 22)
         Me.BtnThssClrnc.TabIndex = 48
@@ -1026,7 +1052,7 @@ Partial Class AddWorks
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label8.Location = New System.Drawing.Point(33, 105)
+        Me.Label8.Location = New System.Drawing.Point(33, 92)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(88, 16)
         Me.Label8.TabIndex = 62
@@ -1040,7 +1066,7 @@ Partial Class AddWorks
         Me.BtnBrowseAbstractFile.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.BtnBrowseAbstractFile.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_browse_18
         Me.BtnBrowseAbstractFile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnBrowseAbstractFile.Location = New System.Drawing.Point(271, 45)
+        Me.BtnBrowseAbstractFile.Location = New System.Drawing.Point(271, 39)
         Me.BtnBrowseAbstractFile.Name = "BtnBrowseAbstractFile"
         Me.BtnBrowseAbstractFile.Size = New System.Drawing.Size(65, 21)
         Me.BtnBrowseAbstractFile.TabIndex = 60
@@ -1053,7 +1079,7 @@ Partial Class AddWorks
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label9.Location = New System.Drawing.Point(70, 130)
+        Me.Label9.Location = New System.Drawing.Point(70, 115)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(51, 16)
         Me.Label9.TabIndex = 65
@@ -1064,7 +1090,7 @@ Partial Class AddWorks
         Me.Panel2.Controls.Add(Me.RdStatCmpltd)
         Me.Panel2.Controls.Add(Me.RdStatOngng)
         Me.Panel2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Panel2.Location = New System.Drawing.Point(126, 129)
+        Me.Panel2.Location = New System.Drawing.Point(126, 114)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(163, 22)
         Me.Panel2.TabIndex = 63
@@ -1217,14 +1243,6 @@ Partial Class AddWorks
         Me.BtnAddNewCoAuthor.TextAlign = System.Drawing.ContentAlignment.TopRight
         Me.BtnAddNewCoAuthor.UseVisualStyleBackColor = False
         '
-        'ProgressBar1
-        '
-        Me.ProgressBar1.Location = New System.Drawing.Point(15, 681)
-        Me.ProgressBar1.Name = "ProgressBar1"
-        Me.ProgressBar1.Size = New System.Drawing.Size(200, 10)
-        Me.ProgressBar1.TabIndex = 0
-        Me.ProgressBar1.Visible = False
-        '
         'Label20
         '
         Me.Label20.AutoSize = True
@@ -1255,7 +1273,6 @@ Partial Class AddWorks
         Me.Controls.Add(Me.BtnAddToFieldsCnt)
         Me.Controls.Add(Me.TxtAddAuthX)
         Me.Controls.Add(Me.BtnAddNewCoAuthor)
-        Me.Controls.Add(Me.ProgressBar1)
         Me.Controls.Add(Me.TxtResearchID)
         Me.Controls.Add(Me.PreviewFileButton)
         Me.Controls.Add(Me.BtnCancel)
@@ -1383,7 +1400,6 @@ Partial Class AddWorks
     Friend WithEvents TxtBrowsedFileWhl As TextBox
     Friend WithEvents TxtBrowsedFileAbs As TextBox
     Friend WithEvents BtnRemoveField As Button
-    Friend WithEvents ProgressBar1 As ProgressBar
     Friend WithEvents BtnCancelSelection As Button
     Friend WithEvents Label20 As Label
     Friend WithEvents CbxSem As ComboBox
@@ -1397,4 +1413,6 @@ Partial Class AddWorks
     Friend WithEvents DtHrdCpySbmttdDate As DateTimePicker
     Friend WithEvents DtSftCpySbmttdDate As DateTimePicker
     Friend WithEvents TxtSchoolYear As TextBox
+    Friend WithEvents DtCompletedDate As DateTimePicker
+    Friend WithEvents Label30 As Label
 End Class

@@ -12,7 +12,7 @@
   <xs:element name="DataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet1" msprop:Generator_UserDSName="DataSet1">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="sw_id" msprop:Generator_ColumnVarNameInTable="columnsw_id" msprop:Generator_ColumnPropNameInRow="sw_id" msprop:Generator_ColumnPropNameInTable="sw_idColumn" msprop:Generator_UserColumnName="sw_id" type="xs:string" minOccurs="0" />
@@ -30,6 +30,7 @@
               <xs:element name="whole_file_text" msprop:Generator_ColumnVarNameInTable="columnwhole_file_text" msprop:Generator_ColumnPropNameInRow="whole_file_text" msprop:Generator_ColumnPropNameInTable="whole_file_textColumn" msprop:Generator_UserColumnName="whole_file_text" type="xs:string" minOccurs="0" />
               <xs:element name="no_x0023_" msprop:Generator_ColumnVarNameInTable="_columnno_" msprop:Generator_ColumnPropNameInRow="_no_" msprop:Generator_ColumnPropNameInTable="_no_Column" msprop:Generator_UserColumnName="no#" type="xs:string" minOccurs="0" />
               <xs:element name="co_authors" msprop:Generator_ColumnVarNameInTable="columnco_authors" msprop:Generator_ColumnPropNameInRow="co_authors" msprop:Generator_ColumnPropNameInTable="co_authorsColumn" msprop:Generator_UserColumnName="co_authors" type="xs:string" minOccurs="0" />
+              <xs:element name="date_completed" msprop:Generator_ColumnVarNameInTable="columndate_completed" msprop:Generator_ColumnPropNameInRow="date_completed" msprop:Generator_ColumnPropNameInTable="date_completedColumn" msprop:Generator_UserColumnName="date_completed" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

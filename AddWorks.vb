@@ -11,8 +11,9 @@ Public Class AddWorks
     Dim author_name As String = ""
     Dim author_deg As String = ""
     Dim author_role As String = ""
-    Dim school_year As String = ""
     Dim semester As String = ""
+    Dim school_year As String = ""
+    Dim date_completed As String = ""
     Dim isDynamicFieldsNotBlanks As Boolean = True
 
     Dim status As String = ""
@@ -67,7 +68,7 @@ Public Class AddWorks
                 End If
             End Using
         Catch ex As Exception
-            MessageBox.Show(ex.Message, "Failed to check the uniqueness of generated number")
+            MessageBox.Show(ex.Message, "Error 001: Failed to check the uniqueness of generated number")
         Finally
             con.Close()
         End Try
@@ -80,7 +81,7 @@ Public Class AddWorks
         Try
             ConOpen()
         Catch ex As Exception
-            MessageBox.Show(ex.Message, "Error")
+            MessageBox.Show(ex.Message, "Error 002: Form Load")
         Finally
             con.Close()
         End Try
@@ -115,8 +116,16 @@ Public Class AddWorks
         author_name = TxtAuthorName.Text.Trim
         author_deg = TxtAthrDegprog.Text.Trim
         author_role = TxtAthrRole.Text.Trim
-        school_year = TxtSchoolYear.Text.Trim
         semester = CbxSem.Text.Trim
+        school_year = TxtSchoolYear.Text.Trim
+
+
+        If RdStatCmpltd.Checked = True Then
+            date_completed = DtCompletedDate.Value.Date.ToString("MM-dd-yyyy")
+        Else
+            date_completed = "None"
+        End If
+
 
         con.Close()
 
@@ -137,7 +146,10 @@ Public Class AddWorks
                 Dim CoAuth_dynmc_role As String = "CoAuthorRole" & auth_no.ToString()
                 Dim CoAuth_role_field As TextBox = CType(Me.Controls.Find(CoAuth_dynmc_role, True).FirstOrDefault(), TextBox)
 
-                If CoAuth_name_field.Text = "" Or CoAuth_deg_field.Text = "" Or CoAuth_role_field.Text = "" Then
+                If total_fields = 1 And CoAuth_name_field.Text = "" And CoAuth_deg_field.Text = "" And CoAuth_role_field.Text = "" Then
+                    MsgBox("no co author")
+                    isDynamicFieldsNotBlanks = True
+                ElseIf CoAuth_name_field.Text = "" Or CoAuth_deg_field.Text = "" Or CoAuth_role_field.Text = "" Then
                     MessageBox.Show("Fill in the blanks in Co-Author Fields.", "Fill in the Blank(s)")
                     auth_no = co_author_fields_to_save
                     isDynamicFieldsNotBlanks = False
@@ -150,9 +162,9 @@ Public Class AddWorks
             If isDynamicFieldsNotBlanks Then
 
                 'check if addtional info- published is checked
-                If isPublished = "Publised" Then
+                If isPublished = "Published" Then
                     If publish_level <> "" And TxtPubAcadJournal.Text <> "" And TxtPubVolNum.Text <> "" And TxtPubIssueNo.Text <> "" And TxtPubPageRange.Text <> "" And TxtPubDoiUrl.Text <> "" Then
-                        If IsNumeric(TxtPubVolNum.Text) And IsNumeric(TxtPubIssueNo.Text) And IsNumeric(TxtPubPageRange.Text) And TxtPubDoiUrl.Text <> "" Then
+                        If IsNumeric(TxtPubVolNum.Text) And IsNumeric(TxtPubIssueNo.Text) And TxtPubDoiUrl.Text <> "" Then
                             pub_lvl = publish_level
                             acad_jrnl = TxtPubAcadJournal.Text.ToString
                             vol_no = Convert.ToInt64(TxtPubVolNum.Text)
@@ -216,6 +228,7 @@ Public Class AddWorks
                             `semester`, 
                             `school_year`, 
                             `status_ongoing_completed`, 
+                            `date_completed`,
                             `published`, 
                             `presented` 
                         ) 
@@ -228,6 +241,7 @@ Public Class AddWorks
                             @sem, 
                             @sc, 
                             @status_ongoing_completed, 
+                            @date_cmpltd,
                             @published,  
                             @presented
                         )"
@@ -238,6 +252,7 @@ Public Class AddWorks
                 cmd.Parameters.AddWithValue("@research_agenda", research_agenda)
                 cmd.Parameters.AddWithValue("@sem", semester)
                 cmd.Parameters.AddWithValue("@sc", school_year)
+                cmd.Parameters.AddWithValue("@date_cmpltd", date_completed)
                 cmd.Parameters.AddWithValue("@status_ongoing_completed", status)
                 cmd.Parameters.AddWithValue("@published", isPublished)
                 cmd.Parameters.AddWithValue("@presented", isPresented)
@@ -251,9 +266,7 @@ Public Class AddWorks
             SaveStatCmpltdChckdbx()
             MessageBox.Show("Successfully Saved", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Catch ex As Exception
-            Console.WriteLine(ex.Message)
-            'MessageBox.Show(ex.Message, "Failed on Saving Research")
-
+            MessageBox.Show(ex.Message, "Error 003: Failed to save upper inputs")
             con.Close()
         Finally
 
@@ -263,6 +276,7 @@ Public Class AddWorks
             TxtAddAuthX.Text = "1"
             TxtBrowsedFileAbs.Text = "No file selected"
             TxtBrowsedFileWhl.Text = "No file selected"
+            DtCompletedDate.Enabled = False
         End Try
     End Sub
 
@@ -303,7 +317,7 @@ Public Class AddWorks
             End Using
             cmd.Parameters.Clear()
         Catch ex As Exception
-            MessageBox.Show(ex.Message, "Failed on Saving Author")
+            MessageBox.Show(ex.Message, "Error 004: Failed on Saving Author")
             con.Close()
         Finally
             con.Close()
@@ -875,6 +889,7 @@ Public Class AddWorks
         If RdStatCmpltd.Checked = True Then
             PnlStatCmpltd.Visible = True
             status = "Completed"
+            DtCompletedDate.Enabled = True
         End If
     End Sub
 
@@ -885,6 +900,7 @@ Public Class AddWorks
         CbxDgiSbmttd.Checked = False
         CbxRgaEfSbmttd.Checked = False
         status = "Ongoing"
+        DtCompletedDate.Enabled = False
     End Sub
 
     'VARIABLE TO HOLD SUBMITTED REQUIREMENTS WHEN COMPLETED STATUS WAS SELECTED
@@ -952,8 +968,8 @@ Public Class AddWorks
 
 
     'RADIO BUTTON PUBLISHED AND PRESENTED , HIDING AND SHOWING OF UI
-    Dim isPublished As String = "NO"
-    Dim isPresented As String = "NO"
+    Dim isPublished As String = "Unpublished"
+    Dim isPresented As String = "Unpresented"
     'published radio button
     Private Sub RdBtnPub_MouseClick(sender As Object, e As MouseEventArgs) Handles RdBtnPub.MouseClick
         If RdBtnPub.Checked = True Then
@@ -962,10 +978,10 @@ Public Class AddWorks
             PnlPublished.Enabled = True
             PnlPublished.Height = 230
             isPublished = "Published"
-            isPresented = "NO"
+            isPresented = "Unpresented"
             BtnCancelSelection.Visible = True
         Else
-            isPublished = "NO"
+            isPublished = "Unpublished"
         End If
     End Sub
     'presented radio button
@@ -975,20 +991,20 @@ Public Class AddWorks
             PnlPresented.Enabled = True
             PnlPresented.Height = 230
             isPresented = "Presented"
-            isPublished = "NO"
+            isPublished = "Unpublished"
             BtnCancelSelection.Visible = True
         Else
-            isPresented = "NO"
+            isPresented = "Unpresented"
         End If
     End Sub
 
     Private Sub BtnCancelSelection_Click(sender As Object, e As EventArgs) Handles BtnCancelSelection.Click
 
-        isPublished = "NO"
+        isPublished = "Unpublished"
         PnlPublished.Enabled = False
         RdBtnPub.Checked = False
 
-        isPresented = "NO"
+        isPresented = "Unpresented"
         PnlPresented.Enabled = False
         RdBtnPresented.Checked = False
 
@@ -1057,24 +1073,13 @@ Public Class AddWorks
     Private Sub AddWorks_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
 
         Dim close_window As DialogResult = MessageBox.Show("Are you sure you want to close this form? Entered data will not be saved.", "Click Yes to close this form.", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-            If close_window = DialogResult.Yes Then
-                e.Cancel = False
-            Else
-                e.Cancel = True
-            End If
+        If close_window = DialogResult.Yes Then
+            e.Cancel = False
+        Else
+            e.Cancel = True
+        End If
 
     End Sub
-
-
-
-
-
-
-
-    '|||||||||||||||||||||||||||||||||| END OF UI RESPONSE OR FUNCTIONALITES ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-
-
-
 
 
 End Class

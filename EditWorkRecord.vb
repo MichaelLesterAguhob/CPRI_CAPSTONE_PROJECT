@@ -9,7 +9,11 @@ Public Class EditWorkRecord
     Dim co_author_name As String = ""
     Dim co_author_deg As String = ""
     Dim co_author_role As String = ""
+    Dim date_completed As String = ""
+    Dim auth_count As Integer = 0
     Dim isDynamicFieldsNotBlanks As Boolean = True
+    Dim total_fields As Integer = 0 'var holder of total field of existing co-auhtor displayed in label
+
 
     Dim whole_file_path As String
     Dim whole_file_data As Byte()
@@ -18,7 +22,7 @@ Public Class EditWorkRecord
     Dim abstract_file_path As String
     Dim abstract_file_data As Byte()
     Dim abstract_file_extension As String
-    Dim auth_count As Integer = 0
+
     Dim is_files_changed As Boolean = False
     Dim is_abs_files_changed As Boolean = False
 
@@ -50,7 +54,6 @@ Public Class EditWorkRecord
 
 
     Dim cntr As String 'holder of number that system will generate textbox component for author
-    Dim total_fields As Integer = 0 'var holder of total field of existing co-auhtor displayed in label
 
     ReadOnly edit_id As Integer
     'Public Sub New(sw_edit_id As Integer)
@@ -100,6 +103,7 @@ Public Class EditWorkRecord
                 cmd.Parameters.AddWithValue("@edit_id", edit_id)
                 Dim reader As MySqlDataReader = cmd.ExecuteReader()
                 Dim status As String = ""
+                Dim dt_compltd As String = "None"
                 If reader.HasRows Then
                     If reader.Read() Then
                         TxtEditResearchID.Text = reader("sw_id").ToString()
@@ -119,7 +123,17 @@ Public Class EditWorkRecord
 
                         status = reader("status_ongoing_completed").ToString()
                         record_status = reader("status_ongoing_completed").ToString()
+                        dt_compltd = reader("date_completed").ToString()
+                        If dt_compltd <> "None" Then
 
+                            Dim parsedDate As DateTime
+                            If DateTime.TryParseExact(dt_compltd, "MM-dd-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, parsedDate) Then
+                                DtCompletedDate.Value = parsedDate
+                            Else
+                                MessageBox.Show("Date completed invalid date format", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            End If
+
+                        End If
                         isPublished = reader("published")
                         isPresented = reader("presented")
                         reader.Close()
@@ -134,6 +148,7 @@ Public Class EditWorkRecord
                 If status = "Completed" Then
                     GetCompletedCheckedDetails()
                     RdEdtStatCmpltd.Checked = True
+                    DtCompletedDate.Enabled = True
                     PnlStatCmpltdEdtMode.Visible = True
                 ElseIf status = "Ongoing" Then
                     'set the ongoing radio button checked
@@ -151,7 +166,7 @@ Public Class EditWorkRecord
                     PnlPublished.Height = 230
 
                     isPublished = "Published"
-                    isPresented = "NO"
+                    isPresented = "Unpresented"
                     BtnEdtCnclSlctn.Visible = True
                     record_addtnl_info = "published"
                     Addtnl_Info("published")
@@ -164,7 +179,7 @@ Public Class EditWorkRecord
                     PnlPresented.Height = 230
 
                     isPresented = "Presented"
-                    isPublished = "NO"
+                    isPublished = "Unpublished"
                     BtnEdtCnclSlctn.Visible = True
                     record_addtnl_info = "presented"
                     Addtnl_Info("presented")
@@ -187,19 +202,21 @@ Public Class EditWorkRecord
             cmd2.Parameters.AddWithValue("@edit_id", edit_id)
 
             Dim reader2 As MySqlDataReader = cmd2.ExecuteReader()
-            While reader2.Read()
-                co_authors_no = reader2("no#").ToString
-                co_author_name = reader2("co_authors_name").ToString
-                co_author_deg = reader2("degree_program").ToString
-                co_author_role = reader2("role").ToString
-                AddOrLoadCoAuthField()
-            End While
-            If total_fields <= 0 Then
-                AddOrLoadCoAuthField()
+            If reader2.HasRows Then
+                While reader2.Read()
+                    co_authors_no = reader2("no#").ToString
+                    co_author_name = reader2("co_authors_name").ToString
+                    co_author_deg = reader2("degree_program").ToString
+                    co_author_role = reader2("role").ToString
+                    AddOrLoadCoAuthField()
+                End While
             Else
-                LblTotalCoAuthFlds.Text = total_fields.ToString()
+                co_authors_no = 0
+                AddOrLoadCoAuthField()
             End If
 
+
+            LblTotalCoAuthFlds.Text = total_fields.ToString()
             co_author_name = ""
             co_author_deg = ""
             co_author_role = ""
@@ -542,9 +559,11 @@ Public Class EditWorkRecord
         If record_status = "Ongoing" Then
             PnlStatCmpltdEdtMode.Visible = True
             new_status = "Completed"
+            DtCompletedDate.Enabled = True
         ElseIf record_status = "Completed" Then
             PnlStatCmpltdEdtMode.Visible = True
             new_status = "Completed"
+            DtCompletedDate.Enabled = True
         Else
             new_status = "none"
         End If
@@ -560,6 +579,7 @@ Public Class EditWorkRecord
             CbxDgiSbmttdEdtMode.Checked = False
             CbxRgaEfSbmttdEdtMode.Checked = False
             new_status = "Ongoing"
+            DtCompletedDate.Enabled = False
         ElseIf record_status = "Ongoing" Then
             PnlStatCmpltdEdtMode.Visible = False
             CbxSftCpySbmttdEdtMode.Checked = False
@@ -567,6 +587,7 @@ Public Class EditWorkRecord
             CbxDgiSbmttdEdtMode.Checked = False
             CbxRgaEfSbmttdEdtMode.Checked = False
             new_status = "Ongoing"
+            DtCompletedDate.Enabled = False
         Else
             new_status = "none"
         End If
@@ -722,6 +743,11 @@ Public Class EditWorkRecord
         Dim title As String = TxtEditRsrchTitle.Text.Trim
         Dim sem As String = CbxSem.Text.Trim
         Dim schl_yr As String = TxtSchoolYear.Text.Trim
+        If RdEdtStatCmpltd.Checked = True Then
+            date_completed = DtCompletedDate.Value.Date.ToString("MM-dd-yyyy")
+        Else
+            date_completed = "None"
+        End If
 
         Dim author_name As String = TxtEditAuthName.Text.Trim
         Dim auth_deg_prog As String = TxtEditAuthDeg.Text.Trim
@@ -750,15 +776,18 @@ Public Class EditWorkRecord
 
                 'checking the newly added fields if not blank
                 If CoAuth_Id.Text = "0" Then
-                    If CoAuth_name_field.Text = "" Or CoAuth_deg_field.Text = "" Or CoAuth_role_field.Text = "" Then
+                    If total_fields = 1 And CoAuth_name_field.Text = "" And CoAuth_deg_field.Text = "" And CoAuth_role_field.Text = "" Then
+                        isDynamicFieldsNotBlanks = True
+                    ElseIf CoAuth_name_field.Text = "" Or CoAuth_deg_field.Text = "" Or CoAuth_role_field.Text = "" Then
                         MessageBox.Show("Fill in the blanks in Co-Author Fields.", "Fill in the Blank(s)")
                         auth_no = co_author_fields_to_save
                         isDynamicFieldsNotBlanks = False
+                    Else
+                        isDynamicFieldsNotBlanks = True
                     End If
 
                     'letting the formload-generated fields to be blank for deleting once it saved [a row must be blank]
                 ElseIf CoAuth_Id.Text <> "0" And CoAuth_name_field.Text = "" And CoAuth_deg_field.Text = "" And CoAuth_role_field.Text = "" Then
-
                     isDynamicFieldsNotBlanks = True
 
                     'set to blank if there is a blank in a row of formload generated fields
@@ -781,7 +810,7 @@ Public Class EditWorkRecord
                     If publish_level <> "" And TxtPubAcadJournalEdtMode.Text <> "" And TxtPubVolNumEdtMode.Text <> "" And TxtPubIssueNoEdtMode.Text <> "" And TxtPubPageRangeEdtMode.Text <> "" And TxtPubDoiUrlEdtMode.Text <> "" Then
 
                         'checking the input in textbox that dedicated for number input
-                        If IsNumeric(TxtPubVolNumEdtMode.Text) And IsNumeric(TxtPubIssueNoEdtMode.Text) And IsNumeric(TxtPubPageRangeEdtMode.Text) And TxtPubDoiUrlEdtMode.Text <> "" Then
+                        If IsNumeric(TxtPubVolNumEdtMode.Text) And IsNumeric(TxtPubIssueNoEdtMode.Text) And TxtPubDoiUrlEdtMode.Text <> "" Then
 
                             'if all condition is met, then get all data from txtbox
                             pub_lvl = publish_level
@@ -844,7 +873,7 @@ Public Class EditWorkRecord
                     End If
 
                     'if loaded additional info was deleted or cleared, then it will be deleted once update button is clicked
-                ElseIf isPresented = "NO" And isPublished = "NO" And record_addtnl_info <> "none" And new_addtnl_info = "cleared" Then
+                ElseIf isPresented = "Unpresented" And isPublished = "Unpublished" And record_addtnl_info <> "none" And new_addtnl_info = "cleared" Then
                     UpdateUpperFields(title, agenda, sem, schl_yr)
                     UpdateAuthors(author_name, auth_deg_prog, auth_role)
                     UpdateFiles()
@@ -897,6 +926,7 @@ Public Class EditWorkRecord
                 `semester` = @sem,
                 `school_year` = @schl_yr,
                 `status_ongoing_completed` = @stat,
+                `date_completed` = @date_completed,
                 `published` = @published, 
                 `presented` = @presented
             WHERE `sw_id`= @id
@@ -907,6 +937,7 @@ Public Class EditWorkRecord
                 cmd.Parameters.AddWithValue("@sem", sem)
                 cmd.Parameters.AddWithValue("@schl_yr", schl_yr)
                 cmd.Parameters.AddWithValue("@stat", status)
+                cmd.Parameters.AddWithValue("@date_completed", date_completed)
                 cmd.Parameters.AddWithValue("@published", isPublished)
                 cmd.Parameters.AddWithValue("@presented", isPresented)
                 cmd.Parameters.AddWithValue("@id", edit_id)
@@ -917,7 +948,6 @@ Public Class EditWorkRecord
             con.Close()
         Finally
             con.Close()
-
         End Try
     End Sub
 
@@ -991,7 +1021,7 @@ Public Class EditWorkRecord
                         del_cmd.ExecuteNonQuery()
                     End Using
                 Catch ex As Exception
-                    MessageBox.Show(ex.Message, "Failed to update co_authors.", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    MessageBox.Show(ex.Message, "Failed to update co_authors[deleting].", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     con.Close()
                 Finally
                     con.Close()
@@ -1022,7 +1052,7 @@ Public Class EditWorkRecord
                         cmd.ExecuteNonQuery()
                     End Using
                 Catch ex As Exception
-                    MessageBox.Show(ex.Message, "Failed to update co_authors.", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    MessageBox.Show(ex.Message, "Failed to update co_authors[inserting new].", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     con.Close()
                 Finally
                     con.Close()
@@ -1403,6 +1433,7 @@ Public Class EditWorkRecord
         RdEdtStatCmpltd.Checked = False
         RdEdtStatOngng.Checked = False
         BtnEdtCnclSlctn.PerformClick()
+        DtCompletedDate.Enabled = False
     End Sub
 
     'PUBLISHED LEVEL RADIO BUTTON EVENT
@@ -1620,11 +1651,11 @@ Public Class EditWorkRecord
             PnlPublished.Enabled = True
             PnlPublished.Height = 230
             isPublished = "Published"
-            isPresented = "NO"
+            isPresented = "Unpresented"
             BtnEdtCnclSlctn.Visible = True
             new_addtnl_info = "published"
         Else
-            isPublished = "NO"
+            isPublished = "Unpublished"
         End If
     End Sub
     'presented radio button
@@ -1634,21 +1665,21 @@ Public Class EditWorkRecord
             PnlPresented.Enabled = True
             PnlPresented.Height = 230
             isPresented = "Presented"
-            isPublished = "NO"
+            isPublished = "Unpublished"
             BtnEdtCnclSlctn.Visible = True
             new_addtnl_info = "presented"
         Else
-            isPresented = "NO"
+            isPresented = "Unpresented"
         End If
     End Sub
 
     Private Sub BtnCancelSelection_Click(sender As Object, e As EventArgs) Handles BtnEdtCnclSlctn.Click
         new_addtnl_info = "cleared"
-        isPublished = "NO"
+        isPublished = "Unpublished"
         PnlPublished.Enabled = False
         RdBtnPubEdtMode.Checked = False
 
-        isPresented = "NO"
+        isPresented = "Unpresented"
         PnlPresented.Enabled = False
         RdBtnPresentedEdtMode.Checked = False
 
@@ -1728,11 +1759,12 @@ Public Class EditWorkRecord
     End Sub
 
     Private Sub TxtSchoolYear_GotFocus(sender As Object, e As EventArgs) Handles TxtSchoolYear.GotFocus
+        If TxtSchoolYear.Text = "Enter School Year" Then
+            TxtSchoolYear.Text = ""
+            TxtSchoolYear.ForeColor = Color.Black
+        End If
 
-        TxtSchoolYear.Text = ""
-        TxtSchoolYear.ForeColor = Color.Black
 
     End Sub
-
 
 End Class

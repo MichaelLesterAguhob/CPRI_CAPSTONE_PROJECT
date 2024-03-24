@@ -42,6 +42,7 @@ Partial Class EditWorkRecord
         Me.CbxSftCpySbmttdEdtMode = New System.Windows.Forms.CheckBox()
         Me.DtHrdCpySbmttdDateEdtMode = New System.Windows.Forms.DateTimePicker()
         Me.DtSftCpySbmttdDateEdtMode = New System.Windows.Forms.DateTimePicker()
+        Me.Label30 = New System.Windows.Forms.Label()
         Me.Label18 = New System.Windows.Forms.Label()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
@@ -109,6 +110,7 @@ Partial Class EditWorkRecord
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.DtCompletedDate = New System.Windows.Forms.DateTimePicker()
         Me.TxtSchoolYear = New System.Windows.Forms.TextBox()
         Me.CbxSem = New System.Windows.Forms.ComboBox()
         Me.Label8 = New System.Windows.Forms.Label()
@@ -150,7 +152,7 @@ Partial Class EditWorkRecord
         Me.BtnThssClrnc.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnThssClrnc.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.BtnThssClrnc.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnThssClrnc.Location = New System.Drawing.Point(9, 98)
+        Me.BtnThssClrnc.Location = New System.Drawing.Point(8, 91)
         Me.BtnThssClrnc.Name = "BtnThssClrnc"
         Me.BtnThssClrnc.Size = New System.Drawing.Size(90, 23)
         Me.BtnThssClrnc.TabIndex = 48
@@ -163,7 +165,7 @@ Partial Class EditWorkRecord
         Me.DtRgaSbmttdDateEdtMode.Cursor = System.Windows.Forms.Cursors.Hand
         Me.DtRgaSbmttdDateEdtMode.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DtRgaSbmttdDateEdtMode.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DtRgaSbmttdDateEdtMode.Location = New System.Drawing.Point(236, 70)
+        Me.DtRgaSbmttdDateEdtMode.Location = New System.Drawing.Point(235, 66)
         Me.DtRgaSbmttdDateEdtMode.Name = "DtRgaSbmttdDateEdtMode"
         Me.DtRgaSbmttdDateEdtMode.Size = New System.Drawing.Size(85, 18)
         Me.DtRgaSbmttdDateEdtMode.TabIndex = 55
@@ -174,7 +176,7 @@ Partial Class EditWorkRecord
         Me.DtDgiSbmttdDateEdtMode.Cursor = System.Windows.Forms.Cursors.Hand
         Me.DtDgiSbmttdDateEdtMode.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DtDgiSbmttdDateEdtMode.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DtDgiSbmttdDateEdtMode.Location = New System.Drawing.Point(236, 49)
+        Me.DtDgiSbmttdDateEdtMode.Location = New System.Drawing.Point(235, 45)
         Me.DtDgiSbmttdDateEdtMode.Name = "DtDgiSbmttdDateEdtMode"
         Me.DtDgiSbmttdDateEdtMode.Size = New System.Drawing.Size(85, 18)
         Me.DtDgiSbmttdDateEdtMode.TabIndex = 54
@@ -183,7 +185,7 @@ Partial Class EditWorkRecord
         'CbxDgiSbmttdEdtMode
         '
         Me.CbxDgiSbmttdEdtMode.AutoSize = True
-        Me.CbxDgiSbmttdEdtMode.Location = New System.Drawing.Point(9, 50)
+        Me.CbxDgiSbmttdEdtMode.Location = New System.Drawing.Point(8, 48)
         Me.CbxDgiSbmttdEdtMode.Name = "CbxDgiSbmttdEdtMode"
         Me.CbxDgiSbmttdEdtMode.Size = New System.Drawing.Size(220, 17)
         Me.CbxDgiSbmttdEdtMode.TabIndex = 52
@@ -231,7 +233,7 @@ Partial Class EditWorkRecord
         'CbxRgaEfSbmttdEdtMode
         '
         Me.CbxRgaEfSbmttdEdtMode.AutoSize = True
-        Me.CbxRgaEfSbmttdEdtMode.Location = New System.Drawing.Point(9, 71)
+        Me.CbxRgaEfSbmttdEdtMode.Location = New System.Drawing.Point(8, 68)
         Me.CbxRgaEfSbmttdEdtMode.Name = "CbxRgaEfSbmttdEdtMode"
         Me.CbxRgaEfSbmttdEdtMode.Size = New System.Drawing.Size(201, 17)
         Me.CbxRgaEfSbmttdEdtMode.TabIndex = 53
@@ -243,7 +245,7 @@ Partial Class EditWorkRecord
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label11.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label11.Location = New System.Drawing.Point(59, 49)
+        Me.Label11.Location = New System.Drawing.Point(59, 38)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(63, 16)
         Me.Label11.TabIndex = 68
@@ -328,16 +330,16 @@ Partial Class EditWorkRecord
         Me.PnlStatCmpltdEdtMode.Controls.Add(Me.DtHrdCpySbmttdDateEdtMode)
         Me.PnlStatCmpltdEdtMode.Controls.Add(Me.DtSftCpySbmttdDateEdtMode)
         Me.PnlStatCmpltdEdtMode.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.PnlStatCmpltdEdtMode.Location = New System.Drawing.Point(5, 154)
+        Me.PnlStatCmpltdEdtMode.Location = New System.Drawing.Point(8, 165)
         Me.PnlStatCmpltdEdtMode.Name = "PnlStatCmpltdEdtMode"
-        Me.PnlStatCmpltdEdtMode.Size = New System.Drawing.Size(332, 126)
+        Me.PnlStatCmpltdEdtMode.Size = New System.Drawing.Size(332, 120)
         Me.PnlStatCmpltdEdtMode.TabIndex = 66
         Me.PnlStatCmpltdEdtMode.Visible = False
         '
         'CbxHrdCpySbmttdEdtMode
         '
         Me.CbxHrdCpySbmttdEdtMode.AutoSize = True
-        Me.CbxHrdCpySbmttdEdtMode.Location = New System.Drawing.Point(9, 28)
+        Me.CbxHrdCpySbmttdEdtMode.Location = New System.Drawing.Point(8, 26)
         Me.CbxHrdCpySbmttdEdtMode.Name = "CbxHrdCpySbmttdEdtMode"
         Me.CbxHrdCpySbmttdEdtMode.Size = New System.Drawing.Size(141, 17)
         Me.CbxHrdCpySbmttdEdtMode.TabIndex = 51
@@ -347,7 +349,7 @@ Partial Class EditWorkRecord
         'CbxSftCpySbmttdEdtMode
         '
         Me.CbxSftCpySbmttdEdtMode.AutoSize = True
-        Me.CbxSftCpySbmttdEdtMode.Location = New System.Drawing.Point(9, 7)
+        Me.CbxSftCpySbmttdEdtMode.Location = New System.Drawing.Point(8, 5)
         Me.CbxSftCpySbmttdEdtMode.Name = "CbxSftCpySbmttdEdtMode"
         Me.CbxSftCpySbmttdEdtMode.Size = New System.Drawing.Size(140, 17)
         Me.CbxSftCpySbmttdEdtMode.TabIndex = 50
@@ -359,7 +361,7 @@ Partial Class EditWorkRecord
         Me.DtHrdCpySbmttdDateEdtMode.Cursor = System.Windows.Forms.Cursors.Hand
         Me.DtHrdCpySbmttdDateEdtMode.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DtHrdCpySbmttdDateEdtMode.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DtHrdCpySbmttdDateEdtMode.Location = New System.Drawing.Point(236, 28)
+        Me.DtHrdCpySbmttdDateEdtMode.Location = New System.Drawing.Point(235, 24)
         Me.DtHrdCpySbmttdDateEdtMode.Name = "DtHrdCpySbmttdDateEdtMode"
         Me.DtHrdCpySbmttdDateEdtMode.Size = New System.Drawing.Size(85, 18)
         Me.DtHrdCpySbmttdDateEdtMode.TabIndex = 49
@@ -370,11 +372,22 @@ Partial Class EditWorkRecord
         Me.DtSftCpySbmttdDateEdtMode.Cursor = System.Windows.Forms.Cursors.Hand
         Me.DtSftCpySbmttdDateEdtMode.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DtSftCpySbmttdDateEdtMode.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DtSftCpySbmttdDateEdtMode.Location = New System.Drawing.Point(236, 7)
+        Me.DtSftCpySbmttdDateEdtMode.Location = New System.Drawing.Point(235, 3)
         Me.DtSftCpySbmttdDateEdtMode.Name = "DtSftCpySbmttdDateEdtMode"
         Me.DtSftCpySbmttdDateEdtMode.Size = New System.Drawing.Size(85, 18)
         Me.DtSftCpySbmttdDateEdtMode.TabIndex = 48
         Me.DtSftCpySbmttdDateEdtMode.Visible = False
+        '
+        'Label30
+        '
+        Me.Label30.AutoSize = True
+        Me.Label30.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label30.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label30.Location = New System.Drawing.Point(34, 143)
+        Me.Label30.Name = "Label30"
+        Me.Label30.Size = New System.Drawing.Size(86, 13)
+        Me.Label30.TabIndex = 81
+        Me.Label30.Text = "Date Completed:"
         '
         'Label18
         '
@@ -716,7 +729,8 @@ Partial Class EditWorkRecord
         'RdEdtStatCmpltd
         '
         Me.RdEdtStatCmpltd.AutoSize = True
-        Me.RdEdtStatCmpltd.Location = New System.Drawing.Point(75, 4)
+        Me.RdEdtStatCmpltd.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RdEdtStatCmpltd.Location = New System.Drawing.Point(75, 3)
         Me.RdEdtStatCmpltd.Name = "RdEdtStatCmpltd"
         Me.RdEdtStatCmpltd.Size = New System.Drawing.Size(75, 17)
         Me.RdEdtStatCmpltd.TabIndex = 1
@@ -729,7 +743,7 @@ Partial Class EditWorkRecord
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label9.Location = New System.Drawing.Point(71, 133)
+        Me.Label9.Location = New System.Drawing.Point(71, 116)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(51, 16)
         Me.Label9.TabIndex = 65
@@ -740,14 +754,15 @@ Partial Class EditWorkRecord
         Me.Panel2.Controls.Add(Me.RdEdtStatCmpltd)
         Me.Panel2.Controls.Add(Me.RdEdtStatOngng)
         Me.Panel2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Panel2.Location = New System.Drawing.Point(127, 130)
+        Me.Panel2.Location = New System.Drawing.Point(127, 113)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(163, 22)
+        Me.Panel2.Size = New System.Drawing.Size(154, 22)
         Me.Panel2.TabIndex = 63
         '
         'RdEdtStatOngng
         '
         Me.RdEdtStatOngng.AutoSize = True
+        Me.RdEdtStatOngng.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RdEdtStatOngng.Location = New System.Drawing.Point(4, 3)
         Me.RdEdtStatOngng.Name = "RdEdtStatOngng"
         Me.RdEdtStatOngng.Size = New System.Drawing.Size(65, 17)
@@ -770,7 +785,7 @@ Partial Class EditWorkRecord
         Me.TxtUplddWhlFileName.BackColor = System.Drawing.Color.WhiteSmoke
         Me.TxtUplddWhlFileName.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtUplddWhlFileName.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.TxtUplddWhlFileName.Location = New System.Drawing.Point(127, 17)
+        Me.TxtUplddWhlFileName.Location = New System.Drawing.Point(127, 12)
         Me.TxtUplddWhlFileName.Name = "TxtUplddWhlFileName"
         Me.TxtUplddWhlFileName.ReadOnly = True
         Me.TxtUplddWhlFileName.Size = New System.Drawing.Size(131, 21)
@@ -782,7 +797,7 @@ Partial Class EditWorkRecord
         Me.TxtUplddAbsFileName.BackColor = System.Drawing.Color.WhiteSmoke
         Me.TxtUplddAbsFileName.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtUplddAbsFileName.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.TxtUplddAbsFileName.Location = New System.Drawing.Point(126, 48)
+        Me.TxtUplddAbsFileName.Location = New System.Drawing.Point(126, 37)
         Me.TxtUplddAbsFileName.Name = "TxtUplddAbsFileName"
         Me.TxtUplddAbsFileName.ReadOnly = True
         Me.TxtUplddAbsFileName.Size = New System.Drawing.Size(131, 21)
@@ -794,7 +809,7 @@ Partial Class EditWorkRecord
         Me.Label19.AutoSize = True
         Me.Label19.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label19.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label19.Location = New System.Drawing.Point(44, 21)
+        Me.Label19.Location = New System.Drawing.Point(44, 16)
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(78, 16)
         Me.Label19.TabIndex = 72
@@ -831,7 +846,7 @@ Partial Class EditWorkRecord
         Me.PnlPresented.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.PnlPresented.Location = New System.Drawing.Point(344, 50)
         Me.PnlPresented.Name = "PnlPresented"
-        Me.PnlPresented.Size = New System.Drawing.Size(918, 230)
+        Me.PnlPresented.Size = New System.Drawing.Size(918, 235)
         Me.PnlPresented.TabIndex = 70
         '
         'Panel7
@@ -883,7 +898,7 @@ Partial Class EditWorkRecord
         Me.Panel8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.Panel8.Location = New System.Drawing.Point(2, 65)
         Me.Panel8.Name = "Panel8"
-        Me.Panel8.Size = New System.Drawing.Size(126, 154)
+        Me.Panel8.Size = New System.Drawing.Size(126, 165)
         Me.Panel8.TabIndex = 46
         '
         'RdPreLevelNatEdtMode
@@ -1139,6 +1154,8 @@ Partial Class EditWorkRecord
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.DtCompletedDate)
+        Me.GroupBox1.Controls.Add(Me.Label30)
         Me.GroupBox1.Controls.Add(Me.TxtSchoolYear)
         Me.GroupBox1.Controls.Add(Me.CbxSem)
         Me.GroupBox1.Controls.Add(Me.Label8)
@@ -1162,12 +1179,24 @@ Partial Class EditWorkRecord
         Me.GroupBox1.TabIndex = 86
         Me.GroupBox1.TabStop = False
         '
+        'DtCompletedDate
+        '
+        Me.DtCompletedDate.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DtCompletedDate.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.DtCompletedDate.Enabled = False
+        Me.DtCompletedDate.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DtCompletedDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.DtCompletedDate.Location = New System.Drawing.Point(126, 141)
+        Me.DtCompletedDate.Name = "DtCompletedDate"
+        Me.DtCompletedDate.Size = New System.Drawing.Size(89, 18)
+        Me.DtCompletedDate.TabIndex = 82
+        '
         'TxtSchoolYear
         '
         Me.TxtSchoolYear.BackColor = System.Drawing.Color.WhiteSmoke
         Me.TxtSchoolYear.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtSchoolYear.ForeColor = System.Drawing.SystemColors.AppWorkspace
-        Me.TxtSchoolYear.Location = New System.Drawing.Point(126, 102)
+        Me.TxtSchoolYear.Location = New System.Drawing.Point(126, 87)
         Me.TxtSchoolYear.Name = "TxtSchoolYear"
         Me.TxtSchoolYear.Size = New System.Drawing.Size(139, 21)
         Me.TxtSchoolYear.TabIndex = 80
@@ -1177,8 +1206,8 @@ Partial Class EditWorkRecord
         '
         Me.CbxSem.ForeColor = System.Drawing.SystemColors.AppWorkspace
         Me.CbxSem.FormattingEnabled = True
-        Me.CbxSem.Items.AddRange(New Object() {"1st Semester", "2nd Semester"})
-        Me.CbxSem.Location = New System.Drawing.Point(126, 75)
+        Me.CbxSem.Items.AddRange(New Object() {"1st Semester", "2nd Semester", "Summer"})
+        Me.CbxSem.Location = New System.Drawing.Point(126, 62)
         Me.CbxSem.Name = "CbxSem"
         Me.CbxSem.Size = New System.Drawing.Size(139, 21)
         Me.CbxSem.TabIndex = 79
@@ -1189,7 +1218,7 @@ Partial Class EditWorkRecord
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label8.Location = New System.Drawing.Point(48, 77)
+        Me.Label8.Location = New System.Drawing.Point(48, 64)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(72, 16)
         Me.Label8.TabIndex = 78
@@ -1200,7 +1229,7 @@ Partial Class EditWorkRecord
         Me.Label29.AutoSize = True
         Me.Label29.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label29.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label29.Location = New System.Drawing.Point(33, 105)
+        Me.Label29.Location = New System.Drawing.Point(33, 90)
         Me.Label29.Name = "Label29"
         Me.Label29.Size = New System.Drawing.Size(88, 16)
         Me.Label29.TabIndex = 77
@@ -1214,7 +1243,7 @@ Partial Class EditWorkRecord
         Me.BtnBrwsWhl.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.BtnBrwsWhl.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_browse_18
         Me.BtnBrwsWhl.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnBrwsWhl.Location = New System.Drawing.Point(265, 17)
+        Me.BtnBrwsWhl.Location = New System.Drawing.Point(265, 12)
         Me.BtnBrwsWhl.Name = "BtnBrwsWhl"
         Me.BtnBrwsWhl.Size = New System.Drawing.Size(71, 21)
         Me.BtnBrwsWhl.TabIndex = 71
@@ -1304,7 +1333,7 @@ Partial Class EditWorkRecord
         Me.BtnBrwsAbstrct.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.BtnBrwsAbstrct.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_browse_18
         Me.BtnBrwsAbstrct.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnBrwsAbstrct.Location = New System.Drawing.Point(265, 48)
+        Me.BtnBrwsAbstrct.Location = New System.Drawing.Point(265, 37)
         Me.BtnBrwsAbstrct.Name = "BtnBrwsAbstrct"
         Me.BtnBrwsAbstrct.Size = New System.Drawing.Size(71, 21)
         Me.BtnBrwsAbstrct.TabIndex = 60
@@ -1527,4 +1556,6 @@ Partial Class EditWorkRecord
     Friend WithEvents CbxSem As ComboBox
     Friend WithEvents Label8 As Label
     Friend WithEvents Label29 As Label
+    Friend WithEvents Label30 As Label
+    Friend WithEvents DtCompletedDate As DateTimePicker
 End Class

@@ -313,6 +313,8 @@ Partial Public Class DataSet1
         
         Private columnco_authors As Global.System.Data.DataColumn
         
+        Private columndate_completed As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub New()
@@ -469,6 +471,14 @@ Partial Public Class DataSet1
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property date_completedColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columndate_completed
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -505,9 +515,25 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddDataTable1Row(ByVal sw_id As String, ByVal title As String, ByVal research_agenda As String, ByVal _sw_abstract_display_text As String, ByVal authors As String, ByVal auth_and_co_auth_deg_prog As String, ByVal auth_and_co_auth_role As String, ByVal semester As String, ByVal school_year As String, ByVal status_ongoing_completed As String, ByVal published As String, ByVal presented As String, ByVal whole_file_text As String, ByVal _no_ As String, ByVal co_authors As String) As DataTable1Row
+        Public Overloads Function AddDataTable1Row( _
+                    ByVal sw_id As String,  _
+                    ByVal title As String,  _
+                    ByVal research_agenda As String,  _
+                    ByVal _sw_abstract_display_text As String,  _
+                    ByVal authors As String,  _
+                    ByVal auth_and_co_auth_deg_prog As String,  _
+                    ByVal auth_and_co_auth_role As String,  _
+                    ByVal semester As String,  _
+                    ByVal school_year As String,  _
+                    ByVal status_ongoing_completed As String,  _
+                    ByVal published As String,  _
+                    ByVal presented As String,  _
+                    ByVal whole_file_text As String,  _
+                    ByVal _no_ As String,  _
+                    ByVal co_authors As String,  _
+                    ByVal date_completed As String) As DataTable1Row
             Dim rowDataTable1Row As DataTable1Row = CType(Me.NewRow,DataTable1Row)
-            Dim columnValuesArray() As Object = New Object() {sw_id, title, research_agenda, _sw_abstract_display_text, authors, auth_and_co_auth_deg_prog, auth_and_co_auth_role, semester, school_year, status_ongoing_completed, published, presented, whole_file_text, _no_, co_authors}
+            Dim columnValuesArray() As Object = New Object() {sw_id, title, research_agenda, _sw_abstract_display_text, authors, auth_and_co_auth_deg_prog, auth_and_co_auth_role, semester, school_year, status_ongoing_completed, published, presented, whole_file_text, _no_, co_authors, date_completed}
             rowDataTable1Row.ItemArray = columnValuesArray
             Me.Rows.Add(rowDataTable1Row)
             Return rowDataTable1Row
@@ -545,6 +571,7 @@ Partial Public Class DataSet1
             Me.columnwhole_file_text = MyBase.Columns("whole_file_text")
             Me._columnno_ = MyBase.Columns("no#")
             Me.columnco_authors = MyBase.Columns("co_authors")
+            Me.columndate_completed = MyBase.Columns("date_completed")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -584,6 +611,8 @@ Partial Public Class DataSet1
             MyBase.Columns.Add(Me._columnno_)
             Me.columnco_authors = New Global.System.Data.DataColumn("co_authors", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnco_authors)
+            Me.columndate_completed = New Global.System.Data.DataColumn("date_completed", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columndate_completed)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -956,6 +985,21 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property date_completed() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableDataTable1.date_completedColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'date_completed' in table 'DataTable1' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDataTable1.date_completedColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function Issw_idNull() As Boolean
             Return Me.IsNull(Me.tableDataTable1.sw_idColumn)
         End Function
@@ -1132,6 +1176,18 @@ Partial Public Class DataSet1
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub Setco_authorsNull()
             Me(Me.tableDataTable1.co_authorsColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function Isdate_completedNull() As Boolean
+            Return Me.IsNull(Me.tableDataTable1.date_completedColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub Setdate_completedNull()
+            Me(Me.tableDataTable1.date_completedColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     

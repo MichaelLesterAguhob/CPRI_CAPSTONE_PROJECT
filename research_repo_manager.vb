@@ -1,6 +1,5 @@
 ﻿Imports System.IO
 Imports MySql.Data.MySqlClient
-Imports System.Threading.Tasks
 
 Public Class ResearchRepoManager
 
@@ -18,7 +17,7 @@ Public Class ResearchRepoManager
 
         'setting the height of rows in datagrid
         For i = 0 To DgvSwData.Rows.Count - 1
-            DgvSwData.Rows(i).Height = 35
+            DgvSwData.Rows(i).Height = 70
         Next
 
         DgvSwData.ClearSelection()
@@ -67,7 +66,7 @@ Public Class ResearchRepoManager
                     DgvSwData.DataSource = dt
                     DgvSwData.Refresh()
                     For i = 0 To DgvSwData.Rows.Count - 1
-                        DgvSwData.Rows(i).Height = 35
+                        DgvSwData.Rows(i).Height = 70
                     Next
                 End Using
             End Using
@@ -85,7 +84,7 @@ Public Class ResearchRepoManager
     Dim whl_abs As String
     Private Sub DgvSwData_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DgvSwData.CellClick
         If e.RowIndex >= 0 And e.ColumnIndex >= 0 Then
-            If e.ColumnIndex = 9 Then
+            If e.ColumnIndex = 10 Then
                 Dim open_file As DialogResult
                 open_file = MessageBox.Show("Open this abstract file?", "Click Yes to proceed.", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
                 If open_file = DialogResult.Yes Then
@@ -95,7 +94,7 @@ Public Class ResearchRepoManager
                     OpenFile(selected_research)
 
                 End If
-            ElseIf e.ColumnIndex = 10 Then
+            ElseIf e.ColumnIndex = 11 Then
                 Dim open_file As DialogResult
                 open_file = MessageBox.Show("Open this whole file?", "Click Yes to proceed.", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
                 If open_file = DialogResult.Yes Then
@@ -119,7 +118,7 @@ Public Class ResearchRepoManager
     ' JUST PREVENTING THE AUTO RESIZING OF ROWS WHEN COL HEADER IS CLICKED
     Private Sub DgvSwData_ColumnHeaderMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DgvSwData.ColumnHeaderMouseClick
         For i = 0 To DgvSwData.Rows.Count - 1
-            DgvSwData.Rows(i).Height = 35
+            DgvSwData.Rows(i).Height = 70
         Next
     End Sub
 
@@ -203,17 +202,17 @@ Public Class ResearchRepoManager
 
     ' ENTERING AND LEAVING THE SPECIFIC CELL
     Private Sub DgvSwData_CellMouseEnter(sender As Object, e As DataGridViewCellEventArgs) Handles DgvSwData.CellMouseEnter
-        If e.ColumnIndex = 9 Then
+        If e.ColumnIndex = 10 Then
             DgvSwData.Cursor = Cursors.Hand
-        ElseIf e.ColumnIndex = 10 Then
+        ElseIf e.ColumnIndex = 11 Then
             DgvSwData.Cursor = Cursors.Hand
         End If
     End Sub
 
     Private Sub DgvSwData_CellMouseLeave(sender As Object, e As DataGridViewCellEventArgs) Handles DgvSwData.CellMouseLeave
-        If e.ColumnIndex = 9 Then
+        If e.ColumnIndex = 10 Then
             DgvSwData.Cursor = Cursors.Default
-        ElseIf e.ColumnIndex = 10 Then
+        ElseIf e.ColumnIndex = 11 Then
             DgvSwData.Cursor = Cursors.Default
         End If
     End Sub
@@ -374,20 +373,96 @@ Public Class ResearchRepoManager
                 ON sw_abstract.abstract_id = scholarly_works.sw_id
             INNER JOIN sw_whole_file 
                 ON sw_whole_file.whole_file_id = scholarly_works.sw_id
-
-            WHERE scholarly_works.sw_id LIKE @searchTerm
+            
+            WHERE 
+            scholarly_works.sw_id LIKE @searchTerm
             OR scholarly_works.title LIKE @searchTerm
             OR scholarly_works.research_agenda LIKE @searchTerm
             OR scholarly_works.semester LIKE @searchTerm
             OR scholarly_works.school_year LIKE @searchTerm
             OR scholarly_works.status_ongoing_completed LIKE @searchTerm
-            OR scholarly_works.published LIKE @searchTerm
-            OR scholarly_works.presented LIKE @searchTerm
-            OR authors.authors_name LIKE @searchTerm
-            OR authors.degree_program LIKE @searchTerm
-            OR authors.role LIKE @searchTerm
-            OR sw_abstract.display_text LIKE @searchTerm
-            OR sw_whole_file.display_text LIKE @searchTerm
+            OR scholarly_works.date_completed LIKE @searchTerm
+            OR scholarly_works.published LIKE '" & search_term & "%'
+            OR scholarly_works.presented LIKE '" & search_term & "%'
+        "
+
+            Using cmd As New MySqlCommand(query, con)
+                cmd.Parameters.AddWithValue("@searchTerm", "%" & search_term & "%")
+                Using adptr As New MySqlDataAdapter(cmd)
+                    Dim dt As New DataTable()
+                    adptr.Fill(dt)
+                    If dt.Rows.Count > 0 Then
+                        DgvSwData.DataSource = dt
+                        DgvSwData.Refresh()
+                        For i = 0 To DgvSwData.Rows.Count - 1
+                            DgvSwData.Rows(i).Height = 70
+                        Next
+                        LblSrchFnd.Text = dt.Rows.Count.ToString & " Result(s) found"
+                    Else
+                        Search_in_Auth_CoAuth(search_term)
+                    End If
+
+                End Using
+            End Using
+            DgvSwData.Refresh()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "ERROR OCCURRED: Failed in Loading Scholarly Works")
+            Console.WriteLine(ex.Message)
+        Finally
+            con.Close()
+            DgvSwData.ClearSelection()
+        End Try
+    End Sub
+
+
+    'SEARCH ON AUTHOR AND CO AUTHOR TABLES 
+    Private Sub Search_in_Auth_CoAuth(search_term As String)
+        'MsgBox("search co auth")
+        con.Close()
+        Try
+            ConOpen()
+            Dim query As String = "
+                SELECT 
+                scholarly_works.*, 
+                sw_abstract.display_text,
+                sw_whole_file.display_text AS whole_file_text,
+                authors.authors_name AS authors,
+                (
+                    SELECT GROUP_CONCAT('\n', co_authors.co_authors_name SEPARATOR'\n')
+                    FROM co_authors
+                    WHERE co_authors.co_authors_id = scholarly_works.sw_id
+                ) AS co_authors,
+                CONCAT('Author: ', '\n', authors.degree_program, '\n','\n','Co-Author(s): ','\n',
+                    (
+                        SELECT GROUP_CONCAT(co_authors.degree_program SEPARATOR'\n')
+                        FROM co_authors   
+                        WHERE co_authors.co_authors_id = scholarly_works.sw_id
+                    )
+                ) AS auth_and_co_auth_deg_prog,
+                CONCAT('Author: ', '\n', authors.role, '\n','\n','Co-Author(s): ','\n',
+                    (
+                        SELECT GROUP_CONCAT(co_authors.role SEPARATOR'\n')
+                        FROM co_authors
+                        WHERE co_authors.co_authors_id = scholarly_works.sw_id
+                    )
+                ) AS auth_and_co_auth_role
+            FROM scholarly_works
+            INNER JOIN authors ON authors.authors_id = scholarly_works.sw_id
+            INNER JOIN sw_abstract ON sw_abstract.abstract_id = scholarly_works.sw_id
+            INNER JOIN sw_whole_file ON sw_whole_file.whole_file_id = scholarly_works.sw_id
+            LEFT JOIN co_authors ON co_authors.co_authors_id = scholarly_works.sw_id
+            WHERE 
+                authors.authors_name LIKE @searchTerm
+                OR co_authors.co_authors_name LIKE @searchTerm
+
+                OR authors.degree_program LIKE @searchTerm
+                OR co_authors.degree_program LIKE @searchTerm
+
+                OR authors.role LIKE @searchTerm
+                OR co_authors.role LIKE @searchTerm
+
+            GROUP BY scholarly_works.sw_id
+       
         "
 
             Using cmd As New MySqlCommand(query, con)
@@ -396,16 +471,23 @@ Public Class ResearchRepoManager
                     Dim dt As New DataTable()
                     adptr.Fill(dt)
 
-                    DgvSwData.DataSource = dt
-                    DgvSwData.Refresh()
-                    For i = 0 To DgvSwData.Rows.Count - 1
-                        DgvSwData.Rows(i).Height = 35
-                    Next
+                    If dt.Rows.Count > 0 Then
+                        DgvSwData.DataSource = dt
+                        DgvSwData.Refresh()
+                        For i = 0 To DgvSwData.Rows.Count - 1
+                            DgvSwData.Rows(i).Height = 70
+                        Next
+                        LblSrchFnd.Text = dt.Rows.Count.ToString & " Result(s) found"
+                    Else
+                        LblSrchFnd.Text = dt.Rows.Count.ToString & " Result(s) found"
+                        MessageBox.Show("Your search do not match to any records. Please try different keywords", "No data found.", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    End If
+
                 End Using
             End Using
             DgvSwData.Refresh()
         Catch ex As Exception
-            MessageBox.Show(ex.Message, "ERROR OCCURRED: Failed in Loading Scholarly Works")
+            MessageBox.Show(ex.Message, "ERROR OCCURRED: Failed in Searching in Author and Co Authors")
             Console.WriteLine(ex.Message)
         Finally
             con.Close()
@@ -428,9 +510,11 @@ Public Class ResearchRepoManager
             TxtSearch.Text = "Search Title, Author, Keyword, Abstract, Etc."
             TxtSearch.ForeColor = Color.Gray
             LoadScholarlyWorks()
+            LblSrchFnd.Text = ""
         ElseIf TxtSearch.Text = "Search Title, Author, Keyword, Abstract, Etc." Then
             TxtSearch.ForeColor = Color.Gray
             LoadScholarlyWorks()
+            LblSrchFnd.Text = ""
         End If
         BtnRemoveSelection.PerformClick()
     End Sub
@@ -441,6 +525,7 @@ Public Class ResearchRepoManager
             Search(search_term)
         Else
             LoadScholarlyWorks()
+            LblSrchFnd.Text = ""
         End If
 
     End Sub
@@ -450,4 +535,6 @@ Public Class ResearchRepoManager
             BtnSearch.PerformClick()
         End If
     End Sub
+
+
 End Class
