@@ -1418,7 +1418,7 @@ Partial Class EditWorkRecord
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "EditWorkRecord"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "EDIT FORM"
+        Me.Text = "EDIT RESEARCH FORM"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()

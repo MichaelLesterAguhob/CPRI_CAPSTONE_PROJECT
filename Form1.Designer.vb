@@ -22,69 +22,113 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.MenuToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ResearchRepositoryManagerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Menu2ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ResearchCourseFacilitatorAndAdviserMonitoringStatusToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Menu3ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.BorrowingAndReturningToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.MenuToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MyAccountToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.StaffAccountToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LogOutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
-        'MenuStrip1
-        '
-        Me.MenuStrip1.BackColor = System.Drawing.SystemColors.MenuBar
-        Me.MenuStrip1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MenuToolStripMenuItem, Me.Menu2ToolStripMenuItem, Me.Menu3ToolStripMenuItem})
-        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
-        Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(1350, 25)
-        Me.MenuStrip1.TabIndex = 0
-        Me.MenuStrip1.Text = "MenuStrip1"
-        '
         'MenuToolStripMenuItem
         '
-        Me.MenuToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.MenuToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ResearchRepositoryManagerToolStripMenuItem})
+        Me.MenuToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.MenuToolStripMenuItem.ForeColor = System.Drawing.Color.Black
         Me.MenuToolStripMenuItem.Name = "MenuToolStripMenuItem"
-        Me.MenuToolStripMenuItem.Size = New System.Drawing.Size(48, 21)
-        Me.MenuToolStripMenuItem.Text = "RRM"
+        Me.MenuToolStripMenuItem.Size = New System.Drawing.Size(172, 29)
+        Me.MenuToolStripMenuItem.Text = "Research Management"
+        Me.MenuToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'ResearchRepositoryManagerToolStripMenuItem
+        '
+        Me.ResearchRepositoryManagerToolStripMenuItem.Name = "ResearchRepositoryManagerToolStripMenuItem"
+        Me.ResearchRepositoryManagerToolStripMenuItem.Size = New System.Drawing.Size(275, 24)
+        Me.ResearchRepositoryManagerToolStripMenuItem.Text = "Research Repository Manager"
         '
         'Menu2ToolStripMenuItem
         '
-        Me.Menu2ToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Menu2ToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ResearchCourseFacilitatorAndAdviserMonitoringStatusToolStripMenuItem})
+        Me.Menu2ToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Menu2ToolStripMenuItem.ForeColor = System.Drawing.Color.Black
         Me.Menu2ToolStripMenuItem.Name = "Menu2ToolStripMenuItem"
-        Me.Menu2ToolStripMenuItem.Size = New System.Drawing.Size(60, 21)
-        Me.Menu2ToolStripMenuItem.Text = "Menu2"
+        Me.Menu2ToolStripMenuItem.Size = New System.Drawing.Size(139, 29)
+        Me.Menu2ToolStripMenuItem.Text = "Monitoring Status"
+        Me.Menu2ToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'ResearchCourseFacilitatorAndAdviserMonitoringStatusToolStripMenuItem
+        '
+        Me.ResearchCourseFacilitatorAndAdviserMonitoringStatusToolStripMenuItem.Name = "ResearchCourseFacilitatorAndAdviserMonitoringStatusToolStripMenuItem"
+        Me.ResearchCourseFacilitatorAndAdviserMonitoringStatusToolStripMenuItem.Size = New System.Drawing.Size(459, 24)
+        Me.ResearchCourseFacilitatorAndAdviserMonitoringStatusToolStripMenuItem.Text = "Research Course Facilitator and Adviser Monitoring Status"
         '
         'Menu3ToolStripMenuItem
         '
-        Me.Menu3ToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Menu3ToolStripMenuItem.ForeColor = System.Drawing.SystemColors.MenuText
+        Me.Menu3ToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BorrowingAndReturningToolStripMenuItem})
+        Me.Menu3ToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Menu3ToolStripMenuItem.ForeColor = System.Drawing.Color.Black
         Me.Menu3ToolStripMenuItem.Name = "Menu3ToolStripMenuItem"
-        Me.Menu3ToolStripMenuItem.Size = New System.Drawing.Size(60, 21)
-        Me.Menu3ToolStripMenuItem.Text = "Menu3"
+        Me.Menu3ToolStripMenuItem.Size = New System.Drawing.Size(162, 29)
+        Me.Menu3ToolStripMenuItem.Text = " Library Management"
+        Me.Menu3ToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'StatusStrip1
+        'BorrowingAndReturningToolStripMenuItem
         '
-        Me.StatusStrip1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 707)
-        Me.StatusStrip1.Name = "StatusStrip1"
-        Me.StatusStrip1.Size = New System.Drawing.Size(1350, 22)
-        Me.StatusStrip1.TabIndex = 1
-        Me.StatusStrip1.Text = "StatusStrip1"
+        Me.BorrowingAndReturningToolStripMenuItem.Name = "BorrowingAndReturningToolStripMenuItem"
+        Me.BorrowingAndReturningToolStripMenuItem.Size = New System.Drawing.Size(244, 24)
+        Me.BorrowingAndReturningToolStripMenuItem.Text = "Borrowing and Returning"
         '
-        'Label1
+        'MenuStrip1
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(233, 169)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(403, 38)
-        Me.Label1.TabIndex = 2
-        Me.Label1.Text = "This will be the admin form"
+        Me.MenuStrip1.AutoSize = False
+        Me.MenuStrip1.BackColor = System.Drawing.SystemColors.MenuBar
+        Me.MenuStrip1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MenuToolStripMenuItem1, Me.MenuToolStripMenuItem, Me.Menu2ToolStripMenuItem, Me.Menu3ToolStripMenuItem})
+        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
+        Me.MenuStrip1.Name = "MenuStrip1"
+        Me.MenuStrip1.Size = New System.Drawing.Size(1350, 33)
+        Me.MenuStrip1.TabIndex = 0
+        Me.MenuStrip1.Text = "MenuStrip1"
+        '
+        'MenuToolStripMenuItem1
+        '
+        Me.MenuToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MyAccountToolStripMenuItem, Me.StaffAccountToolStripMenuItem, Me.LogOutToolStripMenuItem, Me.ExitToolStripMenuItem})
+        Me.MenuToolStripMenuItem1.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.MenuToolStripMenuItem1.Name = "MenuToolStripMenuItem1"
+        Me.MenuToolStripMenuItem1.Padding = New System.Windows.Forms.Padding(4, 0, 10, 0)
+        Me.MenuToolStripMenuItem1.Size = New System.Drawing.Size(64, 29)
+        Me.MenuToolStripMenuItem1.Text = "Menu"
+        '
+        'MyAccountToolStripMenuItem
+        '
+        Me.MyAccountToolStripMenuItem.Name = "MyAccountToolStripMenuItem"
+        Me.MyAccountToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.MyAccountToolStripMenuItem.Text = "My Account"
+        '
+        'StaffAccountToolStripMenuItem
+        '
+        Me.StaffAccountToolStripMenuItem.Name = "StaffAccountToolStripMenuItem"
+        Me.StaffAccountToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.StaffAccountToolStripMenuItem.Text = "Staff Account"
+        '
+        'LogOutToolStripMenuItem
+        '
+        Me.LogOutToolStripMenuItem.Name = "LogOutToolStripMenuItem"
+        Me.LogOutToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.LogOutToolStripMenuItem.Text = "Log Out"
+        '
+        'ExitToolStripMenuItem
+        '
+        Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ExitToolStripMenuItem.Text = "Exit"
         '
         'Form1
         '
@@ -92,25 +136,28 @@ Partial Class Form1
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.ClientSize = New System.Drawing.Size(1350, 729)
-        Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.MenuStrip1)
         Me.ForeColor = System.Drawing.Color.Black
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "Form1"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Repository for the Center for Publication, Research, and Innovation of CDSGA"
+        Me.Text = "Repository for the CPRI of CDSGA"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents MenuStrip1 As MenuStrip
     Friend WithEvents MenuToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ResearchRepositoryManagerToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents Menu2ToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ResearchCourseFacilitatorAndAdviserMonitoringStatusToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents Menu3ToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents StatusStrip1 As StatusStrip
-    Friend WithEvents Label1 As Label
+    Friend WithEvents BorrowingAndReturningToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents MenuStrip1 As MenuStrip
+    Friend WithEvents MenuToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents MyAccountToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents StaffAccountToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents LogOutToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ExitToolStripMenuItem As ToolStripMenuItem
 End Class

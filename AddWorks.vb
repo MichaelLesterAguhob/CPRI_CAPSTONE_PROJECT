@@ -58,7 +58,7 @@ Public Class AddWorks
             con.Open()
             Dim query As String = "SELECT abstract_id FROM sw_abstract WHERE abstract_id=@id"
             Using cmd As New MySqlCommand(query, con)
-                cmd.Parameters.AddWithValue("@id", initial_cntrl_nmbr)
+                cmd.Parameters.AddWithValue("@id", current_year.ToString & initial_cntrl_nmbr)
                 Dim count As Integer = Convert.ToInt32(cmd.ExecuteScalar())
                 If count > 0 Then
                     GenerateControlNumber()

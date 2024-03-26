@@ -1248,7 +1248,7 @@ Partial Class AddWorks
         Me.Label20.AutoSize = True
         Me.Label20.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label20.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label20.Location = New System.Drawing.Point(49, 48)
+        Me.Label20.Location = New System.Drawing.Point(55, 47)
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(80, 16)
         Me.Label20.TabIndex = 65
@@ -1288,7 +1288,7 @@ Partial Class AddWorks
         Me.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.Name = "AddWorks"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "ADD FORM"
+        Me.Text = "ADD RESEARCH FORM"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.PnlTxtCont.ResumeLayout(False)
         Me.PnlTxtCont.PerformLayout()
