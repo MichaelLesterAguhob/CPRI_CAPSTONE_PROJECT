@@ -31,6 +31,18 @@ Partial Class ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus
         Me.TxtSearch = New System.Windows.Forms.TextBox()
         Me.DgvSwData = New System.Windows.Forms.DataGridView()
         Me.LblSrchFnd = New System.Windows.Forms.Label()
+        Me.Column12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.BtnFilter = New System.Windows.Forms.Button()
         Me.BtnDelete = New System.Windows.Forms.Button()
@@ -50,7 +62,7 @@ Partial Class ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(1255, 48)
         Me.Label1.TabIndex = 25
-        Me.Label1.Text = "RCF and RGA MONITORING STATUS"
+        Me.Label1.Text = "RCF AND RGA MONITORING STATUS"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'BtnRemoveSelection
@@ -103,6 +115,7 @@ Partial Class ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.DgvSwData.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.DgvSwData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DgvSwData.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column12, Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6, Me.Column7, Me.Column8, Me.Column9, Me.Column10, Me.Column11})
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window
         DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -135,6 +148,124 @@ Partial Class ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus
         Me.LblSrchFnd.TabIndex = 35
         Me.LblSrchFnd.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
+        'Column12
+        '
+        Me.Column12.DataPropertyName = "no#"
+        Me.Column12.HeaderText = "no"
+        Me.Column12.Name = "Column12"
+        Me.Column12.ReadOnly = True
+        Me.Column12.Visible = False
+        '
+        'Column1
+        '
+        Me.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.Column1.DataPropertyName = "record_id"
+        Me.Column1.HeaderText = "Record ID"
+        Me.Column1.MinimumWidth = 105
+        Me.Column1.Name = "Column1"
+        Me.Column1.ReadOnly = True
+        Me.Column1.Width = 105
+        '
+        'Column2
+        '
+        Me.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.Column2.DataPropertyName = "semester"
+        Me.Column2.HeaderText = "Semester"
+        Me.Column2.MinimumWidth = 110
+        Me.Column2.Name = "Column2"
+        Me.Column2.ReadOnly = True
+        Me.Column2.Width = 110
+        '
+        'Column3
+        '
+        Me.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.Column3.DataPropertyName = "school_year"
+        Me.Column3.HeaderText = "School Year"
+        Me.Column3.MinimumWidth = 120
+        Me.Column3.Name = "Column3"
+        Me.Column3.ReadOnly = True
+        Me.Column3.Width = 120
+        '
+        'Column4
+        '
+        Me.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.Column4.DataPropertyName = "stage"
+        Me.Column4.HeaderText = "Stage"
+        Me.Column4.MinimumWidth = 140
+        Me.Column4.Name = "Column4"
+        Me.Column4.ReadOnly = True
+        Me.Column4.Width = 140
+        '
+        'Column5
+        '
+        Me.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.Column5.DataPropertyName = "name"
+        Me.Column5.HeaderText = "Name"
+        Me.Column5.MinimumWidth = 200
+        Me.Column5.Name = "Column5"
+        Me.Column5.ReadOnly = True
+        Me.Column5.Width = 200
+        '
+        'Column6
+        '
+        Me.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.Column6.DataPropertyName = "college"
+        Me.Column6.HeaderText = "College"
+        Me.Column6.MinimumWidth = 200
+        Me.Column6.Name = "Column6"
+        Me.Column6.ReadOnly = True
+        Me.Column6.Width = 200
+        '
+        'Column7
+        '
+        Me.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.Column7.DataPropertyName = "dept"
+        Me.Column7.HeaderText = "Department"
+        Me.Column7.MinimumWidth = 200
+        Me.Column7.Name = "Column7"
+        Me.Column7.ReadOnly = True
+        Me.Column7.Width = 200
+        '
+        'Column8
+        '
+        Me.Column8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.Column8.DataPropertyName = "status"
+        Me.Column8.HeaderText = "Status"
+        Me.Column8.MinimumWidth = 80
+        Me.Column8.Name = "Column8"
+        Me.Column8.ReadOnly = True
+        Me.Column8.Width = 80
+        '
+        'Column9
+        '
+        Me.Column9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.Column9.DataPropertyName = "role"
+        Me.Column9.HeaderText = "Role"
+        Me.Column9.MinimumWidth = 200
+        Me.Column9.Name = "Column9"
+        Me.Column9.ReadOnly = True
+        Me.Column9.Width = 200
+        '
+        'Column10
+        '
+        Me.Column10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.Column10.DataPropertyName = "r_rcf"
+        Me.Column10.HeaderText = "Research Course Facilitator Requirements"
+        Me.Column10.MinimumWidth = 200
+        Me.Column10.Name = "Column10"
+        Me.Column10.ReadOnly = True
+        Me.Column10.Width = 200
+        '
+        'Column11
+        '
+        Me.Column11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.Column11.DataPropertyName = "r_rga"
+        Me.Column11.HeaderText = "Research Group's Adviser Requirements"
+        Me.Column11.MinimumWidth = 200
+        Me.Column11.Name = "Column11"
+        Me.Column11.ReadOnly = True
+        Me.Column11.Width = 200
+        '
         'Button3
         '
         Me.Button3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -142,11 +273,12 @@ Partial Class ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus
         Me.Button3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.Button3.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_view_21
         Me.Button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button3.Location = New System.Drawing.Point(816, 470)
+        Me.Button3.Location = New System.Drawing.Point(788, 470)
         Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(102, 34)
+        Me.Button3.Size = New System.Drawing.Size(118, 34)
         Me.Button3.TabIndex = 34
-        Me.Button3.Text = "View"
+        Me.Button3.Text = "View Record"
+        Me.Button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.Button3.UseVisualStyleBackColor = True
         '
         'BtnFilter
@@ -168,6 +300,7 @@ Partial Class ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus
         'BtnDelete
         '
         Me.BtnDelete.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnDelete.Enabled = False
         Me.BtnDelete.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnDelete.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.BtnDelete.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_delete_211
@@ -182,6 +315,7 @@ Partial Class ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus
         'BtnEdit
         '
         Me.BtnEdit.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnEdit.Enabled = False
         Me.BtnEdit.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnEdit.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.BtnEdit.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_edit_211
@@ -216,11 +350,12 @@ Partial Class ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus
         Me.BtnAddRCFGARecord.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.BtnAddRCFGARecord.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_add_21
         Me.BtnAddRCFGARecord.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnAddRCFGARecord.Location = New System.Drawing.Point(924, 470)
+        Me.BtnAddRCFGARecord.Location = New System.Drawing.Point(912, 470)
         Me.BtnAddRCFGARecord.Name = "BtnAddRCFGARecord"
-        Me.BtnAddRCFGARecord.Size = New System.Drawing.Size(102, 34)
+        Me.BtnAddRCFGARecord.Size = New System.Drawing.Size(114, 34)
         Me.BtnAddRCFGARecord.TabIndex = 26
-        Me.BtnAddRCFGARecord.Text = "Add"
+        Me.BtnAddRCFGARecord.Text = "Add Record"
+        Me.BtnAddRCFGARecord.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.BtnAddRCFGARecord.UseVisualStyleBackColor = True
         '
         'ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus
@@ -261,4 +396,16 @@ Partial Class ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus
     Friend WithEvents BtnAddRCFGARecord As Button
     Friend WithEvents DgvSwData As DataGridView
     Friend WithEvents LblSrchFnd As Label
+    Friend WithEvents Column12 As DataGridViewTextBoxColumn
+    Friend WithEvents Column1 As DataGridViewTextBoxColumn
+    Friend WithEvents Column2 As DataGridViewTextBoxColumn
+    Friend WithEvents Column3 As DataGridViewTextBoxColumn
+    Friend WithEvents Column4 As DataGridViewTextBoxColumn
+    Friend WithEvents Column5 As DataGridViewTextBoxColumn
+    Friend WithEvents Column6 As DataGridViewTextBoxColumn
+    Friend WithEvents Column7 As DataGridViewTextBoxColumn
+    Friend WithEvents Column8 As DataGridViewTextBoxColumn
+    Friend WithEvents Column9 As DataGridViewTextBoxColumn
+    Friend WithEvents Column10 As DataGridViewTextBoxColumn
+    Friend WithEvents Column11 As DataGridViewTextBoxColumn
 End Class

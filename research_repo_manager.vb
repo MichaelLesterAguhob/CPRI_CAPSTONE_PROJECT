@@ -77,7 +77,6 @@ Public Class ResearchRepoManager
         Finally
             DgvSwData.ClearSelection()
         End Try
-
     End Sub
 
     ' HANDLE CELL CLICK FUNCTION

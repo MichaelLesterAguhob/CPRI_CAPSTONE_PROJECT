@@ -1,7 +1,7 @@
-﻿
+﻿Imports System.Globalization
 Imports MySql.Data.MySqlClient
 
-Public Class AddResearchCourseFacilitatorGroupAdviserRecord
+Public Class EditRCF_RGA
 
     Dim record_id = 0, to_check_record_id As Integer = 0
     Dim current_year As Integer = DateTime.Now.Year
@@ -27,53 +27,27 @@ Public Class AddResearchCourseFacilitatorGroupAdviserRecord
     Dim al_stat = "", al_date = "", al_remarks As String = ""
     Dim cf_stat = "", cf_date = "", cf_remarks As String = ""
 
-    Private Sub GenerateRecordID()
-        Dim rnd As New Random()
-        to_check_record_id = rnd.Next(10000, 99999)
-        IsRecordIdUnique()
-    End Sub
-
-    Private Sub IsRecordIdUnique()
-        con.Close()
-        Try
-            con.Open()
-            Dim query As String = "SELECT record_id FROM rcf_rga WHERE record_id=@id"
-            Using cmd As New MySqlCommand(query, con)
-                cmd.Parameters.AddWithValue("@id", current_year.ToString & to_check_record_id)
-                Dim count As Integer = Convert.ToInt32(cmd.ExecuteScalar())
-                If count > 0 Then
-                    GenerateRecordID()
-                Else
-                    record_id = to_check_record_id
-                    TxtID.Text = current_year.ToString & record_id.ToString
-                End If
-            End Using
-        Catch ex As Exception
-            MessageBox.Show(ex.Message, "Error 001: Failed to check the uniqueness of generated ID")
-        Finally
-            con.Close()
-        End Try
-    End Sub
-
 
     'CODE TO USE FUNCTION FROM MY OTHER FORM
     Private ReadOnly rcf_rga_form As ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus
-    Public Sub New(ByVal rcf_rga_form As ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus)
+    ReadOnly to_edit_id As Integer
+    Public Sub New(ByVal rcf_rga_form As ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus, ByVal id As Integer)
         ' This call is required by the designer.
         InitializeComponent()
         ' Add any initialization after the InitializeComponent() call.
         Me.rcf_rga_form = rcf_rga_form
+        Me.to_edit_id = id
     End Sub
 
 
     'FORM LOAD
-    Private Sub AddResearchCourseFacilitatorGroupAdviserRecord_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub EditRCF_RGA_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ConOpen()
-        GenerateRecordID()
         TxtSchoolYear.Select()
+        LoadToEditRecord()
     End Sub
 
-   
+
 
     'STAGE RADIO BUTTONS CLICK 
     Private Sub RdStageResearchProposal_MouseClick(sender As Object, e As MouseEventArgs) Handles RdStageResearchProposal.MouseClick
@@ -81,10 +55,6 @@ Public Class AddResearchCourseFacilitatorGroupAdviserRecord
         LblStage.Visible = True
         LblChangeabletext.Text = "Evaluation Forms for Research Proposal 
 Defense from the panel members"
-        PnlInfo.Enabled = True
-        PnlRRCF.Enabled = True
-        PnlRRGA.Enabled = True
-
         stage = "Research Proposal"
     End Sub
 
@@ -93,9 +63,6 @@ Defense from the panel members"
         LblStage.Visible = True
         LblChangeabletext.Text = "Evaluation Forms for FINAL THESIS DEFENSE 
 from the panel members"
-        PnlInfo.Enabled = True
-        PnlRRCF.Enabled = True
-        PnlRRGA.Enabled = True
 
         stage = "Final Thesis"
     End Sub
@@ -119,15 +86,6 @@ from the panel members"
 
     End Sub
 
-    Private Sub ChckBxRGA_MouseClick(sender As Object, e As MouseEventArgs) Handles ChckBxRGA.MouseClick
-        If ChckBxRGA.Checked = True Then
-            role2 = ChckBxRGA.Text
-        Else
-            role2 = ""
-        End If
-
-    End Sub
-
     Private Sub CmbxSemester_TextChanged(sender As Object, e As EventArgs) Handles CmbxSemester.TextChanged
         If CmbxSemester.Text <> "Select Semester" And CmbxSemester.Text <> "" Then
             CmbxSemester.ForeColor = Color.Black
@@ -139,7 +97,14 @@ from the panel members"
         End If
     End Sub
 
+    Private Sub ChckBxRGA_MouseClick(sender As Object, e As MouseEventArgs) Handles ChckBxRGA.MouseClick
+        If ChckBxRGA.Checked = True Then
+            role2 = ChckBxRGA.Text
+        Else
+            role2 = ""
+        End If
 
+    End Sub
 
     'Requirements for Research Course Facilitator
     'Endorsement Letters for Oral Defense radio button
@@ -204,7 +169,7 @@ from the panel members"
 
 
     'SAVING RECORD
-    Private Sub BtnSaveRecord_Click(sender As Object, e As EventArgs) Handles BtnSaveRecord.Click
+    Private Sub BtnUpdate_Click(sender As Object, e As EventArgs) Handles BtnUpdate.Click
 
         semester = CmbxSemester.Text.ToString
         school_year = TxtSchoolYear.Text.Trim.ToString
@@ -300,13 +265,22 @@ from the panel members"
 
             Try
                 con.Open()
-                Dim insert_main_info As String = "
-                    INSERT INTO `rcf_rga`
-                        (`no#`, `record_id`, `semester`, `school_year`, `stage`, `name`, `college`, `dept`, `status`, `role`)
-                    VALUES
-                        (@no, @record_id, @semester, @school_year, @stage, @name, @college, @dept, @status, @role)"
-                Using cmd As New MySqlCommand(insert_main_info, con)
-                    cmd.Parameters.AddWithValue("@no", Nothing)
+                Dim updt_main_info As String = "
+                    UPDATE `rcf_rga`
+                    SET
+                     `semester` = @semester, 
+                    `school_year` = @school_year, 
+                    `stage` = @stage, 
+                    `name` = @name, 
+                    `college` = @college, 
+                    `dept` = @dept, 
+                    `status` = @status, 
+                    `role` = @role
+
+                    WHERE `record_id` = @record_id 
+                    "
+
+                Using cmd As New MySqlCommand(updt_main_info, con)
                     cmd.Parameters.AddWithValue("@record_id", TxtID.Text)
                     cmd.Parameters.AddWithValue("@semester", semester)
                     cmd.Parameters.AddWithValue("@school_year", school_year)
@@ -323,68 +297,34 @@ from the panel members"
 
                 con.Open()
                 Dim insert_rcf_rga As String = "
-                    INSERT INTO `rcf_rga_req`
-                        (
-                            `no#`, 
-                            `rcf_rga_req_id`, 
+                    UPDATE `rcf_rga_req`SET
+                            `status_endorsement_letter`= @status_endorsement_letter, 
+                            `endo_lett_sbmttd_date` = @endo_lett_sbmttd_date, 
+                            `endo_lett_remarks` = @endo_lett_remaks, 
 
-                            `status_endorsement_letter`, 
-                            `endo_lett_sbmttd_date`, 
-                            `endo_lett_remarks`, 
+                            `status_evaluation_form` = @status_evaluation_form, 
+                            `status_final_eval_form` = @status_final_eval_form, 
+                            `eval_sbmttd_date` = @eval_sbmttd_date, 
+                            `eval_remarks` = @eval_remarks, 
 
-                            `status_evaluation_form`, 
-                            `status_final_eval_form`, 
-                            `eval_sbmttd_date`, 
-                            `eval_remarks`, 
+                            `status_pict_documentation` = @status_pict_documentation, 
+                            `pict_docu_sbmttd_date` = @pict_docu_sbmttd_date,
+                            `pict_docu_remarks` = @pict_docu_remarks,
 
-                            `status_pict_documentation`, 
-                            `pict_docu_sbmttd_date`,
-                            `pict_docu_remarks`,
+                            `status_copy_student_or` = @status_copy_student_or, 
+                            `stud_or_sbmttd_date` = @stud_or_sbmttd_date,
+                            `stud_or_remarks` = @stud_or_remarks,
 
-                            `status_copy_student_or`, 
-                            `stud_or_sbmttd_date`,
-                            `stud_or_remarks`,
+                            `status_appoint_lett` = @status_appoint_lett, 
+                            `appoint_lett_sbmttd_date` = @appoint_lett_sbmttd_date,
+                            `appoint_lett_remarks` = @appoint_lett_remarks,
 
-                            `status_appoint_lett`, 
-                            `appoint_lett_sbmttd_date`,
-                            `appoint_lett_remarks`,
-
-                            `status_consult_form`, 
-                            `consult_form_sbmttd_date`,
-                            `consult_form_remarks`
-                        )
-                    VALUES
-                        (
-                            @no, 
-                            @id, 
-
-                            @status_endorsement_letter, 
-                            @endo_lett_sbmttd_date, 
-                            @endo_lett_remaks, 
-
-                            @status_evaluation_form, 
-                            @status_final_eval_form, 
-                            @eval_sbmttd_date, 
-                            @eval_remarks, 
-
-                            @status_pict_documentation, 
-                            @pict_docu_sbmttd_date,
-                            @pict_docu_remarks,
-
-                            @status_copy_student_or, 
-                            @stud_or_sbmttd_date,
-                            @stud_or_remarks,
-
-                            @status_appoint_lett, 
-                            @appoint_lett_sbmttd_date,
-                            @appoint_lett_remarks,
-
-                            @status_consult_form, 
-                            @consult_form_sbmttd_date,
-                            @consult_form_remarks
-                        )"
+                            `status_consult_form` = @status_consult_form, 
+                            `consult_form_sbmttd_date` = @consult_form_sbmttd_date,
+                            `consult_form_remarks` = @consult_form_remarks
+                   WHERE `rcf_rga_req_id`= @id
+                    "
                 Using cmd2 As New MySqlCommand(insert_rcf_rga, con)
-                    cmd2.Parameters.AddWithValue("@no", Nothing)
                     cmd2.Parameters.AddWithValue("@id", TxtID.Text)
 
                     cmd2.Parameters.AddWithValue("@status_endorsement_letter", elod_stat)
@@ -415,18 +355,192 @@ from the panel members"
                     cmd2.ExecuteNonQuery()
                 End Using
 
-                MessageBox.Show("Record Saved Successfully", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                MessageBox.Show("Record updated Successfully", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 ClearTextBox_UncheckedRd(Me)
-                GenerateRecordID()
             Catch ex As Exception
                 MessageBox.Show(ex.Message, "Error Occurred on saving record", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 con.Close()
             Finally
                 con.Close()
+                Me.Close()
                 rcf_rga_form.LoadRcfRgaRecords()
             End Try
         End If
     End Sub
+
+
+    Private Sub LoadToEditRecord()
+        con.Close()
+
+        Try
+            con.Open()
+            Dim query As String = "
+                                SELECT 
+                                    rcf_rga.*, 
+                                    rcf_rga_req.* 
+                                FROM rcf_rga 
+                                INNER JOIN rcf_rga_req
+                                    ON rcf_rga_req.rcf_rga_req_id = rcf_rga.record_id
+                                WHERE record_id = @to_edit_id
+                                  "
+            Using cmd As New MySqlCommand(query, con)
+                cmd.Parameters.AddWithValue("@to_edit_id", to_edit_id)
+                Dim reader As MySqlDataReader = cmd.ExecuteReader()
+                If reader.HasRows Then
+                    If reader.Read() Then
+                        TxtID.Text = reader("record_id").ToString()
+                        CmbxSemester.Text = reader("semester").ToString()
+                        TxtSchoolYear.Text = reader("school_year").ToString()
+
+                        stage = reader("stage").ToString()
+                        If stage = "Research Proposal" Then
+                            RdStageResearchProposal.Checked = True
+                            LblStage.Text = "Research Proposal"
+                        Else
+                            RdStageFinalThesis.Checked = True
+                            LblStage.Text = "Final Thesis/Capstone"
+                        End If
+                        LblStage.Visible = True
+
+                        '=======
+                        name_input = reader("name").ToString()
+                        TxtName.Text = name_input
+                        college = reader("college").ToString()
+                        TxtCollege.Text = college
+                        department = reader("dept").ToString()
+                        TxtDepartment.Text = department
+
+                        '=======
+                        status = reader("status").ToString()
+                        If status = "Full Time" Then
+                            RdStatusFullTime.Checked = True
+                        Else
+                            RdStatusPartTime.Checked = True
+                        End If
+
+                        Dim roles As String = reader("role").ToString()
+                        If roles.Contains("Research Course Facilitator") And roles.Contains("Research Group’s Adviser") Then
+                            ChckBxRCF.Checked = True
+                            ChckBxRGA.Checked = True
+                            role1 = "Research Course Facilitator"
+                            role2 = "Research Group’s Adviser"
+                        ElseIf roles.Contains("Research Course Facilitator") Then
+                            ChckBxRCF.Checked = True
+                            role1 = "Research Course Facilitator"
+                            role2 = ""
+                        Else
+                            ChckBxRGA.Checked = True
+                            role2 = "Research Group’s Adviser"
+                            role1 = ""
+                        End If
+
+                        'Requirements for RCF
+                        elod_stat = reader("status_endorsement_letter").ToString()
+                        If elod_stat = "Submitted" Then
+                            Rd1stStatSubmitted.Checked = True
+                            Dim parsedDate As DateTime
+                            If DateTime.TryParseExact(reader("endo_lett_sbmttd_date").ToString(), "MM-dd-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, parsedDate) Then
+                                DtSubmittedDateEndorsement.Value = parsedDate
+                            End If
+                        Else
+                            Rd1stStatUnsubmitted.Checked = True
+                        End If
+                        elod_remarks = reader("endo_lett_remarks").ToString()
+                        TxtRemarksEndorsement.Text = elod_remarks
+
+                        '=======
+                        efrpd_stat = reader("status_evaluation_form").ToString()
+                        efrFd_stat = reader("status_final_eval_form").ToString()
+                        If efrpd_stat = "Submitted" Then
+                            Rd2ndStatSubmitted.Checked = True
+                            LblChangeabletext.Text = "Evaluation Forms for Research Proposal 
+Defense from the panel members"
+                            Dim parsedDate As DateTime
+                            If DateTime.TryParseExact(reader("eval_sbmttd_date").ToString(), "MM-dd-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, parsedDate) Then
+                                DtSubmittedDateEvaluation.Value = parsedDate
+                            End If
+                        ElseIf efrFd_stat = "Submitted" Then
+                            Rd2ndStatSubmitted.Checked = True
+                            LblChangeabletext.Text = "Evaluation Forms for FINAL THESIS DEFENSE 
+from the panel members"
+                            Dim parsedDate As DateTime
+                            If DateTime.TryParseExact(reader("eval_sbmttd_date").ToString(), "MM-dd-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, parsedDate) Then
+                                DtSubmittedDateEvaluation.Value = parsedDate
+                            End If
+                        Else
+                            Rd2ndStatUnsubmitted.Checked = True
+                        End If
+                        efrpd_remarks = reader("eval_remarks").ToString()
+                        TxtRemarksEvaluation.Text = efrpd_remarks
+
+                        '=======
+                        pdod_stat = reader("status_pict_documentation").ToString()
+                        If pdod_stat = "Submitted" Then
+                            Rd3rdStatSubmitted.Checked = True
+                            Dim parsedDate As DateTime
+                            If DateTime.TryParseExact(reader("pict_docu_sbmttd_date").ToString(), "MM-dd-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, parsedDate) Then
+                                DtSubmittedDateDocumentation.Value = parsedDate
+                            End If
+                        Else
+                            Rd3rdStatUnsubmitted.Checked = True
+                        End If
+                        pdod_remarks = reader("pict_docu_remarks").ToString()
+                        TxtRemarksDocumentation.Text = pdod_remarks
+
+                        '=======
+                        csor_stat = reader("status_copy_student_or").ToString()
+                        If csor_stat = "Submitted" Then
+                            Rd4thStatSubmitted.Checked = True
+                            Dim parsedDate As DateTime
+                            If DateTime.TryParseExact(reader("stud_or_sbmttd_date").ToString(), "MM-dd-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, parsedDate) Then
+                                DtSubmittedDateReceipt.Value = parsedDate
+                            End If
+                        Else
+                            Rd4thStatUnsubmitted.Checked = True
+                        End If
+                        csor_remarks = reader("stud_or_remarks").ToString()
+                        TxtRemarksReceipt.Text = csor_remarks
+
+                        '=======
+                        al_stat = reader("status_appoint_lett").ToString()
+                        If al_stat = "Submitted" Then
+                            RdStatSubmittedAL.Checked = True
+                            Dim parsedDate As DateTime
+                            If DateTime.TryParseExact(reader("appoint_lett_sbmttd_date").ToString(), "MM-dd-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, parsedDate) Then
+                                DtDateSubmittedAL.Value = parsedDate
+                            End If
+                        Else
+                            RdStatUnsubmittedAL.Checked = True
+                        End If
+                        al_remarks = reader("appoint_lett_remarks").ToString()
+                        TxtRemarksAL.Text = al_remarks
+
+                        '=======
+                        cf_stat = reader("status_consult_form").ToString()
+                        If al_stat = "Submitted" Then
+                            RdStatSubmittedCF.Checked = True
+                            Dim parsedDate As DateTime
+                            If DateTime.TryParseExact(reader("consult_form_sbmttd_date").ToString(), "MM-dd-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, parsedDate) Then
+                                DtDateSubmittedCF.Value = parsedDate
+                            End If
+                        Else
+                            RdStatUnsubmittedCF.Checked = True
+                        End If
+                        cf_remarks = reader("consult_form_remarks").ToString()
+                        TxtRemarksCF.Text = cf_remarks
+                    End If
+                    reader.Close()
+                End If
+            End Using
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Error Occurred on saving record", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            con.Close()
+        Finally
+            con.Close()
+            rcf_rga_form.LoadRcfRgaRecords()
+        End Try
+    End Sub
+
 
     Private Sub ClearTextBox_UncheckedRd(ByVal parent_control As Control)
         For Each cntrl As Control In parent_control.Controls
@@ -456,5 +570,6 @@ from the panel members"
 
         CmbxSemester.Text = "Select Semester"
     End Sub
-End Class
 
+
+End Class

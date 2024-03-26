@@ -408,7 +408,7 @@ Partial Class AddResearchCourseFacilitatorGroupAdviserRecord
         '
         Me.PnlRRCF.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.PnlRRCF.BackColor = System.Drawing.SystemColors.HighlightText
+        Me.PnlRRCF.BackColor = System.Drawing.SystemColors.Control
         Me.PnlRRCF.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.PnlRRCF.Controls.Add(Me.Panel9)
         Me.PnlRRCF.Controls.Add(Me.Panel8)
@@ -434,7 +434,7 @@ Partial Class AddResearchCourseFacilitatorGroupAdviserRecord
         Me.Panel9.Controls.Add(Me.Rd4thStatSubmitted)
         Me.Panel9.Controls.Add(Me.Rd4thStatUnsubmitted)
         Me.Panel9.Controls.Add(Me.Label19)
-        Me.Panel9.Location = New System.Drawing.Point(3, 184)
+        Me.Panel9.Location = New System.Drawing.Point(3, 195)
         Me.Panel9.Name = "Panel9"
         Me.Panel9.Size = New System.Drawing.Size(744, 43)
         Me.Panel9.TabIndex = 108
@@ -446,9 +446,9 @@ Partial Class AddResearchCourseFacilitatorGroupAdviserRecord
         Me.TxtRemarksReceipt.BackColor = System.Drawing.Color.WhiteSmoke
         Me.TxtRemarksReceipt.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtRemarksReceipt.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.TxtRemarksReceipt.Location = New System.Drawing.Point(596, 10)
+        Me.TxtRemarksReceipt.Location = New System.Drawing.Point(583, 10)
         Me.TxtRemarksReceipt.Name = "TxtRemarksReceipt"
-        Me.TxtRemarksReceipt.Size = New System.Drawing.Size(146, 22)
+        Me.TxtRemarksReceipt.Size = New System.Drawing.Size(157, 22)
         Me.TxtRemarksReceipt.TabIndex = 108
         '
         'DtSubmittedDateReceipt
@@ -505,7 +505,7 @@ Partial Class AddResearchCourseFacilitatorGroupAdviserRecord
         Me.Panel8.Controls.Add(Me.DtSubmittedDateDocumentation)
         Me.Panel8.Controls.Add(Me.Rd3rdStatSubmitted)
         Me.Panel8.Controls.Add(Me.Rd3rdStatUnsubmitted)
-        Me.Panel8.Location = New System.Drawing.Point(3, 133)
+        Me.Panel8.Location = New System.Drawing.Point(3, 142)
         Me.Panel8.Name = "Panel8"
         Me.Panel8.Size = New System.Drawing.Size(744, 43)
         Me.Panel8.TabIndex = 108
@@ -517,9 +517,9 @@ Partial Class AddResearchCourseFacilitatorGroupAdviserRecord
         Me.TxtRemarksDocumentation.BackColor = System.Drawing.Color.WhiteSmoke
         Me.TxtRemarksDocumentation.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtRemarksDocumentation.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.TxtRemarksDocumentation.Location = New System.Drawing.Point(596, 10)
+        Me.TxtRemarksDocumentation.Location = New System.Drawing.Point(583, 10)
         Me.TxtRemarksDocumentation.Name = "TxtRemarksDocumentation"
-        Me.TxtRemarksDocumentation.Size = New System.Drawing.Size(146, 22)
+        Me.TxtRemarksDocumentation.Size = New System.Drawing.Size(157, 22)
         Me.TxtRemarksDocumentation.TabIndex = 109
         '
         'Label18
@@ -576,7 +576,7 @@ Partial Class AddResearchCourseFacilitatorGroupAdviserRecord
         Me.Panel7.Controls.Add(Me.DtSubmittedDateEvaluation)
         Me.Panel7.Controls.Add(Me.Rd2ndStatSubmitted)
         Me.Panel7.Controls.Add(Me.Rd2ndStatUnsubmitted)
-        Me.Panel7.Location = New System.Drawing.Point(3, 82)
+        Me.Panel7.Location = New System.Drawing.Point(3, 89)
         Me.Panel7.Name = "Panel7"
         Me.Panel7.Size = New System.Drawing.Size(744, 43)
         Me.Panel7.TabIndex = 107
@@ -588,9 +588,9 @@ Partial Class AddResearchCourseFacilitatorGroupAdviserRecord
         Me.TxtRemarksEvaluation.BackColor = System.Drawing.Color.WhiteSmoke
         Me.TxtRemarksEvaluation.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtRemarksEvaluation.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.TxtRemarksEvaluation.Location = New System.Drawing.Point(596, 10)
+        Me.TxtRemarksEvaluation.Location = New System.Drawing.Point(583, 10)
         Me.TxtRemarksEvaluation.Name = "TxtRemarksEvaluation"
-        Me.TxtRemarksEvaluation.Size = New System.Drawing.Size(146, 22)
+        Me.TxtRemarksEvaluation.Size = New System.Drawing.Size(157, 22)
         Me.TxtRemarksEvaluation.TabIndex = 105
         '
         'LblChangeabletext
@@ -647,7 +647,7 @@ Partial Class AddResearchCourseFacilitatorGroupAdviserRecord
         Me.Panel6.Controls.Add(Me.Rd1stStatSubmitted)
         Me.Panel6.Controls.Add(Me.Rd1stStatUnsubmitted)
         Me.Panel6.Controls.Add(Me.Label16)
-        Me.Panel6.Location = New System.Drawing.Point(3, 31)
+        Me.Panel6.Location = New System.Drawing.Point(3, 36)
         Me.Panel6.Name = "Panel6"
         Me.Panel6.Size = New System.Drawing.Size(744, 43)
         Me.Panel6.TabIndex = 106
@@ -659,9 +659,9 @@ Partial Class AddResearchCourseFacilitatorGroupAdviserRecord
         Me.TxtRemarksEndorsement.BackColor = System.Drawing.Color.WhiteSmoke
         Me.TxtRemarksEndorsement.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtRemarksEndorsement.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.TxtRemarksEndorsement.Location = New System.Drawing.Point(595, 10)
+        Me.TxtRemarksEndorsement.Location = New System.Drawing.Point(582, 10)
         Me.TxtRemarksEndorsement.Name = "TxtRemarksEndorsement"
-        Me.TxtRemarksEndorsement.Size = New System.Drawing.Size(146, 22)
+        Me.TxtRemarksEndorsement.Size = New System.Drawing.Size(157, 22)
         Me.TxtRemarksEndorsement.TabIndex = 98
         '
         'DtSubmittedDateEndorsement
@@ -713,7 +713,7 @@ Partial Class AddResearchCourseFacilitatorGroupAdviserRecord
         Me.Label15.AutoSize = True
         Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label15.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label15.Location = New System.Drawing.Point(634, 4)
+        Me.Label15.Location = New System.Drawing.Point(627, 10)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(70, 16)
         Me.Label15.TabIndex = 101
@@ -724,7 +724,7 @@ Partial Class AddResearchCourseFacilitatorGroupAdviserRecord
         Me.Label14.AutoSize = True
         Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label14.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label14.Location = New System.Drawing.Point(450, 4)
+        Me.Label14.Location = New System.Drawing.Point(450, 10)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(114, 16)
         Me.Label14.TabIndex = 100
@@ -735,7 +735,7 @@ Partial Class AddResearchCourseFacilitatorGroupAdviserRecord
         Me.Label13.AutoSize = True
         Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label13.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label13.Location = New System.Drawing.Point(315, 4)
+        Me.Label13.Location = New System.Drawing.Point(315, 10)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(51, 16)
         Me.Label13.TabIndex = 99
@@ -746,7 +746,7 @@ Partial Class AddResearchCourseFacilitatorGroupAdviserRecord
         Me.Label12.AutoSize = True
         Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label12.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label12.Location = New System.Drawing.Point(85, 4)
+        Me.Label12.Location = New System.Drawing.Point(85, 10)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(104, 16)
         Me.Label12.TabIndex = 98
@@ -756,7 +756,7 @@ Partial Class AddResearchCourseFacilitatorGroupAdviserRecord
         '
         Me.PnlRRGA.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.PnlRRGA.BackColor = System.Drawing.SystemColors.HighlightText
+        Me.PnlRRGA.BackColor = System.Drawing.SystemColors.Control
         Me.PnlRRGA.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.PnlRRGA.Controls.Add(Me.Label10)
         Me.PnlRRGA.Controls.Add(Me.Panel11)
@@ -775,7 +775,7 @@ Partial Class AddResearchCourseFacilitatorGroupAdviserRecord
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label10.Location = New System.Drawing.Point(634, 9)
+        Me.Label10.Location = New System.Drawing.Point(627, 11)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(70, 16)
         Me.Label10.TabIndex = 112
@@ -791,7 +791,7 @@ Partial Class AddResearchCourseFacilitatorGroupAdviserRecord
         Me.Panel11.Controls.Add(Me.RdStatSubmittedCF)
         Me.Panel11.Controls.Add(Me.RdStatUnsubmittedCF)
         Me.Panel11.Controls.Add(Me.Label22)
-        Me.Panel11.Location = New System.Drawing.Point(2, 89)
+        Me.Panel11.Location = New System.Drawing.Point(2, 95)
         Me.Panel11.Name = "Panel11"
         Me.Panel11.Size = New System.Drawing.Size(744, 43)
         Me.Panel11.TabIndex = 111
@@ -803,9 +803,9 @@ Partial Class AddResearchCourseFacilitatorGroupAdviserRecord
         Me.TxtRemarksCF.BackColor = System.Drawing.Color.WhiteSmoke
         Me.TxtRemarksCF.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtRemarksCF.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.TxtRemarksCF.Location = New System.Drawing.Point(596, 10)
+        Me.TxtRemarksCF.Location = New System.Drawing.Point(583, 10)
         Me.TxtRemarksCF.Name = "TxtRemarksCF"
-        Me.TxtRemarksCF.Size = New System.Drawing.Size(146, 22)
+        Me.TxtRemarksCF.Size = New System.Drawing.Size(157, 22)
         Me.TxtRemarksCF.TabIndex = 108
         '
         'DtDateSubmittedCF
@@ -857,7 +857,7 @@ Partial Class AddResearchCourseFacilitatorGroupAdviserRecord
         Me.Label17.AutoSize = True
         Me.Label17.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label17.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label17.Location = New System.Drawing.Point(450, 9)
+        Me.Label17.Location = New System.Drawing.Point(450, 11)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(114, 16)
         Me.Label17.TabIndex = 111
@@ -885,9 +885,9 @@ Partial Class AddResearchCourseFacilitatorGroupAdviserRecord
         Me.TxtRemarksAL.BackColor = System.Drawing.Color.WhiteSmoke
         Me.TxtRemarksAL.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtRemarksAL.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.TxtRemarksAL.Location = New System.Drawing.Point(596, 10)
+        Me.TxtRemarksAL.Location = New System.Drawing.Point(583, 10)
         Me.TxtRemarksAL.Name = "TxtRemarksAL"
-        Me.TxtRemarksAL.Size = New System.Drawing.Size(146, 22)
+        Me.TxtRemarksAL.Size = New System.Drawing.Size(157, 22)
         Me.TxtRemarksAL.TabIndex = 108
         '
         'DtDateSubmittedAL
@@ -939,7 +939,7 @@ Partial Class AddResearchCourseFacilitatorGroupAdviserRecord
         Me.Label23.AutoSize = True
         Me.Label23.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label23.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label23.Location = New System.Drawing.Point(315, 9)
+        Me.Label23.Location = New System.Drawing.Point(315, 11)
         Me.Label23.Name = "Label23"
         Me.Label23.Size = New System.Drawing.Size(51, 16)
         Me.Label23.TabIndex = 110
@@ -950,7 +950,7 @@ Partial Class AddResearchCourseFacilitatorGroupAdviserRecord
         Me.Label24.AutoSize = True
         Me.Label24.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label24.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label24.Location = New System.Drawing.Point(85, 9)
+        Me.Label24.Location = New System.Drawing.Point(85, 11)
         Me.Label24.Name = "Label24"
         Me.Label24.Size = New System.Drawing.Size(104, 16)
         Me.Label24.TabIndex = 109
@@ -975,11 +975,11 @@ Partial Class AddResearchCourseFacilitatorGroupAdviserRecord
         Me.BtnCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnCancel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.BtnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnCancel.Location = New System.Drawing.Point(673, 528)
+        Me.BtnCancel.Location = New System.Drawing.Point(1090, 528)
         Me.BtnCancel.Name = "BtnCancel"
         Me.BtnCancel.Size = New System.Drawing.Size(143, 29)
         Me.BtnCancel.TabIndex = 99
-        Me.BtnCancel.Text = "Cancel"
+        Me.BtnCancel.Text = "Close"
         Me.BtnCancel.UseVisualStyleBackColor = False
         '
         'BtnSaveRecord
@@ -990,7 +990,7 @@ Partial Class AddResearchCourseFacilitatorGroupAdviserRecord
         Me.BtnSaveRecord.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnSaveRecord.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.BtnSaveRecord.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnSaveRecord.Location = New System.Drawing.Point(481, 528)
+        Me.BtnSaveRecord.Location = New System.Drawing.Point(903, 528)
         Me.BtnSaveRecord.Name = "BtnSaveRecord"
         Me.BtnSaveRecord.Size = New System.Drawing.Size(143, 29)
         Me.BtnSaveRecord.TabIndex = 98
@@ -1050,7 +1050,7 @@ Partial Class AddResearchCourseFacilitatorGroupAdviserRecord
         Me.Controls.Add(Me.Label1)
         Me.Name = "AddResearchCourseFacilitatorGroupAdviserRecord"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Add Research Course Facilitator Group Adviser Record"
+        Me.Text = "Add Research Course Facilitator and Research Group Adviser Record"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         Me.Panel2.ResumeLayout(False)
