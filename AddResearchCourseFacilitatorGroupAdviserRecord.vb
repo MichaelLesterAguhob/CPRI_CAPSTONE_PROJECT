@@ -27,6 +27,9 @@ Public Class AddResearchCourseFacilitatorGroupAdviserRecord
     Dim al_stat = "", al_date = "", al_remarks As String = ""
     Dim cf_stat = "", cf_date = "", cf_remarks As String = ""
 
+    Dim is_form_close_by_user As Boolean = False
+
+
     Private Sub GenerateRecordID()
         Dim rnd As New Random()
         to_check_record_id = rnd.Next(10000, 99999)
@@ -126,6 +129,11 @@ from the panel members"
             role2 = ""
         End If
 
+    End Sub
+
+    Private Sub BtnCancel_Click(sender As Object, e As EventArgs) Handles BtnCancel.Click
+        is_form_close_by_user = True
+        Me.Close()
     End Sub
 
     Private Sub CmbxSemester_TextChanged(sender As Object, e As EventArgs) Handles CmbxSemester.TextChanged
@@ -455,6 +463,20 @@ from the panel members"
         Next
 
         CmbxSemester.Text = "Select Semester"
+    End Sub
+
+    Private Sub AddResearchCourseFacilitatorGroupAdviserRecord_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+        If is_form_close_by_user Then
+            Dim confirm_exit As DialogResult = MessageBox.Show("Are you sure you want to Close this Form? By clicking 'Yes', Changes will not be saved.", "Click 'Yes' to Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
+            If confirm_exit = DialogResult.Yes Then
+                e.Cancel = False
+            Else
+                e.Cancel = True
+            End If
+        Else
+            e.Cancel = False
+        End If
+
     End Sub
 End Class
 
