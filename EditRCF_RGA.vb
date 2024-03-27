@@ -57,6 +57,10 @@ Public Class EditRCF_RGA
         LblChangeabletext.Text = "Evaluation Forms for Research Proposal 
 Defense from the panel members"
         stage = "Research Proposal"
+        efrpd_stat = ""
+        efrFd_stat = ""
+        Rd2ndStatSubmitted.Checked = False
+        Rd2ndStatUnsubmitted.Checked = False
     End Sub
 
     Private Sub RdStageFinalThesis_MouseClick(sender As Object, e As MouseEventArgs) Handles RdStageFinalThesis.MouseClick
@@ -64,8 +68,12 @@ Defense from the panel members"
         LblStage.Visible = True
         LblChangeabletext.Text = "Evaluation Forms for FINAL THESIS DEFENSE 
 from the panel members"
-
         stage = "Final Thesis"
+        Rd2ndStatSubmitted.Checked = False
+        Rd2ndStatUnsubmitted.Checked = False
+        efrpd_stat = ""
+        efrFd_stat = ""
+
     End Sub
 
     'STATUS RADIO BUTTONS CLICK
@@ -78,11 +86,63 @@ from the panel members"
         status = RdStatusPartTime.Text
     End Sub
 
+    'CLEAR QUIREMENTS FUNCTIONS
+    Private Sub ClearRCF()
+        PnlRRCF.Enabled = False
+
+        Rd1stStatSubmitted.Checked = False
+        Rd1stStatUnsubmitted.Checked = False
+        elod_stat = ""
+        TxtRemarksEndorsement.Clear()
+
+        Rd2ndStatSubmitted.Checked = False
+        Rd2ndStatUnsubmitted.Checked = False
+        efrpd_stat = ""
+        efrFd_stat = ""
+        TxtRemarksEvaluation.Clear()
+
+        Rd3rdStatSubmitted.Checked = False
+        Rd3rdStatUnsubmitted.Checked = False
+        pdod_stat = ""
+        TxtRemarksDocumentation.Clear()
+
+        Rd4thStatSubmitted.Checked = False
+        Rd4thStatUnsubmitted.Checked = False
+        csor_stat = ""
+        TxtRemarksReceipt.Clear()
+    End Sub
+
+    Private Sub ClearRga()
+        PnlRRGA.Enabled = False
+
+        RdStatSubmittedAL.Checked = False
+        RdStatUnsubmittedAL.Checked = False
+        al_stat = ""
+        TxtRemarksAL.Clear()
+
+        RdStatSubmittedCF.Checked = False
+        RdStatUnsubmittedCF.Checked = False
+        cf_stat = ""
+        TxtRemarksCF.Clear()
+    End Sub
+
     Private Sub ChckBxRCF_MouseClick(sender As Object, e As MouseEventArgs) Handles ChckBxRCF.MouseClick
         If ChckBxRCF.Checked = True Then
             role1 = ChckBxRCF.Text
+            PnlRRCF.Enabled = True
         Else
             role1 = ""
+            ClearRCF()
+        End If
+
+    End Sub
+    Private Sub ChckBxRGA_MouseClick(sender As Object, e As MouseEventArgs) Handles ChckBxRGA.MouseClick
+        If ChckBxRGA.Checked = True Then
+            role2 = ChckBxRGA.Text
+            PnlRRGA.Enabled = True
+        Else
+            role2 = ""
+            ClearRga()
         End If
 
     End Sub
@@ -98,14 +158,6 @@ from the panel members"
         End If
     End Sub
 
-    Private Sub ChckBxRGA_MouseClick(sender As Object, e As MouseEventArgs) Handles ChckBxRGA.MouseClick
-        If ChckBxRGA.Checked = True Then
-            role2 = ChckBxRGA.Text
-        Else
-            role2 = ""
-        End If
-
-    End Sub
 
     Private Sub BtnCancel_Click(sender As Object, e As EventArgs) Handles BtnCancel.Click
         is_form_close_by_user = True
@@ -257,12 +309,26 @@ from the panel members"
 
         'IF ALL MAIN INFO WAS NOT BLANK
         If no_blank_main_info Then
-            If elod_stat = "" Or efrpd_stat = "" Or pdod_stat = "" Or csor_stat = "" Then
-                MessageBox.Show("Please select status on Requirements for Research Course Facilitator", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            ElseIf al_stat = "" Or cf_stat = "" Then
-                MessageBox.Show("Requirements for Research Group’s Adviser:", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            Else
-                is_save_ready = True
+            If ChckBxRCF.Checked Then
+                If elod_stat = "" Or efrpd_stat = "" Or pdod_stat = "" Or csor_stat = "" Then
+                    MessageBox.Show("Please select status on Requirements for Research Course Facilitator", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                ElseIf ChckBxRGA.Checked Then
+                    If al_stat = "" Or cf_stat = "" Then
+                        MessageBox.Show("Requirements for Research Group’s Adviser:", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                    Else
+                        is_save_ready = True
+                    End If
+                Else
+                    is_save_ready = True
+                End If
+
+            ElseIf ChckBxRGA.Checked Then
+                If al_stat = "" Or cf_stat = "" Then
+                    MessageBox.Show("Requirements for Research Group’s Adviser:", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                Else
+                    is_save_ready = True
+                End If
+
             End If
         End If
 
@@ -370,6 +436,9 @@ from the panel members"
                 con.Close()
                 Me.Close()
                 rcf_rga_form.LoadRcfRgaRecords()
+                rcf_rga_form.BtnRemoveSelection.PerformClick()
+                rcf_rga_form.on_edit_mode = 0
+                rcf_rga_form.PanelRcfrgareq.Visible = False
             End Try
         End If
     End Sub
@@ -402,9 +471,13 @@ from the panel members"
                         If stage = "Research Proposal" Then
                             RdStageResearchProposal.Checked = True
                             LblStage.Text = "Research Proposal"
+                            LblChangeabletext.Text = "Evaluation Forms for Research Proposal 
+Defense from the panel members"
                         Else
                             RdStageFinalThesis.Checked = True
                             LblStage.Text = "Final Thesis/Capstone"
+                            LblChangeabletext.Text = "Evaluation Forms for FINAL THESIS DEFENSE 
+from the panel members"
                         End If
                         LblStage.Visible = True
 
@@ -430,17 +503,24 @@ from the panel members"
                             ChckBxRGA.Checked = True
                             role1 = "Research Course Facilitator"
                             role2 = "Research Group’s Adviser"
+                            PnlRRCF.Enabled = True
+                            PnlRRGA.Enabled = True
                         ElseIf roles.Contains("Research Course Facilitator") Then
                             ChckBxRCF.Checked = True
                             role1 = "Research Course Facilitator"
                             role2 = ""
+                            PnlRRCF.Enabled = True
+                            PnlRRGA.Enabled = False
                         Else
                             ChckBxRGA.Checked = True
                             role2 = "Research Group’s Adviser"
                             role1 = ""
+                            PnlRRCF.Enabled = False
+                            PnlRRGA.Enabled = True
                         End If
 
-                        'Requirements for RCF
+                        'get Requirements for RCF
+                        'Endorsement letter
                         elod_stat = reader("status_endorsement_letter").ToString()
                         If elod_stat = "Submitted" Then
                             Rd1stStatSubmitted.Checked = True
@@ -448,15 +528,16 @@ from the panel members"
                             If DateTime.TryParseExact(reader("endo_lett_sbmttd_date").ToString(), "MM-dd-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, parsedDate) Then
                                 DtSubmittedDateEndorsement.Value = parsedDate
                             End If
-                        Else
+                        ElseIf elod_stat = "Unsubmitted" Then
                             Rd1stStatUnsubmitted.Checked = True
                         End If
                         elod_remarks = reader("endo_lett_remarks").ToString()
                         TxtRemarksEndorsement.Text = elod_remarks
 
-                        '=======
+                        'Evaluation
                         efrpd_stat = reader("status_evaluation_form").ToString()
                         efrFd_stat = reader("status_final_eval_form").ToString()
+
                         If efrpd_stat = "Submitted" Then
                             Rd2ndStatSubmitted.Checked = True
                             LblChangeabletext.Text = "Evaluation Forms for Research Proposal 
@@ -465,6 +546,11 @@ Defense from the panel members"
                             If DateTime.TryParseExact(reader("eval_sbmttd_date").ToString(), "MM-dd-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, parsedDate) Then
                                 DtSubmittedDateEvaluation.Value = parsedDate
                             End If
+                        ElseIf efrpd_stat = "Unsubmitted" Then
+                            LblChangeabletext.Text = "Evaluation Forms for Research Proposal 
+Defense from the panel members"
+                            Rd2ndStatUnsubmitted.Checked = True
+
                         ElseIf efrFd_stat = "Submitted" Then
                             Rd2ndStatSubmitted.Checked = True
                             LblChangeabletext.Text = "Evaluation Forms for FINAL THESIS DEFENSE 
@@ -473,13 +559,15 @@ from the panel members"
                             If DateTime.TryParseExact(reader("eval_sbmttd_date").ToString(), "MM-dd-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, parsedDate) Then
                                 DtSubmittedDateEvaluation.Value = parsedDate
                             End If
-                        Else
+                        ElseIf efrFd_stat = "Unsubmitted" Then
+                            LblChangeabletext.Text = "Evaluation Forms for FINAL THESIS DEFENSE 
+from the panel members"
                             Rd2ndStatUnsubmitted.Checked = True
                         End If
                         efrpd_remarks = reader("eval_remarks").ToString()
                         TxtRemarksEvaluation.Text = efrpd_remarks
 
-                        '=======
+                        'Picture or Documentation
                         pdod_stat = reader("status_pict_documentation").ToString()
                         If pdod_stat = "Submitted" Then
                             Rd3rdStatSubmitted.Checked = True
@@ -487,7 +575,7 @@ from the panel members"
                             If DateTime.TryParseExact(reader("pict_docu_sbmttd_date").ToString(), "MM-dd-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, parsedDate) Then
                                 DtSubmittedDateDocumentation.Value = parsedDate
                             End If
-                        Else
+                        ElseIf pdod_stat = "Unsubmitted" Then
                             Rd3rdStatUnsubmitted.Checked = True
                         End If
                         pdod_remarks = reader("pict_docu_remarks").ToString()
@@ -501,7 +589,7 @@ from the panel members"
                             If DateTime.TryParseExact(reader("stud_or_sbmttd_date").ToString(), "MM-dd-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, parsedDate) Then
                                 DtSubmittedDateReceipt.Value = parsedDate
                             End If
-                        Else
+                        ElseIf csor_stat = "Unsubmitted" Then
                             Rd4thStatUnsubmitted.Checked = True
                         End If
                         csor_remarks = reader("stud_or_remarks").ToString()
@@ -515,7 +603,7 @@ from the panel members"
                             If DateTime.TryParseExact(reader("appoint_lett_sbmttd_date").ToString(), "MM-dd-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, parsedDate) Then
                                 DtDateSubmittedAL.Value = parsedDate
                             End If
-                        Else
+                        ElseIf al_stat = "Unsubmitted" Then
                             RdStatUnsubmittedAL.Checked = True
                         End If
                         al_remarks = reader("appoint_lett_remarks").ToString()
@@ -523,13 +611,13 @@ from the panel members"
 
                         '=======
                         cf_stat = reader("status_consult_form").ToString()
-                        If al_stat = "Submitted" Then
+                        If cf_stat = "Submitted" Then
                             RdStatSubmittedCF.Checked = True
                             Dim parsedDate As DateTime
                             If DateTime.TryParseExact(reader("consult_form_sbmttd_date").ToString(), "MM-dd-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, parsedDate) Then
                                 DtDateSubmittedCF.Value = parsedDate
                             End If
-                        Else
+                        ElseIf cf_stat = "Unsubmitted" Then
                             RdStatUnsubmittedCF.Checked = True
                         End If
                         cf_remarks = reader("consult_form_remarks").ToString()
@@ -543,7 +631,6 @@ from the panel members"
             con.Close()
         Finally
             con.Close()
-            rcf_rga_form.LoadRcfRgaRecords()
         End Try
     End Sub
 
@@ -584,10 +671,15 @@ from the panel members"
                 e.Cancel = False
             Else
                 e.Cancel = True
+                is_form_close_by_user = False
             End If
         Else
             e.Cancel = False
         End If
 
+    End Sub
+
+    Private Sub EditRCF_RGA_FormClosed(sender As Object, e As FormClosedEventArgs) Handles Me.FormClosed
+        rcf_rga_form.on_edit_mode = 0
     End Sub
 End Class

@@ -85,9 +85,12 @@ Public Class AddResearchCourseFacilitatorGroupAdviserRecord
         LblChangeabletext.Text = "Evaluation Forms for Research Proposal 
 Defense from the panel members"
         PnlInfo.Enabled = True
-        PnlRRCF.Enabled = True
-        PnlRRGA.Enabled = True
-
+        PnlRRCF.Enabled = False
+        PnlRRGA.Enabled = False
+        efrpd_stat = ""
+        efrFd_stat = ""
+        Rd2ndStatSubmitted.Checked = False
+        Rd2ndStatUnsubmitted.Checked = False
         stage = "Research Proposal"
     End Sub
 
@@ -97,9 +100,12 @@ Defense from the panel members"
         LblChangeabletext.Text = "Evaluation Forms for FINAL THESIS DEFENSE 
 from the panel members"
         PnlInfo.Enabled = True
-        PnlRRCF.Enabled = True
-        PnlRRGA.Enabled = True
-
+        PnlRRCF.Enabled = False
+        PnlRRGA.Enabled = False
+        efrpd_stat = ""
+        efrFd_stat = ""
+        Rd2ndStatSubmitted.Checked = False
+        Rd2ndStatUnsubmitted.Checked = False
         stage = "Final Thesis"
     End Sub
 
@@ -113,20 +119,63 @@ from the panel members"
         status = RdStatusPartTime.Text
     End Sub
 
+    'CLEAR QUIREMENTS FUNCTIONS
+    Private Sub ClearRCF()
+        PnlRRCF.Enabled = False
+
+        Rd1stStatSubmitted.Checked = False
+        Rd1stStatUnsubmitted.Checked = False
+        elod_stat = ""
+        TxtRemarksEndorsement.Clear()
+
+        Rd2ndStatSubmitted.Checked = False
+        Rd2ndStatUnsubmitted.Checked = False
+        efrpd_stat = ""
+        efrFd_stat = ""
+        TxtRemarksEvaluation.Clear()
+
+        Rd3rdStatSubmitted.Checked = False
+        Rd3rdStatUnsubmitted.Checked = False
+        pdod_stat = ""
+        TxtRemarksDocumentation.Clear()
+
+        Rd4thStatSubmitted.Checked = False
+        Rd4thStatUnsubmitted.Checked = False
+        pdod_stat = ""
+        TxtRemarksReceipt.Clear()
+    End Sub
+
+    Private Sub ClearRga()
+        PnlRRGA.Enabled = False
+
+        RdStatSubmittedAL.Checked = False
+        RdStatUnsubmittedAL.Checked = False
+        al_stat = ""
+        TxtRemarksAL.Clear()
+
+        RdStatSubmittedCF.Checked = False
+        RdStatUnsubmittedCF.Checked = False
+        cf_stat = ""
+        TxtRemarksCF.Clear()
+    End Sub
+
     Private Sub ChckBxRCF_MouseClick(sender As Object, e As MouseEventArgs) Handles ChckBxRCF.MouseClick
         If ChckBxRCF.Checked = True Then
             role1 = ChckBxRCF.Text
+            PnlRRCF.Enabled = True
         Else
             role1 = ""
+            ClearRCF()
         End If
-
     End Sub
 
     Private Sub ChckBxRGA_MouseClick(sender As Object, e As MouseEventArgs) Handles ChckBxRGA.MouseClick
         If ChckBxRGA.Checked = True Then
             role2 = ChckBxRGA.Text
+            PnlRRGA.Enabled = True
         Else
             role2 = ""
+            ClearRga()
         End If
 
     End Sub
@@ -146,7 +195,6 @@ from the panel members"
             TxtSchoolYear.Focus()
         End If
     End Sub
-
 
 
     'Requirements for Research Course Facilitator
@@ -294,16 +342,30 @@ from the panel members"
 
         'IF ALL MAIN INFO WAS NOT BLANK
         If no_blank_main_info Then
-            If elod_stat = "" Or efrpd_stat = "" Or pdod_stat = "" Or csor_stat = "" Then
-                MessageBox.Show("Please select status on Requirements for Research Course Facilitator", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            ElseIf al_stat = "" Or cf_stat = "" Then
-                MessageBox.Show("Requirements for Research Group’s Adviser:", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            Else
-                is_save_ready = True
+            If ChckBxRCF.Checked Then
+                If elod_stat = "" Or efrpd_stat = "" Or pdod_stat = "" Or csor_stat = "" Then
+                    MessageBox.Show("Please select status on Requirements for Research Course Facilitator", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                ElseIf ChckBxRGA.Checked Then
+                    If al_stat = "" Or cf_stat = "" Then
+                        MessageBox.Show("Requirements for Research Group’s Adviser:", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                    Else
+                        is_save_ready = True
+                    End If
+                Else
+                    is_save_ready = True
+                End If
+
+            ElseIf ChckBxRGA.Checked Then
+                If al_stat = "" Or cf_stat = "" Then
+                    MessageBox.Show("Requirements for Research Group’s Adviser:", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                Else
+                    is_save_ready = True
+                End If
+
             End If
         End If
 
-        If is_save_ready Then
+            If is_save_ready Then
             con.Close()
 
             Try
@@ -432,6 +494,8 @@ from the panel members"
             Finally
                 con.Close()
                 rcf_rga_form.LoadRcfRgaRecords()
+                rcf_rga_form.BtnRemoveSelection.PerformClick()
+                rcf_rga_form.PanelRcfrgareq.Visible = False
             End Try
         End If
     End Sub
@@ -463,6 +527,28 @@ from the panel members"
         Next
 
         CmbxSemester.Text = "Select Semester"
+        PnlRRCF.Enabled = False
+        PnlRRGA.Enabled = False
+
+        role1 = ""
+        role2 = ""
+        stage = ""
+        status = ""
+
+        elod_stat = ""
+        efrFd_stat = ""
+        efrpd_stat = ""
+        pdod_stat = ""
+        csor_stat = ""
+        al_stat = ""
+        cf_stat = ""
+
+        elod_remarks = ""
+        efrpd_remarks = ""
+        pdod_remarks = ""
+        csor_remarks = ""
+        al_remarks = ""
+        cf_remarks = ""
     End Sub
 
     Private Sub AddResearchCourseFacilitatorGroupAdviserRecord_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
