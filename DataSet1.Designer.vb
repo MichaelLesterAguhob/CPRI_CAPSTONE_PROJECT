@@ -25,7 +25,7 @@ Option Explicit On
 Partial Public Class DataSet1
     Inherits Global.System.Data.DataSet
     
-    Private tableDataTable1 As DataTable1DataTable
+    Private tablescholarly_works As scholarly_worksDataTable
     
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
     
@@ -56,8 +56,8 @@ Partial Public Class DataSet1
         If (Me.DetermineSchemaSerializationMode(info, context) = Global.System.Data.SchemaSerializationMode.IncludeSchema) Then
             Dim ds As Global.System.Data.DataSet = New Global.System.Data.DataSet()
             ds.ReadXmlSchema(New Global.System.Xml.XmlTextReader(New Global.System.IO.StringReader(strSchema)))
-            If (Not (ds.Tables("DataTable1")) Is Nothing) Then
-                MyBase.Tables.Add(New DataTable1DataTable(ds.Tables("DataTable1")))
+            If (Not (ds.Tables("scholarly_works")) Is Nothing) Then
+                MyBase.Tables.Add(New scholarly_worksDataTable(ds.Tables("scholarly_works")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -80,9 +80,9 @@ Partial Public Class DataSet1
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
      Global.System.ComponentModel.Browsable(false),  _
      Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
-    Public ReadOnly Property DataTable1() As DataTable1DataTable
+    Public ReadOnly Property scholarly_works() As scholarly_worksDataTable
         Get
-            Return Me.tableDataTable1
+            Return Me.tablescholarly_works
         End Get
     End Property
     
@@ -153,8 +153,8 @@ Partial Public Class DataSet1
             Me.Reset
             Dim ds As Global.System.Data.DataSet = New Global.System.Data.DataSet()
             ds.ReadXml(reader)
-            If (Not (ds.Tables("DataTable1")) Is Nothing) Then
-                MyBase.Tables.Add(New DataTable1DataTable(ds.Tables("DataTable1")))
+            If (Not (ds.Tables("scholarly_works")) Is Nothing) Then
+                MyBase.Tables.Add(New scholarly_worksDataTable(ds.Tables("scholarly_works")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -188,10 +188,10 @@ Partial Public Class DataSet1
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
     Friend Overloads Sub InitVars(ByVal initTable As Boolean)
-        Me.tableDataTable1 = CType(MyBase.Tables("DataTable1"),DataTable1DataTable)
+        Me.tablescholarly_works = CType(MyBase.Tables("scholarly_works"),scholarly_worksDataTable)
         If (initTable = true) Then
-            If (Not (Me.tableDataTable1) Is Nothing) Then
-                Me.tableDataTable1.InitVars
+            If (Not (Me.tablescholarly_works) Is Nothing) Then
+                Me.tablescholarly_works.InitVars
             End If
         End If
     End Sub
@@ -204,13 +204,13 @@ Partial Public Class DataSet1
         Me.Namespace = "http://tempuri.org/DataSet1.xsd"
         Me.EnforceConstraints = true
         Me.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
-        Me.tableDataTable1 = New DataTable1DataTable()
-        MyBase.Tables.Add(Me.tableDataTable1)
+        Me.tablescholarly_works = New scholarly_worksDataTable()
+        MyBase.Tables.Add(Me.tablescholarly_works)
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-    Private Function ShouldSerializeDataTable1() As Boolean
+    Private Function ShouldSerializescholarly_works() As Boolean
         Return false
     End Function
     
@@ -273,15 +273,15 @@ Partial Public Class DataSet1
     End Function
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-    Public Delegate Sub DataTable1RowChangeEventHandler(ByVal sender As Object, ByVal e As DataTable1RowChangeEvent)
+    Public Delegate Sub scholarly_worksRowChangeEventHandler(ByVal sender As Object, ByVal e As scholarly_worksRowChangeEvent)
     
     '''<summary>
     '''Represents the strongly named DataTable class.
     '''</summary>
     <Global.System.Serializable(),  _
      Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
-    Partial Public Class DataTable1DataTable
-        Inherits Global.System.Data.TypedTableBase(Of DataTable1Row)
+    Partial Public Class scholarly_worksDataTable
+        Inherits Global.System.Data.TypedTableBase(Of scholarly_worksRow)
         
         Private columnsw_id As Global.System.Data.DataColumn
         
@@ -319,7 +319,7 @@ Partial Public Class DataSet1
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub New()
             MyBase.New
-            Me.TableName = "DataTable1"
+            Me.TableName = "scholarly_works"
             Me.BeginInit
             Me.InitClass
             Me.EndInit
@@ -489,33 +489,33 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Default ReadOnly Property Item(ByVal index As Integer) As DataTable1Row
+        Public Default ReadOnly Property Item(ByVal index As Integer) As scholarly_worksRow
             Get
-                Return CType(Me.Rows(index),DataTable1Row)
+                Return CType(Me.Rows(index),scholarly_worksRow)
             End Get
         End Property
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Event DataTable1RowChanging As DataTable1RowChangeEventHandler
+        Public Event scholarly_worksRowChanging As scholarly_worksRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Event DataTable1RowChanged As DataTable1RowChangeEventHandler
+        Public Event scholarly_worksRowChanged As scholarly_worksRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Event DataTable1RowDeleting As DataTable1RowChangeEventHandler
+        Public Event scholarly_worksRowDeleting As scholarly_worksRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Event DataTable1RowDeleted As DataTable1RowChangeEventHandler
+        Public Event scholarly_worksRowDeleted As scholarly_worksRowChangeEventHandler
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Sub AddDataTable1Row(ByVal row As DataTable1Row)
+        Public Overloads Sub Addscholarly_worksRow(ByVal row As scholarly_worksRow)
             Me.Rows.Add(row)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddDataTable1Row( _
+        Public Overloads Function Addscholarly_worksRow( _
                     ByVal sw_id As String,  _
                     ByVal title As String,  _
                     ByVal research_agenda As String,  _
@@ -531,18 +531,18 @@ Partial Public Class DataSet1
                     ByVal whole_file_text As String,  _
                     ByVal _no_ As String,  _
                     ByVal co_authors As String,  _
-                    ByVal date_completed As String) As DataTable1Row
-            Dim rowDataTable1Row As DataTable1Row = CType(Me.NewRow,DataTable1Row)
+                    ByVal date_completed As String) As scholarly_worksRow
+            Dim rowscholarly_worksRow As scholarly_worksRow = CType(Me.NewRow,scholarly_worksRow)
             Dim columnValuesArray() As Object = New Object() {sw_id, title, research_agenda, _sw_abstract_display_text, authors, auth_and_co_auth_deg_prog, auth_and_co_auth_role, semester, school_year, status_ongoing_completed, published, presented, whole_file_text, _no_, co_authors, date_completed}
-            rowDataTable1Row.ItemArray = columnValuesArray
-            Me.Rows.Add(rowDataTable1Row)
-            Return rowDataTable1Row
+            rowscholarly_worksRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowscholarly_worksRow)
+            Return rowscholarly_worksRow
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Overrides Function Clone() As Global.System.Data.DataTable
-            Dim cln As DataTable1DataTable = CType(MyBase.Clone,DataTable1DataTable)
+            Dim cln As scholarly_worksDataTable = CType(MyBase.Clone,scholarly_worksDataTable)
             cln.InitVars
             Return cln
         End Function
@@ -550,7 +550,7 @@ Partial Public Class DataSet1
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
-            Return New DataTable1DataTable()
+            Return New scholarly_worksDataTable()
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -617,28 +617,28 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function NewDataTable1Row() As DataTable1Row
-            Return CType(Me.NewRow,DataTable1Row)
+        Public Function Newscholarly_worksRow() As scholarly_worksRow
+            Return CType(Me.NewRow,scholarly_worksRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
-            Return New DataTable1Row(builder)
+            Return New scholarly_worksRow(builder)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Protected Overrides Function GetRowType() As Global.System.Type
-            Return GetType(DataTable1Row)
+            Return GetType(scholarly_worksRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanged(e)
-            If (Not (Me.DataTable1RowChangedEvent) Is Nothing) Then
-                RaiseEvent DataTable1RowChanged(Me, New DataTable1RowChangeEvent(CType(e.Row,DataTable1Row), e.Action))
+            If (Not (Me.scholarly_worksRowChangedEvent) Is Nothing) Then
+                RaiseEvent scholarly_worksRowChanged(Me, New scholarly_worksRowChangeEvent(CType(e.Row,scholarly_worksRow), e.Action))
             End If
         End Sub
         
@@ -646,8 +646,8 @@ Partial Public Class DataSet1
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanging(e)
-            If (Not (Me.DataTable1RowChangingEvent) Is Nothing) Then
-                RaiseEvent DataTable1RowChanging(Me, New DataTable1RowChangeEvent(CType(e.Row,DataTable1Row), e.Action))
+            If (Not (Me.scholarly_worksRowChangingEvent) Is Nothing) Then
+                RaiseEvent scholarly_worksRowChanging(Me, New scholarly_worksRowChangeEvent(CType(e.Row,scholarly_worksRow), e.Action))
             End If
         End Sub
         
@@ -655,8 +655,8 @@ Partial Public Class DataSet1
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleted(e)
-            If (Not (Me.DataTable1RowDeletedEvent) Is Nothing) Then
-                RaiseEvent DataTable1RowDeleted(Me, New DataTable1RowChangeEvent(CType(e.Row,DataTable1Row), e.Action))
+            If (Not (Me.scholarly_worksRowDeletedEvent) Is Nothing) Then
+                RaiseEvent scholarly_worksRowDeleted(Me, New scholarly_worksRowChangeEvent(CType(e.Row,scholarly_worksRow), e.Action))
             End If
         End Sub
         
@@ -664,14 +664,14 @@ Partial Public Class DataSet1
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleting(e)
-            If (Not (Me.DataTable1RowDeletingEvent) Is Nothing) Then
-                RaiseEvent DataTable1RowDeleting(Me, New DataTable1RowChangeEvent(CType(e.Row,DataTable1Row), e.Action))
+            If (Not (Me.scholarly_worksRowDeletingEvent) Is Nothing) Then
+                RaiseEvent scholarly_worksRowDeleting(Me, New scholarly_worksRowChangeEvent(CType(e.Row,scholarly_worksRow), e.Action))
             End If
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub RemoveDataTable1Row(ByVal row As DataTable1Row)
+        Public Sub Removescholarly_worksRow(ByVal row As scholarly_worksRow)
             Me.Rows.Remove(row)
         End Sub
         
@@ -698,7 +698,7 @@ Partial Public Class DataSet1
             type.Attributes.Add(attribute1)
             Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
             attribute2.Name = "tableTypeName"
-            attribute2.FixedValue = "DataTable1DataTable"
+            attribute2.FixedValue = "scholarly_worksDataTable"
             type.Attributes.Add(attribute2)
             type.Particle = sequence
             Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
@@ -745,16 +745,16 @@ Partial Public Class DataSet1
     '''<summary>
     '''Represents strongly named DataRow class.
     '''</summary>
-    Partial Public Class DataTable1Row
+    Partial Public Class scholarly_worksRow
         Inherits Global.System.Data.DataRow
         
-        Private tableDataTable1 As DataTable1DataTable
+        Private tablescholarly_works As scholarly_worksDataTable
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
             MyBase.New(rb)
-            Me.tableDataTable1 = CType(Me.Table,DataTable1DataTable)
+            Me.tablescholarly_works = CType(Me.Table,scholarly_worksDataTable)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -762,13 +762,13 @@ Partial Public Class DataSet1
         Public Property sw_id() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableDataTable1.sw_idColumn),String)
+                    Return CType(Me(Me.tablescholarly_works.sw_idColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'sw_id' in table 'DataTable1' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'sw_id' in table 'scholarly_works' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableDataTable1.sw_idColumn) = value
+                Me(Me.tablescholarly_works.sw_idColumn) = value
             End Set
         End Property
         
@@ -777,13 +777,13 @@ Partial Public Class DataSet1
         Public Property title() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableDataTable1.titleColumn),String)
+                    Return CType(Me(Me.tablescholarly_works.titleColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'title' in table 'DataTable1' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'title' in table 'scholarly_works' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableDataTable1.titleColumn) = value
+                Me(Me.tablescholarly_works.titleColumn) = value
             End Set
         End Property
         
@@ -792,13 +792,13 @@ Partial Public Class DataSet1
         Public Property research_agenda() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableDataTable1.research_agendaColumn),String)
+                    Return CType(Me(Me.tablescholarly_works.research_agendaColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'research_agenda' in table 'DataTable1' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'research_agenda' in table 'scholarly_works' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableDataTable1.research_agendaColumn) = value
+                Me(Me.tablescholarly_works.research_agendaColumn) = value
             End Set
         End Property
         
@@ -807,13 +807,14 @@ Partial Public Class DataSet1
         Public Property _sw_abstract_display_text() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableDataTable1._sw_abstract_display_textColumn),String)
+                    Return CType(Me(Me.tablescholarly_works._sw_abstract_display_textColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'sw_abstract.display_text' in table 'DataTable1' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'sw_abstract.display_text' in table 'scholarly_works' is DBN"& _ 
+                            "ull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableDataTable1._sw_abstract_display_textColumn) = value
+                Me(Me.tablescholarly_works._sw_abstract_display_textColumn) = value
             End Set
         End Property
         
@@ -822,13 +823,13 @@ Partial Public Class DataSet1
         Public Property authors() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableDataTable1.authorsColumn),String)
+                    Return CType(Me(Me.tablescholarly_works.authorsColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'authors' in table 'DataTable1' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'authors' in table 'scholarly_works' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableDataTable1.authorsColumn) = value
+                Me(Me.tablescholarly_works.authorsColumn) = value
             End Set
         End Property
         
@@ -837,14 +838,14 @@ Partial Public Class DataSet1
         Public Property auth_and_co_auth_deg_prog() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableDataTable1.auth_and_co_auth_deg_progColumn),String)
+                    Return CType(Me(Me.tablescholarly_works.auth_and_co_auth_deg_progColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'auth_and_co_auth_deg_prog' in table 'DataTable1' is DBNull."& _ 
-                            "", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'auth_and_co_auth_deg_prog' in table 'scholarly_works' is DB"& _ 
+                            "Null.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableDataTable1.auth_and_co_auth_deg_progColumn) = value
+                Me(Me.tablescholarly_works.auth_and_co_auth_deg_progColumn) = value
             End Set
         End Property
         
@@ -853,13 +854,14 @@ Partial Public Class DataSet1
         Public Property auth_and_co_auth_role() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableDataTable1.auth_and_co_auth_roleColumn),String)
+                    Return CType(Me(Me.tablescholarly_works.auth_and_co_auth_roleColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'auth_and_co_auth_role' in table 'DataTable1' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'auth_and_co_auth_role' in table 'scholarly_works' is DBNull"& _ 
+                            ".", e)
                 End Try
             End Get
             Set
-                Me(Me.tableDataTable1.auth_and_co_auth_roleColumn) = value
+                Me(Me.tablescholarly_works.auth_and_co_auth_roleColumn) = value
             End Set
         End Property
         
@@ -868,13 +870,13 @@ Partial Public Class DataSet1
         Public Property semester() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableDataTable1.semesterColumn),String)
+                    Return CType(Me(Me.tablescholarly_works.semesterColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'semester' in table 'DataTable1' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'semester' in table 'scholarly_works' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableDataTable1.semesterColumn) = value
+                Me(Me.tablescholarly_works.semesterColumn) = value
             End Set
         End Property
         
@@ -883,13 +885,13 @@ Partial Public Class DataSet1
         Public Property school_year() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableDataTable1.school_yearColumn),String)
+                    Return CType(Me(Me.tablescholarly_works.school_yearColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'school_year' in table 'DataTable1' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'school_year' in table 'scholarly_works' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableDataTable1.school_yearColumn) = value
+                Me(Me.tablescholarly_works.school_yearColumn) = value
             End Set
         End Property
         
@@ -898,13 +900,14 @@ Partial Public Class DataSet1
         Public Property status_ongoing_completed() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableDataTable1.status_ongoing_completedColumn),String)
+                    Return CType(Me(Me.tablescholarly_works.status_ongoing_completedColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'status_ongoing_completed' in table 'DataTable1' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'status_ongoing_completed' in table 'scholarly_works' is DBN"& _ 
+                            "ull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableDataTable1.status_ongoing_completedColumn) = value
+                Me(Me.tablescholarly_works.status_ongoing_completedColumn) = value
             End Set
         End Property
         
@@ -913,13 +916,13 @@ Partial Public Class DataSet1
         Public Property published() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableDataTable1.publishedColumn),String)
+                    Return CType(Me(Me.tablescholarly_works.publishedColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'published' in table 'DataTable1' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'published' in table 'scholarly_works' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableDataTable1.publishedColumn) = value
+                Me(Me.tablescholarly_works.publishedColumn) = value
             End Set
         End Property
         
@@ -928,13 +931,13 @@ Partial Public Class DataSet1
         Public Property presented() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableDataTable1.presentedColumn),String)
+                    Return CType(Me(Me.tablescholarly_works.presentedColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'presented' in table 'DataTable1' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'presented' in table 'scholarly_works' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableDataTable1.presentedColumn) = value
+                Me(Me.tablescholarly_works.presentedColumn) = value
             End Set
         End Property
         
@@ -943,13 +946,13 @@ Partial Public Class DataSet1
         Public Property whole_file_text() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableDataTable1.whole_file_textColumn),String)
+                    Return CType(Me(Me.tablescholarly_works.whole_file_textColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'whole_file_text' in table 'DataTable1' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'whole_file_text' in table 'scholarly_works' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableDataTable1.whole_file_textColumn) = value
+                Me(Me.tablescholarly_works.whole_file_textColumn) = value
             End Set
         End Property
         
@@ -958,13 +961,13 @@ Partial Public Class DataSet1
         Public Property _no_() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableDataTable1._no_Column),String)
+                    Return CType(Me(Me.tablescholarly_works._no_Column),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'no#' in table 'DataTable1' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'no#' in table 'scholarly_works' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableDataTable1._no_Column) = value
+                Me(Me.tablescholarly_works._no_Column) = value
             End Set
         End Property
         
@@ -973,13 +976,13 @@ Partial Public Class DataSet1
         Public Property co_authors() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableDataTable1.co_authorsColumn),String)
+                    Return CType(Me(Me.tablescholarly_works.co_authorsColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'co_authors' in table 'DataTable1' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'co_authors' in table 'scholarly_works' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableDataTable1.co_authorsColumn) = value
+                Me(Me.tablescholarly_works.co_authorsColumn) = value
             End Set
         End Property
         
@@ -988,206 +991,206 @@ Partial Public Class DataSet1
         Public Property date_completed() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableDataTable1.date_completedColumn),String)
+                    Return CType(Me(Me.tablescholarly_works.date_completedColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'date_completed' in table 'DataTable1' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'date_completed' in table 'scholarly_works' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableDataTable1.date_completedColumn) = value
+                Me(Me.tablescholarly_works.date_completedColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function Issw_idNull() As Boolean
-            Return Me.IsNull(Me.tableDataTable1.sw_idColumn)
+            Return Me.IsNull(Me.tablescholarly_works.sw_idColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub Setsw_idNull()
-            Me(Me.tableDataTable1.sw_idColumn) = Global.System.Convert.DBNull
+            Me(Me.tablescholarly_works.sw_idColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function IstitleNull() As Boolean
-            Return Me.IsNull(Me.tableDataTable1.titleColumn)
+            Return Me.IsNull(Me.tablescholarly_works.titleColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub SettitleNull()
-            Me(Me.tableDataTable1.titleColumn) = Global.System.Convert.DBNull
+            Me(Me.tablescholarly_works.titleColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function Isresearch_agendaNull() As Boolean
-            Return Me.IsNull(Me.tableDataTable1.research_agendaColumn)
+            Return Me.IsNull(Me.tablescholarly_works.research_agendaColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub Setresearch_agendaNull()
-            Me(Me.tableDataTable1.research_agendaColumn) = Global.System.Convert.DBNull
+            Me(Me.tablescholarly_works.research_agendaColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function Is_sw_abstract_display_textNull() As Boolean
-            Return Me.IsNull(Me.tableDataTable1._sw_abstract_display_textColumn)
+            Return Me.IsNull(Me.tablescholarly_works._sw_abstract_display_textColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub Set_sw_abstract_display_textNull()
-            Me(Me.tableDataTable1._sw_abstract_display_textColumn) = Global.System.Convert.DBNull
+            Me(Me.tablescholarly_works._sw_abstract_display_textColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function IsauthorsNull() As Boolean
-            Return Me.IsNull(Me.tableDataTable1.authorsColumn)
+            Return Me.IsNull(Me.tablescholarly_works.authorsColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub SetauthorsNull()
-            Me(Me.tableDataTable1.authorsColumn) = Global.System.Convert.DBNull
+            Me(Me.tablescholarly_works.authorsColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function Isauth_and_co_auth_deg_progNull() As Boolean
-            Return Me.IsNull(Me.tableDataTable1.auth_and_co_auth_deg_progColumn)
+            Return Me.IsNull(Me.tablescholarly_works.auth_and_co_auth_deg_progColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub Setauth_and_co_auth_deg_progNull()
-            Me(Me.tableDataTable1.auth_and_co_auth_deg_progColumn) = Global.System.Convert.DBNull
+            Me(Me.tablescholarly_works.auth_and_co_auth_deg_progColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function Isauth_and_co_auth_roleNull() As Boolean
-            Return Me.IsNull(Me.tableDataTable1.auth_and_co_auth_roleColumn)
+            Return Me.IsNull(Me.tablescholarly_works.auth_and_co_auth_roleColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub Setauth_and_co_auth_roleNull()
-            Me(Me.tableDataTable1.auth_and_co_auth_roleColumn) = Global.System.Convert.DBNull
+            Me(Me.tablescholarly_works.auth_and_co_auth_roleColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function IssemesterNull() As Boolean
-            Return Me.IsNull(Me.tableDataTable1.semesterColumn)
+            Return Me.IsNull(Me.tablescholarly_works.semesterColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub SetsemesterNull()
-            Me(Me.tableDataTable1.semesterColumn) = Global.System.Convert.DBNull
+            Me(Me.tablescholarly_works.semesterColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function Isschool_yearNull() As Boolean
-            Return Me.IsNull(Me.tableDataTable1.school_yearColumn)
+            Return Me.IsNull(Me.tablescholarly_works.school_yearColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub Setschool_yearNull()
-            Me(Me.tableDataTable1.school_yearColumn) = Global.System.Convert.DBNull
+            Me(Me.tablescholarly_works.school_yearColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function Isstatus_ongoing_completedNull() As Boolean
-            Return Me.IsNull(Me.tableDataTable1.status_ongoing_completedColumn)
+            Return Me.IsNull(Me.tablescholarly_works.status_ongoing_completedColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub Setstatus_ongoing_completedNull()
-            Me(Me.tableDataTable1.status_ongoing_completedColumn) = Global.System.Convert.DBNull
+            Me(Me.tablescholarly_works.status_ongoing_completedColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function IspublishedNull() As Boolean
-            Return Me.IsNull(Me.tableDataTable1.publishedColumn)
+            Return Me.IsNull(Me.tablescholarly_works.publishedColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub SetpublishedNull()
-            Me(Me.tableDataTable1.publishedColumn) = Global.System.Convert.DBNull
+            Me(Me.tablescholarly_works.publishedColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function IspresentedNull() As Boolean
-            Return Me.IsNull(Me.tableDataTable1.presentedColumn)
+            Return Me.IsNull(Me.tablescholarly_works.presentedColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub SetpresentedNull()
-            Me(Me.tableDataTable1.presentedColumn) = Global.System.Convert.DBNull
+            Me(Me.tablescholarly_works.presentedColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function Iswhole_file_textNull() As Boolean
-            Return Me.IsNull(Me.tableDataTable1.whole_file_textColumn)
+            Return Me.IsNull(Me.tablescholarly_works.whole_file_textColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub Setwhole_file_textNull()
-            Me(Me.tableDataTable1.whole_file_textColumn) = Global.System.Convert.DBNull
+            Me(Me.tablescholarly_works.whole_file_textColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function Is_no_Null() As Boolean
-            Return Me.IsNull(Me.tableDataTable1._no_Column)
+            Return Me.IsNull(Me.tablescholarly_works._no_Column)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub Set_no_Null()
-            Me(Me.tableDataTable1._no_Column) = Global.System.Convert.DBNull
+            Me(Me.tablescholarly_works._no_Column) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function Isco_authorsNull() As Boolean
-            Return Me.IsNull(Me.tableDataTable1.co_authorsColumn)
+            Return Me.IsNull(Me.tablescholarly_works.co_authorsColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub Setco_authorsNull()
-            Me(Me.tableDataTable1.co_authorsColumn) = Global.System.Convert.DBNull
+            Me(Me.tablescholarly_works.co_authorsColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function Isdate_completedNull() As Boolean
-            Return Me.IsNull(Me.tableDataTable1.date_completedColumn)
+            Return Me.IsNull(Me.tablescholarly_works.date_completedColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub Setdate_completedNull()
-            Me(Me.tableDataTable1.date_completedColumn) = Global.System.Convert.DBNull
+            Me(Me.tablescholarly_works.date_completedColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -1195,16 +1198,16 @@ Partial Public Class DataSet1
     '''Row event argument class
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-    Public Class DataTable1RowChangeEvent
+    Public Class scholarly_worksRowChangeEvent
         Inherits Global.System.EventArgs
         
-        Private eventRow As DataTable1Row
+        Private eventRow As scholarly_worksRow
         
         Private eventAction As Global.System.Data.DataRowAction
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub New(ByVal row As DataTable1Row, ByVal action As Global.System.Data.DataRowAction)
+        Public Sub New(ByVal row As scholarly_worksRow, ByVal action As Global.System.Data.DataRowAction)
             MyBase.New
             Me.eventRow = row
             Me.eventAction = action
@@ -1212,7 +1215,7 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property Row() As DataTable1Row
+        Public ReadOnly Property Row() As scholarly_worksRow
             Get
                 Return Me.eventRow
             End Get

@@ -2,6 +2,7 @@
 Imports MySql.Data.MySqlClient
 
 Public Class PrintThesisClearance
+    Dim dt_query_works As New DataTable
     Dim dt As New DataTable
     Dim dt2 As New DataTable
     Dim dt3 As New DataTable
@@ -10,6 +11,20 @@ Public Class PrintThesisClearance
     Private Sub PrintThesisClearance_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         ConOpen()
+        Dim query_works As String = "SELECT 
+                                    *
+                                FROM
+                                    scholarly_works
+                                WHERE
+                                    sw_id = 202490841
+                                    
+                            "
+        Using cmd_query_works As New MySqlCommand(query_works, con)
+            Dim adptr_query_works As New MySqlDataAdapter(cmd_query_works)
+            adptr_query_works.Fill(dt_query_works)
+        End Using
+
+        '////
         Dim query As String = "SELECT 
                                     authors_name
                                 FROM
@@ -24,7 +39,7 @@ Public Class PrintThesisClearance
         End Using
 
 
-
+        '////
         Dim query2 As String = "SELECT * FROM co_authors WHERE co_authors_id = 202490841"
         Using cmd2 As New MySqlCommand(query2, con)
             Dim adptr2 As New MySqlDataAdapter(cmd2)
@@ -48,8 +63,12 @@ Public Class PrintThesisClearance
 
         Dim print_clearance As New PrintClearance
         print_clearance.Database.Tables("authors").SetDataSource(dt)
+        print_clearance.Database.Tables("scholarly_works").SetDataSource(dt_query_works)
         print_clearance.Database.Tables("FormattedCoAuthors").SetDataSource(dtFormattedCoAuthors)
+
+
         CrystalReportViewer1.ReportSource = Nothing
         CrystalReportViewer1.ReportSource = print_clearance
+
     End Sub
 End Class
