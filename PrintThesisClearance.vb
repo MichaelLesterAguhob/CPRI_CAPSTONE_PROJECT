@@ -2,13 +2,12 @@
 Imports MySql.Data.MySqlClient
 
 Public Class PrintThesisClearance
-    Dim dt_query_works As New DataTable
-    Dim dt As New DataTable
-    Dim dt2 As New DataTable
-    Dim dt3 As New DataTable
-    Dim ds As New DataSet
+
 
     Private Sub PrintThesisClearance_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim dt_query_works As New DataTable
+        Dim dt As New DataTable
+        Dim dt2 As New DataTable
 
         ConOpen()
         Dim query_works As String = "SELECT 

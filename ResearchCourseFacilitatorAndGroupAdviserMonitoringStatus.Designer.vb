@@ -22,6 +22,7 @@ Partial Class ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
@@ -49,7 +50,6 @@ Partial Class ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus
         Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.LblSrchFnd = New System.Windows.Forms.Label()
         Me.BtnFilter = New System.Windows.Forms.Button()
         Me.BtnDelete = New System.Windows.Forms.Button()
         Me.BtnEdit = New System.Windows.Forms.Button()
@@ -57,8 +57,6 @@ Partial Class ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus
         Me.BtnAddRCFGARecord = New System.Windows.Forms.Button()
         Me.PanelRcfrgareq = New System.Windows.Forms.Panel()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.LblStageChckPnl = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.DgvRga = New System.Windows.Forms.DataGridView()
@@ -73,6 +71,32 @@ Partial Class ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus
         Me.Column14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column16 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.LblStageChckPnl = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.LblSearchFound = New System.Windows.Forms.Label()
+        Me.PnlFilter = New System.Windows.Forms.Panel()
+        Me.ChckBxStagePt = New System.Windows.Forms.CheckBox()
+        Me.ChckBxFT = New System.Windows.Forms.CheckBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.TxtDept = New System.Windows.Forms.TextBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.TxtCol = New System.Windows.Forms.TextBox()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.CbxSc = New System.Windows.Forms.ComboBox()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.ChckBxSumm = New System.Windows.Forms.CheckBox()
+        Me.ChckBx1st = New System.Windows.Forms.CheckBox()
+        Me.ChckBx2nd = New System.Windows.Forms.CheckBox()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.ChckBxStageFtc = New System.Windows.Forms.CheckBox()
+        Me.ChckBxStageRp = New System.Windows.Forms.CheckBox()
+        Me.Button7 = New System.Windows.Forms.Button()
+        Me.BtnApplyFilter = New System.Windows.Forms.Button()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.BtnCloseFilter = New System.Windows.Forms.Button()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.TmOpenFilter = New System.Windows.Forms.Timer(Me.components)
+        Me.TmCloseFilter = New System.Windows.Forms.Timer(Me.components)
         CType(Me.DgvSwData, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelRcfrgareq.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -80,6 +104,7 @@ Partial Class ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus
         CType(Me.DgvRga, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel3.SuspendLayout()
         CType(Me.DgvRcf, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PnlFilter.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
@@ -121,7 +146,7 @@ Partial Class ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus
         Me.TxtSearch.Name = "TxtSearch"
         Me.TxtSearch.Size = New System.Drawing.Size(325, 21)
         Me.TxtSearch.TabIndex = 27
-        Me.TxtSearch.Text = "Search Title, Author, Keyword, Abstract, Etc."
+        Me.TxtSearch.Text = "Seacrh ID, name, semester,  stage, college etc..."
         '
         'DgvSwData
         '
@@ -276,17 +301,6 @@ Partial Class ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus
         Me.Column10.ReadOnly = True
         Me.Column10.Width = 200
         '
-        'LblSrchFnd
-        '
-        Me.LblSrchFnd.AutoSize = True
-        Me.LblSrchFnd.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LblSrchFnd.ForeColor = System.Drawing.Color.DarkBlue
-        Me.LblSrchFnd.Location = New System.Drawing.Point(504, 67)
-        Me.LblSrchFnd.Name = "LblSrchFnd"
-        Me.LblSrchFnd.Size = New System.Drawing.Size(0, 15)
-        Me.LblSrchFnd.TabIndex = 35
-        Me.LblSrchFnd.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
         'BtnFilter
         '
         Me.BtnFilter.BackColor = System.Drawing.SystemColors.ButtonFace
@@ -392,30 +406,6 @@ Partial Class ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(1013, 323)
         Me.Panel1.TabIndex = 39
-        '
-        'LblStageChckPnl
-        '
-        Me.LblStageChckPnl.AutoSize = True
-        Me.LblStageChckPnl.BackColor = System.Drawing.Color.White
-        Me.LblStageChckPnl.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LblStageChckPnl.Location = New System.Drawing.Point(10, 8)
-        Me.LblStageChckPnl.Name = "LblStageChckPnl"
-        Me.LblStageChckPnl.Size = New System.Drawing.Size(0, 24)
-        Me.LblStageChckPnl.TabIndex = 38
-        '
-        'Button1
-        '
-        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button1.BackColor = System.Drawing.Color.IndianRed
-        Me.Button1.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Button1.Location = New System.Drawing.Point(963, 8)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(30, 23)
-        Me.Button1.TabIndex = 34
-        Me.Button1.Text = "X"
-        Me.Button1.UseVisualStyleBackColor = False
         '
         'Panel2
         '
@@ -615,12 +605,302 @@ Partial Class ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus
         Me.Column16.Name = "Column16"
         Me.Column16.ReadOnly = True
         '
+        'LblStageChckPnl
+        '
+        Me.LblStageChckPnl.AutoSize = True
+        Me.LblStageChckPnl.BackColor = System.Drawing.Color.White
+        Me.LblStageChckPnl.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblStageChckPnl.Location = New System.Drawing.Point(10, 8)
+        Me.LblStageChckPnl.Name = "LblStageChckPnl"
+        Me.LblStageChckPnl.Size = New System.Drawing.Size(0, 24)
+        Me.LblStageChckPnl.TabIndex = 38
+        '
+        'Button1
+        '
+        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button1.BackColor = System.Drawing.Color.IndianRed
+        Me.Button1.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.Button1.Location = New System.Drawing.Point(963, 8)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(30, 23)
+        Me.Button1.TabIndex = 34
+        Me.Button1.Text = "X"
+        Me.Button1.UseVisualStyleBackColor = False
+        '
+        'LblSearchFound
+        '
+        Me.LblSearchFound.AutoSize = True
+        Me.LblSearchFound.ForeColor = System.Drawing.Color.DarkBlue
+        Me.LblSearchFound.Location = New System.Drawing.Point(503, 67)
+        Me.LblSearchFound.Name = "LblSearchFound"
+        Me.LblSearchFound.Size = New System.Drawing.Size(0, 13)
+        Me.LblSearchFound.TabIndex = 37
+        '
+        'PnlFilter
+        '
+        Me.PnlFilter.BackColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.PnlFilter.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.PnlFilter.Controls.Add(Me.ChckBxStagePt)
+        Me.PnlFilter.Controls.Add(Me.ChckBxFT)
+        Me.PnlFilter.Controls.Add(Me.Label4)
+        Me.PnlFilter.Controls.Add(Me.TxtDept)
+        Me.PnlFilter.Controls.Add(Me.Label3)
+        Me.PnlFilter.Controls.Add(Me.TxtCol)
+        Me.PnlFilter.Controls.Add(Me.Label13)
+        Me.PnlFilter.Controls.Add(Me.CbxSc)
+        Me.PnlFilter.Controls.Add(Me.Label12)
+        Me.PnlFilter.Controls.Add(Me.ChckBxSumm)
+        Me.PnlFilter.Controls.Add(Me.ChckBx1st)
+        Me.PnlFilter.Controls.Add(Me.ChckBx2nd)
+        Me.PnlFilter.Controls.Add(Me.Label11)
+        Me.PnlFilter.Controls.Add(Me.ChckBxStageFtc)
+        Me.PnlFilter.Controls.Add(Me.ChckBxStageRp)
+        Me.PnlFilter.Controls.Add(Me.Button7)
+        Me.PnlFilter.Controls.Add(Me.BtnApplyFilter)
+        Me.PnlFilter.Controls.Add(Me.Label5)
+        Me.PnlFilter.Controls.Add(Me.BtnCloseFilter)
+        Me.PnlFilter.Controls.Add(Me.Label7)
+        Me.PnlFilter.ForeColor = System.Drawing.Color.Black
+        Me.PnlFilter.Location = New System.Drawing.Point(88, 63)
+        Me.PnlFilter.Name = "PnlFilter"
+        Me.PnlFilter.Size = New System.Drawing.Size(500, 253)
+        Me.PnlFilter.TabIndex = 38
+        '
+        'ChckBxStagePt
+        '
+        Me.ChckBxStagePt.AutoSize = True
+        Me.ChckBxStagePt.Location = New System.Drawing.Point(224, 177)
+        Me.ChckBxStagePt.Name = "ChckBxStagePt"
+        Me.ChckBxStagePt.Size = New System.Drawing.Size(71, 17)
+        Me.ChckBxStagePt.TabIndex = 57
+        Me.ChckBxStagePt.Text = "Part Time"
+        Me.ChckBxStagePt.UseVisualStyleBackColor = True
+        '
+        'ChckBxFT
+        '
+        Me.ChckBxFT.AutoSize = True
+        Me.ChckBxFT.Location = New System.Drawing.Point(102, 177)
+        Me.ChckBxFT.Name = "ChckBxFT"
+        Me.ChckBxFT.Size = New System.Drawing.Size(68, 17)
+        Me.ChckBxFT.TabIndex = 56
+        Me.ChckBxFT.Text = "Full Time"
+        Me.ChckBxFT.UseVisualStyleBackColor = True
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.ForeColor = System.Drawing.Color.Black
+        Me.Label4.Location = New System.Drawing.Point(45, 177)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(51, 13)
+        Me.Label4.TabIndex = 55
+        Me.Label4.Text = "Status :"
+        '
+        'TxtDept
+        '
+        Me.TxtDept.Location = New System.Drawing.Point(103, 92)
+        Me.TxtDept.Name = "TxtDept"
+        Me.TxtDept.Size = New System.Drawing.Size(292, 20)
+        Me.TxtDept.TabIndex = 54
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.ForeColor = System.Drawing.Color.Black
+        Me.Label3.Location = New System.Drawing.Point(17, 95)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(80, 13)
+        Me.Label3.TabIndex = 53
+        Me.Label3.Text = "Department :"
+        '
+        'TxtCol
+        '
+        Me.TxtCol.Location = New System.Drawing.Point(103, 66)
+        Me.TxtCol.Name = "TxtCol"
+        Me.TxtCol.Size = New System.Drawing.Size(292, 20)
+        Me.TxtCol.TabIndex = 52
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.ForeColor = System.Drawing.Color.Black
+        Me.Label13.Location = New System.Drawing.Point(40, 69)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(57, 13)
+        Me.Label13.TabIndex = 51
+        Me.Label13.Text = "College :"
+        '
+        'CbxSc
+        '
+        Me.CbxSc.FormattingEnabled = True
+        Me.CbxSc.Location = New System.Drawing.Point(102, 39)
+        Me.CbxSc.Name = "CbxSc"
+        Me.CbxSc.Size = New System.Drawing.Size(121, 21)
+        Me.CbxSc.TabIndex = 48
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.ForeColor = System.Drawing.Color.Black
+        Me.Label12.Location = New System.Drawing.Point(12, 44)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(84, 13)
+        Me.Label12.TabIndex = 47
+        Me.Label12.Text = "School Year :"
+        '
+        'ChckBxSumm
+        '
+        Me.ChckBxSumm.AutoSize = True
+        Me.ChckBxSumm.Location = New System.Drawing.Point(330, 129)
+        Me.ChckBxSumm.Name = "ChckBxSumm"
+        Me.ChckBxSumm.Size = New System.Drawing.Size(64, 17)
+        Me.ChckBxSumm.TabIndex = 46
+        Me.ChckBxSumm.Text = "Summer"
+        Me.ChckBxSumm.UseVisualStyleBackColor = True
+        '
+        'ChckBx1st
+        '
+        Me.ChckBx1st.AutoSize = True
+        Me.ChckBx1st.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ChckBx1st.Location = New System.Drawing.Point(102, 129)
+        Me.ChckBx1st.Name = "ChckBx1st"
+        Me.ChckBx1st.Size = New System.Drawing.Size(87, 17)
+        Me.ChckBx1st.TabIndex = 45
+        Me.ChckBx1st.Text = "1st Semester"
+        Me.ChckBx1st.UseVisualStyleBackColor = True
+        '
+        'ChckBx2nd
+        '
+        Me.ChckBx2nd.AutoSize = True
+        Me.ChckBx2nd.Location = New System.Drawing.Point(224, 129)
+        Me.ChckBx2nd.Name = "ChckBx2nd"
+        Me.ChckBx2nd.Size = New System.Drawing.Size(91, 17)
+        Me.ChckBx2nd.TabIndex = 44
+        Me.ChckBx2nd.Text = "2nd Semester"
+        Me.ChckBx2nd.UseVisualStyleBackColor = True
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.ForeColor = System.Drawing.Color.Black
+        Me.Label11.Location = New System.Drawing.Point(29, 130)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(67, 13)
+        Me.Label11.TabIndex = 43
+        Me.Label11.Text = "Semester :"
+        '
+        'ChckBxStageFtc
+        '
+        Me.ChckBxStageFtc.AutoSize = True
+        Me.ChckBxStageFtc.Location = New System.Drawing.Point(224, 153)
+        Me.ChckBxStageFtc.Name = "ChckBxStageFtc"
+        Me.ChckBxStageFtc.Size = New System.Drawing.Size(132, 17)
+        Me.ChckBxStageFtc.TabIndex = 42
+        Me.ChckBxStageFtc.Text = "Final Thesis/Capstone"
+        Me.ChckBxStageFtc.UseVisualStyleBackColor = True
+        '
+        'ChckBxStageRp
+        '
+        Me.ChckBxStageRp.AutoSize = True
+        Me.ChckBxStageRp.Location = New System.Drawing.Point(102, 153)
+        Me.ChckBxStageRp.Name = "ChckBxStageRp"
+        Me.ChckBxStageRp.Size = New System.Drawing.Size(116, 17)
+        Me.ChckBxStageRp.TabIndex = 40
+        Me.ChckBxStageRp.Text = "Research Proposal"
+        Me.ChckBxStageRp.UseVisualStyleBackColor = True
+        '
+        'Button7
+        '
+        Me.Button7.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.Button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button7.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.Button7.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_reset_14
+        Me.Button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button7.Location = New System.Drawing.Point(417, 214)
+        Me.Button7.Name = "Button7"
+        Me.Button7.Size = New System.Drawing.Size(61, 23)
+        Me.Button7.TabIndex = 27
+        Me.Button7.Text = "Reset"
+        Me.Button7.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Button7.UseVisualStyleBackColor = False
+        '
+        'BtnApplyFilter
+        '
+        Me.BtnApplyFilter.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnApplyFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnApplyFilter.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnApplyFilter.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.BtnApplyFilter.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_filtered_file_14
+        Me.BtnApplyFilter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnApplyFilter.Location = New System.Drawing.Point(323, 214)
+        Me.BtnApplyFilter.Name = "BtnApplyFilter"
+        Me.BtnApplyFilter.Size = New System.Drawing.Size(61, 23)
+        Me.BtnApplyFilter.TabIndex = 26
+        Me.BtnApplyFilter.Text = "Apply"
+        Me.BtnApplyFilter.TextAlign = System.Drawing.ContentAlignment.TopRight
+        Me.BtnApplyFilter.UseVisualStyleBackColor = False
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.ForeColor = System.Drawing.Color.Black
+        Me.Label5.Location = New System.Drawing.Point(48, 153)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(48, 13)
+        Me.Label5.TabIndex = 16
+        Me.Label5.Text = "Stage :"
+        '
+        'BtnCloseFilter
+        '
+        Me.BtnCloseFilter.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnCloseFilter.BackColor = System.Drawing.Color.Red
+        Me.BtnCloseFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnCloseFilter.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnCloseFilter.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.BtnCloseFilter.ImageAlign = System.Drawing.ContentAlignment.TopLeft
+        Me.BtnCloseFilter.Location = New System.Drawing.Point(470, 4)
+        Me.BtnCloseFilter.Name = "BtnCloseFilter"
+        Me.BtnCloseFilter.Size = New System.Drawing.Size(25, 21)
+        Me.BtnCloseFilter.TabIndex = 21
+        Me.BtnCloseFilter.Text = "X"
+        Me.BtnCloseFilter.UseVisualStyleBackColor = False
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.ForeColor = System.Drawing.Color.Black
+        Me.Label7.Location = New System.Drawing.Point(12, 6)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(55, 20)
+        Me.Label7.TabIndex = 7
+        Me.Label7.Text = "Filter:"
+        '
+        'TmOpenFilter
+        '
+        Me.TmOpenFilter.Interval = 10
+        '
+        'TmCloseFilter
+        '
+        Me.TmCloseFilter.Interval = 10
+        '
         'ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.ClientSize = New System.Drawing.Size(1255, 513)
+        Me.Controls.Add(Me.PnlFilter)
+        Me.Controls.Add(Me.LblSearchFound)
         Me.Controls.Add(Me.PanelRcfrgareq)
         Me.Controls.Add(Me.BtnRemoveSelection)
         Me.Controls.Add(Me.BtnFilter)
@@ -630,7 +910,6 @@ Partial Class ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus
         Me.Controls.Add(Me.TxtSearch)
         Me.Controls.Add(Me.BtnAddRCFGARecord)
         Me.Controls.Add(Me.DgvSwData)
-        Me.Controls.Add(Me.LblSrchFnd)
         Me.Controls.Add(Me.Label1)
         Me.Name = "ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -646,6 +925,8 @@ Partial Class ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
         CType(Me.DgvRcf, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.PnlFilter.ResumeLayout(False)
+        Me.PnlFilter.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -660,7 +941,6 @@ Partial Class ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus
     Friend WithEvents TxtSearch As TextBox
     Friend WithEvents BtnAddRCFGARecord As Button
     Friend WithEvents DgvSwData As DataGridView
-    Friend WithEvents LblSrchFnd As Label
     Friend WithEvents PanelRcfrgareq As Panel
     Friend WithEvents Button1 As Button
     Friend WithEvents Column12 As DataGridViewTextBoxColumn
@@ -690,4 +970,28 @@ Partial Class ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus
     Friend WithEvents Column14 As DataGridViewTextBoxColumn
     Friend WithEvents Column15 As DataGridViewTextBoxColumn
     Friend WithEvents Column16 As DataGridViewTextBoxColumn
+    Friend WithEvents LblSearchFound As Label
+    Friend WithEvents PnlFilter As Panel
+    Friend WithEvents ChckBxStageRp As CheckBox
+    Friend WithEvents Button7 As Button
+    Friend WithEvents BtnApplyFilter As Button
+    Friend WithEvents Label5 As Label
+    Friend WithEvents BtnCloseFilter As Button
+    Friend WithEvents Label7 As Label
+    Friend WithEvents TmOpenFilter As Timer
+    Friend WithEvents TmCloseFilter As Timer
+    Friend WithEvents CbxSc As ComboBox
+    Friend WithEvents Label12 As Label
+    Friend WithEvents ChckBxSumm As CheckBox
+    Friend WithEvents ChckBx1st As CheckBox
+    Friend WithEvents ChckBx2nd As CheckBox
+    Friend WithEvents Label11 As Label
+    Friend WithEvents ChckBxStageFtc As CheckBox
+    Friend WithEvents ChckBxStagePt As CheckBox
+    Friend WithEvents ChckBxFT As CheckBox
+    Friend WithEvents Label4 As Label
+    Friend WithEvents TxtDept As TextBox
+    Friend WithEvents Label3 As Label
+    Friend WithEvents TxtCol As TextBox
+    Friend WithEvents Label13 As Label
 End Class

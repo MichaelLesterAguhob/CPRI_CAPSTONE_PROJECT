@@ -22,18 +22,8 @@ Partial Class PrintThesisClearance
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.Preview = New System.Windows.Forms.Button()
         Me.CrystalReportViewer1 = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
         Me.SuspendLayout()
-        '
-        'Preview
-        '
-        Me.Preview.Location = New System.Drawing.Point(462, 468)
-        Me.Preview.Name = "Preview"
-        Me.Preview.Size = New System.Drawing.Size(75, 0)
-        Me.Preview.TabIndex = 1
-        Me.Preview.Text = "Preview"
-        Me.Preview.UseVisualStyleBackColor = True
         '
         'CrystalReportViewer1
         '
@@ -53,12 +43,10 @@ Partial Class PrintThesisClearance
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1010, 513)
         Me.Controls.Add(Me.CrystalReportViewer1)
-        Me.Controls.Add(Me.Preview)
         Me.Name = "PrintThesisClearance"
         Me.Text = "PrintThesisClearance"
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents Preview As Button
     Friend WithEvents CrystalReportViewer1 As CrystalDecisions.Windows.Forms.CrystalReportViewer
 End Class

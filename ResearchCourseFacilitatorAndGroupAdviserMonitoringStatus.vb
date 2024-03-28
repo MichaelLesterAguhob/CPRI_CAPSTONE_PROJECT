@@ -49,6 +49,7 @@ Public Class ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus
                 DgvSwData.Rows(i).Height = 50
             Next
             DgvSwData.ClearSelection()
+            LblSearchFound.Text = ""
         Catch ex As Exception
             MessageBox.Show(ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Finally
@@ -263,6 +264,194 @@ Defense from the panel members"
     'CLOSE PANEL
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         PanelRcfrgareq.Visible = False
+    End Sub
+
+    Dim isJustClicked As Boolean = True
+    Private Sub TxtSearch_TextChanged(sender As Object, e As EventArgs) Handles TxtSearch.TextChanged
+        If Me.IsHandleCreated Then
+            If TxtSearch.Text <> "Seacrh ID, name, semester,  stage, college etc..." And TxtSearch.Text <> "" Then
+                Search()
+            ElseIf Not isJustClicked Then
+                LoadRcfRgaRecords()
+            End If
+        End If
+
+    End Sub
+
+    Private Sub TxtSearch_Click(sender As Object, e As EventArgs) Handles TxtSearch.Click
+        isJustClicked = True
+        If TxtSearch.Text = "Seacrh ID, name, semester,  stage, college etc..." Then
+            TxtSearch.Text = ""
+            TxtSearch.ForeColor = Color.Black
+        End If
+    End Sub
+
+    Private Sub TxtSearch_Leave(sender As Object, e As EventArgs) Handles TxtSearch.Leave
+        isJustClicked = False
+        If TxtSearch.Text = "" Then
+            TxtSearch.Text = "Seacrh ID, name, semester,  stage, college etc..."
+            TxtSearch.ForeColor = Color.Gray
+        End If
+    End Sub
+
+    Private Sub TxtSearch_KeyDown(sender As Object, e As KeyEventArgs) Handles TxtSearch.KeyDown
+        If e.KeyCode = 13 Then
+            If TxtSearch.Text <> "Seacrh ID, name, semester,  stage, college etc..." And TxtSearch.Text <> "" Then
+                Search()
+            Else
+                LoadRcfRgaRecords()
+            End If
+        End If
+    End Sub
+
+    Private Sub Search()
+        con.Close()
+
+        Try
+            con.Open()
+            Dim query As String = "
+                        SELECT * FROM `rcf_rga` 
+                        WHERE
+                            record_id LIKE @to_search
+                            OR semester LIKE @to_search
+                            OR school_year LIKE @to_search
+                            OR stage LIKE @to_search
+                            OR name LIKE @to_search
+                            OR college LIKE @to_search
+                            OR dept LIKE @to_search
+                            OR status LIKE @to_search
+                            OR role LIKE @to_search
+                        ORDER BY `no#` DESC
+                        "
+            Using cmd As New MySqlCommand(query, con)
+                cmd.Parameters.AddWithValue("@to_search", "%" & TxtSearch.Text.Trim & "%")
+                Dim adptr As New MySqlDataAdapter(cmd)
+                Dim dt As New DataTable
+                adptr.Fill(dt)
+
+                If dt.Rows.Count > 0 Then
+                    DgvSwData.DataSource = dt
+                    DgvSwData.Refresh()
+                    For i = 0 To DgvSwData.Rows.Count - 1
+                        DgvSwData.Rows(i).Height = 50
+                    Next
+                    BtnRemoveSelection.PerformClick()
+                    LblSearchFound.Text = dt.Rows.Count.ToString & " Result(s) found"
+                Else
+                    LblSearchFound.Text = dt.Rows.Count.ToString & " Result(s) found"
+                    MessageBox.Show("Your search do not match to any records. Please try different keywords", "No data found.", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                End If
+
+            End Using
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Error Occcurred Searching record", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            con.Close()
+            BtnRemoveSelection.PerformClick()
+        End Try
+    End Sub
+
+    Private Sub BtnSearch_Click(sender As Object, e As EventArgs) Handles BtnSearch.Click
+
+        If TxtSearch.Text <> "Seacrh ID, name, semester,  stage, college etc..." And TxtSearch.Text <> "" Then
+            Search()
+        Else
+            LoadRcfRgaRecords()
+        End If
+    End Sub
+
+    'OPENING AND CLOSING OF FILTER PANEL 
+    Dim open_close_filter As Integer = 0
+    Private Sub BtnFilter_Click(sender As Object, e As EventArgs) Handles BtnFilter.Click
+        BtnFilter.Enabled = False
+        If open_close_filter = 0 Then
+            TmOpenFilter.Enabled = True
+            open_close_filter = 1
+        Else
+            TmCloseFilter.Enabled = True
+            open_close_filter = 0
+        End If
+    End Sub
+    Private Sub TmOpenFilter_Tick(sender As Object, e As EventArgs) Handles TmOpenFilter.Tick
+        If PnlFilter.Width >= 500 Then
+            TmOpenFilter.Enabled = False
+            BtnFilter.Enabled = True
+        Else
+            PnlFilter.Width = PnlFilter.Width + 500
+            PnlFilter.Height = PnlFilter.Height + 400
+        End If
+    End Sub
+    Private Sub TmCloseFilter_Tick(sender As Object, e As EventArgs) Handles TmCloseFilter.Tick
+        If PnlFilter.Width <= 0 Then
+            TmCloseFilter.Enabled = False
+            BtnFilter.Enabled = True
+        Else
+            PnlFilter.Width = PnlFilter.Width - 500
+            PnlFilter.Height = PnlFilter.Height - 400
+        End If
+    End Sub
+    Private Sub BtnCloseFilter_Click(sender As Object, e As EventArgs) Handles BtnCloseFilter.Click
+        TmCloseFilter.Enabled = True
+        open_close_filter = 0
+    End Sub
+
+    Private Sub BtnApplyFilter_Click(sender As Object, e As EventArgs) Handles BtnApplyFilter.Click
+
+    End Sub
+
+    'Variables for holding filter
+    Dim sem1, sem2, summer As String
+    Dim stage1, stage2 As String
+    Dim stat1, stat2 As String
+    Dim schoolyear As String
+    Dim collg As String
+    Dim dept As String
+    'FILTER SEARCH FUNCTION
+    Private Sub FilterSearch()
+        con.Close()
+
+        Try
+            con.Open()
+            Dim query As String = "
+                        SELECT * FROM `rcf_rga` 
+                        WHERE
+                            record_id LIKE @to_search
+                            OR semester LIKE @to_search
+                            OR school_year LIKE @to_search
+                            OR stage LIKE @to_search
+                            OR name LIKE @to_search
+                            OR college LIKE @to_search
+                            OR dept LIKE @to_search
+                            OR status LIKE @to_search
+                            OR role LIKE @to_search
+                        ORDER BY `no#` DESC
+                        "
+            Using cmd As New MySqlCommand(query, con)
+                cmd.Parameters.AddWithValue("@to_search", "%" & TxtSearch.Text.Trim & "%")
+                Dim adptr As New MySqlDataAdapter(cmd)
+                Dim dt As New DataTable
+                adptr.Fill(dt)
+
+                If dt.Rows.Count > 0 Then
+                    DgvSwData.DataSource = dt
+                    DgvSwData.Refresh()
+                    For i = 0 To DgvSwData.Rows.Count - 1
+                        DgvSwData.Rows(i).Height = 50
+                    Next
+                    BtnRemoveSelection.PerformClick()
+                    LblSearchFound.Text = dt.Rows.Count.ToString & " Result(s) found"
+                Else
+                    LblSearchFound.Text = dt.Rows.Count.ToString & " Result(s) found"
+                    MessageBox.Show("Your search do not match to any records. Please try different keywords", "No data found.", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                End If
+
+            End Using
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Error Occcurred Searching record", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            con.Close()
+            BtnRemoveSelection.PerformClick()
+        End Try
     End Sub
 
 
