@@ -12,7 +12,7 @@
   <xs:element name="DataSet2" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet2" msprop:Generator_UserDSName="DataSet2">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="authors" msprop:Generator_TableClassName="authorsDataTable" msprop:Generator_TableVarName="tableauthors" msprop:Generator_TablePropName="authors" msprop:Generator_RowDeletingName="authorsRowDeleting" msprop:Generator_RowChangingName="authorsRowChanging" msprop:Generator_RowEvHandlerName="authorsRowChangeEventHandler" msprop:Generator_RowDeletedName="authorsRowDeleted" msprop:Generator_UserTableName="authors" msprop:Generator_RowChangedName="authorsRowChanged" msprop:Generator_RowEvArgName="authorsRowChangeEvent" msprop:Generator_RowClassName="authorsRow">
+        <xs:element name="authors" msprop:Generator_TableClassName="authorsDataTable" msprop:Generator_TableVarName="tableauthors" msprop:Generator_RowChangedName="authorsRowChanged" msprop:Generator_TablePropName="authors" msprop:Generator_RowDeletingName="authorsRowDeleting" msprop:Generator_RowChangingName="authorsRowChanging" msprop:Generator_RowEvHandlerName="authorsRowChangeEventHandler" msprop:Generator_RowDeletedName="authorsRowDeleted" msprop:Generator_RowClassName="authorsRow" msprop:Generator_UserTableName="authors" msprop:Generator_RowEvArgName="authorsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="no_x0023_" msprop:Generator_ColumnVarNameInTable="_columnno_" msprop:Generator_ColumnPropNameInRow="_no_" msprop:Generator_ColumnPropNameInTable="_no_Column" msprop:Generator_UserColumnName="no#" type="xs:long" minOccurs="0" />
@@ -20,6 +20,14 @@
               <xs:element name="authors_name" msprop:Generator_ColumnVarNameInTable="columnauthors_name" msprop:Generator_ColumnPropNameInRow="authors_name" msprop:Generator_ColumnPropNameInTable="authors_nameColumn" msprop:Generator_UserColumnName="authors_name" type="xs:string" minOccurs="0" />
               <xs:element name="degree_program" msprop:Generator_ColumnVarNameInTable="columndegree_program" msprop:Generator_ColumnPropNameInRow="degree_program" msprop:Generator_ColumnPropNameInTable="degree_programColumn" msprop:Generator_UserColumnName="degree_program" type="xs:string" minOccurs="0" />
               <xs:element name="role" msprop:Generator_ColumnVarNameInTable="columnrole" msprop:Generator_ColumnPropNameInRow="role" msprop:Generator_ColumnPropNameInTable="roleColumn" msprop:Generator_UserColumnName="role" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="FormattedCoAuthors" msprop:Generator_TableClassName="FormattedCoAuthorsDataTable" msprop:Generator_TableVarName="tableFormattedCoAuthors" msprop:Generator_TablePropName="FormattedCoAuthors" msprop:Generator_RowDeletingName="FormattedCoAuthorsRowDeleting" msprop:Generator_RowChangingName="FormattedCoAuthorsRowChanging" msprop:Generator_RowEvHandlerName="FormattedCoAuthorsRowChangeEventHandler" msprop:Generator_RowDeletedName="FormattedCoAuthorsRowDeleted" msprop:Generator_UserTableName="FormattedCoAuthors" msprop:Generator_RowChangedName="FormattedCoAuthorsRowChanged" msprop:Generator_RowEvArgName="FormattedCoAuthorsRowChangeEvent" msprop:Generator_RowClassName="FormattedCoAuthorsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="FirstColumn" msprop:Generator_ColumnVarNameInTable="columnFirstColumn" msprop:Generator_ColumnPropNameInRow="FirstColumn" msprop:Generator_ColumnPropNameInTable="FirstColumnColumn" msprop:Generator_UserColumnName="FirstColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="SecondColumn" msprop:Generator_ColumnVarNameInTable="columnSecondColumn" msprop:Generator_ColumnPropNameInRow="SecondColumn" msprop:Generator_ColumnPropNameInTable="SecondColumnColumn" msprop:Generator_UserColumnName="SecondColumn" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
