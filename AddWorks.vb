@@ -1081,7 +1081,10 @@ Public Class AddWorks
 
     End Sub
 
-
+    Private Sub BtnThssClrnc_Click(sender As Object, e As EventArgs) Handles BtnThssClrnc.Click
+        Dim print_clearance As New PrintThesisClearance
+        print_clearance.Show()
+    End Sub
 End Class
 
 
