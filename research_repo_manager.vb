@@ -535,5 +535,15 @@ Public Class ResearchRepoManager
         End If
     End Sub
 
+    'VIEW BUTTON
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        If selected_research = 0 Then
+            MessageBox.Show("PLease select an item first", "No Selected Item", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        Else
+            to_view_work_id = selected_research
+            Dim view_form As New ViewWorks
+            view_form.Show()
+        End If
 
+    End Sub
 End Class

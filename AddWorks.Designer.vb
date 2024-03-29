@@ -47,7 +47,6 @@ Partial Class AddWorks
         Me.TxtBrowsedFileWhl = New System.Windows.Forms.TextBox()
         Me.TxtBrowsedFileAbs = New System.Windows.Forms.TextBox()
         Me.Label19 = New System.Windows.Forms.Label()
-        Me.BtnBrowseWholeFile = New System.Windows.Forms.Button()
         Me.PnlPresented = New System.Windows.Forms.Panel()
         Me.Panel7 = New System.Windows.Forms.Panel()
         Me.DtPrsntdDate = New System.Windows.Forms.DateTimePicker()
@@ -101,22 +100,23 @@ Partial Class AddWorks
         Me.DtSftCpySbmttdDate = New System.Windows.Forms.DateTimePicker()
         Me.BtnThssClrnc = New System.Windows.Forms.Button()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.BtnBrowseAbstractFile = New System.Windows.Forms.Button()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.RdStatCmpltd = New System.Windows.Forms.RadioButton()
         Me.RdStatOngng = New System.Windows.Forms.RadioButton()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.BtnRemoveField = New System.Windows.Forms.Button()
         Me.BtnSaveResearch = New System.Windows.Forms.Button()
         Me.BtnCancel = New System.Windows.Forms.Button()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.PreviewFileButton = New System.Windows.Forms.Button()
         Me.TxtResearchID = New System.Windows.Forms.TextBox()
+        Me.Label20 = New System.Windows.Forms.Label()
         Me.BtnMinusToFieldsCnt = New System.Windows.Forms.Button()
         Me.BtnAddToFieldsCnt = New System.Windows.Forms.Button()
         Me.BtnAddNewCoAuthor = New System.Windows.Forms.Button()
-        Me.Label20 = New System.Windows.Forms.Label()
+        Me.BtnBrowseWholeFile = New System.Windows.Forms.Button()
+        Me.BtnBrowseAbstractFile = New System.Windows.Forms.Button()
+        Me.BtnRemoveField = New System.Windows.Forms.Button()
         Me.PnlTxtCont.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.PnlPresented.SuspendLayout()
@@ -423,22 +423,6 @@ Partial Class AddWorks
         Me.Label19.Size = New System.Drawing.Size(84, 16)
         Me.Label19.TabIndex = 72
         Me.Label19.Text = "Upload File :"
-        '
-        'BtnBrowseWholeFile
-        '
-        Me.BtnBrowseWholeFile.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.BtnBrowseWholeFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnBrowseWholeFile.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnBrowseWholeFile.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.BtnBrowseWholeFile.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_browse_18
-        Me.BtnBrowseWholeFile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnBrowseWholeFile.Location = New System.Drawing.Point(271, 14)
-        Me.BtnBrowseWholeFile.Name = "BtnBrowseWholeFile"
-        Me.BtnBrowseWholeFile.Size = New System.Drawing.Size(65, 21)
-        Me.BtnBrowseWholeFile.TabIndex = 71
-        Me.BtnBrowseWholeFile.Text = "Browse"
-        Me.BtnBrowseWholeFile.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.BtnBrowseWholeFile.UseVisualStyleBackColor = False
         '
         'PnlPresented
         '
@@ -1058,22 +1042,6 @@ Partial Class AddWorks
         Me.Label8.TabIndex = 62
         Me.Label8.Text = "School Year :"
         '
-        'BtnBrowseAbstractFile
-        '
-        Me.BtnBrowseAbstractFile.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.BtnBrowseAbstractFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnBrowseAbstractFile.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnBrowseAbstractFile.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.BtnBrowseAbstractFile.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_browse_18
-        Me.BtnBrowseAbstractFile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnBrowseAbstractFile.Location = New System.Drawing.Point(271, 39)
-        Me.BtnBrowseAbstractFile.Name = "BtnBrowseAbstractFile"
-        Me.BtnBrowseAbstractFile.Size = New System.Drawing.Size(65, 21)
-        Me.BtnBrowseAbstractFile.TabIndex = 60
-        Me.BtnBrowseAbstractFile.Text = "Browse"
-        Me.BtnBrowseAbstractFile.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.BtnBrowseAbstractFile.UseVisualStyleBackColor = False
-        '
         'Label9
         '
         Me.Label9.AutoSize = True
@@ -1125,22 +1093,6 @@ Partial Class AddWorks
         Me.GroupBox2.Size = New System.Drawing.Size(1327, 228)
         Me.GroupBox2.TabIndex = 61
         Me.GroupBox2.TabStop = False
-        '
-        'BtnRemoveField
-        '
-        Me.BtnRemoveField.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.BtnRemoveField.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnRemoveField.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnRemoveField.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.BtnRemoveField.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_x_10
-        Me.BtnRemoveField.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.BtnRemoveField.Location = New System.Drawing.Point(434, 47)
-        Me.BtnRemoveField.Name = "BtnRemoveField"
-        Me.BtnRemoveField.Size = New System.Drawing.Size(104, 20)
-        Me.BtnRemoveField.TabIndex = 65
-        Me.BtnRemoveField.Text = "Remove  last Field"
-        Me.BtnRemoveField.TextAlign = System.Drawing.ContentAlignment.TopRight
-        Me.BtnRemoveField.UseVisualStyleBackColor = False
         '
         'BtnSaveResearch
         '
@@ -1203,6 +1155,17 @@ Partial Class AddWorks
         Me.TxtResearchID.Size = New System.Drawing.Size(130, 15)
         Me.TxtResearchID.TabIndex = 64
         '
+        'Label20
+        '
+        Me.Label20.AutoSize = True
+        Me.Label20.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label20.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label20.Location = New System.Drawing.Point(55, 47)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(80, 16)
+        Me.Label20.TabIndex = 65
+        Me.Label20.Text = "Control No. :"
+        '
         'BtnMinusToFieldsCnt
         '
         Me.BtnMinusToFieldsCnt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
@@ -1243,16 +1206,53 @@ Partial Class AddWorks
         Me.BtnAddNewCoAuthor.TextAlign = System.Drawing.ContentAlignment.TopRight
         Me.BtnAddNewCoAuthor.UseVisualStyleBackColor = False
         '
-        'Label20
+        'BtnBrowseWholeFile
         '
-        Me.Label20.AutoSize = True
-        Me.Label20.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label20.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label20.Location = New System.Drawing.Point(55, 47)
-        Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(80, 16)
-        Me.Label20.TabIndex = 65
-        Me.Label20.Text = "Control No. :"
+        Me.BtnBrowseWholeFile.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnBrowseWholeFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnBrowseWholeFile.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnBrowseWholeFile.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.BtnBrowseWholeFile.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_browse_18
+        Me.BtnBrowseWholeFile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnBrowseWholeFile.Location = New System.Drawing.Point(271, 14)
+        Me.BtnBrowseWholeFile.Name = "BtnBrowseWholeFile"
+        Me.BtnBrowseWholeFile.Size = New System.Drawing.Size(65, 21)
+        Me.BtnBrowseWholeFile.TabIndex = 71
+        Me.BtnBrowseWholeFile.Text = "Browse"
+        Me.BtnBrowseWholeFile.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.BtnBrowseWholeFile.UseVisualStyleBackColor = False
+        '
+        'BtnBrowseAbstractFile
+        '
+        Me.BtnBrowseAbstractFile.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnBrowseAbstractFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnBrowseAbstractFile.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnBrowseAbstractFile.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.BtnBrowseAbstractFile.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_browse_18
+        Me.BtnBrowseAbstractFile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnBrowseAbstractFile.Location = New System.Drawing.Point(271, 39)
+        Me.BtnBrowseAbstractFile.Name = "BtnBrowseAbstractFile"
+        Me.BtnBrowseAbstractFile.Size = New System.Drawing.Size(65, 21)
+        Me.BtnBrowseAbstractFile.TabIndex = 60
+        Me.BtnBrowseAbstractFile.Text = "Browse"
+        Me.BtnBrowseAbstractFile.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.BtnBrowseAbstractFile.UseVisualStyleBackColor = False
+        '
+        'BtnRemoveField
+        '
+        Me.BtnRemoveField.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnRemoveField.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnRemoveField.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnRemoveField.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.BtnRemoveField.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_x_10
+        Me.BtnRemoveField.ImageAlign = System.Drawing.ContentAlignment.TopLeft
+        Me.BtnRemoveField.Location = New System.Drawing.Point(434, 47)
+        Me.BtnRemoveField.Name = "BtnRemoveField"
+        Me.BtnRemoveField.Size = New System.Drawing.Size(104, 20)
+        Me.BtnRemoveField.TabIndex = 65
+        Me.BtnRemoveField.Text = "Remove  last Field"
+        Me.BtnRemoveField.TextAlign = System.Drawing.ContentAlignment.TopRight
+        Me.BtnRemoveField.UseVisualStyleBackColor = False
         '
         'AddWorks
         '
