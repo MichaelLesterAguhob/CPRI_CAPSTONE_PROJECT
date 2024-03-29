@@ -264,9 +264,9 @@ from the panel members"
 
         semester = CmbxSemester.Text.ToString
         school_year = TxtSchoolYear.Text.Trim.ToString
-        name_input = TxtName.Text
-        college = TxtCollege.Text
-        department = TxtDepartment.Text
+        name_input = TxtName.Text.Trim
+        college = TxtCollege.Text.Trim
+        department = TxtDepartment.Text.Trim
         Dim no_blank_main_info As Boolean = False
         Dim is_save_ready As Boolean = False
 

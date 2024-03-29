@@ -163,15 +163,15 @@ Public Class AddWorks
 
                 'check if addtional info- published is checked
                 If isPublished = "Published" Then
-                    If publish_level <> "" And TxtPubAcadJournal.Text <> "" And TxtPubVolNum.Text <> "" And TxtPubIssueNo.Text <> "" And TxtPubPageRange.Text <> "" And TxtPubDoiUrl.Text <> "" Then
-                        If IsNumeric(TxtPubVolNum.Text) And IsNumeric(TxtPubIssueNo.Text) And TxtPubDoiUrl.Text <> "" Then
+                    If publish_level <> "" And TxtPubAcadJournal.Text.Trim <> "" And TxtPubVolNum.Text.Trim <> "" And TxtPubIssueNo.Text.Trim <> "" And TxtPubPageRange.Text.Trim <> "" And TxtPubDoiUrl.Text.Trim <> "" Then
+                        If IsNumeric(TxtPubVolNum.Text) And IsNumeric(TxtPubIssueNo.Text.Trim) And TxtPubDoiUrl.Text.Trim <> "" Then
                             pub_lvl = publish_level
-                            acad_jrnl = TxtPubAcadJournal.Text.ToString
-                            vol_no = Convert.ToInt64(TxtPubVolNum.Text)
-                            issue_no = Convert.ToInt64(TxtPubIssueNo.Text)
-                            page_range = TxtPubPageRange.Text.ToString
+                            acad_jrnl = TxtPubAcadJournal.Text.Trim
+                            vol_no = Convert.ToInt64(TxtPubVolNum.Text.Trim)
+                            issue_no = Convert.ToInt64(TxtPubIssueNo.Text.Trim)
+                            page_range = TxtPubPageRange.Text.Trim.ToString
                             date_pub = TxtPubDate.Value.Date.ToString("MM-dd-yyyy")
-                            doi_url = TxtPubDoiUrl.Text.ToString
+                            doi_url = TxtPubDoiUrl.Text.Trim
 
                             SaveUpperInputs()
                             SavePublishedInfo()
@@ -186,12 +186,12 @@ Public Class AddWorks
                     'check if additonal info-presented is checked
                 ElseIf isPresented = "Presented" Then
 
-                    If TxtPreResConfName.Text <> "" And TxtPrePlace.Text <> "" And presented_level <> "" Then
+                    If TxtPreResConfName.Text.Trim <> "" And TxtPrePlace.Text.Trim <> "" And presented_level <> "" Then
 
                         pre_lvl = presented_level
-                        res_conf_name = TxtPreResConfName.Text.ToString
+                        res_conf_name = TxtPreResConfName.Text.Trim
                         date_prsntd = DtPrsntdDate.Value.Date.ToString("MM-dd-yyyy")
-                        place_prsnttn = TxtPrePlace.Text.ToString
+                        place_prsnttn = TxtPrePlace.Text.Trim
 
                         SaveUpperInputs()
                         SavePresentedInfo()
@@ -350,9 +350,9 @@ Public Class AddWorks
                 Using cmd As New MySqlCommand(query, con)
                     cmd.Parameters.AddWithValue("@no", Nothing)
                     cmd.Parameters.AddWithValue("@c_a_i", CoAuthorsID)
-                    cmd.Parameters.AddWithValue("@c_a_n", CoAuth_name_field.Text.ToString)
-                    cmd.Parameters.AddWithValue("@d_p", CoAuth_deg_field.Text.ToString)
-                    cmd.Parameters.AddWithValue("@role", CoAuth_role_field.Text.ToString)
+                    cmd.Parameters.AddWithValue("@c_a_n", CoAuth_name_field.Text.Trim.ToString)
+                    cmd.Parameters.AddWithValue("@d_p", CoAuth_deg_field.Text.Trim.ToString)
+                    cmd.Parameters.AddWithValue("@role", CoAuth_role_field.Text.Trim.ToString)
                     cmd.ExecuteNonQuery()
                 End Using
             Catch ex As Exception
@@ -784,7 +784,7 @@ Public Class AddWorks
     Dim total_fields As String 'var holder of total field of existing co-auhtor displayed in label
     Private Sub BtnAddNewCoAuthor_Click_1(sender As Object, e As EventArgs) Handles BtnAddNewCoAuthor.Click
 
-        cntr = TxtAddAuthX.Text
+        cntr = TxtAddAuthX.Text.Trim
         total_fields = LblTotalFields.Text
         BtnAddNewCoAuthor.Enabled = False
 

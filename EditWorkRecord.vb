@@ -776,9 +776,9 @@ Public Class EditWorkRecord
 
                 'checking the newly added fields if not blank
                 If CoAuth_Id.Text = "0" Then
-                    If total_fields = 1 And CoAuth_name_field.Text = "" And CoAuth_deg_field.Text = "" And CoAuth_role_field.Text = "" Then
+                    If total_fields = 1 And CoAuth_name_field.Text.Trim = "" And CoAuth_deg_field.Text.Trim = "" And CoAuth_role_field.Text.Trim = "" Then
                         isDynamicFieldsNotBlanks = True
-                    ElseIf CoAuth_name_field.Text = "" Or CoAuth_deg_field.Text = "" Or CoAuth_role_field.Text = "" Then
+                    ElseIf CoAuth_name_field.Text.Trim = "" Or CoAuth_deg_field.Text.Trim = "" Or CoAuth_role_field.Text.Trim = "" Then
                         MessageBox.Show("Fill in the blanks in Co-Author Fields.", "Fill in the Blank(s)")
                         auth_no = co_author_fields_to_save
                         isDynamicFieldsNotBlanks = False
@@ -787,11 +787,11 @@ Public Class EditWorkRecord
                     End If
 
                     'letting the formload-generated fields to be blank for deleting once it saved [a row must be blank]
-                ElseIf CoAuth_Id.Text <> "0" And CoAuth_name_field.Text = "" And CoAuth_deg_field.Text = "" And CoAuth_role_field.Text = "" Then
+                ElseIf CoAuth_Id.Text <> "0" And CoAuth_name_field.Text.Trim = "" And CoAuth_deg_field.Text.Trim = "" And CoAuth_role_field.Text.Trim = "" Then
                     isDynamicFieldsNotBlanks = True
 
                     'set to blank if there is a blank in a row of formload generated fields
-                ElseIf CoAuth_Id.Text <> "0" And CoAuth_name_field.Text = "" Or CoAuth_deg_field.Text = "" Or CoAuth_role_field.Text = "" Then
+                ElseIf CoAuth_Id.Text <> "0" And CoAuth_name_field.Text.Trim = "" Or CoAuth_deg_field.Text.Trim = "" Or CoAuth_role_field.Text.Trim = "" Then
                     MessageBox.Show("Fill in the blanks in Co-Author Fields.", "Fill in the Blank(s)")
                     auth_no = co_author_fields_to_save
                     isDynamicFieldsNotBlanks = False
@@ -807,19 +807,19 @@ Public Class EditWorkRecord
                 If isPublished = "Published" Then
 
                     'checking the fields if not blank
-                    If publish_level <> "" And TxtPubAcadJournalEdtMode.Text <> "" And TxtPubVolNumEdtMode.Text <> "" And TxtPubIssueNoEdtMode.Text <> "" And TxtPubPageRangeEdtMode.Text <> "" And TxtPubDoiUrlEdtMode.Text <> "" Then
+                    If publish_level <> "" And TxtPubAcadJournalEdtMode.Text.Trim <> "" And TxtPubVolNumEdtMode.Text.Trim <> "" And TxtPubIssueNoEdtMode.Text.Trim <> "" And TxtPubPageRangeEdtMode.Text.Trim <> "" And TxtPubDoiUrlEdtMode.Text.Trim <> "" Then
 
                         'checking the input in textbox that dedicated for number input
-                        If IsNumeric(TxtPubVolNumEdtMode.Text) And IsNumeric(TxtPubIssueNoEdtMode.Text) And TxtPubDoiUrlEdtMode.Text <> "" Then
+                        If IsNumeric(TxtPubVolNumEdtMode.Text.Trim) And IsNumeric(TxtPubIssueNoEdtMode.Text.Trim) And TxtPubDoiUrlEdtMode.Text.Trim <> "" Then
 
                             'if all condition is met, then get all data from txtbox
                             pub_lvl = publish_level
-                            acad_jrnl = TxtPubAcadJournalEdtMode.Text.ToString
-                            vol_no = Convert.ToInt64(TxtPubVolNumEdtMode.Text)
-                            issue_no = Convert.ToInt64(TxtPubIssueNoEdtMode.Text)
-                            page_range = TxtPubPageRangeEdtMode.Text.ToString
+                            acad_jrnl = TxtPubAcadJournalEdtMode.Text.Trim.ToString
+                            vol_no = Convert.ToInt64(TxtPubVolNumEdtMode.Text.Trim)
+                            issue_no = Convert.ToInt64(TxtPubIssueNoEdtMode.Text.Trim)
+                            page_range = TxtPubPageRangeEdtMode.Text.Trim.ToString
                             date_pub = DtPubDateEdtMode.Value.Date.ToString("MM-dd-yyyy")
-                            doi_url = TxtPubDoiUrlEdtMode.Text.ToString
+                            doi_url = TxtPubDoiUrlEdtMode.Text.Trim.ToString
 
                             UpdateUpperFields(title, agenda, sem, schl_yr)
                             UpdateAuthors(author_name, auth_deg_prog, auth_role)
@@ -847,13 +847,13 @@ Public Class EditWorkRecord
                 ElseIf isPresented = "Presented" Then
 
                     'checking the fields if not blank
-                    If TxtPreResConfNameEdtMode.Text <> "" And TxtPrePlaceEdtMode.Text <> "" And presented_level <> "" Then
+                    If TxtPreResConfNameEdtMode.Text.Trim <> "" And TxtPrePlaceEdtMode.Text.Trim <> "" And presented_level <> "" Then
 
                         'if all condition is met, then get all data from txtbox
                         pre_lvl = presented_level
-                        res_conf_name = TxtPreResConfNameEdtMode.Text.ToString
+                        res_conf_name = TxtPreResConfNameEdtMode.Text.Trim.ToString
                         date_prsntd = DtPrsntdDateEdtMode.Value.Date.ToString("MM-dd-yyyy")
-                        place_prsnttn = TxtPrePlaceEdtMode.Text.ToString
+                        place_prsnttn = TxtPrePlaceEdtMode.Text.Trim.ToString
 
                         UpdateUpperFields(title, agenda, sem, schl_yr)
                         UpdateAuthors(author_name, auth_deg_prog, auth_role)
@@ -1004,7 +1004,7 @@ Public Class EditWorkRecord
             Dim CoAuth_role_field As TextBox = CType(Me.Controls.Find(CoAuth_dynmc_role, True).FirstOrDefault(), TextBox)
 
 
-            If co_auth_to_save_id_no <> 0 And CoAuth_name_field.Text = "" And CoAuth_deg_field.Text = "" And CoAuth_role_field.Text = "" Then
+            If co_auth_to_save_id_no <> 0 And CoAuth_name_field.Text.Trim = "" And CoAuth_deg_field.Text.Trim = "" And CoAuth_role_field.Text.Trim = "" Then
                 'delete co-author here
                 con.Close()
                 Try
@@ -1469,7 +1469,7 @@ Public Class EditWorkRecord
     'CODES FOR BUTTON ADD NEW CO-AUTHOR
     Private Sub BtnAddNewCoAuthor_Click_1(sender As Object, e As EventArgs) Handles BtnAddCoAuthFldEdt.Click
 
-        cntr = TxtAuthToAddCount.Text
+        cntr = TxtAuthToAddCount.Text.Trim
         total_fields = LblTotalCoAuthFlds.Text
         BtnAddCoAuthFldEdt.Enabled = False
         co_authors_no = 0
@@ -1516,7 +1516,7 @@ Public Class EditWorkRecord
             Dim last_role_lbl As Label = TryCast(PnlEditCoAuthFlds.Controls(lbl_role), Label)
 
             If last_author_txtbox IsNot Nothing And last_deg_txtbox IsNot Nothing And last_Role_txtbox IsNot Nothing Then
-                If last_author_txtbox.Text <> "" Or last_deg_txtbox.Text <> "" Or last_Role_txtbox.Text <> "" Then
+                If last_author_txtbox.Text.Trim <> "" Or last_deg_txtbox.Text.Trim <> "" Or last_Role_txtbox.Text.Trim <> "" Then
                     MessageBox.Show("The fields you want to remove contains data.", "Unable to delete this field", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                 ElseIf last_lbl_id_no IsNot Nothing And last_lbl_id_no.Text <> "0" Then
                     MessageBox.Show("The fields you want to remove is connected to the database data. If you want to delete this co-author, just leave it blank then click update.", "Unable to delete this field", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
@@ -1549,12 +1549,12 @@ Public Class EditWorkRecord
 
     'ADDING AND SUBTRACTING TO FIELDS COUNT
     Private Sub BtnAddOnTxt_Click(sender As Object, e As EventArgs) Handles BtnAddOnTxt.Click
-        Dim taax As Integer = TxtAuthToAddCount.Text
+        Dim taax As Integer = TxtAuthToAddCount.Text.Trim
         TxtAuthToAddCount.Text = taax + 1
     End Sub
 
     Private Sub BtnSubOnTxt_Click(sender As Object, e As EventArgs) Handles BtnSubOnTxt.Click
-        Dim taax As Integer = TxtAuthToAddCount.Text
+        Dim taax As Integer = TxtAuthToAddCount.Text.Trim
         TxtAuthToAddCount.Text = taax - 1
     End Sub
 

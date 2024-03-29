@@ -363,6 +363,7 @@ Defense from the panel members"
     'OPENING AND CLOSING OF FILTER PANEL 
     Dim open_close_filter As Integer = 0
     Private Sub BtnFilter_Click(sender As Object, e As EventArgs) Handles BtnFilter.Click
+        TxtSearch.Clear()
         BtnFilter.Enabled = False
         If open_close_filter = 0 Then
             TmOpenFilter.Enabled = True
@@ -378,7 +379,7 @@ Defense from the panel members"
             BtnFilter.Enabled = True
         Else
             PnlFilter.Width = PnlFilter.Width + 500
-            PnlFilter.Height = PnlFilter.Height + 400
+            PnlFilter.Height = PnlFilter.Height + 250
         End If
     End Sub
     Private Sub TmCloseFilter_Tick(sender As Object, e As EventArgs) Handles TmCloseFilter.Tick
@@ -387,7 +388,7 @@ Defense from the panel members"
             BtnFilter.Enabled = True
         Else
             PnlFilter.Width = PnlFilter.Width - 500
-            PnlFilter.Height = PnlFilter.Height - 400
+            PnlFilter.Height = PnlFilter.Height - 250
         End If
     End Sub
     Private Sub BtnCloseFilter_Click(sender As Object, e As EventArgs) Handles BtnCloseFilter.Click
@@ -395,8 +396,35 @@ Defense from the panel members"
         open_close_filter = 0
     End Sub
 
+    'APPLYING filter
     Private Sub BtnApplyFilter_Click(sender As Object, e As EventArgs) Handles BtnApplyFilter.Click
+        BtnCloseFilter.PerformClick()
+        FilterSearch()
+        ' MessageBox.Show(schoolyear & " " & collg & " " & dept & " " & sem1 & " " & sem2 & " " & summer & " " & stage1 & " " & stage2 & " " & stat1 & " " & stat2)
+    End Sub
 
+    Private Sub BtnResetFilter_Click(sender As Object, e As EventArgs) Handles BtnResetFilter.Click
+        sem1 = ""
+        sem2 = ""
+        stage1 = ""
+        stage2 = ""
+        stat1 = ""
+        stat2 = ""
+        schoolyear = ""
+        collg = ""
+        dept = ""
+        ChckBx1st.Checked = False
+        ChckBx2nd.Checked = False
+        ChckBxSumm.Checked = False
+        ChckBxStageRp.Checked = False
+        ChckBxStageFtc.Checked = False
+        ChckBxStatFT.Checked = False
+        ChckBxStatPt.Checked = False
+        TxtCol.Clear()
+        CbxSc.Text = ""
+        TxtDept.Clear()
+        LoadRcfRgaRecords()
+        LblSearchFound.Text = ""
     End Sub
 
     'Variables for holding filter
@@ -409,25 +437,10 @@ Defense from the panel members"
     'FILTER SEARCH FUNCTION
     Private Sub FilterSearch()
         con.Close()
-
         Try
             con.Open()
-            Dim query As String = "
-                        SELECT * FROM `rcf_rga` 
-                        WHERE
-                            record_id LIKE @to_search
-                            OR semester LIKE @to_search
-                            OR school_year LIKE @to_search
-                            OR stage LIKE @to_search
-                            OR name LIKE @to_search
-                            OR college LIKE @to_search
-                            OR dept LIKE @to_search
-                            OR status LIKE @to_search
-                            OR role LIKE @to_search
-                        ORDER BY `no#` DESC
-                        "
+            Dim query As String = "SELECT * FROM `rcf_rga` WHERE " & schoolyear & collg & dept & sem1 & sem2 & summer & stage1 & stage2 & stat1 & stat2
             Using cmd As New MySqlCommand(query, con)
-                cmd.Parameters.AddWithValue("@to_search", "%" & TxtSearch.Text.Trim & "%")
                 Dim adptr As New MySqlDataAdapter(cmd)
                 Dim dt As New DataTable
                 adptr.Fill(dt)
@@ -442,10 +455,11 @@ Defense from the panel members"
                     LblSearchFound.Text = dt.Rows.Count.ToString & " Result(s) found"
                 Else
                     LblSearchFound.Text = dt.Rows.Count.ToString & " Result(s) found"
-                    MessageBox.Show("Your search do not match to any records. Please try different keywords", "No data found.", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    MessageBox.Show("Your search do not match to any records. Please try different keywords", "No data found in filtered.", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 End If
 
             End Using
+            MsgBox(query)
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Error Occcurred Searching record", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Finally
@@ -453,6 +467,158 @@ Defense from the panel members"
             BtnRemoveSelection.PerformClick()
         End Try
     End Sub
+
+    Private Sub CbxSc_TextChanged(sender As Object, e As EventArgs) Handles CbxSc.TextChanged
+        If CbxSc.Text.Trim <> "" Then
+            schoolyear = "school_year LIKE'%" & CbxSc.Text & "%' "
+        Else
+            schoolyear = ""
+        End If
+        TxtDept_TextChanged(Nothing, EventArgs.Empty)
+        TxtCol_TextChanged(Nothing, EventArgs.Empty)
+        CheckedUnchecked()
+    End Sub
+
+    Private Sub TxtCol_TextChanged(sender As Object, e As EventArgs) Handles TxtCol.TextChanged
+        If TxtCol.Text.Trim <> "" And schoolyear <> "" Then
+            collg = " AND college='" & TxtCol.Text.Trim.ToString & "' "
+        ElseIf TxtCol.Text.Trim <> "" And schoolyear = "" Then
+            collg = " college='" & TxtCol.Text.Trim.ToString & "' "
+        Else
+            collg = ""
+        End If
+        TxtDept_TextChanged(Nothing, EventArgs.Empty)
+        CheckedUnchecked()
+    End Sub
+
+    Private Sub TxtDept_TextChanged(sender As Object, e As EventArgs) Handles TxtDept.TextChanged
+        If TxtDept.Text.Trim <> "" And collg <> "" And schoolyear <> "" Then
+            dept = " AND dept='" & TxtDept.Text.Trim.ToString & "' "
+        ElseIf TxtDept.Text.Trim <> "" Then
+            If collg <> "" Or schoolyear <> "" Then
+                dept = "AND dept='" & TxtDept.Text.Trim.ToString & "' "
+            Else
+                dept = " dept='" & TxtDept.Text.Trim.ToString & "' "
+            End If
+        Else
+            dept = ""
+        End If
+        CheckedUnchecked()
+    End Sub
+
+
+    'SEMESTER FILTER CHECKBOX
+    Private Sub ChckBx1st_MouseClick(sender As Object, e As MouseEventArgs) Handles ChckBx1st.MouseClick
+
+        CheckedUnchecked()
+    End Sub
+
+    Private Sub ChckBx2nd_MouseClick(sender As Object, e As MouseEventArgs) Handles ChckBx2nd.MouseClick
+
+        CheckedUnchecked()
+    End Sub
+
+    Private Sub ChckBxSumm_MouseClick(sender As Object, e As MouseEventArgs) Handles ChckBxSumm.MouseClick
+
+        CheckedUnchecked()
+    End Sub
+
+    'STAGE
+    Private Sub ChckBxStageRp_MouseClick(sender As Object, e As MouseEventArgs) Handles ChckBxStageRp.MouseClick
+
+        CheckedUnchecked()
+    End Sub
+
+    Private Sub ChckBxStageFtc_MouseClick(sender As Object, e As MouseEventArgs) Handles ChckBxStageFtc.MouseClick
+
+        CheckedUnchecked()
+    End Sub
+
+    'STATUS
+    Private Sub ChckBxStatFT_MouseClick(sender As Object, e As MouseEventArgs) Handles ChckBxStatFT.MouseClick
+
+        CheckedUnchecked()
+    End Sub
+    Private Sub ChckBxStatPt_MouseClick(sender As Object, e As MouseEventArgs) Handles ChckBxStatPt.MouseClick
+
+        CheckedUnchecked()
+    End Sub
+
+
+    Private Sub CheckedUnchecked()
+
+        If ChckBx1st.Checked = True Then
+            If collg <> "" Or dept <> "" Or schoolyear <> "" Then
+                sem1 = " AND semester=1st Semester"
+            Else
+                sem1 = " semester=1st Semester"
+            End If
+        Else
+            sem1 = ""
+        End If
+
+        If ChckBx2nd.Checked = True Then
+            If collg <> "" Or dept <> "" Or schoolyear <> "" Or sem1 <> "" Then
+                sem2 = "AND semester=2nd Semester"
+            Else
+                sem2 = " semester=2nd Semester"
+            End If
+        Else
+            sem2 = ""
+        End If
+
+        If ChckBxSumm.Checked = True Then
+            If collg <> "" Or dept <> "" Or schoolyear <> "" Or sem1 <> "" Or sem2 <> "" Then
+                summer = "AND semester=Summer"
+            Else
+                summer = " semester=Summer"
+            End If
+        Else
+            summer = ""
+        End If
+
+        If ChckBxStageRp.Checked = True Then
+            If collg <> "" Or dept <> "" Or schoolyear <> "" Or sem1 <> "" Or sem2 <> "" Or summer <> "" Then
+                stage1 = "AND stage=Research Proposal"
+            Else
+                stage1 = " stage=Research Proposal"
+            End If
+        Else
+            stage1 = ""
+        End If
+
+        If ChckBxStageFtc.Checked = True Then
+            If collg <> "" Or dept <> "" Or schoolyear <> "" Or sem1 <> "" Or sem2 <> "" Or summer <> "" Or stage1 <> "" Then
+                stage2 = "AND stage=Final Thesis"
+            Else
+                stage2 = " stage=Final Thesis"
+            End If
+        Else
+            stage2 = ""
+        End If
+
+        If ChckBxStatFT.Checked = True Then
+            If collg <> "" Or dept <> "" Or schoolyear <> "" Or sem1 <> "" Or sem2 <> "" Or summer <> "" Or stage1 <> "" Or stage2 <> "" Then
+                stat1 = "AND status=Full Time"
+            Else
+                stat1 = " status=Full Time"
+            End If
+        Else
+            stat1 = ""
+        End If
+
+        If ChckBxStatPt.Checked = True Then
+            If collg <> "" Or dept <> "" Or schoolyear <> "" Or sem1 <> "" Or sem2 <> "" Or summer <> "" Or stage1 <> "" Or stage2 <> "" Or stat1 <> "" Then
+                stat2 = "AND status=Part Time"
+            Else
+                stat2 = " status=Part Time"
+            End If
+        Else
+            stat2 = ""
+        End If
+    End Sub
+
+
 
 
 End Class
