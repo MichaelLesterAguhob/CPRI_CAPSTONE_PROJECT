@@ -4,4 +4,5 @@ Module public_variables
     Public isEditModeActive As Boolean = False
     Public iscloseUsingWinControl As Boolean = True
     Public on_edit_mode As Integer
+    Public print_clearance_id As Integer
 End Module

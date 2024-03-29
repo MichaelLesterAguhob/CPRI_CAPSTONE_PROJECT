@@ -98,7 +98,7 @@ Public Class AddWorks
     End Sub
 
 
-    'CODES TO LOAD RESEARCH WORK
+    'CODES TO LOAD RESEARCH WORK IN REPO MANAGER
     Private ReadOnly rrm As ResearchRepoManager
     Public Sub New(ByVal rrm As ResearchRepoManager)
         ' This call is required by the designer.
@@ -107,7 +107,8 @@ Public Class AddWorks
         Me.rrm = rrm
     End Sub
 
-
+    'SAVING INFORMATION ENETERED
+    Dim print_clearance As Boolean = False
     Private Sub BtnSaveResearch_Click(sender As Object, e As EventArgs) Handles BtnSaveResearch.Click
         BtnSaveResearch.Enabled = False
         control_no = Convert.ToInt64(TxtResearchID.Text)
@@ -265,6 +266,10 @@ Public Class AddWorks
             SaveAbstractFiles()
             SaveStatCmpltdChckdbx()
             MessageBox.Show("Successfully Saved", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            If print_clearance = True Then
+                Dim print_clearance As New PrintThesisClearance
+                print_clearance.Show()
+            End If
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Error 003: Failed to save upper inputs")
             con.Close()
@@ -1082,8 +1087,13 @@ Public Class AddWorks
     End Sub
 
     Private Sub BtnThssClrnc_Click(sender As Object, e As EventArgs) Handles BtnThssClrnc.Click
-        Dim print_clearance As New PrintThesisClearance
-        print_clearance.Show()
+        print_clearance_id = Convert.ToInt64(TxtResearchID.Text)
+        Dim save_to_print As DialogResult = MessageBox.Show("We will saved informations you've entered before opening Print Clearance Preview", "Click 'Yes' to proceed saving.", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        If save_to_print = DialogResult.Yes Then
+            print_clearance = True
+            BtnSaveResearch.PerformClick()
+        End If
+
     End Sub
 End Class
 

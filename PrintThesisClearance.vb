@@ -15,10 +15,11 @@ Public Class PrintThesisClearance
                                 FROM
                                     scholarly_works
                                 WHERE
-                                    sw_id = 202490841
+                                    sw_id = @id
                                     
                             "
         Using cmd_query_works As New MySqlCommand(query_works, con)
+            cmd_query_works.Parameters.AddWithValue("@id", 202485894)
             Dim adptr_query_works As New MySqlDataAdapter(cmd_query_works)
             adptr_query_works.Fill(dt_query_works)
         End Using
@@ -29,18 +30,20 @@ Public Class PrintThesisClearance
                                 FROM
                                     authors
                                 WHERE
-                                    authors_id = 202490841
+                                    authors_id = @id
                                     
                             "
         Using cmd As New MySqlCommand(query, con)
+            cmd.Parameters.AddWithValue("@id", 202485894)
             Dim adptr As New MySqlDataAdapter(cmd)
             adptr.Fill(dt)
         End Using
 
 
         '////
-        Dim query2 As String = "SELECT * FROM co_authors WHERE co_authors_id = 202490841"
+        Dim query2 As String = "SELECT * FROM co_authors WHERE co_authors_id = @id"
         Using cmd2 As New MySqlCommand(query2, con)
+            cmd2.Parameters.AddWithValue("@id", 202485894)
             Dim adptr2 As New MySqlDataAdapter(cmd2)
             adptr2.Fill(dt2)
         End Using
@@ -51,12 +54,28 @@ Public Class PrintThesisClearance
             dtFormattedCoAuthors.Columns.Add("SecondColumn", GetType(String))
 
         ' Iterate over the co-authors and populate the formatted DataTable
-        Dim rowCount As Integer = Math.Ceiling(dt2.Rows.Count / 2)
-        For i As Integer = 0 To rowCount - 1
-            Dim firstCoAuthor As String = If(i < dt2.Rows.Count, dt2.Rows(i)("co_authors_name").ToString(), "")
-            Dim secondCoAuthor As String = If(i + rowCount < dt2.Rows.Count, dt2.Rows(i + rowCount)("co_authors_name").ToString(), "")
-            dtFormattedCoAuthors.Rows.Add(firstCoAuthor, secondCoAuthor)
-        Next
+        Dim start_at_7 As Integer = 7
+        Dim spacer As String = " "
+        If dt2.Rows.Count > 4 Then
+            Dim rowCount As Integer = Math.Ceiling(dt2.Rows.Count / 2)
+            For i As Integer = 0 To rowCount - 1
+                Dim firstCoAuthor As String = If(i < dt2.Rows.Count, dt2.Rows(i)("co_authors_name").ToString(), "")
+                Dim secondCoAuthor As String = If(i + rowCount < dt2.Rows.Count, dt2.Rows(i + rowCount)("co_authors_name").ToString(), "")
+                dtFormattedCoAuthors.Rows.Add(firstCoAuthor, (spacer & start_at_7 & ". " & secondCoAuthor))
+                start_at_7 += 1
+                If start_at_7 >= 10 Then
+                    spacer = ""
+                End If
+            Next
+        Else
+            Dim rowCount As Integer = dt2.Rows.Count
+            For i As Integer = 0 To rowCount - 1
+                Dim firstCoAuthor As String = If(i < dt2.Rows.Count, dt2.Rows(i)("co_authors_name").ToString(), "")
+                dtFormattedCoAuthors.Rows.Add(firstCoAuthor)
+
+            Next
+        End If
+
 
         con.Close()
 
