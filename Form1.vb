@@ -16,4 +16,14 @@
     Private Sub BorrowingAndReturningToolStripMenuItem_Click(sender As Object, e As EventArgs)
 
     End Sub
+
+    Private Sub BorrowingAndReturningToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles BorrowingAndReturningToolStripMenuItem1.Click
+        Dim open_borrowing_retruning As New BorrowingAndReturning
+        open_borrowing_retruning.Show()
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Dim open_borrowing_retruning As New BorrowingAndReturning
+        open_borrowing_retruning.Show()
+    End Sub
 End Class

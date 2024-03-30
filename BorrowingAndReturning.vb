@@ -2,6 +2,12 @@
 Imports MySql.Data.MySqlClient
 
 Public Class BorrowingAndReturning
+    Dim selected_book_id As Integer = 0
+    Dim selected_book_stat As String = 0
+    Dim selected_book_title As String = 0
+    Dim selected_book_type As String = 0
+    Dim date_time As DateTime = DateTime.Now
+    Dim current_year As Integer = date_time.Year
 
 
     Private Sub BorrowingAndReturning_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -11,7 +17,76 @@ Public Class BorrowingAndReturning
         LoadBorrowedBooksList()
         LoadReturnedBooksList()
         LoadOverDues()
+
+        TxtDate.Text = date_time.Date.ToString("MM-dd-yyyy")
+        GenerateBorrowerID()
+        GenerateBorrowTransID()
     End Sub
+
+    'GENERATING BORROWER ID AND CHECKING UNIQUENESS
+    Dim initial_bor_id As Integer
+    Dim borrower_id As Integer
+    Private Sub GenerateBorrowerID()
+        Dim rnd As New Random()
+        initial_bor_id = rnd.Next(10000, 99999)
+        Isinitial_bor_idUnique()
+    End Sub
+
+    Private Sub Isinitial_bor_idUnique()
+        con.Close()
+        Try
+            con.Open()
+            Dim query As String = "SELECT borrower_id FROM borrowers WHERE borrower_id=@id"
+            Using cmd As New MySqlCommand(query, con)
+                cmd.Parameters.AddWithValue("@id", current_year.ToString & initial_bor_id)
+                Dim count As Integer = Convert.ToInt32(cmd.ExecuteScalar())
+                If count > 0 Then
+                    GenerateBorrowerID()
+                Else
+                    borrower_id = initial_bor_id
+                    TxtGenaratedId.Text = current_year.ToString & borrower_id.ToString
+                End If
+            End Using
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Error 001: Failed to check the uniqueness of generated number")
+        Finally
+            con.Close()
+        End Try
+    End Sub
+
+
+    'GENERATING BORROW TRANSACTION ID AND CHECKING UNIQUENESS
+    Dim initial_bor_trans_id As Integer
+    Dim borrow_trans_id As Integer
+    Private Sub GenerateBorrowTransID()
+        Dim rnd As New Random()
+        initial_bor_trans_id = rnd.Next(10000, 99999)
+        Isinitial_bor_trans_id()
+    End Sub
+
+    Private Sub Isinitial_bor_trans_id()
+        con.Close()
+        Try
+            con.Open()
+            Dim query As String = "SELECT borrow_id FROM borrowed_books WHERE borrow_id=@id"
+            Using cmd As New MySqlCommand(query, con)
+                cmd.Parameters.AddWithValue("@id", current_year.ToString & initial_bor_trans_id)
+                Dim count As Integer = Convert.ToInt32(cmd.ExecuteScalar())
+                If count > 0 Then
+                    GenerateBorrowerID()
+                Else
+                    borrow_trans_id = initial_bor_trans_id
+                    TxtBorrowTransId.Text = current_year.ToString & borrow_trans_id.ToString
+                End If
+            End Using
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Error 002: Failed to check the uniqueness of generated number")
+        Finally
+            con.Close()
+        End Try
+    End Sub
+
+
 
     '==============BOOKS
     Private Sub LoadBooksList()
@@ -25,15 +100,24 @@ Public Class BorrowingAndReturning
                             scholarly_works.sw_id,
                             scholarly_works.title, 
                             authors.authors_name,
-                            published_details.date_published
+                            published_details.date_published,
+                            qnty_loc.quantity,
+                            CASE
+                                    WHEN quantity < 1 THEN 'Unavailable'
+                                    WHEN quantity = 1 THEN 'Internal Borrow Only'
+                                    WHEN quantity > 1 THEN 'Available'
+                            END AS quantity_stat
 
                         FROM scholarly_works
 
                         INNER JOIN authors 
-                            ON authors.authors_id=scholarly_works.sw_id
+                            ON authors.authors_id = scholarly_works.sw_id
 
                         LEFT JOIN published_details 
-                            ON published_details.published_id=scholarly_works.sw_id
+                            ON published_details.published_id = scholarly_works.sw_id
+
+                        LEFT JOIN qnty_loc 
+                            ON qnty_loc.sw_id = scholarly_works.sw_id
 
                             "
             Using cmd As New MySqlCommand(query, con)
@@ -259,5 +343,63 @@ Public Class BorrowingAndReturning
         BtnBorrower.BackColor = Color.Transparent
         BtnBorrowedBooks.BackColor = Color.Transparent
         BtnReturnedBooks.BackColor = Color.Transparent
+    End Sub
+
+
+    'HANDLES BOOKS TAB DATA GRID CLICK
+    Private Sub DgvBooks_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DgvBooks.CellClick
+        Dim i As Integer = DgvBooks.CurrentRow.Index
+        selected_book_id = DgvBooks.Item(0, i).Value
+        selected_book_title = DgvBooks.Item(1, i).Value
+        selected_book_stat = DgvBooks.Item(5, i).Value
+        BtnBorrow.Enabled = True
+    End Sub
+
+    Dim borrow_type As String = ""
+    Private Sub BtnBorrow_Click(sender As Object, e As EventArgs) Handles BtnBorrow.Click
+
+        If selected_book_id = 0 Then
+            MsgBox("No Selected")
+        ElseIf selected_book_stat = "Unvailable" Then
+            MsgBox("Book is Unavailable")
+
+        ElseIf selected_book_stat = "Internal Borrow Only" Then
+            MsgBox("Internal Borrow Only")
+            borrow_type = "Internal Borrow Only"
+
+            TabControls.SelectedTab = TabPage6
+            BtnBooks.BackColor = Color.Transparent
+            BtnBorrower.BackColor = Color.Transparent
+            BtnBorrowedBooks.BackColor = Color.Transparent
+            BtnReturnedBooks.BackColor = Color.Transparent
+            BtnOverduesBooks.BackColor = Color.Transparent
+
+            TxtBookId.Text = selected_book_id.ToString()
+            TxtTitle.Text = selected_book_title
+            TxtType.Text = borrow_type
+
+
+        ElseIf selected_book_stat = "Available" Then
+            MsgBox("Available")
+            borrow_type = "Any"
+
+            TabControls.SelectedTab = TabPage6
+            BtnBooks.BackColor = Color.Transparent
+            BtnBorrower.BackColor = Color.Transparent
+            BtnBorrowedBooks.BackColor = Color.Transparent
+            BtnReturnedBooks.BackColor = Color.Transparent
+            BtnOverduesBooks.BackColor = Color.Transparent
+
+            TxtBookId.Text = selected_book_id.ToString()
+            TxtTitle.Text = selected_book_title
+            TxtType.Text = borrow_type
+        End If
+
+        TxtExistingBorrowerId.Focus()
+    End Sub
+
+    'CONFIRM BORROWING
+    Private Sub BtnConfirm_Click(sender As Object, e As EventArgs) Handles BtnConfirm.Click
+
     End Sub
 End Class
