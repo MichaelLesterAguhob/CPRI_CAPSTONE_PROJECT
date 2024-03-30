@@ -260,11 +260,34 @@ Public Class AddWorks
                 cmd.ExecuteNonQuery()
             End Using
 
+            'adding quantity and location
+            Dim query2 As String = "
+            INSERT INTO `qnty_loc`
+                 (  
+                    `sw_id`,
+                    `quantity`,
+                    `location`
+                 )
+            VALUES
+                (  
+                    @id,
+                    @qnty,
+                    @loc
+                 )
+                "
+            Using cmd2 As New MySqlCommand(query2, con)
+                cmd2.Parameters.AddWithValue("@id", control_no)
+                cmd2.Parameters.AddWithValue("@qnty", Convert.ToInt64(TxtCopies.Text.Trim))
+                cmd2.Parameters.AddWithValue("@loc", TxtLoc.Text.Trim)
+                cmd2.ExecuteNonQuery()
+            End Using
+
             SaveAuthor()
             SaveCoAuthors()
             SaveWholeFiles()
             SaveAbstractFiles()
             SaveStatCmpltdChckdbx()
+
             MessageBox.Show("Successfully Saved", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information)
             If print_clearance = True Then
                 Dim print_clearance As New PrintThesisClearance
@@ -1095,6 +1118,33 @@ Public Class AddWorks
         End If
 
     End Sub
+
+
+    'MAKING SURE THAT QUANTITY AND LOCATION TEXTBOX HAS EXPECTED VALUE
+    Private Sub TxtCopies_TextChanged(sender As Object, e As EventArgs) Handles TxtCopies.TextChanged
+        If TxtCopies.Text <> "" And Not IsNumeric(TxtCopies.Text) Then
+            TxtCopies.Text = "1"
+        End If
+    End Sub
+
+    Private Sub TxtCopies_Leave(sender As Object, e As EventArgs) Handles TxtCopies.Leave
+        If TxtCopies.Text = "" Then
+            TxtCopies.Text = "1"
+        End If
+    End Sub
+
+    Private Sub TxtLoc_Leave(sender As Object, e As EventArgs) Handles TxtLoc.Leave
+        If TxtLoc.Text = "" Then
+            TxtLoc.Text = "Not set"
+        End If
+    End Sub
+
+
+
+
+
+
+
 End Class
 
 

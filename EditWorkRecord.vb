@@ -184,6 +184,22 @@ Public Class EditWorkRecord
                     record_addtnl_info = "presented"
                     Addtnl_Info("presented")
                 End If
+
+
+                'get quantity and location
+                Dim query_qnty_loc As String = "
+            SELECT * FROM `qnty_loc` WHERE `sw_id`=@id"
+                Using cmd_qnty_loc As New MySqlCommand(query_qnty_loc, con)
+                    cmd_qnty_loc.Parameters.AddWithValue("@id", edit_id)
+                    Dim qnty_loc_reader As MySqlDataReader = cmd_qnty_loc.ExecuteReader()
+                    If qnty_loc_reader.HasRows Then
+                        If qnty_loc_reader.Read Then
+                            TxtCopies.Text = qnty_loc_reader("quantity").ToString()
+                            TxtLoc.Text = qnty_loc_reader("location").ToString()
+                        End If
+                    End If
+                    qnty_loc_reader.Close()
+                End Using
             End Using
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Error Occurred in loading record", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -959,6 +975,21 @@ Public Class EditWorkRecord
                 cmd.Parameters.AddWithValue("@presented", isPresented)
                 cmd.Parameters.AddWithValue("@id", edit_id)
                 cmd.ExecuteNonQuery()
+            End Using
+
+            'updating quantity and location
+            Dim query2 As String = "
+            UPDATE `qnty_loc` 
+            SET  
+                `quantity` = @qnty,
+                `location` = @loc
+            WHERE `sw_id`= @id
+                "
+            Using cmd2 As New MySqlCommand(query2, con)
+                cmd2.Parameters.AddWithValue("@id", edit_id)
+                cmd2.Parameters.AddWithValue("@qnty", Convert.ToInt64(TxtCopies.Text.Trim))
+                cmd2.Parameters.AddWithValue("@loc", TxtLoc.Text.Trim)
+                cmd2.ExecuteNonQuery()
             End Using
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Failed to update details.", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -1759,7 +1790,7 @@ Public Class EditWorkRecord
         If CbxSem.Text = "" Then
             CbxSem.Text = "Select Semester"
             CbxSem.ForeColor = Color.Gray
-            End if
+        End If
     End Sub
 
     Private Sub TxtSchoolYear_TextChanged(sender As Object, e As EventArgs) Handles TxtSchoolYear.TextChanged
@@ -1792,5 +1823,24 @@ Public Class EditWorkRecord
             Btn_Update.PerformClick()
         End If
 
+    End Sub
+
+    'MAKING SURE THAT QUANTITY AND LOCATION TEXTBOX HAS EXPECTED VALUE
+    Private Sub TxtCopies_TextChanged(sender As Object, e As EventArgs) Handles TxtCopies.TextChanged
+        If TxtCopies.Text <> "" And Not IsNumeric(TxtCopies.Text) Then
+            TxtCopies.Text = "1"
+        End If
+    End Sub
+
+    Private Sub TxtCopies_Leave(sender As Object, e As EventArgs) Handles TxtCopies.Leave
+        If TxtCopies.Text = "" Then
+            TxtCopies.Text = "1"
+        End If
+    End Sub
+
+    Private Sub TxtLoc_Leave(sender As Object, e As EventArgs) Handles TxtLoc.Leave
+        If TxtLoc.Text = "" Then
+            TxtLoc.Text = "Not set"
+        End If
     End Sub
 End Class

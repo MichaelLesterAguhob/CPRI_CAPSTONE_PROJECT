@@ -127,6 +127,10 @@ Partial Class EditWorkRecord
         Me.BtnCancel = New System.Windows.Forms.Button()
         Me.Btn_Update = New System.Windows.Forms.Button()
         Me.BtnAddCoAuthFldEdt = New System.Windows.Forms.Button()
+        Me.TxtLoc = New System.Windows.Forms.TextBox()
+        Me.Label31 = New System.Windows.Forms.Label()
+        Me.TxtCopies = New System.Windows.Forms.TextBox()
+        Me.Label32 = New System.Windows.Forms.Label()
         Me.Panel3.SuspendLayout()
         Me.PnlStatCmpltdEdtMode.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
@@ -1104,7 +1108,7 @@ Partial Class EditWorkRecord
         Me.TxtEditRsrchTitle.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.TxtEditRsrchTitle.Location = New System.Drawing.Point(142, 100)
         Me.TxtEditRsrchTitle.Name = "TxtEditRsrchTitle"
-        Me.TxtEditRsrchTitle.Size = New System.Drawing.Size(930, 22)
+        Me.TxtEditRsrchTitle.Size = New System.Drawing.Size(822, 22)
         Me.TxtEditRsrchTitle.TabIndex = 71
         '
         'Label3
@@ -1125,7 +1129,7 @@ Partial Class EditWorkRecord
         Me.TxtEditRsrchAgenda.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.TxtEditRsrchAgenda.Location = New System.Drawing.Point(142, 72)
         Me.TxtEditRsrchAgenda.Name = "TxtEditRsrchAgenda"
-        Me.TxtEditRsrchAgenda.Size = New System.Drawing.Size(930, 22)
+        Me.TxtEditRsrchAgenda.Size = New System.Drawing.Size(822, 22)
         Me.TxtEditRsrchAgenda.TabIndex = 69
         '
         'Label2
@@ -1389,12 +1393,60 @@ Partial Class EditWorkRecord
         Me.BtnAddCoAuthFldEdt.TextAlign = System.Drawing.ContentAlignment.TopRight
         Me.BtnAddCoAuthFldEdt.UseVisualStyleBackColor = False
         '
+        'TxtLoc
+        '
+        Me.TxtLoc.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.TxtLoc.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtLoc.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.TxtLoc.Location = New System.Drawing.Point(1126, 100)
+        Me.TxtLoc.Name = "TxtLoc"
+        Me.TxtLoc.Size = New System.Drawing.Size(160, 22)
+        Me.TxtLoc.TabIndex = 96
+        Me.TxtLoc.Text = "Not set"
+        '
+        'Label31
+        '
+        Me.Label31.AutoSize = True
+        Me.Label31.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label31.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label31.Location = New System.Drawing.Point(1055, 103)
+        Me.Label31.Name = "Label31"
+        Me.Label31.Size = New System.Drawing.Size(65, 16)
+        Me.Label31.TabIndex = 95
+        Me.Label31.Text = "Location :"
+        '
+        'TxtCopies
+        '
+        Me.TxtCopies.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.TxtCopies.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtCopies.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.TxtCopies.Location = New System.Drawing.Point(1126, 72)
+        Me.TxtCopies.Name = "TxtCopies"
+        Me.TxtCopies.Size = New System.Drawing.Size(64, 22)
+        Me.TxtCopies.TabIndex = 94
+        Me.TxtCopies.Text = "1"
+        '
+        'Label32
+        '
+        Me.Label32.AutoSize = True
+        Me.Label32.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label32.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label32.Location = New System.Drawing.Point(1061, 75)
+        Me.Label32.Name = "Label32"
+        Me.Label32.Size = New System.Drawing.Size(57, 16)
+        Me.Label32.TabIndex = 93
+        Me.Label32.Text = "Copies :"
+        '
         'EditWorkRecord
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.ClientSize = New System.Drawing.Size(1350, 695)
+        Me.Controls.Add(Me.TxtLoc)
+        Me.Controls.Add(Me.Label31)
+        Me.Controls.Add(Me.TxtCopies)
+        Me.Controls.Add(Me.Label32)
         Me.Controls.Add(Me.BtnCancel)
         Me.Controls.Add(Me.Btn_Update)
         Me.Controls.Add(Me.Label20)
@@ -1559,4 +1611,8 @@ Partial Class EditWorkRecord
     Friend WithEvents Label29 As Label
     Friend WithEvents Label30 As Label
     Friend WithEvents DtCompletedDate As DateTimePicker
+    Friend WithEvents TxtLoc As TextBox
+    Friend WithEvents Label31 As Label
+    Friend WithEvents TxtCopies As TextBox
+    Friend WithEvents Label32 As Label
 End Class

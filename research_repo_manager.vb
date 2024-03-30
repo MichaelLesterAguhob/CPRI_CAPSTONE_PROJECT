@@ -35,6 +35,8 @@ Public Class ResearchRepoManager
                     sw_abstract.display_text,
                     sw_whole_file.display_text AS whole_file_text,
                     authors.authors_name AS authors,
+                    qnty_loc.quantity,
+                    qnty_loc.location,
                 (SELECT GROUP_CONCAT('\n',co_authors.co_authors_name SEPARATOR'\n')
                     FROM co_authors
                     WHERE co_authors.co_authors_id = scholarly_works.sw_id) AS co_authors,
@@ -54,8 +56,8 @@ Public Class ResearchRepoManager
                     ON sw_abstract.abstract_id = scholarly_works.sw_id
                 INNER JOIN sw_whole_file 
                     ON sw_whole_file.whole_file_id = scholarly_works.sw_id
-
-                
+                INNER JOIN qnty_loc 
+                    ON qnty_loc.sw_id = scholarly_works.sw_id
                 "
 
             Using cmd As New MySqlCommand(query, con)

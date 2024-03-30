@@ -92,6 +92,20 @@ Public Class ViewWorks
                 reader.Close()
             End Using
 
+            'get quantity and location
+            Dim query_qnty_loc As String = "
+            SELECT * FROM `qnty_loc` WHERE `sw_id`=@id"
+            Using cmd_qnty_loc As New MySqlCommand(query_qnty_loc, con)
+                cmd_qnty_loc.Parameters.AddWithValue("@id", to_view_work_id)
+                Dim qnty_loc_reader As MySqlDataReader = cmd_qnty_loc.ExecuteReader()
+                If qnty_loc_reader.HasRows Then
+                    If qnty_loc_reader.Read Then
+                        TxtCopies.Text = qnty_loc_reader("quantity").ToString()
+                        TxtLoc.Text = qnty_loc_reader("location").ToString()
+                    End If
+                End If
+                qnty_loc_reader.Close()
+            End Using
 
             Using cmd2 As New MySqlCommand("SELECT co_authors_name, degree_program, role FROM co_authors WHERE co_authors_id=@to_view_id", con)
                 cmd2.Parameters.AddWithValue("@to_view_id", to_view_work_id)
@@ -239,4 +253,6 @@ Public Class ViewWorks
         print_clearance.Show()
 
     End Sub
+
+
 End Class

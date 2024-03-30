@@ -25,30 +25,30 @@ Partial Class Form1
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.MenuToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ResearchRepositoryManagerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BorrowingAndReturningToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.Menu2ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ResearchCourseFacilitatorAndAdviserMonitoringStatusToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.MenuToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.MyAccountToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StaffAccountToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LogOutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.BorrowingAndReturningToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ResearchCourseFacilitatorAndAdviserMonitoringStatusToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Button2 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.Panel3 = New System.Windows.Forms.Panel()
         Me.MenuStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
-        Me.Panel3.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel3.SuspendLayout()
         Me.SuspendLayout()
         '
         'MenuToolStripMenuItem
@@ -67,6 +67,12 @@ Partial Class Form1
         Me.ResearchRepositoryManagerToolStripMenuItem.Size = New System.Drawing.Size(237, 22)
         Me.ResearchRepositoryManagerToolStripMenuItem.Text = "Research Repository Manager"
         '
+        'BorrowingAndReturningToolStripMenuItem1
+        '
+        Me.BorrowingAndReturningToolStripMenuItem1.Name = "BorrowingAndReturningToolStripMenuItem1"
+        Me.BorrowingAndReturningToolStripMenuItem1.Size = New System.Drawing.Size(237, 22)
+        Me.BorrowingAndReturningToolStripMenuItem1.Text = "Book Borrowing and Returning"
+        '
         'Menu2ToolStripMenuItem
         '
         Me.Menu2ToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ResearchCourseFacilitatorAndAdviserMonitoringStatusToolStripMenuItem})
@@ -76,6 +82,12 @@ Partial Class Form1
         Me.Menu2ToolStripMenuItem.Size = New System.Drawing.Size(114, 29)
         Me.Menu2ToolStripMenuItem.Text = "Monitoring Status"
         Me.Menu2ToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'ResearchCourseFacilitatorAndAdviserMonitoringStatusToolStripMenuItem
+        '
+        Me.ResearchCourseFacilitatorAndAdviserMonitoringStatusToolStripMenuItem.Name = "ResearchCourseFacilitatorAndAdviserMonitoringStatusToolStripMenuItem"
+        Me.ResearchCourseFacilitatorAndAdviserMonitoringStatusToolStripMenuItem.Size = New System.Drawing.Size(415, 22)
+        Me.ResearchCourseFacilitatorAndAdviserMonitoringStatusToolStripMenuItem.Text = "Research Course Facilitator and Group Adviser Monitoring Status"
         '
         'MenuStrip1
         '
@@ -122,21 +134,9 @@ Partial Class Form1
         Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(146, 22)
         Me.ExitToolStripMenuItem.Text = "Exit"
         '
-        'BorrowingAndReturningToolStripMenuItem1
-        '
-        Me.BorrowingAndReturningToolStripMenuItem1.Name = "BorrowingAndReturningToolStripMenuItem1"
-        Me.BorrowingAndReturningToolStripMenuItem1.Size = New System.Drawing.Size(237, 22)
-        Me.BorrowingAndReturningToolStripMenuItem1.Text = "Book Borrowing and Returning"
-        '
-        'ResearchCourseFacilitatorAndAdviserMonitoringStatusToolStripMenuItem
-        '
-        Me.ResearchCourseFacilitatorAndAdviserMonitoringStatusToolStripMenuItem.Name = "ResearchCourseFacilitatorAndAdviserMonitoringStatusToolStripMenuItem"
-        Me.ResearchCourseFacilitatorAndAdviserMonitoringStatusToolStripMenuItem.Size = New System.Drawing.Size(415, 22)
-        Me.ResearchCourseFacilitatorAndAdviserMonitoringStatusToolStripMenuItem.Text = "Research Course Facilitator and Group Adviser Monitoring Status"
-        '
         'Panel1
         '
-        Me.Panel1.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.Panel1.BackColor = System.Drawing.SystemColors.GradientActiveCaption
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel1.Controls.Add(Me.Label2)
         Me.Panel1.Controls.Add(Me.Label1)
@@ -152,9 +152,9 @@ Partial Class Form1
         Me.Label2.ForeColor = System.Drawing.Color.Maroon
         Me.Label2.Location = New System.Drawing.Point(122, 28)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(385, 38)
+        Me.Label2.Size = New System.Drawing.Size(741, 38)
         Me.Label2.TabIndex = 2
-        Me.Label2.Text = "C P R I, CDSGA"
+        Me.Label2.Text = "CENTER FOR PUBLICATION, RESEARCH AND INNOVATION"
         '
         'Label1
         '
@@ -166,6 +166,7 @@ Partial Class Form1
         '
         'Panel2
         '
+        Me.Panel2.BackColor = System.Drawing.SystemColors.GradientActiveCaption
         Me.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel2.Controls.Add(Me.Button3)
         Me.Panel2.Controls.Add(Me.Button2)
@@ -178,47 +179,19 @@ Partial Class Form1
         Me.Panel2.Size = New System.Drawing.Size(200, 386)
         Me.Panel2.TabIndex = 3
         '
-        'Panel3
+        'Button3
         '
-        Me.Panel3.Controls.Add(Me.MenuStrip1)
-        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel3.Location = New System.Drawing.Point(200, 94)
-        Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(1046, 386)
-        Me.Panel3.TabIndex = 4
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Location = New System.Drawing.Point(70, 5)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(60, 60)
-        Me.PictureBox1.TabIndex = 1
-        Me.PictureBox1.TabStop = False
-        '
-        'Button1
-        '
-        Me.Button1.BackColor = System.Drawing.Color.Transparent
-        Me.Button1.FlatAppearance.BorderSize = 0
-        Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.InactiveCaption
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Location = New System.Drawing.Point(3, 118)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(190, 43)
-        Me.Button1.TabIndex = 1
-        Me.Button1.Text = "Manage Research Repository"
-        Me.Button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button1.UseVisualStyleBackColor = False
-        '
-        'Label3
-        '
-        Me.Label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Label3.Location = New System.Drawing.Point(3, 68)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(190, 21)
-        Me.Label3.TabIndex = 1
-        Me.Label3.Text = "Welcome, "
-        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.Button3.BackColor = System.Drawing.Color.Transparent
+        Me.Button3.FlatAppearance.BorderSize = 0
+        Me.Button3.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.InactiveCaption
+        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button3.Location = New System.Drawing.Point(5, 223)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(190, 43)
+        Me.Button3.TabIndex = 3
+        Me.Button3.Text = "Monitor RCF and RGA Status"
+        Me.Button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Button3.UseVisualStyleBackColor = False
         '
         'Button2
         '
@@ -234,19 +207,47 @@ Partial Class Form1
         Me.Button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.Button2.UseVisualStyleBackColor = False
         '
-        'Button3
+        'Label3
         '
-        Me.Button3.BackColor = System.Drawing.Color.Transparent
-        Me.Button3.FlatAppearance.BorderSize = 0
-        Me.Button3.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.InactiveCaption
-        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button3.Location = New System.Drawing.Point(5, 223)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(190, 43)
-        Me.Button3.TabIndex = 3
-        Me.Button3.Text = "Monitor RCF and RGA Status"
-        Me.Button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button3.UseVisualStyleBackColor = False
+        Me.Label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Label3.Location = New System.Drawing.Point(3, 68)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(190, 21)
+        Me.Label3.TabIndex = 1
+        Me.Label3.Text = "Welcome, "
+        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.Color.Transparent
+        Me.Button1.FlatAppearance.BorderSize = 0
+        Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.InactiveCaption
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Location = New System.Drawing.Point(3, 118)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(190, 43)
+        Me.Button1.TabIndex = 1
+        Me.Button1.Text = "Manage Research Repository"
+        Me.Button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Button1.UseVisualStyleBackColor = False
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Location = New System.Drawing.Point(70, 5)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(60, 60)
+        Me.PictureBox1.TabIndex = 1
+        Me.PictureBox1.TabStop = False
+        '
+        'Panel3
+        '
+        Me.Panel3.Controls.Add(Me.MenuStrip1)
+        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel3.Location = New System.Drawing.Point(200, 94)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(1046, 386)
+        Me.Panel3.TabIndex = 4
         '
         'Form1
         '
@@ -267,8 +268,8 @@ Partial Class Form1
         Me.MenuStrip1.PerformLayout()
         Me.Panel1.ResumeLayout(False)
         Me.Panel2.ResumeLayout(False)
-        Me.Panel3.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel3.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub

@@ -117,6 +117,10 @@ Partial Class AddWorks
         Me.BtnMinusToFieldsCnt = New System.Windows.Forms.Button()
         Me.BtnAddToFieldsCnt = New System.Windows.Forms.Button()
         Me.BtnAddNewCoAuthor = New System.Windows.Forms.Button()
+        Me.TxtCopies = New System.Windows.Forms.TextBox()
+        Me.Label26 = New System.Windows.Forms.Label()
+        Me.TxtLoc = New System.Windows.Forms.TextBox()
+        Me.Label27 = New System.Windows.Forms.Label()
         Me.PnlTxtCont.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.PnlPresented.SuspendLayout()
@@ -151,7 +155,7 @@ Partial Class AddWorks
         Me.TxtRsrchAgenda.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.TxtRsrchAgenda.Location = New System.Drawing.Point(142, 70)
         Me.TxtRsrchAgenda.Name = "TxtRsrchAgenda"
-        Me.TxtRsrchAgenda.Size = New System.Drawing.Size(930, 22)
+        Me.TxtRsrchAgenda.Size = New System.Drawing.Size(822, 22)
         Me.TxtRsrchAgenda.TabIndex = 2
         '
         'TxtRsrchTitle
@@ -161,7 +165,7 @@ Partial Class AddWorks
         Me.TxtRsrchTitle.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.TxtRsrchTitle.Location = New System.Drawing.Point(142, 98)
         Me.TxtRsrchTitle.Name = "TxtRsrchTitle"
-        Me.TxtRsrchTitle.Size = New System.Drawing.Size(930, 22)
+        Me.TxtRsrchTitle.Size = New System.Drawing.Size(822, 22)
         Me.TxtRsrchTitle.TabIndex = 4
         '
         'Label3
@@ -1255,12 +1259,60 @@ Partial Class AddWorks
         Me.BtnAddNewCoAuthor.TextAlign = System.Drawing.ContentAlignment.TopRight
         Me.BtnAddNewCoAuthor.UseVisualStyleBackColor = False
         '
+        'TxtCopies
+        '
+        Me.TxtCopies.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.TxtCopies.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtCopies.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.TxtCopies.Location = New System.Drawing.Point(1127, 70)
+        Me.TxtCopies.Name = "TxtCopies"
+        Me.TxtCopies.Size = New System.Drawing.Size(64, 22)
+        Me.TxtCopies.TabIndex = 67
+        Me.TxtCopies.Text = "1"
+        '
+        'Label26
+        '
+        Me.Label26.AutoSize = True
+        Me.Label26.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label26.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label26.Location = New System.Drawing.Point(1063, 73)
+        Me.Label26.Name = "Label26"
+        Me.Label26.Size = New System.Drawing.Size(57, 16)
+        Me.Label26.TabIndex = 66
+        Me.Label26.Text = "Copies :"
+        '
+        'TxtLoc
+        '
+        Me.TxtLoc.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.TxtLoc.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtLoc.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.TxtLoc.Location = New System.Drawing.Point(1127, 98)
+        Me.TxtLoc.Name = "TxtLoc"
+        Me.TxtLoc.Size = New System.Drawing.Size(160, 22)
+        Me.TxtLoc.TabIndex = 69
+        Me.TxtLoc.Text = "Not set"
+        '
+        'Label27
+        '
+        Me.Label27.AutoSize = True
+        Me.Label27.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label27.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label27.Location = New System.Drawing.Point(1056, 101)
+        Me.Label27.Name = "Label27"
+        Me.Label27.Size = New System.Drawing.Size(65, 16)
+        Me.Label27.TabIndex = 68
+        Me.Label27.Text = "Location :"
+        '
         'AddWorks
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.ClientSize = New System.Drawing.Size(1350, 695)
+        Me.Controls.Add(Me.TxtLoc)
+        Me.Controls.Add(Me.Label27)
+        Me.Controls.Add(Me.TxtCopies)
+        Me.Controls.Add(Me.Label26)
         Me.Controls.Add(Me.TxtAthrRole)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.TxtAthrDegprog)
@@ -1416,4 +1468,8 @@ Partial Class AddWorks
     Friend WithEvents TxtSchoolYear As TextBox
     Friend WithEvents DtCompletedDate As DateTimePicker
     Friend WithEvents Label30 As Label
+    Friend WithEvents TxtCopies As TextBox
+    Friend WithEvents Label26 As Label
+    Friend WithEvents TxtLoc As TextBox
+    Friend WithEvents Label27 As Label
 End Class
