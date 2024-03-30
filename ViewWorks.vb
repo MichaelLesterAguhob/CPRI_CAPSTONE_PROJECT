@@ -5,9 +5,9 @@ Imports System.IO
 Imports MySql.Data.MySqlClient
 
 Public Class ViewWorks
-    Dim abstract_file_path As String
+
     Dim abstract_file_data As Byte()
-    Dim abstract_file_extension As String
+
 
     Private Sub DgvSwData_CellPainting(sender As Object, e As DataGridViewCellPaintingEventArgs) Handles DgvSwData.CellPainting
 
@@ -37,11 +37,15 @@ Public Class ViewWorks
         End Try
         LoadWorkData()
         DgvSwData.ClearSelection()
+        For i = 0 To DgvSwData.Rows.Count - 1
+            DgvSwData.Rows(i).Height = 35
+        Next
+
     End Sub
 
     Dim stat As String
     Dim pub_pre As String
-    Dim pub_pre_id As String
+
     Private Sub LoadWorkData()
         con.Close()
         Try
@@ -169,22 +173,22 @@ Public Class ViewWorks
                             Dim is_all_submitted As Integer
 
                             If reader2("soft_copy_sbmttd_date").ToString <> "NO" Then
-                                LblSoft.Visible = True
+                                LblSoft.ForeColor = Color.DarkGreen
                                 is_all_submitted += 1
 
                             End If
                             If reader2("hard_copy_sbmttd_date").ToString <> "NO" Then
-                                LblHard.Visible = True
+                                LblHard.ForeColor = Color.DarkGreen
                                 is_all_submitted += 1
 
                             End If
                             If reader2("dgi_sbmttd_date").ToString <> "NO" Then
-                                LblDgi.Visible = True
+                                LblDgi.ForeColor = Color.DarkGreen
                                 is_all_submitted += 1
 
                             End If
                             If reader2("rga_ef_sbmttd_date").ToString <> "NO" Then
-                                LblRga.Visible = True
+                                LblRga.ForeColor = Color.DarkGreen
                                 is_all_submitted += 1
 
                             End If
@@ -226,7 +230,7 @@ Public Class ViewWorks
             End Using
         End Using
 
-        Return text.ToString()
+        Return ("" & Environment.NewLine & text.ToString())
     End Function
 
     Private Sub BtnPrint_Click(sender As Object, e As EventArgs) Handles BtnPrint.Click

@@ -147,6 +147,7 @@ Partial Class EditWorkRecord
         'BtnThssClrnc
         '
         Me.BtnThssClrnc.BackColor = System.Drawing.Color.LightGray
+        Me.BtnThssClrnc.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnThssClrnc.Enabled = False
         Me.BtnThssClrnc.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnThssClrnc.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -974,7 +975,7 @@ Partial Class EditWorkRecord
         Me.Label22.Name = "Label22"
         Me.Label22.Size = New System.Drawing.Size(159, 57)
         Me.Label22.TabIndex = 3
-        Me.Label22.Text = "Date Presented "
+        Me.Label22.Text = "Date Presented " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "(MM-DD-YYYY)"
         Me.Label22.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'Label23

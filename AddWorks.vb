@@ -1088,7 +1088,7 @@ Public Class AddWorks
 
     Private Sub BtnThssClrnc_Click(sender As Object, e As EventArgs) Handles BtnThssClrnc.Click
         print_clearance_id = Convert.ToInt64(TxtResearchID.Text)
-        Dim save_to_print As DialogResult = MessageBox.Show("We will saved informations you've entered before opening Print Clearance Preview", "Click 'Yes' to proceed saving.", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        Dim save_to_print As DialogResult = MessageBox.Show("We will save informations you've entered before opening Print Clearance Preview", "Click 'Yes' to proceed saving.", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
         If save_to_print = DialogResult.Yes Then
             print_clearance = True
             BtnSaveResearch.PerformClick()

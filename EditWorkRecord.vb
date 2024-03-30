@@ -736,6 +736,8 @@ Public Class EditWorkRecord
     End Sub
 
     'UPDATING MODIFIED DETAILS
+    'UPDATING DETAILS
+    Dim print_clearance As Boolean = False
     Private Sub Btn_Update_Click(sender As Object, e As EventArgs) Handles Btn_Update.Click
 
         Dim cntrl_no As Integer = Convert.ToInt64(TxtEditResearchID.Text)
@@ -834,6 +836,10 @@ Public Class EditWorkRecord
                             rrm.BtnRemoveSelection.PerformClick()
                             Me.Close()
                             MessageBox.Show("Successfully Updated", "Successful")
+                            If print_clearance = True Then
+                                Dim print_clearance As New PrintThesisClearance
+                                print_clearance.Show()
+                            End If
                         Else
                             MessageBox.Show("You entered non-numeric in the in additional information field(s)", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                         End If
@@ -868,6 +874,10 @@ Public Class EditWorkRecord
                         rrm.BtnRemoveSelection.PerformClick()
                         Me.Close()
                         MessageBox.Show("Successfully Updated", "Successful")
+                        If print_clearance = True Then
+                            Dim print_clearance As New PrintThesisClearance
+                            print_clearance.Show()
+                        End If
                     Else
                         MessageBox.Show("Fill in the blank(s)", "Check field in Additional Information", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                     End If
@@ -885,7 +895,10 @@ Public Class EditWorkRecord
                     rrm.BtnRemoveSelection.PerformClick()
                     Me.Close()
                     MessageBox.Show("Successfully Updated", "Successful")
-
+                    If print_clearance = True Then
+                        Dim print_clearance As New PrintThesisClearance
+                        print_clearance.Show()
+                    End If
                 Else
                     UpdateUpperFields(title, agenda, sem, schl_yr)
                     UpdateAuthors(author_name, auth_deg_prog, auth_role)
@@ -898,11 +911,15 @@ Public Class EditWorkRecord
                     rrm.BtnRemoveSelection.PerformClick()
                     Me.Close()
                     MessageBox.Show("Successfully Updated", "Successful")
+                    If print_clearance = True Then
+                        Dim print_clearance As New PrintThesisClearance
+                        print_clearance.Show()
+                    End If
                 End If
             End If
 
         Else
-            MessageBox.Show("001 Fill in the blank field(s) before saving", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            MessageBox.Show("Fill in the blank field(s) before saving", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End If
     End Sub
 
@@ -1767,4 +1784,13 @@ Public Class EditWorkRecord
 
     End Sub
 
+    Private Sub BtnThssClrnc_Click(sender As Object, e As EventArgs) Handles BtnThssClrnc.Click
+        print_clearance_id = Convert.ToInt64(TxtEditResearchID.Text)
+        Dim save_to_print As DialogResult = MessageBox.Show("We will save changes you've made before opening Print Clearance Preview", "Click 'Yes' to proceed saving.", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        If save_to_print = DialogResult.Yes Then
+            print_clearance = True
+            Btn_Update.PerformClick()
+        End If
+
+    End Sub
 End Class

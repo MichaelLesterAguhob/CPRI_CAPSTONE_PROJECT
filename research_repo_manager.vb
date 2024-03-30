@@ -522,7 +522,8 @@ Public Class ResearchRepoManager
         If TxtSearch.Text <> "Search Title, Author, Keyword, Abstract, Etc." And TxtSearch.Text <> "" Then
             Dim search_term As String = TxtSearch.Text.Trim
             Search(search_term)
-        Else
+        ElseIf TxtSearch.Text <> "Search Title, Author, Keyword, Abstract, Etc." Then
+
             LoadScholarlyWorks()
             LblSrchFnd.Text = ""
         End If
