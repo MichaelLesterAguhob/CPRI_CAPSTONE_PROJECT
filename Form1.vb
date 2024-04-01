@@ -26,4 +26,14 @@
         Dim open_borrowing_retruning As New BorrowingAndReturning
         open_borrowing_retruning.Show()
     End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Dim rrm As New ResearchRepoManager
+        rrm.Show()
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        Dim rcfgams As New ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus
+        rcfgams.Show()
+    End Sub
 End Class

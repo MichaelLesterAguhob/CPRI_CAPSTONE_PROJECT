@@ -969,13 +969,13 @@ Partial Class AddResearchCourseFacilitatorGroupAdviserRecord
         '
         'BtnCancel
         '
-        Me.BtnCancel.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnCancel.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.BtnCancel.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.BtnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnCancel.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.BtnCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnCancel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.BtnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnCancel.Location = New System.Drawing.Point(1090, 528)
+        Me.BtnCancel.Location = New System.Drawing.Point(253, 528)
         Me.BtnCancel.Name = "BtnCancel"
         Me.BtnCancel.Size = New System.Drawing.Size(143, 29)
         Me.BtnCancel.TabIndex = 99
@@ -984,13 +984,13 @@ Partial Class AddResearchCourseFacilitatorGroupAdviserRecord
         '
         'BtnSaveRecord
         '
-        Me.BtnSaveRecord.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnSaveRecord.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.BtnSaveRecord.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.BtnSaveRecord.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnSaveRecord.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnSaveRecord.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.BtnSaveRecord.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnSaveRecord.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.BtnSaveRecord.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnSaveRecord.Location = New System.Drawing.Point(903, 528)
+        Me.BtnSaveRecord.Location = New System.Drawing.Point(66, 528)
         Me.BtnSaveRecord.Name = "BtnSaveRecord"
         Me.BtnSaveRecord.Size = New System.Drawing.Size(143, 29)
         Me.BtnSaveRecord.TabIndex = 98

@@ -19,6 +19,9 @@ Public Class BorrowingAndReturning
     Dim initial_bor_trans_id As Integer
     Dim borrow_trans_id As Integer
 
+    'Borrower variables
+    Dim selected_borrower_id As Integer = 0
+    Dim selected_borrower_name As String = ""
     Private Sub BorrowingAndReturning_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ConOpen()
         LoadBooksList()
@@ -27,10 +30,22 @@ Public Class BorrowingAndReturning
         LoadReturnedBooksList()
         LoadOverDues()
         TxtDate.Text = date_time.Date.ToString("MM-dd-yyyy")
-        TxtTime.Text = TimeOfDay.ToString("h:mm:ss tt")
+        Timer1.Start()
+        BtnBooks.Focus()
     End Sub
 
+    Private Sub BorrowingAndReturning_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+        EmptyTempStorage()
+    End Sub
 
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+        TxtTime.Text = TimeOfDay.ToString("h:mm:ss tt")
+    End Sub
+    Private Sub DtDueDate_ValueChanged(sender As Object, e As EventArgs) Handles DtDueDate.ValueChanged
+        If DtDueDate.Value < DateTime.Today Then
+            DtDueDate.Value = DateTime.Today
+        End If
+    End Sub
 
     '==============BOOKS==================
     Private Sub LoadBooksList()
@@ -98,6 +113,25 @@ Public Class BorrowingAndReturning
     End Sub
 
 
+    Private Sub EmptyTempStorage()
+        'clearing data in temporary storage
+        con.Close()
+        Try
+            con.Open()
+            'delete 
+            Using cmd As New MySqlCommand("DELETE FROM borrow_books_temp", con)
+                cmd.Parameters.AddWithValue("@count", to_delete_temp_info)
+                cmd.ExecuteNonQuery()
+            End Using
+            LoadToBorrowTemp()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Error Occurred while deleting temp data | form closing", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            con.Close()
+        Finally
+            con.Close()
+        End Try
+    End Sub
+
     'LOADING TO BORROW BOOKS TEMP STORAGE
     Private Sub LoadToBorrowTemp()
         con.Close()
@@ -111,23 +145,26 @@ Public Class BorrowingAndReturning
                     adptr.Fill(dt)
 
                     If dt.Rows.Count > 0 Then
+
                         DataGridView1.DataSource = dt
                         DataGridView1.Refresh()
-
                         DgvToBorrow.DataSource = dt
                         DgvToBorrow.Refresh()
+
                         For i = 0 To DataGridView1.Rows.Count - 1
                             DataGridView1.Rows(i).Height = 27
                         Next
-                        DataGridView1.ClearSelection()
                         For i = 0 To DgvToBorrow.Rows.Count - 1
-                            DgvToBorrow.Rows(i).Height = 70
+                            DgvToBorrow.Rows(i).Height = 50
                         Next
 
+                        DataGridView1.ClearSelection()
                         DgvToBorrow.ClearSelection()
                     Else
                         DataGridView1.DataSource = dt
                         DataGridView1.Refresh()
+                        DgvToBorrow.DataSource = dt
+                        DgvToBorrow.Refresh()
                     End If
                 End Using
             End Using
@@ -223,6 +260,8 @@ Public Class BorrowingAndReturning
         If isAddingPanelVisible Then
             If selected_book_stat = "Unavailable" Then
                 MessageBox.Show("This Book is unvailable right now", "Unavaiable", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                selected_book_stat = ""
+                selected_book_id = 0
             Else
                 PnlAddingToBorrow.Visible = True
                 TxtBookId.Text = selected_book_id.ToString()
@@ -237,33 +276,58 @@ Public Class BorrowingAndReturning
     End Sub
 
     Private Sub BtnNext_Click(sender As Object, e As EventArgs) Handles BtnNext.Click
-        GenerateBorrowerID()
-        GenerateBorrowTransID()
-        If selected_book_stat = "Internal Borrow Only" Then
-            TxtType.ForeColor = Color.Maroon
-            TabControls.SelectedTab = TabPage6
-            BtnBooks.BackColor = Color.Transparent
-            BtnBorrower.BackColor = Color.Transparent
-            BtnBorrowedBooks.BackColor = Color.Transparent
-            BtnReturnedBooks.BackColor = Color.Transparent
-            BtnOverduesBooks.BackColor = Color.Transparent
-            TxtType.Text = selected_book_stat
-        ElseIf selected_book_stat = "Available" Then
-            TxtType.ForeColor = Color.Green
-            TabControls.SelectedTab = TabPage6
-            BtnBooks.BackColor = Color.Transparent
-            BtnBorrower.BackColor = Color.Transparent
-            BtnBorrowedBooks.BackColor = Color.Transparent
-            BtnReturnedBooks.BackColor = Color.Transparent
-            BtnOverduesBooks.BackColor = Color.Transparent
-            TxtType.Text = selected_book_stat
+        If books_count <> 1 Then
+
+            If TxtToBorrowType.Text = "Internal Borrow Only" Then
+                GenerateBorrowerID()
+                GenerateBorrowTransID()
+
+                TxtType.ForeColor = Color.Maroon
+                TabControls.SelectedTab = TabPage6
+                BtnBooks.BackColor = Color.Transparent
+                BtnBorrower.BackColor = Color.Transparent
+                BtnBorrowedBooks.BackColor = Color.Transparent
+                BtnReturnedBooks.BackColor = Color.Transparent
+                BtnOverduesBooks.BackColor = Color.Transparent
+                TxtType.Text = selected_book_stat
+
+                LoadToBorrowTemp()
+                TxtExistingBorrowerId.Focus()
+                TxtBookId.Clear()
+                TxtTitle.Clear()
+                TxtToBorrowType.Clear()
+                selected_book_id = 0
+            ElseIf TxtToBorrowType.Text = "Any" Then
+                GenerateBorrowerID()
+                GenerateBorrowTransID()
+
+                TxtType.ForeColor = Color.Green
+                TabControls.SelectedTab = TabPage6
+                BtnBooks.BackColor = Color.Transparent
+                BtnBorrower.BackColor = Color.Transparent
+                BtnBorrowedBooks.BackColor = Color.Transparent
+                BtnReturnedBooks.BackColor = Color.Transparent
+                BtnOverduesBooks.BackColor = Color.Transparent
+                TxtType.Text = selected_book_stat
+
+                LoadToBorrowTemp()
+                TxtExistingBorrowerId.Focus()
+                TxtBookId.Clear()
+                TxtTitle.Clear()
+                TxtToBorrowType.Clear()
+                selected_book_id = 0
+            Else
+                selected_book_stat = ""
+                selected_book_id = 0
+            End If
+
         End If
-        TxtExistingBorrowerId.Focus()
+
     End Sub
 
     'TEXTBOX ENTERED BORROWER'S ID HANDLE TEXTCHANGED
     Private Sub TxtExistingBorrowerId_TextChanged(sender As Object, e As EventArgs) Handles TxtExistingBorrowerId.TextChanged
-        If TxtExistingBorrowerId.Text <> "" Then
+        If TxtExistingBorrowerId.Text.Trim <> "" Then
             If IsNumeric(TxtExistingBorrowerId.Text.Trim) Then
                 Check_borrower_record()
             Else
@@ -279,7 +343,7 @@ Public Class BorrowingAndReturning
 
     'IF USER LEAVE THE BORROWER'S INPUT FIELD BALNKED
     Private Sub TxtExistingBorrowerId_Leave(sender As Object, e As EventArgs) Handles TxtExistingBorrowerId.Leave
-        If Lbl1.Text = "No record found!" Then
+        If Lbl1.Text.Trim = "No record found!" Then
             TxtExistingBorrowerId.Text = ""
             Lbl1.Text = ""
             TxtName.Text = ""
@@ -287,11 +351,6 @@ Public Class BorrowingAndReturning
             TxtPhoneNo.Text = ""
             TxtAddress.Text = ""
         End If
-    End Sub
-
-    'CONFIRM BORROWING BUTTON
-    Private Sub BtnConfirm_Click(sender As Object, e As EventArgs) Handles BtnConfirm.Click
-        Save_borrowing_info()
     End Sub
 
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
@@ -307,8 +366,27 @@ Public Class BorrowingAndReturning
         BtnRemoveTempInfo.Visible = True
     End Sub
 
-    Private Sub BtnRemoveTempInfo_Click(sender As Object, e As EventArgs) Handles BtnRemoveTempInfo.Click
+    'HANDLE CELL CLICK ON BORROWING FORM DATAGRID TAB
+    Private Sub DgvToBorrow_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DgvToBorrow.CellClick
+        Dim i As Integer = DgvToBorrow.CurrentRow.Index
+        to_delete_temp_info = DgvToBorrow.Item(1, i).Value
+        BtnRemoveToBorrow.Visible = True
+    End Sub
 
+    'BUTTON REMOVE CLICK ON BORROWING FORM TAB
+    Dim isBrtbClicked As Boolean = False
+    Private Sub BtnRemoveToBorrow_Click(sender As Object, e As EventArgs) Handles BtnRemoveToBorrow.Click
+        isBrtbClicked = True
+        RemoveToBorrow()
+    End Sub
+
+    'BUTTON REMOVE CLICK ON BOOK TAB
+    Private Sub BtnRemoveTempInfo_Click(sender As Object, e As EventArgs) Handles BtnRemoveTempInfo.Click
+        RemoveToBorrow()
+    End Sub
+
+    'CODE TO REMOVE TEMP DATA SELECTED
+    Private Sub RemoveToBorrow()
         Dim max_no As Integer = 0
         con.Close()
         Try
@@ -344,13 +422,27 @@ Public Class BorrowingAndReturning
             books_count -= 1
 
             BtnRemoveTempInfo.Visible = False
+            BtnRemoveToBorrow.Visible = False
             LoadToBorrowTemp()
+
+            If max_no = 0 And isBrtbClicked Then
+                BtnBooks.PerformClick()
+                selected_book_id = 0
+            End If
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Error Occurred on BtnRemoveTempInfo", MessageBoxButtons.OK, MessageBoxIcon.Error)
             con.Close()
         End Try
     End Sub
 
+    Private Sub BtnCancelAddedToBorrow_Click(sender As Object, e As EventArgs) Handles BtnCancelAddedToBorrow.Click
+        Dim confirmation As DialogResult = MessageBox.Show("Cancel Borrowing? All books added to will be removed.", "Please Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        If confirmation = DialogResult.Yes Then
+            EmptyTempStorage()
+            Button7.PerformClick()
+            books_count = 1
+        End If
+    End Sub
 
 
 
@@ -358,7 +450,6 @@ Public Class BorrowingAndReturning
     '==============BORROWERS==================
     Private Sub LoadBorrowersList()
         con.Close()
-
         Try
             con.Open()
             Dim query As String = "SELECT * FROM borrowers"
@@ -424,6 +515,7 @@ Public Class BorrowingAndReturning
                         Else
                             borrower_id = initial_bor_id
                             TxtGenaratedId.Text = current_year.ToString & borrower_id.ToString
+                            TxtAddBorId.Text = current_year.ToString & borrower_id.ToString
                         End If
                     End Using
                 End If
@@ -434,6 +526,189 @@ Public Class BorrowingAndReturning
             con.Close()
         End Try
     End Sub
+
+    'ADDING BORROWERS
+    Private Sub BtnGoToAddingBorrower_Click(sender As Object, e As EventArgs) Handles BtnGoToAddingBorrower.Click
+        GenerateBorrowerID()
+        TabControls.SelectedIndex = 7
+        TabControls.SelectedTab = TabPage8
+
+        TxtEditId.Visible = False
+        TxtEditName.Visible = False
+        TxtEditEmail.Visible = False
+        TxtEditAddress.Visible = False
+        TxtEditPhone.Visible = False
+        BtnUpdateBorDetails.Visible = False
+        Label19.Text = "ADD BORROWER"
+    End Sub
+    Private Sub BtnCancelAddingBorrower_Click(sender As Object, e As EventArgs) Handles BtnCancelAddingBorrower.Click
+        BtnBorrower.PerformClick()
+    End Sub
+
+    Private Sub BtnAddBorrowerInfo_Click(sender As Object, e As EventArgs) Handles BtnAddBorrowerInfo.Click
+        If TxtAddBorName.Text.Trim = "" Or TxtAddBorEmail.Text.Trim = "" Or TxtAddBorAddress.Text.Trim = "" Or TxtAddBorPhone.Text.Trim = "" Or TxtAddBorId.Text.Trim = "" Then
+            MessageBox.Show("Fill in the blank(s)", "No Input(s)", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        Else
+            AddBorrower()
+        End If
+    End Sub
+
+    Private Sub AddBorrower()
+        con.Close()
+        Try
+            con.Open()
+            Dim query As String = "
+                            INSERT INTO borrowers
+                                (`borrower_id`,`name`,`email`,`phone`,`address`)
+                            VALUES
+                                (@id, @name, @email, @phone, @address)
+                            "
+            Using cmd As New MySqlCommand(query, con)
+                cmd.Parameters.AddWithValue("@id", Convert.ToInt64(TxtAddBorId.Text.Trim))
+                cmd.Parameters.AddWithValue("@name", TxtAddBorName.Text.Trim)
+                cmd.Parameters.AddWithValue("@email", TxtAddBorEmail.Text.Trim)
+                cmd.Parameters.AddWithValue("@phone", TxtAddBorPhone.Text.Trim)
+                cmd.Parameters.AddWithValue("@address", TxtAddBorAddress.Text.Trim)
+                cmd.ExecuteNonQuery()
+            End Using
+            BtnBorrower.PerformClick()
+            MessageBox.Show("Successfully added borrower details", "Successfully Added", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Error Occurred on Adding Borrower Record", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            con.Close()
+        Finally
+            con.Close()
+        End Try
+    End Sub
+
+    'CLICKING ON BORROWERS RECORD
+    Dim selected_borrower_email As String = ""
+    Dim selected_borrower_address As String = ""
+    Dim selected_borrower_phone As String = ""
+    Private Sub DgvBorrowers_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DgvBorrowers.CellClick
+        Dim i As Integer = DgvBorrowers.CurrentRow.Index
+        selected_borrower_id = DgvBorrowers.Item(0, i).Value
+        selected_borrower_name = DgvBorrowers.Item(1, i).Value
+        selected_borrower_email = DgvBorrowers.Item(2, i).Value
+        selected_borrower_phone = DgvBorrowers.Item(3, i).Value
+        selected_borrower_address = DgvBorrowers.Item(4, i).Value
+
+        'MsgBox(selected_borrower_id)
+        BtnEditBorrower.Enabled = True
+        BtnDeleteBorrower.Enabled = True
+    End Sub
+
+    Private Sub BtnEditBorrower_Click(sender As Object, e As EventArgs) Handles BtnEditBorrower.Click
+        If selected_borrower_id = 0 Then
+            MessageBox.Show("Please select a record first", "No selected", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        Else
+            TabControls.SelectedIndex = 7
+            TabControls.SelectedTab = TabPage8
+
+            TxtEditId.Text = selected_borrower_id
+            TxtEditName.Text = selected_borrower_name
+            TxtEditEmail.Text = selected_borrower_email
+            TxtEditAddress.Text = selected_borrower_phone
+            TxtEditPhone.Text = selected_borrower_address
+            TxtEditId.Visible = True
+            TxtEditName.Visible = True
+            TxtEditEmail.Visible = True
+            TxtEditAddress.Visible = True
+            TxtEditPhone.Visible = True
+            BtnUpdateBorDetails.Visible = True
+            Label19.Text = "EDIT BORROWER DETAILS"
+        End If
+
+        'for edit
+        BtnEditBorrower.Enabled = False
+        BtnDeleteBorrower.Enabled = False
+    End Sub
+
+    'UPDATING BORROWER'S DETAILS
+    Private Sub BtnUpdateBorDetails_Click(sender As Object, e As EventArgs) Handles BtnUpdateBorDetails.Click
+        If TxtEditName.Text.Trim = "" Or TxtEditEmail.Text.Trim = "" Or TxtEditAddress.Text.Trim = "" Or TxtEditPhone.Text.Trim = "" Then
+            MessageBox.Show("Fill in the blank(s)", "No Input(s)", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        Else
+            UpdateEditedBorrowerDetails()
+        End If
+
+    End Sub
+
+    Private Sub UpdateEditedBorrowerDetails()
+        con.Close()
+        Try
+            con.Open()
+            Using cmd As New MySqlCommand("
+                    UPDATE borrowers 
+                    SET 
+                        name=@name, 
+                        email=@email, 
+                        phone=@phone, 
+                        address=@address 
+                    WHERE 
+                        borrower_id=@id", con)
+                cmd.Parameters.AddWithValue("@id", TxtEditId.Text.Trim)
+                cmd.Parameters.AddWithValue("@name", TxtEditName.Text.Trim)
+                cmd.Parameters.AddWithValue("@email", TxtEditEmail.Text.Trim)
+                cmd.Parameters.AddWithValue("@phone", TxtEditPhone.Text.Trim)
+                cmd.Parameters.AddWithValue("@address", TxtEditAddress.Text.Trim)
+                cmd.ExecuteNonQuery()
+            End Using
+            LoadBorrowersList()
+            TabControls.SelectedIndex = 1
+            TabControls.SelectedTab = TabPage2
+            TxtEditId.Visible = False
+            TxtEditName.Visible = False
+            TxtEditEmail.Visible = False
+            TxtEditAddress.Visible = False
+            TxtEditPhone.Visible = False
+            BtnUpdateBorDetails.Visible = False
+            TxtEditId.Clear()
+            TxtEditName.Clear()
+            TxtEditEmail.Clear()
+            TxtEditAddress.Clear()
+            TxtEditPhone.Clear()
+            Label19.Text = "ADD BORROWER"
+            MessageBox.Show("Successfully updated", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Error Occurred while updating borrower record", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            con.Close()
+        Finally
+            con.Close()
+        End Try
+    End Sub
+
+    Private Sub BtnDeleteBorrower_Click(sender As Object, e As EventArgs) Handles BtnDeleteBorrower.Click
+        If selected_borrower_id = 0 Then
+            MessageBox.Show("Please select a record first", "No selected", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        Else
+            Dim confirmation As DialogResult = MessageBox.Show("Delete borrower " & "[ ID: " & selected_borrower_id & " NAME: " & selected_borrower_name & " ] permanently?", "Please Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
+            If confirmation = DialogResult.Yes Then
+                con.Close()
+                Try
+                    con.Open()
+
+                    Using cmd As New MySqlCommand("DELETE FROM borrowers WHERE borrower_id = @borrower_id", con)
+                        cmd.Parameters.AddWithValue("@borrower_id", selected_borrower_id)
+                        cmd.ExecuteNonQuery()
+                    End Using
+                    LoadBorrowersList()
+                    BtnEditBorrower.Enabled = False
+                    BtnDeleteBorrower.Enabled = False
+                    MessageBox.Show("Successfully deleted", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+                Catch ex As Exception
+                    MessageBox.Show(ex.Message, "Error Occurred while deleting borrower record", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    con.Close()
+                Finally
+                    con.Close()
+                End Try
+            End If
+
+        End If
+    End Sub
+
 
     'CHECKING BORROWER'S RECORD BASED ON ENTERED ID
     Private Sub Check_borrower_record()
@@ -521,11 +796,7 @@ Public Class BorrowingAndReturning
         con.Close()
         Try
             con.Open()
-            Dim query As String = "SELECT 
-                                        borrowed_books.*, scholarly_works.title
-                                FROM borrowed_books 
-                                LEFT JOIN scholarly_works 
-                                    ON scholarly_works.sw_id=borrowed_books.book_id"
+            Dim query As String = "SELECT * FROM borrowed_books ORDER BY borrow_date DESC"
             Using cmd As New MySqlCommand(query, con)
                 Using adptr As New MySqlDataAdapter(cmd)
                     Dim dt As New DataTable()
@@ -596,27 +867,76 @@ Public Class BorrowingAndReturning
         End Try
     End Sub
 
+    'CONFIRM BORROWING BUTTON
+    Private Sub BtnConfirm_Click(sender As Object, e As EventArgs) Handles BtnConfirm.Click
+
+        If TxtName.Text.Trim = "" Or TxtPhoneNo.Text.Trim = "" Or TxtEmail.Text.Trim = "" Or TxtPhoneNo.Text.Trim = "" Then
+            MessageBox.Show("Please fill in the blank(s)", "No Input(s)", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        Else
+            Dim confirmation As DialogResult = MessageBox.Show("Save this transaction?.", "Please Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+            If confirmation = DialogResult.Yes Then
+                Save_borrowing_info()
+                isAddingPanelVisible = False
+            End If
+        End If
+
+    End Sub
+
     'SAVING BORROW INFORMATION
     Private Sub Save_borrowing_info()
         con.Close()
 
+        Dim book_ids As String = ""
+        Dim books_title As String = ""
+        Dim max_no_books_to_bor As Integer
+        Dim books_total As Integer = 0
+        con.Open()
         Try
-            con.Open()
+            Using cmd2 As New MySqlCommand("SELECT ifNull(MAX(books_count),0) FROM borrow_books_temp", con)
+                Dim reader As MySqlDataReader = cmd2.ExecuteReader()
+                If reader.HasRows Then
+                    If reader.Read() Then
+                        max_no_books_to_bor = reader(0) - 1
+                        books_total = reader(0)
+                    End If
+                End If
+                reader.Close()
+            End Using
+
+            Dim row_cntr As Integer = 0
+            Dim nmbrng As Integer = 1
+            While row_cntr <= max_no_books_to_bor
+                Dim id As String = DgvToBorrow.Item(2, row_cntr).Value.ToString
+                book_ids &= nmbrng & ".) " & id & Environment.NewLine
+                Dim title As String = DgvToBorrow.Item(3, row_cntr).Value.ToString
+                books_title &= nmbrng & ".) " & title & Environment.NewLine
+                row_cntr += 1
+                nmbrng += 1
+            End While
+            'MsgBox(book_ids & Environment.NewLine & books_title)
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Error Occurred on getting book ids and titles from datagrid", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            con.Close()
+        End Try
+
+        Try
             Dim query As String = "
-                            INSERT INTO borrowed_books
-                                (`borrow_id`,`book_id`,`borrower_id`,`borrow_date`,`due_date`,`type`, `time`)
-                            VALUES
-                                (@borrow_trans_id, @book_id, @borrower_id, @date, @to_return_date, @type, @time)
-                            "
+            INSERT INTO borrowed_books
+                (`borrow_id`,`book_ids`,`title`,`total_no_book`,`borrower_id`,`type`,`due_date`,`borrow_date`, `time`)
+            VALUES
+                (@borrow_trans_id, @book_id, @title, @total_books, @borrower_id,  @type, @to_return_date, @date, @time)
+                    "
             Using cmd As New MySqlCommand(query, con)
                 cmd.Parameters.AddWithValue("@borrow_trans_id", Convert.ToInt64(TxtBorrowTransId.Text.Trim))
-                cmd.Parameters.AddWithValue("@book_id", TxtBookId.Text.Trim)
+                cmd.Parameters.AddWithValue("@book_id", book_ids)
+                cmd.Parameters.AddWithValue("@title", books_title)
+                cmd.Parameters.AddWithValue("@total_books", books_total)
                 cmd.Parameters.AddWithValue("@date", TxtDate.Text.Trim)
                 cmd.Parameters.AddWithValue("@to_return_date", DtDueDate.Value.Date.ToString("MM-dd-yyyy"))
                 cmd.Parameters.AddWithValue("@type", TxtType.Text.Trim)
                 cmd.Parameters.AddWithValue("@time", TxtTime.Text.Trim)
 
-                If TxtExistingBorrowerId.Text = "" Then
+                If TxtExistingBorrowerId.Text.Trim = "" Then
                     cmd.Parameters.AddWithValue("@borrower_id", TxtGenaratedId.Text.Trim)
                 Else
                     cmd.Parameters.AddWithValue("@borrower_id", TxtExistingBorrowerId.Text.Trim)
@@ -624,16 +944,27 @@ Public Class BorrowingAndReturning
                 cmd.ExecuteNonQuery()
             End Using
 
-            If TxtExistingBorrowerId.Text = "" And Lbl1.Text <> "Record found" Then
+            If TxtExistingBorrowerId.Text.Trim = "" And Lbl1.Text.Trim <> "Record found" Then
                 Save_borrower_info()
             End If
 
-            MessageBox.Show("Successfully Saved Borrowing transaction at Borrowed Books", "", MessageBoxButtons.OK, MessageBoxIcon.Information)
             LoadBorrowedBooksList()
             LoadBorrowersList()
             LoadReturnedBooksList()
             LoadOverDues()
+            EmptyTempStorage()
 
+            TxtName.Clear()
+            TxtEmail.Clear()
+            TxtAddress.Clear()
+            TxtPhoneNo.Clear()
+            TxtType.Clear()
+            TxtExistingBorrowerId.Clear()
+            BtnBorrowedBooks.PerformClick()
+            PnlAddingToBorrow.Visible = False
+            books_count = 1
+            selected_book_id = 0
+            MessageBox.Show("Successfully Saved Borrowing transaction at Borrowed Books", "", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Error Occurred on Searching Borrower Record", MessageBoxButtons.OK, MessageBoxIcon.Error)
             con.Close()
@@ -668,10 +999,7 @@ Public Class BorrowingAndReturning
                 End Using
             End Using
         Catch ex As Exception
-            MessageBox.Show(ex.Message, "Error Occurred on Loading List of Returned Books", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            con.Close()
-        Finally
-            con.Close()
+
         End Try
     End Sub
 
@@ -733,6 +1061,11 @@ Public Class BorrowingAndReturning
         LoadOverDues()
     End Sub
 
+    Private Sub BtnReturn_Click(sender As Object, e As EventArgs) Handles BtnReturn.Click
+        PanelCancelled.Visible = False
+    End Sub
 
-
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        PanelCancelled.Visible = True
+    End Sub
 End Class

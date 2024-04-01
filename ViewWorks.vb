@@ -254,5 +254,11 @@ Public Class ViewWorks
 
     End Sub
 
+    Private Sub Label27_Click(sender As Object, e As EventArgs) Handles Label27.Click
 
+    End Sub
+
+    Private Sub TxtLoc_TextChanged(sender As Object, e As EventArgs) Handles TxtLoc.TextChanged
+
+    End Sub
 End Class

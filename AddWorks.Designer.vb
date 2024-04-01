@@ -331,7 +331,7 @@ Partial Class AddWorks
         Me.GroupBox1.Controls.Add(Me.BtnBrowseAbstractFile)
         Me.GroupBox1.Controls.Add(Me.Label9)
         Me.GroupBox1.Controls.Add(Me.Panel2)
-        Me.GroupBox1.Location = New System.Drawing.Point(15, 360)
+        Me.GroupBox1.Location = New System.Drawing.Point(15, 358)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(1327, 291)
         Me.GroupBox1.TabIndex = 60
@@ -1151,8 +1151,8 @@ Partial Class AddWorks
         '
         Me.BtnSaveResearch.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.BtnSaveResearch.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.BtnSaveResearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnSaveResearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnSaveResearch.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.BtnSaveResearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnSaveResearch.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.BtnSaveResearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.BtnSaveResearch.Location = New System.Drawing.Point(531, 657)
@@ -1166,8 +1166,8 @@ Partial Class AddWorks
         '
         Me.BtnCancel.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.BtnCancel.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.BtnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnCancel.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.BtnCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnCancel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.BtnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.BtnCancel.Location = New System.Drawing.Point(723, 657)

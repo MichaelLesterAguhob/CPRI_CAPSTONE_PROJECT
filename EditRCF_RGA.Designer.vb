@@ -125,7 +125,7 @@ Partial Class EditRCF_RGA
         Me.PnlRRGA.Controls.Add(Me.Panel10)
         Me.PnlRRGA.Controls.Add(Me.Label23)
         Me.PnlRRGA.Controls.Add(Me.Label24)
-        Me.PnlRRGA.Location = New System.Drawing.Point(481, 364)
+        Me.PnlRRGA.Location = New System.Drawing.Point(481, 361)
         Me.PnlRRGA.Name = "PnlRRGA"
         Me.PnlRRGA.Size = New System.Drawing.Size(752, 150)
         Me.PnlRRGA.TabIndex = 113
@@ -533,13 +533,13 @@ Partial Class EditRCF_RGA
         '
         'BtnCancel
         '
-        Me.BtnCancel.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnCancel.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.BtnCancel.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.BtnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnCancel.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.BtnCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnCancel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.BtnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnCancel.Location = New System.Drawing.Point(1092, 522)
+        Me.BtnCancel.Location = New System.Drawing.Point(248, 522)
         Me.BtnCancel.Name = "BtnCancel"
         Me.BtnCancel.Size = New System.Drawing.Size(143, 35)
         Me.BtnCancel.TabIndex = 116
@@ -548,13 +548,13 @@ Partial Class EditRCF_RGA
         '
         'BtnUpdate
         '
-        Me.BtnUpdate.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnUpdate.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.BtnUpdate.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.BtnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnUpdate.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.BtnUpdate.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnUpdate.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.BtnUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnUpdate.Location = New System.Drawing.Point(904, 522)
+        Me.BtnUpdate.Location = New System.Drawing.Point(63, 522)
         Me.BtnUpdate.Name = "BtnUpdate"
         Me.BtnUpdate.Size = New System.Drawing.Size(143, 35)
         Me.BtnUpdate.TabIndex = 115
@@ -566,7 +566,7 @@ Partial Class EditRCF_RGA
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label11.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label11.Location = New System.Drawing.Point(478, 341)
+        Me.Label11.Location = New System.Drawing.Point(478, 338)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(316, 16)
         Me.Label11.TabIndex = 114
@@ -820,7 +820,7 @@ Partial Class EditRCF_RGA
         Me.PnlInfo.Controls.Add(Me.Label8)
         Me.PnlInfo.Location = New System.Drawing.Point(12, 239)
         Me.PnlInfo.Name = "PnlInfo"
-        Me.PnlInfo.Size = New System.Drawing.Size(448, 275)
+        Me.PnlInfo.Size = New System.Drawing.Size(448, 272)
         Me.PnlInfo.TabIndex = 117
         '
         'Label7
@@ -978,7 +978,7 @@ Partial Class EditRCF_RGA
         Me.PnlRRCF.Controls.Add(Me.Label14)
         Me.PnlRRCF.Controls.Add(Me.Label13)
         Me.PnlRRCF.Controls.Add(Me.Label12)
-        Me.PnlRRCF.Location = New System.Drawing.Point(481, 81)
+        Me.PnlRRCF.Location = New System.Drawing.Point(481, 78)
         Me.PnlRRCF.Name = "PnlRRCF"
         Me.PnlRRCF.Size = New System.Drawing.Size(752, 250)
         Me.PnlRRCF.TabIndex = 109
@@ -1016,7 +1016,7 @@ Partial Class EditRCF_RGA
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label9.Location = New System.Drawing.Point(478, 56)
+        Me.Label9.Location = New System.Drawing.Point(478, 53)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(331, 16)
         Me.Label9.TabIndex = 110
