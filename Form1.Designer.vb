@@ -44,8 +44,8 @@ Partial Class Form1
         Me.Button1 = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.MenuStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -156,7 +156,7 @@ Partial Class Form1
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(741, 38)
         Me.Label2.TabIndex = 2
-        Me.Label2.Text = "CENTER FOR PUBLICATION, RESEARCH AND INNOVATION"
+        Me.Label2.Text = "Center for Publication, Research and Innovation"
         '
         'Label1
         '
@@ -184,6 +184,7 @@ Partial Class Form1
         'Button3
         '
         Me.Button3.BackColor = System.Drawing.Color.Transparent
+        Me.Button3.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Button3.FlatAppearance.BorderSize = 0
         Me.Button3.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.InactiveCaption
         Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
@@ -198,6 +199,7 @@ Partial Class Form1
         'Button2
         '
         Me.Button2.BackColor = System.Drawing.Color.Transparent
+        Me.Button2.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Button2.FlatAppearance.BorderSize = 0
         Me.Button2.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.InactiveCaption
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
@@ -223,6 +225,7 @@ Partial Class Form1
         'Button1
         '
         Me.Button1.BackColor = System.Drawing.Color.Transparent
+        Me.Button1.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Button1.FlatAppearance.BorderSize = 0
         Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.InactiveCaption
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
@@ -253,16 +256,6 @@ Partial Class Form1
         Me.Panel3.Size = New System.Drawing.Size(1046, 386)
         Me.Panel3.TabIndex = 4
         '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(68, 224)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(942, 25)
-        Me.Label4.TabIndex = 1
-        Me.Label4.Text = "THIS WILL BE THE ADMIN DASHBOARD. THIS IS WHERE ADMIN LANDED AFTER LOGGING IN"
-        '
         'Label5
         '
         Me.Label5.AutoSize = True
@@ -272,6 +265,16 @@ Partial Class Form1
         Me.Label5.Size = New System.Drawing.Size(352, 25)
         Me.Label5.TabIndex = 2
         Me.Label5.Text = "THIS FEATURE IS NOT YET DONE"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(68, 224)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(942, 25)
+        Me.Label4.TabIndex = 1
+        Me.Label4.Text = "THIS WILL BE THE ADMIN DASHBOARD. THIS IS WHERE ADMIN LANDED AFTER LOGGING IN"
         '
         'Form1
         '
