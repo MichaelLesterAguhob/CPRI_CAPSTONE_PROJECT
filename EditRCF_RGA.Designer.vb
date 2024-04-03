@@ -182,6 +182,7 @@ Partial Class EditRCF_RGA
         'RdStatSubmittedCF
         '
         Me.RdStatSubmittedCF.AutoSize = True
+        Me.RdStatSubmittedCF.Cursor = System.Windows.Forms.Cursors.Hand
         Me.RdStatSubmittedCF.Location = New System.Drawing.Point(315, 3)
         Me.RdStatSubmittedCF.Name = "RdStatSubmittedCF"
         Me.RdStatSubmittedCF.Size = New System.Drawing.Size(72, 17)
@@ -193,6 +194,7 @@ Partial Class EditRCF_RGA
         'RdStatUnsubmittedCF
         '
         Me.RdStatUnsubmittedCF.AutoSize = True
+        Me.RdStatUnsubmittedCF.Cursor = System.Windows.Forms.Cursors.Hand
         Me.RdStatUnsubmittedCF.Location = New System.Drawing.Point(315, 23)
         Me.RdStatUnsubmittedCF.Name = "RdStatUnsubmittedCF"
         Me.RdStatUnsubmittedCF.Size = New System.Drawing.Size(84, 17)
@@ -264,6 +266,7 @@ Partial Class EditRCF_RGA
         'RdStatSubmittedAL
         '
         Me.RdStatSubmittedAL.AutoSize = True
+        Me.RdStatSubmittedAL.Cursor = System.Windows.Forms.Cursors.Hand
         Me.RdStatSubmittedAL.Location = New System.Drawing.Point(315, 3)
         Me.RdStatSubmittedAL.Name = "RdStatSubmittedAL"
         Me.RdStatSubmittedAL.Size = New System.Drawing.Size(72, 17)
@@ -275,6 +278,7 @@ Partial Class EditRCF_RGA
         'RdStatUnsubmittedAL
         '
         Me.RdStatUnsubmittedAL.AutoSize = True
+        Me.RdStatUnsubmittedAL.Cursor = System.Windows.Forms.Cursors.Hand
         Me.RdStatUnsubmittedAL.Location = New System.Drawing.Point(315, 23)
         Me.RdStatUnsubmittedAL.Name = "RdStatUnsubmittedAL"
         Me.RdStatUnsubmittedAL.Size = New System.Drawing.Size(84, 17)
@@ -357,6 +361,7 @@ Partial Class EditRCF_RGA
         'Rd1stStatSubmitted
         '
         Me.Rd1stStatSubmitted.AutoSize = True
+        Me.Rd1stStatSubmitted.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Rd1stStatSubmitted.Location = New System.Drawing.Point(314, 3)
         Me.Rd1stStatSubmitted.Name = "Rd1stStatSubmitted"
         Me.Rd1stStatSubmitted.Size = New System.Drawing.Size(72, 17)
@@ -368,6 +373,7 @@ Partial Class EditRCF_RGA
         'Rd1stStatUnsubmitted
         '
         Me.Rd1stStatUnsubmitted.AutoSize = True
+        Me.Rd1stStatUnsubmitted.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Rd1stStatUnsubmitted.Location = New System.Drawing.Point(314, 23)
         Me.Rd1stStatUnsubmitted.Name = "Rd1stStatUnsubmitted"
         Me.Rd1stStatUnsubmitted.Size = New System.Drawing.Size(84, 17)
@@ -434,6 +440,7 @@ Partial Class EditRCF_RGA
         'Rd2ndStatUnsubmitted
         '
         Me.Rd2ndStatUnsubmitted.AutoSize = True
+        Me.Rd2ndStatUnsubmitted.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Rd2ndStatUnsubmitted.Location = New System.Drawing.Point(315, 23)
         Me.Rd2ndStatUnsubmitted.Name = "Rd2ndStatUnsubmitted"
         Me.Rd2ndStatUnsubmitted.Size = New System.Drawing.Size(84, 17)
@@ -490,6 +497,7 @@ Partial Class EditRCF_RGA
         'Rd3rdStatSubmitted
         '
         Me.Rd3rdStatSubmitted.AutoSize = True
+        Me.Rd3rdStatSubmitted.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Rd3rdStatSubmitted.Location = New System.Drawing.Point(315, 3)
         Me.Rd3rdStatSubmitted.Name = "Rd3rdStatSubmitted"
         Me.Rd3rdStatSubmitted.Size = New System.Drawing.Size(72, 17)
@@ -513,6 +521,7 @@ Partial Class EditRCF_RGA
         'Rd2ndStatSubmitted
         '
         Me.Rd2ndStatSubmitted.AutoSize = True
+        Me.Rd2ndStatSubmitted.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Rd2ndStatSubmitted.Location = New System.Drawing.Point(315, 3)
         Me.Rd2ndStatSubmitted.Name = "Rd2ndStatSubmitted"
         Me.Rd2ndStatSubmitted.Size = New System.Drawing.Size(72, 17)
@@ -535,6 +544,7 @@ Partial Class EditRCF_RGA
         '
         Me.BtnCancel.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.BtnCancel.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.BtnCancel.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnCancel.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.BtnCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnCancel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
@@ -550,6 +560,7 @@ Partial Class EditRCF_RGA
         '
         Me.BtnUpdate.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.BtnUpdate.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.BtnUpdate.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.BtnUpdate.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnUpdate.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
@@ -586,6 +597,7 @@ Partial Class EditRCF_RGA
         'Rd3rdStatUnsubmitted
         '
         Me.Rd3rdStatUnsubmitted.AutoSize = True
+        Me.Rd3rdStatUnsubmitted.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Rd3rdStatUnsubmitted.Location = New System.Drawing.Point(315, 23)
         Me.Rd3rdStatUnsubmitted.Name = "Rd3rdStatUnsubmitted"
         Me.Rd3rdStatUnsubmitted.Size = New System.Drawing.Size(84, 17)
@@ -608,6 +620,7 @@ Partial Class EditRCF_RGA
         'RdStageResearchProposal
         '
         Me.RdStageResearchProposal.AutoSize = True
+        Me.RdStageResearchProposal.Cursor = System.Windows.Forms.Cursors.Hand
         Me.RdStageResearchProposal.Location = New System.Drawing.Point(3, 3)
         Me.RdStageResearchProposal.Name = "RdStageResearchProposal"
         Me.RdStageResearchProposal.Size = New System.Drawing.Size(115, 17)
@@ -619,6 +632,7 @@ Partial Class EditRCF_RGA
         'RdStageFinalThesis
         '
         Me.RdStageFinalThesis.AutoSize = True
+        Me.RdStageFinalThesis.Cursor = System.Windows.Forms.Cursors.Hand
         Me.RdStageFinalThesis.Location = New System.Drawing.Point(3, 23)
         Me.RdStageFinalThesis.Name = "RdStageFinalThesis"
         Me.RdStageFinalThesis.Size = New System.Drawing.Size(131, 17)
@@ -714,6 +728,7 @@ Partial Class EditRCF_RGA
         'RdStatusFullTime
         '
         Me.RdStatusFullTime.AutoSize = True
+        Me.RdStatusFullTime.Cursor = System.Windows.Forms.Cursors.Hand
         Me.RdStatusFullTime.FlatAppearance.BorderColor = System.Drawing.Color.Black
         Me.RdStatusFullTime.FlatAppearance.BorderSize = 2
         Me.RdStatusFullTime.Location = New System.Drawing.Point(3, 3)
@@ -727,6 +742,7 @@ Partial Class EditRCF_RGA
         'RdStatusPartTime
         '
         Me.RdStatusPartTime.AutoSize = True
+        Me.RdStatusPartTime.Cursor = System.Windows.Forms.Cursors.Hand
         Me.RdStatusPartTime.FlatAppearance.BorderColor = System.Drawing.Color.Black
         Me.RdStatusPartTime.FlatAppearance.BorderSize = 2
         Me.RdStatusPartTime.Location = New System.Drawing.Point(3, 28)
@@ -846,6 +862,7 @@ Partial Class EditRCF_RGA
         'ChckBxRGA
         '
         Me.ChckBxRGA.AutoSize = True
+        Me.ChckBxRGA.Cursor = System.Windows.Forms.Cursors.Hand
         Me.ChckBxRGA.FlatAppearance.BorderColor = System.Drawing.Color.Black
         Me.ChckBxRGA.FlatAppearance.BorderSize = 2
         Me.ChckBxRGA.Location = New System.Drawing.Point(3, 28)
@@ -858,6 +875,7 @@ Partial Class EditRCF_RGA
         'ChckBxRCF
         '
         Me.ChckBxRCF.AutoSize = True
+        Me.ChckBxRCF.Cursor = System.Windows.Forms.Cursors.Hand
         Me.ChckBxRCF.FlatAppearance.BorderColor = System.Drawing.Color.Black
         Me.ChckBxRCF.FlatAppearance.BorderSize = 2
         Me.ChckBxRCF.Location = New System.Drawing.Point(3, 3)
@@ -919,6 +937,7 @@ Partial Class EditRCF_RGA
         'Rd4thStatSubmitted
         '
         Me.Rd4thStatSubmitted.AutoSize = True
+        Me.Rd4thStatSubmitted.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Rd4thStatSubmitted.Location = New System.Drawing.Point(315, 3)
         Me.Rd4thStatSubmitted.Name = "Rd4thStatSubmitted"
         Me.Rd4thStatSubmitted.Size = New System.Drawing.Size(72, 17)
@@ -930,6 +949,7 @@ Partial Class EditRCF_RGA
         'Rd4thStatUnsubmitted
         '
         Me.Rd4thStatUnsubmitted.AutoSize = True
+        Me.Rd4thStatUnsubmitted.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Rd4thStatUnsubmitted.Location = New System.Drawing.Point(315, 23)
         Me.Rd4thStatUnsubmitted.Name = "Rd4thStatUnsubmitted"
         Me.Rd4thStatUnsubmitted.Size = New System.Drawing.Size(84, 17)

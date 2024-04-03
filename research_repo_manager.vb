@@ -290,7 +290,8 @@ Public Class ResearchRepoManager
                         "DELETE FROM scholarly_works WHERE sw_id = @to_delete_id",
                         "DELETE FROM status_completed_info WHERE stat_completed_id = @to_delete_id",
                         "DELETE FROM sw_abstract WHERE abstract_id= @to_delete_id",
-                        "DELETE FROM sw_whole_file WHERE whole_file_id = @to_delete_id"
+                        "DELETE FROM sw_whole_file WHERE whole_file_id = @to_delete_id",
+                        "DELETE FROM `qnty_loc` WHERE `sw_id`= @to_delete_id"
                     }
 
                     con.Open()
@@ -304,6 +305,7 @@ Public Class ResearchRepoManager
                                 End Using
                             Next
                             transaction.Commit()
+
                             LoadScholarlyWorks()
                             BtnRemoveSelection.PerformClick()
                             BtnRemoveSelection.Visible = False
@@ -312,6 +314,8 @@ Public Class ResearchRepoManager
                         Catch ex As Exception
                             transaction.Rollback()
                             MessageBox.Show("Error Occurred: " & ex.Message, "Failed to delete selected item.", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        Finally
+                            con.Close()
                         End Try
                     End Using
                 End If

@@ -85,7 +85,7 @@ Public Class BorrowingAndReturning
                     DgvBooks.DataSource = dt
                     DgvBooks.Refresh()
                     For i = 0 To DgvBooks.Rows.Count - 1
-                        DgvBooks.Rows(i).Height = 50
+                        DgvBooks.Rows(i).Height = 70
                     Next
                     DgvBooks.ClearSelection()
                 End Using
@@ -98,7 +98,12 @@ Public Class BorrowingAndReturning
         End Try
     End Sub
 
-
+    Private Sub DgvBooks_ColumnHeaderMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DgvBooks.ColumnHeaderMouseClick
+        For i = 0 To DgvBooks.Rows.Count - 1
+            DgvBooks.Rows(i).Height = 70
+        Next
+        DgvBooks.ClearSelection()
+    End Sub
 
     '
     Private Sub BtnBooks_Click(sender As Object, e As EventArgs) Handles BtnBooks.Click
@@ -111,6 +116,12 @@ Public Class BorrowingAndReturning
         BtnReturnedBooks.BackColor = Color.Transparent
         BtnOverduesBooks.BackColor = Color.Transparent
         LoadBooksList()
+
+        BtnRemoveToBorrow.Visible = False
+        BtnEditBorrower.Enabled = False
+        BtnDeleteBorrower.Enabled = False
+        BtnCancelBorrow.Enabled = False
+        BtnReturnBooks.Enabled = False
     End Sub
 
 
@@ -509,6 +520,13 @@ Public Class BorrowingAndReturning
 
     End Sub
 
+    Private Sub DgvBorrowers_ColumnHeaderMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DgvBorrowers.ColumnHeaderMouseClick
+        For i = 0 To DgvBorrowers.Rows.Count - 1
+            DgvBorrowers.Rows(i).Height = 50
+        Next
+        DgvBorrowers.ClearSelection()
+    End Sub
+
     Private Sub BtnBorrower_Click(sender As Object, e As EventArgs) Handles BtnBorrower.Click
         TabControls.SelectedIndex = 1
         TabControls.SelectedTab = TabPage2
@@ -518,6 +536,11 @@ Public Class BorrowingAndReturning
         BtnReturnedBooks.BackColor = Color.Transparent
         BtnOverduesBooks.BackColor = Color.Transparent
         LoadBorrowersList()
+        BtnRemoveToBorrow.Visible = False
+        BtnEditBorrower.Enabled = False
+        BtnDeleteBorrower.Enabled = False
+        BtnCancelBorrow.Enabled = False
+        BtnReturnBooks.Enabled = False
     End Sub
 
     'GENERATING BORROWER ID AND CHECKING UNIQUENESS
@@ -836,7 +859,7 @@ Public Class BorrowingAndReturning
                         DgvBorrowed.DataSource = dt
                         DgvBorrowed.Refresh()
                         For i = 0 To DgvBorrowed.Rows.Count - 1
-                            DgvBorrowed.Rows(i).Height = 50
+                            DgvBorrowed.Rows(i).Height = 70
                         Next
                         DgvBorrowed.ClearSelection()
                     Else
@@ -853,6 +876,13 @@ Public Class BorrowingAndReturning
         End Try
     End Sub
 
+    Private Sub DgvBorrowed_ColumnHeaderMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DgvBorrowed.ColumnHeaderMouseClick
+        For i = 0 To DgvBorrowed.Rows.Count - 1
+            DgvBorrowed.Rows(i).Height = 70
+        Next
+        DgvBorrowed.ClearSelection()
+    End Sub
+
     Private Sub BtnBorrowedBooks_Click(sender As Object, e As EventArgs) Handles BtnBorrowedBooks.Click
         TabControls.SelectedIndex = 2
         TabControls.SelectedTab = TabPage3
@@ -862,6 +892,11 @@ Public Class BorrowingAndReturning
         BtnReturnedBooks.BackColor = Color.Transparent
         BtnOverduesBooks.BackColor = Color.Transparent
         LoadBorrowedBooksList()
+        BtnRemoveToBorrow.Visible = False
+        BtnEditBorrower.Enabled = False
+        BtnDeleteBorrower.Enabled = False
+        BtnCancelBorrow.Enabled = False
+        BtnReturnBooks.Enabled = False
     End Sub
 
     'GENERATING BORROW TRANSACTION ID AND CHECKING UNIQUENESS
@@ -1047,114 +1082,6 @@ Public Class BorrowingAndReturning
         End Try
     End Sub
 
-
-
-
-
-    '==============RETURNED BOOKS ==============================
-    Private Sub LoadReturnedBooksList()
-        con.Close()
-        Try
-            con.Open()
-            Dim query As String = "
-                SELECT 
-                    returned_books.returned_id, 
-                    returned_books.borrow_id AS returned_borrow_id, 
-                    returned_books.returned_date, 
-                    returned_books.returned_time, 
-                    borrowed_books.* 
-                FROM returned_books 
-                INNER JOIN borrowed_books 
-                    ON borrowed_books.borrow_id = returned_books.borrow_id AND borrowed_books.is_returned = 'YES'"
-            Using cmd As New MySqlCommand(query, con)
-                Using adptr As New MySqlDataAdapter(cmd)
-                    Dim dt As New DataTable()
-                    adptr.Fill(dt)
-
-                    If dt.Rows.Count > 0 Then
-                        DgvReturned.DataSource = dt
-                        DgvReturned.Refresh()
-                        For i = 0 To DgvReturned.Rows.Count - 1
-                            DgvReturned.Rows(i).Height = 50
-                        Next
-                        DgvReturned.ClearSelection()
-                    Else
-                        DgvReturned.DataSource = dt
-                        DgvReturned.Refresh()
-                    End If
-                End Using
-            End Using
-        Catch ex As Exception
-
-        End Try
-    End Sub
-
-    Private Sub BtnReturnedBooks_Click(sender As Object, e As EventArgs) Handles BtnReturnedBooks.Click
-        TabControls.SelectedIndex = 3
-        TabControls.SelectedTab = TabPage4
-        BtnReturnedBooks.BackColor = Color.PowderBlue
-
-        BtnBooks.BackColor = Color.Transparent
-        BtnBorrower.BackColor = Color.Transparent
-        BtnBorrowedBooks.BackColor = Color.Transparent
-        BtnOverduesBooks.BackColor = Color.Transparent
-        LoadReturnedBooksList()
-    End Sub
-
-
-
-    '==============OVERDUES===============================
-    Private Sub LoadOverDues()
-        con.Close()
-
-        Try
-            con.Open()
-            Dim query As String = "SELECT * FROM overdues"
-            Using cmd As New MySqlCommand(query, con)
-                Using adptr As New MySqlDataAdapter(cmd)
-                    Dim dt As New DataTable()
-                    adptr.Fill(dt)
-
-                    If dt.Rows.Count > 0 Then
-                        DgvOverdues.DataSource = dt
-                        DgvOverdues.Refresh()
-                        For i = 0 To DgvOverdues.Rows.Count - 1
-                            DgvOverdues.Rows(i).Height = 50
-                        Next
-                        DgvOverdues.ClearSelection()
-                    Else
-                        DgvOverdues.DataSource = dt
-                        DgvOverdues.Refresh()
-                    End If
-
-                End Using
-            End Using
-
-        Catch ex As Exception
-            MessageBox.Show(ex.Message, "Error Occurred on Loading List of Overdues Books", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            con.Close()
-        Finally
-            con.Close()
-        End Try
-    End Sub
-
-    Private Sub BtnOverduesBooks_Click(sender As Object, e As EventArgs) Handles BtnOverduesBooks.Click
-        TabControls.SelectedIndex = 4
-        TabControls.SelectedTab = TabPage5
-        BtnOverduesBooks.BackColor = Color.PowderBlue
-
-        BtnBooks.BackColor = Color.Transparent
-        BtnBorrower.BackColor = Color.Transparent
-        BtnBorrowedBooks.BackColor = Color.Transparent
-        BtnReturnedBooks.BackColor = Color.Transparent
-        LoadOverDues()
-    End Sub
-
-
-
-
-
-
     Private Sub BtnReturn_Click(sender As Object, e As EventArgs) Handles BtnReturn.Click
         PanelCancelled.Visible = False
     End Sub
@@ -1166,11 +1093,14 @@ Public Class BorrowingAndReturning
 
     Dim selected_borrowed_book As Integer = 0
     Private Sub DgvBorrowed_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DgvBorrowed.CellClick
-        Dim i As Integer = DgvBorrowed.CurrentRow.Index
-        selected_borrowed_book = DgvBorrowed.Item(0, i).Value
-        BtnCancelBorrow.Enabled = True
-        BtnReturnedBooks.Enabled = True
-        BtnReturnBooks.Enabled = True
+        If e.RowIndex >= 0 AndAlso e.ColumnIndex >= 0 Then
+            Dim i As Integer = DgvBorrowed.CurrentRow.Index
+            selected_borrowed_book = DgvBorrowed.Item(1, i).Value
+            BtnCancelBorrow.Enabled = True
+            BtnReturnedBooks.Enabled = True
+            BtnReturnBooks.Enabled = True
+        End If
+
     End Sub
 
     Private Sub BtnCancelBorrow_Click(sender As Object, e As EventArgs) Handles BtnCancelBorrow.Click
@@ -1286,7 +1216,12 @@ Public Class BorrowingAndReturning
             con.Close()
         End Try
     End Sub
-
+    Private Sub DgvCancelledBorrow_ColumnHeaderMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DgvCancelledBorrow.ColumnHeaderMouseClick
+        For i = 0 To DgvCancelledBorrow.Rows.Count - 1
+            DgvCancelledBorrow.Rows(i).Height = 70
+        Next
+        DgvCancelledBorrow.ClearSelection()
+    End Sub
 
     Dim initial_ret_id As Integer = 0
     Dim generated_returned_id As Integer = 0
@@ -1420,6 +1355,234 @@ Public Class BorrowingAndReturning
             End If
         End If
     End Sub
+
+
+
+    '==============RETURNED BOOKS ==============================
+    Private Sub LoadReturnedBooksList()
+        con.Close()
+        Try
+            con.Open()
+            Dim query As String = "
+                SELECT 
+                    returned_books.returned_id, 
+                    returned_books.borrow_id AS returned_borrow_id, 
+                    returned_books.returned_date, 
+                    returned_books.returned_time, 
+                    borrowed_books.count, 
+                    borrowed_books.borrow_id, 
+                    borrowed_books.book_ids, 
+                    borrowed_books.title, 
+                    borrowed_books.total_no_book, 
+                    borrowed_books.borrower_id, 
+                    borrowed_books.type, 
+                    borrowed_books.due_date, 
+                    borrowed_books.borrow_date, 
+                    borrowed_books.time, 
+                    borrowed_books.is_cancel, 
+                    borrowed_books.is_returned, 
+                    borrowed_books.is_overdue 
+                FROM returned_books 
+                INNER JOIN borrowed_books 
+                    ON borrowed_books.borrow_id = returned_books.borrow_id AND borrowed_books.is_returned = 'YES'"
+            Using cmd As New MySqlCommand(query, con)
+                Using adptr As New MySqlDataAdapter(cmd)
+                    Dim dt As New DataTable()
+                    adptr.Fill(dt)
+
+                    If dt.Rows.Count > 0 Then
+                        DgvReturned.DataSource = dt
+                        DgvReturned.Refresh()
+                        For i = 0 To DgvReturned.Rows.Count - 1
+                            DgvReturned.Rows(i).Height = 50
+                        Next
+                        DgvReturned.ClearSelection()
+                    Else
+                        DgvReturned.DataSource = dt
+                        DgvReturned.Refresh()
+                    End If
+                End Using
+            End Using
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Error Occurred on Loading LoadReturnedBooksList", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            con.Close()
+        Finally
+            con.Close()
+        End Try
+    End Sub
+
+    Private Sub DgvReturned_ColumnHeaderMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DgvReturned.ColumnHeaderMouseClick
+        For i = 0 To DgvReturned.Rows.Count - 1
+            DgvReturned.Rows(i).Height = 70
+        Next
+        DgvReturned.ClearSelection()
+    End Sub
+
+    Private Sub BtnReturnedBooks_Click(sender As Object, e As EventArgs) Handles BtnReturnedBooks.Click
+        TabControls.SelectedIndex = 3
+        TabControls.SelectedTab = TabPage4
+        BtnReturnedBooks.BackColor = Color.PowderBlue
+
+        BtnBooks.BackColor = Color.Transparent
+        BtnBorrower.BackColor = Color.Transparent
+        BtnBorrowedBooks.BackColor = Color.Transparent
+        BtnOverduesBooks.BackColor = Color.Transparent
+        LoadReturnedBooksList()
+        BtnRemoveToBorrow.Visible = False
+        BtnEditBorrower.Enabled = False
+        BtnDeleteBorrower.Enabled = False
+        BtnCancelBorrow.Enabled = False
+        BtnReturnBooks.Enabled = False
+    End Sub
+
+
+
+    '==============OVERDUES===============================
+    Private Sub LoadOverDues()
+        con.Close()
+        Try
+            con.Open()
+            Dim query As String = "SELECT 
+                                    overdues.borrow_id, 
+                                    overdues.borrower_id, 
+                                    overdues.due_date, 
+                                    overdues.overdue_days,
+                                    borrowed_books.book_ids, 
+                                    borrowed_books.title, 
+                                    borrowed_books.total_no_book, 
+                                    borrowed_books.type, 
+                                    borrowed_books.borrow_date,
+                                    borrowed_books.time
+                                FROM overdues
+                                INNER JOIN borrowed_books
+                                    ON borrowed_books.borrow_id = overdues.borrow_id
+                "
+            Using cmd As New MySqlCommand(query, con)
+                Using adptr As New MySqlDataAdapter(cmd)
+                    Dim dt As New DataTable()
+                    adptr.Fill(dt)
+
+                    If dt.Rows.Count > 0 Then
+                        DgvOverdues.DataSource = dt
+                        DgvOverdues.Refresh()
+                        For i = 0 To DgvOverdues.Rows.Count - 1
+                            DgvOverdues.Rows(i).Height = 50
+                        Next
+                        DgvOverdues.ClearSelection()
+                    Else
+                        DgvOverdues.DataSource = dt
+                        DgvOverdues.Refresh()
+                    End If
+
+                End Using
+            End Using
+
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Error Occurred on Loading List of Overdues Books", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            con.Close()
+        Finally
+            con.Close()
+        End Try
+    End Sub
+
+    Private Sub DgvOverdues_ColumnHeaderMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DgvOverdues.ColumnHeaderMouseClick
+        For i = 0 To DgvOverdues.Rows.Count - 1
+            DgvOverdues.Rows(i).Height = 70
+        Next
+        DgvOverdues.ClearSelection()
+    End Sub
+
+    Private Sub BtnOverduesBooks_Click(sender As Object, e As EventArgs) Handles BtnOverduesBooks.Click
+        TabControls.SelectedIndex = 4
+        TabControls.SelectedTab = TabPage5
+        BtnOverduesBooks.BackColor = Color.PowderBlue
+
+        BtnBooks.BackColor = Color.Transparent
+        BtnBorrower.BackColor = Color.Transparent
+        BtnBorrowedBooks.BackColor = Color.Transparent
+        BtnReturnedBooks.BackColor = Color.Transparent
+        CheckOverDuesBorrowedBooks()
+        LoadOverDues()
+        BtnRemoveToBorrow.Visible = False
+        BtnEditBorrower.Enabled = False
+        BtnDeleteBorrower.Enabled = False
+        BtnCancelBorrow.Enabled = False
+        BtnReturnBooks.Enabled = False
+    End Sub
+
+    Private Sub CheckOverDuesBorrowedBooks()
+        con.Close()
+        Try
+            con.Open()
+
+            'selecting the total record count in borrowed books
+            Dim total_borrowed_books_count As Integer = 0
+            Dim cntr As Integer = 1
+            Dim due_date As String = ""
+            Dim book_due_date As DateTime
+            Dim current_date As DateTime = DateTime.Now
+            Dim borrow_id As Integer = 0
+            Dim borrower_id As Integer = 0
+
+            Using cmd As New MySqlCommand("SELECT COUNT(*) FROM borrowed_books WHERE is_cancel='NO' AND is_returned='NO' AND is_overdue='NO'", con)
+                total_borrowed_books_count = Convert.ToInt32(cmd.ExecuteScalar())
+            End Using
+
+            'selecting record to check 1 by 1
+            While cntr <= total_borrowed_books_count
+                Using cmd As New MySqlCommand("SELECT borrow_id, borrower_id, due_date FROM borrowed_books WHERE is_cancel='NO' AND is_returned='NO'AND is_overdue='NO'", con)
+                    Dim reader As MySqlDataReader = cmd.ExecuteReader()
+
+                    If reader.HasRows AndAlso reader.Read() Then
+
+                        due_date = reader("due_date").ToString()
+                        book_due_date = DateTime.ParseExact(reader("due_date").ToString(), "MM-dd-yyyy", CultureInfo.InvariantCulture)
+
+                        borrower_id = Convert.ToInt32(reader("borrower_id"))
+                        borrow_id = Convert.ToInt32(reader("borrow_id"))
+
+                        reader.Close()
+                    End If
+                End Using
+                If book_due_date < current_date Then
+
+                    MsgBox("This book is overdue")
+                    Using cmd2 As New MySqlCommand("UPDATE borrowed_books SET is_overdue='YES' WHERE borrow_id=@id ", con)
+                        cmd2.Parameters.AddWithValue("@id", borrow_id)
+                        cmd2.ExecuteNonQuery()
+                    End Using
+
+                    Dim overdue_days As Integer = (current_date - book_due_date).Days
+
+                    Using cmd_insert As New MySqlCommand("
+                                INSERT INTO overdues
+                                    (`borrow_id`, `borrower_id`, `due_date`, `overdue_days`)
+                                VALUES
+                                    (@borrowID, @borrowerID, @dueDate, @days)", con)
+
+                        cmd_insert.Parameters.AddWithValue("@borrowID", borrow_id)
+                        cmd_insert.Parameters.AddWithValue("@borrowerID", borrower_id)
+                        cmd_insert.Parameters.AddWithValue("@dueDate", due_date)
+                        cmd_insert.Parameters.AddWithValue("@days", overdue_days)
+                        cmd_insert.ExecuteNonQuery()
+                    End Using
+                End If
+                cntr += 1
+            End While
+            con.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Error Occurred on Checking Overdues Borrowed Books", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Console.WriteLine(ex.Message)
+            con.Close()
+        Finally
+            con.Close()
+        End Try
+    End Sub
+
+
+
+
+
 
 
 End Class

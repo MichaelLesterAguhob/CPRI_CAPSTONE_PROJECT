@@ -431,6 +431,7 @@ Partial Class AddWorks
         'BtnBrowseWholeFile
         '
         Me.BtnBrowseWholeFile.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnBrowseWholeFile.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnBrowseWholeFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnBrowseWholeFile.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnBrowseWholeFile.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
@@ -512,6 +513,7 @@ Partial Class AddWorks
         'RdPreLevelNat
         '
         Me.RdPreLevelNat.AutoSize = True
+        Me.RdPreLevelNat.Cursor = System.Windows.Forms.Cursors.Hand
         Me.RdPreLevelNat.Location = New System.Drawing.Point(5, 51)
         Me.RdPreLevelNat.Name = "RdPreLevelNat"
         Me.RdPreLevelNat.Size = New System.Drawing.Size(64, 17)
@@ -523,6 +525,7 @@ Partial Class AddWorks
         'RdPreLevelInter
         '
         Me.RdPreLevelInter.AutoSize = True
+        Me.RdPreLevelInter.Cursor = System.Windows.Forms.Cursors.Hand
         Me.RdPreLevelInter.Location = New System.Drawing.Point(6, 74)
         Me.RdPreLevelInter.Name = "RdPreLevelInter"
         Me.RdPreLevelInter.Size = New System.Drawing.Size(83, 17)
@@ -534,6 +537,7 @@ Partial Class AddWorks
         'RdPreLevelLoc
         '
         Me.RdPreLevelLoc.AutoSize = True
+        Me.RdPreLevelLoc.Cursor = System.Windows.Forms.Cursors.Hand
         Me.RdPreLevelLoc.Location = New System.Drawing.Point(5, 28)
         Me.RdPreLevelLoc.Name = "RdPreLevelLoc"
         Me.RdPreLevelLoc.Size = New System.Drawing.Size(51, 17)
@@ -545,6 +549,7 @@ Partial Class AddWorks
         'RdPreLevelInsti
         '
         Me.RdPreLevelInsti.AutoSize = True
+        Me.RdPreLevelInsti.Cursor = System.Windows.Forms.Cursors.Hand
         Me.RdPreLevelInsti.Location = New System.Drawing.Point(5, 4)
         Me.RdPreLevelInsti.Name = "RdPreLevelInsti"
         Me.RdPreLevelInsti.Size = New System.Drawing.Size(78, 17)
@@ -716,6 +721,7 @@ Partial Class AddWorks
         'RdPubLevelNat
         '
         Me.RdPubLevelNat.AutoSize = True
+        Me.RdPubLevelNat.Cursor = System.Windows.Forms.Cursors.Hand
         Me.RdPubLevelNat.Location = New System.Drawing.Point(5, 51)
         Me.RdPubLevelNat.Name = "RdPubLevelNat"
         Me.RdPubLevelNat.Size = New System.Drawing.Size(64, 17)
@@ -727,6 +733,7 @@ Partial Class AddWorks
         'RdPubLevelInter
         '
         Me.RdPubLevelInter.AutoSize = True
+        Me.RdPubLevelInter.Cursor = System.Windows.Forms.Cursors.Hand
         Me.RdPubLevelInter.Location = New System.Drawing.Point(6, 74)
         Me.RdPubLevelInter.Name = "RdPubLevelInter"
         Me.RdPubLevelInter.Size = New System.Drawing.Size(83, 17)
@@ -738,6 +745,7 @@ Partial Class AddWorks
         'RdPubLevelLoc
         '
         Me.RdPubLevelLoc.AutoSize = True
+        Me.RdPubLevelLoc.Cursor = System.Windows.Forms.Cursors.Hand
         Me.RdPubLevelLoc.Location = New System.Drawing.Point(5, 28)
         Me.RdPubLevelLoc.Name = "RdPubLevelLoc"
         Me.RdPubLevelLoc.Size = New System.Drawing.Size(51, 17)
@@ -749,6 +757,7 @@ Partial Class AddWorks
         'RdPubLevelInsti
         '
         Me.RdPubLevelInsti.AutoSize = True
+        Me.RdPubLevelInsti.Cursor = System.Windows.Forms.Cursors.Hand
         Me.RdPubLevelInsti.Location = New System.Drawing.Point(5, 4)
         Me.RdPubLevelInsti.Name = "RdPubLevelInsti"
         Me.RdPubLevelInsti.Size = New System.Drawing.Size(78, 17)
@@ -886,6 +895,7 @@ Partial Class AddWorks
         'RdBtnPresented
         '
         Me.RdBtnPresented.AutoSize = True
+        Me.RdBtnPresented.Cursor = System.Windows.Forms.Cursors.Hand
         Me.RdBtnPresented.Location = New System.Drawing.Point(109, 3)
         Me.RdBtnPresented.Name = "RdBtnPresented"
         Me.RdBtnPresented.Size = New System.Drawing.Size(90, 17)
@@ -897,6 +907,7 @@ Partial Class AddWorks
         'RdBtnPub
         '
         Me.RdBtnPub.AutoSize = True
+        Me.RdBtnPub.Cursor = System.Windows.Forms.Cursors.Hand
         Me.RdBtnPub.Location = New System.Drawing.Point(3, 3)
         Me.RdBtnPub.Name = "RdBtnPub"
         Me.RdBtnPub.Size = New System.Drawing.Size(88, 17)
@@ -907,6 +918,7 @@ Partial Class AddWorks
         '
         'BtnCancelSelection
         '
+        Me.BtnCancelSelection.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnCancelSelection.FlatAppearance.BorderSize = 0
         Me.BtnCancelSelection.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
         Me.BtnCancelSelection.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
@@ -976,6 +988,7 @@ Partial Class AddWorks
         'CbxRgaEfSbmttd
         '
         Me.CbxRgaEfSbmttd.AutoSize = True
+        Me.CbxRgaEfSbmttd.Cursor = System.Windows.Forms.Cursors.Hand
         Me.CbxRgaEfSbmttd.Location = New System.Drawing.Point(9, 69)
         Me.CbxRgaEfSbmttd.Name = "CbxRgaEfSbmttd"
         Me.CbxRgaEfSbmttd.Size = New System.Drawing.Size(201, 17)
@@ -986,6 +999,7 @@ Partial Class AddWorks
         'CbxDgiSbmttd
         '
         Me.CbxDgiSbmttd.AutoSize = True
+        Me.CbxDgiSbmttd.Cursor = System.Windows.Forms.Cursors.Hand
         Me.CbxDgiSbmttd.Location = New System.Drawing.Point(9, 48)
         Me.CbxDgiSbmttd.Name = "CbxDgiSbmttd"
         Me.CbxDgiSbmttd.Size = New System.Drawing.Size(220, 17)
@@ -996,6 +1010,7 @@ Partial Class AddWorks
         'CbxHrdCpySbmttd
         '
         Me.CbxHrdCpySbmttd.AutoSize = True
+        Me.CbxHrdCpySbmttd.Cursor = System.Windows.Forms.Cursors.Hand
         Me.CbxHrdCpySbmttd.Location = New System.Drawing.Point(9, 26)
         Me.CbxHrdCpySbmttd.Name = "CbxHrdCpySbmttd"
         Me.CbxHrdCpySbmttd.Size = New System.Drawing.Size(141, 17)
@@ -1006,6 +1021,7 @@ Partial Class AddWorks
         'CbxSftCpySbmttd
         '
         Me.CbxSftCpySbmttd.AutoSize = True
+        Me.CbxSftCpySbmttd.Cursor = System.Windows.Forms.Cursors.Hand
         Me.CbxSftCpySbmttd.Location = New System.Drawing.Point(9, 5)
         Me.CbxSftCpySbmttd.Name = "CbxSftCpySbmttd"
         Me.CbxSftCpySbmttd.Size = New System.Drawing.Size(140, 17)
@@ -1066,6 +1082,7 @@ Partial Class AddWorks
         'BtnBrowseAbstractFile
         '
         Me.BtnBrowseAbstractFile.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnBrowseAbstractFile.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnBrowseAbstractFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnBrowseAbstractFile.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnBrowseAbstractFile.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
@@ -1103,6 +1120,7 @@ Partial Class AddWorks
         'RdStatCmpltd
         '
         Me.RdStatCmpltd.AutoSize = True
+        Me.RdStatCmpltd.Cursor = System.Windows.Forms.Cursors.Hand
         Me.RdStatCmpltd.Location = New System.Drawing.Point(75, 4)
         Me.RdStatCmpltd.Name = "RdStatCmpltd"
         Me.RdStatCmpltd.Size = New System.Drawing.Size(75, 17)
@@ -1114,6 +1132,7 @@ Partial Class AddWorks
         'RdStatOngng
         '
         Me.RdStatOngng.AutoSize = True
+        Me.RdStatOngng.Cursor = System.Windows.Forms.Cursors.Hand
         Me.RdStatOngng.Location = New System.Drawing.Point(4, 3)
         Me.RdStatOngng.Name = "RdStatOngng"
         Me.RdStatOngng.Size = New System.Drawing.Size(65, 17)
@@ -1134,6 +1153,7 @@ Partial Class AddWorks
         'BtnRemoveField
         '
         Me.BtnRemoveField.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnRemoveField.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnRemoveField.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnRemoveField.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnRemoveField.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
@@ -1151,6 +1171,7 @@ Partial Class AddWorks
         '
         Me.BtnSaveResearch.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.BtnSaveResearch.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.BtnSaveResearch.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnSaveResearch.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.BtnSaveResearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnSaveResearch.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
@@ -1159,13 +1180,14 @@ Partial Class AddWorks
         Me.BtnSaveResearch.Name = "BtnSaveResearch"
         Me.BtnSaveResearch.Size = New System.Drawing.Size(143, 29)
         Me.BtnSaveResearch.TabIndex = 56
-        Me.BtnSaveResearch.Text = "Save"
+        Me.BtnSaveResearch.Text = "SAVE"
         Me.BtnSaveResearch.UseVisualStyleBackColor = False
         '
         'BtnCancel
         '
         Me.BtnCancel.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.BtnCancel.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.BtnCancel.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnCancel.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.BtnCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnCancel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
@@ -1174,7 +1196,7 @@ Partial Class AddWorks
         Me.BtnCancel.Name = "BtnCancel"
         Me.BtnCancel.Size = New System.Drawing.Size(143, 29)
         Me.BtnCancel.TabIndex = 62
-        Me.BtnCancel.Text = "Cancel"
+        Me.BtnCancel.Text = "CLOSE"
         Me.BtnCancel.UseVisualStyleBackColor = False
         '
         'OpenFileDialog1
@@ -1221,6 +1243,7 @@ Partial Class AddWorks
         '
         'BtnMinusToFieldsCnt
         '
+        Me.BtnMinusToFieldsCnt.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnMinusToFieldsCnt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnMinusToFieldsCnt.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnMinusToFieldsCnt.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
@@ -1233,6 +1256,7 @@ Partial Class AddWorks
         '
         'BtnAddToFieldsCnt
         '
+        Me.BtnAddToFieldsCnt.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnAddToFieldsCnt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnAddToFieldsCnt.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnAddToFieldsCnt.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
@@ -1246,6 +1270,7 @@ Partial Class AddWorks
         'BtnAddNewCoAuthor
         '
         Me.BtnAddNewCoAuthor.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnAddNewCoAuthor.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnAddNewCoAuthor.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnAddNewCoAuthor.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnAddNewCoAuthor.ForeColor = System.Drawing.SystemColors.ActiveCaptionText

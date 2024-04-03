@@ -190,6 +190,7 @@ Partial Class EditWorkRecord
         'CbxDgiSbmttdEdtMode
         '
         Me.CbxDgiSbmttdEdtMode.AutoSize = True
+        Me.CbxDgiSbmttdEdtMode.Cursor = System.Windows.Forms.Cursors.Hand
         Me.CbxDgiSbmttdEdtMode.Location = New System.Drawing.Point(8, 48)
         Me.CbxDgiSbmttdEdtMode.Name = "CbxDgiSbmttdEdtMode"
         Me.CbxDgiSbmttdEdtMode.Size = New System.Drawing.Size(220, 17)
@@ -200,6 +201,7 @@ Partial Class EditWorkRecord
         'RdBtnPresentedEdtMode
         '
         Me.RdBtnPresentedEdtMode.AutoSize = True
+        Me.RdBtnPresentedEdtMode.Cursor = System.Windows.Forms.Cursors.Hand
         Me.RdBtnPresentedEdtMode.Location = New System.Drawing.Point(109, 3)
         Me.RdBtnPresentedEdtMode.Name = "RdBtnPresentedEdtMode"
         Me.RdBtnPresentedEdtMode.Size = New System.Drawing.Size(90, 17)
@@ -211,6 +213,7 @@ Partial Class EditWorkRecord
         'RdBtnPubEdtMode
         '
         Me.RdBtnPubEdtMode.AutoSize = True
+        Me.RdBtnPubEdtMode.Cursor = System.Windows.Forms.Cursors.Hand
         Me.RdBtnPubEdtMode.Location = New System.Drawing.Point(3, 3)
         Me.RdBtnPubEdtMode.Name = "RdBtnPubEdtMode"
         Me.RdBtnPubEdtMode.Size = New System.Drawing.Size(88, 17)
@@ -238,6 +241,7 @@ Partial Class EditWorkRecord
         'CbxRgaEfSbmttdEdtMode
         '
         Me.CbxRgaEfSbmttdEdtMode.AutoSize = True
+        Me.CbxRgaEfSbmttdEdtMode.Cursor = System.Windows.Forms.Cursors.Hand
         Me.CbxRgaEfSbmttdEdtMode.Location = New System.Drawing.Point(8, 68)
         Me.CbxRgaEfSbmttdEdtMode.Name = "CbxRgaEfSbmttdEdtMode"
         Me.CbxRgaEfSbmttdEdtMode.Size = New System.Drawing.Size(201, 17)
@@ -344,6 +348,7 @@ Partial Class EditWorkRecord
         'CbxHrdCpySbmttdEdtMode
         '
         Me.CbxHrdCpySbmttdEdtMode.AutoSize = True
+        Me.CbxHrdCpySbmttdEdtMode.Cursor = System.Windows.Forms.Cursors.Hand
         Me.CbxHrdCpySbmttdEdtMode.Location = New System.Drawing.Point(8, 26)
         Me.CbxHrdCpySbmttdEdtMode.Name = "CbxHrdCpySbmttdEdtMode"
         Me.CbxHrdCpySbmttdEdtMode.Size = New System.Drawing.Size(141, 17)
@@ -354,6 +359,7 @@ Partial Class EditWorkRecord
         'CbxSftCpySbmttdEdtMode
         '
         Me.CbxSftCpySbmttdEdtMode.AutoSize = True
+        Me.CbxSftCpySbmttdEdtMode.Cursor = System.Windows.Forms.Cursors.Hand
         Me.CbxSftCpySbmttdEdtMode.Location = New System.Drawing.Point(8, 5)
         Me.CbxSftCpySbmttdEdtMode.Name = "CbxSftCpySbmttdEdtMode"
         Me.CbxSftCpySbmttdEdtMode.Size = New System.Drawing.Size(140, 17)
@@ -469,6 +475,7 @@ Partial Class EditWorkRecord
         'RdPubLevelNatEdtMode
         '
         Me.RdPubLevelNatEdtMode.AutoSize = True
+        Me.RdPubLevelNatEdtMode.Cursor = System.Windows.Forms.Cursors.Hand
         Me.RdPubLevelNatEdtMode.Location = New System.Drawing.Point(5, 51)
         Me.RdPubLevelNatEdtMode.Name = "RdPubLevelNatEdtMode"
         Me.RdPubLevelNatEdtMode.Size = New System.Drawing.Size(64, 17)
@@ -480,6 +487,7 @@ Partial Class EditWorkRecord
         'RdPubLevelInterEdtMode
         '
         Me.RdPubLevelInterEdtMode.AutoSize = True
+        Me.RdPubLevelInterEdtMode.Cursor = System.Windows.Forms.Cursors.Hand
         Me.RdPubLevelInterEdtMode.Location = New System.Drawing.Point(6, 74)
         Me.RdPubLevelInterEdtMode.Name = "RdPubLevelInterEdtMode"
         Me.RdPubLevelInterEdtMode.Size = New System.Drawing.Size(83, 17)
@@ -491,6 +499,7 @@ Partial Class EditWorkRecord
         'RdPubLevelLocEdtMode
         '
         Me.RdPubLevelLocEdtMode.AutoSize = True
+        Me.RdPubLevelLocEdtMode.Cursor = System.Windows.Forms.Cursors.Hand
         Me.RdPubLevelLocEdtMode.Location = New System.Drawing.Point(5, 28)
         Me.RdPubLevelLocEdtMode.Name = "RdPubLevelLocEdtMode"
         Me.RdPubLevelLocEdtMode.Size = New System.Drawing.Size(51, 17)
@@ -502,6 +511,7 @@ Partial Class EditWorkRecord
         'RdPubLevelInstiEdtMode
         '
         Me.RdPubLevelInstiEdtMode.AutoSize = True
+        Me.RdPubLevelInstiEdtMode.Cursor = System.Windows.Forms.Cursors.Hand
         Me.RdPubLevelInstiEdtMode.Location = New System.Drawing.Point(5, 4)
         Me.RdPubLevelInstiEdtMode.Name = "RdPubLevelInstiEdtMode"
         Me.RdPubLevelInstiEdtMode.Size = New System.Drawing.Size(78, 17)
@@ -630,6 +640,7 @@ Partial Class EditWorkRecord
         '
         'BtnSubOnTxt
         '
+        Me.BtnSubOnTxt.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnSubOnTxt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnSubOnTxt.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnSubOnTxt.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
@@ -642,6 +653,7 @@ Partial Class EditWorkRecord
         '
         'BtnAddOnTxt
         '
+        Me.BtnAddOnTxt.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnAddOnTxt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnAddOnTxt.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnAddOnTxt.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
@@ -718,6 +730,7 @@ Partial Class EditWorkRecord
         'BtnRemoveField
         '
         Me.BtnRemoveField.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnRemoveField.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnRemoveField.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnRemoveField.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnRemoveField.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
@@ -734,6 +747,7 @@ Partial Class EditWorkRecord
         'RdEdtStatCmpltd
         '
         Me.RdEdtStatCmpltd.AutoSize = True
+        Me.RdEdtStatCmpltd.Cursor = System.Windows.Forms.Cursors.Hand
         Me.RdEdtStatCmpltd.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RdEdtStatCmpltd.Location = New System.Drawing.Point(75, 3)
         Me.RdEdtStatCmpltd.Name = "RdEdtStatCmpltd"
@@ -767,6 +781,7 @@ Partial Class EditWorkRecord
         'RdEdtStatOngng
         '
         Me.RdEdtStatOngng.AutoSize = True
+        Me.RdEdtStatOngng.Cursor = System.Windows.Forms.Cursors.Hand
         Me.RdEdtStatOngng.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RdEdtStatOngng.Location = New System.Drawing.Point(4, 3)
         Me.RdEdtStatOngng.Name = "RdEdtStatOngng"
@@ -909,6 +924,7 @@ Partial Class EditWorkRecord
         'RdPreLevelNatEdtMode
         '
         Me.RdPreLevelNatEdtMode.AutoSize = True
+        Me.RdPreLevelNatEdtMode.Cursor = System.Windows.Forms.Cursors.Hand
         Me.RdPreLevelNatEdtMode.Location = New System.Drawing.Point(5, 51)
         Me.RdPreLevelNatEdtMode.Name = "RdPreLevelNatEdtMode"
         Me.RdPreLevelNatEdtMode.Size = New System.Drawing.Size(64, 17)
@@ -920,6 +936,7 @@ Partial Class EditWorkRecord
         'RdPreLevelInterEdtMode
         '
         Me.RdPreLevelInterEdtMode.AutoSize = True
+        Me.RdPreLevelInterEdtMode.Cursor = System.Windows.Forms.Cursors.Hand
         Me.RdPreLevelInterEdtMode.Location = New System.Drawing.Point(6, 74)
         Me.RdPreLevelInterEdtMode.Name = "RdPreLevelInterEdtMode"
         Me.RdPreLevelInterEdtMode.Size = New System.Drawing.Size(83, 17)
@@ -931,6 +948,7 @@ Partial Class EditWorkRecord
         'RdPreLevelLocEdtMode
         '
         Me.RdPreLevelLocEdtMode.AutoSize = True
+        Me.RdPreLevelLocEdtMode.Cursor = System.Windows.Forms.Cursors.Hand
         Me.RdPreLevelLocEdtMode.Location = New System.Drawing.Point(5, 28)
         Me.RdPreLevelLocEdtMode.Name = "RdPreLevelLocEdtMode"
         Me.RdPreLevelLocEdtMode.Size = New System.Drawing.Size(51, 17)
@@ -942,6 +960,7 @@ Partial Class EditWorkRecord
         'RdPreLevelInstiEdtMode
         '
         Me.RdPreLevelInstiEdtMode.AutoSize = True
+        Me.RdPreLevelInstiEdtMode.Cursor = System.Windows.Forms.Cursors.Hand
         Me.RdPreLevelInstiEdtMode.Location = New System.Drawing.Point(5, 4)
         Me.RdPreLevelInstiEdtMode.Name = "RdPreLevelInstiEdtMode"
         Me.RdPreLevelInstiEdtMode.Size = New System.Drawing.Size(78, 17)
@@ -1350,6 +1369,7 @@ Partial Class EditWorkRecord
         '
         Me.BtnCancel.Anchor = System.Windows.Forms.AnchorStyles.Bottom
         Me.BtnCancel.BackColor = System.Drawing.Color.Khaki
+        Me.BtnCancel.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnCancel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
@@ -1365,6 +1385,7 @@ Partial Class EditWorkRecord
         '
         Me.Btn_Update.Anchor = System.Windows.Forms.AnchorStyles.Bottom
         Me.Btn_Update.BackColor = System.Drawing.SystemColors.InactiveCaption
+        Me.Btn_Update.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Btn_Update.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Btn_Update.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Btn_Update.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
@@ -1380,6 +1401,7 @@ Partial Class EditWorkRecord
         'BtnAddCoAuthFldEdt
         '
         Me.BtnAddCoAuthFldEdt.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnAddCoAuthFldEdt.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnAddCoAuthFldEdt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnAddCoAuthFldEdt.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnAddCoAuthFldEdt.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
