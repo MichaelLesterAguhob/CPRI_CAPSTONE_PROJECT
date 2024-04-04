@@ -7,6 +7,8 @@ Public Class ResearchRepoManager
     Dim selected_research As Integer = 0
 
     Dim sw_edit_id As Integer
+    Dim isSearchButtonUsed As Boolean = False
+    Dim isDataAlreadyLoaded As Boolean = False
 
     'MAIN FORM LOAD
     Private Sub ResearchRepoManager_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -32,12 +34,14 @@ Public Class ResearchRepoManager
             Dim query As String = "
                 SELECT 
                     scholarly_works.*, 
+                    COALESCE (published_details.date_published,'None') AS date_published,
+                    COALESCE (presented_details.date_presented,'None') AS date_presented,
                     sw_abstract.display_text,
                     sw_whole_file.display_text AS whole_file_text,
                     authors.authors_name AS authors,
                     qnty_loc.quantity,
                     qnty_loc.location,
-                (SELECT GROUP_CONCAT('\n',co_authors.co_authors_name SEPARATOR'\n')
+                (SELECT GROUP_CONCAT(co_authors.co_authors_name SEPARATOR', ')
                     FROM co_authors
                     WHERE co_authors.co_authors_id = scholarly_works.sw_id) AS co_authors,
             CONCAT('Author: ', '\n', authors.degree_program, '\n','\n','Co-Author(s): ','\n',
@@ -50,6 +54,10 @@ Public Class ResearchRepoManager
                     WHERE co_authors.co_authors_id = scholarly_works.sw_id)) AS auth_and_co_auth_role
 
                 FROM scholarly_works
+                LEFT JOIN published_details
+                    ON published_details.published_id = scholarly_works.sw_id
+                LEFT JOIN presented_details
+                    ON presented_details.presented_id = scholarly_works.sw_id
                 INNER JOIN authors 
                     ON authors.authors_id = scholarly_works.sw_id
                 INNER JOIN sw_abstract 
@@ -58,6 +66,7 @@ Public Class ResearchRepoManager
                     ON sw_whole_file.whole_file_id = scholarly_works.sw_id
                 INNER JOIN qnty_loc 
                     ON qnty_loc.sw_id = scholarly_works.sw_id
+
                 "
 
             Using cmd As New MySqlCommand(query, con)
@@ -73,6 +82,8 @@ Public Class ResearchRepoManager
                 End Using
             End Using
             DgvSwData.Refresh()
+            isDataAlreadyLoaded = True
+            LblSrchFnd.Text = ""
         Catch ex As Exception
             MessageBox.Show(ex.Message, "ERROR OCCURRED: Failed in Loading Scholarly Works")
             Console.WriteLine(ex.Message)
@@ -85,22 +96,24 @@ Public Class ResearchRepoManager
     Dim whl_abs As String
     Private Sub DgvSwData_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DgvSwData.CellClick
         If e.RowIndex >= 0 And e.ColumnIndex >= 0 Then
-            If e.ColumnIndex = 10 Then
+            If e.ColumnIndex = 12 Then
+                Dim i As Integer = DgvSwData.CurrentRow.Index
+                selected_research = DgvSwData.Item(1, i).Value
                 Dim open_file As DialogResult
                 open_file = MessageBox.Show("Open this abstract file?", "Click Yes to proceed.", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
                 If open_file = DialogResult.Yes Then
-                    Dim i As Integer = DgvSwData.CurrentRow.Index
                     selected_research = DgvSwData.Item(1, i).Value
                     whl_abs = "abstract"
                     OpenFile(selected_research)
 
                 End If
-            ElseIf e.ColumnIndex = 11 Then
+            ElseIf e.ColumnIndex = 13 Then
+                Dim i As Integer = DgvSwData.CurrentRow.Index
+                selected_research = DgvSwData.Item(1, i).Value
                 Dim open_file As DialogResult
                 open_file = MessageBox.Show("Open this whole file?", "Click Yes to proceed.", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
                 If open_file = DialogResult.Yes Then
-                    Dim i As Integer = DgvSwData.CurrentRow.Index
-                    selected_research = DgvSwData.Item(1, i).Value
+
                     whl_abs = "whole"
                     OpenFile(selected_research)
 
@@ -203,17 +216,17 @@ Public Class ResearchRepoManager
 
     ' ENTERING AND LEAVING THE SPECIFIC CELL
     Private Sub DgvSwData_CellMouseEnter(sender As Object, e As DataGridViewCellEventArgs) Handles DgvSwData.CellMouseEnter
-        If e.ColumnIndex = 10 Then
+        If e.ColumnIndex = 12 Then
             DgvSwData.Cursor = Cursors.Hand
-        ElseIf e.ColumnIndex = 11 Then
+        ElseIf e.ColumnIndex = 13 Then
             DgvSwData.Cursor = Cursors.Hand
         End If
     End Sub
 
     Private Sub DgvSwData_CellMouseLeave(sender As Object, e As DataGridViewCellEventArgs) Handles DgvSwData.CellMouseLeave
-        If e.ColumnIndex = 10 Then
+        If e.ColumnIndex = 12 Then
             DgvSwData.Cursor = Cursors.Default
-        ElseIf e.ColumnIndex = 11 Then
+        ElseIf e.ColumnIndex = 13 Then
             DgvSwData.Cursor = Cursors.Default
         End If
     End Sub
@@ -221,6 +234,13 @@ Public Class ResearchRepoManager
     'OPENING AND CLOSING OF FILTER PANEL 
     Dim open_close_filter As Integer = 0
     Private Sub BtnFilter_Click(sender As Object, e As EventArgs) Handles BtnFilter.Click
+        If Not isDataAlreadyLoaded Then
+            TxtSearch.Text = "Search Title, Author, Keyword, Abstract, Etc."
+            LblSrchFnd.Text = ""
+            LoadScholarlyWorks()
+            BtnRemoveSelection.PerformClick()
+        End If
+
         BtnFilter.Enabled = False
         If open_close_filter = 0 Then
             TmOpenFilter.Enabled = True
@@ -231,12 +251,12 @@ Public Class ResearchRepoManager
         End If
     End Sub
     Private Sub TmOpenFilter_Tick(sender As Object, e As EventArgs) Handles TmOpenFilter.Tick
-        If PnlFilter.Width >= 500 Then
+        If PnlFilter.Width >= 400 Then
             TmOpenFilter.Enabled = False
             BtnFilter.Enabled = True
         Else
-            PnlFilter.Width = PnlFilter.Width + 500
-            PnlFilter.Height = PnlFilter.Height + 400
+            PnlFilter.Width = PnlFilter.Width + 400
+            PnlFilter.Height = PnlFilter.Height + 300
         End If
     End Sub
     Private Sub TmCloseFilter_Tick(sender As Object, e As EventArgs) Handles TmCloseFilter.Tick
@@ -244,8 +264,8 @@ Public Class ResearchRepoManager
             TmCloseFilter.Enabled = False
             BtnFilter.Enabled = True
         Else
-            PnlFilter.Width = PnlFilter.Width - 500
-            PnlFilter.Height = PnlFilter.Height - 400
+            PnlFilter.Width = PnlFilter.Width - 400
+            PnlFilter.Height = PnlFilter.Height - 300
         End If
     End Sub
     Private Sub BtnCloseFilter_Click(sender As Object, e As EventArgs) Handles BtnCloseFilter.Click
@@ -253,20 +273,6 @@ Public Class ResearchRepoManager
         open_close_filter = 0
     End Sub
 
-    'CHECKING ALL CHECK BOX AT ONCE
-    Private Sub CbxAllRole_CheckedChanged(sender As Object, e As EventArgs) Handles CbxAllRole.CheckedChanged
-        If CbxAllRole.Checked Then
-            CbxFaculty.Checked = True
-            CbxAdmin.Checked = True
-            CbxStud.Checked = True
-            CbxStaff.Checked = True
-        Else
-            CbxFaculty.Checked = False
-            CbxAdmin.Checked = False
-            CbxStud.Checked = False
-            CbxStaff.Checked = False
-        End If
-    End Sub
 
     ' DELETE RESEARCH
     Private Sub BtnDelete_Click(sender As Object, e As EventArgs) Handles BtnDelete.Click
@@ -348,7 +354,7 @@ Public Class ResearchRepoManager
 
     End Sub
 
-
+    Dim isTxtSearchChangedTriggered As Boolean = False
     'SEARCHING FUNCTION
     Private Sub Search(search_term As String)
         con.Close()
@@ -357,30 +363,41 @@ Public Class ResearchRepoManager
             Dim query As String = "
             SELECT 
                 scholarly_works.*, 
-                sw_abstract.display_text,
-                sw_whole_file.display_text AS whole_file_text,
-                authors.authors_name AS authors,
-                (SELECT GROUP_CONCAT('\n', co_authors.co_authors_name SEPARATOR'\n')
+                    COALESCE (published_details.date_published,'None') AS date_published,
+                    COALESCE (presented_details.date_presented,'None') AS date_presented,
+                    sw_abstract.display_text,
+                    sw_whole_file.display_text AS whole_file_text,
+                    authors.authors_name AS authors,
+                    qnty_loc.quantity,
+                    qnty_loc.location,
+                (SELECT GROUP_CONCAT(co_authors.co_authors_name SEPARATOR', ')
                     FROM co_authors
                     WHERE co_authors.co_authors_id = scholarly_works.sw_id) AS co_authors,
-                CONCAT('Author: ', '\n', authors.degree_program, '\n','\n','Co-Author(s): ','\n',
-                    (SELECT GROUP_CONCAT(co_authors.degree_program SEPARATOR'\n')
-                        FROM co_authors   
-                        WHERE co_authors.co_authors_id = scholarly_works.sw_id)) AS auth_and_co_auth_deg_prog,
-                CONCAT('Author: ', '\n', authors.role, '\n','\n','Co-Author(s): ','\n',
-                    (SELECT GROUP_CONCAT(co_authors.role SEPARATOR'\n')
-                        FROM co_authors
-                        WHERE co_authors.co_authors_id = scholarly_works.sw_id)) AS auth_and_co_auth_role
+            CONCAT('Author: ', '\n', authors.degree_program, '\n','\n','Co-Author(s): ','\n',
+                (SELECT GROUP_CONCAT(co_authors.degree_program SEPARATOR'\n')
+                    FROM co_authors   
+                     WHERE co_authors.co_authors_id = scholarly_works.sw_id)) AS auth_and_co_auth_deg_prog,
+            CONCAT('Author: ', '\n',authors.role, '\n','\n','Co-Author(s): ','\n',
+                (SELECT GROUP_CONCAT(co_authors.role SEPARATOR'\n')
+                    FROM co_authors
+                    WHERE co_authors.co_authors_id = scholarly_works.sw_id)) AS auth_and_co_auth_role
             FROM scholarly_works
-            INNER JOIN authors 
-                ON authors.authors_id = scholarly_works.sw_id
-            INNER JOIN sw_abstract 
-                ON sw_abstract.abstract_id = scholarly_works.sw_id
-            INNER JOIN sw_whole_file 
-                ON sw_whole_file.whole_file_id = scholarly_works.sw_id
+                LEFT JOIN published_details
+                    ON published_details.published_id = scholarly_works.sw_id
+                LEFT JOIN presented_details
+                    ON presented_details.presented_id = scholarly_works.sw_id
+                INNER JOIN authors 
+                    ON authors.authors_id = scholarly_works.sw_id
+                INNER JOIN sw_abstract 
+                    ON sw_abstract.abstract_id = scholarly_works.sw_id
+                INNER JOIN sw_whole_file 
+                    ON sw_whole_file.whole_file_id = scholarly_works.sw_id
+                INNER JOIN qnty_loc 
+                    ON qnty_loc.sw_id = scholarly_works.sw_id
             
             WHERE 
             scholarly_works.sw_id LIKE @searchTerm
+            OR qnty_loc.location LIKE @searchTerm
             OR scholarly_works.title LIKE @searchTerm
             OR scholarly_works.research_agenda LIKE @searchTerm
             OR scholarly_works.semester LIKE @searchTerm
@@ -389,6 +406,9 @@ Public Class ResearchRepoManager
             OR scholarly_works.date_completed LIKE @searchTerm
             OR scholarly_works.published LIKE '" & search_term & "%'
             OR scholarly_works.presented LIKE '" & search_term & "%'
+            OR published_details.date_published LIKE @searchTerm
+            OR presented_details.date_presented LIKE @searchTerm
+          
         "
 
             Using cmd As New MySqlCommand(query, con)
@@ -403,6 +423,7 @@ Public Class ResearchRepoManager
                             DgvSwData.Rows(i).Height = 70
                         Next
                         LblSrchFnd.Text = dt.Rows.Count.ToString & " Result(s) found"
+                        isDataAlreadyLoaded = False
                     Else
                         Search_in_Auth_CoAuth(search_term)
                     End If
@@ -427,35 +448,41 @@ Public Class ResearchRepoManager
         Try
             ConOpen()
             Dim query As String = "
-                SELECT 
-                scholarly_works.*, 
-                sw_abstract.display_text,
-                sw_whole_file.display_text AS whole_file_text,
-                authors.authors_name AS authors,
-                (
-                    SELECT GROUP_CONCAT('\n', co_authors.co_authors_name SEPARATOR'\n')
+               SELECT
+               scholarly_works.*, 
+                    COALESCE (published_details.date_published,'None') AS date_published,
+                    COALESCE (presented_details.date_presented,'None') AS date_presented,
+                    sw_abstract.display_text,
+                    sw_whole_file.display_text AS whole_file_text,
+                    authors.authors_name AS authors,
+                    qnty_loc.quantity,
+                    qnty_loc.location,
+                (SELECT GROUP_CONCAT(co_authors.co_authors_name SEPARATOR', ')
                     FROM co_authors
-                    WHERE co_authors.co_authors_id = scholarly_works.sw_id
-                ) AS co_authors,
-                CONCAT('Author: ', '\n', authors.degree_program, '\n','\n','Co-Author(s): ','\n',
-                    (
-                        SELECT GROUP_CONCAT(co_authors.degree_program SEPARATOR'\n')
-                        FROM co_authors   
-                        WHERE co_authors.co_authors_id = scholarly_works.sw_id
-                    )
-                ) AS auth_and_co_auth_deg_prog,
-                CONCAT('Author: ', '\n', authors.role, '\n','\n','Co-Author(s): ','\n',
-                    (
-                        SELECT GROUP_CONCAT(co_authors.role SEPARATOR'\n')
-                        FROM co_authors
-                        WHERE co_authors.co_authors_id = scholarly_works.sw_id
-                    )
-                ) AS auth_and_co_auth_role
+                    WHERE co_authors.co_authors_id = scholarly_works.sw_id) AS co_authors,
+            CONCAT('Author: ', '\n', authors.degree_program, '\n','\n','Co-Author(s): ','\n',
+                (SELECT GROUP_CONCAT(co_authors.degree_program SEPARATOR'\n')
+                    FROM co_authors   
+                     WHERE co_authors.co_authors_id = scholarly_works.sw_id)) AS auth_and_co_auth_deg_prog,
+            CONCAT('Author: ', '\n',authors.role, '\n','\n','Co-Author(s): ','\n',
+                (SELECT GROUP_CONCAT(co_authors.role SEPARATOR'\n')
+                    FROM co_authors
+                    WHERE co_authors.co_authors_id = scholarly_works.sw_id)) AS auth_and_co_auth_role
             FROM scholarly_works
-            INNER JOIN authors ON authors.authors_id = scholarly_works.sw_id
-            INNER JOIN sw_abstract ON sw_abstract.abstract_id = scholarly_works.sw_id
-            INNER JOIN sw_whole_file ON sw_whole_file.whole_file_id = scholarly_works.sw_id
-            LEFT JOIN co_authors ON co_authors.co_authors_id = scholarly_works.sw_id
+                LEFT JOIN published_details
+                    ON published_details.published_id = scholarly_works.sw_id
+                LEFT JOIN presented_details
+                    ON presented_details.presented_id = scholarly_works.sw_id
+                INNER JOIN authors 
+                    ON authors.authors_id = scholarly_works.sw_id
+                LEFT JOIN co_authors 
+                    ON co_authors.co_authors_id = scholarly_works.sw_id
+                INNER JOIN sw_abstract 
+                    ON sw_abstract.abstract_id = scholarly_works.sw_id
+                INNER JOIN sw_whole_file 
+                    ON sw_whole_file.whole_file_id = scholarly_works.sw_id
+                INNER JOIN qnty_loc 
+                    ON qnty_loc.sw_id = scholarly_works.sw_id    
             WHERE 
                 authors.authors_name LIKE @searchTerm
                 OR co_authors.co_authors_name LIKE @searchTerm
@@ -482,10 +509,19 @@ Public Class ResearchRepoManager
                         For i = 0 To DgvSwData.Rows.Count - 1
                             DgvSwData.Rows(i).Height = 70
                         Next
+                        isDataAlreadyLoaded = False
                         LblSrchFnd.Text = dt.Rows.Count.ToString & " Result(s) found"
                     Else
-                        LblSrchFnd.Text = dt.Rows.Count.ToString & " Result(s) found"
-                        MessageBox.Show("Your search do not match to any records. Please try different keywords", "No data found.", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        If Not isTxtSearchChangedTriggered Then
+                            LblSrchFnd.Text = dt.Rows.Count.ToString & " Result(s) found"
+                            MessageBox.Show("Your search do not match to any records. Please try different keywords", "No data found.", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        Else
+                            LblSrchFnd.Text = dt.Rows.Count.ToString & " Result(s) found"
+                            DgvSwData.DataSource = dt
+                            DgvSwData.Refresh()
+                            isTxtSearchChangedTriggered = False
+                        End If
+                        isDataAlreadyLoaded = False
                     End If
 
                 End Using
@@ -501,24 +537,48 @@ Public Class ResearchRepoManager
     End Sub
 
 
+    Private Sub TxtSearch_TextChanged(sender As Object, e As EventArgs) Handles TxtSearch.TextChanged
+        Timer1.Stop()
+        Timer1.Start()
+    End Sub
+
+    Dim txt_search_clicked As Boolean = False
+    Private Sub Timer_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+        If Not isSearchButtonUsed And TxtSearch.Text.Trim <> "" And TxtSearch.Text <> "Search Title, Author, Keyword, Abstract, Etc." Then
+            isTxtSearchChangedTriggered = True
+            Dim search_term As String = TxtSearch.Text.Trim
+            Search(search_term)
+        ElseIf Not txt_search_clicked Then
+            BtnSearch.PerformClick()
+            txt_search_clicked = False
+        End If
+        Timer1.Stop()
+        isSearchButtonUsed = False
+    End Sub
+
     Private Sub TxtSearch_Click(sender As Object, e As EventArgs) Handles TxtSearch.Click
         If TxtSearch.Text = "Search Title, Author, Keyword, Abstract, Etc." Then
             TxtSearch.Text = ""
             TxtSearch.ForeColor = Color.Black
             BtnRemoveSelection.PerformClick()
+            txt_search_clicked = True
         End If
 
     End Sub
 
     Private Sub TxtSearch_Leave(sender As Object, e As EventArgs) Handles TxtSearch.Leave
-        If TxtSearch.Text = "" Then
+        If TxtSearch.Text = "" And Not isDataAlreadyLoaded Then
             TxtSearch.Text = "Search Title, Author, Keyword, Abstract, Etc."
             TxtSearch.ForeColor = Color.Gray
             LoadScholarlyWorks()
             LblSrchFnd.Text = ""
-        ElseIf TxtSearch.Text = "Search Title, Author, Keyword, Abstract, Etc." Then
+        ElseIf TxtSearch.Text = "Search Title, Author, Keyword, Abstract, Etc." And Not isDataAlreadyLoaded Then
             TxtSearch.ForeColor = Color.Gray
             LoadScholarlyWorks()
+            LblSrchFnd.Text = ""
+        ElseIf isDataAlreadyLoaded And TxtSearch.Text = "" Then
+            TxtSearch.Text = "Search Title, Author, Keyword, Abstract, Etc."
+            TxtSearch.ForeColor = Color.Gray
             LblSrchFnd.Text = ""
         End If
         BtnRemoveSelection.PerformClick()
@@ -528,8 +588,8 @@ Public Class ResearchRepoManager
         If TxtSearch.Text <> "Search Title, Author, Keyword, Abstract, Etc." And TxtSearch.Text <> "" Then
             Dim search_term As String = TxtSearch.Text.Trim
             Search(search_term)
+            isSearchButtonUsed = True
         ElseIf TxtSearch.Text <> "Search Title, Author, Keyword, Abstract, Etc." Then
-
             LoadScholarlyWorks()
             LblSrchFnd.Text = ""
         End If
@@ -539,6 +599,7 @@ Public Class ResearchRepoManager
     Private Sub TxtSearch_KeyDown(sender As Object, e As KeyEventArgs) Handles TxtSearch.KeyDown
         If e.KeyCode = 13 Then
             BtnSearch.PerformClick()
+            isSearchButtonUsed = True
         End If
     End Sub
 
@@ -552,5 +613,340 @@ Public Class ResearchRepoManager
             view_form.Show()
         End If
 
+    End Sub
+
+    '/////////////////////////APPLY FILTER SEARCH
+    Dim filter_query As String = ""
+    Dim dateToQry As String = ""
+    Dim start_date As String = ""
+    Dim end_date As String = ""
+    Dim isDateFromSet, isDateToSet As Boolean
+    Dim stat_to_query As String
+    Dim pub_to_query As String
+    Dim pres_to_query As String
+
+
+    Private Sub BtnApplyFilter_Click(sender As Object, e As EventArgs) Handles BtnApplyFilter.Click
+
+        If dateToQry = "" And stat_to_query = "" And pub_to_query = "" And pres_to_query = "" Then
+            MessageBox.Show("Please select a filter to apply.", "No Filter Applied", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        Else
+            ApplyFilterSearch()
+        End If
+
+    End Sub
+
+    Private Sub ApplyFilterSearch()
+
+        Try
+            filter_query = "
+                SELECT 
+                scholarly_works.*, 
+                    COALESCE (published_details.date_published,'None') AS date_published,
+                    COALESCE (presented_details.date_presented,'None') AS date_presented,
+                    sw_abstract.display_text,
+                    sw_whole_file.display_text AS whole_file_text,
+                    authors.authors_name AS authors,
+                    qnty_loc.quantity,
+                    qnty_loc.location,
+                (SELECT GROUP_CONCAT(co_authors.co_authors_name SEPARATOR', ')
+                    FROM co_authors
+                    WHERE co_authors.co_authors_id = scholarly_works.sw_id) AS co_authors,
+            CONCAT('Author: ', '\n', authors.degree_program, '\n','\n','Co-Author(s): ','\n',
+                (SELECT GROUP_CONCAT(co_authors.degree_program SEPARATOR'\n')
+                    FROM co_authors   
+                     WHERE co_authors.co_authors_id = scholarly_works.sw_id)) AS auth_and_co_auth_deg_prog,
+            CONCAT('Author: ', '\n',authors.role, '\n','\n','Co-Author(s): ','\n',
+                (SELECT GROUP_CONCAT(co_authors.role SEPARATOR'\n')
+                    FROM co_authors
+                    WHERE co_authors.co_authors_id = scholarly_works.sw_id)) AS auth_and_co_auth_role
+            FROM scholarly_works
+                LEFT JOIN published_details
+                    ON published_details.published_id = scholarly_works.sw_id
+                LEFT JOIN presented_details
+                    ON presented_details.presented_id = scholarly_works.sw_id
+                INNER JOIN authors 
+                    ON authors.authors_id = scholarly_works.sw_id
+                INNER JOIN sw_abstract 
+                    ON sw_abstract.abstract_id = scholarly_works.sw_id
+                INNER JOIN sw_whole_file 
+                    ON sw_whole_file.whole_file_id = scholarly_works.sw_id
+                INNER JOIN qnty_loc 
+                    ON qnty_loc.sw_id = scholarly_works.sw_id
+            
+                WHERE " & dateToQry & stat_to_query & pub_to_query & pres_to_query
+
+            Using cmd As New MySqlCommand(filter_query, con)
+                cmd.Parameters.AddWithValue("@start_date", start_date)
+                cmd.Parameters.AddWithValue("@end_date", end_date)
+                cmd.Parameters.AddWithValue("@comple", "Completed")
+                cmd.Parameters.AddWithValue("@ongo", "Ongoing")
+                cmd.Parameters.AddWithValue("@pub_yes", "Published")
+                cmd.Parameters.AddWithValue("@pub_no", "Unpublished")
+                cmd.Parameters.AddWithValue("@pres_yes", "Presented")
+                cmd.Parameters.AddWithValue("@pres_no", "Unpresented")
+                Using adptr As New MySqlDataAdapter(cmd)
+                    Dim dt As New DataTable()
+                    adptr.Fill(dt)
+                    If dt.Rows.Count > 0 Then
+                        DgvSwData.DataSource = dt
+                        DgvSwData.Refresh()
+                        For i = 0 To DgvSwData.Rows.Count - 1
+                            DgvSwData.Rows(i).Height = 70
+                        Next
+                        LblSrchFnd.Text = dt.Rows.Count.ToString & " Result(s) found"
+                    Else
+                        DgvSwData.DataSource = dt
+                        DgvSwData.Refresh()
+                        LblSrchFnd.Text = dt.Rows.Count.ToString & " Result(s) found"
+                    End If
+                End Using
+            End Using
+            DgvSwData.ClearSelection()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "ERROR on Filtering Search")
+        Finally
+            con.Close()
+        End Try
+
+    End Sub
+
+    Private Sub SetQuery()
+        If isDateFromSet And isDateToSet Then
+            start_date = DtFrom.Value.ToString("MM-dd-yyyy")
+            end_date = DtTo.Value.ToString("MM-dd-yyyy")
+
+            dateToQry = " date_completed >= @start_date AND date_completed <= @end_date "
+        ElseIf isDateFromSet Then
+            start_date = DtFrom.Value.ToString("MM-dd-yyyy")
+
+            dateToQry = " date_completed = @start_date "
+            'MsgBox(dateToQry)
+        ElseIf isDateToSet Then
+            end_date = DtTo.Value.ToString("MM-dd-yyyy")
+
+            dateToQry = " date_completed = @end_date "
+            'MsgBox(dateToQry)
+        End If
+
+        'status
+        If RdCompleted.Checked = True Then
+            stat_to_query = " status_ongoing_completed=@comple"
+        ElseIf RdOngoing.Checked = True Then
+            stat_to_query = " status_ongoing_completed=@ongo"
+        Else
+            stat_to_query = ""
+        End If
+
+        'published yes no
+        If RdPubYes.Checked = True Then
+            pub_to_query = " published=@pub_yes"
+        ElseIf RdPubNo.Checked = True Then
+            pub_to_query = " published=@pub_no"
+        Else
+            pub_to_query = ""
+        End If
+
+        'presented yes no
+        If RdPreYes.Checked = True Then
+            pres_to_query = " presented=@pres_yes"
+        ElseIf RdPreNo.Checked = True Then
+            pres_to_query = " presented=@pres_no"
+        Else
+            pres_to_query = ""
+        End If
+
+
+        '//
+        If isDateFromSet Or isDateToSet Then
+            If isDateFromSet And isDateToSet Then
+                start_date = DtFrom.Value.ToString("MM-dd-yyyy")
+                end_date = DtTo.Value.ToString("MM-dd-yyyy")
+
+                dateToQry = " date_completed >= @start_date AND date_completed <= @end_date "
+
+                LblFilteredDate.Text = "Filter date : FROM " & start_date & " TO " & end_date
+            Else
+                LblFilteredDate.Text = "Filter date : " & start_date & end_date
+            End If
+
+            'status
+            If RdCompleted.Checked = True Then
+                stat_to_query = " AND status_ongoing_completed=@comple"
+            ElseIf RdOngoing.Checked = True Then
+                stat_to_query = " AND status_ongoing_completed=@ongo"
+            Else
+                stat_to_query = ""
+            End If
+
+            'published yes no
+            If RdPubYes.Checked = True Then
+                pub_to_query = " AND published=@pub_yes"
+            ElseIf RdPubNo.Checked = True Then
+                pub_to_query = " AND published=@pub_no"
+            Else
+                pub_to_query = ""
+            End If
+
+            'presented yes no
+            If RdPreYes.Checked = True Then
+                pres_to_query = " AND presented=@pres_yes"
+            ElseIf RdPreNo.Checked = True Then
+                pres_to_query = " AND presented=@pres_no"
+            Else
+                pres_to_query = ""
+            End If
+
+        ElseIf RdCompleted.Checked = True Or RdOngoing.Checked = True Then
+            'published yes no
+            If RdPubYes.Checked = True Then
+                pub_to_query = " AND published='Published'"
+            ElseIf RdPubNo.Checked = True Then
+                pub_to_query = " AND published='Unpublished'"
+            Else
+                pub_to_query = ""
+            End If
+
+            'presented yes no
+            If RdPreYes.Checked = True Then
+                pres_to_query = " AND presented='Presented'"
+            ElseIf RdPreNo.Checked = True Then
+                pres_to_query = " AND presented='Unpresented'"
+            Else
+                pres_to_query = ""
+            End If
+
+        End If
+
+    End Sub
+
+    '//
+    Private Sub DtFrom_ValueChanged(sender As Object, e As EventArgs) Handles DtFrom.ValueChanged
+        isDateFromSet = True
+        SetQuery()
+        BtnClearDate.Visible = True
+    End Sub
+
+    Private Sub DtTo_ValueChanged(sender As Object, e As EventArgs) Handles DtTo.ValueChanged
+        isDateToSet = True
+        SetQuery()
+        BtnClearDate.Visible = True
+    End Sub
+
+
+
+    'SETTING STATUS VARIABLE VALUE
+    Private Sub RdOngoing_Click(sender As Object, e As EventArgs) Handles RdOngoing.Click
+        SetQuery()
+        BtnClearStatus.Visible = True
+    End Sub
+
+    Private Sub RdCompleted_Click(sender As Object, e As EventArgs) Handles RdCompleted.Click
+        SetQuery()
+        BtnClearStatus.Visible = True
+    End Sub
+
+    'SETTNG PUBLISHED PRESENTED VARAIBLE
+    Private Sub RdPubNo_Click(sender As Object, e As EventArgs) Handles RdPubNo.Click
+        RdPreNo.Checked = False
+        RdPreYes.Checked = False
+        SetQuery()
+        BtnClearPublished.Visible = True
+        BtnClearPresented.Visible = False
+    End Sub
+
+    Private Sub RdPubYes_Click(sender As Object, e As EventArgs) Handles RdPubYes.Click
+        RdPreNo.Checked = False
+        RdPreYes.Checked = False
+        SetQuery()
+        BtnClearPublished.Visible = True
+        BtnClearPresented.Visible = False
+    End Sub
+
+    Private Sub RdPreNo_Click(sender As Object, e As EventArgs) Handles RdPreNo.Click
+        RdPubNo.Checked = False
+        RdPubYes.Checked = False
+        SetQuery()
+        BtnClearPresented.Visible = True
+        BtnClearPublished.Visible = False
+    End Sub
+
+    Private Sub RdPreYes_Click(sender As Object, e As EventArgs) Handles RdPreYes.Click
+        RdPubNo.Checked = False
+        RdPubYes.Checked = False
+        SetQuery()
+        BtnClearPresented.Visible = True
+        BtnClearPublished.Visible = False
+    End Sub
+
+    'CLEAR STAT
+    Private Sub BtnClearStatus_Click(sender As Object, e As EventArgs) Handles BtnClearStatus.Click
+        RdOngoing.Checked = False
+        RdCompleted.Checked = False
+        stat_to_query = ""
+        BtnClearStatus.Visible = False
+        SetQuery()
+    End Sub
+
+    'CLEAR PUBLISHED
+    Private Sub BtnClearPublished_Click(sender As Object, e As EventArgs) Handles BtnClearPublished.Click
+        RdPubNo.Checked = False
+        RdPubYes.Checked = False
+        pub_to_query = ""
+        BtnClearPublished.Visible = False
+        BtnClearDate.Visible = False
+        BtnClearPresented.Visible = False
+        SetQuery()
+    End Sub
+
+    'CLEAR PRESENTED
+    Private Sub BtnClearPresented_Click(sender As Object, e As EventArgs) Handles BtnClearPresented.Click
+        BtnClearPresented.Visible = False
+        BtnClearPublished.Visible = False
+        RdPreNo.Checked = False
+        RdPreYes.Checked = False
+        pres_to_query = ""
+        SetQuery()
+    End Sub
+
+    'CLEAR DATE
+    Private Sub BtnClearDate_Click(sender As Object, e As EventArgs) Handles BtnClearDate.Click
+        dateToQry = ""
+        LblFilteredDate.Text = ""
+        start_date = ""
+        end_date = ""
+        isDateFromSet = False
+        isDateToSet = False
+        BtnClearDate.Visible = False
+        SetQuery()
+    End Sub
+
+    'RESET FILTER
+    Private Sub BtnResetFilter_Click(sender As Object, e As EventArgs) Handles BtnResetFilter.Click
+        RdOngoing.Checked = False
+        RdCompleted.Checked = False
+        stat_to_query = ""
+
+        RdPubNo.Checked = False
+        RdPubYes.Checked = False
+        pub_to_query = ""
+
+        RdPreNo.Checked = False
+        RdPreYes.Checked = False
+        pres_to_query = ""
+
+        dateToQry = ""
+        LblFilteredDate.Text = ""
+        start_date = ""
+        end_date = ""
+        isDateFromSet = False
+        isDateToSet = False
+
+
+        BtnClearDate.Visible = False
+        BtnClearStatus.Visible = False
+        BtnClearPublished.Visible = False
+        BtnClearPresented.Visible = False
+        LoadScholarlyWorks()
     End Sub
 End Class

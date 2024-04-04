@@ -22,7 +22,7 @@ Module db_connection
             ' MessageBox.Show("Connection Stablished", "Successfully Connected to the Database", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
         Catch ex As Exception
-            MessageBox.Show(ex.Message, "Can't Connect to the Database.", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show(ex.Message, "Connection Problem Occurred.", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
 
     End Sub

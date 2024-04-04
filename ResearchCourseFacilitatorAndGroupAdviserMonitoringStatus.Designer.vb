@@ -35,7 +35,6 @@ Partial Class ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus
         Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.BtnRemoveSelection = New System.Windows.Forms.Button()
         Me.TxtSearch = New System.Windows.Forms.TextBox()
         Me.DgvSwData = New System.Windows.Forms.DataGridView()
@@ -50,11 +49,6 @@ Partial Class ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus
         Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BtnFilter = New System.Windows.Forms.Button()
-        Me.BtnDelete = New System.Windows.Forms.Button()
-        Me.BtnEdit = New System.Windows.Forms.Button()
-        Me.BtnSearch = New System.Windows.Forms.Button()
-        Me.BtnAddRCFGARecord = New System.Windows.Forms.Button()
         Me.PanelRcfrgareq = New System.Windows.Forms.Panel()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
@@ -90,13 +84,19 @@ Partial Class ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus
         Me.Label11 = New System.Windows.Forms.Label()
         Me.ChckBxStageFtc = New System.Windows.Forms.CheckBox()
         Me.ChckBxStageRp = New System.Windows.Forms.CheckBox()
-        Me.BtnResetFilter = New System.Windows.Forms.Button()
-        Me.BtnApplyFilter = New System.Windows.Forms.Button()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.BtnCloseFilter = New System.Windows.Forms.Button()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.TmOpenFilter = New System.Windows.Forms.Timer(Me.components)
         Me.TmCloseFilter = New System.Windows.Forms.Timer(Me.components)
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.BtnResetFilter = New System.Windows.Forms.Button()
+        Me.BtnApplyFilter = New System.Windows.Forms.Button()
+        Me.BtnFilter = New System.Windows.Forms.Button()
+        Me.BtnDelete = New System.Windows.Forms.Button()
+        Me.BtnEdit = New System.Windows.Forms.Button()
+        Me.BtnSearch = New System.Windows.Forms.Button()
+        Me.BtnAddRCFGARecord = New System.Windows.Forms.Button()
         CType(Me.DgvSwData, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelRcfrgareq.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -106,19 +106,6 @@ Partial Class ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus
         CType(Me.DgvRcf, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PnlFilter.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'Label1
-        '
-        Me.Label1.BackColor = System.Drawing.Color.SteelBlue
-        Me.Label1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.SystemColors.HighlightText
-        Me.Label1.Location = New System.Drawing.Point(0, 0)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(1255, 48)
-        Me.Label1.TabIndex = 25
-        Me.Label1.Text = "RCF AND RGA MONITORING STATUS"
-        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'BtnRemoveSelection
         '
@@ -300,83 +287,6 @@ Partial Class ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus
         Me.Column10.Name = "Column10"
         Me.Column10.ReadOnly = True
         Me.Column10.Width = 200
-        '
-        'BtnFilter
-        '
-        Me.BtnFilter.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.BtnFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnFilter.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnFilter.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.BtnFilter.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_filter_14
-        Me.BtnFilter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnFilter.Location = New System.Drawing.Point(11, 63)
-        Me.BtnFilter.Name = "BtnFilter"
-        Me.BtnFilter.Size = New System.Drawing.Size(67, 21)
-        Me.BtnFilter.TabIndex = 31
-        Me.BtnFilter.Text = "Filter"
-        Me.BtnFilter.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.BtnFilter.UseVisualStyleBackColor = False
-        '
-        'BtnDelete
-        '
-        Me.BtnDelete.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.BtnDelete.Enabled = False
-        Me.BtnDelete.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnDelete.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.BtnDelete.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_delete_211
-        Me.BtnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnDelete.Location = New System.Drawing.Point(1140, 470)
-        Me.BtnDelete.Name = "BtnDelete"
-        Me.BtnDelete.Size = New System.Drawing.Size(102, 34)
-        Me.BtnDelete.TabIndex = 30
-        Me.BtnDelete.Text = "Delete"
-        Me.BtnDelete.UseVisualStyleBackColor = True
-        '
-        'BtnEdit
-        '
-        Me.BtnEdit.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.BtnEdit.Enabled = False
-        Me.BtnEdit.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnEdit.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.BtnEdit.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_edit_211
-        Me.BtnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnEdit.Location = New System.Drawing.Point(1032, 470)
-        Me.BtnEdit.Name = "BtnEdit"
-        Me.BtnEdit.Size = New System.Drawing.Size(102, 34)
-        Me.BtnEdit.TabIndex = 29
-        Me.BtnEdit.Text = "Edit"
-        Me.BtnEdit.UseVisualStyleBackColor = True
-        '
-        'BtnSearch
-        '
-        Me.BtnSearch.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.BtnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnSearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnSearch.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.BtnSearch.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_search_13
-        Me.BtnSearch.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.BtnSearch.Location = New System.Drawing.Point(419, 63)
-        Me.BtnSearch.Name = "BtnSearch"
-        Me.BtnSearch.Size = New System.Drawing.Size(65, 21)
-        Me.BtnSearch.TabIndex = 28
-        Me.BtnSearch.Text = "Search"
-        Me.BtnSearch.TextAlign = System.Drawing.ContentAlignment.TopRight
-        Me.BtnSearch.UseVisualStyleBackColor = False
-        '
-        'BtnAddRCFGARecord
-        '
-        Me.BtnAddRCFGARecord.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.BtnAddRCFGARecord.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnAddRCFGARecord.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.BtnAddRCFGARecord.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_add_21
-        Me.BtnAddRCFGARecord.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnAddRCFGARecord.Location = New System.Drawing.Point(912, 470)
-        Me.BtnAddRCFGARecord.Name = "BtnAddRCFGARecord"
-        Me.BtnAddRCFGARecord.Size = New System.Drawing.Size(114, 34)
-        Me.BtnAddRCFGARecord.TabIndex = 26
-        Me.BtnAddRCFGARecord.Text = "Add Record"
-        Me.BtnAddRCFGARecord.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.BtnAddRCFGARecord.UseVisualStyleBackColor = True
         '
         'PanelRcfrgareq
         '
@@ -816,38 +726,6 @@ Partial Class ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus
         Me.ChckBxStageRp.Text = "Research Proposal"
         Me.ChckBxStageRp.UseVisualStyleBackColor = True
         '
-        'BtnResetFilter
-        '
-        Me.BtnResetFilter.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.BtnResetFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnResetFilter.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnResetFilter.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.BtnResetFilter.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_reset_14
-        Me.BtnResetFilter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnResetFilter.Location = New System.Drawing.Point(417, 214)
-        Me.BtnResetFilter.Name = "BtnResetFilter"
-        Me.BtnResetFilter.Size = New System.Drawing.Size(61, 23)
-        Me.BtnResetFilter.TabIndex = 27
-        Me.BtnResetFilter.Text = "Reset"
-        Me.BtnResetFilter.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.BtnResetFilter.UseVisualStyleBackColor = False
-        '
-        'BtnApplyFilter
-        '
-        Me.BtnApplyFilter.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.BtnApplyFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnApplyFilter.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnApplyFilter.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.BtnApplyFilter.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_filtered_file_14
-        Me.BtnApplyFilter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnApplyFilter.Location = New System.Drawing.Point(323, 214)
-        Me.BtnApplyFilter.Name = "BtnApplyFilter"
-        Me.BtnApplyFilter.Size = New System.Drawing.Size(61, 23)
-        Me.BtnApplyFilter.TabIndex = 26
-        Me.BtnApplyFilter.Text = "Apply"
-        Me.BtnApplyFilter.TextAlign = System.Drawing.ContentAlignment.TopRight
-        Me.BtnApplyFilter.UseVisualStyleBackColor = False
-        '
         'Label5
         '
         Me.Label5.AutoSize = True
@@ -893,6 +771,128 @@ Partial Class ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus
         '
         Me.TmCloseFilter.Interval = 10
         '
+        'Label1
+        '
+        Me.Label1.BackColor = System.Drawing.Color.SteelBlue
+        Me.Label1.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.SystemColors.HighlightText
+        Me.Label1.Location = New System.Drawing.Point(0, 0)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(1255, 48)
+        Me.Label1.TabIndex = 25
+        Me.Label1.Text = "RCF AND RGA MONITORING STATUS"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'BtnResetFilter
+        '
+        Me.BtnResetFilter.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnResetFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnResetFilter.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnResetFilter.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.BtnResetFilter.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_reset_14
+        Me.BtnResetFilter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnResetFilter.Location = New System.Drawing.Point(417, 214)
+        Me.BtnResetFilter.Name = "BtnResetFilter"
+        Me.BtnResetFilter.Size = New System.Drawing.Size(61, 23)
+        Me.BtnResetFilter.TabIndex = 27
+        Me.BtnResetFilter.Text = "Reset"
+        Me.BtnResetFilter.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.BtnResetFilter.UseVisualStyleBackColor = False
+        '
+        'BtnApplyFilter
+        '
+        Me.BtnApplyFilter.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnApplyFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnApplyFilter.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnApplyFilter.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.BtnApplyFilter.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_filtered_file_14
+        Me.BtnApplyFilter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnApplyFilter.Location = New System.Drawing.Point(323, 214)
+        Me.BtnApplyFilter.Name = "BtnApplyFilter"
+        Me.BtnApplyFilter.Size = New System.Drawing.Size(61, 23)
+        Me.BtnApplyFilter.TabIndex = 26
+        Me.BtnApplyFilter.Text = "Apply"
+        Me.BtnApplyFilter.TextAlign = System.Drawing.ContentAlignment.TopRight
+        Me.BtnApplyFilter.UseVisualStyleBackColor = False
+        '
+        'BtnFilter
+        '
+        Me.BtnFilter.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnFilter.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnFilter.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.BtnFilter.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_filter_14
+        Me.BtnFilter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnFilter.Location = New System.Drawing.Point(11, 63)
+        Me.BtnFilter.Name = "BtnFilter"
+        Me.BtnFilter.Size = New System.Drawing.Size(67, 21)
+        Me.BtnFilter.TabIndex = 31
+        Me.BtnFilter.Text = "Filter"
+        Me.BtnFilter.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.BtnFilter.UseVisualStyleBackColor = False
+        '
+        'BtnDelete
+        '
+        Me.BtnDelete.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnDelete.Enabled = False
+        Me.BtnDelete.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnDelete.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.BtnDelete.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_delete_211
+        Me.BtnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnDelete.Location = New System.Drawing.Point(1141, 470)
+        Me.BtnDelete.Name = "BtnDelete"
+        Me.BtnDelete.Size = New System.Drawing.Size(102, 34)
+        Me.BtnDelete.TabIndex = 30
+        Me.BtnDelete.Text = "Delete"
+        Me.BtnDelete.UseVisualStyleBackColor = True
+        '
+        'BtnEdit
+        '
+        Me.BtnEdit.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnEdit.Enabled = False
+        Me.BtnEdit.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnEdit.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.BtnEdit.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_edit_211
+        Me.BtnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnEdit.Location = New System.Drawing.Point(1032, 470)
+        Me.BtnEdit.Name = "BtnEdit"
+        Me.BtnEdit.Size = New System.Drawing.Size(102, 34)
+        Me.BtnEdit.TabIndex = 29
+        Me.BtnEdit.Text = "Edit"
+        Me.BtnEdit.UseVisualStyleBackColor = True
+        '
+        'BtnSearch
+        '
+        Me.BtnSearch.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnSearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnSearch.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.BtnSearch.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_search_13
+        Me.BtnSearch.ImageAlign = System.Drawing.ContentAlignment.TopLeft
+        Me.BtnSearch.Location = New System.Drawing.Point(419, 63)
+        Me.BtnSearch.Name = "BtnSearch"
+        Me.BtnSearch.Size = New System.Drawing.Size(65, 21)
+        Me.BtnSearch.TabIndex = 28
+        Me.BtnSearch.Text = "Search"
+        Me.BtnSearch.TextAlign = System.Drawing.ContentAlignment.TopRight
+        Me.BtnSearch.UseVisualStyleBackColor = False
+        '
+        'BtnAddRCFGARecord
+        '
+        Me.BtnAddRCFGARecord.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnAddRCFGARecord.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnAddRCFGARecord.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.BtnAddRCFGARecord.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_add_21
+        Me.BtnAddRCFGARecord.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnAddRCFGARecord.Location = New System.Drawing.Point(912, 470)
+        Me.BtnAddRCFGARecord.Name = "BtnAddRCFGARecord"
+        Me.BtnAddRCFGARecord.Size = New System.Drawing.Size(114, 34)
+        Me.BtnAddRCFGARecord.TabIndex = 26
+        Me.BtnAddRCFGARecord.Text = "Add Record"
+        Me.BtnAddRCFGARecord.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.BtnAddRCFGARecord.UseVisualStyleBackColor = True
+        '
         'ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -931,8 +931,6 @@ Partial Class ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus
         Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents Label1 As Label
     Friend WithEvents BtnRemoveSelection As Button
     Friend WithEvents BtnFilter As Button
     Friend WithEvents BtnDelete As Button
@@ -994,4 +992,5 @@ Partial Class ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus
     Friend WithEvents Label3 As Label
     Friend WithEvents TxtCol As TextBox
     Friend WithEvents Label13 As Label
+    Friend WithEvents Label1 As Label
 End Class

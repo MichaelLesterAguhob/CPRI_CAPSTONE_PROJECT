@@ -522,7 +522,7 @@ Public Class BorrowingAndReturning
 
     Private Sub DgvBorrowers_ColumnHeaderMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DgvBorrowers.ColumnHeaderMouseClick
         For i = 0 To DgvBorrowers.Rows.Count - 1
-            DgvBorrowers.Rows(i).Height = 50
+            DgvBorrowers.Rows(i).Height = 70
         Next
         DgvBorrowers.ClearSelection()
     End Sub

@@ -471,7 +471,6 @@ Defense from the panel members"
             'MessageBox.Show(schoolyear & " " & collg & " " & dept & " " & sem1 & " " & sem2 & " " & summer & " " & stage1 & " " & stage2 & " " & stat1 & " " & stat2)
 
         End If
-
     End Sub
 
     Private Sub CbxSc_TextChanged(sender As Object, e As EventArgs) Handles CbxSc.TextChanged

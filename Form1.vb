@@ -1,6 +1,17 @@
 ﻿Public Class Form1
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+        ConOpen()
+
+
+    End Sub
+
+    Private Sub Form1_Closing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+        ' Close all child forms before closing Form1
+        For Each childForm In Me.MdiChildren
+            childForm.Close()
+        Next
+        Application.Exit() ' Close the entire application
     End Sub
 
     Private Sub ResearchRepositoryManagerToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ResearchRepositoryManagerToolStripMenuItem.Click
@@ -36,4 +47,7 @@
         Dim rcfgams As New ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus
         rcfgams.Show()
     End Sub
+
+
+
 End Class
