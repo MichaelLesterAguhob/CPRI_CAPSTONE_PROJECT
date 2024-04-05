@@ -193,7 +193,7 @@ Public Class CreateLoginAccount
                 email.From = New MailAddress("cdsga.cpri@gmail.com")
                 email.To.Add(TxtEmailCreate.Text.Trim)
                 email.Subject = "Account Verification Code"
-                email.Body = "<span style='font-size: 25px; color: maroon;'>" & "CDSGA-CPRI" & "</span> <br>" & "Create Account Verification Code : " & "<br> <span style='font-size: 35px;'>" & verification_code.ToString() & "</span>"
+                email.Body = "<span style='font-size: 25px; color: maroon;'>" & "CDSGA-CPRI" & "</span> <br><br>" & "Create Account Verification Code : " & "<br> <span style='font-size: 35px;'>" & verification_code.ToString() & "</span>"
                 email.IsBodyHtml = True
 
                 smtp_server.Send(email)
@@ -414,12 +414,11 @@ Public Class CreateLoginAccount
 
     'FORGOT PASSWORD
     Private Sub BtnOpenResetPassPanel_Click(sender As Object, e As EventArgs) Handles BtnOpenResetPassPanel.Click
-        PnlForgotPass.Visible = False
+        PnlForgotPass.Visible = True
+        PnlFpEnterEmail.Width = 332
+        TxtFpEmail.Focus()
     End Sub
 
-    Private Sub BtnClosePnlForgotPass_Click(sender As Object, e As EventArgs) Handles BtnClosePnlForgotPass.Click
-        PnlForgotPass.Visible = False
-    End Sub
 
     Dim isFpEmailValid As Boolean
     Private Sub TxtFpEmail_TextChanged(sender As Object, e As EventArgs) Handles TxtFpEmail.TextChanged
@@ -429,9 +428,13 @@ Public Class CreateLoginAccount
                 Dim email As New MailAddress(TxtFpEmail.Text.Trim)
                 TxtFpEmail.ForeColor = Color.Black
                 isFpEmailValid = True
+                Label29.Visible = False
             Catch ex As Exception
                 TxtFpEmail.ForeColor = Color.Red
                 isFpEmailValid = False
+                Label29.Visible = True
+                Label29.Text = "Invalid email"
+                Label29.ForeColor = Color.Red
             End Try
         End If
     End Sub
@@ -439,7 +442,29 @@ Public Class CreateLoginAccount
     Dim reset_code As Integer = 0
     Private Sub BtnFpSendCode_Click(sender As Object, e As EventArgs) Handles BtnFpSendCode.Click
         If isFpEmailValid And TxtFpEmail.Text.Trim <> "" Then
-            SendResetCode()
+            'checking if email is in the database
+            con.Close()
+            Try
+                con.Open()
+                Using cmd As New MySqlCommand("SELECT * FROM accounts WHERE `email`=@email", con)
+                    cmd.Parameters.AddWithValue("@email", TxtFpEmail.Text.Trim)
+                    Dim reader As MySqlDataReader = cmd.ExecuteReader
+                    If reader.HasRows Then
+
+                        SendResetCode()
+                    Else
+                        MessageBox.Show("The email you've entered do not exists in the system", "Email not exists", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                    End If
+                    reader.Close()
+                End Using
+            Catch ex As Exception
+                MessageBox.Show(ex.Message, "Error Checking email existence for forgot password", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                con.Close()
+            Finally
+                con.Close()
+            End Try
+        Else
+            MessageBox.Show("Invalid email address", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End If
     End Sub
 
@@ -453,7 +478,7 @@ Public Class CreateLoginAccount
         If IsInternetAvailable() Then
             Try
                 GenerateResetCode()
-                Label26.Visible = True
+
                 Dim smtp_server As New SmtpClient
                 smtp_server.UseDefaultCredentials = False
                 smtp_server.Credentials = New Net.NetworkCredential("cdsga.cpri@gmail.com", "xmuc gwab jeua dxss")
@@ -464,16 +489,18 @@ Public Class CreateLoginAccount
                 Dim email As New MailMessage
                 email = New MailMessage()
                 email.From = New MailAddress("cdsga.cpri@gmail.com")
-                email.To.Add(TxtEmailCreate.Text.Trim)
+                email.To.Add(TxtFpEmail.Text.Trim)
                 email.Subject = "Your account reset code"
-                email.Body = "<span style='font-size: 25px; color: maroon;'>" & "CDSGA-CPRI" & "</span> <br>" & "Your Account Reset Code : " & "<br> <span style='font-size: 35px;'>" & reset_code.ToString() & "</span>"
+                email.Body = "<span style='font-size: 25px; color: maroon;'>" & "CDSGA-CPRI" & "</span> <br><br>" & "Your Account Reset Code : " & "<br> <span style='font-size: 35px;'>" & reset_code.ToString() & "</span>"
                 email.IsBodyHtml = True
 
                 smtp_server.Send(email)
-                Label26.Visible = False
-                MessageBox.Show("Reset code sent! Check your email and enter code here.")
+
+                MessageBox.Show("Reset code sent! Check your email and enter code here.", "Reset Code sent", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
                 PnlFpEnterEmail.Width = 0
                 PnlFpCode.Width = 332
+                TxtFpRecCode.Focus()
             Catch ex As Exception
                 MessageBox.Show(ex.Message, "Error Occurred while sending reset code", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End Try
@@ -482,17 +509,22 @@ Public Class CreateLoginAccount
         End If
     End Sub
 
-    'INPUTTING RESET CODE
+    'CHECKING INPUT RESET CODE
     Private Sub TxtFpRecCode_TextChanged(sender As Object, e As EventArgs) Handles TxtFpRecCode.TextChanged
         If TxtFpRecCode.Text <> "" Then
-            If Convert.ToInt32(TxtFpRecCode.Text.Trim) = reset_code Then
-                Label27.Visible = True
-                Label27.Text = "Valid reset code"
-                Label27.ForeColor = Color.Green
+            If IsNumeric(TxtFpRecCode.Text.Trim) Then
+                If Convert.ToInt32(TxtFpRecCode.Text.Trim) = reset_code Then
+                    Label27.Visible = True
+                    Label27.Text = "Valid reset code"
+                    Label27.ForeColor = Color.Green
+                Else
+                    Label27.Visible = True
+                    Label27.Text = "Invalid reset code"
+                    Label27.ForeColor = Color.Red
+                End If
             Else
-                Label27.Visible = True
-                Label27.Text = "Invalid reset code"
-                Label27.ForeColor = Color.Red
+                MessageBox.Show("Enter number only!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                TxtFpRecCode.Text = ""
             End If
         Else
             Label27.Visible = True
@@ -507,23 +539,138 @@ Public Class CreateLoginAccount
         End If
     End Sub
 
+    'BUTTON ENTER RESET CODE 
+    Dim email_to_change_pass As String = ""
     Private Sub BtnFpEnter_Click(sender As Object, e As EventArgs) Handles BtnFpEnter.Click
         If reset_code = Convert.ToInt32(TxtFpRecCode.Text.Trim) Then
             PnlFpCode.Width = 0
             PnlFpNewPass.Width = 332
+            email_to_change_pass = TxtFpEmail.Text.Trim
+            TxtFpNewPass.Focus()
+        Else
+            MessageBox.Show("Incorrect reset code", "Try again!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End If
+    End Sub
+
+    Private Sub TxtFpEmail_KeyDown(sender As Object, e As KeyEventArgs) Handles TxtFpEmail.KeyDown
+        If e.KeyCode = 13 And TxtFpEmail.Text <> "" Then
+            BtnFpSendCode.PerformClick()
+            Label29.Visible = False
+        Else
+            Label29.Visible = True
+            Label29.Text = "Enter email"
+            Label29.ForeColor = Color.Blue
+        End If
+    End Sub
+
+    Private Sub TxtFpNewPass_KeyDown(sender As Object, e As KeyEventArgs) Handles TxtFpNewPass.KeyDown
+        If e.KeyCode = 13 Then
+            If TxtFpNewPass.Text.Trim = "" Then
+                MessageBox.Show("Enter your desired New Password", "No Input!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Else
+                TxtFpConfirmNewPass.Focus()
+            End If
+        End If
+    End Sub
+
+    Private Sub TxtFpConfirmNewPass_KeyDown(sender As Object, e As KeyEventArgs) Handles TxtFpConfirmNewPass.KeyDown
+        If e.KeyCode = 13 Then
+            If TxtFpConfirmNewPass.Text.Trim = "" Then
+                MessageBox.Show("Re-Enter your desired New Password", "No Input!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Else
+                BtnResetPass.PerformClick()
+            End If
+        End If
+
     End Sub
 
     'RESETTING PASS
     Private Sub TxtFpNewPass_TextChanged(sender As Object, e As EventArgs) Handles TxtFpNewPass.TextChanged
-
+        If TxtFpNewPass.Text.Trim <> "" And TxtFpConfirmNewPass.Text.Trim <> "" Then
+            If TxtFpNewPass.Text.Trim = TxtFpConfirmNewPass.Text.Trim Then
+                Label28.Text = "Password matched"
+                Label28.ForeColor = Color.Green
+            Else
+                Label28.Text = "Password not matched"
+                Label28.ForeColor = Color.Red
+            End If
+        Else
+            Label28.Text = ""
+        End If
     End Sub
 
     Private Sub TxtFpConfirmNewPass_TextChanged(sender As Object, e As EventArgs) Handles TxtFpConfirmNewPass.TextChanged
-
+        If TxtFpNewPass.Text.Trim <> "" And TxtFpConfirmNewPass.Text.Trim <> "" Then
+            If TxtFpNewPass.Text.Trim = TxtFpConfirmNewPass.Text.Trim Then
+                Label28.Text = "Password matched"
+                Label28.ForeColor = Color.Green
+            Else
+                Label28.Text = "Password not matched"
+                Label28.ForeColor = Color.Red
+            End If
+        Else
+            Label28.Text = ""
+        End If
     End Sub
 
     Private Sub BtnResetPass_Click(sender As Object, e As EventArgs) Handles BtnResetPass.Click
+        If TxtFpNewPass.Text.Trim <> "" And TxtFpConfirmNewPass.Text.Trim <> "" Then
+            If TxtFpNewPass.Text.Trim = TxtFpConfirmNewPass.Text.Trim Then
+                ResetPassword()
+                Label28.Text = ""
+            End If
+        Else
+            Label28.Text = ""
+        End If
+    End Sub
 
+    Private Sub ResetPassword()
+        con.Close()
+        Try
+            con.Open()
+            Using cmd As New MySqlCommand("UPDATE `accounts` SET `password`= MD5('" & TxtFpNewPass.Text.Trim & "') WHERE `email`=@email", con)
+                cmd.Parameters.AddWithValue("@email", email_to_change_pass)
+                cmd.ExecuteNonQuery()
+            End Using
+            PnlForgotPass.Visible = False
+
+            PnlFpEnterEmail.Width = 0
+            TxtFpEmail.Clear()
+
+            PnlFpCode.Width = 0
+            TxtFpRecCode.Clear()
+            Label27.Visible = False
+
+            PnlFpNewPass.Width = 0
+            TxtFpNewPass.Clear()
+            TxtFpConfirmNewPass.Clear()
+            Label28.Text = ""
+
+            TxtUnameEmailLogin.Focus()
+            MessageBox.Show("You can now login to your account", "Password reset Successfully", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Error while Resetting Password", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            con.Close()
+        Finally
+            con.Close()
+        End Try
+    End Sub
+
+    Private Sub BtnClosePnlForgotPass_Click(sender As Object, e As EventArgs) Handles BtnClosePnlForgotPass.Click
+        PnlForgotPass.Visible = False
+
+        PnlFpEnterEmail.Width = 0
+        TxtFpEmail.Clear()
+
+        PnlFpCode.Width = 0
+        TxtFpRecCode.Clear()
+        Label27.Visible = False
+
+        PnlFpNewPass.Width = 0
+        TxtFpNewPass.Clear()
+        TxtFpConfirmNewPass.Clear()
+        Label28.Text = ""
+
+        TxtUnameEmailLogin.Focus()
     End Sub
 End Class
