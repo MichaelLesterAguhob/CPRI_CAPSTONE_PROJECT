@@ -7,7 +7,9 @@ Module public_variables
     Public print_clearance_id As Integer
     Public to_view_work_id As Integer
 
-
+    Public account_loggedin As String
+    Public account_type_loggedin As String
+    Public loggedin As Integer = 0
 
     Public Function MD5(ByVal sPassword As String) As String
         Dim p As New Security.Cryptography.MD5CryptoServiceProvider()

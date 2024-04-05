@@ -22,12 +22,14 @@ Partial Class CreateLoginAccount
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(CreateLoginAccount))
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GbxCreate = New System.Windows.Forms.GroupBox()
+        Me.Label24 = New System.Windows.Forms.Label()
         Me.PnlVCode = New System.Windows.Forms.Panel()
         Me.LblVcodeMsg = New System.Windows.Forms.Label()
         Me.BtnEnterVCode = New System.Windows.Forms.Button()
@@ -52,10 +54,49 @@ Partial Class CreateLoginAccount
         Me.RdTypeStaff = New System.Windows.Forms.RadioButton()
         Me.RdTypeAdmin = New System.Windows.Forms.RadioButton()
         Me.Label10 = New System.Windows.Forms.Label()
+        Me.Label25 = New System.Windows.Forms.Label()
+        Me.GbxLogin = New System.Windows.Forms.GroupBox()
+        Me.PnlForgotPass = New System.Windows.Forms.Panel()
+        Me.PnlFpNewPass = New System.Windows.Forms.Panel()
+        Me.Label22 = New System.Windows.Forms.Label()
+        Me.TxtFpConfirmNewPass = New System.Windows.Forms.TextBox()
+        Me.Label21 = New System.Windows.Forms.Label()
+        Me.TxtFpNewPass = New System.Windows.Forms.TextBox()
+        Me.BtnResetPass = New System.Windows.Forms.Button()
+        Me.PnlFpEnterEmail = New System.Windows.Forms.Panel()
+        Me.Label26 = New System.Windows.Forms.Label()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.TxtFpEmail = New System.Windows.Forms.TextBox()
+        Me.BtnFpSendCode = New System.Windows.Forms.Button()
+        Me.PnlFpCode = New System.Windows.Forms.Panel()
+        Me.Label27 = New System.Windows.Forms.Label()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.TxtFpRecCode = New System.Windows.Forms.TextBox()
+        Me.BtnFpEnter = New System.Windows.Forms.Button()
+        Me.Label23 = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.BtnClosePnlForgotPass = New System.Windows.Forms.Button()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.BtnGoToCreateAcct = New System.Windows.Forms.Button()
+        Me.BtnLogin = New System.Windows.Forms.Button()
+        Me.TxtPassLogin = New System.Windows.Forms.TextBox()
+        Me.TxtUnameEmailLogin = New System.Windows.Forms.TextBox()
+        Me.Label18 = New System.Windows.Forms.Label()
+        Me.Label19 = New System.Windows.Forms.Label()
+        Me.Label20 = New System.Windows.Forms.Label()
+        Me.BtnOpenResetPassPanel = New System.Windows.Forms.Button()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.LblLoginMsg = New System.Windows.Forms.Label()
+        Me.timer_fade_out_msg = New System.Windows.Forms.Timer(Me.components)
         Me.Panel1.SuspendLayout()
         Me.GbxCreate.SuspendLayout()
         Me.PnlVCode.SuspendLayout()
         Me.Panel2.SuspendLayout()
+        Me.GbxLogin.SuspendLayout()
+        Me.PnlForgotPass.SuspendLayout()
+        Me.PnlFpNewPass.SuspendLayout()
+        Me.PnlFpEnterEmail.SuspendLayout()
+        Me.PnlFpCode.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel1
@@ -99,6 +140,7 @@ Partial Class CreateLoginAccount
         '
         'GbxCreate
         '
+        Me.GbxCreate.Controls.Add(Me.Label24)
         Me.GbxCreate.Controls.Add(Me.PnlVCode)
         Me.GbxCreate.Controls.Add(Me.Label17)
         Me.GbxCreate.Controls.Add(Me.TxtUsernameCreate)
@@ -116,12 +158,25 @@ Partial Class CreateLoginAccount
         Me.GbxCreate.Controls.Add(Me.Label4)
         Me.GbxCreate.Controls.Add(Me.Panel2)
         Me.GbxCreate.Controls.Add(Me.Label10)
-        Me.GbxCreate.Location = New System.Drawing.Point(246, -2)
+        Me.GbxCreate.Controls.Add(Me.Label25)
+        Me.GbxCreate.Location = New System.Drawing.Point(246, 12)
         Me.GbxCreate.Name = "GbxCreate"
-        Me.GbxCreate.Size = New System.Drawing.Size(450, 561)
+        Me.GbxCreate.Size = New System.Drawing.Size(450, 537)
         Me.GbxCreate.TabIndex = 4
         Me.GbxCreate.TabStop = False
-        Me.GbxCreate.Text = "Create"
+        Me.GbxCreate.Visible = False
+        '
+        'Label24
+        '
+        Me.Label24.AutoSize = True
+        Me.Label24.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label24.ForeColor = System.Drawing.Color.DarkGreen
+        Me.Label24.Location = New System.Drawing.Point(54, 423)
+        Me.Label24.Name = "Label24"
+        Me.Label24.Size = New System.Drawing.Size(243, 16)
+        Me.Label24.TabIndex = 20
+        Me.Label24.Text = "Sending verification code. Please wait..." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        Me.Label24.Visible = False
         '
         'PnlVCode
         '
@@ -131,7 +186,7 @@ Partial Class CreateLoginAccount
         Me.PnlVCode.Controls.Add(Me.Button1)
         Me.PnlVCode.Controls.Add(Me.Label9)
         Me.PnlVCode.Controls.Add(Me.TxtVerificationCreate)
-        Me.PnlVCode.Location = New System.Drawing.Point(30, 172)
+        Me.PnlVCode.Location = New System.Drawing.Point(36, 136)
         Me.PnlVCode.Name = "PnlVCode"
         Me.PnlVCode.Size = New System.Drawing.Size(379, 239)
         Me.PnlVCode.TabIndex = 17
@@ -160,6 +215,7 @@ Partial Class CreateLoginAccount
         '
         'Button1
         '
+        Me.Button1.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.Location = New System.Drawing.Point(345, 11)
@@ -195,7 +251,7 @@ Partial Class CreateLoginAccount
         Me.Label17.AutoSize = True
         Me.Label17.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label17.ForeColor = System.Drawing.Color.DarkGreen
-        Me.Label17.Location = New System.Drawing.Point(94, 526)
+        Me.Label17.Location = New System.Drawing.Point(94, 503)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(200, 20)
         Me.Label17.TabIndex = 16
@@ -227,7 +283,7 @@ Partial Class CreateLoginAccount
         Me.BtnGoToLogin.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnGoToLogin.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.BtnGoToLogin.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnGoToLogin.Location = New System.Drawing.Point(294, 528)
+        Me.BtnGoToLogin.Location = New System.Drawing.Point(294, 505)
         Me.BtnGoToLogin.Name = "BtnGoToLogin"
         Me.BtnGoToLogin.Size = New System.Drawing.Size(54, 19)
         Me.BtnGoToLogin.TabIndex = 13
@@ -239,7 +295,7 @@ Partial Class CreateLoginAccount
         Me.BtnCreate.BackColor = System.Drawing.SystemColors.ControlLight
         Me.BtnCreate.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnCreate.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnCreate.Location = New System.Drawing.Point(54, 453)
+        Me.BtnCreate.Location = New System.Drawing.Point(54, 445)
         Me.BtnCreate.Name = "BtnCreate"
         Me.BtnCreate.Size = New System.Drawing.Size(355, 44)
         Me.BtnCreate.TabIndex = 12
@@ -385,12 +441,398 @@ Partial Class CreateLoginAccount
         Me.Label10.TabIndex = 19
         Me.Label10.Text = "Account Type :"
         '
+        'Label25
+        '
+        Me.Label25.AutoSize = True
+        Me.Label25.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label25.ForeColor = System.Drawing.Color.Red
+        Me.Label25.Location = New System.Drawing.Point(177, 252)
+        Me.Label25.Name = "Label25"
+        Me.Label25.Size = New System.Drawing.Size(221, 15)
+        Me.Label25.TabIndex = 21
+        Me.Label25.Text = " Invalid Email! Please Enter Valid Email"
+        Me.Label25.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Label25.Visible = False
+        '
+        'GbxLogin
+        '
+        Me.GbxLogin.Controls.Add(Me.PnlForgotPass)
+        Me.GbxLogin.Controls.Add(Me.Label13)
+        Me.GbxLogin.Controls.Add(Me.BtnGoToCreateAcct)
+        Me.GbxLogin.Controls.Add(Me.BtnLogin)
+        Me.GbxLogin.Controls.Add(Me.TxtPassLogin)
+        Me.GbxLogin.Controls.Add(Me.TxtUnameEmailLogin)
+        Me.GbxLogin.Controls.Add(Me.Label18)
+        Me.GbxLogin.Controls.Add(Me.Label19)
+        Me.GbxLogin.Controls.Add(Me.Label20)
+        Me.GbxLogin.Controls.Add(Me.BtnOpenResetPassPanel)
+        Me.GbxLogin.Controls.Add(Me.Label14)
+        Me.GbxLogin.Controls.Add(Me.LblLoginMsg)
+        Me.GbxLogin.Location = New System.Drawing.Point(243, 12)
+        Me.GbxLogin.Name = "GbxLogin"
+        Me.GbxLogin.Size = New System.Drawing.Size(450, 541)
+        Me.GbxLogin.TabIndex = 5
+        Me.GbxLogin.TabStop = False
+        '
+        'PnlForgotPass
+        '
+        Me.PnlForgotPass.BackColor = System.Drawing.SystemColors.Window
+        Me.PnlForgotPass.Controls.Add(Me.PnlFpNewPass)
+        Me.PnlForgotPass.Controls.Add(Me.PnlFpEnterEmail)
+        Me.PnlForgotPass.Controls.Add(Me.PnlFpCode)
+        Me.PnlForgotPass.Controls.Add(Me.Label23)
+        Me.PnlForgotPass.Controls.Add(Me.Label11)
+        Me.PnlForgotPass.Controls.Add(Me.BtnClosePnlForgotPass)
+        Me.PnlForgotPass.Location = New System.Drawing.Point(30, 172)
+        Me.PnlForgotPass.Name = "PnlForgotPass"
+        Me.PnlForgotPass.Size = New System.Drawing.Size(382, 247)
+        Me.PnlForgotPass.TabIndex = 17
+        Me.PnlForgotPass.Visible = False
+        '
+        'PnlFpNewPass
+        '
+        Me.PnlFpNewPass.Controls.Add(Me.Label22)
+        Me.PnlFpNewPass.Controls.Add(Me.TxtFpConfirmNewPass)
+        Me.PnlFpNewPass.Controls.Add(Me.Label21)
+        Me.PnlFpNewPass.Controls.Add(Me.TxtFpNewPass)
+        Me.PnlFpNewPass.Controls.Add(Me.BtnResetPass)
+        Me.PnlFpNewPass.Location = New System.Drawing.Point(25, 40)
+        Me.PnlFpNewPass.Name = "PnlFpNewPass"
+        Me.PnlFpNewPass.Size = New System.Drawing.Size(332, 189)
+        Me.PnlFpNewPass.TabIndex = 22
+        '
+        'Label22
+        '
+        Me.Label22.AutoSize = True
+        Me.Label22.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label22.ForeColor = System.Drawing.Color.Maroon
+        Me.Label22.Location = New System.Drawing.Point(2, 84)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(186, 20)
+        Me.Label22.TabIndex = 19
+        Me.Label22.Text = "* Confirm New Password:"
+        '
+        'TxtFpConfirmNewPass
+        '
+        Me.TxtFpConfirmNewPass.BackColor = System.Drawing.SystemColors.Window
+        Me.TxtFpConfirmNewPass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TxtFpConfirmNewPass.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtFpConfirmNewPass.Location = New System.Drawing.Point(15, 107)
+        Me.TxtFpConfirmNewPass.Name = "TxtFpConfirmNewPass"
+        Me.TxtFpConfirmNewPass.Size = New System.Drawing.Size(302, 26)
+        Me.TxtFpConfirmNewPass.TabIndex = 20
+        '
+        'Label21
+        '
+        Me.Label21.AutoSize = True
+        Me.Label21.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label21.ForeColor = System.Drawing.Color.Maroon
+        Me.Label21.Location = New System.Drawing.Point(2, 24)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(170, 20)
+        Me.Label21.TabIndex = 6
+        Me.Label21.Text = "* Enter New Password:"
+        '
+        'TxtFpNewPass
+        '
+        Me.TxtFpNewPass.BackColor = System.Drawing.SystemColors.Window
+        Me.TxtFpNewPass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TxtFpNewPass.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtFpNewPass.Location = New System.Drawing.Point(15, 47)
+        Me.TxtFpNewPass.Name = "TxtFpNewPass"
+        Me.TxtFpNewPass.Size = New System.Drawing.Size(302, 26)
+        Me.TxtFpNewPass.TabIndex = 9
+        '
+        'BtnResetPass
+        '
+        Me.BtnResetPass.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.BtnResetPass.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnResetPass.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnResetPass.Location = New System.Drawing.Point(86, 151)
+        Me.BtnResetPass.Name = "BtnResetPass"
+        Me.BtnResetPass.Size = New System.Drawing.Size(173, 28)
+        Me.BtnResetPass.TabIndex = 18
+        Me.BtnResetPass.Text = "Reset Password!"
+        Me.BtnResetPass.UseVisualStyleBackColor = False
+        '
+        'PnlFpEnterEmail
+        '
+        Me.PnlFpEnterEmail.Controls.Add(Me.Label26)
+        Me.PnlFpEnterEmail.Controls.Add(Me.Label15)
+        Me.PnlFpEnterEmail.Controls.Add(Me.TxtFpEmail)
+        Me.PnlFpEnterEmail.Controls.Add(Me.BtnFpSendCode)
+        Me.PnlFpEnterEmail.Location = New System.Drawing.Point(25, 40)
+        Me.PnlFpEnterEmail.Name = "PnlFpEnterEmail"
+        Me.PnlFpEnterEmail.Size = New System.Drawing.Size(0, 166)
+        Me.PnlFpEnterEmail.TabIndex = 21
+        '
+        'Label26
+        '
+        Me.Label26.AutoSize = True
+        Me.Label26.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label26.ForeColor = System.Drawing.Color.Green
+        Me.Label26.Location = New System.Drawing.Point(11, 100)
+        Me.Label26.Name = "Label26"
+        Me.Label26.Size = New System.Drawing.Size(122, 15)
+        Me.Label26.TabIndex = 19
+        Me.Label26.Text = "Sending reset code..."
+        Me.Label26.Visible = False
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label15.ForeColor = System.Drawing.Color.Maroon
+        Me.Label15.Location = New System.Drawing.Point(2, 30)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(143, 20)
+        Me.Label15.TabIndex = 6
+        Me.Label15.Text = "* Enter Your Email:"
+        '
+        'TxtFpEmail
+        '
+        Me.TxtFpEmail.BackColor = System.Drawing.SystemColors.Window
+        Me.TxtFpEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TxtFpEmail.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtFpEmail.Location = New System.Drawing.Point(15, 62)
+        Me.TxtFpEmail.Name = "TxtFpEmail"
+        Me.TxtFpEmail.Size = New System.Drawing.Size(302, 26)
+        Me.TxtFpEmail.TabIndex = 9
+        '
+        'BtnFpSendCode
+        '
+        Me.BtnFpSendCode.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.BtnFpSendCode.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnFpSendCode.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnFpSendCode.Location = New System.Drawing.Point(86, 126)
+        Me.BtnFpSendCode.Name = "BtnFpSendCode"
+        Me.BtnFpSendCode.Size = New System.Drawing.Size(173, 28)
+        Me.BtnFpSendCode.TabIndex = 18
+        Me.BtnFpSendCode.Text = "Send Reset Code"
+        Me.BtnFpSendCode.UseVisualStyleBackColor = False
+        '
+        'PnlFpCode
+        '
+        Me.PnlFpCode.Controls.Add(Me.Label27)
+        Me.PnlFpCode.Controls.Add(Me.Label12)
+        Me.PnlFpCode.Controls.Add(Me.TxtFpRecCode)
+        Me.PnlFpCode.Controls.Add(Me.BtnFpEnter)
+        Me.PnlFpCode.Location = New System.Drawing.Point(22, 51)
+        Me.PnlFpCode.Name = "PnlFpCode"
+        Me.PnlFpCode.Size = New System.Drawing.Size(0, 166)
+        Me.PnlFpCode.TabIndex = 20
+        '
+        'Label27
+        '
+        Me.Label27.AutoSize = True
+        Me.Label27.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label27.ForeColor = System.Drawing.Color.Blue
+        Me.Label27.Location = New System.Drawing.Point(221, 89)
+        Me.Label27.Name = "Label27"
+        Me.Label27.Size = New System.Drawing.Size(96, 15)
+        Me.Label27.TabIndex = 19
+        Me.Label27.Text = "Enter reset code"
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.ForeColor = System.Drawing.Color.Maroon
+        Me.Label12.Location = New System.Drawing.Point(2, 30)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(178, 20)
+        Me.Label12.TabIndex = 6
+        Me.Label12.Text = "* Enter Recovery Code :"
+        '
+        'TxtFpRecCode
+        '
+        Me.TxtFpRecCode.BackColor = System.Drawing.SystemColors.Window
+        Me.TxtFpRecCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TxtFpRecCode.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtFpRecCode.Location = New System.Drawing.Point(15, 62)
+        Me.TxtFpRecCode.Name = "TxtFpRecCode"
+        Me.TxtFpRecCode.Size = New System.Drawing.Size(302, 26)
+        Me.TxtFpRecCode.TabIndex = 9
+        '
+        'BtnFpEnter
+        '
+        Me.BtnFpEnter.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.BtnFpEnter.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnFpEnter.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnFpEnter.Location = New System.Drawing.Point(112, 123)
+        Me.BtnFpEnter.Name = "BtnFpEnter"
+        Me.BtnFpEnter.Size = New System.Drawing.Size(95, 28)
+        Me.BtnFpEnter.TabIndex = 18
+        Me.BtnFpEnter.Text = "ENTER"
+        Me.BtnFpEnter.UseVisualStyleBackColor = False
+        '
+        'Label23
+        '
+        Me.Label23.Font = New System.Drawing.Font("Times New Roman", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label23.ForeColor = System.Drawing.Color.Maroon
+        Me.Label23.Location = New System.Drawing.Point(24, 13)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(315, 27)
+        Me.Label23.TabIndex = 3
+        Me.Label23.Text = "RESET PASSWORD"
+        Me.Label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.ForeColor = System.Drawing.Color.Red
+        Me.Label11.Location = New System.Drawing.Point(289, 133)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(0, 13)
+        Me.Label11.TabIndex = 19
+        '
+        'BtnClosePnlForgotPass
+        '
+        Me.BtnClosePnlForgotPass.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnClosePnlForgotPass.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.BtnClosePnlForgotPass.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnClosePnlForgotPass.Location = New System.Drawing.Point(345, 11)
+        Me.BtnClosePnlForgotPass.Name = "BtnClosePnlForgotPass"
+        Me.BtnClosePnlForgotPass.Size = New System.Drawing.Size(23, 19)
+        Me.BtnClosePnlForgotPass.TabIndex = 18
+        Me.BtnClosePnlForgotPass.Text = "X"
+        Me.BtnClosePnlForgotPass.UseVisualStyleBackColor = True
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.ForeColor = System.Drawing.Color.DarkGreen
+        Me.Label13.Location = New System.Drawing.Point(106, 501)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(185, 20)
+        Me.Label13.TabIndex = 16
+        Me.Label13.Text = "Don't have an account? :"
+        '
+        'BtnGoToCreateAcct
+        '
+        Me.BtnGoToCreateAcct.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnGoToCreateAcct.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.BtnGoToCreateAcct.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnGoToCreateAcct.Location = New System.Drawing.Point(297, 502)
+        Me.BtnGoToCreateAcct.Name = "BtnGoToCreateAcct"
+        Me.BtnGoToCreateAcct.Size = New System.Drawing.Size(54, 19)
+        Me.BtnGoToCreateAcct.TabIndex = 13
+        Me.BtnGoToCreateAcct.Text = "CREATE"
+        Me.BtnGoToCreateAcct.UseVisualStyleBackColor = True
+        '
+        'BtnLogin
+        '
+        Me.BtnLogin.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.BtnLogin.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnLogin.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnLogin.Location = New System.Drawing.Point(57, 395)
+        Me.BtnLogin.Name = "BtnLogin"
+        Me.BtnLogin.Size = New System.Drawing.Size(344, 44)
+        Me.BtnLogin.TabIndex = 12
+        Me.BtnLogin.Text = "LOGIN !"
+        Me.BtnLogin.UseVisualStyleBackColor = False
+        '
+        'TxtPassLogin
+        '
+        Me.TxtPassLogin.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.TxtPassLogin.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TxtPassLogin.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtPassLogin.Location = New System.Drawing.Point(57, 257)
+        Me.TxtPassLogin.Name = "TxtPassLogin"
+        Me.TxtPassLogin.Size = New System.Drawing.Size(344, 26)
+        Me.TxtPassLogin.TabIndex = 10
+        Me.TxtPassLogin.UseSystemPasswordChar = True
+        '
+        'TxtUnameEmailLogin
+        '
+        Me.TxtUnameEmailLogin.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.TxtUnameEmailLogin.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TxtUnameEmailLogin.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtUnameEmailLogin.Location = New System.Drawing.Point(55, 188)
+        Me.TxtUnameEmailLogin.Name = "TxtUnameEmailLogin"
+        Me.TxtUnameEmailLogin.Size = New System.Drawing.Size(344, 26)
+        Me.TxtUnameEmailLogin.TabIndex = 8
+        '
+        'Label18
+        '
+        Me.Label18.AutoSize = True
+        Me.Label18.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label18.ForeColor = System.Drawing.Color.Maroon
+        Me.Label18.Location = New System.Drawing.Point(44, 234)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(96, 20)
+        Me.Label18.TabIndex = 4
+        Me.Label18.Text = "* Password :"
+        '
+        'Label19
+        '
+        Me.Label19.Font = New System.Drawing.Font("Times New Roman", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label19.ForeColor = System.Drawing.Color.Maroon
+        Me.Label19.Location = New System.Drawing.Point(71, 26)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(313, 40)
+        Me.Label19.TabIndex = 3
+        Me.Label19.Text = "LOGIN"
+        Me.Label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label20
+        '
+        Me.Label20.AutoSize = True
+        Me.Label20.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label20.ForeColor = System.Drawing.Color.Maroon
+        Me.Label20.Location = New System.Drawing.Point(40, 165)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(205, 20)
+        Me.Label20.TabIndex = 1
+        Me.Label20.Text = "* Enter Username or Email :"
+        '
+        'BtnOpenResetPassPanel
+        '
+        Me.BtnOpenResetPassPanel.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnOpenResetPassPanel.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.BtnOpenResetPassPanel.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnOpenResetPassPanel.Location = New System.Drawing.Point(164, 295)
+        Me.BtnOpenResetPassPanel.Name = "BtnOpenResetPassPanel"
+        Me.BtnOpenResetPassPanel.Size = New System.Drawing.Size(53, 20)
+        Me.BtnOpenResetPassPanel.TabIndex = 19
+        Me.BtnOpenResetPassPanel.Text = "Click me"
+        Me.BtnOpenResetPassPanel.UseVisualStyleBackColor = True
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label14.ForeColor = System.Drawing.Color.DarkGreen
+        Me.Label14.Location = New System.Drawing.Point(57, 297)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(109, 15)
+        Me.Label14.TabIndex = 18
+        Me.Label14.Text = "Forgot Password? "
+        '
+        'LblLoginMsg
+        '
+        Me.LblLoginMsg.AutoSize = True
+        Me.LblLoginMsg.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblLoginMsg.ForeColor = System.Drawing.Color.DarkGreen
+        Me.LblLoginMsg.Location = New System.Drawing.Point(55, 369)
+        Me.LblLoginMsg.Name = "LblLoginMsg"
+        Me.LblLoginMsg.Size = New System.Drawing.Size(176, 18)
+        Me.LblLoginMsg.TabIndex = 20
+        Me.LblLoginMsg.Text = "LOGIN SUCCESSFULLY"
+        Me.LblLoginMsg.Visible = False
+        '
+        'timer_fade_out_msg
+        '
+        Me.timer_fade_out_msg.Interval = 2000
+        '
         'CreateLoginAccount
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
         Me.ClientSize = New System.Drawing.Size(705, 561)
+        Me.Controls.Add(Me.GbxLogin)
         Me.Controls.Add(Me.GbxCreate)
         Me.Controls.Add(Me.Panel1)
         Me.MaximumSize = New System.Drawing.Size(721, 600)
@@ -404,6 +846,16 @@ Partial Class CreateLoginAccount
         Me.PnlVCode.PerformLayout()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
+        Me.GbxLogin.ResumeLayout(False)
+        Me.GbxLogin.PerformLayout()
+        Me.PnlForgotPass.ResumeLayout(False)
+        Me.PnlForgotPass.PerformLayout()
+        Me.PnlFpNewPass.ResumeLayout(False)
+        Me.PnlFpNewPass.PerformLayout()
+        Me.PnlFpEnterEmail.ResumeLayout(False)
+        Me.PnlFpEnterEmail.PerformLayout()
+        Me.PnlFpCode.ResumeLayout(False)
+        Me.PnlFpCode.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -414,7 +866,6 @@ Partial Class CreateLoginAccount
     Friend WithEvents Label3 As Label
     Friend WithEvents GbxCreate As GroupBox
     Friend WithEvents Label6 As Label
-    Friend WithEvents Label5 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents BtnGoToLogin As Button
     Friend WithEvents BtnCreate As Button
@@ -437,4 +888,40 @@ Partial Class CreateLoginAccount
     Friend WithEvents Panel2 As Panel
     Friend WithEvents RdTypeStaff As RadioButton
     Friend WithEvents RdTypeAdmin As RadioButton
+    Friend WithEvents GbxLogin As GroupBox
+    Friend WithEvents PnlForgotPass As Panel
+    Friend WithEvents PnlFpCode As Panel
+    Friend WithEvents Label12 As Label
+    Friend WithEvents TxtFpRecCode As TextBox
+    Friend WithEvents Label23 As Label
+    Friend WithEvents Label11 As Label
+    Friend WithEvents BtnFpEnter As Button
+    Friend WithEvents BtnClosePnlForgotPass As Button
+    Friend WithEvents Label13 As Label
+    Friend WithEvents BtnGoToCreateAcct As Button
+    Friend WithEvents BtnLogin As Button
+    Friend WithEvents TxtPassLogin As TextBox
+    Friend WithEvents TxtUnameEmailLogin As TextBox
+    Friend WithEvents Label18 As Label
+    Friend WithEvents Label19 As Label
+    Friend WithEvents Label20 As Label
+    Friend WithEvents PnlFpNewPass As Panel
+    Friend WithEvents Label22 As Label
+    Friend WithEvents TxtFpConfirmNewPass As TextBox
+    Friend WithEvents Label21 As Label
+    Friend WithEvents TxtFpNewPass As TextBox
+    Friend WithEvents BtnResetPass As Button
+    Friend WithEvents PnlFpEnterEmail As Panel
+    Friend WithEvents Label15 As Label
+    Friend WithEvents TxtFpEmail As TextBox
+    Friend WithEvents BtnFpSendCode As Button
+    Friend WithEvents BtnOpenResetPassPanel As Button
+    Friend WithEvents Label14 As Label
+    Friend WithEvents LblLoginMsg As Label
+    Friend WithEvents timer_fade_out_msg As Timer
+    Friend WithEvents Label24 As Label
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Label25 As Label
+    Friend WithEvents Label26 As Label
+    Friend WithEvents Label27 As Label
 End Class
