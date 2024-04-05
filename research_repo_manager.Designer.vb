@@ -39,15 +39,20 @@ Partial Class ResearchRepoManager
         Me.Label4 = New System.Windows.Forms.Label()
         Me.DtTo = New System.Windows.Forms.DateTimePicker()
         Me.PnlFilter = New System.Windows.Forms.Panel()
+        Me.LblFilteredDate = New System.Windows.Forms.Label()
+        Me.BtnClearDate = New System.Windows.Forms.Button()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.BtnClearStatus = New System.Windows.Forms.Button()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.RdCompleted = New System.Windows.Forms.RadioButton()
         Me.RdOngoing = New System.Windows.Forms.RadioButton()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.BtnClearPublished = New System.Windows.Forms.Button()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.RdPubNo = New System.Windows.Forms.RadioButton()
         Me.RdPubYes = New System.Windows.Forms.RadioButton()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.BtnClearPresented = New System.Windows.Forms.Button()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.RdPreNo = New System.Windows.Forms.RadioButton()
         Me.RdPreYes = New System.Windows.Forms.RadioButton()
@@ -88,11 +93,6 @@ Partial Class ResearchRepoManager
         Me.Label1 = New System.Windows.Forms.Label()
         Me.LblSrchFnd = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.BtnClearPublished = New System.Windows.Forms.Button()
-        Me.BtnClearPresented = New System.Windows.Forms.Button()
-        Me.BtnClearStatus = New System.Windows.Forms.Button()
-        Me.BtnClearDate = New System.Windows.Forms.Button()
-        Me.LblFilteredDate = New System.Windows.Forms.Label()
         Me.PnlFilter.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -185,6 +185,32 @@ Partial Class ResearchRepoManager
         Me.PnlFilter.Size = New System.Drawing.Size(400, 300)
         Me.PnlFilter.TabIndex = 19
         '
+        'LblFilteredDate
+        '
+        Me.LblFilteredDate.AutoSize = True
+        Me.LblFilteredDate.Location = New System.Drawing.Point(71, 87)
+        Me.LblFilteredDate.Name = "LblFilteredDate"
+        Me.LblFilteredDate.Size = New System.Drawing.Size(0, 13)
+        Me.LblFilteredDate.TabIndex = 40
+        '
+        'BtnClearDate
+        '
+        Me.BtnClearDate.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnClearDate.BackColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.BtnClearDate.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnClearDate.FlatAppearance.BorderSize = 0
+        Me.BtnClearDate.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnClearDate.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnClearDate.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.BtnClearDate.ImageAlign = System.Drawing.ContentAlignment.TopLeft
+        Me.BtnClearDate.Location = New System.Drawing.Point(368, 64)
+        Me.BtnClearDate.Name = "BtnClearDate"
+        Me.BtnClearDate.Size = New System.Drawing.Size(20, 20)
+        Me.BtnClearDate.TabIndex = 39
+        Me.BtnClearDate.Text = "X"
+        Me.BtnClearDate.UseVisualStyleBackColor = False
+        Me.BtnClearDate.Visible = False
+        '
         'Panel3
         '
         Me.Panel3.Controls.Add(Me.BtnClearStatus)
@@ -195,6 +221,24 @@ Partial Class ResearchRepoManager
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(276, 29)
         Me.Panel3.TabIndex = 36
+        '
+        'BtnClearStatus
+        '
+        Me.BtnClearStatus.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnClearStatus.BackColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.BtnClearStatus.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnClearStatus.FlatAppearance.BorderSize = 0
+        Me.BtnClearStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnClearStatus.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnClearStatus.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.BtnClearStatus.ImageAlign = System.Drawing.ContentAlignment.TopLeft
+        Me.BtnClearStatus.Location = New System.Drawing.Point(249, 4)
+        Me.BtnClearStatus.Name = "BtnClearStatus"
+        Me.BtnClearStatus.Size = New System.Drawing.Size(20, 20)
+        Me.BtnClearStatus.TabIndex = 38
+        Me.BtnClearStatus.Text = "X"
+        Me.BtnClearStatus.UseVisualStyleBackColor = False
+        Me.BtnClearStatus.Visible = False
         '
         'Label9
         '
@@ -242,6 +286,24 @@ Partial Class ResearchRepoManager
         Me.Panel2.Size = New System.Drawing.Size(276, 29)
         Me.Panel2.TabIndex = 35
         '
+        'BtnClearPublished
+        '
+        Me.BtnClearPublished.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnClearPublished.BackColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.BtnClearPublished.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnClearPublished.FlatAppearance.BorderSize = 0
+        Me.BtnClearPublished.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnClearPublished.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnClearPublished.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.BtnClearPublished.ImageAlign = System.Drawing.ContentAlignment.TopLeft
+        Me.BtnClearPublished.Location = New System.Drawing.Point(249, 4)
+        Me.BtnClearPublished.Name = "BtnClearPublished"
+        Me.BtnClearPublished.Size = New System.Drawing.Size(20, 20)
+        Me.BtnClearPublished.TabIndex = 37
+        Me.BtnClearPublished.Text = "X"
+        Me.BtnClearPublished.UseVisualStyleBackColor = False
+        Me.BtnClearPublished.Visible = False
+        '
         'Label10
         '
         Me.Label10.AutoSize = True
@@ -287,6 +349,24 @@ Partial Class ResearchRepoManager
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(276, 29)
         Me.Panel1.TabIndex = 34
+        '
+        'BtnClearPresented
+        '
+        Me.BtnClearPresented.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnClearPresented.BackColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.BtnClearPresented.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnClearPresented.FlatAppearance.BorderSize = 0
+        Me.BtnClearPresented.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnClearPresented.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnClearPresented.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.BtnClearPresented.ImageAlign = System.Drawing.ContentAlignment.TopLeft
+        Me.BtnClearPresented.Location = New System.Drawing.Point(249, 4)
+        Me.BtnClearPresented.Name = "BtnClearPresented"
+        Me.BtnClearPresented.Size = New System.Drawing.Size(20, 20)
+        Me.BtnClearPresented.TabIndex = 38
+        Me.BtnClearPresented.Text = "X"
+        Me.BtnClearPresented.UseVisualStyleBackColor = False
+        Me.BtnClearPresented.Visible = False
         '
         'Label8
         '
@@ -685,7 +765,7 @@ Partial Class ResearchRepoManager
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(102, 34)
         Me.Button3.TabIndex = 23
-        Me.Button3.Text = "View"
+        Me.Button3.Text = "VIEW"
         Me.Button3.UseVisualStyleBackColor = True
         '
         'BtnFilter
@@ -718,7 +798,7 @@ Partial Class ResearchRepoManager
         Me.BtnDelete.Name = "BtnDelete"
         Me.BtnDelete.Size = New System.Drawing.Size(102, 34)
         Me.BtnDelete.TabIndex = 11
-        Me.BtnDelete.Text = "Delete"
+        Me.BtnDelete.Text = "DELETE"
         Me.BtnDelete.UseVisualStyleBackColor = True
         '
         'BtnEdit
@@ -733,7 +813,7 @@ Partial Class ResearchRepoManager
         Me.BtnEdit.Name = "BtnEdit"
         Me.BtnEdit.Size = New System.Drawing.Size(102, 34)
         Me.BtnEdit.TabIndex = 9
-        Me.BtnEdit.Text = "Edit"
+        Me.BtnEdit.Text = "EDIT"
         Me.BtnEdit.UseVisualStyleBackColor = True
         '
         'BtnSearch
@@ -764,7 +844,7 @@ Partial Class ResearchRepoManager
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(102, 34)
         Me.Button1.TabIndex = 2
-        Me.Button1.Text = "Add"
+        Me.Button1.Text = "ADD"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'Label1
@@ -794,86 +874,6 @@ Partial Class ResearchRepoManager
         'Timer1
         '
         Me.Timer1.Interval = 1200
-        '
-        'BtnClearPublished
-        '
-        Me.BtnClearPublished.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.BtnClearPublished.BackColor = System.Drawing.SystemColors.GradientActiveCaption
-        Me.BtnClearPublished.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnClearPublished.FlatAppearance.BorderSize = 0
-        Me.BtnClearPublished.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnClearPublished.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnClearPublished.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.BtnClearPublished.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.BtnClearPublished.Location = New System.Drawing.Point(249, 4)
-        Me.BtnClearPublished.Name = "BtnClearPublished"
-        Me.BtnClearPublished.Size = New System.Drawing.Size(20, 20)
-        Me.BtnClearPublished.TabIndex = 37
-        Me.BtnClearPublished.Text = "X"
-        Me.BtnClearPublished.UseVisualStyleBackColor = False
-        Me.BtnClearPublished.Visible = False
-        '
-        'BtnClearPresented
-        '
-        Me.BtnClearPresented.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.BtnClearPresented.BackColor = System.Drawing.SystemColors.GradientActiveCaption
-        Me.BtnClearPresented.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnClearPresented.FlatAppearance.BorderSize = 0
-        Me.BtnClearPresented.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnClearPresented.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnClearPresented.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.BtnClearPresented.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.BtnClearPresented.Location = New System.Drawing.Point(249, 4)
-        Me.BtnClearPresented.Name = "BtnClearPresented"
-        Me.BtnClearPresented.Size = New System.Drawing.Size(20, 20)
-        Me.BtnClearPresented.TabIndex = 38
-        Me.BtnClearPresented.Text = "X"
-        Me.BtnClearPresented.UseVisualStyleBackColor = False
-        Me.BtnClearPresented.Visible = False
-        '
-        'BtnClearStatus
-        '
-        Me.BtnClearStatus.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.BtnClearStatus.BackColor = System.Drawing.SystemColors.GradientActiveCaption
-        Me.BtnClearStatus.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnClearStatus.FlatAppearance.BorderSize = 0
-        Me.BtnClearStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnClearStatus.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnClearStatus.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.BtnClearStatus.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.BtnClearStatus.Location = New System.Drawing.Point(249, 4)
-        Me.BtnClearStatus.Name = "BtnClearStatus"
-        Me.BtnClearStatus.Size = New System.Drawing.Size(20, 20)
-        Me.BtnClearStatus.TabIndex = 38
-        Me.BtnClearStatus.Text = "X"
-        Me.BtnClearStatus.UseVisualStyleBackColor = False
-        Me.BtnClearStatus.Visible = False
-        '
-        'BtnClearDate
-        '
-        Me.BtnClearDate.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.BtnClearDate.BackColor = System.Drawing.SystemColors.GradientActiveCaption
-        Me.BtnClearDate.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnClearDate.FlatAppearance.BorderSize = 0
-        Me.BtnClearDate.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnClearDate.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnClearDate.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.BtnClearDate.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.BtnClearDate.Location = New System.Drawing.Point(368, 64)
-        Me.BtnClearDate.Name = "BtnClearDate"
-        Me.BtnClearDate.Size = New System.Drawing.Size(20, 20)
-        Me.BtnClearDate.TabIndex = 39
-        Me.BtnClearDate.Text = "X"
-        Me.BtnClearDate.UseVisualStyleBackColor = False
-        Me.BtnClearDate.Visible = False
-        '
-        'LblFilteredDate
-        '
-        Me.LblFilteredDate.AutoSize = True
-        Me.LblFilteredDate.Location = New System.Drawing.Point(71, 87)
-        Me.LblFilteredDate.Name = "LblFilteredDate"
-        Me.LblFilteredDate.Size = New System.Drawing.Size(0, 13)
-        Me.LblFilteredDate.TabIndex = 40
         '
         'ResearchRepoManager
         '

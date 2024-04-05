@@ -1173,7 +1173,7 @@ Partial Class AddWorks
         Me.BtnSaveResearch.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.BtnSaveResearch.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnSaveResearch.FlatStyle = System.Windows.Forms.FlatStyle.System
-        Me.BtnSaveResearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnSaveResearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnSaveResearch.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.BtnSaveResearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.BtnSaveResearch.Location = New System.Drawing.Point(531, 657)
@@ -1189,7 +1189,7 @@ Partial Class AddWorks
         Me.BtnCancel.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.BtnCancel.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnCancel.FlatStyle = System.Windows.Forms.FlatStyle.System
-        Me.BtnCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnCancel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.BtnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.BtnCancel.Location = New System.Drawing.Point(723, 657)
@@ -1364,6 +1364,7 @@ Partial Class AddWorks
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.GroupBox2)
         Me.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.MinimumSize = New System.Drawing.Size(1364, 734)
         Me.Name = "AddWorks"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "ADD RESEARCH FORM"

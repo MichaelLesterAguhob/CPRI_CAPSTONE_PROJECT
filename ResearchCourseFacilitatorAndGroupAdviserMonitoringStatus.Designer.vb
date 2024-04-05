@@ -84,14 +84,14 @@ Partial Class ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus
         Me.Label11 = New System.Windows.Forms.Label()
         Me.ChckBxStageFtc = New System.Windows.Forms.CheckBox()
         Me.ChckBxStageRp = New System.Windows.Forms.CheckBox()
+        Me.BtnResetFilter = New System.Windows.Forms.Button()
+        Me.BtnApplyFilter = New System.Windows.Forms.Button()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.BtnCloseFilter = New System.Windows.Forms.Button()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.TmOpenFilter = New System.Windows.Forms.Timer(Me.components)
         Me.TmCloseFilter = New System.Windows.Forms.Timer(Me.components)
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.BtnResetFilter = New System.Windows.Forms.Button()
-        Me.BtnApplyFilter = New System.Windows.Forms.Button()
         Me.BtnFilter = New System.Windows.Forms.Button()
         Me.BtnDelete = New System.Windows.Forms.Button()
         Me.BtnEdit = New System.Windows.Forms.Button()
@@ -581,6 +581,7 @@ Partial Class ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus
         'ChckBxStatPt
         '
         Me.ChckBxStatPt.AutoSize = True
+        Me.ChckBxStatPt.Cursor = System.Windows.Forms.Cursors.Hand
         Me.ChckBxStatPt.Location = New System.Drawing.Point(224, 177)
         Me.ChckBxStatPt.Name = "ChckBxStatPt"
         Me.ChckBxStatPt.Size = New System.Drawing.Size(71, 17)
@@ -591,6 +592,7 @@ Partial Class ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus
         'ChckBxStatFT
         '
         Me.ChckBxStatFT.AutoSize = True
+        Me.ChckBxStatFT.Cursor = System.Windows.Forms.Cursors.Hand
         Me.ChckBxStatFT.Location = New System.Drawing.Point(102, 177)
         Me.ChckBxStatFT.Name = "ChckBxStatFT"
         Me.ChckBxStatFT.Size = New System.Drawing.Size(68, 17)
@@ -667,6 +669,7 @@ Partial Class ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus
         'ChckBxSumm
         '
         Me.ChckBxSumm.AutoSize = True
+        Me.ChckBxSumm.Cursor = System.Windows.Forms.Cursors.Hand
         Me.ChckBxSumm.Location = New System.Drawing.Point(330, 129)
         Me.ChckBxSumm.Name = "ChckBxSumm"
         Me.ChckBxSumm.Size = New System.Drawing.Size(64, 17)
@@ -677,6 +680,7 @@ Partial Class ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus
         'ChckBx1st
         '
         Me.ChckBx1st.AutoSize = True
+        Me.ChckBx1st.Cursor = System.Windows.Forms.Cursors.Hand
         Me.ChckBx1st.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ChckBx1st.Location = New System.Drawing.Point(102, 129)
         Me.ChckBx1st.Name = "ChckBx1st"
@@ -688,6 +692,7 @@ Partial Class ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus
         'ChckBx2nd
         '
         Me.ChckBx2nd.AutoSize = True
+        Me.ChckBx2nd.Cursor = System.Windows.Forms.Cursors.Hand
         Me.ChckBx2nd.Location = New System.Drawing.Point(224, 129)
         Me.ChckBx2nd.Name = "ChckBx2nd"
         Me.ChckBx2nd.Size = New System.Drawing.Size(91, 17)
@@ -709,6 +714,7 @@ Partial Class ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus
         'ChckBxStageFtc
         '
         Me.ChckBxStageFtc.AutoSize = True
+        Me.ChckBxStageFtc.Cursor = System.Windows.Forms.Cursors.Hand
         Me.ChckBxStageFtc.Location = New System.Drawing.Point(224, 153)
         Me.ChckBxStageFtc.Name = "ChckBxStageFtc"
         Me.ChckBxStageFtc.Size = New System.Drawing.Size(132, 17)
@@ -719,12 +725,47 @@ Partial Class ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus
         'ChckBxStageRp
         '
         Me.ChckBxStageRp.AutoSize = True
+        Me.ChckBxStageRp.Cursor = System.Windows.Forms.Cursors.Hand
         Me.ChckBxStageRp.Location = New System.Drawing.Point(102, 153)
         Me.ChckBxStageRp.Name = "ChckBxStageRp"
         Me.ChckBxStageRp.Size = New System.Drawing.Size(116, 17)
         Me.ChckBxStageRp.TabIndex = 40
         Me.ChckBxStageRp.Text = "Research Proposal"
         Me.ChckBxStageRp.UseVisualStyleBackColor = True
+        '
+        'BtnResetFilter
+        '
+        Me.BtnResetFilter.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnResetFilter.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnResetFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnResetFilter.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnResetFilter.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.BtnResetFilter.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_reset_14
+        Me.BtnResetFilter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnResetFilter.Location = New System.Drawing.Point(417, 214)
+        Me.BtnResetFilter.Name = "BtnResetFilter"
+        Me.BtnResetFilter.Size = New System.Drawing.Size(61, 23)
+        Me.BtnResetFilter.TabIndex = 27
+        Me.BtnResetFilter.Text = "Reset"
+        Me.BtnResetFilter.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.BtnResetFilter.UseVisualStyleBackColor = False
+        '
+        'BtnApplyFilter
+        '
+        Me.BtnApplyFilter.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnApplyFilter.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnApplyFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnApplyFilter.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnApplyFilter.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.BtnApplyFilter.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_filtered_file_14
+        Me.BtnApplyFilter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnApplyFilter.Location = New System.Drawing.Point(323, 214)
+        Me.BtnApplyFilter.Name = "BtnApplyFilter"
+        Me.BtnApplyFilter.Size = New System.Drawing.Size(61, 23)
+        Me.BtnApplyFilter.TabIndex = 26
+        Me.BtnApplyFilter.Text = "Apply"
+        Me.BtnApplyFilter.TextAlign = System.Drawing.ContentAlignment.TopRight
+        Me.BtnApplyFilter.UseVisualStyleBackColor = False
         '
         'Label5
         '
@@ -741,6 +782,7 @@ Partial Class ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus
         '
         Me.BtnCloseFilter.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.BtnCloseFilter.BackColor = System.Drawing.Color.Red
+        Me.BtnCloseFilter.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnCloseFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnCloseFilter.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnCloseFilter.ForeColor = System.Drawing.SystemColors.WindowText
@@ -784,41 +826,10 @@ Partial Class ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus
         Me.Label1.Text = "RCF AND RGA MONITORING STATUS"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'BtnResetFilter
-        '
-        Me.BtnResetFilter.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.BtnResetFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnResetFilter.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnResetFilter.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.BtnResetFilter.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_reset_14
-        Me.BtnResetFilter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnResetFilter.Location = New System.Drawing.Point(417, 214)
-        Me.BtnResetFilter.Name = "BtnResetFilter"
-        Me.BtnResetFilter.Size = New System.Drawing.Size(61, 23)
-        Me.BtnResetFilter.TabIndex = 27
-        Me.BtnResetFilter.Text = "Reset"
-        Me.BtnResetFilter.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.BtnResetFilter.UseVisualStyleBackColor = False
-        '
-        'BtnApplyFilter
-        '
-        Me.BtnApplyFilter.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.BtnApplyFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnApplyFilter.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnApplyFilter.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.BtnApplyFilter.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_filtered_file_14
-        Me.BtnApplyFilter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnApplyFilter.Location = New System.Drawing.Point(323, 214)
-        Me.BtnApplyFilter.Name = "BtnApplyFilter"
-        Me.BtnApplyFilter.Size = New System.Drawing.Size(61, 23)
-        Me.BtnApplyFilter.TabIndex = 26
-        Me.BtnApplyFilter.Text = "Apply"
-        Me.BtnApplyFilter.TextAlign = System.Drawing.ContentAlignment.TopRight
-        Me.BtnApplyFilter.UseVisualStyleBackColor = False
-        '
         'BtnFilter
         '
         Me.BtnFilter.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnFilter.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnFilter.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnFilter.ForeColor = System.Drawing.SystemColors.WindowText
@@ -835,6 +846,7 @@ Partial Class ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus
         'BtnDelete
         '
         Me.BtnDelete.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnDelete.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnDelete.Enabled = False
         Me.BtnDelete.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnDelete.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
@@ -844,12 +856,13 @@ Partial Class ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus
         Me.BtnDelete.Name = "BtnDelete"
         Me.BtnDelete.Size = New System.Drawing.Size(102, 34)
         Me.BtnDelete.TabIndex = 30
-        Me.BtnDelete.Text = "Delete"
+        Me.BtnDelete.Text = "DELETE"
         Me.BtnDelete.UseVisualStyleBackColor = True
         '
         'BtnEdit
         '
         Me.BtnEdit.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnEdit.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnEdit.Enabled = False
         Me.BtnEdit.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnEdit.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
@@ -859,12 +872,13 @@ Partial Class ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus
         Me.BtnEdit.Name = "BtnEdit"
         Me.BtnEdit.Size = New System.Drawing.Size(102, 34)
         Me.BtnEdit.TabIndex = 29
-        Me.BtnEdit.Text = "Edit"
+        Me.BtnEdit.Text = "EDIT"
         Me.BtnEdit.UseVisualStyleBackColor = True
         '
         'BtnSearch
         '
         Me.BtnSearch.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnSearch.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnSearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnSearch.ForeColor = System.Drawing.SystemColors.WindowText
@@ -881,15 +895,16 @@ Partial Class ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus
         'BtnAddRCFGARecord
         '
         Me.BtnAddRCFGARecord.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnAddRCFGARecord.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnAddRCFGARecord.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnAddRCFGARecord.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.BtnAddRCFGARecord.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_add_21
         Me.BtnAddRCFGARecord.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnAddRCFGARecord.Location = New System.Drawing.Point(912, 470)
+        Me.BtnAddRCFGARecord.Location = New System.Drawing.Point(896, 470)
         Me.BtnAddRCFGARecord.Name = "BtnAddRCFGARecord"
-        Me.BtnAddRCFGARecord.Size = New System.Drawing.Size(114, 34)
+        Me.BtnAddRCFGARecord.Size = New System.Drawing.Size(130, 34)
         Me.BtnAddRCFGARecord.TabIndex = 26
-        Me.BtnAddRCFGARecord.Text = "Add Record"
+        Me.BtnAddRCFGARecord.Text = "ADD RECORD"
         Me.BtnAddRCFGARecord.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.BtnAddRCFGARecord.UseVisualStyleBackColor = True
         '

@@ -32,8 +32,10 @@ Public Class BorrowingAndReturning
         LoadOverDues()
         TxtDate.Text = date_time.Date.ToString("MM-dd-yyyy")
         Timer1.Start()
-        BtnBooks.Focus()
+        DgvBooks.Focus()
     End Sub
+
+
 
     Private Sub BorrowingAndReturning_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         EmptyTempStorage()
@@ -59,6 +61,7 @@ Public Class BorrowingAndReturning
                             scholarly_works.title, 
                             authors.authors_name,
                             published_details.date_published,
+                            qnty_loc.location,
                             qnty_loc.quantity,
                             CASE
                                     WHEN quantity < 1 THEN 'Unavailable'
@@ -105,7 +108,7 @@ Public Class BorrowingAndReturning
         DgvBooks.ClearSelection()
     End Sub
 
-    '
+    'BUTTON BOOKS CLICK
     Private Sub BtnBooks_Click(sender As Object, e As EventArgs) Handles BtnBooks.Click
         TabControls.SelectedIndex = 0
         TabControls.SelectedTab = TabPage1
@@ -122,9 +125,21 @@ Public Class BorrowingAndReturning
         BtnDeleteBorrower.Enabled = False
         BtnCancelBorrow.Enabled = False
         BtnReturnBooks.Enabled = False
+        DgvBooks.Focus()
     End Sub
 
+    Private Sub DgvBooks_KeyDown(sender As Object, e As KeyEventArgs) Handles DgvBooks.KeyDown
+        If e.KeyCode = 13 Then
+            If isAddingPanelVisible = False Then
+                PnlAddingToBorrow.Visible = True
+                isAddingPanelVisible = True
+            Else
+                AddToBorrow.PerformClick()
+            End If
+        End If
+    End Sub
 
+    'DELETE TEMPORARY ADDED BOOKS
     Private Sub EmptyTempStorage()
         'clearing data in temporary storage
         con.Close()
@@ -275,7 +290,7 @@ Public Class BorrowingAndReturning
         Dim i As Integer = DgvBooks.CurrentRow.Index
         selected_book_id = DgvBooks.Item(0, i).Value
         selected_book_title = DgvBooks.Item(1, i).Value
-        selected_book_stat = DgvBooks.Item(5, i).Value
+        selected_book_stat = DgvBooks.Item(6, i).Value
         BtnNext.Enabled = True
         If isAddingPanelVisible Then
             If selected_book_stat = "Unavailable" Then
@@ -310,7 +325,7 @@ Public Class BorrowingAndReturning
                 BtnReturnedBooks.BackColor = Color.Transparent
                 BtnOverduesBooks.BackColor = Color.Transparent
                 TxtType.Text = selected_book_stat
-
+                DtDueDate.Enabled = False
                 LoadToBorrowTemp()
                 TxtExistingBorrowerId.Focus()
                 TxtBookId.Clear()
@@ -329,6 +344,7 @@ Public Class BorrowingAndReturning
                 BtnReturnedBooks.BackColor = Color.Transparent
                 BtnOverduesBooks.BackColor = Color.Transparent
                 TxtType.Text = selected_book_stat
+                DtDueDate.Enabled = True
 
                 LoadToBorrowTemp()
                 TxtExistingBorrowerId.Focus()
@@ -369,6 +385,13 @@ Public Class BorrowingAndReturning
             Lbl1.Text = ""
         End If
 
+    End Sub
+
+    'KEYDOWN
+    Private Sub TxtExistingBorrowerId_KeyDown(sender As Object, e As KeyEventArgs) Handles TxtExistingBorrowerId.KeyDown
+        If e.KeyCode = 13 Then
+            BtnConfirm.PerformClick()
+        End If
     End Sub
 
     'IF USER LEAVE THE BORROWER'S INPUT FIELD BALNKED
@@ -472,7 +495,7 @@ Public Class BorrowingAndReturning
     End Sub
 
     Private Sub BtnCancelAddedToBorrow_Click(sender As Object, e As EventArgs) Handles BtnCancelAddedToBorrow.Click
-        Dim confirmation As DialogResult = MessageBox.Show("Cancel Borrowing? All books added to will be removed.", "Confirm Cancelling?", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        Dim confirmation As DialogResult = MessageBox.Show("Cancel Borrowing? All books added to will be removed.", "Confirm Cancel", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
         If confirmation = DialogResult.Yes Then
             EmptyTempStorage()
             Button7.PerformClick()
@@ -480,7 +503,14 @@ Public Class BorrowingAndReturning
         End If
     End Sub
     Private Sub BtnCancelBorrowingTrans_Click(sender As Object, e As EventArgs) Handles BtnCancelBorrowingTrans.Click
-        BtnCancelAddedToBorrow.PerformClick()
+        Dim confirmation As DialogResult = MessageBox.Show("Cancel Borrowing? All books added to will be removed.", "Confirm Cancel", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        If confirmation = DialogResult.Yes Then
+            BtnBooks.PerformClick()
+            EmptyTempStorage()
+            Button7.PerformClick()
+            BtnCancelAddedToBorrow.PerformClick()
+        End If
+
     End Sub
 
 
@@ -606,6 +636,7 @@ Public Class BorrowingAndReturning
         End If
     End Sub
 
+    'METHOD TO CEATE OR ADD NEW BORROWER
     Private Sub AddBorrower()
         con.Close()
         Try
@@ -652,6 +683,7 @@ Public Class BorrowingAndReturning
         BtnDeleteBorrower.Enabled = True
     End Sub
 
+    'BUTTON TO EDIT BORROWER DETAIL
     Private Sub BtnEditBorrower_Click(sender As Object, e As EventArgs) Handles BtnEditBorrower.Click
         If selected_borrower_id = 0 Then
             MessageBox.Show("Please select a record first", "No selected", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
@@ -688,6 +720,7 @@ Public Class BorrowingAndReturning
 
     End Sub
 
+    'BUTTON TO UPDATE BORROWER DETAILS
     Private Sub UpdateEditedBorrowerDetails()
         con.Close()
         Try
@@ -732,33 +765,51 @@ Public Class BorrowingAndReturning
         End Try
     End Sub
 
+    'BUTTON DELETE BORROWER
     Private Sub BtnDeleteBorrower_Click(sender As Object, e As EventArgs) Handles BtnDeleteBorrower.Click
         If selected_borrower_id = 0 Then
             MessageBox.Show("Please select a record first", "No selected", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         Else
-            Dim confirmation As DialogResult = MessageBox.Show("Delete borrower " & "[ ID: " & selected_borrower_id & " NAME: " & selected_borrower_name & " ] permanently?", "Confirm Deleting?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
-            If confirmation = DialogResult.Yes Then
+
+            con.Close()
+            Try
+                con.Open()
+
+                Using cmd As New MySqlCommand("
+                    SELECT 
+                        borrower_id 
+                    FROM 
+                        borrowed_books 
+                    WHERE 
+                        borrower_id = @borrower_id 
+                        AND is_cancel='NO'
+                        AND is_returned='NO'", con)
+                    cmd.Parameters.AddWithValue("@borrower_id", selected_borrower_id)
+                    Dim reader As MySqlDataReader = cmd.ExecuteReader()
+                    If reader.HasRows Then
+                        MessageBox.Show("Unable to delete borrower with active borrow transaction", "Unable to delete borrower", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                    Else
+                        reader.Close()
+                        Dim confirmation As DialogResult = MessageBox.Show("Delete borrower " & "[ ID: " & selected_borrower_id & " NAME: " & selected_borrower_name & " ] permanently?", "Confirm Deleting?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
+                        If confirmation = DialogResult.Yes Then
+                            Using cmd2 As New MySqlCommand("DELETE FROM borrowers WHERE borrower_id = @borrower_id", con)
+                                cmd2.Parameters.AddWithValue("@borrower_id", selected_borrower_id)
+                                cmd2.ExecuteNonQuery()
+                            End Using
+                            LoadBorrowersList()
+                            BtnEditBorrower.Enabled = False
+                            BtnDeleteBorrower.Enabled = False
+                            MessageBox.Show("Successfully deleted", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        End If
+                    End If
+                    reader.Close()
+                End Using
+            Catch ex As Exception
+                MessageBox.Show(ex.Message, "Error Occurred while deleting borrower record", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 con.Close()
-                Try
-                    con.Open()
-
-                    Using cmd As New MySqlCommand("DELETE FROM borrowers WHERE borrower_id = @borrower_id", con)
-                        cmd.Parameters.AddWithValue("@borrower_id", selected_borrower_id)
-                        cmd.ExecuteNonQuery()
-                    End Using
-                    LoadBorrowersList()
-                    BtnEditBorrower.Enabled = False
-                    BtnDeleteBorrower.Enabled = False
-                    MessageBox.Show("Successfully deleted", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information)
-
-                Catch ex As Exception
-                    MessageBox.Show(ex.Message, "Error Occurred while deleting borrower record", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                    con.Close()
-                Finally
-                    con.Close()
-                End Try
-            End If
-
+            Finally
+                con.Close()
+            End Try
         End If
     End Sub
 
@@ -1520,7 +1571,7 @@ Public Class BorrowingAndReturning
             Dim cntr As Integer = 1
             Dim due_date As String = ""
             Dim book_due_date As DateTime
-            Dim current_date As DateTime = DateTime.Now
+            Dim current_date As Date = Date.Today 
             Dim borrow_id As Integer = 0
             Dim borrower_id As Integer = 0
 
@@ -1536,7 +1587,7 @@ Public Class BorrowingAndReturning
                     If reader.HasRows AndAlso reader.Read() Then
 
                         due_date = reader("due_date").ToString()
-                        book_due_date = DateTime.ParseExact(reader("due_date").ToString(), "MM-dd-yyyy", CultureInfo.InvariantCulture)
+                        book_due_date = DateTime.ParseExact(reader("due_date").ToString(), "MM-dd-yyyy", CultureInfo.InvariantCulture).Date
 
                         borrower_id = Convert.ToInt32(reader("borrower_id"))
                         borrow_id = Convert.ToInt32(reader("borrow_id"))
@@ -1546,7 +1597,7 @@ Public Class BorrowingAndReturning
                 End Using
                 If book_due_date < current_date Then
 
-                    MsgBox("This book is overdue")
+                    MsgBox("This book is overdue" & book_due_date.ToString)
                     Using cmd2 As New MySqlCommand("UPDATE borrowed_books SET is_overdue='YES' WHERE borrow_id=@id ", con)
                         cmd2.Parameters.AddWithValue("@id", borrow_id)
                         cmd2.ExecuteNonQuery()
@@ -1578,11 +1629,6 @@ Public Class BorrowingAndReturning
             con.Close()
         End Try
     End Sub
-
-
-
-
-
 
 
 End Class

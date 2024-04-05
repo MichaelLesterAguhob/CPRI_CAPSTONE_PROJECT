@@ -1,9 +1,15 @@
 ﻿Public Class Form1
+
+    Shared date_time As DateTime = DateTime.Now
+
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+        TxtTime.Text = TimeOfDay.ToString("h:mm:ss tt")
+    End Sub
+
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
         ConOpen()
-
-
+        TxtDate.Text = date_time.Date.ToString("MM-dd-yyyy")
+        Timer1.Start()
     End Sub
 
     Private Sub Form1_Closing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
@@ -47,7 +53,6 @@
         Dim rcfgams As New ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus
         rcfgams.Show()
     End Sub
-
 
 
 End Class

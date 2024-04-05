@@ -546,7 +546,7 @@ Partial Class EditRCF_RGA
         Me.BtnCancel.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.BtnCancel.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnCancel.FlatStyle = System.Windows.Forms.FlatStyle.System
-        Me.BtnCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnCancel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.BtnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.BtnCancel.Location = New System.Drawing.Point(248, 522)
@@ -562,7 +562,7 @@ Partial Class EditRCF_RGA
         Me.BtnUpdate.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.BtnUpdate.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.System
-        Me.BtnUpdate.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnUpdate.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnUpdate.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.BtnUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.BtnUpdate.Location = New System.Drawing.Point(63, 522)
@@ -1065,9 +1065,11 @@ Partial Class EditRCF_RGA
         Me.Controls.Add(Me.PnlRRCF)
         Me.Controls.Add(Me.LblStage)
         Me.Controls.Add(Me.Label9)
+        Me.MinimumSize = New System.Drawing.Size(1263, 608)
         Me.Name = "EditRCF_RGA"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Edit Research Course Facilitator and Research Group Adviser Record"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.PnlRRGA.ResumeLayout(False)
         Me.PnlRRGA.PerformLayout()
         Me.Panel11.ResumeLayout(False)
