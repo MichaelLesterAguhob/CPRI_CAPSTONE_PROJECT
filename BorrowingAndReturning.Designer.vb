@@ -44,10 +44,10 @@ Partial Class BorrowingAndReturning
         Dim DataGridViewCellStyle18 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle20 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle23 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle21 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle22 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle25 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle24 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle21 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle22 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.TxtTime = New System.Windows.Forms.TextBox()
         Me.Label17 = New System.Windows.Forms.Label()
@@ -159,16 +159,6 @@ Partial Class BorrowingAndReturning
         Me.TabPage5 = New System.Windows.Forms.TabPage()
         Me.Label29 = New System.Windows.Forms.Label()
         Me.DgvOverdues = New System.Windows.Forms.DataGridView()
-        Me.Column20 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column26 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column22 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column23 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column45 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column21 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column43 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column44 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column46 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column47 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TabPage6 = New System.Windows.Forms.TabPage()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.BtnRemoveToBorrow = New System.Windows.Forms.Button()
@@ -225,6 +215,17 @@ Partial Class BorrowingAndReturning
         Me.Label25 = New System.Windows.Forms.Label()
         Me.Label26 = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.Column20 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column26 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column22 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column23 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column49 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column45 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column21 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column43 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column44 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column46 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column47 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.TabControls.SuspendLayout()
@@ -1652,7 +1653,7 @@ Partial Class BorrowingAndReturning
         DataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.DgvOverdues.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle20
         Me.DgvOverdues.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DgvOverdues.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column20, Me.Column26, Me.Column22, Me.Column23, Me.Column45, Me.Column21, Me.Column43, Me.Column44, Me.Column46, Me.Column47})
+        Me.DgvOverdues.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column20, Me.Column26, Me.Column22, Me.Column23, Me.Column49, Me.Column45, Me.Column21, Me.Column43, Me.Column44, Me.Column46, Me.Column47})
         Me.DgvOverdues.Location = New System.Drawing.Point(0, 57)
         Me.DgvOverdues.Name = "DgvOverdues"
         Me.DgvOverdues.ReadOnly = True
@@ -1662,110 +1663,6 @@ Partial Class BorrowingAndReturning
         Me.DgvOverdues.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DgvOverdues.Size = New System.Drawing.Size(1024, 472)
         Me.DgvOverdues.TabIndex = 3
-        '
-        'Column20
-        '
-        Me.Column20.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
-        Me.Column20.DataPropertyName = "borrow_id"
-        Me.Column20.HeaderText = "BORROW ID"
-        Me.Column20.MinimumWidth = 120
-        Me.Column20.Name = "Column20"
-        Me.Column20.ReadOnly = True
-        Me.Column20.Width = 120
-        '
-        'Column26
-        '
-        Me.Column26.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
-        Me.Column26.DataPropertyName = "borrower_id"
-        Me.Column26.HeaderText = "BORROWERS ID"
-        Me.Column26.MinimumWidth = 120
-        Me.Column26.Name = "Column26"
-        Me.Column26.ReadOnly = True
-        Me.Column26.Width = 140
-        '
-        'Column22
-        '
-        Me.Column22.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
-        Me.Column22.DataPropertyName = "due_date"
-        DataGridViewCellStyle21.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Column22.DefaultCellStyle = DataGridViewCellStyle21
-        Me.Column22.HeaderText = "DUE DATE"
-        Me.Column22.MinimumWidth = 110
-        Me.Column22.Name = "Column22"
-        Me.Column22.ReadOnly = True
-        Me.Column22.Width = 110
-        '
-        'Column23
-        '
-        Me.Column23.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
-        Me.Column23.DataPropertyName = "overdue_days"
-        DataGridViewCellStyle22.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Column23.DefaultCellStyle = DataGridViewCellStyle22
-        Me.Column23.HeaderText = "OVERDUE DAYS"
-        Me.Column23.MinimumWidth = 140
-        Me.Column23.Name = "Column23"
-        Me.Column23.ReadOnly = True
-        Me.Column23.Width = 140
-        '
-        'Column45
-        '
-        Me.Column45.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
-        Me.Column45.DataPropertyName = "book_ids"
-        Me.Column45.HeaderText = "BOOKS ID"
-        Me.Column45.MinimumWidth = 110
-        Me.Column45.Name = "Column45"
-        Me.Column45.ReadOnly = True
-        Me.Column45.Width = 110
-        '
-        'Column21
-        '
-        Me.Column21.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
-        Me.Column21.DataPropertyName = "title"
-        Me.Column21.HeaderText = "TITLE"
-        Me.Column21.MinimumWidth = 350
-        Me.Column21.Name = "Column21"
-        Me.Column21.ReadOnly = True
-        Me.Column21.Width = 350
-        '
-        'Column43
-        '
-        Me.Column43.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
-        Me.Column43.DataPropertyName = "total_no_book"
-        Me.Column43.HeaderText = "TOTAL BOOKS"
-        Me.Column43.MinimumWidth = 140
-        Me.Column43.Name = "Column43"
-        Me.Column43.ReadOnly = True
-        Me.Column43.Width = 140
-        '
-        'Column44
-        '
-        Me.Column44.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
-        Me.Column44.DataPropertyName = "type"
-        Me.Column44.HeaderText = "TYPE"
-        Me.Column44.MinimumWidth = 120
-        Me.Column44.Name = "Column44"
-        Me.Column44.ReadOnly = True
-        Me.Column44.Width = 120
-        '
-        'Column46
-        '
-        Me.Column46.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
-        Me.Column46.DataPropertyName = "borrow_date"
-        Me.Column46.HeaderText = "BORROW DATE"
-        Me.Column46.MinimumWidth = 140
-        Me.Column46.Name = "Column46"
-        Me.Column46.ReadOnly = True
-        Me.Column46.Width = 140
-        '
-        'Column47
-        '
-        Me.Column47.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
-        Me.Column47.DataPropertyName = "time"
-        Me.Column47.HeaderText = "BORROW TIME"
-        Me.Column47.MinimumWidth = 140
-        Me.Column47.Name = "Column47"
-        Me.Column47.ReadOnly = True
-        Me.Column47.Width = 140
         '
         'TabPage6
         '
@@ -2419,6 +2316,122 @@ Partial Class BorrowingAndReturning
         'Timer1
         '
         '
+        'Column20
+        '
+        Me.Column20.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.Column20.DataPropertyName = "borrow_id"
+        Me.Column20.HeaderText = "BORROW ID"
+        Me.Column20.MinimumWidth = 120
+        Me.Column20.Name = "Column20"
+        Me.Column20.ReadOnly = True
+        Me.Column20.Width = 120
+        '
+        'Column26
+        '
+        Me.Column26.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.Column26.DataPropertyName = "borrower_id"
+        Me.Column26.HeaderText = "BORROWERS ID"
+        Me.Column26.MinimumWidth = 120
+        Me.Column26.Name = "Column26"
+        Me.Column26.ReadOnly = True
+        Me.Column26.Width = 140
+        '
+        'Column22
+        '
+        Me.Column22.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.Column22.DataPropertyName = "due_date"
+        DataGridViewCellStyle21.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle21.ForeColor = System.Drawing.Color.Red
+        Me.Column22.DefaultCellStyle = DataGridViewCellStyle21
+        Me.Column22.HeaderText = "DUE DATE"
+        Me.Column22.MinimumWidth = 110
+        Me.Column22.Name = "Column22"
+        Me.Column22.ReadOnly = True
+        Me.Column22.Width = 110
+        '
+        'Column23
+        '
+        Me.Column23.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.Column23.DataPropertyName = "overdue_days"
+        DataGridViewCellStyle22.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle22.ForeColor = System.Drawing.Color.Red
+        Me.Column23.DefaultCellStyle = DataGridViewCellStyle22
+        Me.Column23.HeaderText = "OVERDUE DAYS"
+        Me.Column23.MinimumWidth = 140
+        Me.Column23.Name = "Column23"
+        Me.Column23.ReadOnly = True
+        Me.Column23.Width = 140
+        '
+        'Column49
+        '
+        Me.Column49.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.Column49.DataPropertyName = "status"
+        Me.Column49.HeaderText = "STATUS"
+        Me.Column49.MinimumWidth = 130
+        Me.Column49.Name = "Column49"
+        Me.Column49.ReadOnly = True
+        Me.Column49.Width = 130
+        '
+        'Column45
+        '
+        Me.Column45.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.Column45.DataPropertyName = "book_ids"
+        Me.Column45.HeaderText = "BOOKS ID"
+        Me.Column45.MinimumWidth = 110
+        Me.Column45.Name = "Column45"
+        Me.Column45.ReadOnly = True
+        Me.Column45.Width = 110
+        '
+        'Column21
+        '
+        Me.Column21.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.Column21.DataPropertyName = "title"
+        Me.Column21.HeaderText = "TITLE"
+        Me.Column21.MinimumWidth = 350
+        Me.Column21.Name = "Column21"
+        Me.Column21.ReadOnly = True
+        Me.Column21.Width = 350
+        '
+        'Column43
+        '
+        Me.Column43.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.Column43.DataPropertyName = "total_no_book"
+        Me.Column43.HeaderText = "TOTAL BOOKS"
+        Me.Column43.MinimumWidth = 140
+        Me.Column43.Name = "Column43"
+        Me.Column43.ReadOnly = True
+        Me.Column43.Width = 140
+        '
+        'Column44
+        '
+        Me.Column44.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.Column44.DataPropertyName = "type"
+        Me.Column44.HeaderText = "TYPE"
+        Me.Column44.MinimumWidth = 120
+        Me.Column44.Name = "Column44"
+        Me.Column44.ReadOnly = True
+        Me.Column44.Width = 120
+        '
+        'Column46
+        '
+        Me.Column46.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.Column46.DataPropertyName = "borrow_date"
+        Me.Column46.HeaderText = "BORROW DATE"
+        Me.Column46.MinimumWidth = 140
+        Me.Column46.Name = "Column46"
+        Me.Column46.ReadOnly = True
+        Me.Column46.Width = 140
+        '
+        'Column47
+        '
+        Me.Column47.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.Column47.DataPropertyName = "time"
+        Me.Column47.HeaderText = "BORROW TIME"
+        Me.Column47.MinimumWidth = 140
+        Me.Column47.Name = "Column47"
+        Me.Column47.ReadOnly = True
+        Me.Column47.Width = 140
+        '
         'BorrowingAndReturning
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -2429,7 +2442,7 @@ Partial Class BorrowingAndReturning
         Me.Controls.Add(Me.Panel1)
         Me.Name = "BorrowingAndReturning"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "BorrowingAndReturning"
+        Me.Text = "CPRI - BORROWING AND RETURNING"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
@@ -2613,16 +2626,6 @@ Partial Class BorrowingAndReturning
     Friend WithEvents Column35 As DataGridViewTextBoxColumn
     Friend WithEvents Column39 As DataGridViewTextBoxColumn
     Friend WithEvents Column42 As DataGridViewTextBoxColumn
-    Friend WithEvents Column20 As DataGridViewTextBoxColumn
-    Friend WithEvents Column26 As DataGridViewTextBoxColumn
-    Friend WithEvents Column22 As DataGridViewTextBoxColumn
-    Friend WithEvents Column23 As DataGridViewTextBoxColumn
-    Friend WithEvents Column45 As DataGridViewTextBoxColumn
-    Friend WithEvents Column21 As DataGridViewTextBoxColumn
-    Friend WithEvents Column43 As DataGridViewTextBoxColumn
-    Friend WithEvents Column44 As DataGridViewTextBoxColumn
-    Friend WithEvents Column46 As DataGridViewTextBoxColumn
-    Friend WithEvents Column47 As DataGridViewTextBoxColumn
     Friend WithEvents Column25 As DataGridViewTextBoxColumn
     Friend WithEvents Column12 As DataGridViewTextBoxColumn
     Friend WithEvents Column18 As DataGridViewTextBoxColumn
@@ -2643,4 +2646,15 @@ Partial Class BorrowingAndReturning
     Friend WithEvents Column5 As DataGridViewTextBoxColumn
     Friend WithEvents Column27 As DataGridViewTextBoxColumn
     Friend WithEvents Column48 As DataGridViewTextBoxColumn
+    Friend WithEvents Column20 As DataGridViewTextBoxColumn
+    Friend WithEvents Column26 As DataGridViewTextBoxColumn
+    Friend WithEvents Column22 As DataGridViewTextBoxColumn
+    Friend WithEvents Column23 As DataGridViewTextBoxColumn
+    Friend WithEvents Column49 As DataGridViewTextBoxColumn
+    Friend WithEvents Column45 As DataGridViewTextBoxColumn
+    Friend WithEvents Column21 As DataGridViewTextBoxColumn
+    Friend WithEvents Column43 As DataGridViewTextBoxColumn
+    Friend WithEvents Column44 As DataGridViewTextBoxColumn
+    Friend WithEvents Column46 As DataGridViewTextBoxColumn
+    Friend WithEvents Column47 As DataGridViewTextBoxColumn
 End Class

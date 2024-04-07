@@ -716,11 +716,13 @@ Public Class ResearchRepoManager
             start_date = DtFrom.Value.ToString("MM-dd-yyyy")
             end_date = DtTo.Value.ToString("MM-dd-yyyy")
 
-            dateToQry = " date_completed >= @start_date AND date_completed <= @end_date "
+            dateToQry = " STR_TO_DATE(date_completed, '%m-%d-%Y') >= STR_TO_DATE(@start_date, '%m-%d-%Y')
+                            AND STR_TO_DATE(date_completed, '%m-%d-%Y') <= STR_TO_DATE(@end_date, '%m-%d-%Y') "
         ElseIf isDateFromSet Then
             start_date = DtFrom.Value.ToString("MM-dd-yyyy")
 
             dateToQry = " date_completed = @start_date "
+            DtTo.Enabled = True
             'MsgBox(dateToQry)
         ElseIf isDateToSet Then
             end_date = DtTo.Value.ToString("MM-dd-yyyy")
@@ -763,8 +765,8 @@ Public Class ResearchRepoManager
                 start_date = DtFrom.Value.ToString("MM-dd-yyyy")
                 end_date = DtTo.Value.ToString("MM-dd-yyyy")
 
-                dateToQry = " date_completed >= @start_date AND date_completed <= @end_date "
-
+                dateToQry = " STR_TO_DATE(date_completed, '%m-%d-%Y') >= STR_TO_DATE(@start_date, '%m-%d-%Y')
+                            AND STR_TO_DATE(date_completed, '%m-%d-%Y') <= STR_TO_DATE(@end_date, '%m-%d-%Y') "
                 LblFilteredDate.Text = "Filter date : FROM " & start_date & " TO " & end_date
             Else
                 LblFilteredDate.Text = "Filter date : " & start_date & end_date
@@ -827,13 +829,23 @@ Public Class ResearchRepoManager
         BtnClearDate.Visible = True
     End Sub
 
+    Private Sub DtFrom_CloseUp(sender As Object, e As EventArgs) Handles DtFrom.CloseUp
+        isDateFromSet = True
+        SetQuery()
+        BtnClearDate.Visible = True
+    End Sub
+
     Private Sub DtTo_ValueChanged(sender As Object, e As EventArgs) Handles DtTo.ValueChanged
         isDateToSet = True
         SetQuery()
         BtnClearDate.Visible = True
     End Sub
 
-
+    Private Sub DtTo_CloseUp(sender As Object, e As EventArgs) Handles DtTo.CloseUp
+        isDateToSet = True
+        SetQuery()
+        BtnClearDate.Visible = True
+    End Sub
 
     'SETTING STATUS VARIABLE VALUE
     Private Sub RdOngoing_Click(sender As Object, e As EventArgs) Handles RdOngoing.Click
@@ -918,11 +930,17 @@ Public Class ResearchRepoManager
         isDateFromSet = False
         isDateToSet = False
         BtnClearDate.Visible = False
+        DtTo.Enabled = False
+        DtFrom.Value = DateTime.Now
+        DtTo.Value = DateTime.Now
         SetQuery()
     End Sub
 
     'RESET FILTER
     Private Sub BtnResetFilter_Click(sender As Object, e As EventArgs) Handles BtnResetFilter.Click
+        DtFrom.Value = DateTime.Now
+        DtTo.Value = DateTime.Now
+
         RdOngoing.Checked = False
         RdCompleted.Checked = False
         stat_to_query = ""
@@ -941,12 +959,15 @@ Public Class ResearchRepoManager
         end_date = ""
         isDateFromSet = False
         isDateToSet = False
-
+        DtTo.Enabled = False
 
         BtnClearDate.Visible = False
         BtnClearStatus.Visible = False
         BtnClearPublished.Visible = False
         BtnClearPresented.Visible = False
         LoadScholarlyWorks()
+
     End Sub
+
+
 End Class

@@ -155,6 +155,7 @@ Partial Class ResearchRepoManager
         '
         Me.DtTo.CalendarMonthBackground = System.Drawing.Color.DarkGray
         Me.DtTo.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.DtTo.Enabled = False
         Me.DtTo.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.DtTo.Location = New System.Drawing.Point(236, 64)
         Me.DtTo.Name = "DtTo"

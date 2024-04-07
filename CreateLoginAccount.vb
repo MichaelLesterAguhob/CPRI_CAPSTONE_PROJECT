@@ -48,6 +48,11 @@ Public Class CreateLoginAccount
     'FORM LOAD
     Private Sub CreateLoginAccount_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ConOpen()
+        If loggedin <= 0 Then
+            BtnGoToStudentViewing.Visible = True
+        Else
+            BtnGoToStudentViewing.Visible = False
+        End If
     End Sub
 
     'CHECKING IF USERNAME OF EMAIL ALREADY EXISTS
@@ -542,14 +547,17 @@ Public Class CreateLoginAccount
     'BUTTON ENTER RESET CODE 
     Dim email_to_change_pass As String = ""
     Private Sub BtnFpEnter_Click(sender As Object, e As EventArgs) Handles BtnFpEnter.Click
-        If reset_code = Convert.ToInt32(TxtFpRecCode.Text.Trim) Then
-            PnlFpCode.Width = 0
-            PnlFpNewPass.Width = 332
-            email_to_change_pass = TxtFpEmail.Text.Trim
-            TxtFpNewPass.Focus()
-        Else
-            MessageBox.Show("Incorrect reset code", "Try again!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        If TxtFpRecCode.Text.Trim <> "" Then
+            If reset_code = Convert.ToInt32(TxtFpRecCode.Text.Trim) Then
+                PnlFpCode.Width = 0
+                PnlFpNewPass.Width = 332
+                email_to_change_pass = TxtFpEmail.Text.Trim
+                TxtFpNewPass.Focus()
+            Else
+                MessageBox.Show("Incorrect reset code", "Try again!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            End If
         End If
+
     End Sub
 
     Private Sub TxtFpEmail_KeyDown(sender As Object, e As KeyEventArgs) Handles TxtFpEmail.KeyDown
@@ -672,5 +680,11 @@ Public Class CreateLoginAccount
         Label28.Text = ""
 
         TxtUnameEmailLogin.Focus()
+    End Sub
+
+    Private Sub BtnGoToStudentViewing_Click(sender As Object, e As EventArgs) Handles BtnGoToStudentViewing.Click
+        Dim st As New StudentTerminal
+        st.Show()
+        Me.Hide()
     End Sub
 End Class

@@ -1843,4 +1843,56 @@ Public Class EditWorkRecord
             TxtLoc.Text = "Not set"
         End If
     End Sub
+
+
+    'not allowing user to select date ahead of the current date
+    Private Sub DtCompletedDate_ValueChanged(sender As Object, e As EventArgs) Handles DtCompletedDate.ValueChanged
+        If DtCompletedDate.Value > DateTime.Now Then
+            DtCompletedDate.Value = DateTime.Now
+            MessageBox.Show("You've selected ahead of present date", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        End If
+    End Sub
+
+
+    Private Sub DtSftCpySbmttdDate_ValueChanged(sender As Object, e As EventArgs) Handles DtSftCpySbmttdDateEdtMode.ValueChanged
+        If DtSftCpySbmttdDateEdtMode.Value > DateTime.Now Then
+            DtSftCpySbmttdDateEdtMode.Value = DateTime.Now
+            MessageBox.Show("You've selected ahead of present date", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        End If
+    End Sub
+
+    Private Sub DtHrdCpySbmttdDate_ValueChanged(sender As Object, e As EventArgs) Handles DtHrdCpySbmttdDateEdtMode.ValueChanged
+        If DtHrdCpySbmttdDateEdtMode.Value > DateTime.Now Then
+            DtHrdCpySbmttdDateEdtMode.Value = DateTime.Now
+            MessageBox.Show("You've selected ahead of present date", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        End If
+    End Sub
+
+    Private Sub DtDgiSbmttdDate_ValueChanged(sender As Object, e As EventArgs) Handles DtDgiSbmttdDateEdtMode.ValueChanged
+        If DtDgiSbmttdDateEdtMode.Value > DateTime.Now Then
+            DtDgiSbmttdDateEdtMode.Value = DateTime.Now
+            MessageBox.Show("You've selected ahead of present date", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        End If
+    End Sub
+
+    Private Sub DtRgaSbmttdDate_ValueChanged(sender As Object, e As EventArgs) Handles DtRgaSbmttdDateEdtMode.ValueChanged
+        If DtRgaSbmttdDateEdtMode.Value > DateTime.Now Then
+            DtRgaSbmttdDateEdtMode.Value = DateTime.Now
+            MessageBox.Show("You've selected ahead of present date", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        End If
+    End Sub
+
+    Private Sub DtPrsntdDate_ValueChanged(sender As Object, e As EventArgs) Handles DtPrsntdDateEdtMode.ValueChanged
+        If DtPrsntdDateEdtMode.Value > DateTime.Now Then
+            DtPrsntdDateEdtMode.Value = DateTime.Now
+            MessageBox.Show("You've selected ahead of present date", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        End If
+    End Sub
+
+    Private Sub DtPubDate_ValueChanged(sender As Object, e As EventArgs) Handles DtPubDateEdtMode.ValueChanged
+        If DtPubDateEdtMode.Value > DateTime.Now Then
+            DtPubDateEdtMode.Value = DateTime.Now
+            MessageBox.Show("You've selected ahead of present date", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        End If
+    End Sub
 End Class

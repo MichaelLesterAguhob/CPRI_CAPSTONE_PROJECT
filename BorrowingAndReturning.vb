@@ -29,6 +29,7 @@ Public Class BorrowingAndReturning
         LoadBorrowedBooksList()
         LoadCancelledBorrow()
         LoadReturnedBooksList()
+        CheckOverDuesBorrowedBooks()
         LoadOverDues()
         TxtDate.Text = date_time.Date.ToString("MM-dd-yyyy")
         Timer1.Start()
@@ -223,9 +224,9 @@ Public Class BorrowingAndReturning
         ElseIf selected_book_stat = "Unvailable" Then
             MessageBox.Show("This book is Unavailable right now", "Sorry", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         ElseIf isThereInternalBorrowSelected And selected_book_stat = "Available" And books_count > 1 Then
-            MessageBox.Show("01 Book with 'Internal Borrow Only' status is cannot be combined with other book 'Available'. | You can make another transaction instead.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            MessageBox.Show("Book with 'Internal Borrow Only' status is cannot be combined with other book 'Available'. | You can make another transaction instead.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         ElseIf isThereAvailableBorrowSelected And selected_book_stat = "Internal Borrow Only" And books_count > 1 Then
-            MessageBox.Show("02 Book with 'Internal Borrow Only' status is cannot be combined with other book 'Available'. | You can make another transaction instead.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            MessageBox.Show("Book with 'Internal Borrow Only' status is cannot be combined with other book 'Available'. | You can make another transaction instead.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         Else
             con.Close()
             Try
@@ -948,6 +949,9 @@ Public Class BorrowingAndReturning
         BtnDeleteBorrower.Enabled = False
         BtnCancelBorrow.Enabled = False
         BtnReturnBooks.Enabled = False
+        If PanelCancelled.Visible = True Then
+            PanelCancelled.Visible = False
+        End If
     End Sub
 
     'GENERATING BORROW TRANSACTION ID AND CHECKING UNIQUENESS
@@ -1158,82 +1162,100 @@ Public Class BorrowingAndReturning
         If selected_borrowed_book = 0 Then
             MessageBox.Show("Please select a record first", "No selected", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         Else
-            Dim confirmation As DialogResult = MessageBox.Show("Cancel Borrowed Book?", "Confirm Cancelling?", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-            If confirmation = DialogResult.Yes Then
-                con.Close()
+            con.Close()
+            'checking if book is overdue, if yes, so cancelling is not applicable
+            Try
+                con.Open()
+                Using check_qcmd As New MySqlCommand("SELECT borrow_id FROM borrowed_books WHERE is_overdue='YES'", con)
+                    check_qcmd.Parameters.AddWithValue("@borrow_id", selected_borrowed_book)
+                    Dim reader0 As MySqlDataReader = check_qcmd.ExecuteReader()
+                    If reader0.HasRows AndAlso reader0.Read() Then
+                        MessageBox.Show("This Book was Overdue", "Invalid cancelling overdue books", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                    Else
+                        Dim confirmation As DialogResult = MessageBox.Show("Cancel Borrowed Book?", "Confirm Cancelling?", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                        If confirmation = DialogResult.Yes Then
 
-                Try
-                    con.Open()
-                    'get total count of books borrowed that has the same id
-                    Dim total As Integer = 0
-                    Dim cntr As Integer = 1
-                    Using cmd_books_count_total As New MySqlCommand("SELECT COUNT(borrow_id) FROM borrowed_books_id WHERE borrow_id=@borrow_id", con)
-                        cmd_books_count_total.Parameters.AddWithValue("@borrow_id", selected_borrowed_book)
-                        Dim reader As MySqlDataReader = cmd_books_count_total.ExecuteReader()
-                        If reader.HasRows AndAlso reader.Read() Then
-                            total = Convert.ToInt32(reader(0))
+                            reader0.Close()
+                            Try
+                                'get total count of books borrowed that has the same id
+                                Dim total As Integer = 0
+                                Dim cntr As Integer = 1
+                                Using cmd_books_count_total As New MySqlCommand("SELECT COUNT(borrow_id) FROM borrowed_books_id WHERE borrow_id=@borrow_id", con)
+                                    cmd_books_count_total.Parameters.AddWithValue("@borrow_id", selected_borrowed_book)
+                                    Dim reader As MySqlDataReader = cmd_books_count_total.ExecuteReader()
+                                    If reader.HasRows AndAlso reader.Read() Then
+                                        total = Convert.ToInt32(reader(0))
+                                    End If
+                                    reader.Close()
+                                End Using
+
+                                While cntr <= total
+
+                                    'select book_id 1 by 1
+                                    Dim book_id As Integer = 0
+                                    Using cmd_books_id As New MySqlCommand("SELECT book_id FROM borrowed_books_id WHERE books_count=@books_count AND borrow_id=@borrow_id", con)
+                                        cmd_books_id.Parameters.AddWithValue("@books_count", cntr)
+                                        cmd_books_id.Parameters.AddWithValue("@borrow_id", selected_borrowed_book)
+
+                                        Dim reader As MySqlDataReader = cmd_books_id.ExecuteReader()
+                                        If reader.HasRows AndAlso reader.Read() Then
+                                            book_id = Convert.ToInt32(reader(0))
+                                        End If
+                                        reader.Close()
+                                    End Using
+
+                                    Dim remaining_qnty As Integer = 0
+                                    Dim new_qnty As Integer = 0
+
+                                    'get remaining qnty of books
+                                    Using cmd_remaining_book_qnty As New MySqlCommand("SELECT `quantity` FROM `qnty_loc` WHERE sw_id=@book_id", con)
+                                        cmd_remaining_book_qnty.Parameters.AddWithValue("@book_id", book_id)
+                                        Dim reader As MySqlDataReader = cmd_remaining_book_qnty.ExecuteReader()
+                                        If reader.HasRows AndAlso reader.Read() Then
+                                            remaining_qnty = Convert.ToInt32(reader(0))
+                                        End If
+                                        reader.Close()
+                                    End Using
+
+                                    new_qnty = remaining_qnty + 1
+                                    'Add cancelled book's qnty to the repo
+                                    Using cmd_update_book_qnty As New MySqlCommand("UPDATE `qnty_loc` SET `quantity`=@new_qnty WHERE sw_id=@book_id", con)
+                                        cmd_update_book_qnty.Parameters.AddWithValue("@book_id", book_id)
+                                        cmd_update_book_qnty.Parameters.AddWithValue("@new_qnty", new_qnty)
+                                        cmd_update_book_qnty.ExecuteNonQuery()
+                                    End Using
+
+                                    cntr += 1
+                                End While
+
+                                Using cmd As New MySqlCommand("UPDATE borrowed_books SET is_cancel='YES' WHERE borrow_id=@id ", con)
+                                    cmd.Parameters.AddWithValue("@id", selected_borrowed_book)
+                                    cmd.ExecuteNonQuery()
+                                End Using
+                                con.Close()
+                                LoadCancelledBorrow()
+                                LoadBorrowedBooksList()
+                                selected_borrowed_book = 0
+                                BtnCancelBorrow.Enabled = True
+                                BtnReturnedBooks.Enabled = True
+                                DgvCancelledBorrow.ClearSelection()
+                            Catch ex As Exception
+                                MessageBox.Show(ex.Message, "Error Occurred on Cancelling", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                                con.Close()
+                            Finally
+                                con.Close()
+                            End Try
+
                         End If
-                        reader.Close()
-                    End Using
-
-                    While cntr <= total
-
-                        'select book_id 1 by 1
-                        Dim book_id As Integer = 0
-                        Using cmd_books_id As New MySqlCommand("SELECT book_id FROM borrowed_books_id WHERE books_count=@books_count AND borrow_id=@borrow_id", con)
-                            cmd_books_id.Parameters.AddWithValue("@books_count", cntr)
-                            cmd_books_id.Parameters.AddWithValue("@borrow_id", selected_borrowed_book)
-
-                            Dim reader As MySqlDataReader = cmd_books_id.ExecuteReader()
-                            If reader.HasRows AndAlso reader.Read() Then
-                                book_id = Convert.ToInt32(reader(0))
-                            End If
-                            reader.Close()
-                        End Using
-
-                        Dim remaining_qnty As Integer = 0
-                        Dim new_qnty As Integer = 0
-
-                        'get remaining qnty of books
-                        Using cmd_remaining_book_qnty As New MySqlCommand("SELECT `quantity` FROM `qnty_loc` WHERE sw_id=@book_id", con)
-                            cmd_remaining_book_qnty.Parameters.AddWithValue("@book_id", book_id)
-                            Dim reader As MySqlDataReader = cmd_remaining_book_qnty.ExecuteReader()
-                            If reader.HasRows AndAlso reader.Read() Then
-                                remaining_qnty = Convert.ToInt32(reader(0))
-                            End If
-                            reader.Close()
-                        End Using
-
-                        new_qnty = remaining_qnty + 1
-                        'Add cancelled book's qnty to the repo
-                        Using cmd_update_book_qnty As New MySqlCommand("UPDATE `qnty_loc` SET `quantity`=@new_qnty WHERE sw_id=@book_id", con)
-                            cmd_update_book_qnty.Parameters.AddWithValue("@book_id", book_id)
-                            cmd_update_book_qnty.Parameters.AddWithValue("@new_qnty", new_qnty)
-                            cmd_update_book_qnty.ExecuteNonQuery()
-                        End Using
-
-                        cntr += 1
-                    End While
-
-                    Using cmd As New MySqlCommand("UPDATE borrowed_books SET is_cancel='YES' WHERE borrow_id=@id ", con)
-                        cmd.Parameters.AddWithValue("@id", selected_borrowed_book)
-                        cmd.ExecuteNonQuery()
-                    End Using
-                    con.Close()
-                    LoadCancelledBorrow()
-                    LoadBorrowedBooksList()
-                    selected_borrowed_book = 0
-                    BtnCancelBorrow.Enabled = True
-                    BtnReturnedBooks.Enabled = True
-                    DgvCancelledBorrow.ClearSelection()
-                Catch ex As Exception
-                    MessageBox.Show(ex.Message, "Error Occurred on Cancelling", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                    con.Close()
-                Finally
-                    con.Close()
-                End Try
-
-            End If
+                    End If
+                    reader0.Close()
+                End Using
+            Catch ex As Exception
+                MessageBox.Show(ex.Message, "Error Occurred on Cancelling", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                con.Close()
+            Finally
+                con.Close()
+            End Try
         End If
     End Sub
 
@@ -1333,7 +1355,7 @@ Public Class BorrowingAndReturning
 
                     While cntr <= total
 
-                        'select book_id 1 by 1
+                        'select book_id 1 by 1 based on count of boooks 
                         Dim book_id As Integer = 0
                         Using cmd_books_id As New MySqlCommand("SELECT book_id FROM borrowed_books_id WHERE books_count=@books_count AND borrow_id=@borrow_id", con)
                             cmd_books_id.Parameters.AddWithValue("@books_count", cntr)
@@ -1375,6 +1397,11 @@ Public Class BorrowingAndReturning
                         cmd.ExecuteNonQuery()
                     End Using
 
+                    Using cmd As New MySqlCommand("UPDATE overdues SET status='RETURNED' WHERE borrow_id=@id ", con)
+                        cmd.Parameters.AddWithValue("@id", selected_borrowed_book)
+                        cmd.ExecuteNonQuery()
+                    End Using
+
                     GenerateRetunedID()
                     Using cmd_save_return As New MySqlCommand("
                         INSERT INTO returned_books 
@@ -1392,6 +1419,8 @@ Public Class BorrowingAndReturning
                     con.Close()
                     LoadCancelledBorrow()
                     LoadBorrowedBooksList()
+                    LoadBooksList()
+                    LoadOverDues()
                     selected_borrowed_book = 0
                     BtnCancelBorrow.Enabled = True
                     BtnReturnedBooks.Enabled = True
@@ -1435,7 +1464,9 @@ Public Class BorrowingAndReturning
                     borrowed_books.is_overdue 
                 FROM returned_books 
                 INNER JOIN borrowed_books 
-                    ON borrowed_books.borrow_id = returned_books.borrow_id AND borrowed_books.is_returned = 'YES'"
+                    ON borrowed_books.borrow_id = returned_books.borrow_id AND borrowed_books.is_returned = 'YES'
+                ORDER BY returned_date DESC, returned_time DESC
+"
             Using cmd As New MySqlCommand(query, con)
                 Using adptr As New MySqlDataAdapter(cmd)
                     Dim dt As New DataTable()
@@ -1498,6 +1529,7 @@ Public Class BorrowingAndReturning
                                     overdues.borrower_id, 
                                     overdues.due_date, 
                                     overdues.overdue_days,
+                                    overdues.status,
                                     borrowed_books.book_ids, 
                                     borrowed_books.title, 
                                     borrowed_books.total_no_book, 
@@ -1507,6 +1539,8 @@ Public Class BorrowingAndReturning
                                 FROM overdues
                                 INNER JOIN borrowed_books
                                     ON borrowed_books.borrow_id = overdues.borrow_id
+                                WHERE overdues.status='NOT RETURNED'
+                                ORDER BY overdues.due_date ASC
                 "
             Using cmd As New MySqlCommand(query, con)
                 Using adptr As New MySqlDataAdapter(cmd)
@@ -1564,67 +1598,72 @@ Public Class BorrowingAndReturning
     Private Sub CheckOverDuesBorrowedBooks()
         con.Close()
         Try
-            con.Open()
-
-            'selecting the total record count in borrowed books
-            Dim total_borrowed_books_count As Integer = 0
-            Dim cntr As Integer = 1
             Dim due_date As String = ""
             Dim book_due_date As DateTime
-            Dim current_date As Date = Date.Today 
+            Dim current_date As Date = Date.Today
             Dim borrow_id As Integer = 0
             Dim borrower_id As Integer = 0
+            Dim isThereOverdue As Boolean = False
+            Dim overdue_books_count As Integer = 0
 
-            Using cmd As New MySqlCommand("SELECT COUNT(*) FROM borrowed_books WHERE is_cancel='NO' AND is_returned='NO' AND is_overdue='NO'", con)
-                total_borrowed_books_count = Convert.ToInt32(cmd.ExecuteScalar())
+            con.Open()
+            Using cmdSelect As New MySqlCommand("SELECT borrow_id, borrower_id, due_date FROM borrowed_books WHERE is_cancel='NO' AND is_returned='NO'AND is_overdue='NO'", con)
+                Dim reader As MySqlDataReader = cmdSelect.ExecuteReader()
+
+                Dim SubCon As New MySqlConnection("server=localhost;user=root;password=;database=cpri_cdsga_db")
+                SubCon.Open()
+
+                While reader.Read()
+                    due_date = reader("due_date").ToString()
+                    book_due_date = DateTime.ParseExact(reader("due_date").ToString(), "MM-dd-yyyy", CultureInfo.InvariantCulture).Date
+
+                    borrower_id = Convert.ToInt32(reader("borrower_id"))
+                    borrow_id = Convert.ToInt32(reader("borrow_id"))
+
+                    'knowing if books is already overdue
+                    If book_due_date < current_date Then
+                        overdue_books_count += 1
+                        isThereOverdue = True
+
+
+                        Using cmd3 As New MySqlCommand("UPDATE borrowed_books SET is_overdue='YES' WHERE borrow_id=@id ", SubCon)
+                            cmd3.Parameters.AddWithValue("@id", borrow_id)
+                            cmd3.ExecuteNonQuery()
+                        End Using
+
+                        Dim overdue_days As Integer = (current_date - book_due_date).Days
+
+                        Using cmd_insert As New MySqlCommand("
+                            INSERT INTO overdues
+                                (`borrow_id`, `borrower_id`, `due_date`, `overdue_days`)
+                            VALUES
+                                (@borrowID, @borrowerID, @dueDate, @days)", SubCon)
+
+                            cmd_insert.Parameters.AddWithValue("@borrowID", borrow_id)
+                            cmd_insert.Parameters.AddWithValue("@borrowerID", borrower_id)
+                            cmd_insert.Parameters.AddWithValue("@dueDate", due_date)
+                            cmd_insert.Parameters.AddWithValue("@days", overdue_days)
+                            cmd_insert.ExecuteNonQuery()
+                        End Using
+                    End If
+                End While
+                SubCon.Close()
             End Using
 
-            'selecting record to check 1 by 1
-            While cntr <= total_borrowed_books_count
-                Using cmd As New MySqlCommand("SELECT borrow_id, borrower_id, due_date FROM borrowed_books WHERE is_cancel='NO' AND is_returned='NO'AND is_overdue='NO'", con)
-                    Dim reader As MySqlDataReader = cmd.ExecuteReader()
-
-                    If reader.HasRows AndAlso reader.Read() Then
-
-                        due_date = reader("due_date").ToString()
-                        book_due_date = DateTime.ParseExact(reader("due_date").ToString(), "MM-dd-yyyy", CultureInfo.InvariantCulture).Date
-
-                        borrower_id = Convert.ToInt32(reader("borrower_id"))
-                        borrow_id = Convert.ToInt32(reader("borrow_id"))
-
-                        reader.Close()
-                    End If
-                End Using
-                If book_due_date < current_date Then
-
-                    MsgBox("This book is overdue" & book_due_date.ToString)
-                    Using cmd2 As New MySqlCommand("UPDATE borrowed_books SET is_overdue='YES' WHERE borrow_id=@id ", con)
-                        cmd2.Parameters.AddWithValue("@id", borrow_id)
-                        cmd2.ExecuteNonQuery()
-                    End Using
-
-                    Dim overdue_days As Integer = (current_date - book_due_date).Days
-
-                    Using cmd_insert As New MySqlCommand("
-                                INSERT INTO overdues
-                                    (`borrow_id`, `borrower_id`, `due_date`, `overdue_days`)
-                                VALUES
-                                    (@borrowID, @borrowerID, @dueDate, @days)", con)
-
-                        cmd_insert.Parameters.AddWithValue("@borrowID", borrow_id)
-                        cmd_insert.Parameters.AddWithValue("@borrowerID", borrower_id)
-                        cmd_insert.Parameters.AddWithValue("@dueDate", due_date)
-                        cmd_insert.Parameters.AddWithValue("@days", overdue_days)
-                        cmd_insert.ExecuteNonQuery()
-                    End Using
+            If isThereOverdue Then
+                If overdue_books_count > 1 Then
+                    MessageBox.Show("There are Overdue Books detected! Check details on overdue tab.", "Overdue Books Detected", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Else
+                    MessageBox.Show("There is an Overdue Book detected! Check details on overdue tab.", "Overdue Book  Detected", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 End If
-                cntr += 1
-            End While
+                isThereOverdue = False
+                overdue_books_count = 0
+            End If
+
             con.Close()
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Error Occurred on Checking Overdues Borrowed Books", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Console.WriteLine(ex.Message)
-            con.Close()
         Finally
             con.Close()
         End Try

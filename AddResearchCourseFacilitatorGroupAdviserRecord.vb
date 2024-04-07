@@ -196,6 +196,48 @@ from the panel members"
         End If
     End Sub
 
+    Private Sub DtSubmittedDateEndorsement_ValueChanged(sender As Object, e As EventArgs) Handles DtSubmittedDateEndorsement.ValueChanged
+        If DtSubmittedDateEndorsement.Value > DateTime.Now Then
+            DtSubmittedDateEndorsement.Value = DateTime.Now
+            MessageBox.Show("You've selected ahead of present date", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        End If
+    End Sub
+
+    Private Sub DtSubmittedDateEvaluation_ValueChanged(sender As Object, e As EventArgs) Handles DtSubmittedDateEvaluation.ValueChanged
+        If DtSubmittedDateEvaluation.Value > DateTime.Now Then
+            DtSubmittedDateEvaluation.Value = DateTime.Now
+            MessageBox.Show("You've selected ahead of present date", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        End If
+    End Sub
+
+    Private Sub DtSubmittedDateDocumentation_ValueChanged(sender As Object, e As EventArgs) Handles DtSubmittedDateDocumentation.ValueChanged
+        If DtSubmittedDateDocumentation.Value > DateTime.Now Then
+            DtSubmittedDateDocumentation.Value = DateTime.Now
+            MessageBox.Show("You've selected ahead of present date", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        End If
+    End Sub
+
+    Private Sub DtSubmittedDateReceipt_ValueChanged(sender As Object, e As EventArgs) Handles DtSubmittedDateReceipt.ValueChanged
+        If DtSubmittedDateReceipt.Value > DateTime.Now Then
+            DtSubmittedDateReceipt.Value = DateTime.Now
+            MessageBox.Show("You've selected ahead of present date", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        End If
+    End Sub
+
+    Private Sub DtDateSubmittedAL_ValueChanged(sender As Object, e As EventArgs) Handles DtDateSubmittedAL.ValueChanged
+        If DtDateSubmittedAL.Value > DateTime.Now Then
+            DtDateSubmittedAL.Value = DateTime.Now
+            MessageBox.Show("You've selected ahead of present date", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        End If
+    End Sub
+
+    Private Sub DtDateSubmittedCF_ValueChanged(sender As Object, e As EventArgs) Handles DtDateSubmittedCF.ValueChanged
+        If DtDateSubmittedCF.Value > DateTime.Now Then
+            DtDateSubmittedCF.Value = DateTime.Now
+            MessageBox.Show("You've selected ahead of present date", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        End If
+    End Sub
+
 
     'Requirements for Research Course Facilitator
     'Endorsement Letters for Oral Defense radio button

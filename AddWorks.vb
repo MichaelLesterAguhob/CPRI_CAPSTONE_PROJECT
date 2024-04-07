@@ -171,7 +171,7 @@ Public Class AddWorks
                             vol_no = Convert.ToInt64(TxtPubVolNum.Text.Trim)
                             issue_no = Convert.ToInt64(TxtPubIssueNo.Text.Trim)
                             page_range = TxtPubPageRange.Text.Trim.ToString
-                            date_pub = TxtPubDate.Value.Date.ToString("MM-dd-yyyy")
+                            date_pub = DtPubDate.Value.Date.ToString("MM-dd-yyyy")
                             doi_url = TxtPubDoiUrl.Text.Trim
 
                             SaveUpperInputs()
@@ -1139,12 +1139,55 @@ Public Class AddWorks
         End If
     End Sub
 
+    'not allowing user to select date ahead of the current date
+    Private Sub DtCompletedDate_ValueChanged(sender As Object, e As EventArgs) Handles DtCompletedDate.ValueChanged
+        If DtCompletedDate.Value > DateTime.Now Then
+            DtCompletedDate.Value = DateTime.Now
+            MessageBox.Show("You selected ahead of present date", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        End If
+    End Sub
 
+    Private Sub DtSftCpySbmttdDate_ValueChanged(sender As Object, e As EventArgs) Handles DtSftCpySbmttdDate.ValueChanged
+        If DtSftCpySbmttdDate.Value > DateTime.Now Then
+            DtSftCpySbmttdDate.Value = DateTime.Now
+            MessageBox.Show("You selected ahead of present date", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        End If
+    End Sub
 
+    Private Sub DtHrdCpySbmttdDate_ValueChanged(sender As Object, e As EventArgs) Handles DtHrdCpySbmttdDate.ValueChanged
+        If DtHrdCpySbmttdDate.Value > DateTime.Now Then
+            DtHrdCpySbmttdDate.Value = DateTime.Now
+            MessageBox.Show("You selected ahead of present date", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        End If
+    End Sub
 
+    Private Sub DtDgiSbmttdDate_ValueChanged(sender As Object, e As EventArgs) Handles DtDgiSbmttdDate.ValueChanged
+        If DtDgiSbmttdDate.Value > DateTime.Now Then
+            DtDgiSbmttdDate.Value = DateTime.Now
+            MessageBox.Show("You selected ahead of present date", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        End If
+    End Sub
 
+    Private Sub DtRgaSbmttdDate_ValueChanged(sender As Object, e As EventArgs) Handles DtRgaSbmttdDate.ValueChanged
+        If DtRgaSbmttdDate.Value > DateTime.Now Then
+            DtRgaSbmttdDate.Value = DateTime.Now
+            MessageBox.Show("You selected ahead of present date", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        End If
+    End Sub
 
+    Private Sub DtPrsntdDate_ValueChanged(sender As Object, e As EventArgs) Handles DtPrsntdDate.ValueChanged
+        If DtPrsntdDate.Value > DateTime.Now Then
+            DtPrsntdDate.Value = DateTime.Now
+            MessageBox.Show("You selected ahead of present date", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        End If
+    End Sub
 
+    Private Sub DtPubDate_ValueChanged(sender As Object, e As EventArgs) Handles DtPubDate.ValueChanged
+        If DtPubDate.Value > DateTime.Now Then
+            DtPubDate.Value = DateTime.Now
+            MessageBox.Show("You selected ahead of present date", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        End If
+    End Sub
 End Class
 
 

@@ -41,6 +41,10 @@ Partial Class Form1
         Me.PrintReturnedBooksToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PrintOverdueBooksToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.TxtTime = New System.Windows.Forms.TextBox()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.TxtDate = New System.Windows.Forms.TextBox()
+        Me.Label15 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
@@ -64,10 +68,6 @@ Partial Class Form1
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.TxtTime = New System.Windows.Forms.TextBox()
-        Me.Label17 = New System.Windows.Forms.Label()
-        Me.TxtDate = New System.Windows.Forms.TextBox()
-        Me.Label15 = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.MenuStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -210,6 +210,50 @@ Partial Class Form1
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(1246, 94)
         Me.Panel1.TabIndex = 2
+        '
+        'TxtTime
+        '
+        Me.TxtTime.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TxtTime.BackColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.TxtTime.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TxtTime.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtTime.Location = New System.Drawing.Point(1132, 75)
+        Me.TxtTime.Name = "TxtTime"
+        Me.TxtTime.ReadOnly = True
+        Me.TxtTime.Size = New System.Drawing.Size(106, 15)
+        Me.TxtTime.TabIndex = 25
+        '
+        'Label17
+        '
+        Me.Label17.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label17.AutoSize = True
+        Me.Label17.Location = New System.Drawing.Point(1090, 76)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(36, 13)
+        Me.Label17.TabIndex = 24
+        Me.Label17.Text = "Time :"
+        '
+        'TxtDate
+        '
+        Me.TxtDate.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TxtDate.BackColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.TxtDate.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TxtDate.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtDate.Location = New System.Drawing.Point(1132, 49)
+        Me.TxtDate.Name = "TxtDate"
+        Me.TxtDate.ReadOnly = True
+        Me.TxtDate.Size = New System.Drawing.Size(106, 15)
+        Me.TxtDate.TabIndex = 23
+        '
+        'Label15
+        '
+        Me.Label15.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label15.AutoSize = True
+        Me.Label15.Location = New System.Drawing.Point(1090, 53)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(36, 13)
+        Me.Label15.TabIndex = 22
+        Me.Label15.Text = "Date :"
         '
         'Label2
         '
@@ -512,49 +556,8 @@ Partial Class Form1
         Me.Label8.Text = "1"
         Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'TxtTime
+        'Timer1
         '
-        Me.TxtTime.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TxtTime.BackColor = System.Drawing.SystemColors.GradientActiveCaption
-        Me.TxtTime.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TxtTime.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtTime.Location = New System.Drawing.Point(1132, 75)
-        Me.TxtTime.Name = "TxtTime"
-        Me.TxtTime.ReadOnly = True
-        Me.TxtTime.Size = New System.Drawing.Size(106, 15)
-        Me.TxtTime.TabIndex = 25
-        '
-        'Label17
-        '
-        Me.Label17.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(1090, 76)
-        Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(36, 13)
-        Me.Label17.TabIndex = 24
-        Me.Label17.Text = "Time :"
-        '
-        'TxtDate
-        '
-        Me.TxtDate.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TxtDate.BackColor = System.Drawing.SystemColors.GradientActiveCaption
-        Me.TxtDate.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TxtDate.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtDate.Location = New System.Drawing.Point(1132, 49)
-        Me.TxtDate.Name = "TxtDate"
-        Me.TxtDate.ReadOnly = True
-        Me.TxtDate.Size = New System.Drawing.Size(106, 15)
-        Me.TxtDate.TabIndex = 23
-        '
-        'Label15
-        '
-        Me.Label15.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(1090, 53)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(36, 13)
-        Me.Label15.TabIndex = 22
-        Me.Label15.Text = "Date :"
         '
         'Form1
         '
@@ -569,7 +572,7 @@ Partial Class Form1
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "Form1"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Repository for the CPRI of CDSGA"
+        Me.Text = "REPOSITORY FOR THE CENTER OF PUBLICATION, RESEARCH AND INNOVATION of CDSGA"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()

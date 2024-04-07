@@ -65,7 +65,7 @@ Partial Class AddWorks
         Me.Label25 = New System.Windows.Forms.Label()
         Me.PnlPublished = New System.Windows.Forms.Panel()
         Me.Panel5 = New System.Windows.Forms.Panel()
-        Me.TxtPubDate = New System.Windows.Forms.DateTimePicker()
+        Me.DtPubDate = New System.Windows.Forms.DateTimePicker()
         Me.TxtPubIssueNo = New System.Windows.Forms.TextBox()
         Me.TxtPubDoiUrl = New System.Windows.Forms.TextBox()
         Me.TxtPubAcadJournal = New System.Windows.Forms.TextBox()
@@ -639,7 +639,7 @@ Partial Class AddWorks
         'Panel5
         '
         Me.Panel5.BackColor = System.Drawing.Color.Transparent
-        Me.Panel5.Controls.Add(Me.TxtPubDate)
+        Me.Panel5.Controls.Add(Me.DtPubDate)
         Me.Panel5.Controls.Add(Me.TxtPubIssueNo)
         Me.Panel5.Controls.Add(Me.TxtPubDoiUrl)
         Me.Panel5.Controls.Add(Me.TxtPubAcadJournal)
@@ -651,15 +651,15 @@ Partial Class AddWorks
         Me.Panel5.Size = New System.Drawing.Size(870, 49)
         Me.Panel5.TabIndex = 47
         '
-        'TxtPubDate
+        'DtPubDate
         '
-        Me.TxtPubDate.CalendarMonthBackground = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.TxtPubDate.CalendarTitleBackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.TxtPubDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.TxtPubDate.Location = New System.Drawing.Point(604, 12)
-        Me.TxtPubDate.Name = "TxtPubDate"
-        Me.TxtPubDate.Size = New System.Drawing.Size(123, 20)
-        Me.TxtPubDate.TabIndex = 53
+        Me.DtPubDate.CalendarMonthBackground = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.DtPubDate.CalendarTitleBackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.DtPubDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.DtPubDate.Location = New System.Drawing.Point(604, 12)
+        Me.DtPubDate.Name = "DtPubDate"
+        Me.DtPubDate.Size = New System.Drawing.Size(123, 20)
+        Me.DtPubDate.TabIndex = 53
         '
         'TxtPubIssueNo
         '
@@ -1367,7 +1367,7 @@ Partial Class AddWorks
         Me.MinimumSize = New System.Drawing.Size(1364, 734)
         Me.Name = "AddWorks"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "ADD RESEARCH FORM"
+        Me.Text = "ADD RESEARCH"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.PnlTxtCont.ResumeLayout(False)
         Me.PnlTxtCont.PerformLayout()
@@ -1439,7 +1439,7 @@ Partial Class AddWorks
     Friend WithEvents Label25 As Label
     Friend WithEvents PnlPublished As Panel
     Friend WithEvents Panel5 As Panel
-    Friend WithEvents TxtPubDate As DateTimePicker
+    Friend WithEvents DtPubDate As DateTimePicker
     Friend WithEvents TxtPubIssueNo As TextBox
     Friend WithEvents TxtPubDoiUrl As TextBox
     Friend WithEvents TxtPubAcadJournal As TextBox

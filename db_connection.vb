@@ -26,4 +26,5 @@ Module db_connection
         End Try
 
     End Sub
+
 End Module

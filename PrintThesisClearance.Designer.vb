@@ -44,7 +44,7 @@ Partial Class PrintThesisClearance
         Me.ClientSize = New System.Drawing.Size(1010, 513)
         Me.Controls.Add(Me.CrystalReportViewer1)
         Me.Name = "PrintThesisClearance"
-        Me.Text = "PrintThesisClearance"
+        Me.Text = "PRINT THESIS CLEARANCE"
         Me.ResumeLayout(False)
 
     End Sub
