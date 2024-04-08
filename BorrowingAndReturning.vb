@@ -383,6 +383,11 @@ Public Class BorrowingAndReturning
                 TxtExistingBorrowerId.Text = ""
             End If
         Else
+            TxtName.Clear()
+            TxtEmail.Clear()
+            TxtPhoneNo.Clear()
+            TxtAddress.Clear()
+
             Lbl1.Text = ""
         End If
 
@@ -1611,7 +1616,13 @@ Public Class BorrowingAndReturning
                 Dim reader As MySqlDataReader = cmdSelect.ExecuteReader()
 
                 Dim SubCon As New MySqlConnection("server=localhost;user=root;password=;database=cpri_cdsga_db")
-                SubCon.Open()
+                Try
+                    SubCon.Open()
+                Catch ex As Exception
+                    MessageBox.Show(ex.Message, "Error Occurred on Checking Overdues Borrowed Books", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    SubCon.Close()
+                End Try
+
 
                 While reader.Read()
                     due_date = reader("due_date").ToString()

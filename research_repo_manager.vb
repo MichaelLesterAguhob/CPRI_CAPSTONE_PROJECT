@@ -923,6 +923,8 @@ Public Class ResearchRepoManager
 
     'CLEAR DATE
     Private Sub BtnClearDate_Click(sender As Object, e As EventArgs) Handles BtnClearDate.Click
+        DtFrom.Value = DateTime.Now
+        DtTo.Value = DateTime.Now
         dateToQry = ""
         LblFilteredDate.Text = ""
         start_date = ""
@@ -931,8 +933,6 @@ Public Class ResearchRepoManager
         isDateToSet = False
         BtnClearDate.Visible = False
         DtTo.Enabled = False
-        DtFrom.Value = DateTime.Now
-        DtTo.Value = DateTime.Now
         SetQuery()
     End Sub
 

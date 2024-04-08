@@ -1069,7 +1069,6 @@ Partial Class EditRCF_RGA
         Me.Name = "EditRCF_RGA"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Edit Research Course Facilitator and Research Group Adviser Record"
-        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.PnlRRGA.ResumeLayout(False)
         Me.PnlRRGA.PerformLayout()
         Me.Panel11.ResumeLayout(False)

@@ -941,7 +941,6 @@ Partial Class ViewWorks
         Me.Name = "ViewWorks"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "VIEW RESEARCH"
-        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.DgvSwData, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelPresented.ResumeLayout(False)
         Me.PanelPresented.PerformLayout()

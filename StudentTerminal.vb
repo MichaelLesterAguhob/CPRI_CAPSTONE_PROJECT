@@ -2,7 +2,6 @@
 Imports MySql.Data.MySqlClient
 
 Public Class StudentTerminal
-
     'VARIABLES DECLARATION
     Dim selected_research As Integer = 0
 
@@ -23,6 +22,7 @@ Public Class StudentTerminal
         Next
 
         DgvSwData.ClearSelection()
+
     End Sub
 
     'LOADING ALL DATA FROM SCHOLARLY WORKS IN DATAGRIDVIEW FROM DATABASE 
@@ -244,12 +244,12 @@ Public Class StudentTerminal
         End If
     End Sub
     Private Sub TmOpenFilter_Tick(sender As Object, e As EventArgs) Handles TmOpenFilter.Tick
-        If PnlFilter.Width >= 400 Then
+        If PnlFilter.Width >= 414 Then
             TmOpenFilter.Enabled = False
             BtnFilter.Enabled = True
         Else
-            PnlFilter.Width = PnlFilter.Width + 400
-            PnlFilter.Height = PnlFilter.Height + 300
+            PnlFilter.Width = PnlFilter.Width + 414
+            PnlFilter.Height = PnlFilter.Height + 431
         End If
     End Sub
     Private Sub TmCloseFilter_Tick(sender As Object, e As EventArgs) Handles TmCloseFilter.Tick
@@ -257,8 +257,8 @@ Public Class StudentTerminal
             TmCloseFilter.Enabled = False
             BtnFilter.Enabled = True
         Else
-            PnlFilter.Width = PnlFilter.Width - 400
-            PnlFilter.Height = PnlFilter.Height - 300
+            PnlFilter.Width = PnlFilter.Width - 414
+            PnlFilter.Height = PnlFilter.Height - 431
         End If
     End Sub
     Private Sub BtnCloseFilter_Click(sender As Object, e As EventArgs) Handles BtnCloseFilter.Click
@@ -266,11 +266,13 @@ Public Class StudentTerminal
         open_close_filter = 0
     End Sub
 
+
     Private Sub BtnRemoveSelection_Click(sender As Object, e As EventArgs) Handles BtnRemoveSelection.Click
         selected_research = 0
         on_edit_mode = 0
         BtnRemoveSelection.Visible = False
         DgvSwData.ClearSelection()
+
     End Sub
 
 
@@ -541,7 +543,7 @@ Public Class StudentTerminal
     Dim dateToQry As String = ""
     Dim start_date As String = ""
     Dim end_date As String = ""
-    Dim isDateFromSet, isDateToSet As Boolean
+    Dim isDateFromSet, isDateToSet, isDateFromSet2, isDateToSet2, isDateFromSet3, isDateToSet3 As Boolean
     Dim stat_to_query As String
     Dim pub_to_query As String
     Dim pres_to_query As String
@@ -641,13 +643,54 @@ Public Class StudentTerminal
                             AND STR_TO_DATE(date_completed, '%m-%d-%Y') <= STR_TO_DATE(@end_date, '%m-%d-%Y') "
         ElseIf isDateFromSet Then
             start_date = DtFrom.Value.ToString("MM-dd-yyyy")
-            DtTo.Enabled = True
+
             dateToQry = " date_completed = @start_date "
+            DtTo.Enabled = True
             'MsgBox(dateToQry)
         ElseIf isDateToSet Then
             end_date = DtTo.Value.ToString("MM-dd-yyyy")
 
             dateToQry = " date_completed = @end_date "
+            'MsgBox(dateToQry)
+        End If
+
+        'published
+        If isDateFromSet2 And isDateToSet2 Then
+            start_date = DtFrom2.Value.ToString("MM-dd-yyyy")
+            end_date = DtTo2.Value.ToString("MM-dd-yyyy")
+
+            dateToQry = " STR_TO_DATE(date_published, '%m-%d-%Y') >= STR_TO_DATE(@start_date, '%m-%d-%Y')
+                            AND STR_TO_DATE(date_published, '%m-%d-%Y') <= STR_TO_DATE(@end_date, '%m-%d-%Y') "
+        ElseIf isDateFromSet2 Then
+            start_date = DtFrom2.Value.ToString("MM-dd-yyyy")
+
+            dateToQry = " date_published = @start_date "
+            DtTo2.Enabled = True
+            'MsgBox(dateToQry)
+        ElseIf isDateToSet2 Then
+            end_date = DtTo2.Value.ToString("MM-dd-yyyy")
+
+            dateToQry = " date_published = @end_date "
+            'MsgBox(dateToQry)
+        End If
+
+        'published
+        If isDateFromSet3 And isDateToSet3 Then
+            start_date = DtFrom3.Value.ToString("MM-dd-yyyy")
+            end_date = DtTo3.Value.ToString("MM-dd-yyyy")
+
+            dateToQry = " STR_TO_DATE(date_presented, '%m-%d-%Y') >= STR_TO_DATE(@start_date, '%m-%d-%Y')
+                            AND STR_TO_DATE(date_presented, '%m-%d-%Y') <= STR_TO_DATE(@end_date, '%m-%d-%Y') "
+        ElseIf isDateFromSet3 Then
+            start_date = DtFrom3.Value.ToString("MM-dd-yyyy")
+
+            dateToQry = " date_presented = @start_date "
+            DtTo3.Enabled = True
+            'MsgBox(dateToQry)
+        ElseIf isDateToSet3 Then
+            end_date = DtTo3.Value.ToString("MM-dd-yyyy")
+
+            dateToQry = " date_presented = @end_date "
             'MsgBox(dateToQry)
         End If
 
@@ -680,17 +723,38 @@ Public Class StudentTerminal
 
 
         '//
-        If isDateFromSet Or isDateToSet Then
+        If isDateFromSet Or isDateToSet Or isDateFromSet2 Or isDateToSet2 Or isDateFromSet3 Or isDateToSet3 Then
             If isDateFromSet And isDateToSet Then
                 start_date = DtFrom.Value.ToString("MM-dd-yyyy")
                 end_date = DtTo.Value.ToString("MM-dd-yyyy")
 
                 dateToQry = " STR_TO_DATE(date_completed, '%m-%d-%Y') >= STR_TO_DATE(@start_date, '%m-%d-%Y')
                             AND STR_TO_DATE(date_completed, '%m-%d-%Y') <= STR_TO_DATE(@end_date, '%m-%d-%Y') "
-
                 LblFilteredDate.Text = "Filter date : FROM " & start_date & " TO " & end_date
-            Else
+            ElseIf isDateFromSet Or isDateToSet Then
                 LblFilteredDate.Text = "Filter date : " & start_date & end_date
+            End If
+
+            If isDateFromSet2 And isDateToSet2 Then
+                start_date = DtFrom2.Value.ToString("MM-dd-yyyy")
+                end_date = DtTo2.Value.ToString("MM-dd-yyyy")
+
+                dateToQry = " STR_TO_DATE(date_published, '%m-%d-%Y') >= STR_TO_DATE(@start_date, '%m-%d-%Y')
+                            AND STR_TO_DATE(date_published, '%m-%d-%Y') <= STR_TO_DATE(@end_date, '%m-%d-%Y') "
+                LblFilteredDate2.Text = "Filter date : FROM " & start_date & " TO " & end_date
+            ElseIf isDateFromSet2 Or isDateToSet2 Then
+                LblFilteredDate2.Text = "Filter date : " & start_date & end_date
+            End If
+
+            If isDateFromSet3 And isDateToSet3 Then
+                start_date = DtFrom3.Value.ToString("MM-dd-yyyy")
+                end_date = DtTo3.Value.ToString("MM-dd-yyyy")
+
+                dateToQry = " STR_TO_DATE(date_presented, '%m-%d-%Y') >= STR_TO_DATE(@start_date, '%m-%d-%Y')
+                            AND STR_TO_DATE(date_presented, '%m-%d-%Y') <= STR_TO_DATE(@end_date, '%m-%d-%Y') "
+                LblFilteredDate3.Text = "Filter date : FROM " & start_date & " TO " & end_date
+            ElseIf isDateFromSet3 Or isDateToSet3 Then
+                LblFilteredDate3.Text = "Filter date : " & start_date & end_date
             End If
 
             'status
@@ -745,15 +809,12 @@ Public Class StudentTerminal
 
     '//
     Private Sub DtFrom_ValueChanged(sender As Object, e As EventArgs) Handles DtFrom.ValueChanged
+        BtnClearDate2.PerformClick()
+        BtnClearDate3.PerformClick()
         isDateFromSet = True
         SetQuery()
         BtnClearDate.Visible = True
-    End Sub
-
-    Private Sub DtFrom_CloseUp(sender As Object, e As EventArgs) Handles DtFrom.CloseUp
-        isDateFromSet = True
-        SetQuery()
-        BtnClearDate.Visible = True
+        DtTo.Enabled = True
     End Sub
 
     Private Sub DtTo_ValueChanged(sender As Object, e As EventArgs) Handles DtTo.ValueChanged
@@ -762,12 +823,93 @@ Public Class StudentTerminal
         BtnClearDate.Visible = True
     End Sub
 
+    Private Sub DtFrom_CloseUp(sender As Object, e As EventArgs) Handles DtFrom.CloseUp
+        BtnClearDate2.PerformClick()
+        BtnClearDate3.PerformClick()
+        isDateFromSet = True
+        SetQuery()
+        BtnClearDate.Visible = True
+        DtTo.Enabled = True
+    End Sub
+
     Private Sub DtTo_CloseUp(sender As Object, e As EventArgs) Handles DtTo.CloseUp
         isDateToSet = True
         SetQuery()
-        BtnClearDate.Visible = True
     End Sub
 
+    'PUBLISHED
+    Private Sub DtFrom2_ValueChanged(sender As Object, e As EventArgs) Handles DtFrom2.ValueChanged
+        BtnClearDate.PerformClick()
+        BtnClearDate3.PerformClick()
+        isDateFromSet2 = True
+        SetQuery()
+        DtTo2.Enabled = True
+        BtnClearDate2.Visible = True
+        RdPubYes.PerformClick()
+        RdPubYes.Enabled = False
+        RdPubNo.Enabled = False
+        BtnClearPublished.Enabled = False
+    End Sub
+
+    Private Sub DtTo2_ValueChanged(sender As Object, e As EventArgs) Handles DtTo2.ValueChanged
+        isDateToSet2 = True
+        SetQuery()
+    End Sub
+
+    Private Sub DtFrom2_CloseUp(sender As Object, e As EventArgs) Handles DtFrom2.CloseUp
+        BtnClearDate.PerformClick()
+        BtnClearDate3.PerformClick()
+        isDateFromSet2 = True
+        SetQuery()
+        DtTo2.Enabled = True
+        BtnClearDate2.Visible = True
+        RdPubYes.PerformClick()
+        RdPubYes.Enabled = False
+        RdPubNo.Enabled = False
+        BtnClearPublished.Enabled = False
+    End Sub
+
+    Private Sub DtTo2_CloseUp(sender As Object, e As EventArgs) Handles DtTo2.CloseUp
+        isDateToSet2 = True
+        SetQuery()
+    End Sub
+
+    'PRESENTED
+    Private Sub DtFrom3_ValueChanged(sender As Object, e As EventArgs) Handles DtFrom3.ValueChanged
+        BtnClearDate.PerformClick()
+        BtnClearDate2.PerformClick()
+        isDateFromSet3 = True
+        SetQuery()
+        DtTo3.Enabled = True
+        BtnClearDate3.Visible = True
+        RdPreYes.PerformClick()
+        RdPreYes.Enabled = False
+        RdPreNo.Enabled = False
+        BtnClearPresented.Enabled = False
+    End Sub
+
+    Private Sub DtTo3_ValueChanged(sender As Object, e As EventArgs) Handles DtTo3.ValueChanged
+        isDateToSet3 = True
+        SetQuery()
+    End Sub
+
+    Private Sub DtFrom3_CloseUp(sender As Object, e As EventArgs) Handles DtFrom3.CloseUp
+        BtnClearDate.PerformClick()
+        BtnClearDate2.PerformClick()
+        isDateFromSet3 = True
+        SetQuery()
+        DtTo3.Enabled = True
+        BtnClearDate3.Visible = True
+        RdPreYes.PerformClick()
+        RdPreYes.Enabled = False
+        RdPreNo.Enabled = False
+        BtnClearPresented.Enabled = False
+    End Sub
+
+    Private Sub DtTo3_CloseUp(sender As Object, e As EventArgs) Handles DtTo3.CloseUp
+        isDateToSet3 = True
+        SetQuery()
+    End Sub
 
 
     'SETTING STATUS VARIABLE VALUE
@@ -834,6 +976,10 @@ Public Class StudentTerminal
         SetQuery()
     End Sub
 
+    Private Sub DgvSwData_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DgvSwData.CellContentClick
+
+    End Sub
+
     'CLEAR PRESENTED
     Private Sub BtnClearPresented_Click(sender As Object, e As EventArgs) Handles BtnClearPresented.Click
         BtnClearPresented.Visible = False
@@ -846,6 +992,9 @@ Public Class StudentTerminal
 
     'CLEAR DATE
     Private Sub BtnClearDate_Click(sender As Object, e As EventArgs) Handles BtnClearDate.Click
+
+        DtFrom.Value = DateTime.Now
+        DtTo.Value = DateTime.Now
         dateToQry = ""
         LblFilteredDate.Text = ""
         start_date = ""
@@ -854,8 +1003,44 @@ Public Class StudentTerminal
         isDateToSet = False
         BtnClearDate.Visible = False
         DtTo.Enabled = False
-        DtFrom.Value = DateTime.Now
-        DtTo.Value = DateTime.Now
+        SetQuery()
+    End Sub
+    Private Sub BtnClearDate2_Click(sender As Object, e As EventArgs) Handles BtnClearDate2.Click
+
+        DtFrom2.Value = DateTime.Now
+        DtTo2.Value = DateTime.Now
+        dateToQry = ""
+        LblFilteredDate2.Text = ""
+        start_date = ""
+        end_date = ""
+        isDateFromSet2 = False
+        isDateToSet2 = False
+        BtnClearDate2.Visible = False
+        DtTo2.Enabled = False
+
+        RdPubYes.Enabled = True
+        RdPubNo.Enabled = True
+        BtnClearPublished.Enabled = True
+        BtnClearPublished.PerformClick()
+        SetQuery()
+    End Sub
+    Private Sub BtnClearDate3_Click(sender As Object, e As EventArgs) Handles BtnClearDate3.Click
+
+        DtFrom3.Value = DateTime.Now
+        DtTo3.Value = DateTime.Now
+        dateToQry = ""
+        LblFilteredDate3.Text = ""
+        start_date = ""
+        end_date = ""
+        isDateFromSet3 = False
+        isDateToSet3 = False
+        BtnClearDate3.Visible = False
+        DtTo3.Enabled = False
+
+        RdPreYes.Enabled = True
+        RdPreNo.Enabled = True
+        BtnClearPresented.Enabled = True
+        BtnClearPresented.PerformClick()
         SetQuery()
     End Sub
 
@@ -863,6 +1048,8 @@ Public Class StudentTerminal
     Private Sub BtnResetFilter_Click(sender As Object, e As EventArgs) Handles BtnResetFilter.Click
         DtFrom.Value = DateTime.Now
         DtTo.Value = DateTime.Now
+        DtFrom2.Value = DateTime.Now
+        DtTo2.Value = DateTime.Now
 
         RdOngoing.Checked = False
         RdCompleted.Checked = False
@@ -878,16 +1065,35 @@ Public Class StudentTerminal
 
         dateToQry = ""
         LblFilteredDate.Text = ""
+        LblFilteredDate2.Text = ""
         start_date = ""
         end_date = ""
         isDateFromSet = False
         isDateToSet = False
+        isDateFromSet2 = False
+        isDateToSet2 = False
         DtTo.Enabled = False
+        DtTo2.Enabled = False
 
         BtnClearDate.Visible = False
+        BtnClearDate2.Visible = False
         BtnClearStatus.Visible = False
         BtnClearPublished.Visible = False
         BtnClearPresented.Visible = False
+
+
+        RdPubYes.Enabled = True
+        RdPubNo.Enabled = True
+        BtnClearPublished.Enabled = True
+        BtnClearPublished.Visible = False
+
+
+        RdPreYes.Enabled = True
+        RdPreNo.Enabled = True
+        BtnClearPresented.Enabled = True
+        BtnClearPresented.Visible = False
+
         LoadScholarlyWorks()
+
     End Sub
 End Class
