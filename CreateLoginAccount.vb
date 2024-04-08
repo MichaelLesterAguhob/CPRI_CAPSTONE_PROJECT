@@ -104,6 +104,7 @@ Public Class CreateLoginAccount
                 Else
                     If TxtPasswordCreate.Text.Trim = TxtConfirmPassCreate.Text.Trim Then
                         GenerateVcode()
+                        BtnCreate.Enabled = False
                         SendVerificationCode()
                     Else
                         MessageBox.Show("Password did not match!", "Try Again!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
@@ -204,12 +205,14 @@ Public Class CreateLoginAccount
                 smtp_server.Send(email)
                 Label24.Visible = False
                 MessageBox.Show("Verification code sent! Check your email and enter code here.")
+                BtnCreate.Enabled = True
                 PnlVCode.Visible = True
             Catch ex As Exception
                 MessageBox.Show(ex.Message, "Error Occurred while sending verification code", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End Try
         Else
             MessageBox.Show("Make sure you have an internet connection.", "No Internet Connection..", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            BtnCreate.Enabled = True
         End If
     End Sub
 
@@ -455,7 +458,7 @@ Public Class CreateLoginAccount
                     cmd.Parameters.AddWithValue("@email", TxtFpEmail.Text.Trim)
                     Dim reader As MySqlDataReader = cmd.ExecuteReader
                     If reader.HasRows Then
-
+                        BtnFpSendCode.Enabled = False
                         SendResetCode()
                     Else
                         MessageBox.Show("The email you've entered do not exists in the system", "Email not exists", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
@@ -502,7 +505,7 @@ Public Class CreateLoginAccount
                 smtp_server.Send(email)
 
                 MessageBox.Show("Reset code sent! Check your email and enter code here.", "Reset Code sent", MessageBoxButtons.OK, MessageBoxIcon.Information)
-
+                BtnFpSendCode.Enabled = False
                 PnlFpEnterEmail.Width = 0
                 PnlFpCode.Width = 332
                 TxtFpRecCode.Focus()
@@ -511,6 +514,7 @@ Public Class CreateLoginAccount
             End Try
         Else
             MessageBox.Show("Make sure you have an internet connection.", "No Internet Connection..", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            BtnFpSendCode.Enabled = True
         End If
     End Sub
 

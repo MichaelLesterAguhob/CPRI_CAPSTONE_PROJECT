@@ -555,6 +555,7 @@ Public Class StudentTerminal
             MessageBox.Show("Please select a filter to apply.", "No Filter Applied", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Else
             ApplyFilterSearch()
+            BtnCloseFilter.PerformClick()
         End If
 
     End Sub
@@ -731,8 +732,10 @@ Public Class StudentTerminal
                 dateToQry = " STR_TO_DATE(date_completed, '%m-%d-%Y') >= STR_TO_DATE(@start_date, '%m-%d-%Y')
                             AND STR_TO_DATE(date_completed, '%m-%d-%Y') <= STR_TO_DATE(@end_date, '%m-%d-%Y') "
                 LblFilteredDate.Text = "Filter date : FROM " & start_date & " TO " & end_date
-            ElseIf isDateFromSet Or isDateToSet Then
-                LblFilteredDate.Text = "Filter date : " & start_date & end_date
+            ElseIf isDateFromSet Then
+                LblFilteredDate.Text = "Filter date : " & start_date
+            ElseIf isDateToSet Then
+                LblFilteredDate.Text = "Filter date : " & end_date
             End If
 
             If isDateFromSet2 And isDateToSet2 Then
@@ -742,8 +745,10 @@ Public Class StudentTerminal
                 dateToQry = " STR_TO_DATE(date_published, '%m-%d-%Y') >= STR_TO_DATE(@start_date, '%m-%d-%Y')
                             AND STR_TO_DATE(date_published, '%m-%d-%Y') <= STR_TO_DATE(@end_date, '%m-%d-%Y') "
                 LblFilteredDate2.Text = "Filter date : FROM " & start_date & " TO " & end_date
-            ElseIf isDateFromSet2 Or isDateToSet2 Then
-                LblFilteredDate2.Text = "Filter date : " & start_date & end_date
+            ElseIf isDateFromSet2 Then
+                LblFilteredDate2.Text = "Filter date : " & start_date
+            ElseIf isDateToSet2 Then
+                LblFilteredDate2.Text = "Filter date : " & end_date
             End If
 
             If isDateFromSet3 And isDateToSet3 Then
@@ -753,8 +758,10 @@ Public Class StudentTerminal
                 dateToQry = " STR_TO_DATE(date_presented, '%m-%d-%Y') >= STR_TO_DATE(@start_date, '%m-%d-%Y')
                             AND STR_TO_DATE(date_presented, '%m-%d-%Y') <= STR_TO_DATE(@end_date, '%m-%d-%Y') "
                 LblFilteredDate3.Text = "Filter date : FROM " & start_date & " TO " & end_date
-            ElseIf isDateFromSet3 Or isDateToSet3 Then
-                LblFilteredDate3.Text = "Filter date : " & start_date & end_date
+            ElseIf isDateFromSet3 Then
+                LblFilteredDate3.Text = "Filter date : " & start_date
+            ElseIf isDateToSet3 Then
+                LblFilteredDate3.Text = "Filter date : " & end_date
             End If
 
             'status
@@ -807,41 +814,42 @@ Public Class StudentTerminal
 
     End Sub
 
-    '//
+    'COMPLETED
     Private Sub DtFrom_ValueChanged(sender As Object, e As EventArgs) Handles DtFrom.ValueChanged
         BtnClearDate2.PerformClick()
         BtnClearDate3.PerformClick()
         isDateFromSet = True
+        isDateToSet = False
         SetQuery()
         BtnClearDate.Visible = True
         DtTo.Enabled = True
+
+        RdCompleted.PerformClick()
+        RdOngoing.Enabled = False
+        RdCompleted.Enabled = False
+        BtnClearStatus.Enabled = False
     End Sub
 
     Private Sub DtTo_ValueChanged(sender As Object, e As EventArgs) Handles DtTo.ValueChanged
-        isDateToSet = True
-        SetQuery()
-        BtnClearDate.Visible = True
+        If DtTo.Value.Date < DtFrom.Value.Date Then
+            isDateToSet = False
+            SetQuery()
+            MessageBox.Show("You can't pick date earlier than starting date", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        Else
+            isDateToSet = True
+            SetQuery()
+            BtnClearDate.Visible = True
+        End If
+
     End Sub
 
-    Private Sub DtFrom_CloseUp(sender As Object, e As EventArgs) Handles DtFrom.CloseUp
-        BtnClearDate2.PerformClick()
-        BtnClearDate3.PerformClick()
-        isDateFromSet = True
-        SetQuery()
-        BtnClearDate.Visible = True
-        DtTo.Enabled = True
-    End Sub
-
-    Private Sub DtTo_CloseUp(sender As Object, e As EventArgs) Handles DtTo.CloseUp
-        isDateToSet = True
-        SetQuery()
-    End Sub
 
     'PUBLISHED
     Private Sub DtFrom2_ValueChanged(sender As Object, e As EventArgs) Handles DtFrom2.ValueChanged
         BtnClearDate.PerformClick()
         BtnClearDate3.PerformClick()
         isDateFromSet2 = True
+        isDateToSet2 = False
         SetQuery()
         DtTo2.Enabled = True
         BtnClearDate2.Visible = True
@@ -852,26 +860,16 @@ Public Class StudentTerminal
     End Sub
 
     Private Sub DtTo2_ValueChanged(sender As Object, e As EventArgs) Handles DtTo2.ValueChanged
-        isDateToSet2 = True
-        SetQuery()
-    End Sub
+        If DtTo2.Value.Date < DtFrom2.Value.Date Then
+            isDateToSet2 = False
+            SetQuery()
+            MessageBox.Show("You can't pick date earlier than starting date", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
 
-    Private Sub DtFrom2_CloseUp(sender As Object, e As EventArgs) Handles DtFrom2.CloseUp
-        BtnClearDate.PerformClick()
-        BtnClearDate3.PerformClick()
-        isDateFromSet2 = True
-        SetQuery()
-        DtTo2.Enabled = True
-        BtnClearDate2.Visible = True
-        RdPubYes.PerformClick()
-        RdPubYes.Enabled = False
-        RdPubNo.Enabled = False
-        BtnClearPublished.Enabled = False
-    End Sub
+        Else
+            isDateToSet2 = True
+            SetQuery()
+        End If
 
-    Private Sub DtTo2_CloseUp(sender As Object, e As EventArgs) Handles DtTo2.CloseUp
-        isDateToSet2 = True
-        SetQuery()
     End Sub
 
     'PRESENTED
@@ -879,6 +877,7 @@ Public Class StudentTerminal
         BtnClearDate.PerformClick()
         BtnClearDate2.PerformClick()
         isDateFromSet3 = True
+        isDateToSet3 = False
         SetQuery()
         DtTo3.Enabled = True
         BtnClearDate3.Visible = True
@@ -889,26 +888,16 @@ Public Class StudentTerminal
     End Sub
 
     Private Sub DtTo3_ValueChanged(sender As Object, e As EventArgs) Handles DtTo3.ValueChanged
-        isDateToSet3 = True
-        SetQuery()
-    End Sub
+        If DtTo3.Value.Date < DtFrom3.Value.Date Then
+            isDateToSet3 = False
+            SetQuery()
+            MessageBox.Show("You can't pick date earlier than starting date", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
 
-    Private Sub DtFrom3_CloseUp(sender As Object, e As EventArgs) Handles DtFrom3.CloseUp
-        BtnClearDate.PerformClick()
-        BtnClearDate2.PerformClick()
-        isDateFromSet3 = True
-        SetQuery()
-        DtTo3.Enabled = True
-        BtnClearDate3.Visible = True
-        RdPreYes.PerformClick()
-        RdPreYes.Enabled = False
-        RdPreNo.Enabled = False
-        BtnClearPresented.Enabled = False
-    End Sub
+        Else
+            isDateToSet3 = True
+            SetQuery()
+        End If
 
-    Private Sub DtTo3_CloseUp(sender As Object, e As EventArgs) Handles DtTo3.CloseUp
-        isDateToSet3 = True
-        SetQuery()
     End Sub
 
 
@@ -1003,6 +992,11 @@ Public Class StudentTerminal
         isDateToSet = False
         BtnClearDate.Visible = False
         DtTo.Enabled = False
+
+        RdOngoing.Enabled = True
+        RdCompleted.Enabled = True
+        BtnClearStatus.Enabled = True
+        BtnClearStatus.PerformClick()
         SetQuery()
     End Sub
     Private Sub BtnClearDate2_Click(sender As Object, e As EventArgs) Handles BtnClearDate2.Click

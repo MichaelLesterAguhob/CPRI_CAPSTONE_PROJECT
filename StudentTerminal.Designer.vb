@@ -139,13 +139,13 @@ Partial Class StudentTerminal
         '
         Me.Button3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button3.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.Button3.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_view_21
         Me.Button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button3.Location = New System.Drawing.Point(582, 491)
+        Me.Button3.Location = New System.Drawing.Point(616, 491)
         Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(102, 34)
+        Me.Button3.Size = New System.Drawing.Size(162, 43)
         Me.Button3.TabIndex = 35
         Me.Button3.Text = "VIEW"
         Me.Button3.UseVisualStyleBackColor = True
@@ -160,7 +160,7 @@ Partial Class StudentTerminal
         Me.BtnRemoveSelection.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnRemoveSelection.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.BtnRemoveSelection.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnRemoveSelection.Location = New System.Drawing.Point(1140, 78)
+        Me.BtnRemoveSelection.Location = New System.Drawing.Point(1124, 78)
         Me.BtnRemoveSelection.Name = "BtnRemoveSelection"
         Me.BtnRemoveSelection.Size = New System.Drawing.Size(102, 24)
         Me.BtnRemoveSelection.TabIndex = 34
@@ -261,7 +261,7 @@ Partial Class StudentTerminal
         Me.DgvSwData.RowsDefaultCellStyle = DataGridViewCellStyle9
         Me.DgvSwData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DgvSwData.ShowRowErrors = False
-        Me.DgvSwData.Size = New System.Drawing.Size(1231, 365)
+        Me.DgvSwData.Size = New System.Drawing.Size(1215, 365)
         Me.DgvSwData.TabIndex = 33
         '
         'count
@@ -427,6 +427,7 @@ Partial Class StudentTerminal
         Me.published.MinimumWidth = 90
         Me.published.Name = "published"
         Me.published.ReadOnly = True
+        Me.published.Visible = False
         Me.published.Width = 90
         '
         'Column9
@@ -449,6 +450,7 @@ Partial Class StudentTerminal
         Me.presented.MinimumWidth = 95
         Me.presented.Name = "presented"
         Me.presented.ReadOnly = True
+        Me.presented.Visible = False
         Me.presented.Width = 95
         '
         'Column10
@@ -571,7 +573,7 @@ Partial Class StudentTerminal
         Me.PnlFilter.ForeColor = System.Drawing.Color.Black
         Me.PnlFilter.Location = New System.Drawing.Point(84, 81)
         Me.PnlFilter.Name = "PnlFilter"
-        Me.PnlFilter.Size = New System.Drawing.Size(414, 431)
+        Me.PnlFilter.Size = New System.Drawing.Size(0, 0)
         Me.PnlFilter.TabIndex = 31
         '
         'LblFilteredDate3
@@ -592,7 +594,7 @@ Partial Class StudentTerminal
         Me.BtnClearDate3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnClearDate3.ForeColor = System.Drawing.SystemColors.WindowText
         Me.BtnClearDate3.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.BtnClearDate3.Location = New System.Drawing.Point(369, 194)
+        Me.BtnClearDate3.Location = New System.Drawing.Point(-43, 194)
         Me.BtnClearDate3.Name = "BtnClearDate3"
         Me.BtnClearDate3.Size = New System.Drawing.Size(20, 20)
         Me.BtnClearDate3.TabIndex = 53
@@ -670,7 +672,7 @@ Partial Class StudentTerminal
         Me.BtnClearDate2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnClearDate2.ForeColor = System.Drawing.SystemColors.WindowText
         Me.BtnClearDate2.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.BtnClearDate2.Location = New System.Drawing.Point(369, 127)
+        Me.BtnClearDate2.Location = New System.Drawing.Point(-43, 127)
         Me.BtnClearDate2.Name = "BtnClearDate2"
         Me.BtnClearDate2.Size = New System.Drawing.Size(20, 20)
         Me.BtnClearDate2.TabIndex = 46
@@ -748,7 +750,7 @@ Partial Class StudentTerminal
         Me.BtnClearDate.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnClearDate.ForeColor = System.Drawing.SystemColors.WindowText
         Me.BtnClearDate.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.BtnClearDate.Location = New System.Drawing.Point(369, 64)
+        Me.BtnClearDate.Location = New System.Drawing.Point(-43, 64)
         Me.BtnClearDate.Name = "BtnClearDate"
         Me.BtnClearDate.Size = New System.Drawing.Size(20, 20)
         Me.BtnClearDate.TabIndex = 39
@@ -1002,7 +1004,7 @@ Partial Class StudentTerminal
         Me.BtnCloseFilter.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnCloseFilter.ForeColor = System.Drawing.SystemColors.WindowText
         Me.BtnCloseFilter.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.BtnCloseFilter.Location = New System.Drawing.Point(382, 4)
+        Me.BtnCloseFilter.Location = New System.Drawing.Point(-30, 4)
         Me.BtnCloseFilter.Name = "BtnCloseFilter"
         Me.BtnCloseFilter.Size = New System.Drawing.Size(25, 21)
         Me.BtnCloseFilter.TabIndex = 21

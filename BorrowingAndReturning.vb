@@ -102,6 +102,91 @@ Public Class BorrowingAndReturning
         End Try
     End Sub
 
+    Private Sub BtnSearchBooks_Click(sender As Object, e As EventArgs) Handles BtnSearchBooks.Click
+        SearchBooks()
+    End Sub
+
+    Private Sub TxtSearchBooks_TextChanged(sender As Object, e As EventArgs) Handles TxtSearchBooks.TextChanged
+        If TxtSearchBooks.Text.Trim <> "" And TxtSearchBooks.Text.Trim <> "Search Title, Author Etc." Then
+            SearchBooks()
+        End If
+    End Sub
+
+    Private Sub TxtSearchBooks_KeyDown(sender As Object, e As KeyEventArgs) Handles TxtSearchBooks.KeyDown
+        If e.KeyCode = 13 And TxtSearchBooks.Text.Trim <> "" And TxtSearchBooks.Text.Trim <> "Search Title, Author Etc." Then
+            SearchBooks()
+        End If
+    End Sub
+
+    Private Sub TxtSearchBooks_Click(sender As Object, e As EventArgs) Handles TxtSearchBooks.Click
+        If TxtSearchBooks.Text.Trim = "Search Title, Author Etc." Then
+            TxtSearchBooks.Text = ""
+        End If
+    End Sub
+
+    Private Sub TxtSearchBooks_Leave(sender As Object, e As EventArgs) Handles TxtSearchBooks.Leave
+        If TxtSearchBooks.Text = "" Then
+            TxtSearchBooks.Text = "Search Title, Author Etc."
+            LoadBooksList()
+        End If
+    End Sub
+
+    Private Sub SearchBooks()
+        con.Close()
+        Try
+            con.Open()
+            Dim query As String = "
+                        SELECT 
+                            scholarly_works.sw_id,
+                            scholarly_works.title, 
+                            authors.authors_name,
+                            published_details.date_published,
+                            qnty_loc.location,
+                            qnty_loc.quantity,
+                            CASE
+                                    WHEN quantity < 1 THEN 'Unavailable'
+                                    WHEN quantity = 1 THEN 'Internal Borrow Only'
+                                    WHEN quantity > 1 THEN 'Available'
+                            END AS quantity_stat
+
+                        FROM scholarly_works
+
+                        INNER JOIN authors 
+                            ON authors.authors_id = scholarly_works.sw_id
+
+                        LEFT JOIN published_details 
+                            ON published_details.published_id = scholarly_works.sw_id
+
+                        LEFT JOIN qnty_loc 
+                            ON qnty_loc.sw_id = scholarly_works.sw_id
+                        WHERE 
+                            scholarly_works.sw_id LIKE @to_search
+                            OR scholarly_works.title LIKE @to_search
+                            OR authors.authors_name LIKE @to_search
+                            OR published_details.date_published LIKE @to_search
+                            "
+            Using cmd As New MySqlCommand(query, con)
+                cmd.Parameters.AddWithValue("@to_search", "%" & TxtSearchBooks.Text.Trim & "%")
+                Using adptr As New MySqlDataAdapter(cmd)
+                    Dim dt As New DataTable()
+                    adptr.Fill(dt)
+
+                    DgvBooks.DataSource = dt
+                    DgvBooks.Refresh()
+                    For i = 0 To DgvBooks.Rows.Count - 1
+                        DgvBooks.Rows(i).Height = 70
+                    Next
+                    DgvBooks.ClearSelection()
+                End Using
+            End Using
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Error Occurred on Loading Book List", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            con.Close()
+        Finally
+            con.Close()
+        End Try
+    End Sub
+
     Private Sub DgvBooks_ColumnHeaderMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DgvBooks.ColumnHeaderMouseClick
         For i = 0 To DgvBooks.Rows.Count - 1
             DgvBooks.Rows(i).Height = 70
@@ -137,6 +222,7 @@ Public Class BorrowingAndReturning
             Else
                 AddToBorrow.PerformClick()
             End If
+            e.Handled = True
         End If
     End Sub
 
@@ -377,6 +463,7 @@ Public Class BorrowingAndReturning
         If TxtExistingBorrowerId.Text.Trim <> "" Then
             If IsNumeric(TxtExistingBorrowerId.Text.Trim) Then
                 Check_borrower_record()
+
             Else
                 MessageBox.Show("Please enter 9-digit Borrower's ID. Ex.202402573", "Input Invalid!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                 Lbl1.Text = ""
@@ -388,6 +475,11 @@ Public Class BorrowingAndReturning
             TxtPhoneNo.Clear()
             TxtAddress.Clear()
 
+            TxtName.Enabled = True
+            TxtEmail.Enabled = True
+            TxtPhoneNo.Enabled = True
+            TxtAddress.Enabled = True
+
             Lbl1.Text = ""
         End If
 
@@ -396,7 +488,7 @@ Public Class BorrowingAndReturning
     'KEYDOWN
     Private Sub TxtExistingBorrowerId_KeyDown(sender As Object, e As KeyEventArgs) Handles TxtExistingBorrowerId.KeyDown
         If e.KeyCode = 13 Then
-            BtnConfirm.PerformClick()
+            BtnConfirm.Focus()
         End If
     End Sub
 
@@ -838,6 +930,11 @@ Public Class BorrowingAndReturning
                         TxtAddress.Text = reader("address").ToString()
                         Lbl1.ForeColor = Color.Green
                         Lbl1.Text = "Record found"
+
+                        TxtName.Enabled = False
+                        TxtEmail.Enabled = False
+                        TxtPhoneNo.Enabled = False
+                        TxtAddress.Enabled = False
                     Else
                         Lbl1.ForeColor = Color.Maroon
                         Lbl1.Text = "No record found!"
@@ -845,11 +942,17 @@ Public Class BorrowingAndReturning
                         TxtEmail.Text = ""
                         TxtPhoneNo.Text = ""
                         TxtAddress.Text = ""
+
+                        TxtName.Enabled = True
+                        TxtEmail.Enabled = True
+                        TxtPhoneNo.Enabled = True
+                        TxtAddress.Enabled = True
                     End If
                 Else
-
-                    Lbl1.ForeColor = Color.Maroon
-                    Lbl1.Text = "No record found!"
+                    TxtName.Enabled = True
+                    TxtEmail.Enabled = True
+                    TxtPhoneNo.Enabled = True
+                    TxtAddress.Enabled = True
                     Lbl1.ForeColor = Color.Maroon
                     Lbl1.Text = "No record found!"
                     TxtName.Text = ""
@@ -896,6 +999,7 @@ Public Class BorrowingAndReturning
             con.Close()
         End Try
     End Sub
+
 
 
 
@@ -1159,6 +1263,7 @@ Public Class BorrowingAndReturning
             BtnCancelBorrow.Enabled = True
             BtnReturnedBooks.Enabled = True
             BtnReturnBooks.Enabled = True
+            ' MsgBox(selected_borrowed_book)
         End If
 
     End Sub
@@ -1171,9 +1276,10 @@ Public Class BorrowingAndReturning
             'checking if book is overdue, if yes, so cancelling is not applicable
             Try
                 con.Open()
-                Using check_qcmd As New MySqlCommand("SELECT borrow_id FROM borrowed_books WHERE is_overdue='YES'", con)
+                Using check_qcmd As New MySqlCommand("SELECT * FROM borrowed_books WHERE borrow_id=@borrow_id AND is_overdue='YES' ", con)
                     check_qcmd.Parameters.AddWithValue("@borrow_id", selected_borrowed_book)
                     Dim reader0 As MySqlDataReader = check_qcmd.ExecuteReader()
+
                     If reader0.HasRows AndAlso reader0.Read() Then
                         MessageBox.Show("This Book was Overdue", "Invalid cancelling overdue books", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                     Else
@@ -1407,17 +1513,37 @@ Public Class BorrowingAndReturning
                         cmd.ExecuteNonQuery()
                     End Using
 
+                    Dim return_stat As String = ""
+                    Using cmd_return_late As New MySqlCommand("SELECT is_overdue FROM borrowed_books WHERE borrow_id=@id", con)
+                        cmd_return_late.Parameters.AddWithValue("@id", selected_borrowed_book)
+                        Dim reader As MySqlDataReader = cmd_return_late.ExecuteReader()
+                        If reader.HasRows Then
+                            If reader.Read() Then
+                                return_stat = reader("is_overdue").ToString
+                            End If
+                        End If
+                        reader.Close()
+                    End Using
+
+                    Dim to_save_retrn_stat As String = ""
+                    If return_stat = "NO" Then
+                        to_save_retrn_stat = "ON TIME"
+                    Else
+                        to_save_retrn_stat = "RETURNED LATE"
+                    End If
+
                     GenerateRetunedID()
                     Using cmd_save_return As New MySqlCommand("
                         INSERT INTO returned_books 
-                            (`returned_id`, `borrow_id`, `returned_date`, `returned_time`)
+                            (`returned_id`, `borrow_id`, `returned_date`, `returned_time`, `return_stat`)
                         VALUES
-                            (@rtrnd_id, @brrw_id, @rtrnd_date, @rtrnd_time)
+                            (@rtrnd_id, @brrw_id, @rtrnd_date, @rtrnd_time, @rtrn_stat)
                         ", con)
                         cmd_save_return.Parameters.AddWithValue("@rtrnd_id", generated_returned_id)
                         cmd_save_return.Parameters.AddWithValue("@brrw_id", selected_borrowed_book)
                         cmd_save_return.Parameters.AddWithValue("@rtrnd_date", TxtDate.Text.Trim)
                         cmd_save_return.Parameters.AddWithValue("@rtrnd_time", TxtTime.Text.Trim)
+                        cmd_save_return.Parameters.AddWithValue("@rtrn_stat", to_save_retrn_stat)
                         cmd_save_return.ExecuteNonQuery()
                     End Using
 
@@ -1454,6 +1580,7 @@ Public Class BorrowingAndReturning
                     returned_books.borrow_id AS returned_borrow_id, 
                     returned_books.returned_date, 
                     returned_books.returned_time, 
+                    returned_books.return_stat, 
                     borrowed_books.count, 
                     borrowed_books.borrow_id, 
                     borrowed_books.book_ids, 
@@ -1612,7 +1739,7 @@ Public Class BorrowingAndReturning
             Dim overdue_books_count As Integer = 0
 
             con.Open()
-            Using cmdSelect As New MySqlCommand("SELECT borrow_id, borrower_id, due_date FROM borrowed_books WHERE is_cancel='NO' AND is_returned='NO'AND is_overdue='NO'", con)
+            Using cmdSelect As New MySqlCommand("SELECT borrow_id, borrower_id, due_date FROM borrowed_books WHERE is_cancel='NO' AND is_returned='NO' AND is_overdue='NO'", con)
                 Dim reader As MySqlDataReader = cmdSelect.ExecuteReader()
 
                 Dim SubCon As New MySqlConnection("server=localhost;user=root;password=;database=cpri_cdsga_db")
@@ -1633,6 +1760,7 @@ Public Class BorrowingAndReturning
 
                     'knowing if books is already overdue
                     If book_due_date < current_date Then
+                        'MsgBox(book_due_date.ToString)
                         overdue_books_count += 1
                         isThereOverdue = True
 
@@ -1640,6 +1768,11 @@ Public Class BorrowingAndReturning
                         Using cmd3 As New MySqlCommand("UPDATE borrowed_books SET is_overdue='YES' WHERE borrow_id=@id ", SubCon)
                             cmd3.Parameters.AddWithValue("@id", borrow_id)
                             cmd3.ExecuteNonQuery()
+                        End Using
+
+                        Using cmd4 As New MySqlCommand("UPDATE borrowers SET violations='LATE RETURNER' WHERE borrower_id=@id ", SubCon)
+                            cmd4.Parameters.AddWithValue("@id", borrower_id)
+                            cmd4.ExecuteNonQuery()
                         End Using
 
                         Dim overdue_days As Integer = (current_date - book_due_date).Days
@@ -1658,6 +1791,7 @@ Public Class BorrowingAndReturning
                         End Using
                     End If
                 End While
+                reader.Close()
                 SubCon.Close()
             End Using
 
