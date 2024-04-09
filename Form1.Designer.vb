@@ -58,9 +58,11 @@ Partial Class Form1
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
+        Me.LblPub = New System.Windows.Forms.Label()
+        Me.lblUnpub = New System.Windows.Forms.Label()
         Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.LblDueToday = New System.Windows.Forms.Label()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.LblReturnedBooks = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
@@ -334,7 +336,6 @@ Partial Class Form1
         Me.LblWelcome.Name = "LblWelcome"
         Me.LblWelcome.Size = New System.Drawing.Size(318, 37)
         Me.LblWelcome.TabIndex = 1
-        Me.LblWelcome.Text = "Welcome, "
         Me.LblWelcome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Button1
@@ -382,11 +383,11 @@ Partial Class Form1
         Me.Panel5.Controls.Add(Me.Label12)
         Me.Panel5.Controls.Add(Me.Label5)
         Me.Panel5.Controls.Add(Me.Label13)
-        Me.Panel5.Controls.Add(Me.Label6)
-        Me.Panel5.Controls.Add(Me.Label4)
+        Me.Panel5.Controls.Add(Me.LblPub)
+        Me.Panel5.Controls.Add(Me.lblUnpub)
         Me.Panel5.Location = New System.Drawing.Point(16, 57)
         Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(686, 160)
+        Me.Panel5.Size = New System.Drawing.Size(472, 150)
         Me.Panel5.TabIndex = 14
         '
         'Label12
@@ -421,40 +422,40 @@ Partial Class Form1
         Me.Label13.TabIndex = 9
         Me.Label13.Text = "UNPUBLISHED"
         '
-        'Label6
+        'LblPub
         '
-        Me.Label6.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.Label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label6.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Label6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 30.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_paper_85__1_
-        Me.Label6.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Label6.Location = New System.Drawing.Point(238, 27)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(202, 100)
-        Me.Label6.TabIndex = 3
-        Me.Label6.Text = "1"
-        Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.LblPub.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.LblPub.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.LblPub.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.LblPub.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.LblPub.Font = New System.Drawing.Font("Microsoft Sans Serif", 30.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblPub.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_books_85__2_
+        Me.LblPub.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.LblPub.Location = New System.Drawing.Point(238, 27)
+        Me.LblPub.Name = "LblPub"
+        Me.LblPub.Size = New System.Drawing.Size(202, 100)
+        Me.LblPub.TabIndex = 3
+        Me.LblPub.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'Label4
+        'lblUnpub
         '
-        Me.Label4.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.Label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label4.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Label4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 30.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_paper_85__2_
-        Me.Label4.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Label4.Location = New System.Drawing.Point(12, 27)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(202, 100)
-        Me.Label4.TabIndex = 1
-        Me.Label4.Text = "1"
-        Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.lblUnpub.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.lblUnpub.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lblUnpub.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.lblUnpub.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.lblUnpub.Font = New System.Drawing.Font("Microsoft Sans Serif", 30.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblUnpub.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_books_85__3_
+        Me.lblUnpub.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.lblUnpub.Location = New System.Drawing.Point(12, 27)
+        Me.lblUnpub.Name = "lblUnpub"
+        Me.lblUnpub.Size = New System.Drawing.Size(202, 100)
+        Me.lblUnpub.TabIndex = 1
+        Me.lblUnpub.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Panel4
         '
+        Me.Panel4.Controls.Add(Me.Label3)
+        Me.Panel4.Controls.Add(Me.LblDueToday)
         Me.Panel4.Controls.Add(Me.Label14)
         Me.Panel4.Controls.Add(Me.LblReturnedBooks)
         Me.Panel4.Controls.Add(Me.Label9)
@@ -464,15 +465,41 @@ Partial Class Form1
         Me.Panel4.Controls.Add(Me.LblOverdues)
         Me.Panel4.Location = New System.Drawing.Point(16, 231)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(686, 160)
+        Me.Panel4.Size = New System.Drawing.Size(472, 287)
         Me.Panel4.TabIndex = 13
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(20, 122)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(70, 13)
+        Me.Label3.TabIndex = 14
+        Me.Label3.Text = "DUE TODAY"
+        '
+        'LblDueToday
+        '
+        Me.LblDueToday.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.LblDueToday.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.LblDueToday.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.LblDueToday.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.LblDueToday.Font = New System.Drawing.Font("Microsoft Sans Serif", 30.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblDueToday.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_today_85__1_
+        Me.LblDueToday.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.LblDueToday.Location = New System.Drawing.Point(12, 44)
+        Me.LblDueToday.Name = "LblDueToday"
+        Me.LblDueToday.Size = New System.Drawing.Size(202, 100)
+        Me.LblDueToday.TabIndex = 13
+        Me.LblDueToday.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Label14
         '
         Me.Label14.AutoSize = True
         Me.Label14.BackColor = System.Drawing.Color.MediumAquamarine
         Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.Location = New System.Drawing.Point(468, 120)
+        Me.Label14.Location = New System.Drawing.Point(242, 245)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(108, 13)
         Me.Label14.TabIndex = 12
@@ -485,13 +512,12 @@ Partial Class Form1
         Me.LblReturnedBooks.Cursor = System.Windows.Forms.Cursors.Hand
         Me.LblReturnedBooks.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.LblReturnedBooks.Font = New System.Drawing.Font("Microsoft Sans Serif", 30.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LblReturnedBooks.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_books_85__1_
+        Me.LblReturnedBooks.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_books_85__1_1
         Me.LblReturnedBooks.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.LblReturnedBooks.Location = New System.Drawing.Point(462, 39)
+        Me.LblReturnedBooks.Location = New System.Drawing.Point(236, 164)
         Me.LblReturnedBooks.Name = "LblReturnedBooks"
         Me.LblReturnedBooks.Size = New System.Drawing.Size(202, 100)
         Me.LblReturnedBooks.TabIndex = 11
-        Me.LblReturnedBooks.Text = "1"
         Me.LblReturnedBooks.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Label9
@@ -507,9 +533,9 @@ Partial Class Form1
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Label10.BackColor = System.Drawing.Color.LightCoral
         Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(20, 117)
+        Me.Label10.Location = New System.Drawing.Point(244, 122)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(67, 13)
         Me.Label10.TabIndex = 7
@@ -520,7 +546,7 @@ Partial Class Form1
         Me.Label11.AutoSize = True
         Me.Label11.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(242, 120)
+        Me.Label11.Location = New System.Drawing.Point(18, 245)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(112, 13)
         Me.Label11.TabIndex = 8
@@ -533,9 +559,9 @@ Partial Class Form1
         Me.LblBorrowedBooks.Cursor = System.Windows.Forms.Cursors.Hand
         Me.LblBorrowedBooks.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.LblBorrowedBooks.Font = New System.Drawing.Font("Microsoft Sans Serif", 30.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LblBorrowedBooks.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_books_85
+        Me.LblBorrowedBooks.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_books_851
         Me.LblBorrowedBooks.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.LblBorrowedBooks.Location = New System.Drawing.Point(238, 39)
+        Me.LblBorrowedBooks.Location = New System.Drawing.Point(12, 164)
         Me.LblBorrowedBooks.Name = "LblBorrowedBooks"
         Me.LblBorrowedBooks.Size = New System.Drawing.Size(202, 100)
         Me.LblBorrowedBooks.TabIndex = 5
@@ -543,18 +569,17 @@ Partial Class Form1
         '
         'LblOverdues
         '
-        Me.LblOverdues.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.LblOverdues.BackColor = System.Drawing.Color.LightCoral
         Me.LblOverdues.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.LblOverdues.Cursor = System.Windows.Forms.Cursors.Hand
         Me.LblOverdues.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.LblOverdues.Font = New System.Drawing.Font("Microsoft Sans Serif", 30.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LblOverdues.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_overdue_85
+        Me.LblOverdues.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_deadline_86
         Me.LblOverdues.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.LblOverdues.Location = New System.Drawing.Point(12, 39)
+        Me.LblOverdues.Location = New System.Drawing.Point(236, 44)
         Me.LblOverdues.Name = "LblOverdues"
         Me.LblOverdues.Size = New System.Drawing.Size(202, 100)
         Me.LblOverdues.TabIndex = 4
-        Me.LblOverdues.Text = "0"
         Me.LblOverdues.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Timer1
@@ -615,9 +640,9 @@ Partial Class Form1
     Friend WithEvents PrintBorrowedBooksToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents PrintReturnedBooksToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents PrintOverdueBooksToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents Label6 As Label
+    Friend WithEvents LblPub As Label
     Friend WithEvents Label5 As Label
-    Friend WithEvents Label4 As Label
+    Friend WithEvents lblUnpub As Label
     Friend WithEvents Label12 As Label
     Friend WithEvents Label13 As Label
     Friend WithEvents Label11 As Label
@@ -634,4 +659,6 @@ Partial Class Form1
     Friend WithEvents TxtDate As TextBox
     Friend WithEvents Label15 As Label
     Friend WithEvents Timer1 As Timer
+    Friend WithEvents Label3 As Label
+    Friend WithEvents LblDueToday As Label
 End Class

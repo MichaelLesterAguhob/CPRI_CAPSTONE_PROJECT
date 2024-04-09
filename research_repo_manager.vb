@@ -10,6 +10,19 @@ Public Class ResearchRepoManager
     Dim isSearchButtonUsed As Boolean = False
     Dim isDataAlreadyLoaded As Boolean = False
 
+    Dim search_me As String = ""
+    Private ReadOnly frm1 As Form1
+    Public Sub New(ByVal frm1 As Form1, search_me As String)
+        InitializeComponent()
+        Me.frm1 = frm1
+        search_me = search_me
+        If search_me <> "" Then
+            TxtSearch.Text = search_me
+            BtnSearch.PerformClick()
+        End If
+
+    End Sub
+
     'MAIN FORM LOAD
     Private Sub ResearchRepoManager_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         PnlFilter.Width = 0
@@ -24,6 +37,12 @@ Public Class ResearchRepoManager
 
         DgvSwData.ClearSelection()
         BtnDelete.Enabled = False
+
+        If search_me <> "" Then
+            TxtSearch.Text = search_me
+            BtnSearch.PerformClick()
+        End If
+
     End Sub
 
     'LOADING ALL DATA FROM SCHOLARLY WORKS IN DATAGRIDVIEW FROM DATABASE 

@@ -101,9 +101,7 @@ Public Class AddWorks
     'CODES TO LOAD RESEARCH WORK IN REPO MANAGER
     Private ReadOnly rrm As ResearchRepoManager
     Public Sub New(ByVal rrm As ResearchRepoManager)
-        ' This call is required by the designer.
         InitializeComponent()
-        ' Add any initialization after the InitializeComponent() call.
         Me.rrm = rrm
     End Sub
 

@@ -32,7 +32,7 @@ Namespace My
         
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
         Protected Overrides Sub OnCreateMainForm()
-            Me.MainForm = Global.CPRI_CAPSTONE_PROJECT.BorrowingAndReturning
+            Me.MainForm = Global.CPRI_CAPSTONE_PROJECT.CreateLoginAccount
         End Sub
     End Class
 End Namespace

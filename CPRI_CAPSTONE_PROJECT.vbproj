@@ -600,5 +600,26 @@
   <ItemGroup>
     <None Include="Resources\icons8-test-account-100.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-today-85 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-deadline-86.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-books-851.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-books-85 %281%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-books-85 %283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-books-85 %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-books-85 %283%291.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

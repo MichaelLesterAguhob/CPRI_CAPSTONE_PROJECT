@@ -22,6 +22,22 @@ Public Class BorrowingAndReturning
     'Borrower variables
     Dim selected_borrower_id As Integer = 0
     Dim selected_borrower_name As String = ""
+
+    'CODES TO LOAD RESEARCH WORK IN REPO MANAGER
+    Dim open_tab As String = ""
+    Private ReadOnly frm1 As Form1
+    Public Sub New(ByVal frm1 As Form1, tab_toOpen As String)
+        InitializeComponent()
+        Me.frm1 = frm1
+        open_tab = tab_toOpen
+    End Sub
+
+    Private ReadOnly cl As CreateLoginAccount
+    Public Sub New(ByVal cl As CreateLoginAccount)
+        InitializeComponent()
+        Me.cl = cl
+    End Sub
+
     Private Sub BorrowingAndReturning_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ConOpen()
         LoadBooksList()
@@ -34,6 +50,13 @@ Public Class BorrowingAndReturning
         TxtDate.Text = date_time.Date.ToString("MM-dd-yyyy")
         Timer1.Start()
         DgvBooks.Focus()
+        If open_tab = "overdues" Then
+            BtnOverduesBooks.PerformClick()
+        ElseIf open_tab = "borrowed" Then
+            BtnBorrowedBooks.PerformClick()
+        ElseIf open_tab = "returned" Then
+            BtnReturnedBooks.PerformClick()
+        End If
     End Sub
 
 
@@ -1061,6 +1084,7 @@ Public Class BorrowingAndReturning
         If PanelCancelled.Visible = True Then
             PanelCancelled.Visible = False
         End If
+        frm1.LoadAllDisplayData()
     End Sub
 
     'GENERATING BORROW TRANSACTION ID AND CHECKING UNIQUENESS
@@ -1183,6 +1207,7 @@ Public Class BorrowingAndReturning
             isThereAvailableBorrowSelected = False
             isThereInternalBorrowSelected = False
             con.Close()
+            frm1.LoadAllDisplayData()
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Error Occurred on getting book ids and titles from datagrid", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Finally
@@ -1350,6 +1375,7 @@ Public Class BorrowingAndReturning
                                 BtnCancelBorrow.Enabled = True
                                 BtnReturnedBooks.Enabled = True
                                 DgvCancelledBorrow.ClearSelection()
+                                frm1.LoadAllDisplayData()
                             Catch ex As Exception
                                 MessageBox.Show(ex.Message, "Error Occurred on Cancelling", MessageBoxButtons.OK, MessageBoxIcon.Error)
                                 con.Close()
@@ -1556,6 +1582,8 @@ Public Class BorrowingAndReturning
                     BtnCancelBorrow.Enabled = True
                     BtnReturnedBooks.Enabled = True
                     DgvCancelledBorrow.ClearSelection()
+                    frm1.LoadAllDisplayData()
+
                 Catch ex As Exception
                     MessageBox.Show(ex.Message, "Error Occurred on Returning", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     con.Close()
@@ -1720,6 +1748,7 @@ Public Class BorrowingAndReturning
         BtnReturnedBooks.BackColor = Color.Transparent
         CheckOverDuesBorrowedBooks()
         LoadOverDues()
+        frm1.LoadAllDisplayData()
         BtnRemoveToBorrow.Visible = False
         BtnEditBorrower.Enabled = False
         BtnDeleteBorrower.Enabled = False

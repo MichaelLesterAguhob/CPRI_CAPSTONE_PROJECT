@@ -380,7 +380,7 @@ Public Class CreateLoginAccount
                 main_form.Show()
                 Me.Hide()
             Else account_type_loggedin = "staff"
-                Dim brrwng_rtrnng As New BorrowingAndReturning
+                Dim brrwng_rtrnng As New BorrowingAndReturning(Me)
                 brrwng_rtrnng.Show()
                 Me.Hide()
             End If
