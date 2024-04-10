@@ -1,7 +1,7 @@
 ﻿
 Imports MySql.Data.MySqlClient
 
-Public Class PrintThesisClearance
+Public Class ReportPrintThesisClearance
 
 
     Private Sub PrintThesisClearance_Load(sender As Object, e As EventArgs) Handles MyBase.Load

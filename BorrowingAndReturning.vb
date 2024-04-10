@@ -1,13 +1,14 @@
 ﻿
 Imports MySql.Data.MySqlClient
 Imports System.Globalization
+Imports System.Windows.Forms
 
 Public Class BorrowingAndReturning
     Dim selected_book_id As Integer = 0
     Dim selected_book_stat As String = ""
     Dim selected_book_title As String = ""
-    Dim selected_book_type As String = ""
-    Shared date_time As DateTime = DateTime.Now
+    ReadOnly selected_book_type As String = ""
+    Shared ReadOnly date_time As DateTime = DateTime.Now
     Dim current_time As TimeSpan = DateTime.Now.TimeOfDay
     ReadOnly current_year As Integer = date_time.Year
     Private Shared ReadOnly rnd As New Random()
@@ -24,7 +25,7 @@ Public Class BorrowingAndReturning
     Dim selected_borrower_name As String = ""
 
     'CODES TO LOAD RESEARCH WORK IN REPO MANAGER
-    Dim open_tab As String = ""
+    ReadOnly open_tab As String = ""
     Private ReadOnly frm1 As Form1
     Public Sub New(ByVal frm1 As Form1, tab_toOpen As String)
         InitializeComponent()
@@ -47,6 +48,7 @@ Public Class BorrowingAndReturning
         LoadReturnedBooksList()
         CheckOverDuesBorrowedBooks()
         LoadOverDues()
+        'CheckActiveLogin()
         TxtDate.Text = date_time.Date.ToString("MM-dd-yyyy")
         Timer1.Start()
         DgvBooks.Focus()
@@ -59,7 +61,19 @@ Public Class BorrowingAndReturning
         End If
     End Sub
 
-
+    Private Sub CheckActiveLogin()
+        If loggedin <= 0 Then
+            Me.Close()
+            Dim crt_lgn As New CreateLoginAccount
+            crt_lgn.Show()
+        Else
+            If account_type_loggedin = "staff" Then
+                LblStaffLoggedin.Text = "STAFF | " & account_loggedin.ToUpper()
+            Else
+                LblStaffLoggedin.Text = "ADMIN | " & account_loggedin.ToUpper()
+            End If
+        End If
+    End Sub
 
     Private Sub BorrowingAndReturning_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         EmptyTempStorage()
@@ -74,7 +88,17 @@ Public Class BorrowingAndReturning
         End If
     End Sub
 
+
+
     '==============BOOKS==================
+    ReadOnly dt_books_list As New DataTable()
+    Private Sub BtnPrintBooksList_Click(sender As Object, e As EventArgs) Handles BtnPrintBooksList.Click
+        Dim brr As New ReportBorAndRet
+        brr.Show()
+        Dim print_books As New report_book_list
+        print_books.Database.Tables("books").SetDataSource(dt_books_list)
+        brr.CrvBookList.ReportSource = print_books
+    End Sub
     Private Sub LoadBooksList()
         con.Close()
         Try
@@ -106,15 +130,20 @@ Public Class BorrowingAndReturning
                             "
             Using cmd As New MySqlCommand(query, con)
                 Using adptr As New MySqlDataAdapter(cmd)
-                    Dim dt As New DataTable()
-                    adptr.Fill(dt)
+                    dt_books_list.Clear()
+                    adptr.Fill(dt_books_list)
+                    If dt_books_list.Rows.Count > 0 Then
+                        DgvBooks.DataSource = dt_books_list
+                        DgvBooks.Refresh()
+                        For i = 0 To DgvBooks.Rows.Count - 1
+                            DgvBooks.Rows(i).Height = 70
+                        Next
+                        DgvBooks.ClearSelection()
+                    Else
+                        DgvBooks.DataSource = dt_books_list
+                        DgvBooks.ClearSelection()
+                    End If
 
-                    DgvBooks.DataSource = dt
-                    DgvBooks.Refresh()
-                    For i = 0 To DgvBooks.Rows.Count - 1
-                        DgvBooks.Rows(i).Height = 70
-                    Next
-                    DgvBooks.ClearSelection()
                 End Using
             End Using
         Catch ex As Exception
@@ -203,7 +232,7 @@ Public Class BorrowingAndReturning
                 End Using
             End Using
         Catch ex As Exception
-            MessageBox.Show(ex.Message, "Error Occurred on Loading Book List", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show(ex.Message, "Error Occurred on Searching Books", MessageBoxButtons.OK, MessageBoxIcon.Error)
             con.Close()
         Finally
             con.Close()
@@ -637,6 +666,14 @@ Public Class BorrowingAndReturning
 
 
     '==============BORROWERS==================
+    ReadOnly dt_borrowers_rec As New DataTable()
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Dim brr As New ReportBorAndRet
+        brr.Show()
+        Dim print_books As New report_borrowers_list
+        print_books.Database.Tables("borrowers").SetDataSource(dt_borrowers_rec)
+        brr.Crv.ReportSource = print_books
+    End Sub
     Private Sub LoadBorrowersList()
         con.Close()
         Try
@@ -644,8 +681,8 @@ Public Class BorrowingAndReturning
             Dim query As String = "SELECT * FROM borrowers"
             Using cmd As New MySqlCommand(query, con)
                 Using adptr As New MySqlDataAdapter(cmd)
-                    Dim dt As New DataTable()
-                    adptr.Fill(dt)
+                    dt_borrowers_rec.Clear()
+                    adptr.Fill(dt_borrowers_rec)
 
                     If dt.Rows.Count > 0 Then
                         DgvBorrowers.DataSource = dt
@@ -1024,6 +1061,79 @@ Public Class BorrowingAndReturning
     End Sub
 
 
+    Private Sub SearchBorrower()
+        con.Close()
+        Try
+            con.Open()
+            Dim query As String = "
+                SELECT * 
+                FROM 
+                    borrowers 
+                WHERE 
+                    borrower_id LIKE @to_search 
+                    OR name LIKE @to_search 
+                    OR email LIKE @to_search 
+                    OR phone LIKE @to_search 
+                    OR address LIKE @to_search 
+                    OR violations LIKE @to_search 
+                    "
+            Using cmd As New MySqlCommand(query, con)
+                cmd.Parameters.AddWithValue("@to_search", "%" & TxtSearchBorrowers.Text.Trim & "%")
+                Using adptr As New MySqlDataAdapter(cmd)
+                    Dim dt As New DataTable()
+                    adptr.Fill(dt)
+
+                    If dt.Rows.Count > 0 Then
+                        DgvBorrowers.DataSource = dt
+                        DgvBorrowers.Refresh()
+                        For i = 0 To DgvBorrowers.Rows.Count - 1
+                            DgvBorrowers.Rows(i).Height = 50
+                        Next
+                        DgvBorrowers.ClearSelection()
+                    Else
+                        DgvBorrowers.DataSource = dt
+                        DgvBorrowers.Refresh()
+                    End If
+
+                End Using
+            End Using
+
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Error Occurred on Searching Borrowers", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            con.Close()
+        Finally
+            con.Close()
+        End Try
+    End Sub
+
+    Private Sub BtnSearchBorrowers_Click(sender As Object, e As EventArgs) Handles BtnSearchBorrowers.Click
+        SearchBorrower()
+    End Sub
+
+    Private Sub TxtSearchBorrowers_TextChanged(sender As Object, e As EventArgs) Handles TxtSearchBorrowers.TextChanged
+        If TxtSearchBorrowers.Text.Trim <> "" And TxtSearchBorrowers.Text.Trim <> "Search ID, Name, Email Etc." Then
+            SearchBorrower()
+        End If
+    End Sub
+
+    Private Sub TxtSearchBorrowers_KeyDown(sender As Object, e As KeyEventArgs) Handles TxtSearchBorrowers.KeyDown
+        If e.KeyCode = 13 And TxtSearchBorrowers.Text.Trim <> "" And TxtSearchBorrowers.Text.Trim <> "Search ID, Name, Email Etc." Then
+            SearchBorrower()
+        End If
+    End Sub
+
+    Private Sub TxtSearchBorrowers_Click(sender As Object, e As EventArgs) Handles TxtSearchBorrowers.Click
+        If TxtSearchBorrowers.Text.Trim = "Search ID, Name, Email Etc." Then
+            TxtSearchBorrowers.Text = ""
+        End If
+    End Sub
+
+    Private Sub TxtSearchBorrowers_Leave(sender As Object, e As EventArgs) Handles TxtSearchBorrowers.Leave
+        If TxtSearchBorrowers.Text = "" Then
+            TxtSearchBorrowers.Text = "Search ID, Name, Email Etc."
+            LoadBorrowersList()
+        End If
+    End Sub
 
 
 
@@ -1086,6 +1196,151 @@ Public Class BorrowingAndReturning
         End If
         frm1.LoadAllDisplayData()
     End Sub
+
+    Private Sub SearchInBorrowed()
+        con.Close()
+        Try
+            con.Open()
+            Dim query As String = "
+                        SELECT 
+                            * 
+                        FROM 
+                            borrowed_books 
+                        WHERE  
+                            is_cancel = 'NO' AND is_returned = 'NO' 
+                            AND (           
+                                borrow_id LIKE @to_search 
+                                OR book_ids LIKE @to_search 
+                                OR title LIKE @to_search 
+                                OR borrower_id LIKE @to_search 
+                                OR due_date LIKE @to_search 
+                                OR borrow_date LIKE @to_search 
+                                OR time LIKE @to_search
+                            )
+                    "
+            Using cmd As New MySqlCommand(query, con)
+                cmd.Parameters.AddWithValue("@to_search", "%" & TxtSearchBorrowed.Text.Trim & "%")
+                Using adptr As New MySqlDataAdapter(cmd)
+                    Dim dt As New DataTable()
+                    adptr.Fill(dt)
+
+                    DgvBorrowed.DataSource = dt
+                    DgvBorrowed.Refresh()
+                    For i = 0 To DgvBorrowed.Rows.Count - 1
+                        DgvBorrowed.Rows(i).Height = 70
+                    Next
+                    DgvBorrowed.ClearSelection()
+                End Using
+            End Using
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Error Occurred on Searching Borrowed", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            con.Close()
+        Finally
+            con.Close()
+        End Try
+    End Sub
+
+    Private Sub BtnSearchBorrowed_Click(sender As Object, e As EventArgs) Handles BtnSearchBorrowed.Click
+        SearchInBorrowed()
+    End Sub
+
+    Private Sub TxtSearchBorrowed_TextChanged(sender As Object, e As EventArgs) Handles TxtSearchBorrowed.TextChanged
+        If TxtSearchBorrowed.Text.Trim <> "" And TxtSearchBorrowed.Text.Trim <> "Search Title, Author Etc." Then
+            SearchInBorrowed()
+        End If
+    End Sub
+
+    Private Sub TxtSearchBorrowed_KeyDown(sender As Object, e As KeyEventArgs) Handles TxtSearchBorrowed.KeyDown
+        If e.KeyCode = 13 And TxtSearchBorrowed.Text.Trim <> "" And TxtSearchBorrowed.Text.Trim <> "Search Title, Author Etc." Then
+            SearchInBorrowed()
+        End If
+    End Sub
+
+    Private Sub TxtSearchBorrowed_Click(sender As Object, e As EventArgs) Handles TxtSearchBorrowed.Click
+        If TxtSearchBorrowed.Text.Trim = "Search Title, Author Etc." Then
+            TxtSearchBorrowed.Text = ""
+        End If
+    End Sub
+
+    Private Sub TxtSearchBorrowed_Leave(sender As Object, e As EventArgs) Handles TxtSearchBorrowed.Leave
+        If TxtSearchBorrowed.Text = "" Then
+            TxtSearchBorrowed.Text = "Search Title, Author Etc."
+            LoadBorrowedBooksList()
+        End If
+    End Sub
+
+    Private Sub SearchInCancelled()
+        con.Close()
+        Try
+            con.Open()
+            Dim query As String = "
+                        SELECT 
+                            borrow_id, book_ids, title, borrower_id, due_date, borrow_date, time, is_cancel
+                        FROM 
+                            borrowed_books 
+                        WHERE  
+                            is_cancel = 'YES' AND
+                           (           
+                            borrow_id LIKE @to_search 
+                            OR book_ids LIKE @to_search 
+                            OR title LIKE @to_search 
+                            OR borrower_id LIKE @to_search 
+                            OR due_date LIKE @to_search 
+                            OR borrow_date LIKE @to_search 
+                            OR time LIKE @to_search
+                            )
+                    "
+            Using cmd As New MySqlCommand(query, con)
+                cmd.Parameters.AddWithValue("@to_search", "%" & TxtsearchCancel.Text.Trim & "%")
+                Using adptr As New MySqlDataAdapter(cmd)
+                    Dim dt As New DataTable()
+                    adptr.Fill(dt)
+
+                    DgvCancelledBorrow.DataSource = dt
+                    DgvCancelledBorrow.Refresh()
+                    For i = 0 To DgvCancelledBorrow.Rows.Count - 1
+                        DgvCancelledBorrow.Rows(i).Height = 70
+                    Next
+                    DgvCancelledBorrow.ClearSelection()
+                End Using
+            End Using
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Error Occurred on Searching CancelledBorrow", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            con.Close()
+        Finally
+            con.Close()
+        End Try
+    End Sub
+
+    Private Sub BtnSearchCancel_Click(sender As Object, e As EventArgs) Handles BtnSearchCancel.Click
+        SearchInCancelled()
+    End Sub
+
+    Private Sub TxtsearchCancel_TextChanged(sender As Object, e As EventArgs) Handles TxtsearchCancel.TextChanged
+        If TxtsearchCancel.Text.Trim <> "" And TxtsearchCancel.Text.Trim <> "Search Title, Author Etc." Then
+            SearchInCancelled()
+        End If
+    End Sub
+
+    Private Sub TxtsearchCancel_KeyDown(sender As Object, e As KeyEventArgs) Handles TxtsearchCancel.KeyDown
+        If e.KeyCode = 13 And TxtsearchCancel.Text.Trim <> "" And TxtsearchCancel.Text.Trim <> "Search Title, Author Etc." Then
+            SearchInCancelled()
+        End If
+    End Sub
+
+    Private Sub TxtsearchCancel_Click(sender As Object, e As EventArgs) Handles TxtsearchCancel.Click
+        If TxtsearchCancel.Text.Trim = "Search Title, Author Etc." Then
+            TxtsearchCancel.Text = ""
+        End If
+    End Sub
+
+    Private Sub TxtsearchCancel_Leave(sender As Object, e As EventArgs) Handles TxtsearchCancel.Leave
+        If TxtsearchCancel.Text = "" Then
+            TxtsearchCancel.Text = "Search Title, Author Etc."
+            LoadCancelledBorrow()
+        End If
+    End Sub
+
 
     'GENERATING BORROW TRANSACTION ID AND CHECKING UNIQUENESS
     Private Sub GenerateBorrowTransID()
@@ -1597,6 +1852,7 @@ Public Class BorrowingAndReturning
 
 
 
+
     '==============RETURNED BOOKS ==============================
     Private Sub LoadReturnedBooksList()
         con.Close()
@@ -1677,7 +1933,103 @@ Public Class BorrowingAndReturning
         BtnReturnBooks.Enabled = False
     End Sub
 
+    Private Sub SearchInReturned()
+        con.Close()
+        Try
+            con.Open()
+            Dim query As String = "
+                    SELECT
+                        returned_books.returned_id, 
+                        returned_books.borrow_id AS returned_borrow_id, 
+                        returned_books.returned_date, 
+                        returned_books.returned_time, 
+                        returned_books.return_stat, 
+                        borrowed_books.count, 
+                        borrowed_books.borrow_id, 
+                        borrowed_books.book_ids, 
+                        borrowed_books.title, 
+                        borrowed_books.total_no_book, 
+                        borrowed_books.borrower_id, 
+                        borrowed_books.type, 
+                        borrowed_books.due_date, 
+                        borrowed_books.borrow_date, 
+                        borrowed_books.time, 
+                        borrowed_books.is_cancel, 
+                        borrowed_books.is_returned, 
+                        borrowed_books.is_overdue 
+                    FROM returned_books 
+                    INNER JOIN borrowed_books 
+                    ON borrowed_books.borrow_id = returned_books.borrow_id AND borrowed_books.is_returned = 'YES'
+               
+                    WHERE
+                        is_returned = 'YES' 
+                        AND 
+                        (          
+                            returned_books.returned_id LIKE @to_search 
+                            OR returned_books.borrow_id LIKE @to_search 
+                            OR returned_books.returned_date LIKE @to_search 
+                            OR returned_books.returned_time LIKE @to_search 
+                            OR returned_books.return_stat LIKE @to_search 
 
+                            OR borrowed_books.borrow_id LIKE @to_search 
+                            OR borrowed_books.book_ids LIKE @to_search 
+                            OR borrowed_books.title LIKE @to_search 
+                            OR borrowed_books.borrower_id LIKE @to_search 
+                            OR borrowed_books.due_date LIKE @to_search 
+                            OR borrowed_books.borrow_date LIKE @to_search 
+                            OR borrowed_books.time LIKE @to_search
+                        )
+                    "
+            Using cmd As New MySqlCommand(query, con)
+                cmd.Parameters.AddWithValue("@to_search", "%" & TxtSearchReturned.Text.Trim & "%")
+                Using adptr As New MySqlDataAdapter(cmd)
+                    Dim dt As New DataTable()
+                    adptr.Fill(dt)
+
+                    DgvReturned.DataSource = dt
+                    DgvReturned.Refresh()
+                    For i = 0 To DgvReturned.Rows.Count - 1
+                        DgvReturned.Rows(i).Height = 70
+                    Next
+                    DgvReturned.ClearSelection()
+                End Using
+            End Using
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Error Occurred on Searching Borrowed", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            con.Close()
+        Finally
+            con.Close()
+        End Try
+    End Sub
+
+    Private Sub BtnSearchReturned_Click(sender As Object, e As EventArgs) Handles BtnSearchReturned.Click
+        SearchInReturned()
+    End Sub
+
+    Private Sub TxtSearchReturned_TextChanged(sender As Object, e As EventArgs) Handles TxtSearchReturned.TextChanged
+        If TxtSearchReturned.Text.Trim <> "" And TxtSearchReturned.Text.Trim <> "Search Title, Author Etc." Then
+            SearchInReturned()
+        End If
+    End Sub
+
+    Private Sub TxtSearchReturned_KeyDown(sender As Object, e As KeyEventArgs) Handles TxtSearchReturned.KeyDown
+        If e.KeyCode = 13 And TxtSearchReturned.Text.Trim <> "" And TxtSearchReturned.Text.Trim <> "Search Title, Author Etc." Then
+            SearchInReturned()
+        End If
+    End Sub
+
+    Private Sub TxtSearchReturned_Click(sender As Object, e As EventArgs) Handles TxtSearchReturned.Click
+        If TxtSearchReturned.Text.Trim = "Search Title, Author Etc." Then
+            TxtSearchReturned.Text = ""
+        End If
+    End Sub
+
+    Private Sub TxtSearchReturned_Leave(sender As Object, e As EventArgs) Handles TxtSearchReturned.Leave
+        If TxtSearchReturned.Text = "" Then
+            TxtSearchReturned.Text = "Search Title, Author Etc."
+            LoadReturnedBooksList()
+        End If
+    End Sub
 
     '==============OVERDUES===============================
     Private Sub LoadOverDues()
@@ -1841,6 +2193,13 @@ Public Class BorrowingAndReturning
         Finally
             con.Close()
         End Try
+    End Sub
+
+    Private Sub LogOut_Click(sender As Object, e As EventArgs) Handles LogOut.Click
+        loggedin = 0
+        account_loggedin = ""
+        account_type_loggedin = ""
+        CheckActiveLogin()
     End Sub
 
 

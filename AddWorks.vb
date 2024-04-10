@@ -74,7 +74,6 @@ Public Class AddWorks
         End Try
     End Sub
 
-
     'FUNCTIONS WHEN ADDWORKS FORM IS LOAD
     Private Sub AddWorks_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'trying to connect to database to determine if connection is ready
@@ -100,9 +99,11 @@ Public Class AddWorks
 
     'CODES TO LOAD RESEARCH WORK IN REPO MANAGER
     Private ReadOnly rrm As ResearchRepoManager
-    Public Sub New(ByVal rrm As ResearchRepoManager)
+    Private ReadOnly frm1 As Form1
+    Public Sub New(ByVal rrm As ResearchRepoManager, ByVal frm1 As Form1)
         InitializeComponent()
         Me.rrm = rrm
+        frm1 = frm1
     End Sub
 
     'SAVING INFORMATION ENETERED
@@ -209,6 +210,7 @@ Public Class AddWorks
         End If
         BtnSaveResearch.Enabled = True
         rrm.LoadScholarlyWorks()
+        frm1.LoadAllDisplayData()
         rrm.BtnRemoveSelection.PerformClick()
     End Sub
 
@@ -288,7 +290,7 @@ Public Class AddWorks
 
             MessageBox.Show("Successfully Saved", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information)
             If print_clearance = True Then
-                Dim print_clearance As New PrintThesisClearance
+                Dim print_clearance As New ReportPrintThesisClearance
                 print_clearance.Show()
             End If
         Catch ex As Exception

@@ -3,37 +3,38 @@ Imports MySql.Data.MySqlClient
 
 Public Class Form1
 
-    Shared date_time As DateTime = DateTime.Now
+    Shared ReadOnly date_time As DateTime = DateTime.Now
 
-    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ConOpen()
-        TxtDate.Text = date_time.Date.ToString("MM-dd-yyyy")
-        Timer1.Start()
-        LoadAllDisplayData()
-
+    Private Sub CheckActiveLogin()
         If loggedin <= 0 Then
             Me.Close()
             Dim crt_lgn As New CreateLoginAccount
             crt_lgn.Show()
         Else
             If account_type_loggedin = "admin" Then
-                LblWelcome.Text = "WELCOME ADMIN | " & account_loggedin
-            Else
-                LblWelcome.Text = "WELCOME STAFF | " & account_loggedin
+                LblWelcome.Text = "WELCOME ADMIN | " & account_loggedin.ToUpper()
             End If
         End If
     End Sub
 
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ConOpen()
+        TxtDateNow.Text = date_time.Date.ToString("MM-dd-yyyy")
+        Timer1.Start()
+        LoadAllDisplayData()
+        ' CheckActiveLogin()
+    End Sub
+
     Private Sub Form1_Closing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         ' Close all child forms before closing Form1
-        For Each childForm In Me.MdiChildren
-            childForm.Close()
-        Next
-        Application.Exit() ' Close the entire application
+        ' For Each childForm In Me.MdiChildren
+        ' childForm.Close()
+        'Next
+        'Application.Exit() ' Close the entire application
     End Sub
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
-        TxtTime.Text = TimeOfDay.ToString("h:mm:ss tt")
+        TxtTimeNow.Text = TimeOfDay.ToString("h:mm:ss tt")
     End Sub
 
     Private Sub ResearchRepositoryManagerToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ResearchRepositoryManagerToolStripMenuItem.Click
@@ -188,7 +189,7 @@ Public Class Form1
         br.Show()
     End Sub
 
-    Private Sub lblUnpub_Click(sender As Object, e As EventArgs) Handles lblUnpub.Click
+    Private Sub LblUnpub_Click(sender As Object, e As EventArgs) Handles lblUnpub.Click
         Dim br As New ResearchRepoManager(Me, "Unpublished")
         br.Show()
     End Sub
@@ -196,6 +197,168 @@ Public Class Form1
     Private Sub LblPub_Click(sender As Object, e As EventArgs) Handles LblPub.Click
         Dim br As New ResearchRepoManager(Me, "Published")
         br.Show()
+    End Sub
+
+    Private Sub LogOutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LogOutToolStripMenuItem.Click
+        loggedin = 0
+        account_loggedin = ""
+        account_type_loggedin = ""
+        CheckActiveLogin()
+    End Sub
+
+    Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem.Click
+        End
+    End Sub
+
+    Private Sub LogOut_Click(sender As Object, e As EventArgs) Handles LogOut.Click
+        loggedin = 0
+        account_loggedin = ""
+        account_type_loggedin = ""
+        CheckActiveLogin()
+    End Sub
+
+
+    ReadOnly myFont1 As New Font("Microsoft Sans Serif", 14, FontStyle.Regular)
+    ReadOnly myFont01 As New Font("Microsoft Sans Serif", 8.25, FontStyle.Regular)
+
+    ReadOnly myFont2 As New Font("Segoe UI", 12, FontStyle.Regular)
+    ReadOnly myFont02 As New Font("Segoe UI", 9, FontStyle.Regular)
+
+    '// display data
+    Private Sub LblPub_MouseEnter(sender As Object, e As EventArgs) Handles LblPub.MouseEnter
+        LblPub.ImageAlign = ContentAlignment.TopRight
+        Label12.Font = myFont1
+    End Sub
+
+    Private Sub LblPub_MouseLeave(sender As Object, e As EventArgs) Handles LblPub.MouseLeave
+        LblPub.ImageAlign = ContentAlignment.MiddleRight
+        Label12.Font = myFont01
+    End Sub
+
+    '//
+    Private Sub LblunPub_MouseEnter(sender As Object, e As EventArgs) Handles lblUnpub.MouseEnter
+        lblUnpub.ImageAlign = ContentAlignment.TopRight
+        Label13.Font = myFont1
+    End Sub
+
+    Private Sub LblunPub_MouseLeave(sender As Object, e As EventArgs) Handles lblUnpub.MouseLeave
+        lblUnpub.ImageAlign = ContentAlignment.MiddleRight
+        Label13.Font = myFont01
+    End Sub
+
+    '//
+    Private Sub LblOverdues_MouseEnter(sender As Object, e As EventArgs) Handles LblOverdues.MouseEnter
+        LblOverdues.ImageAlign = ContentAlignment.TopRight
+        Label10.Font = myFont1
+    End Sub
+
+    Private Sub LblOverdues_MouseLeave(sender As Object, e As EventArgs) Handles LblOverdues.MouseLeave
+        LblOverdues.ImageAlign = ContentAlignment.MiddleRight
+        Label10.Font = myFont01
+    End Sub
+
+    '//
+    Private Sub LblDueToday_MouseEnter(sender As Object, e As EventArgs) Handles LblDueToday.MouseEnter
+        LblDueToday.ImageAlign = ContentAlignment.TopRight
+        Label3.Font = myFont1
+    End Sub
+
+    Private Sub LblDueToday_MouseLeave(sender As Object, e As EventArgs) Handles LblDueToday.MouseLeave
+        LblDueToday.ImageAlign = ContentAlignment.MiddleRight
+        Label3.Font = myFont01
+    End Sub
+
+    '//
+    Private Sub LblBorrowedBooks_MouseEnter(sender As Object, e As EventArgs) Handles LblBorrowedBooks.MouseEnter
+        LblBorrowedBooks.ImageAlign = ContentAlignment.TopRight
+        Label11.Font = myFont1
+    End Sub
+
+    Private Sub LblBorrowedBooks_MouseLeave(sender As Object, e As EventArgs) Handles LblBorrowedBooks.MouseLeave
+        LblBorrowedBooks.ImageAlign = ContentAlignment.MiddleRight
+        Label11.Font = myFont01
+    End Sub
+
+    '//
+    Private Sub LblReturnedBooks_MouseEnter(sender As Object, e As EventArgs) Handles LblReturnedBooks.MouseEnter
+        LblReturnedBooks.ImageAlign = ContentAlignment.TopRight
+        Label14.Font = myFont1
+    End Sub
+    Private Sub LblReturnedBooks_MouseLeave(sender As Object, e As EventArgs) Handles LblReturnedBooks.MouseLeave
+        LblReturnedBooks.ImageAlign = ContentAlignment.MiddleRight
+        Label14.Font = myFont01
+    End Sub
+
+    '//nav button
+    Private Sub Button1_MouseEnter(sender As Object, e As EventArgs) Handles Button1.MouseEnter
+        Button1.ImageAlign = ContentAlignment.TopLeft
+    End Sub
+
+    Private Sub Button1_MouseLeave(sender As Object, e As EventArgs) Handles Button1.MouseLeave
+        Button1.ImageAlign = ContentAlignment.MiddleLeft
+    End Sub
+
+    '//
+    Private Sub Button2_MouseEnter(sender As Object, e As EventArgs) Handles Button2.MouseEnter
+        Button2.ImageAlign = ContentAlignment.TopLeft
+    End Sub
+
+    Private Sub Button2_MouseLeave(sender As Object, e As EventArgs) Handles Button2.MouseLeave
+        Button2.ImageAlign = ContentAlignment.MiddleLeft
+    End Sub
+
+    '//
+    Private Sub Button3_MouseEnter(sender As Object, e As EventArgs) Handles Button3.MouseEnter
+        Button3.ImageAlign = ContentAlignment.TopLeft
+    End Sub
+
+    Private Sub Button3_MouseLeave(sender As Object, e As EventArgs) Handles Button3.MouseLeave
+        Button3.ImageAlign = ContentAlignment.MiddleLeft
+    End Sub
+
+    '//logout
+    Private Sub LogOut_MouseEnter(sender As Object, e As EventArgs) Handles LogOut.MouseEnter
+        LogOut.ImageAlign = ContentAlignment.MiddleRight
+        LogOut.TextAlign = ContentAlignment.MiddleLeft
+    End Sub
+
+    Private Sub LogOut_MouseLeave(sender As Object, e As EventArgs) Handles LogOut.MouseLeave
+        LogOut.ImageAlign = ContentAlignment.MiddleLeft
+        LogOut.TextAlign = ContentAlignment.MiddleRight
+    End Sub
+
+    '//
+    Private Sub MenuToolStripMenuItem1_MouseEnter(sender As Object, e As EventArgs) Handles MenuToolStripMenuItem1.MouseEnter
+        MenuToolStripMenuItem1.ImageAlign = ContentAlignment.TopLeft
+        MenuToolStripMenuItem1.Font = myFont2
+
+    End Sub
+
+    Private Sub MenuToolStripMenuItem1_MouseLeave(sender As Object, e As EventArgs) Handles MenuToolStripMenuItem1.MouseLeave
+        MenuToolStripMenuItem1.ImageAlign = ContentAlignment.MiddleLeft
+        MenuToolStripMenuItem1.Font = myFont02
+    End Sub
+
+    Private Sub ReportsToolStripMenuItem_MouseEnter(sender As Object, e As EventArgs) Handles ReportsToolStripMenuItem.MouseEnter
+        ReportsToolStripMenuItem.ImageAlign = ContentAlignment.TopLeft
+        ReportsToolStripMenuItem.Font = myFont2
+
+    End Sub
+
+    Private Sub ReportsToolStripMenuItem_MouseLeave(sender As Object, e As EventArgs) Handles ReportsToolStripMenuItem.MouseLeave
+        ReportsToolStripMenuItem.ImageAlign = ContentAlignment.MiddleLeft
+        ReportsToolStripMenuItem.Font = myFont02
+    End Sub
+
+    Private Sub MenuToolStripMenuItem_MouseEnter(sender As Object, e As EventArgs) Handles MenuToolStripMenuItem.MouseEnter
+        MenuToolStripMenuItem.ImageAlign = ContentAlignment.TopLeft
+        MenuToolStripMenuItem.Font = myFont2
+
+    End Sub
+
+    Private Sub MenuToolStripMenuItem_MouseLeave(sender As Object, e As EventArgs) Handles MenuToolStripMenuItem.MouseLeave
+        MenuToolStripMenuItem.ImageAlign = ContentAlignment.MiddleLeft
+        MenuToolStripMenuItem.Font = myFont02
     End Sub
 
 

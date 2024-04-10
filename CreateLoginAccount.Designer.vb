@@ -25,6 +25,7 @@ Partial Class CreateLoginAccount
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(CreateLoginAccount))
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.LogOut = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -105,6 +106,7 @@ Partial Class CreateLoginAccount
         '
         Me.Panel1.BackColor = System.Drawing.SystemColors.Window
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel1.Controls.Add(Me.LogOut)
         Me.Panel1.Controls.Add(Me.Label3)
         Me.Panel1.Controls.Add(Me.Label2)
         Me.Panel1.Controls.Add(Me.Label1)
@@ -113,6 +115,23 @@ Partial Class CreateLoginAccount
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(237, 561)
         Me.Panel1.TabIndex = 3
+        '
+        'LogOut
+        '
+        Me.LogOut.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.LogOut.BackColor = System.Drawing.Color.MistyRose
+        Me.LogOut.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.LogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.LogOut.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LogOut.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.LogOut.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_logout_20
+        Me.LogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.LogOut.Location = New System.Drawing.Point(35, 518)
+        Me.LogOut.Name = "LogOut"
+        Me.LogOut.Size = New System.Drawing.Size(151, 30)
+        Me.LogOut.TabIndex = 30
+        Me.LogOut.Text = "EXIT"
+        Me.LogOut.UseVisualStyleBackColor = False
         '
         'Label3
         '
@@ -172,7 +191,7 @@ Partial Class CreateLoginAccount
         '
         Me.Label24.AutoSize = True
         Me.Label24.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label24.ForeColor = System.Drawing.Color.DarkGreen
+        Me.Label24.ForeColor = System.Drawing.Color.ForestGreen
         Me.Label24.Location = New System.Drawing.Point(54, 423)
         Me.Label24.Name = "Label24"
         Me.Label24.Size = New System.Drawing.Size(243, 16)
@@ -436,7 +455,7 @@ Partial Class CreateLoginAccount
         '
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.ForeColor = System.Drawing.Color.DarkGreen
+        Me.Label10.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label10.Location = New System.Drawing.Point(55, 385)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(97, 16)
@@ -955,4 +974,5 @@ Partial Class CreateLoginAccount
     Friend WithEvents Label28 As Label
     Friend WithEvents Label29 As Label
     Friend WithEvents BtnGoToStudentViewing As Button
+    Friend WithEvents LogOut As Button
 End Class

@@ -4,7 +4,7 @@ Imports System.Net.NetworkInformation
 
 Public Class CreateLoginAccount
 
-    Dim date_now As DateTime = DateTime.Now
+    ReadOnly date_now As DateTime = DateTime.Now
     Dim current_year As Integer = date_now.Year
 
     Private Shared ReadOnly rnd As New Random()
@@ -690,5 +690,9 @@ Public Class CreateLoginAccount
         Dim st As New StudentTerminal
         st.Show()
         Me.Hide()
+    End Sub
+
+    Private Sub LogOut_Click(sender As Object, e As EventArgs) Handles LogOut.Click
+        End
     End Sub
 End Class

@@ -249,7 +249,7 @@ Public Class ViewWorks
 
     Private Sub BtnPrint_Click(sender As Object, e As EventArgs) Handles BtnPrint.Click
         print_clearance_id = Convert.ToInt64(TxtViewedId.Text.Trim)
-        Dim print_clearance As New PrintThesisClearance
+        Dim print_clearance As New ReportPrintThesisClearance
         print_clearance.Show()
 
     End Sub

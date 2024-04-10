@@ -10,7 +10,7 @@ Public Class ResearchRepoManager
     Dim isSearchButtonUsed As Boolean = False
     Dim isDataAlreadyLoaded As Boolean = False
 
-    Dim search_me As String = ""
+    Dim ReadOnly search_me As String = ""
     Private ReadOnly frm1 As Form1
     Public Sub New(ByVal frm1 As Form1, search_me As String)
         InitializeComponent()
@@ -229,7 +229,7 @@ Public Class ResearchRepoManager
     End Function
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim add_work As New AddWorks(Me)
+        Dim add_work As New AddWorks(Me, frm1)
         add_work.Show()
     End Sub
 
@@ -363,7 +363,7 @@ Public Class ResearchRepoManager
         If sw_edit_id = 0 Then
             MessageBox.Show("PLease select an item first", "No Selected Item", MessageBoxButtons.OK, MessageBoxIcon.Information)
         ElseIf isEditModeActive = False Then
-            Dim edit_work_record As New EditWorkRecord(Me, sw_edit_id)
+            Dim edit_work_record As New EditWorkRecord(Me, sw_edit_id, frm1)
             edit_work_record.Show()
             isEditModeActive = True
             on_edit_mode = selected_research

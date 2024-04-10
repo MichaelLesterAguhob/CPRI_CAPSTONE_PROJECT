@@ -63,13 +63,16 @@ Public Class EditWorkRecord
 
     'CODES TO LOAD RESEARCH WORK
     Private ReadOnly rrm As ResearchRepoManager
-    Public Sub New(ByVal rrm As ResearchRepoManager, ByVal sw_edit_id As Integer)
-        ' This call is required by the designer.
+    Private ReadOnly frm1 As Form1
+    Public Sub New(ByVal rrm As ResearchRepoManager, ByVal sw_edit_id As Integer, ByVal frm1 As Form1)
+
         InitializeComponent()
-        ' Add any initialization after the InitializeComponent() call.
         Me.rrm = rrm
         Me.edit_id = sw_edit_id
+        Me.frm1 = frm1
     End Sub
+
+
 
     Private Sub EditWorkRecord_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadToEditRecord()
@@ -853,7 +856,7 @@ Public Class EditWorkRecord
                             Me.Close()
                             MessageBox.Show("Successfully Updated", "Successful")
                             If print_clearance = True Then
-                                Dim print_clearance As New PrintThesisClearance
+                                Dim print_clearance As New ReportPrintThesisClearance
                                 print_clearance.Show()
                             End If
                         Else
@@ -891,7 +894,7 @@ Public Class EditWorkRecord
                         Me.Close()
                         MessageBox.Show("Successfully Updated", "Successful")
                         If print_clearance = True Then
-                            Dim print_clearance As New PrintThesisClearance
+                            Dim print_clearance As New ReportPrintThesisClearance
                             print_clearance.Show()
                         End If
                     Else
@@ -912,7 +915,7 @@ Public Class EditWorkRecord
                     Me.Close()
                     MessageBox.Show("Successfully Updated", "Successful")
                     If print_clearance = True Then
-                        Dim print_clearance As New PrintThesisClearance
+                        Dim print_clearance As New ReportPrintThesisClearance
                         print_clearance.Show()
                     End If
                 Else
@@ -928,12 +931,12 @@ Public Class EditWorkRecord
                     Me.Close()
                     MessageBox.Show("Successfully Updated", "Successful")
                     If print_clearance = True Then
-                        Dim print_clearance As New PrintThesisClearance
+                        Dim print_clearance As New ReportPrintThesisClearance
                         print_clearance.Show()
                     End If
                 End If
             End If
-
+            frm1.LoadAllDisplayData()
         Else
             MessageBox.Show("Fill in the blank field(s) before saving", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End If
