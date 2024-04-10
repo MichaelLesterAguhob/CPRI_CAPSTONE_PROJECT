@@ -780,7 +780,7 @@ Partial Public Class BorAndRetDataset
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddborrowersRow(ByVal borrower_id As String, ByVal name As String, ByVal email As String, ByVal phone As String, ByVal address As String, ByVal violation As String) As borrowersRow
+        Public Overloads Function AddborrowersRow(ByVal borrower_id As Integer, ByVal name As String, ByVal email As String, ByVal phone As Integer, ByVal address As String, ByVal violation As String) As borrowersRow
             Dim rowborrowersRow As borrowersRow = CType(Me.NewRow,borrowersRow)
             Dim columnValuesArray() As Object = New Object() {borrower_id, name, email, phone, address, violation}
             rowborrowersRow.ItemArray = columnValuesArray
@@ -816,13 +816,13 @@ Partial Public Class BorAndRetDataset
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Private Sub InitClass()
-            Me.columnborrower_id = New Global.System.Data.DataColumn("borrower_id", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnborrower_id = New Global.System.Data.DataColumn("borrower_id", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnborrower_id)
             Me.columnname = New Global.System.Data.DataColumn("name", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnname)
             Me.columnemail = New Global.System.Data.DataColumn("email", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnemail)
-            Me.columnphone = New Global.System.Data.DataColumn("phone", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnphone = New Global.System.Data.DataColumn("phone", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnphone)
             Me.columnaddress = New Global.System.Data.DataColumn("address", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnaddress)
@@ -1179,10 +1179,10 @@ Partial Public Class BorAndRetDataset
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property borrower_id() As String
+        Public Property borrower_id() As Integer
             Get
                 Try 
-                    Return CType(Me(Me.tableborrowers.borrower_idColumn),String)
+                    Return CType(Me(Me.tableborrowers.borrower_idColumn),Integer)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("The value for column 'borrower_id' in table 'borrowers' is DBNull.", e)
                 End Try
@@ -1224,10 +1224,10 @@ Partial Public Class BorAndRetDataset
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property phone() As String
+        Public Property phone() As Integer
             Get
                 Try 
-                    Return CType(Me(Me.tableborrowers.phoneColumn),String)
+                    Return CType(Me(Me.tableborrowers.phoneColumn),Integer)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("The value for column 'phone' in table 'borrowers' is DBNull.", e)
                 End Try

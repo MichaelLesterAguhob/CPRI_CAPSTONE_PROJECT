@@ -215,6 +215,10 @@ from the panel members"
         End If
     End Sub
 
+    Private Sub Label11_Click(sender As Object, e As EventArgs) Handles Label11.Click
+
+    End Sub
+
     'Evaluation Forms for Research Proposal Defense from the panel members
     Private Sub Rd2ndStatSubmitted_MouseClick(sender As Object, e As MouseEventArgs) Handles Rd2ndStatSubmitted.MouseClick
         If RdStageResearchProposal.Checked = True Then

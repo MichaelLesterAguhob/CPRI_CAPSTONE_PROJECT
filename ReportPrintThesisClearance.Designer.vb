@@ -37,14 +37,16 @@ Partial Class ReportPrintThesisClearance
         Me.CrystalReportViewer1.TabIndex = 2
         Me.CrystalReportViewer1.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None
         '
-        'PrintThesisClearance
+        'ReportPrintThesisClearance
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1010, 513)
         Me.Controls.Add(Me.CrystalReportViewer1)
-        Me.Name = "PrintThesisClearance"
+        Me.Name = "ReportPrintThesisClearance"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "PRINT THESIS CLEARANCE"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.ResumeLayout(False)
 
     End Sub

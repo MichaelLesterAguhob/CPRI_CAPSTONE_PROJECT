@@ -91,12 +91,12 @@ Partial Class ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus
         Me.Label7 = New System.Windows.Forms.Label()
         Me.TmOpenFilter = New System.Windows.Forms.Timer(Me.components)
         Me.TmCloseFilter = New System.Windows.Forms.Timer(Me.components)
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.BtnFilter = New System.Windows.Forms.Button()
         Me.BtnDelete = New System.Windows.Forms.Button()
         Me.BtnEdit = New System.Windows.Forms.Button()
         Me.BtnSearch = New System.Windows.Forms.Button()
         Me.BtnAddRCFGARecord = New System.Windows.Forms.Button()
+        Me.Label1 = New System.Windows.Forms.Label()
         CType(Me.DgvSwData, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelRcfrgareq.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -117,7 +117,7 @@ Partial Class ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus
         Me.BtnRemoveSelection.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnRemoveSelection.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.BtnRemoveSelection.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnRemoveSelection.Location = New System.Drawing.Point(1140, 60)
+        Me.BtnRemoveSelection.Location = New System.Drawing.Point(1235, 60)
         Me.BtnRemoveSelection.Name = "BtnRemoveSelection"
         Me.BtnRemoveSelection.Size = New System.Drawing.Size(102, 24)
         Me.BtnRemoveSelection.TabIndex = 33
@@ -176,7 +176,7 @@ Partial Class ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus
         Me.DgvSwData.RowsDefaultCellStyle = DataGridViewCellStyle4
         Me.DgvSwData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DgvSwData.ShowRowErrors = False
-        Me.DgvSwData.Size = New System.Drawing.Size(1231, 365)
+        Me.DgvSwData.Size = New System.Drawing.Size(1326, 581)
         Me.DgvSwData.TabIndex = 32
         '
         'Column12
@@ -300,7 +300,7 @@ Partial Class ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus
         Me.PanelRcfrgareq.Controls.Add(Me.Button1)
         Me.PanelRcfrgareq.Location = New System.Drawing.Point(227, 91)
         Me.PanelRcfrgareq.Name = "PanelRcfrgareq"
-        Me.PanelRcfrgareq.Size = New System.Drawing.Size(1015, 365)
+        Me.PanelRcfrgareq.Size = New System.Drawing.Size(1110, 581)
         Me.PanelRcfrgareq.TabIndex = 36
         Me.PanelRcfrgareq.Visible = False
         '
@@ -314,7 +314,7 @@ Partial Class ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus
         Me.Panel1.Controls.Add(Me.Panel3)
         Me.Panel1.Location = New System.Drawing.Point(0, 40)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1013, 323)
+        Me.Panel1.Size = New System.Drawing.Size(1108, 539)
         Me.Panel1.TabIndex = 39
         '
         'Panel2
@@ -325,7 +325,7 @@ Partial Class ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus
         Me.Panel2.Controls.Add(Me.DgvRga)
         Me.Panel2.Location = New System.Drawing.Point(3, 321)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(990, 277)
+        Me.Panel2.Size = New System.Drawing.Size(1085, 277)
         Me.Panel2.TabIndex = 41
         '
         'Label2
@@ -381,7 +381,7 @@ Partial Class ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus
         Me.DgvRga.RowsDefaultCellStyle = DataGridViewCellStyle8
         Me.DgvRga.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DgvRga.ShowRowErrors = False
-        Me.DgvRga.Size = New System.Drawing.Size(985, 216)
+        Me.DgvRga.Size = New System.Drawing.Size(1080, 216)
         Me.DgvRga.TabIndex = 38
         '
         'DataGridViewTextBoxColumn1
@@ -424,7 +424,7 @@ Partial Class ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus
         Me.Panel3.Controls.Add(Me.DgvRcf)
         Me.Panel3.Location = New System.Drawing.Point(3, 3)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(990, 312)
+        Me.Panel3.Size = New System.Drawing.Size(1085, 312)
         Me.Panel3.TabIndex = 40
         '
         'LblReq
@@ -480,7 +480,7 @@ Partial Class ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus
         Me.DgvRcf.RowsDefaultCellStyle = DataGridViewCellStyle12
         Me.DgvRcf.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DgvRcf.ShowRowErrors = False
-        Me.DgvRcf.Size = New System.Drawing.Size(985, 268)
+        Me.DgvRcf.Size = New System.Drawing.Size(1080, 268)
         Me.DgvRcf.TabIndex = 36
         '
         'Column13
@@ -532,7 +532,7 @@ Partial Class ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus
         Me.Button1.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Button1.Location = New System.Drawing.Point(963, 8)
+        Me.Button1.Location = New System.Drawing.Point(1058, 8)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(30, 23)
         Me.Button1.TabIndex = 34
@@ -813,19 +813,6 @@ Partial Class ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus
         '
         Me.TmCloseFilter.Interval = 10
         '
-        'Label1
-        '
-        Me.Label1.BackColor = System.Drawing.Color.SteelBlue
-        Me.Label1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.SystemColors.HighlightText
-        Me.Label1.Location = New System.Drawing.Point(0, 0)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(1255, 48)
-        Me.Label1.TabIndex = 25
-        Me.Label1.Text = "RCF AND RGA MONITORING STATUS"
-        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
         'BtnFilter
         '
         Me.BtnFilter.BackColor = System.Drawing.SystemColors.ButtonFace
@@ -852,7 +839,7 @@ Partial Class ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus
         Me.BtnDelete.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.BtnDelete.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_delete_211
         Me.BtnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnDelete.Location = New System.Drawing.Point(1141, 470)
+        Me.BtnDelete.Location = New System.Drawing.Point(1236, 686)
         Me.BtnDelete.Name = "BtnDelete"
         Me.BtnDelete.Size = New System.Drawing.Size(102, 34)
         Me.BtnDelete.TabIndex = 30
@@ -868,7 +855,7 @@ Partial Class ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus
         Me.BtnEdit.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.BtnEdit.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_edit_211
         Me.BtnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnEdit.Location = New System.Drawing.Point(1032, 470)
+        Me.BtnEdit.Location = New System.Drawing.Point(1127, 686)
         Me.BtnEdit.Name = "BtnEdit"
         Me.BtnEdit.Size = New System.Drawing.Size(102, 34)
         Me.BtnEdit.TabIndex = 29
@@ -900,7 +887,7 @@ Partial Class ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus
         Me.BtnAddRCFGARecord.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.BtnAddRCFGARecord.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_add_21
         Me.BtnAddRCFGARecord.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnAddRCFGARecord.Location = New System.Drawing.Point(896, 470)
+        Me.BtnAddRCFGARecord.Location = New System.Drawing.Point(991, 686)
         Me.BtnAddRCFGARecord.Name = "BtnAddRCFGARecord"
         Me.BtnAddRCFGARecord.Size = New System.Drawing.Size(130, 34)
         Me.BtnAddRCFGARecord.TabIndex = 26
@@ -908,12 +895,25 @@ Partial Class ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus
         Me.BtnAddRCFGARecord.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.BtnAddRCFGARecord.UseVisualStyleBackColor = True
         '
+        'Label1
+        '
+        Me.Label1.BackColor = System.Drawing.Color.SteelBlue
+        Me.Label1.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.SystemColors.HighlightText
+        Me.Label1.Location = New System.Drawing.Point(0, 0)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(1350, 48)
+        Me.Label1.TabIndex = 25
+        Me.Label1.Text = "RCF AND RGA MONITORING STATUS"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.ClientSize = New System.Drawing.Size(1255, 513)
+        Me.ClientSize = New System.Drawing.Size(1350, 729)
         Me.Controls.Add(Me.PnlFilter)
         Me.Controls.Add(Me.LblSearchFound)
         Me.Controls.Add(Me.PanelRcfrgareq)
@@ -926,6 +926,7 @@ Partial Class ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus
         Me.Controls.Add(Me.BtnAddRCFGARecord)
         Me.Controls.Add(Me.DgvSwData)
         Me.Controls.Add(Me.Label1)
+        Me.MinimumSize = New System.Drawing.Size(1064, 552)
         Me.Name = "ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "MONITORING STATUS"
@@ -999,7 +1000,6 @@ Partial Class ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus
     Friend WithEvents Label3 As Label
     Friend WithEvents TxtCol As TextBox
     Friend WithEvents Label13 As Label
-    Friend WithEvents Label1 As Label
     Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
@@ -1008,4 +1008,5 @@ Partial Class ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus
     Friend WithEvents Column14 As DataGridViewTextBoxColumn
     Friend WithEvents Column15 As DataGridViewTextBoxColumn
     Friend WithEvents Column16 As DataGridViewTextBoxColumn
+    Friend WithEvents Label1 As Label
 End Class

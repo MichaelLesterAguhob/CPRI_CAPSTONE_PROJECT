@@ -41,6 +41,8 @@ Partial Class Form1
         Me.PrintReturnedBooksToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PrintOverdueBooksToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.TxtTimeNow = New System.Windows.Forms.Label()
+        Me.TxtDateNow = New System.Windows.Forms.Label()
         Me.LogOut = New System.Windows.Forms.Button()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
@@ -70,8 +72,6 @@ Partial Class Form1
         Me.LblReturnedBooks = New System.Windows.Forms.Label()
         Me.LblBorrowedBooks = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.TxtTimeNow = New System.Windows.Forms.Label()
-        Me.TxtDateNow = New System.Windows.Forms.Label()
         Me.MenuStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -89,7 +89,7 @@ Partial Class Form1
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MenuToolStripMenuItem1, Me.MenuToolStripMenuItem, Me.ReportsToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(975, 33)
+        Me.MenuStrip1.Size = New System.Drawing.Size(1079, 33)
         Me.MenuStrip1.TabIndex = 0
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -215,8 +215,28 @@ Partial Class Form1
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1246, 113)
+        Me.Panel1.Size = New System.Drawing.Size(1350, 113)
         Me.Panel1.TabIndex = 2
+        '
+        'TxtTimeNow
+        '
+        Me.TxtTimeNow.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TxtTimeNow.AutoSize = True
+        Me.TxtTimeNow.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtTimeNow.Location = New System.Drawing.Point(1259, 86)
+        Me.TxtTimeNow.Name = "TxtTimeNow"
+        Me.TxtTimeNow.Size = New System.Drawing.Size(0, 16)
+        Me.TxtTimeNow.TabIndex = 32
+        '
+        'TxtDateNow
+        '
+        Me.TxtDateNow.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TxtDateNow.AutoSize = True
+        Me.TxtDateNow.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtDateNow.Location = New System.Drawing.Point(1259, 65)
+        Me.TxtDateNow.Name = "TxtDateNow"
+        Me.TxtDateNow.Size = New System.Drawing.Size(0, 16)
+        Me.TxtDateNow.TabIndex = 31
         '
         'LogOut
         '
@@ -229,7 +249,7 @@ Partial Class Form1
         Me.LogOut.ForeColor = System.Drawing.SystemColors.WindowText
         Me.LogOut.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_logout_20
         Me.LogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.LogOut.Location = New System.Drawing.Point(1156, 11)
+        Me.LogOut.Location = New System.Drawing.Point(1260, 11)
         Me.LogOut.Name = "LogOut"
         Me.LogOut.Size = New System.Drawing.Size(77, 30)
         Me.LogOut.TabIndex = 30
@@ -241,7 +261,7 @@ Partial Class Form1
         '
         Me.Label17.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(1113, 85)
+        Me.Label17.Location = New System.Drawing.Point(1217, 85)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(36, 13)
         Me.Label17.TabIndex = 24
@@ -251,7 +271,7 @@ Partial Class Form1
         '
         Me.Label15.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(1113, 65)
+        Me.Label15.Location = New System.Drawing.Point(1217, 65)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(36, 13)
         Me.Label15.TabIndex = 22
@@ -334,6 +354,7 @@ Partial Class Form1
         Me.LblWelcome.Name = "LblWelcome"
         Me.LblWelcome.Size = New System.Drawing.Size(258, 60)
         Me.LblWelcome.TabIndex = 1
+        Me.LblWelcome.Text = "WELCOME | NAME OF ADMIN HERE"
         Me.LblWelcome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Button1
@@ -373,7 +394,7 @@ Partial Class Form1
         Me.Panel3.Controls.Add(Me.MenuStrip1)
         Me.Panel3.Location = New System.Drawing.Point(271, 113)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(975, 616)
+        Me.Panel3.Size = New System.Drawing.Size(1079, 616)
         Me.Panel3.TabIndex = 4
         '
         'Panel5
@@ -583,37 +604,18 @@ Partial Class Form1
         'Timer1
         '
         '
-        'TxtTimeNow
-        '
-        Me.TxtTimeNow.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TxtTimeNow.AutoSize = True
-        Me.TxtTimeNow.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtTimeNow.Location = New System.Drawing.Point(1155, 86)
-        Me.TxtTimeNow.Name = "TxtTimeNow"
-        Me.TxtTimeNow.Size = New System.Drawing.Size(0, 16)
-        Me.TxtTimeNow.TabIndex = 32
-        '
-        'TxtDateNow
-        '
-        Me.TxtDateNow.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TxtDateNow.AutoSize = True
-        Me.TxtDateNow.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtDateNow.Location = New System.Drawing.Point(1155, 65)
-        Me.TxtDateNow.Name = "TxtDateNow"
-        Me.TxtDateNow.Size = New System.Drawing.Size(0, 16)
-        Me.TxtDateNow.TabIndex = 31
-        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.ClientSize = New System.Drawing.Size(1246, 729)
+        Me.ClientSize = New System.Drawing.Size(1350, 729)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
         Me.ForeColor = System.Drawing.Color.Black
         Me.MainMenuStrip = Me.MenuStrip1
+        Me.MinimumSize = New System.Drawing.Size(1072, 689)
         Me.Name = "Form1"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "REPOSITORY FOR THE CENTER OF PUBLICATION, RESEARCH AND INNOVATION of CDSGA"

@@ -453,9 +453,9 @@ Partial Class AddWorks
         Me.PnlPresented.Controls.Add(Me.TableLayoutPanel2)
         Me.PnlPresented.Enabled = False
         Me.PnlPresented.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.PnlPresented.Location = New System.Drawing.Point(344, 50)
+        Me.PnlPresented.Location = New System.Drawing.Point(347, 50)
         Me.PnlPresented.Name = "PnlPresented"
-        Me.PnlPresented.Size = New System.Drawing.Size(918, 235)
+        Me.PnlPresented.Size = New System.Drawing.Size(964, 235)
         Me.PnlPresented.TabIndex = 70
         '
         'Panel7
@@ -465,9 +465,9 @@ Partial Class AddWorks
         Me.Panel7.Controls.Add(Me.TxtPrePlace)
         Me.Panel7.Controls.Add(Me.TxtPreResConfName)
         Me.Panel7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Panel7.Location = New System.Drawing.Point(130, 65)
+        Me.Panel7.Location = New System.Drawing.Point(134, 65)
         Me.Panel7.Name = "Panel7"
-        Me.Panel7.Size = New System.Drawing.Size(783, 49)
+        Me.Panel7.Size = New System.Drawing.Size(825, 49)
         Me.Panel7.TabIndex = 47
         '
         'DtPrsntdDate
@@ -475,7 +475,7 @@ Partial Class AddWorks
         Me.DtPrsntdDate.CalendarMonthBackground = System.Drawing.SystemColors.GradientInactiveCaption
         Me.DtPrsntdDate.CalendarTitleBackColor = System.Drawing.SystemColors.GradientInactiveCaption
         Me.DtPrsntdDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DtPrsntdDate.Location = New System.Drawing.Point(315, 12)
+        Me.DtPrsntdDate.Location = New System.Drawing.Point(337, 12)
         Me.DtPrsntdDate.Name = "DtPrsntdDate"
         Me.DtPrsntdDate.Size = New System.Drawing.Size(159, 20)
         Me.DtPrsntdDate.TabIndex = 48
@@ -484,7 +484,7 @@ Partial Class AddWorks
         '
         Me.TxtPrePlace.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
         Me.TxtPrePlace.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TxtPrePlace.Location = New System.Drawing.Point(481, 12)
+        Me.TxtPrePlace.Location = New System.Drawing.Point(515, 12)
         Me.TxtPrePlace.Name = "TxtPrePlace"
         Me.TxtPrePlace.Size = New System.Drawing.Size(299, 20)
         Me.TxtPrePlace.TabIndex = 52
@@ -493,7 +493,7 @@ Partial Class AddWorks
         '
         Me.TxtPreResConfName.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
         Me.TxtPreResConfName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TxtPreResConfName.Location = New System.Drawing.Point(5, 13)
+        Me.TxtPreResConfName.Location = New System.Drawing.Point(10, 12)
         Me.TxtPreResConfName.Name = "TxtPreResConfName"
         Me.TxtPreResConfName.Size = New System.Drawing.Size(303, 20)
         Me.TxtPreResConfName.TabIndex = 48
@@ -576,16 +576,16 @@ Partial Class AddWorks
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.RowCount = 1
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 41.61074!))
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(916, 59)
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(962, 59)
         Me.TableLayoutPanel2.TabIndex = 0
         '
         'Label22
         '
         Me.Label22.AutoSize = True
         Me.Label22.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label22.Location = New System.Drawing.Point(445, 1)
+        Me.Label22.Location = New System.Drawing.Point(468, 1)
         Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(159, 57)
+        Me.Label22.Size = New System.Drawing.Size(167, 57)
         Me.Label22.TabIndex = 3
         Me.Label22.Text = "Date Presented "
         Me.Label22.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -594,9 +594,9 @@ Partial Class AddWorks
         '
         Me.Label23.AutoSize = True
         Me.Label23.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label23.Location = New System.Drawing.Point(135, 1)
+        Me.Label23.Location = New System.Drawing.Point(142, 1)
         Me.Label23.Name = "Label23"
-        Me.Label23.Size = New System.Drawing.Size(303, 57)
+        Me.Label23.Size = New System.Drawing.Size(319, 57)
         Me.Label23.TabIndex = 1
         Me.Label23.Text = "Research Conference Name"
         Me.Label23.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -607,7 +607,7 @@ Partial Class AddWorks
         Me.Label24.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label24.Location = New System.Drawing.Point(4, 1)
         Me.Label24.Name = "Label24"
-        Me.Label24.Size = New System.Drawing.Size(124, 57)
+        Me.Label24.Size = New System.Drawing.Size(131, 57)
         Me.Label24.TabIndex = 0
         Me.Label24.Text = "Level"
         Me.Label24.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -616,9 +616,9 @@ Partial Class AddWorks
         '
         Me.Label25.AutoSize = True
         Me.Label25.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label25.Location = New System.Drawing.Point(611, 1)
+        Me.Label25.Location = New System.Drawing.Point(642, 1)
         Me.Label25.Name = "Label25"
-        Me.Label25.Size = New System.Drawing.Size(301, 57)
+        Me.Label25.Size = New System.Drawing.Size(316, 57)
         Me.Label25.TabIndex = 2
         Me.Label25.Text = "Place of Presentation"
         Me.Label25.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -1176,7 +1176,7 @@ Partial Class AddWorks
         Me.BtnSaveResearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnSaveResearch.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.BtnSaveResearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnSaveResearch.Location = New System.Drawing.Point(531, 657)
+        Me.BtnSaveResearch.Location = New System.Drawing.Point(531, 691)
         Me.BtnSaveResearch.Name = "BtnSaveResearch"
         Me.BtnSaveResearch.Size = New System.Drawing.Size(143, 29)
         Me.BtnSaveResearch.TabIndex = 56
@@ -1192,7 +1192,7 @@ Partial Class AddWorks
         Me.BtnCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnCancel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.BtnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnCancel.Location = New System.Drawing.Point(723, 657)
+        Me.BtnCancel.Location = New System.Drawing.Point(723, 691)
         Me.BtnCancel.Name = "BtnCancel"
         Me.BtnCancel.Size = New System.Drawing.Size(143, 29)
         Me.BtnCancel.TabIndex = 62
@@ -1333,7 +1333,7 @@ Partial Class AddWorks
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.ClientSize = New System.Drawing.Size(1350, 695)
+        Me.ClientSize = New System.Drawing.Size(1350, 729)
         Me.Controls.Add(Me.TxtLoc)
         Me.Controls.Add(Me.Label27)
         Me.Controls.Add(Me.TxtCopies)
@@ -1364,7 +1364,7 @@ Partial Class AddWorks
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.GroupBox2)
         Me.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.MinimumSize = New System.Drawing.Size(1364, 734)
+        Me.MinimumSize = New System.Drawing.Size(1364, 686)
         Me.Name = "AddWorks"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "ADD RESEARCH"

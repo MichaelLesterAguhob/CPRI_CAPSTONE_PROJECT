@@ -9,6 +9,8 @@ Public Class StudentTerminal
     Dim isSearchButtonUsed As Boolean = False
     Dim isDataAlreadyLoaded As Boolean = False
 
+    Shared ReadOnly date_time As DateTime = DateTime.Now
+
     'MAIN FORM LOAD
     Private Sub ResearchRepoManager_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         PnlFilter.Width = 0
@@ -23,6 +25,8 @@ Public Class StudentTerminal
 
         DgvSwData.ClearSelection()
 
+        TxtDateNow.Text = date_time.Date.ToString("MM-dd-yyyy")
+        Timer2.Start()
     End Sub
 
     'LOADING ALL DATA FROM SCHOLARLY WORKS IN DATAGRIDVIEW FROM DATABASE 
@@ -556,6 +560,7 @@ Public Class StudentTerminal
         Else
             ApplyFilterSearch()
             BtnCloseFilter.PerformClick()
+            BtnRemoveSelection.PerformClick()
         End If
 
     End Sub
@@ -969,6 +974,10 @@ Public Class StudentTerminal
 
     End Sub
 
+    Private Sub Timer2_Tick(sender As Object, e As EventArgs) Handles Timer2.Tick
+        TxtTimeNow.Text = TimeOfDay.ToString("h:mm:ss tt")
+    End Sub
+
     'CLEAR PRESENTED
     Private Sub BtnClearPresented_Click(sender As Object, e As EventArgs) Handles BtnClearPresented.Click
         BtnClearPresented.Visible = False
@@ -1088,6 +1097,6 @@ Public Class StudentTerminal
         BtnClearPresented.Visible = False
 
         LoadScholarlyWorks()
-
+        BtnRemoveSelection.PerformClick()
     End Sub
 End Class

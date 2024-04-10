@@ -19,8 +19,6 @@ Module db_connection
         Try
             con.ConnectionString = "server=" & server & ";user=" & username & ";password=" & password & ";database=" & database
             con.Open()
-            ' MessageBox.Show("Connection Stablished", "Successfully Connected to the Database", MessageBoxButtons.OK, MessageBoxIcon.Information)
-
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Connection Problem Occurred.", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try

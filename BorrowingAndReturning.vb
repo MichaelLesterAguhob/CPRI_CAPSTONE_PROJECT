@@ -93,11 +93,14 @@ Public Class BorrowingAndReturning
     '==============BOOKS==================
     ReadOnly dt_books_list As New DataTable()
     Private Sub BtnPrintBooksList_Click(sender As Object, e As EventArgs) Handles BtnPrintBooksList.Click
-        Dim brr As New ReportBorAndRet
+        ' bbr is the form where crystal report viewer is attached
+        Dim brr As New ReportBorrowingAndReturning
         brr.Show()
+        'report book is my report 
         Dim print_books As New report_book_list
         print_books.Database.Tables("books").SetDataSource(dt_books_list)
-        brr.CrvBookList.ReportSource = print_books
+        'CrBaR is the report viewer
+        brr.CrvBaR.ReportSource = print_books
     End Sub
     Private Sub LoadBooksList()
         con.Close()
@@ -668,17 +671,19 @@ Public Class BorrowingAndReturning
     '==============BORROWERS==================
     ReadOnly dt_borrowers_rec As New DataTable()
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Dim brr As New ReportBorAndRet
+        Dim brr As New ReportBorrowingAndReturning
         brr.Show()
-        Dim print_books As New report_borrowers_list
-        print_books.Database.Tables("borrowers").SetDataSource(dt_borrowers_rec)
-        brr.Crv.ReportSource = print_books
+
+        Dim print_borrowers As New report_borrowers_list
+        print_borrowers.Database.Tables("borrowers").SetDataSource(dt_borrowers_rec)
+
+        brr.CrvBaR.ReportSource = print_borrowers
     End Sub
     Private Sub LoadBorrowersList()
         con.Close()
         Try
             con.Open()
-            Dim query As String = "SELECT * FROM borrowers"
+            Dim query As String = "SELECT * FROM borrowers ORDER BY name ASC"
             Using cmd As New MySqlCommand(query, con)
                 Using adptr As New MySqlDataAdapter(cmd)
                     dt_borrowers_rec.Clear()
@@ -1076,6 +1081,7 @@ Public Class BorrowingAndReturning
                     OR phone LIKE @to_search 
                     OR address LIKE @to_search 
                     OR violations LIKE @to_search 
+                ORDER BY name ASC
                     "
             Using cmd As New MySqlCommand(query, con)
                 cmd.Parameters.AddWithValue("@to_search", "%" & TxtSearchBorrowers.Text.Trim & "%")
@@ -2202,5 +2208,7 @@ Public Class BorrowingAndReturning
         CheckActiveLogin()
     End Sub
 
+    Private Sub PanelCancelled_Paint(sender As Object, e As PaintEventArgs) Handles PanelCancelled.Paint
 
+    End Sub
 End Class

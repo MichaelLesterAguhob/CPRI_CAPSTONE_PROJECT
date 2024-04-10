@@ -219,17 +219,17 @@
     <Compile Include="BorrowingAndReturning.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="ReportBorrowingAndReturning.Designer.vb">
+      <DependentUpon>ReportBorrowingAndReturning.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ReportBorrowingAndReturning.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="report_borrowers_list.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>report_borrowers_list.rpt</DependentUpon>
       <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="ReportBorAndRet.Designer.vb">
-      <DependentUpon>ReportBorAndRet.vb</DependentUpon>
-    </Compile>
-    <Compile Include="ReportBorAndRet.vb">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="report_book_list.vb">
       <AutoGen>True</AutoGen>
@@ -343,12 +343,12 @@
     <EmbeddedResource Include="BorrowingAndReturning.resx">
       <DependentUpon>BorrowingAndReturning.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ReportBorrowingAndReturning.resx">
+      <DependentUpon>ReportBorrowingAndReturning.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="report_borrowers_list.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>report_borrowers_list.vb</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ReportBorAndRet.resx">
-      <DependentUpon>ReportBorAndRet.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="report_book_list.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
