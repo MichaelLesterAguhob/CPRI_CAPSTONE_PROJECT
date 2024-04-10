@@ -45,6 +45,7 @@ Partial Class ReportBorrowingAndReturning
         Me.Controls.Add(Me.CrvBaR)
         Me.Name = "ReportBorrowingAndReturning"
         Me.Text = "ReportBorrowingAndReturning"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.ResumeLayout(False)
 
     End Sub

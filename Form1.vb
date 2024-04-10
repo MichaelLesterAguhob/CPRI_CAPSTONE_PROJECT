@@ -161,6 +161,18 @@ Public Class Form1
                 End If
             End Using
 
+            'GET published books
+            Using cmd As New MySqlCommand(
+                "SELECT COUNT(*) FROM scholarly_works", con)
+                Dim rows As Integer = 0
+                rows = Convert.ToInt32(cmd.ExecuteScalar())
+                If rows > 0 Then
+                    LblTotalArchives.Text = rows.ToString()
+                Else
+                    LblTotalArchives.Text = "0"
+                End If
+            End Using
+
 
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Error Occured while loading display data", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -223,6 +235,17 @@ Public Class Form1
 
     ReadOnly myFont2 As New Font("Segoe UI", 12, FontStyle.Regular)
     ReadOnly myFont02 As New Font("Segoe UI", 9, FontStyle.Regular)
+
+    '// display data
+    Private Sub LblTotalArchives_MouseEnter(sender As Object, e As EventArgs) Handles LblTotalArchives.MouseEnter
+        LblTotalArchives.ImageAlign = ContentAlignment.TopRight
+        Label6.Font = myFont1
+    End Sub
+
+    Private Sub LblTotalArchives_MouseLeave(sender As Object, e As EventArgs) Handles LblTotalArchives.MouseLeave
+        LblTotalArchives.ImageAlign = ContentAlignment.MiddleRight
+        Label6.Font = myFont01
+    End Sub
 
     '// display data
     Private Sub LblPub_MouseEnter(sender As Object, e As EventArgs) Handles LblPub.MouseEnter
@@ -361,7 +384,5 @@ Public Class Form1
         MenuToolStripMenuItem.Font = myFont02
     End Sub
 
-    Private Sub Panel3_Paint(sender As Object, e As PaintEventArgs) Handles Panel3.Paint
 
-    End Sub
 End Class

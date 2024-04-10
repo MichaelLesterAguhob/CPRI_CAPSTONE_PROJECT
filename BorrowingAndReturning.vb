@@ -689,15 +689,15 @@ Public Class BorrowingAndReturning
                     dt_borrowers_rec.Clear()
                     adptr.Fill(dt_borrowers_rec)
 
-                    If dt.Rows.Count > 0 Then
-                        DgvBorrowers.DataSource = dt
+                    If dt_borrowers_rec.Rows.Count > 0 Then
+                        DgvBorrowers.DataSource = dt_borrowers_rec
                         DgvBorrowers.Refresh()
                         For i = 0 To DgvBorrowers.Rows.Count - 1
                             DgvBorrowers.Rows(i).Height = 50
                         Next
                         DgvBorrowers.ClearSelection()
                     Else
-                        DgvBorrowers.DataSource = dt
+                        DgvBorrowers.DataSource = dt_borrowers_rec
                         DgvBorrowers.Refresh()
                     End If
 
@@ -1145,6 +1145,16 @@ Public Class BorrowingAndReturning
 
 
     '==============BORROWED BOOKS ============================
+    Dim dt_borrower As New DataTable
+    Private Sub BtnPrintBorrowed_Click(sender As Object, e As EventArgs) Handles BtnPrintBorrowed.Click
+        Dim brr As New ReportBorrowingAndReturning
+        brr.Show()
+
+        Dim print_borrowed As New report_borrowers_list
+        print_borrowed.Database.Tables("borrowed_books").SetDataSource(dt_borrower)
+
+        brr.CrvBaR.ReportSource = print_borrowed
+    End Sub
     Private Sub LoadBorrowedBooksList()
         con.Close()
         Try

@@ -103,7 +103,7 @@ Public Class AddWorks
     Public Sub New(ByVal rrm As ResearchRepoManager, ByVal frm1 As Form1)
         InitializeComponent()
         Me.rrm = rrm
-        frm1 = frm1
+        Me.frm1 = frm1
     End Sub
 
     'SAVING INFORMATION ENETERED

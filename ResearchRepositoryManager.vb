@@ -10,7 +10,8 @@ Public Class ResearchRepoManager
     Dim isSearchButtonUsed As Boolean = False
     Dim isDataAlreadyLoaded As Boolean = False
 
-    Dim ReadOnly search_me As String = ""
+    ReadOnly search_me As String = ""
+
     Private ReadOnly frm1 As Form1
     Public Sub New(ByVal frm1 As Form1, search_me As String)
         InitializeComponent()
@@ -22,7 +23,10 @@ Public Class ResearchRepoManager
         End If
 
     End Sub
-
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Dim add_work As New AddWorks(Me, frm1)
+        add_work.Show()
+    End Sub
     'MAIN FORM LOAD
     Private Sub ResearchRepoManager_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         PnlFilter.Width = 0
@@ -221,17 +225,11 @@ Public Class ResearchRepoManager
             Finally
                 con.Close()
             End Try
-
-
         End If
-
         Return pdfByteArray
     End Function
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim add_work As New AddWorks(Me, frm1)
-        add_work.Show()
-    End Sub
+
 
     ' ENTERING AND LEAVING THE SPECIFIC CELL
     Private Sub DgvSwData_CellMouseEnter(sender As Object, e As DataGridViewCellEventArgs) Handles DgvSwData.CellMouseEnter
@@ -319,30 +317,35 @@ Public Class ResearchRepoManager
                         "DELETE FROM `qnty_loc` WHERE `sw_id`= @to_delete_id"
                     }
 
-                    con.Open()
-                    Using transaction As MySqlTransaction = con.BeginTransaction()
+                    Try
+                        con.Open()
+                        Using transaction As MySqlTransaction = con.BeginTransaction()
 
-                        Try
-                            For Each queries As String In delete_queries
-                                Using cmd_multiple As New MySqlCommand(queries, con, transaction)
-                                    cmd_multiple.Parameters.AddWithValue("@to_delete_id", selected_research)
-                                    cmd_multiple.ExecuteNonQuery()
-                                End Using
-                            Next
-                            transaction.Commit()
+                            Try
+                                For Each queries As String In delete_queries
+                                    Using cmd_multiple As New MySqlCommand(queries, con, transaction)
+                                        cmd_multiple.Parameters.AddWithValue("@to_delete_id", selected_research)
+                                        cmd_multiple.ExecuteNonQuery()
+                                    End Using
+                                Next
+                                transaction.Commit()
 
-                            LoadScholarlyWorks()
-                            BtnRemoveSelection.PerformClick()
-                            BtnRemoveSelection.Visible = False
-                            BtnDelete.Enabled = False
-                            MessageBox.Show("Successfuly Deleted Item.", "Deleted Successfully.", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                        Catch ex As Exception
-                            transaction.Rollback()
-                            MessageBox.Show("Error Occurred: " & ex.Message, "Failed to delete selected item.", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                        Finally
-                            con.Close()
-                        End Try
-                    End Using
+                                LoadScholarlyWorks()
+                                frm1.LoadAllDisplayData()
+                                BtnRemoveSelection.PerformClick()
+                                BtnRemoveSelection.Visible = False
+                                BtnDelete.Enabled = False
+                                MessageBox.Show("Successfuly Deleted Item.", "Deleted Successfully.", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                            Catch ex As Exception
+                                transaction.Rollback()
+                                MessageBox.Show("Error Occurred: " & ex.Message, "Failed to delete selected item.", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            Finally
+                                con.Close()
+                            End Try
+                        End Using
+                    Catch ex As Exception
+                        MessageBox.Show(ex.Message, "Error ono using MySqlTransaction", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    End Try
                 End If
 
             End If

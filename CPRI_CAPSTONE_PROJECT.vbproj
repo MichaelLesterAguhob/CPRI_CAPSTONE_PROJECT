@@ -219,6 +219,11 @@
     <Compile Include="BorrowingAndReturning.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="DataSet3.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet3.xsd</DependentUpon>
+    </Compile>
     <Compile Include="ReportBorrowingAndReturning.Designer.vb">
       <DependentUpon>ReportBorrowingAndReturning.vb</DependentUpon>
     </Compile>
@@ -428,6 +433,17 @@
     </None>
     <None Include="DataSet2.xss">
       <DependentUpon>DataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet3.xsc">
+      <DependentUpon>DataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet3.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet3.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet3.xss">
+      <DependentUpon>DataSet3.xsd</DependentUpon>
     </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
@@ -680,6 +696,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-reports-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-books-85 %284%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-binder-85.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

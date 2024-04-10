@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSet3" targetNamespace="http://tempuri.org/DataSet3.xsd" xmlns:mstns="http://tempuri.org/DataSet3.xsd" xmlns="http://tempuri.org/DataSet3.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSet3" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet3" msprop:Generator_UserDSName="DataSet3">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="borrowed_books" msprop:Generator_TableClassName="borrowed_booksDataTable" msprop:Generator_TableVarName="tableborrowed_books" msprop:Generator_TablePropName="borrowed_books" msprop:Generator_RowDeletingName="borrowed_booksRowDeleting" msprop:Generator_RowChangingName="borrowed_booksRowChanging" msprop:Generator_RowEvHandlerName="borrowed_booksRowChangeEventHandler" msprop:Generator_RowDeletedName="borrowed_booksRowDeleted" msprop:Generator_UserTableName="borrowed_books" msprop:Generator_RowChangedName="borrowed_booksRowChanged" msprop:Generator_RowEvArgName="borrowed_booksRowChangeEvent" msprop:Generator_RowClassName="borrowed_booksRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="borrow_id" msprop:Generator_ColumnVarNameInTable="columnborrow_id" msprop:Generator_ColumnPropNameInRow="borrow_id" msprop:Generator_ColumnPropNameInTable="borrow_idColumn" msprop:Generator_UserColumnName="borrow_id" type="xs:string" minOccurs="0" />
+              <xs:element name="book_adis" msprop:Generator_ColumnVarNameInTable="columnbook_adis" msprop:Generator_ColumnPropNameInRow="book_adis" msprop:Generator_ColumnPropNameInTable="book_adisColumn" msprop:Generator_UserColumnName="book_adis" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
