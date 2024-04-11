@@ -12,7 +12,7 @@
   <xs:element name="BorAndRetDataset" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="BorAndRetDataset" msprop:Generator_UserDSName="BorAndRetDataset">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="books" msprop:Generator_TableClassName="booksDataTable" msprop:Generator_TableVarName="tablebooks" msprop:Generator_TablePropName="books" msprop:Generator_RowDeletingName="booksRowDeleting" msprop:Generator_RowChangingName="booksRowChanging" msprop:Generator_RowEvHandlerName="booksRowChangeEventHandler" msprop:Generator_RowDeletedName="booksRowDeleted" msprop:Generator_UserTableName="books" msprop:Generator_RowChangedName="booksRowChanged" msprop:Generator_RowEvArgName="booksRowChangeEvent" msprop:Generator_RowClassName="booksRow">
+        <xs:element name="books" msprop:Generator_TableClassName="booksDataTable" msprop:Generator_TableVarName="tablebooks" msprop:Generator_RowChangedName="booksRowChanged" msprop:Generator_TablePropName="books" msprop:Generator_RowDeletingName="booksRowDeleting" msprop:Generator_RowChangingName="booksRowChanging" msprop:Generator_RowEvHandlerName="booksRowChangeEventHandler" msprop:Generator_RowDeletedName="booksRowDeleted" msprop:Generator_RowClassName="booksRow" msprop:Generator_UserTableName="books" msprop:Generator_RowEvArgName="booksRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="sw_id" msprop:Generator_ColumnVarNameInTable="columnsw_id" msprop:Generator_ColumnPropNameInRow="sw_id" msprop:Generator_ColumnPropNameInTable="sw_idColumn" msprop:Generator_UserColumnName="sw_id" type="xs:int" minOccurs="0" />
@@ -25,7 +25,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="borrowers" msprop:Generator_TableClassName="borrowersDataTable" msprop:Generator_TableVarName="tableborrowers" msprop:Generator_RowChangedName="borrowersRowChanged" msprop:Generator_TablePropName="borrowers" msprop:Generator_RowDeletingName="borrowersRowDeleting" msprop:Generator_RowChangingName="borrowersRowChanging" msprop:Generator_RowEvHandlerName="borrowersRowChangeEventHandler" msprop:Generator_RowDeletedName="borrowersRowDeleted" msprop:Generator_RowClassName="borrowersRow" msprop:Generator_UserTableName="borrowers" msprop:Generator_RowEvArgName="borrowersRowChangeEvent">
+        <xs:element name="borrowers" msprop:Generator_TableClassName="borrowersDataTable" msprop:Generator_TableVarName="tableborrowers" msprop:Generator_TablePropName="borrowers" msprop:Generator_RowDeletingName="borrowersRowDeleting" msprop:Generator_RowChangingName="borrowersRowChanging" msprop:Generator_RowEvHandlerName="borrowersRowChangeEventHandler" msprop:Generator_RowDeletedName="borrowersRowDeleted" msprop:Generator_UserTableName="borrowers" msprop:Generator_RowChangedName="borrowersRowChanged" msprop:Generator_RowEvArgName="borrowersRowChangeEvent" msprop:Generator_RowClassName="borrowersRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="borrower_id" msprop:Generator_ColumnVarNameInTable="columnborrower_id" msprop:Generator_ColumnPropNameInRow="borrower_id" msprop:Generator_ColumnPropNameInTable="borrower_idColumn" msprop:Generator_UserColumnName="borrower_id" type="xs:int" minOccurs="0" />
@@ -34,6 +34,21 @@
               <xs:element name="phone" msprop:Generator_ColumnVarNameInTable="columnphone" msprop:Generator_ColumnPropNameInRow="phone" msprop:Generator_ColumnPropNameInTable="phoneColumn" msprop:Generator_UserColumnName="phone" type="xs:int" minOccurs="0" />
               <xs:element name="address" msprop:Generator_ColumnVarNameInTable="columnaddress" msprop:Generator_ColumnPropNameInRow="address" msprop:Generator_ColumnPropNameInTable="addressColumn" msprop:Generator_UserColumnName="address" type="xs:string" minOccurs="0" />
               <xs:element name="violation" msprop:Generator_ColumnVarNameInTable="columnviolation" msprop:Generator_ColumnPropNameInRow="violation" msprop:Generator_ColumnPropNameInTable="violationColumn" msprop:Generator_UserColumnName="violation" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="borrowed_books" msprop:Generator_TableClassName="borrowed_booksDataTable" msprop:Generator_TableVarName="tableborrowed_books" msprop:Generator_TablePropName="borrowed_books" msprop:Generator_RowDeletingName="borrowed_booksRowDeleting" msprop:Generator_RowChangingName="borrowed_booksRowChanging" msprop:Generator_RowEvHandlerName="borrowed_booksRowChangeEventHandler" msprop:Generator_RowDeletedName="borrowed_booksRowDeleted" msprop:Generator_UserTableName="borrowed_books" msprop:Generator_RowChangedName="borrowed_booksRowChanged" msprop:Generator_RowEvArgName="borrowed_booksRowChangeEvent" msprop:Generator_RowClassName="borrowed_booksRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="borrow_id" msprop:Generator_ColumnVarNameInTable="columnborrow_id" msprop:Generator_ColumnPropNameInRow="borrow_id" msprop:Generator_ColumnPropNameInTable="borrow_idColumn" msprop:Generator_UserColumnName="borrow_id" type="xs:int" minOccurs="0" />
+              <xs:element name="book_ids" msprop:Generator_ColumnVarNameInTable="columnbook_ids" msprop:Generator_ColumnPropNameInRow="book_ids" msprop:Generator_ColumnPropNameInTable="book_idsColumn" msprop:Generator_UserColumnName="book_ids" type="xs:int" minOccurs="0" />
+              <xs:element name="title" msprop:Generator_ColumnVarNameInTable="columntitle" msprop:Generator_ColumnPropNameInRow="title" msprop:Generator_ColumnPropNameInTable="titleColumn" msprop:Generator_UserColumnName="title" type="xs:string" minOccurs="0" />
+              <xs:element name="borrower_id" msprop:Generator_ColumnVarNameInTable="columnborrower_id" msprop:Generator_ColumnPropNameInRow="borrower_id" msprop:Generator_ColumnPropNameInTable="borrower_idColumn" msprop:Generator_UserColumnName="borrower_id" type="xs:int" minOccurs="0" />
+              <xs:element name="type" msprop:Generator_ColumnVarNameInTable="columntype" msprop:Generator_ColumnPropNameInRow="type" msprop:Generator_ColumnPropNameInTable="typeColumn" msprop:Generator_UserColumnName="type" type="xs:string" minOccurs="0" />
+              <xs:element name="due_date" msprop:Generator_ColumnVarNameInTable="columndue_date" msprop:Generator_ColumnPropNameInRow="due_date" msprop:Generator_ColumnPropNameInTable="due_dateColumn" msprop:Generator_UserColumnName="due_date" type="xs:string" minOccurs="0" />
+              <xs:element name="borrow_date" msprop:Generator_ColumnVarNameInTable="columnborrow_date" msprop:Generator_ColumnPropNameInRow="borrow_date" msprop:Generator_ColumnPropNameInTable="borrow_dateColumn" msprop:Generator_UserColumnName="borrow_date" type="xs:string" minOccurs="0" />
+              <xs:element name="time" msprop:Generator_ColumnVarNameInTable="columntime" msprop:Generator_ColumnPropNameInRow="time" msprop:Generator_ColumnPropNameInTable="timeColumn" msprop:Generator_UserColumnName="time" type="xs:string" minOccurs="0" />
+              <xs:element name="is_overdue" msprop:Generator_ColumnVarNameInTable="columnis_overdue" msprop:Generator_ColumnPropNameInRow="is_overdue" msprop:Generator_ColumnPropNameInTable="is_overdueColumn" msprop:Generator_UserColumnName="is_overdue" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

@@ -219,6 +219,12 @@
     <Compile Include="BorrowingAndReturning.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="report_book_borrowed.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>report_book_borrowed.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="DataSet3.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -347,6 +353,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BorrowingAndReturning.resx">
       <DependentUpon>BorrowingAndReturning.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="report_book_borrowed.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>report_book_borrowed.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportBorrowingAndReturning.resx">
       <DependentUpon>ReportBorrowingAndReturning.vb</DependentUpon>

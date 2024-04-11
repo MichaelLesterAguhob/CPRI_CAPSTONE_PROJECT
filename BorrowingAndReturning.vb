@@ -223,10 +223,10 @@ Public Class BorrowingAndReturning
             Using cmd As New MySqlCommand(query, con)
                 cmd.Parameters.AddWithValue("@to_search", "%" & TxtSearchBooks.Text.Trim & "%")
                 Using adptr As New MySqlDataAdapter(cmd)
-                    Dim dt As New DataTable()
-                    adptr.Fill(dt)
+                    dt_books_list.Clear()
+                    adptr.Fill(dt_books_list)
 
-                    DgvBooks.DataSource = dt
+                    DgvBooks.DataSource = dt_books_list
                     DgvBooks.Refresh()
                     For i = 0 To DgvBooks.Rows.Count - 1
                         DgvBooks.Rows(i).Height = 70
@@ -1086,18 +1086,18 @@ Public Class BorrowingAndReturning
             Using cmd As New MySqlCommand(query, con)
                 cmd.Parameters.AddWithValue("@to_search", "%" & TxtSearchBorrowers.Text.Trim & "%")
                 Using adptr As New MySqlDataAdapter(cmd)
-                    Dim dt As New DataTable()
-                    adptr.Fill(dt)
+                    dt_borrowers_rec.Clear()
+                    adptr.Fill(dt_borrowers_rec)
 
-                    If dt.Rows.Count > 0 Then
-                        DgvBorrowers.DataSource = dt
+                    If dt_borrowers_rec.Rows.Count > 0 Then
+                        DgvBorrowers.DataSource = dt_borrowers_rec
                         DgvBorrowers.Refresh()
                         For i = 0 To DgvBorrowers.Rows.Count - 1
                             DgvBorrowers.Rows(i).Height = 50
                         Next
                         DgvBorrowers.ClearSelection()
                     Else
-                        DgvBorrowers.DataSource = dt
+                        DgvBorrowers.DataSource = dt_borrowers_rec
                         DgvBorrowers.Refresh()
                     End If
 
@@ -1145,13 +1145,13 @@ Public Class BorrowingAndReturning
 
 
     '==============BORROWED BOOKS ============================
-    Dim dt_borrower As New DataTable
+    ReadOnly dt_borrowed As New DataTable
     Private Sub BtnPrintBorrowed_Click(sender As Object, e As EventArgs) Handles BtnPrintBorrowed.Click
         Dim brr As New ReportBorrowingAndReturning
         brr.Show()
 
-        Dim print_borrowed As New report_borrowers_list
-        print_borrowed.Database.Tables("borrowed_books").SetDataSource(dt_borrower)
+        Dim print_borrowed As New report_book_borrowed
+        print_borrowed.Database.Tables("borrowed_books").SetDataSource(dt_borrowed)
 
         brr.CrvBaR.ReportSource = print_borrowed
     End Sub
@@ -1162,18 +1162,18 @@ Public Class BorrowingAndReturning
             Dim query As String = "SELECT * FROM borrowed_books WHERE is_cancel='NO' AND is_returned='NO' ORDER BY borrow_date DESC, time DESC"
             Using cmd As New MySqlCommand(query, con)
                 Using adptr As New MySqlDataAdapter(cmd)
-                    Dim dt As New DataTable()
-                    adptr.Fill(dt)
+                    dt_borrowed.Clear()
+                    adptr.Fill(dt_borrowed)
 
-                    If dt.Rows.Count > 0 Then
-                        DgvBorrowed.DataSource = dt
+                    If dt_borrowed.Rows.Count > 0 Then
+                        DgvBorrowed.DataSource = dt_borrowed
                         DgvBorrowed.Refresh()
                         For i = 0 To DgvBorrowed.Rows.Count - 1
                             DgvBorrowed.Rows(i).Height = 70
                         Next
                         DgvBorrowed.ClearSelection()
                     Else
-                        DgvBorrowed.DataSource = dt
+                        DgvBorrowed.DataSource = dt_borrowed
                         DgvBorrowed.Refresh()
                     End If
                 End Using
@@ -1237,10 +1237,10 @@ Public Class BorrowingAndReturning
             Using cmd As New MySqlCommand(query, con)
                 cmd.Parameters.AddWithValue("@to_search", "%" & TxtSearchBorrowed.Text.Trim & "%")
                 Using adptr As New MySqlDataAdapter(cmd)
-                    Dim dt As New DataTable()
-                    adptr.Fill(dt)
+                    dt_borrowed.Clear()
+                    adptr.Fill(dt_borrowed)
 
-                    DgvBorrowed.DataSource = dt
+                    DgvBorrowed.DataSource = dt_borrowed
                     DgvBorrowed.Refresh()
                     For i = 0 To DgvBorrowed.Rows.Count - 1
                         DgvBorrowed.Rows(i).Height = 70
