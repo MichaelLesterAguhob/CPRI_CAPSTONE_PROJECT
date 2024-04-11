@@ -27,9 +27,9 @@ Public Class BorrowingAndReturning
     'CODES TO LOAD RESEARCH WORK IN REPO MANAGER
     ReadOnly open_tab As String = ""
     Private ReadOnly frm1 As Form1
-    Public Sub New(ByVal frm1 As Form1, tab_toOpen As String)
+    Public Sub New(ByVal frm01 As Form1, tab_toOpen As String)
         InitializeComponent()
-        Me.frm1 = frm1
+        Me.frm1 = frm01
         open_tab = tab_toOpen
     End Sub
 
@@ -1210,7 +1210,7 @@ Public Class BorrowingAndReturning
         If PanelCancelled.Visible = True Then
             PanelCancelled.Visible = False
         End If
-        frm1.LoadAllDisplayData()
+        Me.frm1.LoadAllDisplayData()
     End Sub
 
     Private Sub SearchInBorrowed()
@@ -1478,7 +1478,7 @@ Public Class BorrowingAndReturning
             isThereAvailableBorrowSelected = False
             isThereInternalBorrowSelected = False
             con.Close()
-            frm1.LoadAllDisplayData()
+            Me.frm1.LoadAllDisplayData()
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Error Occurred on getting book ids and titles from datagrid", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Finally
@@ -1646,7 +1646,7 @@ Public Class BorrowingAndReturning
                                 BtnCancelBorrow.Enabled = True
                                 BtnReturnedBooks.Enabled = True
                                 DgvCancelledBorrow.ClearSelection()
-                                frm1.LoadAllDisplayData()
+                                Me.frm1.LoadAllDisplayData()
                             Catch ex As Exception
                                 MessageBox.Show(ex.Message, "Error Occurred on Cancelling", MessageBoxButtons.OK, MessageBoxIcon.Error)
                                 con.Close()
@@ -1853,7 +1853,7 @@ Public Class BorrowingAndReturning
                     BtnCancelBorrow.Enabled = True
                     BtnReturnedBooks.Enabled = True
                     DgvCancelledBorrow.ClearSelection()
-                    frm1.LoadAllDisplayData()
+                    Me.frm1.LoadAllDisplayData()
 
                 Catch ex As Exception
                     MessageBox.Show(ex.Message, "Error Occurred on Returning", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -1870,6 +1870,17 @@ Public Class BorrowingAndReturning
 
 
     '==============RETURNED BOOKS ==============================
+    ReadOnly dt_returned_books As New DataTable()
+    Private Sub BtnPrintReturned_Click(sender As Object, e As EventArgs) Handles BtnPrintReturned.Click
+        Dim brr As New ReportBorrowingAndReturning
+        brr.Show()
+        'report book is my report 
+        Dim returned_books As New report_returned_books
+        returned_books.Database.Tables("returned_books").SetDataSource(dt_returned_books)
+        'CrBaR is the report viewer
+        brr.CrvBaR.ReportSource = returned_books
+    End Sub
+
     Private Sub LoadReturnedBooksList()
         con.Close()
         Try
@@ -1901,18 +1912,18 @@ Public Class BorrowingAndReturning
 "
             Using cmd As New MySqlCommand(query, con)
                 Using adptr As New MySqlDataAdapter(cmd)
-                    Dim dt As New DataTable()
-                    adptr.Fill(dt)
+                    dt_returned_books.Clear()
+                    adptr.Fill(dt_returned_books)
 
-                    If dt.Rows.Count > 0 Then
-                        DgvReturned.DataSource = dt
+                    If dt_returned_books.Rows.Count > 0 Then
+                        DgvReturned.DataSource = dt_returned_books
                         DgvReturned.Refresh()
                         For i = 0 To DgvReturned.Rows.Count - 1
                             DgvReturned.Rows(i).Height = 50
                         Next
                         DgvReturned.ClearSelection()
                     Else
-                        DgvReturned.DataSource = dt
+                        DgvReturned.DataSource = dt_returned_books
                         DgvReturned.Refresh()
                     End If
                 End Using
@@ -1999,10 +2010,10 @@ Public Class BorrowingAndReturning
             Using cmd As New MySqlCommand(query, con)
                 cmd.Parameters.AddWithValue("@to_search", "%" & TxtSearchReturned.Text.Trim & "%")
                 Using adptr As New MySqlDataAdapter(cmd)
-                    Dim dt As New DataTable()
-                    adptr.Fill(dt)
+                    dt_returned_books.Clear()
+                    adptr.Fill(dt_returned_books)
 
-                    DgvReturned.DataSource = dt
+                    DgvReturned.DataSource = dt_returned_books
                     DgvReturned.Refresh()
                     For i = 0 To DgvReturned.Rows.Count - 1
                         DgvReturned.Rows(i).Height = 70
@@ -2116,7 +2127,7 @@ Public Class BorrowingAndReturning
         BtnReturnedBooks.BackColor = Color.Transparent
         CheckOverDuesBorrowedBooks()
         LoadOverDues()
-        frm1.LoadAllDisplayData()
+        me.frm1.LoadAllDisplayData()
         BtnRemoveToBorrow.Visible = False
         BtnEditBorrower.Enabled = False
         BtnDeleteBorrower.Enabled = False
@@ -2218,7 +2229,5 @@ Public Class BorrowingAndReturning
         CheckActiveLogin()
     End Sub
 
-    Private Sub PanelCancelled_Paint(sender As Object, e As PaintEventArgs) Handles PanelCancelled.Paint
 
-    End Sub
 End Class

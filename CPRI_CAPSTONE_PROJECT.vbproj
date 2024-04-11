@@ -319,6 +319,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="public_variables.vb" />
+    <Compile Include="report_returned_books.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>report_returned_books.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus.Designer.vb">
       <DependentUpon>ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus.vb</DependentUpon>
     </Compile>
@@ -393,6 +399,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReportPrintThesisClearance.resx">
       <DependentUpon>ReportPrintThesisClearance.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="report_returned_books.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>report_returned_books.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus.resx">
       <DependentUpon>ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus.vb</DependentUpon>

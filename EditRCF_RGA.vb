@@ -394,7 +394,6 @@ from the panel members"
                     `dept` = @dept, 
                     `status` = @status, 
                     `role` = @role
-
                     WHERE `record_id` = @record_id 
                     "
 

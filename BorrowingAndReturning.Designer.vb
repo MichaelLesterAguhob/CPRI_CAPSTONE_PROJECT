@@ -112,11 +112,10 @@ Partial Class BorrowingAndReturning
         Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column51 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
-        Me.BtnPrintBorrowed = New System.Windows.Forms.Button()
         Me.PanelCancelled = New System.Windows.Forms.Panel()
+        Me.Label20 = New System.Windows.Forms.Label()
         Me.BtnSearchCancel = New System.Windows.Forms.Button()
         Me.TxtsearchCancel = New System.Windows.Forms.TextBox()
-        Me.Label20 = New System.Windows.Forms.Label()
         Me.DgvCancelledBorrow = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -151,8 +150,10 @@ Partial Class BorrowingAndReturning
         Me.BtnReturnBooks = New System.Windows.Forms.Button()
         Me.BtnSearchBorrowed = New System.Windows.Forms.Button()
         Me.TxtSearchBorrowed = New System.Windows.Forms.TextBox()
+        Me.BtnPrintBorrowed = New System.Windows.Forms.Button()
         Me.Label21 = New System.Windows.Forms.Label()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
+        Me.BtnPrintReturned = New System.Windows.Forms.Button()
         Me.BtnSearchReturned = New System.Windows.Forms.Button()
         Me.TxtSearchReturned = New System.Windows.Forms.TextBox()
         Me.DgvReturned = New System.Windows.Forms.DataGridView()
@@ -1163,22 +1164,6 @@ Partial Class BorrowingAndReturning
         Me.TabPage3.Size = New System.Drawing.Size(1128, 600)
         Me.TabPage3.TabIndex = 2
         '
-        'BtnPrintBorrowed
-        '
-        Me.BtnPrintBorrowed.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.BtnPrintBorrowed.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.BtnPrintBorrowed.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnPrintBorrowed.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnPrintBorrowed.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnPrintBorrowed.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.BtnPrintBorrowed.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.BtnPrintBorrowed.Location = New System.Drawing.Point(987, 27)
-        Me.BtnPrintBorrowed.Name = "BtnPrintBorrowed"
-        Me.BtnPrintBorrowed.Size = New System.Drawing.Size(138, 24)
-        Me.BtnPrintBorrowed.TabIndex = 34
-        Me.BtnPrintBorrowed.Text = " Print Borrowed Books"
-        Me.BtnPrintBorrowed.UseVisualStyleBackColor = False
-        '
         'PanelCancelled
         '
         Me.PanelCancelled.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
@@ -1191,9 +1176,22 @@ Partial Class BorrowingAndReturning
         Me.PanelCancelled.Controls.Add(Me.BtnReturn)
         Me.PanelCancelled.Location = New System.Drawing.Point(0, 0)
         Me.PanelCancelled.Name = "PanelCancelled"
-        Me.PanelCancelled.Size = New System.Drawing.Size(1126, 600)
+        Me.PanelCancelled.Size = New System.Drawing.Size(1126, 597)
         Me.PanelCancelled.TabIndex = 5
         Me.PanelCancelled.Visible = False
+        '
+        'Label20
+        '
+        Me.Label20.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.Label20.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Label20.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label20.ForeColor = System.Drawing.SystemColors.HotTrack
+        Me.Label20.Location = New System.Drawing.Point(0, 0)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(1126, 54)
+        Me.Label20.TabIndex = 19
+        Me.Label20.Text = "CANCELLED"
+        Me.Label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'BtnSearchCancel
         '
@@ -1220,19 +1218,6 @@ Partial Class BorrowingAndReturning
         Me.TxtsearchCancel.Size = New System.Drawing.Size(226, 21)
         Me.TxtsearchCancel.TabIndex = 30
         Me.TxtsearchCancel.Text = "Search Title, Author Etc."
-        '
-        'Label20
-        '
-        Me.Label20.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.Label20.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Label20.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label20.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.Label20.Location = New System.Drawing.Point(0, 0)
-        Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(1126, 54)
-        Me.Label20.TabIndex = 19
-        Me.Label20.Text = "CANCELLED"
-        Me.Label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'DgvCancelledBorrow
         '
@@ -1261,7 +1246,7 @@ Partial Class BorrowingAndReturning
         DataGridViewCellStyle12.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
         Me.DgvCancelledBorrow.RowsDefaultCellStyle = DataGridViewCellStyle12
         Me.DgvCancelledBorrow.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvCancelledBorrow.Size = New System.Drawing.Size(1125, 471)
+        Me.DgvCancelledBorrow.Size = New System.Drawing.Size(1125, 468)
         Me.DgvCancelledBorrow.TabIndex = 3
         '
         'DataGridViewTextBoxColumn7
@@ -1399,7 +1384,7 @@ Partial Class BorrowingAndReturning
         Me.BtnReturn.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.BtnReturn.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnReturn.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnReturn.Location = New System.Drawing.Point(504, 542)
+        Me.BtnReturn.Location = New System.Drawing.Point(504, 539)
         Me.BtnReturn.Name = "BtnReturn"
         Me.BtnReturn.Size = New System.Drawing.Size(129, 44)
         Me.BtnReturn.TabIndex = 20
@@ -1633,6 +1618,22 @@ Partial Class BorrowingAndReturning
         Me.TxtSearchBorrowed.TabIndex = 32
         Me.TxtSearchBorrowed.Text = "Search Title, Author Etc."
         '
+        'BtnPrintBorrowed
+        '
+        Me.BtnPrintBorrowed.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnPrintBorrowed.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnPrintBorrowed.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnPrintBorrowed.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnPrintBorrowed.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnPrintBorrowed.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.BtnPrintBorrowed.ImageAlign = System.Drawing.ContentAlignment.TopLeft
+        Me.BtnPrintBorrowed.Location = New System.Drawing.Point(987, 27)
+        Me.BtnPrintBorrowed.Name = "BtnPrintBorrowed"
+        Me.BtnPrintBorrowed.Size = New System.Drawing.Size(138, 24)
+        Me.BtnPrintBorrowed.TabIndex = 34
+        Me.BtnPrintBorrowed.Text = " Print Borrowed Books"
+        Me.BtnPrintBorrowed.UseVisualStyleBackColor = False
+        '
         'Label21
         '
         Me.Label21.BackColor = System.Drawing.SystemColors.ActiveCaption
@@ -1648,6 +1649,7 @@ Partial Class BorrowingAndReturning
         '
         'TabPage4
         '
+        Me.TabPage4.Controls.Add(Me.BtnPrintReturned)
         Me.TabPage4.Controls.Add(Me.BtnSearchReturned)
         Me.TabPage4.Controls.Add(Me.TxtSearchReturned)
         Me.TabPage4.Controls.Add(Me.DgvReturned)
@@ -1657,6 +1659,22 @@ Partial Class BorrowingAndReturning
         Me.TabPage4.Size = New System.Drawing.Size(1128, 600)
         Me.TabPage4.TabIndex = 3
         Me.TabPage4.UseVisualStyleBackColor = True
+        '
+        'BtnPrintReturned
+        '
+        Me.BtnPrintReturned.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnPrintReturned.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnPrintReturned.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnPrintReturned.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnPrintReturned.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnPrintReturned.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.BtnPrintReturned.ImageAlign = System.Drawing.ContentAlignment.TopLeft
+        Me.BtnPrintReturned.Location = New System.Drawing.Point(987, 27)
+        Me.BtnPrintReturned.Name = "BtnPrintReturned"
+        Me.BtnPrintReturned.Size = New System.Drawing.Size(138, 24)
+        Me.BtnPrintReturned.TabIndex = 36
+        Me.BtnPrintReturned.Text = "Print Returned Record"
+        Me.BtnPrintReturned.UseVisualStyleBackColor = False
         '
         'BtnSearchReturned
         '
@@ -2966,4 +2984,5 @@ Partial Class BorrowingAndReturning
     Friend WithEvents BtnPrintBooksList As Button
     Friend WithEvents Button2 As Button
     Friend WithEvents BtnPrintBorrowed As Button
+    Friend WithEvents BtnPrintReturned As Button
 End Class
