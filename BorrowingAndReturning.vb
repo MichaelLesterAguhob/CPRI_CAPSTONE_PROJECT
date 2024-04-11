@@ -1285,6 +1285,17 @@ Public Class BorrowingAndReturning
         End If
     End Sub
 
+    ReadOnly dt_cancelled As New DataTable
+    Private Sub BtnPrintCancelled_Click(sender As Object, e As EventArgs) Handles BtnPrintCancelled.Click
+        Dim brr As New ReportBorrowingAndReturning
+        brr.Show()
+
+        Dim print_cancelled As New report_cancelled_books
+        print_cancelled.Database.Tables("cancelled_books").SetDataSource(dt_cancelled)
+
+        brr.CrvBaR.ReportSource = print_cancelled
+    End Sub
+
     Private Sub SearchInCancelled()
         con.Close()
         Try
@@ -1309,10 +1320,10 @@ Public Class BorrowingAndReturning
             Using cmd As New MySqlCommand(query, con)
                 cmd.Parameters.AddWithValue("@to_search", "%" & TxtsearchCancel.Text.Trim & "%")
                 Using adptr As New MySqlDataAdapter(cmd)
-                    Dim dt As New DataTable()
-                    adptr.Fill(dt)
+                    dt_cancelled.Clear()
+                    adptr.Fill(dt_cancelled)
 
-                    DgvCancelledBorrow.DataSource = dt
+                    DgvCancelledBorrow.DataSource = dt_cancelled
                     DgvCancelledBorrow.Refresh()
                     For i = 0 To DgvCancelledBorrow.Rows.Count - 1
                         DgvCancelledBorrow.Rows(i).Height = 70
@@ -1333,26 +1344,26 @@ Public Class BorrowingAndReturning
     End Sub
 
     Private Sub TxtsearchCancel_TextChanged(sender As Object, e As EventArgs) Handles TxtsearchCancel.TextChanged
-        If TxtsearchCancel.Text.Trim <> "" And TxtsearchCancel.Text.Trim <> "Search Title, Author Etc." Then
+        If TxtsearchCancel.Text.Trim <> "" And TxtsearchCancel.Text.Trim <> "Search IDs, Title Etc." Then
             SearchInCancelled()
         End If
     End Sub
 
     Private Sub TxtsearchCancel_KeyDown(sender As Object, e As KeyEventArgs) Handles TxtsearchCancel.KeyDown
-        If e.KeyCode = 13 And TxtsearchCancel.Text.Trim <> "" And TxtsearchCancel.Text.Trim <> "Search Title, Author Etc." Then
+        If e.KeyCode = 13 And TxtsearchCancel.Text.Trim <> "" And TxtsearchCancel.Text.Trim <> "Search IDs, Title Etc." Then
             SearchInCancelled()
         End If
     End Sub
 
     Private Sub TxtsearchCancel_Click(sender As Object, e As EventArgs) Handles TxtsearchCancel.Click
-        If TxtsearchCancel.Text.Trim = "Search Title, Author Etc." Then
+        If TxtsearchCancel.Text.Trim = "Search IDs, Title Etc." Then
             TxtsearchCancel.Text = ""
         End If
     End Sub
 
     Private Sub TxtsearchCancel_Leave(sender As Object, e As EventArgs) Handles TxtsearchCancel.Leave
         If TxtsearchCancel.Text = "" Then
-            TxtsearchCancel.Text = "Search Title, Author Etc."
+            TxtsearchCancel.Text = "Search IDs, Title Etc."
             LoadCancelledBorrow()
         End If
     End Sub
@@ -1674,18 +1685,18 @@ Public Class BorrowingAndReturning
             Dim query As String = "SELECT * FROM borrowed_books WHERE is_cancel='YES' ORDER BY borrow_date DESC, time DESC"
             Using cmd As New MySqlCommand(query, con)
                 Using adptr As New MySqlDataAdapter(cmd)
-                    Dim dt As New DataTable()
-                    adptr.Fill(dt)
+                    dt_cancelled.Clear()
+                    adptr.Fill(dt_cancelled)
 
-                    If dt.Rows.Count > 0 Then
-                        DgvCancelledBorrow.DataSource = dt
+                    If dt_cancelled.Rows.Count > 0 Then
+                        DgvCancelledBorrow.DataSource = dt_cancelled
                         DgvCancelledBorrow.Refresh()
                         For i = 0 To DgvCancelledBorrow.Rows.Count - 1
                             DgvCancelledBorrow.Rows(i).Height = 50
                         Next
                         DgvCancelledBorrow.ClearSelection()
                     Else
-                        DgvCancelledBorrow.DataSource = dt
+                        DgvCancelledBorrow.DataSource = dt_cancelled
                         DgvCancelledBorrow.Refresh()
                     End If
                 End Using
@@ -2034,31 +2045,42 @@ Public Class BorrowingAndReturning
     End Sub
 
     Private Sub TxtSearchReturned_TextChanged(sender As Object, e As EventArgs) Handles TxtSearchReturned.TextChanged
-        If TxtSearchReturned.Text.Trim <> "" And TxtSearchReturned.Text.Trim <> "Search Title, Author Etc." Then
+        If TxtSearchReturned.Text.Trim <> "" And TxtSearchReturned.Text.Trim <> "Search IDs, Title, Date, Time Etc." Then
             SearchInReturned()
         End If
     End Sub
 
     Private Sub TxtSearchReturned_KeyDown(sender As Object, e As KeyEventArgs) Handles TxtSearchReturned.KeyDown
-        If e.KeyCode = 13 And TxtSearchReturned.Text.Trim <> "" And TxtSearchReturned.Text.Trim <> "Search Title, Author Etc." Then
+        If e.KeyCode = 13 And TxtSearchReturned.Text.Trim <> "" And TxtSearchReturned.Text.Trim <> "Search IDs, Title, Date, Time Etc." Then
             SearchInReturned()
         End If
     End Sub
 
     Private Sub TxtSearchReturned_Click(sender As Object, e As EventArgs) Handles TxtSearchReturned.Click
-        If TxtSearchReturned.Text.Trim = "Search Title, Author Etc." Then
+        If TxtSearchReturned.Text.Trim = "Search IDs, Title, Date, Time Etc." Then
             TxtSearchReturned.Text = ""
         End If
     End Sub
 
     Private Sub TxtSearchReturned_Leave(sender As Object, e As EventArgs) Handles TxtSearchReturned.Leave
         If TxtSearchReturned.Text = "" Then
-            TxtSearchReturned.Text = "Search Title, Author Etc."
+            TxtSearchReturned.Text = "Search IDs, Title, Date, Time Etc."
             LoadReturnedBooksList()
         End If
     End Sub
 
     '==============OVERDUES===============================
+    ReadOnly dt_overdue_books As New DataTable()
+    Private Sub BtnPrintOverdue_Click(sender As Object, e As EventArgs) Handles BtnPrintOverdue.Click
+
+        Dim brr As New ReportBorrowingAndReturning
+        brr.Show()
+
+        Dim print_overdue_books As New report_overdue_books
+        print_overdue_books.Database.Tables("overdue_books").SetDataSource(dt_overdue_books)
+
+        brr.CrvBaR.ReportSource = print_overdue_books
+    End Sub
     Private Sub LoadOverDues()
         con.Close()
         Try
@@ -2083,18 +2105,18 @@ Public Class BorrowingAndReturning
                 "
             Using cmd As New MySqlCommand(query, con)
                 Using adptr As New MySqlDataAdapter(cmd)
-                    Dim dt As New DataTable()
-                    adptr.Fill(dt)
+                    dt_overdue_books.Clear()
+                    adptr.Fill(dt_overdue_books)
 
-                    If dt.Rows.Count > 0 Then
-                        DgvOverdues.DataSource = dt
+                    If dt_overdue_books.Rows.Count > 0 Then
+                        DgvOverdues.DataSource = dt_overdue_books
                         DgvOverdues.Refresh()
                         For i = 0 To DgvOverdues.Rows.Count - 1
                             DgvOverdues.Rows(i).Height = 50
                         Next
                         DgvOverdues.ClearSelection()
                     Else
-                        DgvOverdues.DataSource = dt
+                        DgvOverdues.DataSource = dt_overdue_books
                         DgvOverdues.Refresh()
                     End If
 
@@ -2127,7 +2149,7 @@ Public Class BorrowingAndReturning
         BtnReturnedBooks.BackColor = Color.Transparent
         CheckOverDuesBorrowedBooks()
         LoadOverDues()
-        me.frm1.LoadAllDisplayData()
+        Me.frm1.LoadAllDisplayData()
         BtnRemoveToBorrow.Visible = False
         BtnEditBorrower.Enabled = False
         BtnDeleteBorrower.Enabled = False

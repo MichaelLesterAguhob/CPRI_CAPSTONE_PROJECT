@@ -319,6 +319,18 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="public_variables.vb" />
+    <Compile Include="report_cancelled_books.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>report_cancelled_books.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="report_overdue_books.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>report_overdue_books.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="report_returned_books.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -399,6 +411,14 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReportPrintThesisClearance.resx">
       <DependentUpon>ReportPrintThesisClearance.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="report_cancelled_books.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>report_cancelled_books.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="report_overdue_books.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>report_overdue_books.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="report_returned_books.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
