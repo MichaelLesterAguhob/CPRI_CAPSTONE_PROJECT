@@ -83,6 +83,11 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\Program Files (x86)\MySQL\MySQL Connector NET 8.3.0\MySql.Data.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="QRCoder, Version=1.4.3.0, Culture=neutral, PublicKeyToken=c4ed5b9ae8358a28, processorArchitecture=MSIL">
+      <HintPath>packages\QRCoder.1.4.3\lib\net40\QRCoder.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Activities" />
     <Reference Include="System.Activities.Core.Presentation" />
@@ -179,6 +184,13 @@
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Xml.Serialization" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="zxing, Version=0.16.9.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>packages\ZXing.Net.0.16.9\lib\net47\zxing.dll</HintPath>
+    </Reference>
+    <Reference Include="zxing.presentation, Version=0.16.9.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>packages\ZXing.Net.0.16.9\lib\net47\zxing.presentation.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Import Include="Microsoft.VisualBasic" />
@@ -217,6 +229,12 @@
       <DependentUpon>BorrowingAndReturning.vb</DependentUpon>
     </Compile>
     <Compile Include="BorrowingAndReturning.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QrCodeGenerator.Designer.vb">
+      <DependentUpon>QrCodeGenerator.vb</DependentUpon>
+    </Compile>
+    <Compile Include="QrCodeGenerator.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="report_book_borrowed.vb">
@@ -371,6 +389,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BorrowingAndReturning.resx">
       <DependentUpon>BorrowingAndReturning.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QrCodeGenerator.resx">
+      <DependentUpon>QrCodeGenerator.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="report_book_borrowed.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

@@ -1756,17 +1756,23 @@ Public Class EditWorkRecord
 
     'execute codes if form window is close by user
     Private Sub EditWorkRecord_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
-        If iscloseUsingWinControl = True Then
-            Dim close_window As DialogResult = MessageBox.Show("Are you sure you want to cancel editing and close this form? All changes will not be saved.", "Click Yes to close this form.", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-            If close_window = DialogResult.Yes Then
-                isEditModeActive = False
-                e.Cancel = False
-            Else
-                e.Cancel = True
-            End If
-        Else
+
+        If isForm1Closed Then
             e.Cancel = False
+        Else
+            If iscloseUsingWinControl = True Then
+                Dim close_window As DialogResult = MessageBox.Show("Are you sure you want to cancel editing and close this form? All changes will not be saved.", "Click Yes to close this form.", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                If close_window = DialogResult.Yes Then
+                    isEditModeActive = False
+                    e.Cancel = False
+                Else
+                    e.Cancel = True
+                End If
+            Else
+                e.Cancel = False
+            End If
         End If
+
 
     End Sub
     Private Sub EditWorkRecord_FormClosed(sender As Object, e As FormClosedEventArgs) Handles Me.FormClosed

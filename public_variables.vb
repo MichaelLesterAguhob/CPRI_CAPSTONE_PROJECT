@@ -11,6 +11,8 @@ Module public_variables
     Public account_type_loggedin As String
     Public loggedin As Integer = 0
 
+    Public isForm1Closed As Boolean = False
+
     Public Function MD5(ByVal sPassword As String) As String
         Dim p As New Security.Cryptography.MD5CryptoServiceProvider()
         Dim bs As Byte() = Text.Encoding.UTF8.GetBytes(sPassword)

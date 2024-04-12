@@ -48,7 +48,7 @@ Public Class BorrowingAndReturning
         LoadReturnedBooksList()
         CheckOverDuesBorrowedBooks()
         LoadOverDues()
-        'CheckActiveLogin()
+        CheckActiveLogin()
         TxtDate.Text = date_time.Date.ToString("MM-dd-yyyy")
         Timer1.Start()
         DgvBooks.Focus()
@@ -64,8 +64,6 @@ Public Class BorrowingAndReturning
     Private Sub CheckActiveLogin()
         If loggedin <= 0 Then
             Me.Close()
-            Dim crt_lgn As New CreateLoginAccount
-            crt_lgn.Show()
         Else
             If account_type_loggedin = "staff" Then
                 LblStaffLoggedin.Text = "STAFF | " & account_loggedin.ToUpper()
@@ -76,7 +74,30 @@ Public Class BorrowingAndReturning
     End Sub
 
     Private Sub BorrowingAndReturning_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
-        EmptyTempStorage()
+
+        If account_type_loggedin <> "admin" And account_type_loggedin <> "" And loggedin <= 0 Then
+            Dim formsToClose As New List(Of Form)
+
+            For Each openForm As Form In Application.OpenForms
+                If openForm IsNot Me AndAlso Not TypeOf openForm Is CreateLoginAccount Then
+                    formsToClose.Add(openForm)
+                End If
+            Next
+
+            For Each formToClose As Form In formsToClose
+                formToClose.Close()
+            Next
+
+            ' Show the login form if it's not already visible
+            If Not CreateLoginAccount.Visible Then
+                CreateLoginAccount.Show()
+            End If
+            EmptyTempStorage()
+        Else
+            EmptyTempStorage()
+            e.Cancel = False
+        End If
+
     End Sub
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
@@ -1210,7 +1231,10 @@ Public Class BorrowingAndReturning
         If PanelCancelled.Visible = True Then
             PanelCancelled.Visible = False
         End If
-        Me.frm1.LoadAllDisplayData()
+        If account_type_loggedin <> "staff" Then
+            Me.frm1.LoadAllDisplayData()
+        End If
+
     End Sub
 
     Private Sub SearchInBorrowed()
@@ -1489,7 +1513,9 @@ Public Class BorrowingAndReturning
             isThereAvailableBorrowSelected = False
             isThereInternalBorrowSelected = False
             con.Close()
-            Me.frm1.LoadAllDisplayData()
+            If account_type_loggedin <> "staff" Then
+                Me.frm1.LoadAllDisplayData()
+            End If
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Error Occurred on getting book ids and titles from datagrid", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Finally
@@ -1657,7 +1683,9 @@ Public Class BorrowingAndReturning
                                 BtnCancelBorrow.Enabled = True
                                 BtnReturnedBooks.Enabled = True
                                 DgvCancelledBorrow.ClearSelection()
-                                Me.frm1.LoadAllDisplayData()
+                                If account_type_loggedin <> "staff" Then
+                                    Me.frm1.LoadAllDisplayData()
+                                End If
                             Catch ex As Exception
                                 MessageBox.Show(ex.Message, "Error Occurred on Cancelling", MessageBoxButtons.OK, MessageBoxIcon.Error)
                                 con.Close()
@@ -1864,7 +1892,9 @@ Public Class BorrowingAndReturning
                     BtnCancelBorrow.Enabled = True
                     BtnReturnedBooks.Enabled = True
                     DgvCancelledBorrow.ClearSelection()
-                    Me.frm1.LoadAllDisplayData()
+                    If account_type_loggedin <> "staff" Then
+                        Me.frm1.LoadAllDisplayData()
+                    End If
 
                 Catch ex As Exception
                     MessageBox.Show(ex.Message, "Error Occurred on Returning", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -2149,7 +2179,9 @@ Public Class BorrowingAndReturning
         BtnReturnedBooks.BackColor = Color.Transparent
         CheckOverDuesBorrowedBooks()
         LoadOverDues()
-        Me.frm1.LoadAllDisplayData()
+        If account_type_loggedin <> "staff" Then
+            Me.frm1.LoadAllDisplayData()
+        End If
         BtnRemoveToBorrow.Visible = False
         BtnEditBorrower.Enabled = False
         BtnDeleteBorrower.Enabled = False

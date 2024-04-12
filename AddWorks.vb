@@ -1099,14 +1099,16 @@ Public Class AddWorks
     End Sub
 
     Private Sub AddWorks_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
-
-        Dim close_window As DialogResult = MessageBox.Show("Are you sure you want to close this form? Entered data will not be saved.", "Click Yes to close this form.", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-        If close_window = DialogResult.Yes Then
+        If isForm1Closed Then
             e.Cancel = False
         Else
-            e.Cancel = True
+            Dim close_window As DialogResult = MessageBox.Show("Are you sure you want to close this form? Entered data will not be saved.", "Click Yes to close this form.", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+            If close_window = DialogResult.Yes Then
+                e.Cancel = False
+            Else
+                e.Cancel = True
+            End If
         End If
-
     End Sub
 
     Private Sub BtnThssClrnc_Click(sender As Object, e As EventArgs) Handles BtnThssClrnc.Click

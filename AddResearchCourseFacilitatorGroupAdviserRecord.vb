@@ -594,17 +594,20 @@ from the panel members"
     End Sub
 
     Private Sub AddResearchCourseFacilitatorGroupAdviserRecord_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
-        If is_form_close_by_user Then
-            Dim confirm_exit As DialogResult = MessageBox.Show("Are you sure you want to Close this Form? By clicking 'Yes', Changes will not be saved.", "Click 'Yes' to Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
-            If confirm_exit = DialogResult.Yes Then
-                e.Cancel = False
-            Else
-                e.Cancel = True
-            End If
-        Else
+        If isForm1Closed Then
             e.Cancel = False
+        Else
+            If is_form_close_by_user Then
+                Dim confirm_exit As DialogResult = MessageBox.Show("Are you sure you want to Close this Form? By clicking 'Yes', Changes will not be saved.", "Click 'Yes' to Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
+                If confirm_exit = DialogResult.Yes Then
+                    e.Cancel = False
+                Else
+                    e.Cancel = True
+                End If
+            Else
+                e.Cancel = False
+            End If
         End If
-
     End Sub
 End Class
 

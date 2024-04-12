@@ -304,7 +304,6 @@ Public Class CreateLoginAccount
 
 
     ' ================= ACCOUNT LOGIN
-
     'OPEN LOGIN FORM
     Private Sub BtnGoToLogin_Click(sender As Object, e As EventArgs) Handles BtnGoToLogin.Click
         GbxCreate.Visible = False

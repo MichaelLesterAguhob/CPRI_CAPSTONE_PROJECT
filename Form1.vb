@@ -8,13 +8,53 @@ Public Class Form1
     Private Sub CheckActiveLogin()
         If loggedin <= 0 Then
             Me.Close()
-            Dim crt_lgn As New CreateLoginAccount
-            crt_lgn.Show()
+            'Dim crt_lgn As New CreateLoginAccount
+            ' crt_lgn.Show()
         Else
             If account_type_loggedin = "admin" Then
-                LblWelcome.Text = "WELCOME ADMIN | " & account_loggedin.ToUpper()
+                LblWelcome.Text = "WELCOME ADMIN " & Environment.NewLine & account_loggedin.ToUpper()
             End If
         End If
+        isForm1Closed = False
+    End Sub
+
+    Private Sub Form1_Closing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+
+        If loggedin <= 0 Then
+            Dim formsToClose As New List(Of Form)
+            ' Collect forms to close (excluding Form1 itself and LoginForm)
+            For Each openForm As Form In Application.OpenForms
+                If openForm IsNot Me AndAlso Not TypeOf openForm Is CreateLoginAccount Then
+                    formsToClose.Add(openForm)
+                End If
+            Next
+
+            ' Close collected forms outside of the loop
+            For Each formToClose As Form In formsToClose
+                formToClose.Close()
+            Next
+
+            ' Show the login form if it's not already visible
+            If Not CreateLoginAccount.Visible Then
+                CreateLoginAccount.Show()
+            End If
+        Else
+            Dim confirm_closing As DialogResult = MessageBox.Show("Are you sure you want to exit program?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+            If confirm_closing = DialogResult.Yes Then
+                End
+            Else
+                e.Cancel = True
+            End If
+
+        End If
+    End Sub
+
+    Private Sub LogOut_Click(sender As Object, e As EventArgs) Handles LogOut.Click
+        isForm1Closed = True
+        loggedin = 0
+        account_loggedin = ""
+        account_type_loggedin = ""
+        CheckActiveLogin()
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -22,15 +62,7 @@ Public Class Form1
         TxtDateNow.Text = date_time.Date.ToString("MM-dd-yyyy")
         Timer1.Start()
         LoadAllDisplayData()
-        ' CheckActiveLogin()
-    End Sub
-
-    Private Sub Form1_Closing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
-        ' Close all child forms before closing Form1
-        ' For Each childForm In Me.MdiChildren
-        ' childForm.Close()
-        'Next
-        'Application.Exit() ' Close the entire application
+        CheckActiveLogin()
     End Sub
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
@@ -221,14 +253,6 @@ Public Class Form1
     Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem.Click
         End
     End Sub
-
-    Private Sub LogOut_Click(sender As Object, e As EventArgs) Handles LogOut.Click
-        loggedin = 0
-        account_loggedin = ""
-        account_type_loggedin = ""
-        CheckActiveLogin()
-    End Sub
-
 
     ReadOnly myFont1 As New Font("Microsoft Sans Serif", 14, FontStyle.Regular)
     ReadOnly myFont01 As New Font("Microsoft Sans Serif", 8.25, FontStyle.Regular)
