@@ -1099,4 +1099,13 @@ Public Class StudentTerminal
         LoadScholarlyWorks()
         BtnRemoveSelection.PerformClick()
     End Sub
+
+    Private Sub StudentTerminal_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+        Dim confirm_closing As DialogResult = MessageBox.Show("Are you sure you want to exit the program?", "Confirm Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        If confirm_closing = DialogResult.Yes Then
+            End
+        Else
+            e.Cancel = True
+        End If
+    End Sub
 End Class

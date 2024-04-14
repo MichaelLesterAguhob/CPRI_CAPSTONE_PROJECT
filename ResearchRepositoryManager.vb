@@ -5,7 +5,7 @@ Public Class ResearchRepoManager
 
     'VARIABLES DECLARATION
     Dim selected_research As Integer = 0
-
+    Dim research_data As New DataTable()
     Dim sw_edit_id As Integer
     Dim isSearchButtonUsed As Boolean = False
     Dim isDataAlreadyLoaded As Boolean = False
@@ -94,10 +94,10 @@ Public Class ResearchRepoManager
 
             Using cmd As New MySqlCommand(query, con)
                 Using adptr As New MySqlDataAdapter(cmd)
-                    Dim dt As New DataTable()
-                    adptr.Fill(dt)
+                    research_data.Clear()
+                    adptr.Fill(research_data)
 
-                    DgvSwData.DataSource = dt
+                    DgvSwData.DataSource = research_data
                     DgvSwData.Refresh()
                     For i = 0 To DgvSwData.Rows.Count - 1
                         DgvSwData.Rows(i).Height = 70
@@ -436,15 +436,15 @@ Public Class ResearchRepoManager
             Using cmd As New MySqlCommand(query, con)
                 cmd.Parameters.AddWithValue("@searchTerm", "%" & search_term & "%")
                 Using adptr As New MySqlDataAdapter(cmd)
-                    Dim dt As New DataTable()
-                    adptr.Fill(dt)
-                    If dt.Rows.Count > 0 Then
-                        DgvSwData.DataSource = dt
+                    research_data.Clear()
+                    adptr.Fill(research_data)
+                    If research_data.Rows.Count > 0 Then
+                        DgvSwData.DataSource = research_data
                         DgvSwData.Refresh()
                         For i = 0 To DgvSwData.Rows.Count - 1
                             DgvSwData.Rows(i).Height = 70
                         Next
-                        LblSrchFnd.Text = dt.Rows.Count.ToString & " Result(s) found"
+                        LblSrchFnd.Text = research_data.Rows.Count.ToString & " Result(s) found"
                         isDataAlreadyLoaded = False
                     Else
                         Search_in_Auth_CoAuth(search_term)
@@ -522,24 +522,24 @@ Public Class ResearchRepoManager
             Using cmd As New MySqlCommand(query, con)
                 cmd.Parameters.AddWithValue("@searchTerm", "%" & search_term & "%")
                 Using adptr As New MySqlDataAdapter(cmd)
-                    Dim dt As New DataTable()
-                    adptr.Fill(dt)
+                    research_data.Clear()
+                    adptr.Fill(research_data)
 
-                    If dt.Rows.Count > 0 Then
-                        DgvSwData.DataSource = dt
+                    If research_data.Rows.Count > 0 Then
+                        DgvSwData.DataSource = research_data
                         DgvSwData.Refresh()
                         For i = 0 To DgvSwData.Rows.Count - 1
                             DgvSwData.Rows(i).Height = 70
                         Next
                         isDataAlreadyLoaded = False
-                        LblSrchFnd.Text = dt.Rows.Count.ToString & " Result(s) found"
+                        LblSrchFnd.Text = research_data.Rows.Count.ToString & " Result(s) found"
                     Else
                         If Not isTxtSearchChangedTriggered Then
-                            LblSrchFnd.Text = dt.Rows.Count.ToString & " Result(s) found"
+                            LblSrchFnd.Text = research_data.Rows.Count.ToString & " Result(s) found"
                             MessageBox.Show("Your search do not match to any records. Please try different keywords", "No data found.", MessageBoxButtons.OK, MessageBoxIcon.Information)
                         Else
-                            LblSrchFnd.Text = dt.Rows.Count.ToString & " Result(s) found"
-                            DgvSwData.DataSource = dt
+                            LblSrchFnd.Text = research_data.Rows.Count.ToString & " Result(s) found"
+                            DgvSwData.DataSource = research_data
                             DgvSwData.Refresh()
                             isTxtSearchChangedTriggered = False
                         End If
@@ -709,19 +709,19 @@ Public Class ResearchRepoManager
                 cmd.Parameters.AddWithValue("@pres_yes", "Presented")
                 cmd.Parameters.AddWithValue("@pres_no", "Unpresented")
                 Using adptr As New MySqlDataAdapter(cmd)
-                    Dim dt As New DataTable()
-                    adptr.Fill(dt)
-                    If dt.Rows.Count > 0 Then
-                        DgvSwData.DataSource = dt
+                    research_data.Clear()
+                    adptr.Fill(research_data)
+                    If research_data.Rows.Count > 0 Then
+                        DgvSwData.DataSource = research_data
                         DgvSwData.Refresh()
                         For i = 0 To DgvSwData.Rows.Count - 1
                             DgvSwData.Rows(i).Height = 70
                         Next
-                        LblSrchFnd.Text = dt.Rows.Count.ToString & " Result(s) found"
+                        LblSrchFnd.Text = research_data.Rows.Count.ToString & " Result(s) found"
                     Else
-                        DgvSwData.DataSource = dt
+                        DgvSwData.DataSource = research_data
                         DgvSwData.Refresh()
-                        LblSrchFnd.Text = dt.Rows.Count.ToString & " Result(s) found"
+                        LblSrchFnd.Text = research_data.Rows.Count.ToString & " Result(s) found"
                     End If
                 End Using
             End Using
@@ -1051,9 +1051,19 @@ Public Class ResearchRepoManager
         SetQuery()
     End Sub
 
-    Private Sub LblSrchFnd_Click(sender As Object, e As EventArgs) Handles LblSrchFnd.Click
+    Private Sub BtnReport_Click(sender As Object, e As EventArgs) Handles BtnReport.Click
 
+        ' bbr is the form where crystal report viewer is attached
+        Dim rrm As New ReportRepositoryManager
+        rrm.Show()
+        'report book is my report 
+        Dim print_sw As New report_repository_manager
+        print_sw.Database.Tables("scholarly_works").SetDataSource(research_data)
+
+        'setting crystal report viewer'source
+        rrm.CrvRRM.ReportSource = print_sw
     End Sub
+
 
     'CLEAR PRESENTED
     Private Sub BtnClearPresented_Click(sender As Object, e As EventArgs) Handles BtnClearPresented.Click

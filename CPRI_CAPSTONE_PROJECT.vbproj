@@ -237,6 +237,18 @@
     <Compile Include="QrCodeGenerator.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="ReportRcf.Designer.vb">
+      <DependentUpon>ReportRcf.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ReportRcf.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportRepositoryManager.Designer.vb">
+      <DependentUpon>ReportRepositoryManager.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ReportRepositoryManager.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="report_book_borrowed.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -272,13 +284,10 @@
     <Compile Include="CreateLoginAccount.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DataSet1.Designer.vb">
+    <Compile Include="repo_manager_dataset.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="DataSet1.vb">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
+      <DependentUpon>repo_manager_dataset.xsd</DependentUpon>
     </Compile>
     <Compile Include="DataSet2.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -349,6 +358,12 @@
       <DependentUpon>report_overdue_books.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="report_repository_manager.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>report_repository_manager.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="report_returned_books.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -392,6 +407,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="QrCodeGenerator.resx">
       <DependentUpon>QrCodeGenerator.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportRcf.resx">
+      <DependentUpon>ReportRcf.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportRepositoryManager.resx">
+      <DependentUpon>ReportRepositoryManager.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="report_book_borrowed.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -441,6 +462,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>report_overdue_books.vb</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="report_repository_manager.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>report_repository_manager.vb</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="report_returned_books.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>report_returned_books.vb</LastGenOutput>
@@ -473,16 +498,16 @@
     <None Include="BorAndRetDataset.xss">
       <DependentUpon>BorAndRetDataset.xsd</DependentUpon>
     </None>
-    <None Include="DataSet1.xsc">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
+    <None Include="repo_manager_dataset.xsc">
+      <DependentUpon>repo_manager_dataset.xsd</DependentUpon>
     </None>
-    <None Include="DataSet1.xsd">
+    <None Include="repo_manager_dataset.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSet1.Designer.vb</LastGenOutput>
+      <LastGenOutput>repo_manager_dataset.Designer.vb</LastGenOutput>
     </None>
-    <None Include="DataSet1.xss">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
+    <None Include="repo_manager_dataset.xss">
+      <DependentUpon>repo_manager_dataset.xsd</DependentUpon>
     </None>
     <None Include="DataSet2.xsc">
       <DependentUpon>DataSet2.xsd</DependentUpon>

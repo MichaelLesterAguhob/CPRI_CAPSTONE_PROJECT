@@ -91,6 +91,7 @@ Partial Class CreateLoginAccount
         Me.Label14 = New System.Windows.Forms.Label()
         Me.LblLoginMsg = New System.Windows.Forms.Label()
         Me.timer_fade_out_msg = New System.Windows.Forms.Timer(Me.components)
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.GbxCreate.SuspendLayout()
         Me.PnlVCode.SuspendLayout()
@@ -477,6 +478,7 @@ Partial Class CreateLoginAccount
         '
         'GbxLogin
         '
+        Me.GbxLogin.Controls.Add(Me.Button2)
         Me.GbxLogin.Controls.Add(Me.BtnGoToStudentViewing)
         Me.GbxLogin.Controls.Add(Me.PnlForgotPass)
         Me.GbxLogin.Controls.Add(Me.Label13)
@@ -873,6 +875,18 @@ Partial Class CreateLoginAccount
         '
         Me.timer_fade_out_msg.Interval = 2000
         '
+        'Button2
+        '
+        Me.Button2.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.Button2.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.Location = New System.Drawing.Point(57, 72)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(344, 33)
+        Me.Button2.TabIndex = 22
+        Me.Button2.Text = "Shorcut"
+        Me.Button2.UseVisualStyleBackColor = False
+        '
         'CreateLoginAccount
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -975,4 +989,5 @@ Partial Class CreateLoginAccount
     Friend WithEvents Label29 As Label
     Friend WithEvents BtnGoToStudentViewing As Button
     Friend WithEvents LogOut As Button
+    Friend WithEvents Button2 As Button
 End Class

@@ -4,6 +4,7 @@ Imports MySql.Data.MySqlClient
 Public Class ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus
 
     Public on_edit_mode As Integer = 0
+    Dim rcf_data As New DataTable()
 
     Private Sub BtnAddRCFGARecord_Click(sender As Object, e As EventArgs) Handles BtnAddRCFGARecord.Click
         Dim open_add_form As New AddResearchCourseFacilitatorGroupAdviserRecord(Me)
@@ -532,6 +533,17 @@ Defense from the panel members"
     Private Sub ChckBxStageRp_MouseClick(sender As Object, e As MouseEventArgs) Handles ChckBxStageRp.MouseClick
 
         CheckedUnchecked()
+    End Sub
+
+    Private Sub BtReport_Click(sender As Object, e As EventArgs) Handles BtReport.Click
+        Dim rrm As New ReportRepositoryManager
+        rrm.Show()
+        'report book is my report 
+        Dim print_sw As New report_repository_manager
+        print_sw.Database.Tables("scholarly_works").SetDataSource(rcf_data)
+
+        'setting crystal report viewer'source
+        rrm.CrvRRM.ReportSource = print_sw
     End Sub
 
     Private Sub ChckBxStageFtc_MouseClick(sender As Object, e As MouseEventArgs) Handles ChckBxStageFtc.MouseClick

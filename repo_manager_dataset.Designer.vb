@@ -20,9 +20,9 @@ Option Explicit On
  Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
  Global.System.ComponentModel.ToolboxItem(true),  _
  Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema"),  _
- Global.System.Xml.Serialization.XmlRootAttribute("DataSet1"),  _
+ Global.System.Xml.Serialization.XmlRootAttribute("repo_manager_dataset"),  _
  Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")>  _
-Partial Public Class DataSet1
+Partial Public Class repo_manager_dataset
     Inherits Global.System.Data.DataSet
     
     Private tablescholarly_works As scholarly_worksDataTable
@@ -128,7 +128,7 @@ Partial Public Class DataSet1
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
     Public Overrides Function Clone() As Global.System.Data.DataSet
-        Dim cln As DataSet1 = CType(MyBase.Clone,DataSet1)
+        Dim cln As repo_manager_dataset = CType(MyBase.Clone,repo_manager_dataset)
         cln.InitVars
         cln.SchemaSerializationMode = Me.SchemaSerializationMode
         Return cln
@@ -199,9 +199,9 @@ Partial Public Class DataSet1
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
     Private Sub InitClass()
-        Me.DataSetName = "DataSet1"
+        Me.DataSetName = "repo_manager_dataset"
         Me.Prefix = ""
-        Me.Namespace = "http://tempuri.org/DataSet1.xsd"
+        Me.Namespace = "http://tempuri.org/repo_manager_dataset.xsd"
         Me.EnforceConstraints = true
         Me.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
         Me.tablescholarly_works = New scholarly_worksDataTable()
@@ -225,7 +225,7 @@ Partial Public Class DataSet1
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
     Public Shared Function GetTypedDataSetSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
-        Dim ds As DataSet1 = New DataSet1()
+        Dim ds As repo_manager_dataset = New repo_manager_dataset()
         Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
         Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
         Dim any As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
@@ -516,7 +516,7 @@ Partial Public Class DataSet1
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Overloads Function Addscholarly_worksRow( _
-                    ByVal sw_id As String,  _
+                    ByVal sw_id As Integer,  _
                     ByVal title As String,  _
                     ByVal research_agenda As String,  _
                     ByVal _sw_abstract_display_text As String,  _
@@ -529,7 +529,7 @@ Partial Public Class DataSet1
                     ByVal published As String,  _
                     ByVal presented As String,  _
                     ByVal whole_file_text As String,  _
-                    ByVal _no_ As String,  _
+                    ByVal _no_ As Integer,  _
                     ByVal co_authors As String,  _
                     ByVal date_completed As String) As scholarly_worksRow
             Dim rowscholarly_worksRow As scholarly_worksRow = CType(Me.NewRow,scholarly_worksRow)
@@ -577,7 +577,7 @@ Partial Public Class DataSet1
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Private Sub InitClass()
-            Me.columnsw_id = New Global.System.Data.DataColumn("sw_id", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnsw_id = New Global.System.Data.DataColumn("sw_id", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnsw_id)
             Me.columntitle = New Global.System.Data.DataColumn("title", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columntitle)
@@ -605,7 +605,7 @@ Partial Public Class DataSet1
             MyBase.Columns.Add(Me.columnpresented)
             Me.columnwhole_file_text = New Global.System.Data.DataColumn("whole_file_text", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnwhole_file_text)
-            Me._columnno_ = New Global.System.Data.DataColumn("no#", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            Me._columnno_ = New Global.System.Data.DataColumn("no#", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             Me._columnno_.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_columnno_")
             Me._columnno_.ExtendedProperties.Add("Generator_UserColumnName", "no#")
             MyBase.Columns.Add(Me._columnno_)
@@ -680,7 +680,7 @@ Partial Public Class DataSet1
         Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
             Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
             Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
-            Dim ds As DataSet1 = New DataSet1()
+            Dim ds As repo_manager_dataset = New repo_manager_dataset()
             Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
             any1.Namespace = "http://www.w3.org/2001/XMLSchema"
             any1.MinOccurs = New Decimal(0)
@@ -759,10 +759,10 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property sw_id() As String
+        Public Property sw_id() As Integer
             Get
                 Try 
-                    Return CType(Me(Me.tablescholarly_works.sw_idColumn),String)
+                    Return CType(Me(Me.tablescholarly_works.sw_idColumn),Integer)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("The value for column 'sw_id' in table 'scholarly_works' is DBNull.", e)
                 End Try
@@ -958,10 +958,10 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property _no_() As String
+        Public Property _no_() As Integer
             Get
                 Try 
-                    Return CType(Me(Me.tablescholarly_works._no_Column),String)
+                    Return CType(Me(Me.tablescholarly_works._no_Column),Integer)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("The value for column 'no#' in table 'scholarly_works' is DBNull.", e)
                 End Try

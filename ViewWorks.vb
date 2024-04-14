@@ -41,6 +41,11 @@ Public Class ViewWorks
             DgvSwData.Rows(i).Height = 35
         Next
 
+        If loggedin <= 0 Then
+            Panel1.Visible = False
+        Else
+            Panel1.Visible = True
+        End If
     End Sub
 
     Dim stat As String
@@ -254,11 +259,5 @@ Public Class ViewWorks
 
     End Sub
 
-    Private Sub Label27_Click(sender As Object, e As EventArgs) Handles Label27.Click
 
-    End Sub
-
-    Private Sub TxtLoc_TextChanged(sender As Object, e As EventArgs) Handles TxtLoc.TextChanged
-
-    End Sub
 End Class

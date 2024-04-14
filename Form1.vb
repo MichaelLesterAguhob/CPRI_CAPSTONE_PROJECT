@@ -24,7 +24,7 @@ Public Class Form1
             Dim formsToClose As New List(Of Form)
             ' Collect forms to close (excluding Form1 itself and LoginForm)
             For Each openForm As Form In Application.OpenForms
-                If openForm IsNot Me AndAlso Not TypeOf openForm Is CreateLoginAccount Then
+                If openForm IsNot Me AndAlso TypeOf openForm IsNot CreateLoginAccount Then
                     formsToClose.Add(openForm)
                 End If
             Next
@@ -38,6 +38,9 @@ Public Class Form1
             If Not CreateLoginAccount.Visible Then
                 CreateLoginAccount.Show()
             End If
+
+            account_loggedin = ""
+            account_type_loggedin = ""
         Else
             Dim confirm_closing As DialogResult = MessageBox.Show("Are you sure you want to exit program?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
             If confirm_closing = DialogResult.Yes Then
@@ -52,8 +55,6 @@ Public Class Form1
     Private Sub LogOut_Click(sender As Object, e As EventArgs) Handles LogOut.Click
         isForm1Closed = True
         loggedin = 0
-        account_loggedin = ""
-        account_type_loggedin = ""
         CheckActiveLogin()
     End Sub
 
@@ -131,11 +132,11 @@ Public Class Form1
                 End If
             End Using
 
-            Dim date_today As Date = Date.Today.ToString("MM-dd-yyyy")
-
+            Dim todayDate As Date = Date.Today
+            Dim formattedTodayDate As String = todayDate.ToString("MM-dd-yyyy")
             'GET RETURNED BOOKS
             Using cmd As New MySqlCommand("SELECT COUNT(*) FROM returned_books WHERE returned_date=@rd", con)
-                cmd.Parameters.AddWithValue("@rd", Date.Today.ToString("MM-dd-yyyy"))
+                cmd.Parameters.AddWithValue("@rd", formattedTodayDate)
                 Dim rows As Integer = 0
                 rows = Convert.ToInt32(cmd.ExecuteScalar())
                 If rows > 0 Then
@@ -147,7 +148,7 @@ Public Class Form1
 
             'GET DUE TODAY BOOKS
             Using cmd As New MySqlCommand("SELECT COUNT(*) FROM borrowed_books WHERE due_date=@dd AND is_cancel='NO' AND is_returned='NO' AND is_overdue='NO'", con)
-                cmd.Parameters.AddWithValue("@dd", Date.Today.ToString("MM-dd-yyyy"))
+                cmd.Parameters.AddWithValue("@dd", formattedTodayDate)
                 Dim rows As Integer = 0
                 rows = Convert.ToInt32(cmd.ExecuteScalar())
                 If rows > 0 Then
@@ -244,14 +245,13 @@ Public Class Form1
     End Sub
 
     Private Sub LogOutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LogOutToolStripMenuItem.Click
+        isForm1Closed = True
         loggedin = 0
-        account_loggedin = ""
-        account_type_loggedin = ""
         CheckActiveLogin()
     End Sub
 
     Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem.Click
-        End
+        Me.Close()
     End Sub
 
     ReadOnly myFont1 As New Font("Microsoft Sans Serif", 14, FontStyle.Regular)
@@ -386,13 +386,13 @@ Public Class Form1
         MenuToolStripMenuItem1.Font = myFont02
     End Sub
 
-    Private Sub ReportsToolStripMenuItem_MouseEnter(sender As Object, e As EventArgs) Handles ReportsToolStripMenuItem.MouseEnter
+    Private Sub ReportsToolStripMenuItem_MouseEnter(sender As Object, e As EventArgs) 
         ReportsToolStripMenuItem.ImageAlign = ContentAlignment.TopLeft
         ReportsToolStripMenuItem.Font = myFont2
 
     End Sub
 
-    Private Sub ReportsToolStripMenuItem_MouseLeave(sender As Object, e As EventArgs) Handles ReportsToolStripMenuItem.MouseLeave
+    Private Sub ReportsToolStripMenuItem_MouseLeave(sender As Object, e As EventArgs) 
         ReportsToolStripMenuItem.ImageAlign = ContentAlignment.MiddleLeft
         ReportsToolStripMenuItem.Font = myFont02
     End Sub

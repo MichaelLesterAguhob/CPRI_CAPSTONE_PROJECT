@@ -47,6 +47,7 @@ Public Class BorrowingAndReturning
         LoadCancelledBorrow()
         LoadReturnedBooksList()
         CheckOverDuesBorrowedBooks()
+        UpdateOverdueDays()
         LoadOverDues()
         CheckActiveLogin()
         TxtDate.Text = date_time.Date.ToString("MM-dd-yyyy")
@@ -69,17 +70,18 @@ Public Class BorrowingAndReturning
                 LblStaffLoggedin.Text = "STAFF | " & account_loggedin.ToUpper()
             Else
                 LblStaffLoggedin.Text = "ADMIN | " & account_loggedin.ToUpper()
+                LogOut.Visible = False
             End If
         End If
     End Sub
 
     Private Sub BorrowingAndReturning_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
 
-        If account_type_loggedin <> "admin" And account_type_loggedin <> "" And loggedin <= 0 Then
+        If account_type_loggedin <> "admin" And loggedin <= 0 Then
             Dim formsToClose As New List(Of Form)
 
             For Each openForm As Form In Application.OpenForms
-                If openForm IsNot Me AndAlso Not TypeOf openForm Is CreateLoginAccount Then
+                If openForm IsNot Me AndAlso TypeOf openForm IsNot CreateLoginAccount Then
                     formsToClose.Add(openForm)
                 End If
             Next
@@ -93,7 +95,10 @@ Public Class BorrowingAndReturning
                 CreateLoginAccount.Show()
             End If
             EmptyTempStorage()
+            account_loggedin = ""
+            account_type_loggedin = ""
         Else
+            'CLOSE ALL OPEN FORM IN BORROWING
             EmptyTempStorage()
             e.Cancel = False
         End If
@@ -111,7 +116,7 @@ Public Class BorrowingAndReturning
 
 
 
-    '==============BOOKS==================
+    '==============THESIS==================
     ReadOnly dt_books_list As New DataTable()
     Private Sub BtnPrintBooksList_Click(sender As Object, e As EventArgs) Handles BtnPrintBooksList.Click
         ' bbr is the form where crystal report viewer is attached
@@ -256,7 +261,7 @@ Public Class BorrowingAndReturning
                 End Using
             End Using
         Catch ex As Exception
-            MessageBox.Show(ex.Message, "Error Occurred on Searching Books", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show(ex.Message, "Error Occurred on Searching Thesis", MessageBoxButtons.OK, MessageBoxIcon.Error)
             con.Close()
         Finally
             con.Close()
@@ -368,14 +373,14 @@ Public Class BorrowingAndReturning
                 End Using
             End Using
         Catch ex As Exception
-            MessageBox.Show(ex.Message, "Error Occurred on Loading to borrow Books", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show(ex.Message, "Error Occurred on Loading to borrow Thesis", MessageBoxButtons.OK, MessageBoxIcon.Error)
             con.Close()
         Finally
             con.Close()
         End Try
     End Sub
 
-    'ADDING BOOKS TO BORROW INTO TEMPORARY STORAGE
+    'ADDING THESIS TO BORROW INTO TEMPORARY STORAGE
     Dim isThereInternalBorrowSelected As Boolean = False
     Dim isThereAvailableBorrowSelected As Boolean = False
     Dim books_count As Integer = 1
@@ -1165,7 +1170,7 @@ Public Class BorrowingAndReturning
 
 
 
-    '==============BORROWED BOOKS ============================
+    '==============BORROWED THESIS ============================
     ReadOnly dt_borrowed As New DataTable
     Private Sub BtnPrintBorrowed_Click(sender As Object, e As EventArgs) Handles BtnPrintBorrowed.Click
         Dim brr As New ReportBorrowingAndReturning
@@ -1569,7 +1574,7 @@ Public Class BorrowingAndReturning
             PnlAddingToBorrow.Visible = False
             books_count = 1
             selected_book_id = 0
-            MessageBox.Show("Successfully Saved Borrowing transaction at Borrowed Books", "", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            MessageBox.Show("Successfully Saved Borrowing transaction at Borrowed Thesis", "", MessageBoxButtons.OK, MessageBoxIcon.Information)
             con.Close()
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Error Occurred on Saving Borrowing Information", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -1614,14 +1619,14 @@ Public Class BorrowingAndReturning
                     Dim reader0 As MySqlDataReader = check_qcmd.ExecuteReader()
 
                     If reader0.HasRows AndAlso reader0.Read() Then
-                        MessageBox.Show("This Book was Overdue", "Invalid cancelling overdue books", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                        MessageBox.Show("This Book was Overdue", "Invalid cancelling overdue thesis", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                     Else
                         Dim confirmation As DialogResult = MessageBox.Show("Cancel Borrowed Book?", "Confirm Cancelling?", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
                         If confirmation = DialogResult.Yes Then
 
                             reader0.Close()
                             Try
-                                'get total count of books borrowed that has the same id
+                                'get total count of thesis borrowed that has the same id
                                 Dim total As Integer = 0
                                 Dim cntr As Integer = 1
                                 Using cmd_books_count_total As New MySqlCommand("SELECT COUNT(borrow_id) FROM borrowed_books_id WHERE borrow_id=@borrow_id", con)
@@ -1651,7 +1656,7 @@ Public Class BorrowingAndReturning
                                     Dim remaining_qnty As Integer = 0
                                     Dim new_qnty As Integer = 0
 
-                                    'get remaining qnty of books
+                                    'get remaining qnty of thesis
                                     Using cmd_remaining_book_qnty As New MySqlCommand("SELECT `quantity` FROM `qnty_loc` WHERE sw_id=@book_id", con)
                                         cmd_remaining_book_qnty.Parameters.AddWithValue("@book_id", book_id)
                                         Dim reader As MySqlDataReader = cmd_remaining_book_qnty.ExecuteReader()
@@ -1788,7 +1793,7 @@ Public Class BorrowingAndReturning
 
                 Try
                     con.Open()
-                    'get total count of books borrowed that has the same id
+                    'get total count of thesis borrowed that has the same id
                     Dim total As Integer = 0
                     Dim cntr As Integer = 1
                     Using cmd_books_count_total As New MySqlCommand("SELECT COUNT(borrow_id) FROM borrowed_books_id WHERE borrow_id=@borrow_id", con)
@@ -1818,7 +1823,7 @@ Public Class BorrowingAndReturning
                         Dim remaining_qnty As Integer = 0
                         Dim new_qnty As Integer = 0
 
-                        'get remaining qnty of books
+                        'get remaining qnty of thesis
                         Using cmd_remaining_book_qnty As New MySqlCommand("SELECT `quantity` FROM `qnty_loc` WHERE sw_id=@book_id", con)
                             cmd_remaining_book_qnty.Parameters.AddWithValue("@book_id", book_id)
                             Dim reader As MySqlDataReader = cmd_remaining_book_qnty.ExecuteReader()
@@ -1910,7 +1915,7 @@ Public Class BorrowingAndReturning
 
 
 
-    '==============RETURNED BOOKS ==============================
+    '==============RETURNED THESIS ==============================
     ReadOnly dt_returned_books As New DataTable()
     Private Sub BtnPrintReturned_Click(sender As Object, e As EventArgs) Handles BtnPrintReturned.Click
         Dim brr As New ReportBorrowingAndReturning
@@ -2154,7 +2159,7 @@ Public Class BorrowingAndReturning
             End Using
 
         Catch ex As Exception
-            MessageBox.Show(ex.Message, "Error Occurred on Loading List of Overdues Books", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show(ex.Message, "Error Occurred on Loading List of Overdues Thesis", MessageBoxButtons.OK, MessageBoxIcon.Error)
             con.Close()
         Finally
             con.Close()
@@ -2208,7 +2213,7 @@ Public Class BorrowingAndReturning
                 Try
                     SubCon.Open()
                 Catch ex As Exception
-                    MessageBox.Show(ex.Message, "Error Occurred on Checking Overdues Borrowed Books", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    MessageBox.Show(ex.Message, "Error Occurred on Checking Overdues Borrowed Thesis", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     SubCon.Close()
                 End Try
 
@@ -2220,23 +2225,25 @@ Public Class BorrowingAndReturning
                     borrower_id = Convert.ToInt32(reader("borrower_id"))
                     borrow_id = Convert.ToInt32(reader("borrow_id"))
 
-                    'knowing if books is already overdue
+                    'knowing if thesis is already overdue
                     If book_due_date < current_date Then
                         'MsgBox(book_due_date.ToString)
                         overdue_books_count += 1
                         isThereOverdue = True
 
-
+                        'setting status as overdue
                         Using cmd3 As New MySqlCommand("UPDATE borrowed_books SET is_overdue='YES' WHERE borrow_id=@id ", SubCon)
                             cmd3.Parameters.AddWithValue("@id", borrow_id)
                             cmd3.ExecuteNonQuery()
                         End Using
 
+                        'setting violation
                         Using cmd4 As New MySqlCommand("UPDATE borrowers SET violations='LATE RETURNER' WHERE borrower_id=@id ", SubCon)
                             cmd4.Parameters.AddWithValue("@id", borrower_id)
                             cmd4.ExecuteNonQuery()
                         End Using
 
+                        'calculate days overdue
                         Dim overdue_days As Integer = (current_date - book_due_date).Days
 
                         Using cmd_insert As New MySqlCommand("
@@ -2259,7 +2266,7 @@ Public Class BorrowingAndReturning
 
             If isThereOverdue Then
                 If overdue_books_count > 1 Then
-                    MessageBox.Show("There are Overdue Books detected! Check details on overdue tab.", "Overdue Books Detected", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    MessageBox.Show("There are Overdue Thesis detected! Check details on overdue tab.", "Overdue Thesis Detected", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 Else
                     MessageBox.Show("There is an Overdue Book detected! Check details on overdue tab.", "Overdue Book  Detected", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 End If
@@ -2269,7 +2276,7 @@ Public Class BorrowingAndReturning
 
             con.Close()
         Catch ex As Exception
-            MessageBox.Show(ex.Message, "Error Occurred on Checking Overdues Borrowed Books", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show(ex.Message, "Error Occurred on Checking Overdues Borrowed Thesis", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Console.WriteLine(ex.Message)
         Finally
             con.Close()
@@ -2278,9 +2285,52 @@ Public Class BorrowingAndReturning
 
     Private Sub LogOut_Click(sender As Object, e As EventArgs) Handles LogOut.Click
         loggedin = 0
-        account_loggedin = ""
-        account_type_loggedin = ""
         CheckActiveLogin()
+    End Sub
+
+    Private Sub UpdateOverdueDays()
+        con.Close()
+        Dim overdue_due_date As DateTime
+        Dim current_date As Date = Date.Today
+        Dim updated_overdue_days As Integer = 0
+        Dim borrowID_ToBeUpdated As Integer = 0
+
+        Try
+            Dim SubCon As New MySqlConnection("server=localhost;user=root;password=;database=cpri_cdsga_db")
+            Try
+                SubCon.Open()
+            Catch ex As Exception
+                MessageBox.Show(ex.Message, "Error Occurred on Checking Overdues Borrowed Thesis", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                SubCon.Close()
+            End Try
+
+            con.Open()
+            Using cmd As New MySqlCommand("SELECT *  FROM overdues WHERE status = 'NOT RETURNED'", con)
+
+                Dim reader As MySqlDataReader = cmd.ExecuteReader
+                If reader.HasRows Then
+                    While reader.Read()
+                        borrowID_ToBeUpdated = reader.GetInt32("borrow_id")
+                        overdue_due_date = DateTime.ParseExact(reader("due_date").ToString(), "MM-dd-yyyy", CultureInfo.InvariantCulture).Date
+
+                        updated_overdue_days = (current_date - overdue_due_date).Days
+                        Using cmd2 As New MySqlCommand("UPDATE overdues SET overdue_days=@new_days WHERE borrow_id=@id", SubCon)
+                            cmd2.Parameters.AddWithValue("@id", borrowID_ToBeUpdated)
+                            cmd2.Parameters.AddWithValue("@new_days", updated_overdue_days)
+                            cmd2.ExecuteNonQuery()
+                        End Using
+                    End While
+                End If
+                reader.Close()
+                SubCon.Close()
+            End Using
+
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Error Occurred on Updating Overdue Days", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Console.WriteLine(ex.Message)
+        Finally
+            con.Close()
+        End Try
     End Sub
 
 
