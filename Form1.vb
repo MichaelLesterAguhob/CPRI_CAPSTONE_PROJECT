@@ -386,17 +386,6 @@ Public Class Form1
         MenuToolStripMenuItem1.Font = myFont02
     End Sub
 
-    Private Sub ReportsToolStripMenuItem_MouseEnter(sender As Object, e As EventArgs) 
-        ReportsToolStripMenuItem.ImageAlign = ContentAlignment.TopLeft
-        ReportsToolStripMenuItem.Font = myFont2
-
-    End Sub
-
-    Private Sub ReportsToolStripMenuItem_MouseLeave(sender As Object, e As EventArgs) 
-        ReportsToolStripMenuItem.ImageAlign = ContentAlignment.MiddleLeft
-        ReportsToolStripMenuItem.Font = myFont02
-    End Sub
-
     Private Sub MenuToolStripMenuItem_MouseEnter(sender As Object, e As EventArgs) Handles MenuToolStripMenuItem.MouseEnter
         MenuToolStripMenuItem.ImageAlign = ContentAlignment.TopLeft
         MenuToolStripMenuItem.Font = myFont2

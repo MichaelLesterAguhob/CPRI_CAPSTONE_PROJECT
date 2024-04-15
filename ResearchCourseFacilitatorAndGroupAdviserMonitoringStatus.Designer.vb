@@ -911,12 +911,12 @@ Partial Class ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus
         '
         'BtReport
         '
-        Me.BtReport.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtReport.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.BtReport.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtReport.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtReport.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.BtReport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtReport.Location = New System.Drawing.Point(11, 686)
+        Me.BtReport.Location = New System.Drawing.Point(9, 686)
         Me.BtReport.Name = "BtReport"
         Me.BtReport.Size = New System.Drawing.Size(174, 34)
         Me.BtReport.TabIndex = 39

@@ -284,6 +284,20 @@
     <Compile Include="CreateLoginAccount.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="report_rcf.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>report_rcf.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="report_rcf.vb">
+      <DependentUpon>report_rcf.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="report_rcf_rga.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>report_rcf_rga.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="repo_manager_dataset.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -462,6 +476,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>report_overdue_books.vb</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="report_rcf_rga.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>report_rcf_rga.vb</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="report_repository_manager.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>report_repository_manager.vb</LastGenOutput>
@@ -497,6 +515,17 @@
     </None>
     <None Include="BorAndRetDataset.xss">
       <DependentUpon>BorAndRetDataset.xsd</DependentUpon>
+    </None>
+    <None Include="report_rcf.xsc">
+      <DependentUpon>report_rcf.xsd</DependentUpon>
+    </None>
+    <None Include="report_rcf.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>report_rcf.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="report_rcf.xss">
+      <DependentUpon>report_rcf.xsd</DependentUpon>
     </None>
     <None Include="repo_manager_dataset.xsc">
       <DependentUpon>repo_manager_dataset.xsd</DependentUpon>

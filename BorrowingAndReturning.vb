@@ -2288,6 +2288,7 @@ Public Class BorrowingAndReturning
         CheckActiveLogin()
     End Sub
 
+    'responsible for updating days overdue when borrowing and returning form app is open
     Private Sub UpdateOverdueDays()
         con.Close()
         Dim overdue_due_date As DateTime
@@ -2333,5 +2334,90 @@ Public Class BorrowingAndReturning
         End Try
     End Sub
 
+    Private Sub SearchInOverdue()
+        con.Close()
+        Try
+            con.Open()
+            Dim query As String = "
+                   SELECT 
+                        overdues.borrow_id, 
+                        overdues.borrower_id, 
+                        overdues.due_date, 
+                        overdues.overdue_days,
+                        overdues.status,
+                        borrowed_books.book_ids, 
+                        borrowed_books.title, 
+                        borrowed_books.total_no_book, 
+                        borrowed_books.type, 
+                        borrowed_books.borrow_date,
+                        borrowed_books.time
+                    FROM overdues
+                    INNER JOIN borrowed_books
+                        ON borrowed_books.borrow_id = overdues.borrow_id
+                    WHERE 
+                    overdues.borrow_id LIKE @to_search,
+                    OR overdues.borrower_id LIKE @to_search,
+                    OR overdues.due._date LIKE @to_search,
+                    OR overdueso.verdue_days LIKE @to_search,
+                    OR overdues.overdue_status LIKE @to_search,
+                    OR borrowed_books.book_ids LIKE @to_search,
+                    OR borrowed_books.title LIKE @to_search,
+                    OR borrowed_books.total_no_book LIKE @to_search,
+                    OR borrowed_books.type LIKE @to_search,
+                    OR borrowed_books.borrow_date LIKE @to_search,
+                    OR borrowed_books.time LIKE @to_search,
+                    
+                    AND overdues.status='NOT RETURNED'
+                    ORDER BY overdues.due_date ASC
+                    "
+            Using cmd As New MySqlCommand(query, con)
+                cmd.Parameters.AddWithValue("@to_search", "%" & TxtSearchOverdue.Text.Trim & "%")
+                Using adptr As New MySqlDataAdapter(cmd)
+                    dt_overdue_books.Clear()
+                    adptr.Fill(dt_overdue_books)
 
+                    DgvReturned.DataSource = dt_returned_books
+                    DgvReturned.Refresh()
+                    For i = 0 To DgvReturned.Rows.Count - 1
+                        DgvReturned.Rows(i).Height = 70
+                    Next
+                    DgvReturned.ClearSelection()
+                End Using
+            End Using
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Error Occurred on Searching Borrowed", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            con.Close()
+        Finally
+            con.Close()
+        End Try
+    End Sub
+
+    Private Sub BtnSearchOverdue_Click(sender As Object, e As EventArgs) Handles BtnSearchOverdue.Click
+        SearchInOverdue()
+    End Sub
+
+    Private Sub TxtSearchOverdue_TextChanged(sender As Object, e As EventArgs) Handles TxtSearchOverdue.TextChanged
+        If TxtSearchOverdue.Text.Trim <> "" And TxtSearchOverdue.Text.Trim <> "Search Title, Author Etc." Then
+            SearchInReturned()
+        End If
+    End Sub
+
+    Private Sub TxtSearchOverdue_KeyDown(sender As Object, e As KeyEventArgs) Handles TxtSearchOverdue.KeyDown
+        If e.KeyCode = 13 And TxtSearchReturned.Text.Trim <> "" And TxtSearchReturned.Text.Trim <> "Search Title, Author Etc." Then
+            SearchInReturned()
+        End If
+    End Sub
+
+    Private Sub TxtSearchOverdue_Click(sender As Object, e As EventArgs) Handles TxtSearchOverdue.Click
+        If TxtSearchOverdue.Text.Trim = "Search Title, Author Etc." Then
+            TxtSearchOverdue.Text = ""
+        End If
+    End Sub
+
+    Private Sub TxtSearchOverdue_Leave(sender As Object, e As EventArgs) Handles TxtSearchOverdue.Leave
+        If TxtSearchOverdue.Text = "" Then
+            TxtSearchOverdue.Text = "Search Title, Author, Etc."
+            LoadReturnedBooksList()
+        End If
+    End Sub
 End Class

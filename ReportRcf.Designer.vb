@@ -44,7 +44,9 @@ Partial Class ReportRcf
         Me.ClientSize = New System.Drawing.Size(1224, 521)
         Me.Controls.Add(Me.CrvRCF)
         Me.Name = "ReportRcf"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "ReportRcf"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.ResumeLayout(False)
 
     End Sub

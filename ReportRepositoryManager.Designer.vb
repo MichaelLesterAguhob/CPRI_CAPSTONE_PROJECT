@@ -44,7 +44,9 @@ Partial Class ReportRepositoryManager
         Me.ClientSize = New System.Drawing.Size(1229, 520)
         Me.Controls.Add(Me.CrvRRM)
         Me.Name = "ReportRepositoryManager"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "ReportRepositoryManager"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.ResumeLayout(False)
 
     End Sub

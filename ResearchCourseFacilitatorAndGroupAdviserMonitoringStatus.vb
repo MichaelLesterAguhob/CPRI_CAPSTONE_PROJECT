@@ -51,6 +51,8 @@ Public Class ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus
             Next
             DgvSwData.ClearSelection()
             LblSearchFound.Text = ""
+
+            LoadReportData("load")
         Catch ex As Exception
             MessageBox.Show(ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Finally
@@ -335,6 +337,7 @@ Defense from the panel members"
                     Next
                     BtnRemoveSelection.PerformClick()
                     LblSearchFound.Text = dt.Rows.Count.ToString & " Result(s) found"
+                    LoadReportData("searched")
                 Else
                     LblSearchFound.Text = dt.Rows.Count.ToString & " Result(s) found"
                     MessageBox.Show("Your search do not match to any records. Please try different keywords", "No data found.", MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -353,6 +356,7 @@ Defense from the panel members"
 
         If TxtSearch.Text <> "Seacrh ID, name, semester,  stage, college etc..." And TxtSearch.Text <> "" Then
             Search()
+
         End If
     End Sub
 
@@ -450,9 +454,9 @@ Defense from the panel members"
                     DgvSwData.Refresh()
                     LblSearchFound.Text = dt.Rows.Count.ToString & " Result(s) found"
                     MessageBox.Show("Your search do not match to any records. Please try different keywords", "No data found in filtered.", MessageBoxButtons.OK, MessageBoxIcon.Information)
-
                 End If
 
+                LoadReportData("filtered")
             End Using
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Error Occcurred Searching record", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -469,6 +473,7 @@ Defense from the panel members"
         Else
             BtnCloseFilter.PerformClick()
             FilterSearch()
+            LoadReportData("filtered")
             'MessageBox.Show(schoolyear & " " & collg & " " & dept & " " & sem1 & " " & sem2 & " " & summer & " " & stage1 & " " & stage2 & " " & stat1 & " " & stat2)
 
         End If
@@ -536,14 +541,75 @@ Defense from the panel members"
     End Sub
 
     Private Sub BtReport_Click(sender As Object, e As EventArgs) Handles BtReport.Click
-        Dim rrm As New ReportRepositoryManager
-        rrm.Show()
-        'report book is my report 
-        Dim print_sw As New report_repository_manager
-        print_sw.Database.Tables("scholarly_works").SetDataSource(rcf_data)
 
+        Dim rrf As New ReportRcf
+        rrf.Show()
+        'report book is my report 
+        Dim rcf_rga_report As New report_rcf_rga
+        rcf_rga_report.Database.Tables("rcf_rga").SetDataSource(rcf_data)
         'setting crystal report viewer'source
-        rrm.CrvRRM.ReportSource = print_sw
+        rrf.CrvRCF.ReportSource = rcf_rga_report
+
+    End Sub
+
+    Private Sub LoadReportData(filter_load_search As String)
+        'get all data from rcf rga and requirements
+        con.Close()
+        Dim qry As String = ""
+        Try
+            con.Open()
+            If filter_load_search = "load" Then
+                qry = "
+                    SELECT 
+                        rcf_rga.*,
+                        rcf_rga_req.*
+                    FROM rcf_rga
+                    INNER JOIN rcf_rga_req
+                        ON rcf_rga_req.rcf_rga_req_id = rcf_rga.record_id
+                      "
+
+            ElseIf filter_load_search = "searched" Then
+                qry = "
+                    SELECT 
+                        rcf_rga.*,
+                        rcf_rga_req.*
+                    FROM rcf_rga
+                    INNER JOIN rcf_rga_req
+                        ON rcf_rga_req.rcf_rga_req_id = rcf_rga.record_id
+                    WHERE 
+                        record_id LIKE @to_search
+                        OR semester LIKE @to_search
+                        OR school_year LIKE @to_search
+                        OR stage LIKE @to_search
+                        OR name LIKE @to_search
+                        OR college LIKE @to_search
+                        OR dept LIKE @to_search
+                        OR status LIKE @to_search
+                        OR role LIKE @to_search
+"
+            ElseIf filter_load_search = "filtered" Then
+                qry = "
+                    SELECT 
+                        rcf_rga.*,
+                        rcf_rga_req.*
+                    FROM rcf_rga
+                    INNER JOIN rcf_rga_req
+                        ON rcf_rga_req.rcf_rga_req_id = rcf_rga.record_id
+                    WHERE " & schoolyear & collg & dept & sem1 & sem2 & summer & stage1 & stage2 & stat1 & stat2
+            End If
+
+            Using cmd As New MySqlCommand(qry, con)
+                cmd.Parameters.AddWithValue("@to_search", "%" & TxtSearch.Text.Trim & "%")
+                Dim adptr As New MySqlDataAdapter(cmd)
+                rcf_data.Clear()
+                adptr.Fill(rcf_data)
+            End Using
+
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Error Occcurred generating report of record", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            con.Close()
+        End Try
     End Sub
 
     Private Sub ChckBxStageFtc_MouseClick(sender As Object, e As MouseEventArgs) Handles ChckBxStageFtc.MouseClick
