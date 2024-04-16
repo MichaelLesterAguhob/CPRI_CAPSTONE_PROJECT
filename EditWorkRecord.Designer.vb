@@ -111,7 +111,6 @@ Partial Class EditWorkRecord
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.DtCompletedDate = New System.Windows.Forms.DateTimePicker()
-        Me.TxtSchoolYear = New System.Windows.Forms.TextBox()
         Me.CbxSem = New System.Windows.Forms.ComboBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label29 = New System.Windows.Forms.Label()
@@ -131,6 +130,7 @@ Partial Class EditWorkRecord
         Me.Label31 = New System.Windows.Forms.Label()
         Me.TxtCopies = New System.Windows.Forms.TextBox()
         Me.Label32 = New System.Windows.Forms.Label()
+        Me.TxtSchoolYear = New System.Windows.Forms.ComboBox()
         Me.Panel3.SuspendLayout()
         Me.PnlStatCmpltdEdtMode.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
@@ -1178,9 +1178,9 @@ Partial Class EditWorkRecord
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.TxtSchoolYear)
         Me.GroupBox1.Controls.Add(Me.DtCompletedDate)
         Me.GroupBox1.Controls.Add(Me.Label30)
-        Me.GroupBox1.Controls.Add(Me.TxtSchoolYear)
         Me.GroupBox1.Controls.Add(Me.CbxSem)
         Me.GroupBox1.Controls.Add(Me.Label8)
         Me.GroupBox1.Controls.Add(Me.Label29)
@@ -1214,17 +1214,6 @@ Partial Class EditWorkRecord
         Me.DtCompletedDate.Name = "DtCompletedDate"
         Me.DtCompletedDate.Size = New System.Drawing.Size(89, 18)
         Me.DtCompletedDate.TabIndex = 82
-        '
-        'TxtSchoolYear
-        '
-        Me.TxtSchoolYear.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.TxtSchoolYear.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtSchoolYear.ForeColor = System.Drawing.SystemColors.AppWorkspace
-        Me.TxtSchoolYear.Location = New System.Drawing.Point(126, 87)
-        Me.TxtSchoolYear.Name = "TxtSchoolYear"
-        Me.TxtSchoolYear.Size = New System.Drawing.Size(139, 21)
-        Me.TxtSchoolYear.TabIndex = 80
-        Me.TxtSchoolYear.Text = "Enter School Year"
         '
         'CbxSem
         '
@@ -1459,6 +1448,16 @@ Partial Class EditWorkRecord
         Me.Label32.TabIndex = 93
         Me.Label32.Text = "Copies :"
         '
+        'TxtSchoolYear
+        '
+        Me.TxtSchoolYear.ForeColor = System.Drawing.SystemColors.AppWorkspace
+        Me.TxtSchoolYear.FormattingEnabled = True
+        Me.TxtSchoolYear.Items.AddRange(New Object() {"1993-1994", "1994-1995", "1995-1996", "1996-1997", "1997-1998", "1998-1999", "1999-2000", "2000-2001", "2001-2002", "2002-2003", "2003-2004", "2004-2005", "2005-2006"})
+        Me.TxtSchoolYear.Location = New System.Drawing.Point(127, 88)
+        Me.TxtSchoolYear.Name = "TxtSchoolYear"
+        Me.TxtSchoolYear.Size = New System.Drawing.Size(139, 21)
+        Me.TxtSchoolYear.TabIndex = 83
+        '
         'EditWorkRecord
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1627,7 +1626,6 @@ Partial Class EditWorkRecord
     Friend WithEvents PnlEditCoAuthFlds As Panel
     Friend WithEvents Btn_Update As Button
     Friend WithEvents BtnCancel As Button
-    Friend WithEvents TxtSchoolYear As TextBox
     Friend WithEvents CbxSem As ComboBox
     Friend WithEvents Label8 As Label
     Friend WithEvents Label29 As Label
@@ -1637,4 +1635,5 @@ Partial Class EditWorkRecord
     Friend WithEvents Label31 As Label
     Friend WithEvents TxtCopies As TextBox
     Friend WithEvents Label32 As Label
+    Friend WithEvents TxtSchoolYear As ComboBox
 End Class

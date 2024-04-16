@@ -2,17 +2,26 @@
 Imports MySql.Data.MySqlClient
 Imports System.Globalization
 Imports System.Windows.Forms
+Imports ZXing
+Imports ZXing.QrCode
+Imports System.Drawing
+Imports System.Drawing.Imaging
+Imports System.IO
+Imports System.Net.Mail
+Imports System.Net.NetworkInformation
 
 Public Class BorrowingAndReturning
     Dim selected_book_id As Integer = 0
     Dim selected_book_stat As String = ""
     Dim selected_book_title As String = ""
-    ReadOnly selected_book_type As String = ""
+    Dim selected_book_type As String = ""
     Shared ReadOnly date_time As DateTime = DateTime.Now
     Dim current_time As TimeSpan = DateTime.Now.TimeOfDay
     ReadOnly current_year As Integer = date_time.Year
     Private Shared ReadOnly rnd As New Random()
     Dim isAddingPanelVisible As Boolean = False
+    Dim book_to_borrow_limit As Integer = 0
+    Dim adding_borrower_indirect As Boolean = True
 
     'GENERATING ID'S 
     Dim initial_bor_id As Integer
@@ -50,6 +59,7 @@ Public Class BorrowingAndReturning
         UpdateOverdueDays()
         LoadOverDues()
         CheckActiveLogin()
+        EmptyTempStorage()
         TxtDate.Text = date_time.Date.ToString("MM-dd-yyyy")
         Timer1.Start()
         DgvBooks.Focus()
@@ -114,7 +124,15 @@ Public Class BorrowingAndReturning
         End If
     End Sub
 
-
+    Public Function IsInternetAvailable() As Boolean
+        Try
+            Dim pingSender As New Ping()
+            Dim reply As PingReply = pingSender.Send("8.8.8.8")
+            Return (reply.Status = IPStatus.Success)
+        Catch ex As Exception
+            Return False
+        End Try
+    End Function
 
     '==============THESIS==================
     ReadOnly dt_books_list As New DataTable()
@@ -386,14 +404,17 @@ Public Class BorrowingAndReturning
     Dim books_count As Integer = 1
     Private Sub AddToBorrow_Click(sender As Object, e As EventArgs) Handles AddToBorrow.Click
 
-        If selected_book_id = 0 Or TxtBookId.Text = "" Then
-            MessageBox.Show("Please Select Book to Add", "No Selected Book", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        If book_to_borrow_limit = 3 Then
+            MessageBox.Show("Maximum number of thesis to borrow have reached", "Borrow limit reached", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        Else
+            If selected_book_id = 0 Or TxtBookId.Text = "" Then
+            MessageBox.Show("Please select thesis to add", "No selected thesis", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         ElseIf selected_book_stat = "Unvailable" Then
-            MessageBox.Show("This book is Unavailable right now", "Sorry", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            MessageBox.Show("This Thesis is Unavailable right now", "Sorry", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         ElseIf isThereInternalBorrowSelected And selected_book_stat = "Available" And books_count > 1 Then
-            MessageBox.Show("Book with 'Internal Borrow Only' status is cannot be combined with other book 'Available'. | You can make another transaction instead.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            MessageBox.Show("Thesis with 'Internal Borrow Only' status is cannot be combined with other thesis 'Available'. | You can make another transaction instead.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         ElseIf isThereAvailableBorrowSelected And selected_book_stat = "Internal Borrow Only" And books_count > 1 Then
-            MessageBox.Show("Book with 'Internal Borrow Only' status is cannot be combined with other book 'Available'. | You can make another transaction instead.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            MessageBox.Show("Thesis with 'Internal Borrow Only' status is cannot be combined with other thesis 'Available'. | You can make another transaction instead.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         Else
             con.Close()
             Try
@@ -403,7 +424,7 @@ Public Class BorrowingAndReturning
                     cmd_check_query.Parameters.AddWithValue("@id", TxtBookId.Text.Trim)
                     Dim reader As MySqlDataReader = cmd_check_query.ExecuteReader()
                     If reader.HasRows Then
-                        MessageBox.Show("You've Already selected this book", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                        MessageBox.Show("You've Already selected this thesis", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                     Else
                         reader.Close()
                         Dim query As String = "
@@ -422,24 +443,28 @@ Public Class BorrowingAndReturning
                         books_count += 1
                         If selected_book_stat = "Internal Borrow Only" Then
                             isThereInternalBorrowSelected = True
+                            selected_book_type = "Internal Borrow Only"
                         ElseIf selected_book_stat = "Available" Then
                             isThereAvailableBorrowSelected = True
+                            selected_book_type = "Available"
                         End If
                     End If
                 End Using
+                book_to_borrow_limit += 1
             Catch ex As Exception
-                MessageBox.Show(ex.Message, "Error Occurred on Adding Books to Borrow", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                MessageBox.Show(ex.Message, "Error Occurred on Adding thesis to Borrow", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 con.Close()
             Finally
                 con.Close()
             End Try
+        End If
         End If
     End Sub
 
     Private Sub DgvBooks_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DgvBooks.CellDoubleClick
 
         If selected_book_stat = "Unavailable" Then
-            MessageBox.Show("This Book is unvailable right now", "Unavaiable", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            MessageBox.Show("This thesis is unvailable right now", "Unavaiable", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         Else
             PnlAddingToBorrow.Visible = True
             isAddingPanelVisible = True
@@ -448,7 +473,7 @@ Public Class BorrowingAndReturning
             If selected_book_stat = "Internal Borrow Only" Then
                 TxtToBorrowType.Text = "Internal Borrow Only"
             Else
-                TxtToBorrowType.Text = "Any"
+                TxtToBorrowType.Text = "Available"
             End If
         End If
     End Sub
@@ -462,9 +487,12 @@ Public Class BorrowingAndReturning
         BtnNext.Enabled = True
         If isAddingPanelVisible Then
             If selected_book_stat = "Unavailable" Then
-                MessageBox.Show("This Book is unvailable right now", "Unavaiable", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                MessageBox.Show("This thesis is unvailable right now", "Unavaiable", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                 selected_book_stat = ""
                 selected_book_id = 0
+                TxtBookId.Clear()
+                TxtTitle.Clear()
+                TxtToBorrowType.Clear()
             Else
                 PnlAddingToBorrow.Visible = True
                 TxtBookId.Text = selected_book_id.ToString()
@@ -472,7 +500,7 @@ Public Class BorrowingAndReturning
                 If selected_book_stat = "Internal Borrow Only" Then
                     TxtToBorrowType.Text = "Internal Borrow Only"
                 Else
-                    TxtToBorrowType.Text = "Any"
+                    TxtToBorrowType.Text = "Available"
                 End If
             End If
         End If
@@ -480,8 +508,8 @@ Public Class BorrowingAndReturning
 
     Private Sub BtnNext_Click(sender As Object, e As EventArgs) Handles BtnNext.Click
         If books_count <> 1 Then
-
-            If TxtToBorrowType.Text = "Internal Borrow Only" Then
+            adding_borrower_indirect = False
+            If selected_book_type = "Internal Borrow Only" Then
                 GenerateBorrowerID()
                 GenerateBorrowTransID()
 
@@ -492,7 +520,7 @@ Public Class BorrowingAndReturning
                 BtnBorrowedBooks.BackColor = Color.Transparent
                 BtnReturnedBooks.BackColor = Color.Transparent
                 BtnOverduesBooks.BackColor = Color.Transparent
-                TxtType.Text = selected_book_stat
+                TxtType.Text = selected_book_type
                 DtDueDate.Enabled = False
                 LoadToBorrowTemp()
                 TxtExistingBorrowerId.Focus()
@@ -500,7 +528,7 @@ Public Class BorrowingAndReturning
                 TxtTitle.Clear()
                 TxtToBorrowType.Clear()
                 selected_book_id = 0
-            ElseIf TxtToBorrowType.Text = "Any" Then
+            ElseIf selected_book_type = "Available" Then
                 GenerateBorrowerID()
                 GenerateBorrowTransID()
 
@@ -511,7 +539,7 @@ Public Class BorrowingAndReturning
                 BtnBorrowedBooks.BackColor = Color.Transparent
                 BtnReturnedBooks.BackColor = Color.Transparent
                 BtnOverduesBooks.BackColor = Color.Transparent
-                TxtType.Text = selected_book_stat
+                TxtType.Text = selected_book_type
                 DtDueDate.Enabled = True
 
                 LoadToBorrowTemp()
@@ -527,7 +555,7 @@ Public Class BorrowingAndReturning
                 BtnBorrowedBooks.BackColor = Color.Transparent
                 BtnReturnedBooks.BackColor = Color.Transparent
                 BtnOverduesBooks.BackColor = Color.Transparent
-                TxtType.Text = selected_book_stat
+                TxtType.Text = selected_book_type
 
                 LoadToBorrowTemp()
                 TxtExistingBorrowerId.Focus()
@@ -540,11 +568,12 @@ Public Class BorrowingAndReturning
     End Sub
 
     'TEXTBOX ENTERED BORROWER'S ID HANDLE TEXTCHANGED
+    Dim isExistingIDEntered As Boolean = False
     Private Sub TxtExistingBorrowerId_TextChanged(sender As Object, e As EventArgs) Handles TxtExistingBorrowerId.TextChanged
         If TxtExistingBorrowerId.Text.Trim <> "" Then
             If IsNumeric(TxtExistingBorrowerId.Text.Trim) Then
                 Check_borrower_record()
-
+                isExistingIDEntered = True
             Else
                 MessageBox.Show("Please enter 9-digit Borrower's ID. Ex.202402573", "Input Invalid!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                 Lbl1.Text = ""
@@ -560,7 +589,7 @@ Public Class BorrowingAndReturning
             TxtEmail.Enabled = True
             TxtPhoneNo.Enabled = True
             TxtAddress.Enabled = True
-
+            isExistingIDEntered = False
             Lbl1.Text = ""
         End If
 
@@ -629,6 +658,7 @@ Public Class BorrowingAndReturning
                 cmd1.ExecuteNonQuery()
             End Using
 
+            'Bringing back the correct numbering
             Using cmd2 As New MySqlCommand("SELECT ifNull(MAX(books_count),0) FROM borrow_books_temp", con)
                 Dim reader As MySqlDataReader = cmd2.ExecuteReader()
                 If reader.HasRows Then
@@ -652,6 +682,7 @@ Public Class BorrowingAndReturning
             End While
 
             books_count -= 1
+            book_to_borrow_limit -= 1
 
             BtnRemoveTempInfo.Visible = False
             BtnRemoveToBorrow.Visible = False
@@ -674,20 +705,21 @@ Public Class BorrowingAndReturning
     End Sub
 
     Private Sub BtnCancelAddedToBorrow_Click(sender As Object, e As EventArgs) Handles BtnCancelAddedToBorrow.Click
-        Dim confirmation As DialogResult = MessageBox.Show("Cancel Borrowing? All books added to will be removed.", "Confirm Cancel", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        Dim confirmation As DialogResult = MessageBox.Show("Cancel Borrowing? All thesis added to will be removed.", "Confirm Cancel", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
         If confirmation = DialogResult.Yes Then
             EmptyTempStorage()
             Button7.PerformClick()
-
+            book_to_borrow_limit = 0
         End If
     End Sub
     Private Sub BtnCancelBorrowingTrans_Click(sender As Object, e As EventArgs) Handles BtnCancelBorrowingTrans.Click
-        Dim confirmation As DialogResult = MessageBox.Show("Cancel Borrowing? All books added to will be removed.", "Confirm Cancel", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        Dim confirmation As DialogResult = MessageBox.Show("Cancel Borrowing? All thesis added to will be removed.", "Confirm Cancel", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
         If confirmation = DialogResult.Yes Then
             BtnBooks.PerformClick()
             EmptyTempStorage()
             Button7.PerformClick()
             BtnCancelAddedToBorrow.PerformClick()
+            book_to_borrow_limit = 0
         End If
 
     End Sub
@@ -802,6 +834,7 @@ Public Class BorrowingAndReturning
     'ADDING BORROWERS
     Private Sub BtnGoToAddingBorrower_Click(sender As Object, e As EventArgs) Handles BtnGoToAddingBorrower.Click
         GenerateBorrowerID()
+        adding_borrower_indirect = True
         TabControls.SelectedIndex = 7
         TabControls.SelectedTab = TabPage8
 
@@ -813,7 +846,12 @@ Public Class BorrowingAndReturning
         BtnUpdateBorDetails.Visible = False
         Label19.Text = "ADD BORROWER"
     End Sub
+
     Private Sub BtnCancelAddingBorrower_Click(sender As Object, e As EventArgs) Handles BtnCancelAddingBorrower.Click
+        TxtAddBorName.Clear()
+        TxtAddBorEmail.Clear()
+        TxtAddBorAddress.Clear()
+        TxtAddBorPhone.Clear()
         BtnBorrower.PerformClick()
     End Sub
 
@@ -821,9 +859,19 @@ Public Class BorrowingAndReturning
         If TxtAddBorName.Text.Trim = "" Or TxtAddBorEmail.Text.Trim = "" Or TxtAddBorAddress.Text.Trim = "" Or TxtAddBorPhone.Text.Trim = "" Or TxtAddBorId.Text.Trim = "" Then
             MessageBox.Show("Fill in the blank(s)", "No Input(s)", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         Else
-            AddBorrower()
+            If isEmailValid(TxtAddBorEmail.Text.Trim) Then
+                If IsPhoneNumberValid(TxtAddBorPhone.Text.Trim) Then
+                    AddBorrower()
+                Else
+                    MessageBox.Show("Phone number must be 11-digit and starts with '09'", "Invalid Phone Number!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                End If
+            Else
+                MessageBox.Show("Please enter a valid email address", "Invalid Email!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+
+            End If
         End If
     End Sub
+
 
     'METHOD TO CEATE OR ADD NEW BORROWER
     Private Sub AddBorrower()
@@ -844,9 +892,14 @@ Public Class BorrowingAndReturning
                 cmd.Parameters.AddWithValue("@address", TxtAddBorAddress.Text.Trim)
                 cmd.ExecuteNonQuery()
             End Using
+            GenerateQrCode()
+            SendQrCodeToBorrower()
             BtnBorrower.PerformClick()
             MessageBox.Show("Successfully added borrower details", "Successfully Added", MessageBoxButtons.OK, MessageBoxIcon.Information)
-
+            TxtAddBorName.Clear()
+            TxtAddBorEmail.Clear()
+            TxtAddBorPhone.Clear()
+            TxtAddBorAddress.Clear()
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Error Occurred on Adding Borrower Record", MessageBoxButtons.OK, MessageBoxIcon.Error)
             con.Close()
@@ -872,6 +925,10 @@ Public Class BorrowingAndReturning
         BtnDeleteBorrower.Enabled = True
     End Sub
 
+    Private Sub ResendQrCodeID()
+
+    End Sub
+
     'BUTTON TO EDIT BORROWER DETAIL
     Private Sub BtnEditBorrower_Click(sender As Object, e As EventArgs) Handles BtnEditBorrower.Click
         If selected_borrower_id = 0 Then
@@ -883,8 +940,8 @@ Public Class BorrowingAndReturning
             TxtEditId.Text = selected_borrower_id
             TxtEditName.Text = selected_borrower_name
             TxtEditEmail.Text = selected_borrower_email
-            TxtEditAddress.Text = selected_borrower_phone
-            TxtEditPhone.Text = selected_borrower_address
+            TxtEditAddress.Text = selected_borrower_address
+            TxtEditPhone.Text = selected_borrower_phone
             TxtEditId.Visible = True
             TxtEditName.Visible = True
             TxtEditEmail.Visible = True
@@ -904,7 +961,17 @@ Public Class BorrowingAndReturning
         If TxtEditName.Text.Trim = "" Or TxtEditEmail.Text.Trim = "" Or TxtEditAddress.Text.Trim = "" Or TxtEditPhone.Text.Trim = "" Then
             MessageBox.Show("Fill in the blank(s)", "No Input(s)", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         Else
-            UpdateEditedBorrowerDetails()
+            If isEmailValid(TxtEditEmail.Text.Trim) Then
+                If IsPhoneNumberValid(TxtEditPhone.Text.Trim) Then
+                    UpdateEditedBorrowerDetails()
+                Else
+                    MessageBox.Show("Phone number must be 11-digit and starts with '09'", "Invalid Phone Number!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                End If
+            Else
+                MessageBox.Show("Please enter a valid email address", "Invalid Email!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+
+            End If
+
         End If
 
     End Sub
@@ -1062,11 +1129,93 @@ Public Class BorrowingAndReturning
         End Try
     End Sub
 
+    Dim qrCodeBitmap As Bitmap
+
+    Private Sub GenerateQrCode()
+        If adding_borrower_indirect Then
+            qrCodeBitmap = GenerateQRCodeBitmap(Convert.ToInt64(TxtAddBorId.Text.Trim))
+        Else
+            qrCodeBitmap = GenerateQRCodeBitmap(Convert.ToInt64(TxtGenaratedId.Text.Trim))
+        End If
+
+    End Sub
+
+    Private Function GenerateQRCodeBitmap(text As String) As Bitmap
+        ' Configure QR code writer
+        Dim qrWriter As New BarcodeWriter()
+        qrWriter.Format = BarcodeFormat.QR_CODE
+        Dim qrCodeOptions As New QrCodeEncodingOptions() With {
+            .DisableECI = True,
+            .CharacterSet = "UTF-8",
+            .Width = 300,
+            .Height = 300
+        }
+        qrWriter.Options = qrCodeOptions
+
+        ' Generate QR code bitmap
+        Dim qrCodeBitmap As Bitmap = qrWriter.Write(text)
+        Return qrCodeBitmap
+    End Function
+
+    Private Function ImageToByteArray(image As Image) As Byte()
+        Dim ms As New MemoryStream()
+        image.Save(ms, ImageFormat.Png)
+        Return ms.ToArray()
+    End Function
+
+
+    '// SENDING TO EMAIL
+    Private Sub SendQrCodeToBorrower()
+        If IsInternetAvailable() Then
+            Try
+                Dim imageBytes As Byte() = ImageToByteArray(qrCodeBitmap)
+                Dim to_email As String
+
+                If adding_borrower_indirect Then
+                    to_email = TxtAddBorEmail.Text.Trim
+                Else
+                    to_email = TxtEmail.Text.Trim
+                End If
+
+                Dim smtp_server As New SmtpClient
+                smtp_server.UseDefaultCredentials = False
+                smtp_server.Credentials = New Net.NetworkCredential("cdsga.cpri@gmail.com", "xmuc gwab jeua dxss")
+                smtp_server.Port = 587
+                smtp_server.EnableSsl = True
+                smtp_server.Host = "smtp.gmail.com"
+
+                Dim email As New MailMessage
+                email = New MailMessage()
+                email.From = New MailAddress("cdsga.cpri@gmail.com")
+                email.To.Add(to_email)
+                email.Subject = "Your CPRI QR CODE ID"
+                email.Body = "<span style='font-size: 25px; color: maroon;'>" & "CDSGA-CPRI" & "</span> <br><br>" & "Here's your QR code ID, you can use it when you want to borrow again. You can download or print it. " & "<br> <span style='font-size: 35px;'>" & "YOUR QR CODE ID:" & "</span>"
+                email.IsBodyHtml = True
+
+                ' Attach the QR code image as an attachment
+                email.Attachments.Add(New Attachment(New MemoryStream(imageBytes), "QRCode.png"))
+
+                smtp_server.Send(email)
+
+                MessageBox.Show("QR Code ID Successfully sent", "Sent", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+            Catch ex As Exception
+                MessageBox.Show(ex.Message, "Error Occurred while sending QR Code ID", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End Try
+        Else
+            MessageBox.Show("Unable to send Qr Code ID to borrower's email.", "Check your internet connection!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        End If
+
+
+    End Sub
+
     'SAVING BORROWER'S INFORMATION
     Private Sub Save_borrower_info()
-        con.Close()
 
+        con.Close()
         Try
+            GenerateQrCode()
+            SendQrCodeToBorrower()
             con.Open()
             Dim query As String = "
                             INSERT INTO borrowers
@@ -1084,7 +1233,7 @@ Public Class BorrowingAndReturning
             End Using
 
         Catch ex As Exception
-            MessageBox.Show(ex.Message, "Error Occurred on Searching Borrower Record", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show(ex.Message, "Error Occurred on Saving Borrower Record", MessageBoxButtons.OK, MessageBoxIcon.Error)
             con.Close()
         Finally
             con.Close()
@@ -1440,10 +1589,19 @@ Public Class BorrowingAndReturning
         If TxtName.Text.Trim = "" Or TxtPhoneNo.Text.Trim = "" Or TxtEmail.Text.Trim = "" Or TxtPhoneNo.Text.Trim = "" Then
             MessageBox.Show("Please fill in the blank(s)", "No Input(s)", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         Else
-            Dim confirmation As DialogResult = MessageBox.Show("Save this borrowing transaction?.", "Confirm Saving?", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-            If confirmation = DialogResult.Yes Then
-                Save_borrowing_info()
-                isAddingPanelVisible = False
+            If isEmailValid(TxtEmail.Text.Trim) Then
+                If IsPhoneNumberValid(TxtPhoneNo.Text.Trim) Then
+                    Dim confirmation As DialogResult = MessageBox.Show("Save this borrowing transaction?.", "Confirm Saving?", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                    If confirmation = DialogResult.Yes Then
+                        Save_borrowing_info()
+                        isAddingPanelVisible = False
+                    End If
+                Else
+                    MessageBox.Show("Phone number must be 11-digit and starts with '09'", "Invalid Phone Number!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                End If
+            Else
+                MessageBox.Show("Please enter a valid email address", "Invalid Email!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+
             End If
         End If
 
@@ -1574,6 +1732,7 @@ Public Class BorrowingAndReturning
             PnlAddingToBorrow.Visible = False
             books_count = 1
             selected_book_id = 0
+            book_to_borrow_limit = 0
             MessageBox.Show("Successfully Saved Borrowing transaction at Borrowed Thesis", "", MessageBoxButtons.OK, MessageBoxIcon.Information)
             con.Close()
         Catch ex As Exception
@@ -2355,17 +2514,17 @@ Public Class BorrowingAndReturning
                     INNER JOIN borrowed_books
                         ON borrowed_books.borrow_id = overdues.borrow_id
                     WHERE 
-                    overdues.borrow_id LIKE @to_search,
-                    OR overdues.borrower_id LIKE @to_search,
-                    OR overdues.due._date LIKE @to_search,
-                    OR overdueso.verdue_days LIKE @to_search,
-                    OR overdues.overdue_status LIKE @to_search,
-                    OR borrowed_books.book_ids LIKE @to_search,
-                    OR borrowed_books.title LIKE @to_search,
-                    OR borrowed_books.total_no_book LIKE @to_search,
-                    OR borrowed_books.type LIKE @to_search,
-                    OR borrowed_books.borrow_date LIKE @to_search,
-                    OR borrowed_books.time LIKE @to_search,
+                    overdues.borrow_id LIKE @to_search
+                    OR overdues.borrower_id LIKE @to_search
+                    OR overdues.due._date LIKE @to_search
+                    OR overdueso.verdue_days LIKE @to_search
+                    OR overdues.overdue_status LIKE @to_search
+                    OR borrowed_books.book_ids LIKE @to_search
+                    OR borrowed_books.title LIKE @to_search
+                    OR borrowed_books.total_no_book LIKE @to_search
+                    OR borrowed_books.type LIKE @to_search
+                    OR borrowed_books.borrow_date LIKE @to_search
+                    OR borrowed_books.time LIKE @to_search
                     
                     AND overdues.status='NOT RETURNED'
                     ORDER BY overdues.due_date ASC
@@ -2420,4 +2579,361 @@ Public Class BorrowingAndReturning
             LoadReturnedBooksList()
         End If
     End Sub
+
+    'WHILE BORROWER DETAILS TO ADD IS BEING TYPE, IT CHECK DATABASE RECORD IF BORROWER ALREADY EXISTS
+    Dim entered_borrower_isExist As Boolean
+    Dim txtbx As String = ""
+    Private Sub CheckBorrowerInfoToAdd()
+        con.Close()
+
+        Try
+            con.Open()
+            Dim query As String = "
+                    SELECT * 
+                    FROM `borrowers`
+                    WHERE 
+                        `name` = @name
+                        OR `email` = @email
+                        OR `phone` = @phone
+                        OR `name` = @direct_bor_name
+                        OR `email` = @direct_bor_email
+                        OR `phone` = @direct_bor_phone
+                "
+            Using cmd As New MySqlCommand(query, con)
+                cmd.Parameters.AddWithValue("@name", TxtAddBorName.Text.Trim())
+                cmd.Parameters.AddWithValue("@email", TxtAddBorEmail.Text.Trim())
+                cmd.Parameters.AddWithValue("@phone", TxtAddBorPhone.Text.Trim())
+                cmd.Parameters.AddWithValue("@direct_bor_name", TxtName.Text.Trim())
+                cmd.Parameters.AddWithValue("@direct_bor_email", TxtEmail.Text.Trim())
+                cmd.Parameters.AddWithValue("@direct_bor_phone", TxtPhoneNo.Text.Trim())
+                Dim reader As MySqlDataReader = cmd.ExecuteReader()
+                If reader.HasRows Then
+                    MessageBox.Show("The detail(s) you have entered has matching record to database")
+                    entered_borrower_isExist = True
+                    If txtbx = "txtname" Then
+                        TxtName.Clear()
+                    ElseIf txtbx = "txtemail" Then
+                        TxtEmail.Clear()
+                    ElseIf txtbx = "txtphone" Then
+                        TxtPhoneNo.Text = "09"
+
+                    ElseIf txtbx = "txtaddborphone" Then
+                        TxtAddBorPhone.Text = "09"
+                    ElseIf txtbx = "txtaddboremail" Then
+                        TxtAddBorEmail.Clear()
+                    ElseIf txtbx = "txtaddborname" Then
+                        TxtAddBorName.Clear()
+
+                    ElseIf txtbx = "txteditphone" Then
+                        TxtEditPhone.Text = "09"
+                    ElseIf txtbx = "txteditemail" Then
+                        TxtEditEmail.Clear()
+                    ElseIf txtbx = "txteditname" Then
+                        TxtEditName.Clear()
+                    End If
+                End If
+                reader.Close()
+            End Using
+
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Error Occurred on Checking Borrower Record", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            con.Close()
+        Finally
+            con.Close()
+        End Try
+    End Sub
+
+    '//
+    Private Sub TxtAddBorName_TextChanged(sender As Object, e As EventArgs) Handles TxtAddBorName.TextChanged
+        If TxtAddBorName.Text.Trim <> "" Then
+            txtbx = "txtaddborname"
+            CheckBorrowerInfoToAdd()
+
+        End If
+    End Sub
+
+    Private Sub TxtAddBorEmail_TextChanged(sender As Object, e As EventArgs) Handles TxtAddBorEmail.TextChanged
+        If TxtAddBorEmail.Text.Trim <> "" Then
+            If isEmailValid(TxtAddBorEmail.Text.Trim) Then
+                Label35.Text = ""
+                txtbx = "txtaddboremail"
+                CheckBorrowerInfoToAdd()
+
+            Else
+                Label35.Text = "Invalid Email"
+            End If
+
+
+        End If
+    End Sub
+
+    Private Sub TxtAddBorPhone_TextChanged(sender As Object, e As EventArgs) Handles TxtAddBorPhone.TextChanged
+        If TxtAddBorPhone.Text.Trim <> "" Then
+            If IsNumeric(TxtAddBorPhone.Text.Trim) Then
+                If TxtAddBorPhone.Text.Trim.Length >= 11 Then
+                    If IsPhoneNumberValid(TxtAddBorPhone.Text.Trim) Then
+                        txtbx = "txtaddborphone"
+                        CheckBorrowerInfoToAdd()
+                    Else
+                        MsgBox("Phone number must be 11-digit and starts with '09'")
+                        TxtAddBorPhone.Text = "09"
+                    End If
+                End If
+
+            Else
+                MessageBox.Show("Invalid Input. Enter number only!", "Invalid Input!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                TxtEditPhone.Text = "09"
+            End If
+        End If
+    End Sub
+
+    '//
+    Private Sub TxtName_TextChanged(sender As Object, e As EventArgs) Handles TxtName.TextChanged
+        If TxtName.Text.Trim <> "" And Not isExistingIDEntered Then
+            txtbx = "txtname"
+            CheckBorrowerInfoToAdd()
+        End If
+    End Sub
+
+    Private Sub TxtEmail_TextChanged(sender As Object, e As EventArgs) Handles TxtEmail.TextChanged
+        If TxtEmail.Text.Trim <> "" And Not isExistingIDEntered Then
+            If isEmailValid(TxtEmail.Text.Trim) Then
+                Label34.Text = ""
+                txtbx = "txtemail"
+                CheckBorrowerInfoToAdd()
+            Else
+                Label34.Text = "Invalid email"
+            End If
+
+        End If
+    End Sub
+
+    Private Sub TxtPhoneNo_TextChanged(sender As Object, e As EventArgs) Handles TxtPhoneNo.TextChanged
+        If TxtPhoneNo.Text.Trim <> "" And Not isExistingIDEntered Then
+            If IsNumeric(TxtPhoneNo.Text.Trim) Then
+                If TxtPhoneNo.Text.Trim.Length >= 11 Then
+                    If IsPhoneNumberValid(TxtPhoneNo.Text.Trim) Then
+                        txtbx = "txtphone"
+                        CheckBorrowerInfoToAdd()
+                    Else
+                        MsgBox("Phone number must be 11-digit and starts with '09'")
+                        TxtPhoneNo.Text = "09"
+                    End If
+                End If
+            Else
+                MessageBox.Show("Invalid Input. Enter number only!", "Invalid Input!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                TxtPhoneNo.Text = "09"
+            End If
+        End If
+    End Sub
+
+    '// 
+    Private Sub TxtName_KeyDown(sender As Object, e As KeyEventArgs) Handles TxtName.KeyDown
+        If e.KeyCode = 13 Then
+            If TxtName.Text.Trim = "" Then
+                MsgBox("No input")
+            Else
+                TxtEmail.Focus()
+            End If
+        End If
+
+    End Sub
+    Private Sub TxtEmail_KeyDown(sender As Object, e As KeyEventArgs) Handles TxtEmail.KeyDown
+        If e.KeyCode = 13 Then
+
+            If TxtEmail.Text.Trim <> "" Then
+                If isEmailValid(TxtEmail.Text.Trim) Then
+                    TxtAddress.Focus()
+                Else
+                    MessageBox.Show("The Email you have entered was invalid!", "Invalid email!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                End If
+            Else
+                MsgBox("No input")
+            End If
+
+        End If
+
+    End Sub
+    Private Sub TxtAddress_KeyDown(sender As Object, e As KeyEventArgs) Handles TxtAddress.KeyDown
+        If e.KeyCode = 13 Then
+            If TxtAddress.Text.Trim = "" Then
+                MsgBox("No input")
+            Else
+                TxtPhoneNo.Focus()
+            End If
+        End If
+
+    End Sub
+    Private Sub TxtPhoneNo_KeyDown(sender As Object, e As KeyEventArgs) Handles TxtPhoneNo.KeyDown
+
+        If e.KeyCode = 13 Then
+            If TxtPhoneNo.Text.Trim = "" Then
+                MsgBox("No input")
+            Else
+                BtnConfirm.PerformClick()
+            End If
+        End If
+
+    End Sub
+
+
+    '// 
+    Private Sub TxtAddBor_KeyDown(sender As Object, e As KeyEventArgs) Handles TxtAddBorName.KeyDown
+
+        If e.KeyCode = 13 Then
+            If TxtAddBorName.Text.Trim = "" Then
+                MsgBox("No input")
+            Else
+                TxtAddBorEmail.Focus()
+            End If
+        End If
+
+    End Sub
+    Private Sub TxtAddBorEmail_KeyDown(sender As Object, e As KeyEventArgs) Handles TxtAddBorEmail.KeyDown
+
+        If e.KeyCode = 13 Then
+
+            If TxtAddBorEmail.Text.Trim <> "" Then
+                If isEmailValid(TxtAddBorEmail.Text.Trim) Then
+                    TxtAddBorAddress.Focus()
+                Else
+                    MessageBox.Show("The Email you have entered was invalid!", "Invalid email!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                End If
+            Else
+                MsgBox("No input")
+            End If
+        End If
+
+    End Sub
+    Private Sub TxtAddBorAddress_KeyDown(sender As Object, e As KeyEventArgs) Handles TxtAddBorAddress.KeyDown
+        If e.KeyCode = 13 Then
+            If TxtAddBorAddress.Text.Trim = "" Then
+                MsgBox("No input")
+            Else
+                TxtAddBorPhone.Focus()
+            End If
+        End If
+
+    End Sub
+    Private Sub TxtAddBorPhone_KeyDown(sender As Object, e As KeyEventArgs) Handles TxtAddBorPhone.KeyDown
+        If e.KeyCode = 13 Then
+            If TxtAddBorPhone.Text.Trim = "" Then
+                MsgBox("No input")
+                TxtAddBorPhone.Text = "09"
+            Else
+                BtnAddBorrowerInfo.PerformClick()
+            End If
+        End If
+
+    End Sub
+
+
+    '// PHONE NUMBER VALIDATION
+    Private Function IsPhoneNumberValid(phoneNumber As String) As Boolean
+        If phoneNumber IsNot Nothing AndAlso phoneNumber.Length = 11 AndAlso phoneNumber.StartsWith("09") Then
+            Return True
+        Else
+            Return False
+        End If
+    End Function
+
+
+    'editing borrowers details
+    Private Sub TxtEditEmail_TextChanged(sender As Object, e As EventArgs) Handles TxtEditEmail.TextChanged
+        If TxtEditEmail.Text.Trim <> "" Then
+            If isEmailValid(TxtEditEmail.Text.Trim) Then
+                txtbx = "txteditemail"
+                CheckBorrowerInfoToAdd()
+                Label35.Text = ""
+            Else
+                Label35.Text = "Invalid email"
+            End If
+
+        End If
+    End Sub
+
+    Private Sub TxtEditName_TextChanged(sender As Object, e As EventArgs) Handles TxtEditName.TextChanged
+        If TxtEditName.Text.Trim <> "" Then
+            txtbx = "txteditname"
+            CheckBorrowerInfoToAdd()
+
+        End If
+    End Sub
+
+    Private Sub TxtEditPhone_TextChanged(sender As Object, e As EventArgs) Handles TxtEditPhone.TextChanged
+        If TxtEditPhone.Text.Trim <> "" Then
+            If IsNumeric(TxtEditPhone.Text.Trim) Then
+                If TxtEditPhone.Text.Trim.Length >= 11 Then
+                    If IsPhoneNumberValid(TxtEditPhone.Text.Trim) Then
+                        txtbx = "txteditphone"
+                        CheckBorrowerInfoToAdd()
+                    Else
+                        MsgBox("Phone number must be 11-digit and starts with '09'")
+                        TxtEditPhone.Text = "09"
+                    End If
+                End If
+
+            Else
+                MessageBox.Show("Invalid Input. Enter number only!", "Invalid Input!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                TxtEditPhone.Text = "09"
+            End If
+        End If
+    End Sub
+
+    '//
+    Private Sub TxtEditName_KeyDown(sender As Object, e As KeyEventArgs) Handles TxtEditName.KeyDown
+        If e.KeyCode = 13 Then
+            If TxtEditName.Text.Trim <> "" Then
+                TxtEditEmail.Focus()
+            Else
+                MsgBox("No input")
+            End If
+        End If
+    End Sub
+    Private Sub TxtEditEmail_KeyDown(sender As Object, e As KeyEventArgs) Handles TxtEditEmail.KeyDown
+        If e.KeyCode = 13 Then
+            If TxtEditEmail.Text.Trim <> "" Then
+                If isEmailValid(TxtEditEmail.Text.Trim) Then
+                    TxtEditAddress.Focus()
+                Else
+                    MessageBox.Show("The Email you have entered was invalid!", "Invalid email!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                End If
+            Else
+                MsgBox("No input")
+            End If
+        End If
+    End Sub
+
+    Private Sub TxtEditAddress_KeyDown(sender As Object, e As KeyEventArgs) Handles TxtEditAddress.KeyDown
+        If e.KeyCode = 13 Then
+            If TxtEditAddress.Text.Trim <> "" Then
+                TxtEditPhone.Focus()
+            Else
+                MsgBox("No input")
+            End If
+        End If
+    End Sub
+
+    Private Sub TxtEditPhone_KeyDown(sender As Object, e As KeyEventArgs) Handles TxtEditPhone.KeyDown
+        If TxtEditPhone.Text.Trim <> "" Then
+            If IsPhoneNumberValid(TxtEditPhone.Text.Trim) Then
+                BtnUpdateBorDetails.PerformClick()
+            Else
+                MsgBox("Phone number must be 11-digit and starts with '09'")
+            End If
+        Else
+            MsgBox("No input")
+        End If
+    End Sub
+
+    '// EMAIL VALIDATION
+    Function isEmailValid(email_to_check As String) As Boolean
+        Try
+            Dim email As New MailAddress(email_to_check)
+            Return True
+        Catch ex As Exception
+            Return False
+        End Try
+    End Function
+
 End Class

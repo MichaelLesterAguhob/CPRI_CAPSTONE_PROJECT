@@ -1072,20 +1072,20 @@ Public Class AddWorks
         End If
     End Sub
 
-    Private Sub TxtSchoolYear_TextChanged(sender As Object, e As EventArgs) Handles TxtSchoolYear.TextChanged
+    Private Sub TxtSchoolYear_TextChanged(sender As Object, e As EventArgs)
         If TxtSchoolYear.Text <> "Enter School Year" Then
             TxtSchoolYear.ForeColor = Color.Black
         End If
     End Sub
 
-    Private Sub TxtSchoolYear_Leave(sender As Object, e As EventArgs) Handles TxtSchoolYear.Leave
+    Private Sub TxtSchoolYear_Leave(sender As Object, e As EventArgs)
         If TxtSchoolYear.Text = "" Then
             TxtSchoolYear.Text = "Enter School Year"
             TxtSchoolYear.ForeColor = Color.Gray
         End If
     End Sub
 
-    Private Sub TxtSchoolYear_GotFocus(sender As Object, e As EventArgs) Handles TxtSchoolYear.GotFocus
+    Private Sub TxtSchoolYear_GotFocus(sender As Object, e As EventArgs)
 
         TxtSchoolYear.Text = ""
         TxtSchoolYear.ForeColor = Color.Black

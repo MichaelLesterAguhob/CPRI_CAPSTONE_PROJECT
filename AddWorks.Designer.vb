@@ -41,7 +41,6 @@ Partial Class AddWorks
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.DtCompletedDate = New System.Windows.Forms.DateTimePicker()
         Me.Label30 = New System.Windows.Forms.Label()
-        Me.TxtSchoolYear = New System.Windows.Forms.TextBox()
         Me.CbxSem = New System.Windows.Forms.ComboBox()
         Me.Label21 = New System.Windows.Forms.Label()
         Me.TxtBrowsedFileWhl = New System.Windows.Forms.TextBox()
@@ -121,6 +120,7 @@ Partial Class AddWorks
         Me.Label26 = New System.Windows.Forms.Label()
         Me.TxtLoc = New System.Windows.Forms.TextBox()
         Me.Label27 = New System.Windows.Forms.Label()
+        Me.TxtSchoolYear = New System.Windows.Forms.ComboBox()
         Me.PnlTxtCont.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.PnlPresented.SuspendLayout()
@@ -312,9 +312,9 @@ Partial Class AddWorks
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.TxtSchoolYear)
         Me.GroupBox1.Controls.Add(Me.DtCompletedDate)
         Me.GroupBox1.Controls.Add(Me.Label30)
-        Me.GroupBox1.Controls.Add(Me.TxtSchoolYear)
         Me.GroupBox1.Controls.Add(Me.CbxSem)
         Me.GroupBox1.Controls.Add(Me.Label21)
         Me.GroupBox1.Controls.Add(Me.TxtBrowsedFileWhl)
@@ -359,17 +359,6 @@ Partial Class AddWorks
         Me.Label30.Size = New System.Drawing.Size(86, 13)
         Me.Label30.TabIndex = 83
         Me.Label30.Text = "Date Completed:"
-        '
-        'TxtSchoolYear
-        '
-        Me.TxtSchoolYear.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.TxtSchoolYear.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtSchoolYear.ForeColor = System.Drawing.Color.Gray
-        Me.TxtSchoolYear.Location = New System.Drawing.Point(126, 89)
-        Me.TxtSchoolYear.Name = "TxtSchoolYear"
-        Me.TxtSchoolYear.Size = New System.Drawing.Size(139, 21)
-        Me.TxtSchoolYear.TabIndex = 76
-        Me.TxtSchoolYear.Text = "Enter School Year"
         '
         'CbxSem
         '
@@ -1328,6 +1317,16 @@ Partial Class AddWorks
         Me.Label27.TabIndex = 68
         Me.Label27.Text = "Location :"
         '
+        'TxtSchoolYear
+        '
+        Me.TxtSchoolYear.ForeColor = System.Drawing.Color.Gray
+        Me.TxtSchoolYear.FormattingEnabled = True
+        Me.TxtSchoolYear.Items.AddRange(New Object() {"1993-1994", "1994-1995", "1995-1996", "1996-1997", "1997-1998", "1998-1999", "1999-2000", "2000-2001", "2001-2002", "2002-2003", "2003-2004", "2004-2005", "2005-2006"})
+        Me.TxtSchoolYear.Location = New System.Drawing.Point(126, 90)
+        Me.TxtSchoolYear.Name = "TxtSchoolYear"
+        Me.TxtSchoolYear.Size = New System.Drawing.Size(139, 21)
+        Me.TxtSchoolYear.TabIndex = 85
+        '
         'AddWorks
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1491,11 +1490,11 @@ Partial Class AddWorks
     Friend WithEvents CbxSftCpySbmttd As CheckBox
     Friend WithEvents DtHrdCpySbmttdDate As DateTimePicker
     Friend WithEvents DtSftCpySbmttdDate As DateTimePicker
-    Friend WithEvents TxtSchoolYear As TextBox
     Friend WithEvents DtCompletedDate As DateTimePicker
     Friend WithEvents Label30 As Label
     Friend WithEvents TxtCopies As TextBox
     Friend WithEvents Label26 As Label
     Friend WithEvents TxtLoc As TextBox
     Friend WithEvents Label27 As Label
+    Friend WithEvents TxtSchoolYear As ComboBox
 End Class

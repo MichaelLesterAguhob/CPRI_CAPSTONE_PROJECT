@@ -57,6 +57,7 @@ Partial Class CreateLoginAccount
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label25 = New System.Windows.Forms.Label()
         Me.GbxLogin = New System.Windows.Forms.GroupBox()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.BtnGoToStudentViewing = New System.Windows.Forms.Button()
         Me.PnlForgotPass = New System.Windows.Forms.Panel()
         Me.PnlFpCode = New System.Windows.Forms.Panel()
@@ -91,7 +92,6 @@ Partial Class CreateLoginAccount
         Me.Label14 = New System.Windows.Forms.Label()
         Me.LblLoginMsg = New System.Windows.Forms.Label()
         Me.timer_fade_out_msg = New System.Windows.Forms.Timer(Me.components)
-        Me.Button2 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.GbxCreate.SuspendLayout()
         Me.PnlVCode.SuspendLayout()
@@ -498,6 +498,18 @@ Partial Class CreateLoginAccount
         Me.GbxLogin.TabIndex = 5
         Me.GbxLogin.TabStop = False
         '
+        'Button2
+        '
+        Me.Button2.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.Button2.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.Location = New System.Drawing.Point(57, 72)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(344, 33)
+        Me.Button2.TabIndex = 22
+        Me.Button2.Text = "Shorcut"
+        Me.Button2.UseVisualStyleBackColor = False
+        '
         'BtnGoToStudentViewing
         '
         Me.BtnGoToStudentViewing.BackColor = System.Drawing.SystemColors.ControlLight
@@ -873,19 +885,7 @@ Partial Class CreateLoginAccount
         '
         'timer_fade_out_msg
         '
-        Me.timer_fade_out_msg.Interval = 2000
-        '
-        'Button2
-        '
-        Me.Button2.BackColor = System.Drawing.SystemColors.ControlLight
-        Me.Button2.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(57, 72)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(344, 33)
-        Me.Button2.TabIndex = 22
-        Me.Button2.Text = "Shorcut"
-        Me.Button2.UseVisualStyleBackColor = False
+        Me.timer_fade_out_msg.Interval = 1000
         '
         'CreateLoginAccount
         '

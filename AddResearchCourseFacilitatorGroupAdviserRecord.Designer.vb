@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class AddResearchCourseFacilitatorGroupAdviserRecord
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class AddResearchCourseFacilitatorGroupAdviserRecord
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label20 = New System.Windows.Forms.Label()
@@ -98,7 +98,7 @@ Partial Class AddResearchCourseFacilitatorGroupAdviserRecord
         Me.BtnCancel = New System.Windows.Forms.Button()
         Me.BtnSaveRecord = New System.Windows.Forms.Button()
         Me.PnlInfo = New System.Windows.Forms.Panel()
-        Me.TxtSchoolYear = New System.Windows.Forms.TextBox()
+        Me.TxtSchoolYear = New System.Windows.Forms.ComboBox()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
@@ -1035,13 +1035,13 @@ Partial Class AddResearchCourseFacilitatorGroupAdviserRecord
         '
         'TxtSchoolYear
         '
-        Me.TxtSchoolYear.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.TxtSchoolYear.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtSchoolYear.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.TxtSchoolYear.Location = New System.Drawing.Point(103, 175)
+        Me.TxtSchoolYear.ForeColor = System.Drawing.Color.Gray
+        Me.TxtSchoolYear.FormattingEnabled = True
+        Me.TxtSchoolYear.Items.AddRange(New Object() {"1993-1994", "1994-1995", "1995-1996", "1996-1997", "1997-1998", "1998-1999", "1999-2000", "2000-2001", "2001-2002", "2002-2003", "2003-2004", "2004-2005", "2005-2006"})
+        Me.TxtSchoolYear.Location = New System.Drawing.Point(103, 177)
         Me.TxtSchoolYear.Name = "TxtSchoolYear"
-        Me.TxtSchoolYear.Size = New System.Drawing.Size(139, 22)
-        Me.TxtSchoolYear.TabIndex = 95
+        Me.TxtSchoolYear.Size = New System.Drawing.Size(139, 21)
+        Me.TxtSchoolYear.TabIndex = 101
         '
         'AddResearchCourseFacilitatorGroupAdviserRecord
         '
@@ -1176,5 +1176,5 @@ Partial Class AddResearchCourseFacilitatorGroupAdviserRecord
     Friend WithEvents BtnCancel As Button
     Friend WithEvents BtnSaveRecord As Button
     Friend WithEvents PnlInfo As Panel
-    Friend WithEvents TxtSchoolYear As TextBox
+    Friend WithEvents TxtSchoolYear As ComboBox
 End Class

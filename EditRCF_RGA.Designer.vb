@@ -57,7 +57,6 @@ Partial Class EditRCF_RGA
         Me.Rd3rdStatSubmitted = New System.Windows.Forms.RadioButton()
         Me.TxtRemarksEvaluation = New System.Windows.Forms.TextBox()
         Me.Rd2ndStatSubmitted = New System.Windows.Forms.RadioButton()
-        Me.TxtSchoolYear = New System.Windows.Forms.TextBox()
         Me.BtnCancel = New System.Windows.Forms.Button()
         Me.BtnUpdate = New System.Windows.Forms.Button()
         Me.Label11 = New System.Windows.Forms.Label()
@@ -99,6 +98,7 @@ Partial Class EditRCF_RGA
         Me.Panel7 = New System.Windows.Forms.Panel()
         Me.LblStage = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
+        Me.TxtSchoolYear = New System.Windows.Forms.ComboBox()
         Me.PnlRRGA.SuspendLayout()
         Me.Panel11.SuspendLayout()
         Me.Panel10.SuspendLayout()
@@ -526,16 +526,6 @@ Partial Class EditRCF_RGA
         Me.Rd2ndStatSubmitted.TabStop = True
         Me.Rd2ndStatSubmitted.Text = "Submitted"
         Me.Rd2ndStatSubmitted.UseVisualStyleBackColor = True
-        '
-        'TxtSchoolYear
-        '
-        Me.TxtSchoolYear.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.TxtSchoolYear.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtSchoolYear.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.TxtSchoolYear.Location = New System.Drawing.Point(101, 167)
-        Me.TxtSchoolYear.Name = "TxtSchoolYear"
-        Me.TxtSchoolYear.Size = New System.Drawing.Size(139, 22)
-        Me.TxtSchoolYear.TabIndex = 111
         '
         'BtnCancel
         '
@@ -1036,14 +1026,24 @@ Partial Class EditRCF_RGA
         Me.Label9.TabIndex = 110
         Me.Label9.Text = "Requirements for Research Course Facilitator :"
         '
+        'TxtSchoolYear
+        '
+        Me.TxtSchoolYear.ForeColor = System.Drawing.Color.Gray
+        Me.TxtSchoolYear.FormattingEnabled = True
+        Me.TxtSchoolYear.Items.AddRange(New Object() {"1993-1994", "1994-1995", "1995-1996", "1996-1997", "1997-1998", "1998-1999", "1999-2000", "2000-2001", "2001-2002", "2002-2003", "2003-2004", "2004-2005", "2005-2006"})
+        Me.TxtSchoolYear.Location = New System.Drawing.Point(103, 170)
+        Me.TxtSchoolYear.Name = "TxtSchoolYear"
+        Me.TxtSchoolYear.Size = New System.Drawing.Size(139, 21)
+        Me.TxtSchoolYear.TabIndex = 118
+        '
         'EditRCF_RGA
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.ClientSize = New System.Drawing.Size(1350, 729)
-        Me.Controls.Add(Me.PnlRRGA)
         Me.Controls.Add(Me.TxtSchoolYear)
+        Me.Controls.Add(Me.PnlRRGA)
         Me.Controls.Add(Me.BtnCancel)
         Me.Controls.Add(Me.BtnUpdate)
         Me.Controls.Add(Me.Label11)
@@ -1128,7 +1128,6 @@ Partial Class EditRCF_RGA
     Friend WithEvents Rd3rdStatSubmitted As RadioButton
     Friend WithEvents TxtRemarksEvaluation As TextBox
     Friend WithEvents Rd2ndStatSubmitted As RadioButton
-    Friend WithEvents TxtSchoolYear As TextBox
     Friend WithEvents BtnCancel As Button
     Friend WithEvents BtnUpdate As Button
     Friend WithEvents Label11 As Label
@@ -1170,4 +1169,5 @@ Partial Class EditRCF_RGA
     Friend WithEvents Panel7 As Panel
     Friend WithEvents LblStage As Label
     Friend WithEvents Label9 As Label
+    Friend WithEvents TxtSchoolYear As ComboBox
 End Class
