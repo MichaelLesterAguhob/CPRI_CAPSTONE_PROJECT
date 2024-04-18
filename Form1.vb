@@ -397,5 +397,9 @@ Public Class Form1
         MenuToolStripMenuItem.Font = myFont02
     End Sub
 
+    Private Sub MyAccountToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MyAccountToolStripMenuItem.Click
+        Dim my_account As New MyAccounts
+        my_account.Show()
+    End Sub
 
 End Class

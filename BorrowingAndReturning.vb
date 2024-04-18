@@ -194,7 +194,7 @@ Public Class BorrowingAndReturning
                 End Using
             End Using
         Catch ex As Exception
-            MessageBox.Show(ex.Message, "Error Occurred on Loading Book List", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show(ex.Message, "Error Occurred on Loading Thesis List", MessageBoxButtons.OK, MessageBoxIcon.Error)
             con.Close()
         Finally
             con.Close()
@@ -440,8 +440,9 @@ Public Class BorrowingAndReturning
                             cmd.ExecuteNonQuery()
                         End Using
                         LoadToBorrowTemp()
-                        books_count += 1
-                        If selected_book_stat = "Internal Borrow Only" Then
+                            books_count += 1
+                            book_to_borrow_limit += 1
+                            If selected_book_stat = "Internal Borrow Only" Then
                             isThereInternalBorrowSelected = True
                             selected_book_type = "Internal Borrow Only"
                         ElseIf selected_book_stat = "Available" Then
@@ -450,8 +451,8 @@ Public Class BorrowingAndReturning
                         End If
                     End If
                 End Using
-                book_to_borrow_limit += 1
-            Catch ex As Exception
+
+                Catch ex As Exception
                 MessageBox.Show(ex.Message, "Error Occurred on Adding thesis to Borrow", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 con.Close()
             Finally
@@ -845,6 +846,7 @@ Public Class BorrowingAndReturning
         TxtEditPhone.Visible = False
         BtnUpdateBorDetails.Visible = False
         Label19.Text = "ADD BORROWER"
+        TxtExistingBorrowerId.Clear()
     End Sub
 
     Private Sub BtnCancelAddingBorrower_Click(sender As Object, e As EventArgs) Handles BtnCancelAddingBorrower.Click
@@ -912,6 +914,7 @@ Public Class BorrowingAndReturning
     Dim selected_borrower_email As String = ""
     Dim selected_borrower_address As String = ""
     Dim selected_borrower_phone As String = ""
+    Dim isResendQrToBorrower As Boolean = False
     Private Sub DgvBorrowers_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DgvBorrowers.CellClick
         Dim i As Integer = DgvBorrowers.CurrentRow.Index
         selected_borrower_id = DgvBorrowers.Item(0, i).Value
@@ -923,6 +926,7 @@ Public Class BorrowingAndReturning
         'MsgBox(selected_borrower_id)
         BtnEditBorrower.Enabled = True
         BtnDeleteBorrower.Enabled = True
+        BtnResendQr.Enabled = True
     End Sub
 
     Private Sub ResendQrCodeID()
@@ -1132,7 +1136,10 @@ Public Class BorrowingAndReturning
     Dim qrCodeBitmap As Bitmap
 
     Private Sub GenerateQrCode()
-        If adding_borrower_indirect Then
+
+        If isResendQrToBorrower Then
+            qrCodeBitmap = GenerateQRCodeBitmap(selected_borrower_id)
+        ElseIf adding_borrower_indirect Then
             qrCodeBitmap = GenerateQRCodeBitmap(Convert.ToInt64(TxtAddBorId.Text.Trim))
         Else
             qrCodeBitmap = GenerateQRCodeBitmap(Convert.ToInt64(TxtGenaratedId.Text.Trim))
@@ -1170,8 +1177,9 @@ Public Class BorrowingAndReturning
             Try
                 Dim imageBytes As Byte() = ImageToByteArray(qrCodeBitmap)
                 Dim to_email As String
-
-                If adding_borrower_indirect Then
+                If isResendQrToBorrower Then
+                    to_email = selected_borrower_email
+                ElseIf adding_borrower_indirect Then
                     to_email = TxtAddBorEmail.Text.Trim
                 Else
                     to_email = TxtEmail.Text.Trim
@@ -1198,7 +1206,7 @@ Public Class BorrowingAndReturning
                 smtp_server.Send(email)
 
                 MessageBox.Show("QR Code ID Successfully sent", "Sent", MessageBoxButtons.OK, MessageBoxIcon.Information)
-
+                isResendQrToBorrower = False
             Catch ex As Exception
                 MessageBox.Show(ex.Message, "Error Occurred while sending QR Code ID", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End Try
@@ -1334,7 +1342,17 @@ Public Class BorrowingAndReturning
         con.Close()
         Try
             con.Open()
-            Dim query As String = "SELECT * FROM borrowed_books WHERE is_cancel='NO' AND is_returned='NO' ORDER BY borrow_date DESC, time DESC"
+            Dim query As String = "
+                SELECT 
+                    borrowed_books.*,
+                    borrowers.name,
+                    borrowers.phone,
+                    borrowers.email
+                FROM borrowed_books 
+                INNER JOIN borrowers 
+                    ON borrowers.borrower_id = borrowed_books.borrower_id
+                WHERE is_cancel='NO' AND is_returned='NO' 
+                ORDER BY borrow_date DESC, time DESC"
             Using cmd As New MySqlCommand(query, con)
                 Using adptr As New MySqlDataAdapter(cmd)
                     dt_borrowed.Clear()
@@ -2645,6 +2663,7 @@ Public Class BorrowingAndReturning
 
     '//
     Private Sub TxtAddBorName_TextChanged(sender As Object, e As EventArgs) Handles TxtAddBorName.TextChanged
+
         If TxtAddBorName.Text.Trim <> "" Then
             txtbx = "txtaddborname"
             CheckBorrowerInfoToAdd()
@@ -2935,5 +2954,395 @@ Public Class BorrowingAndReturning
             Return False
         End Try
     End Function
+
+    Private Sub Label31_Click(sender As Object, e As EventArgs) Handles Label31.Click
+        Dim my_account As New MyAccounts
+        my_account.Show()
+    End Sub
+
+    Private Sub BtnResendQr_Click(sender As Object, e As EventArgs) Handles BtnResendQr.Click
+        If selected_borrower_id <> 0 And selected_borrower_email <> "" Then
+            isResendQrToBorrower = True
+            GenerateQrCode()
+            SendQrCodeToBorrower()
+        Else
+            MessageBox.Show("PLease select borrower", "No selected borrower", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        End If
+
+    End Sub
+
+    '===========================================================================================================
+
+    '//FILTERING THESIS
+    Dim thesisFrom As String
+    Dim thesisTo As String
+    Dim thesisQuery As String
+    Private Sub DtThesisFrom_ValueChanged(sender As Object, e As EventArgs) Handles DtThesisFrom.ValueChanged
+        thesisFrom = DtThesisFrom.Value.Date.ToString("MM-dd-yyyy")
+    End Sub
+
+    Private Sub DtThesisTo_ValueChanged(sender As Object, e As EventArgs) Handles DtThesisTo.ValueChanged
+        thesisTo = DtThesisTo.Value.Date.ToString("MM-dd-yyyy")
+    End Sub
+
+    Private Sub FilterThesis()
+        Dim hasDates As Boolean = False
+        If thesisFrom <> "" And thesisTo <> "" Then
+            thesisQuery = " STR_TO_DATE(date_published, '%m-%d-%Y') >= STR_TO_DATE(@start_date, '%m-%d-%Y')
+                            AND STR_TO_DATE(date_published, '%m-%d-%Y') <= STR_TO_DATE(@end_date, '%m-%d-%Y') "
+            hasDates = True
+        Else
+            hasDates = False
+        End If
+
+
+        If hasDates Then
+            con.Close()
+            Try
+                con.Open()
+                Dim query As String = "
+                        SELECT 
+                            scholarly_works.sw_id,
+                            scholarly_works.title, 
+                            authors.authors_name,
+                            published_details.date_published,
+                            qnty_loc.location,
+                            qnty_loc.quantity,
+                            CASE
+                                    WHEN quantity < 1 THEN 'Unavailable'
+                                    WHEN quantity = 1 THEN 'Internal Borrow Only'
+                                    WHEN quantity > 1 THEN 'Available'
+                            END AS quantity_stat
+
+                        FROM scholarly_works
+
+                        INNER JOIN authors 
+                            ON authors.authors_id = scholarly_works.sw_id
+
+                        LEFT JOIN published_details 
+                            ON published_details.published_id = scholarly_works.sw_id
+
+                        LEFT JOIN qnty_loc 
+                            ON qnty_loc.sw_id = scholarly_works.sw_id
+                        WHERE " & thesisQuery
+                Using cmd As New MySqlCommand(query, con)
+                    cmd.Parameters.AddWithValue("@start_date", thesisFrom)
+                    cmd.Parameters.AddWithValue("@end_date", thesisTo)
+                    Using adptr As New MySqlDataAdapter(cmd)
+                        dt_books_list.Clear()
+                        adptr.Fill(dt_books_list)
+                        If dt_books_list.Rows.Count > 0 Then
+                            DgvBooks.DataSource = dt_books_list
+                            DgvBooks.Refresh()
+                            For i = 0 To DgvBooks.Rows.Count - 1
+                                DgvBooks.Rows(i).Height = 70
+                            Next
+                            DgvBooks.ClearSelection()
+                        Else
+                            DgvBooks.DataSource = dt_books_list
+                            DgvBooks.ClearSelection()
+                        End If
+
+                    End Using
+                End Using
+            Catch ex As Exception
+                MessageBox.Show(ex.Message, "Error Occurred on Filtering Thesis List", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                con.Close()
+            Finally
+                con.Close()
+            End Try
+        Else
+            MsgBox("Pick Started date and End date")
+        End If
+
+    End Sub
+
+    Private Sub BtnApplyThesisFltr_Click(sender As Object, e As EventArgs) Handles BtnApplyThesisFltr.Click
+        FilterThesis()
+    End Sub
+    Private Sub BtnResetThesisFltr_Click(sender As Object, e As EventArgs) Handles BtnResetThesisFltr.Click
+        LoadBooksList()
+    End Sub
+    Private Sub BtnCloseThesisFltr_Click(sender As Object, e As EventArgs) Handles BtnCloseThesisFltr.Click
+        PnlThesisFltr.Visible = False
+    End Sub
+    Private Sub BtnOpenThesisFltr_Click(sender As Object, e As EventArgs) Handles BtnOpenThesisFltr.Click
+        PnlThesisFltr.Visible = True
+    End Sub
+
+    '===========================================================================================================
+
+    'FILTERING BORROWED
+    Dim borrowedFrom As String
+    Dim borrowedTo As String
+    Dim borrowedQuery As String
+    Private Sub DtBorrowedFrom_ValueChanged(sender As Object, e As EventArgs) Handles DtBorrowedFrom.ValueChanged
+        borrowedFrom = DtBorrowedFrom.Value.Date.ToString("MM-dd-yyyy")
+    End Sub
+
+    Private Sub DtBorrowedTo_ValueChanged(sender As Object, e As EventArgs) Handles DtBorrowedTo.ValueChanged
+        borrowedTo = DtBorrowedTo.Value.Date.ToString("MM-dd-yyyy")
+    End Sub
+    Private Sub FilterBorrowed()
+        Dim hasDates As Boolean = False
+        If borrowedFrom <> "" And borrowedTo <> "" Then
+            borrowedQuery = " STR_TO_DATE(borrow_date, '%m-%d-%Y') >= STR_TO_DATE(@start_date, '%m-%d-%Y')
+                            AND STR_TO_DATE(borrow_date, '%m-%d-%Y') <= STR_TO_DATE(@end_date, '%m-%d-%Y') "
+            hasDates = True
+        Else
+            hasDates = False
+        End If
+        If hasDates Then
+            con.Close()
+            Try
+                con.Open()
+                Dim query As String = "SELECT * 
+                                    FROM borrowed_books 
+                                    WHERE " & borrowedQuery & " AND is_cancel='NO' AND is_returned='NO'" & " ORDER BY borrow_date DESC, time DESC"
+                Using cmd As New MySqlCommand(query, con)
+                    cmd.Parameters.AddWithValue("@start_date", borrowedFrom)
+                    cmd.Parameters.AddWithValue("@end_date", borrowedTo)
+                    Using adptr As New MySqlDataAdapter(cmd)
+                        dt_borrowed.Clear()
+                        adptr.Fill(dt_borrowed)
+
+                        If dt_borrowed.Rows.Count > 0 Then
+                            DgvBorrowed.DataSource = dt_borrowed
+                            DgvBorrowed.Refresh()
+                            For i = 0 To DgvBorrowed.Rows.Count - 1
+                                DgvBorrowed.Rows(i).Height = 70
+                            Next
+                            DgvBorrowed.ClearSelection()
+                        Else
+                            DgvBorrowed.DataSource = dt_borrowed
+                            DgvBorrowed.Refresh()
+                        End If
+                    End Using
+                End Using
+            Catch ex As Exception
+                MessageBox.Show(ex.Message, "Error Occurred on Loading List of Borrowers", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                con.Close()
+            Finally
+                con.Close()
+            End Try
+        End If
+    End Sub
+    Private Sub BtnApplyBorrowedFltr_Click(sender As Object, e As EventArgs) Handles BtnApplyBorrowedFltr.Click
+        FilterBorrowed()
+    End Sub
+    Private Sub BtnResetBorrowedFltr_Click(sender As Object, e As EventArgs) Handles BtnResetBorrowedFltr.Click
+        LoadBorrowedBooksList()
+    End Sub
+    Private Sub BtnOpenBorrowedFltr_Click(sender As Object, e As EventArgs) Handles BtnOpenBorrowedFltr.Click
+        PnlFilterBorrowed.Visible = True
+    End Sub
+    Private Sub BtnCloseBorrowedFltr_Click(sender As Object, e As EventArgs) Handles BtnCloseBorrowedFltr.Click
+        PnlFilterBorrowed.Visible = False
+    End Sub
+
+    '===========================================================================================================
+
+
+
+
+
+
+
+
+
+    'returned
+    Private Sub Button13_Click(sender As Object, e As EventArgs) Handles Button13.Click
+        FilterReturned()
+    End Sub
+    Dim retFrom As String = ""
+    Dim retTo As String = ""
+    Dim retQuery As String
+    Private Sub DtReturnedFrom_ValueChanged(sender As Object, e As EventArgs) Handles DtReturnedFrom.ValueChanged
+        retFrom = DtReturnedFrom.Value.Date.ToString("MM-dd-yyyy")
+    End Sub
+
+    Private Sub DtRetTo_ValueChanged(sender As Object, e As EventArgs) Handles DtRetTo.ValueChanged
+        retTo = DtRetTo.Value.Date.ToString("MM-dd-yyyy")
+    End Sub
+
+    Private Sub FilterReturned()
+        Dim hasDates As Boolean = False
+        If retFrom <> "" And retTo <> "" Then
+            retQuery = " STR_TO_DATE(returned_date, '%m-%d-%Y') >= STR_TO_DATE(@start_date, '%m-%d-%Y')
+                            AND STR_TO_DATE(returned_date, '%m-%d-%Y') <= STR_TO_DATE(@end_date, '%m-%d-%Y') "
+            hasDates = True
+        Else
+            hasDates = False
+        End If
+
+        If hasDates Then
+            con.Close()
+            Try
+                con.Open()
+                Dim query As String = "
+                SELECT 
+                    returned_books.returned_id, 
+                    returned_books.borrow_id AS returned_borrow_id, 
+                    returned_books.returned_date, 
+                    returned_books.returned_time, 
+                    returned_books.return_stat, 
+                    borrowed_books.count, 
+                    borrowed_books.borrow_id, 
+                    borrowed_books.book_ids, 
+                    borrowed_books.title, 
+                    borrowed_books.total_no_book, 
+                    borrowed_books.borrower_id, 
+                    borrowed_books.type, 
+                    borrowed_books.due_date, 
+                    borrowed_books.borrow_date, 
+                    borrowed_books.time, 
+                    borrowed_books.is_cancel, 
+                    borrowed_books.is_returned, 
+                    borrowed_books.is_overdue 
+                FROM returned_books 
+                INNER JOIN borrowed_books 
+                    ON borrowed_books.borrow_id = returned_books.borrow_id AND borrowed_books.is_returned = 'YES'
+                
+                WHERE " & retQuery & " ORDER BY returned_date DESC, returned_time DESC "
+
+                Using cmd As New MySqlCommand(query, con)
+                    cmd.Parameters.AddWithValue("@start_date", retFrom)
+                    cmd.Parameters.AddWithValue("@end_date", retTo)
+                    Using adptr As New MySqlDataAdapter(cmd)
+                        dt_returned_books.Clear()
+                        adptr.Fill(dt_returned_books)
+
+                        If dt_returned_books.Rows.Count > 0 Then
+                            DgvReturned.DataSource = dt_returned_books
+                            DgvReturned.Refresh()
+                            For i = 0 To DgvReturned.Rows.Count - 1
+                                DgvReturned.Rows(i).Height = 50
+                            Next
+                            DgvReturned.ClearSelection()
+                        Else
+                            DgvReturned.DataSource = dt_returned_books
+                            DgvReturned.Refresh()
+                        End If
+                    End Using
+                End Using
+            Catch ex As Exception
+                MessageBox.Show(ex.Message, "Error Occurred on filtering LoadReturnedBooksList", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                con.Close()
+            Finally
+                con.Close()
+            End Try
+        End If
+    End Sub
+
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+        FilterReturned()
+    End Sub
+
+    '=========================================================================================
+
+    '// FILTERING BORROWED RECORDS BASED ON DATE RANGE
+    Dim ovrFrom As String
+    Dim ovrTo As String
+    Dim ovrQuery As String
+    Private Sub DtOvrFrom_ValueChanged(sender As Object, e As EventArgs) Handles DtOvrFrom.ValueChanged
+        ovrFrom = DtOvrFrom.Value.Date.ToString("MM-dd-yyyy")
+    End Sub
+
+    Private Sub DtOvrTo_ValueChanged(sender As Object, e As EventArgs) Handles DtOvrTo.ValueChanged
+        ovrTo = DtOvrTo.Value.Date.ToString("MM-dd-yyyy")
+    End Sub
+
+    Private Sub FilterOverdue()
+        Dim hasDates As Boolean = False
+        If ovrFrom <> "" And ovrTo <> "" Then
+            ovrQuery = " STR_TO_DATE(overdues.due_date, '%m-%d-%Y') >= STR_TO_DATE(@start_date, '%m-%d-%Y')
+                            AND STR_TO_DATE(overdues.due_date, '%m-%d-%Y') <= STR_TO_DATE(@end_date, '%m-%d-%Y') "
+            hasDates = True
+        Else
+            hasDates = False
+        End If
+
+        If hasDates Then
+            con.Close()
+            Try
+                con.Open()
+                Dim query As String = "SELECT 
+                                    overdues.borrow_id, 
+                                    overdues.borrower_id, 
+                                    overdues.due_date, 
+                                    overdues.overdue_days,
+                                    overdues.status,
+                                    borrowed_books.book_ids, 
+                                    borrowed_books.title, 
+                                    borrowed_books.total_no_book, 
+                                    borrowed_books.type, 
+                                    borrowed_books.borrow_date,
+                                    borrowed_books.time
+                                FROM overdues
+                                INNER JOIN borrowed_books
+                                    ON borrowed_books.borrow_id = overdues.borrow_id
+                                WHERE " & ovrQuery & " AND overdues.status='NOT RETURNED'
+                                ORDER BY overdues.due_date ASC
+                "
+                Using cmd As New MySqlCommand(query, con)
+                    cmd.Parameters.AddWithValue("@start_date", ovrFrom)
+                    cmd.Parameters.AddWithValue("@end_date", ovrTo)
+                    Using adptr As New MySqlDataAdapter(cmd)
+                        dt_overdue_books.Clear()
+                        adptr.Fill(dt_overdue_books)
+
+                        If dt_overdue_books.Rows.Count > 0 Then
+                            DgvOverdues.DataSource = dt_overdue_books
+                            DgvOverdues.Refresh()
+                            For i = 0 To DgvOverdues.Rows.Count - 1
+                                DgvOverdues.Rows(i).Height = 50
+                            Next
+                            DgvOverdues.ClearSelection()
+                        Else
+                            DgvOverdues.DataSource = dt_overdue_books
+                            DgvOverdues.Refresh()
+                        End If
+
+                    End Using
+                End Using
+
+            Catch ex As Exception
+                MessageBox.Show(ex.Message, "Error Occurred on filtering List of Overdues Thesis", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                con.Close()
+            Finally
+                con.Close()
+            End Try
+        End If
+    End Sub
+
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+        FilterOverdue()
+    End Sub
+
+    Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
+        LoadOverDues()
+    End Sub
+
+    Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
+        LoadReturnedBooksList()
+    End Sub
+
+    Private Sub Button10_Click(sender As Object, e As EventArgs) Handles Button10.Click
+        LoadBorrowedBooksList()
+    End Sub
+
+
+
+
+
+    Private Sub Button12_Click(sender As Object, e As EventArgs) Handles Button12.Click
+        LoadReturnedBooksList()
+    End Sub
+
+
+
+
+
+
 
 End Class

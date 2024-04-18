@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class CreateLoginAccount
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class CreateLoginAccount
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(CreateLoginAccount))
@@ -57,7 +57,6 @@ Partial Class CreateLoginAccount
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label25 = New System.Windows.Forms.Label()
         Me.GbxLogin = New System.Windows.Forms.GroupBox()
-        Me.Button2 = New System.Windows.Forms.Button()
         Me.BtnGoToStudentViewing = New System.Windows.Forms.Button()
         Me.PnlForgotPass = New System.Windows.Forms.Panel()
         Me.PnlFpCode = New System.Windows.Forms.Panel()
@@ -478,7 +477,6 @@ Partial Class CreateLoginAccount
         '
         'GbxLogin
         '
-        Me.GbxLogin.Controls.Add(Me.Button2)
         Me.GbxLogin.Controls.Add(Me.BtnGoToStudentViewing)
         Me.GbxLogin.Controls.Add(Me.PnlForgotPass)
         Me.GbxLogin.Controls.Add(Me.Label13)
@@ -497,18 +495,6 @@ Partial Class CreateLoginAccount
         Me.GbxLogin.Size = New System.Drawing.Size(450, 541)
         Me.GbxLogin.TabIndex = 5
         Me.GbxLogin.TabStop = False
-        '
-        'Button2
-        '
-        Me.Button2.BackColor = System.Drawing.SystemColors.ControlLight
-        Me.Button2.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(57, 72)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(344, 33)
-        Me.Button2.TabIndex = 22
-        Me.Button2.Text = "Shorcut"
-        Me.Button2.UseVisualStyleBackColor = False
         '
         'BtnGoToStudentViewing
         '
@@ -989,5 +975,4 @@ Partial Class CreateLoginAccount
     Friend WithEvents Label29 As Label
     Friend WithEvents BtnGoToStudentViewing As Button
     Friend WithEvents LogOut As Button
-    Friend WithEvents Button2 As Button
 End Class

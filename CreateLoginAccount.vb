@@ -207,6 +207,7 @@ Public Class CreateLoginAccount
                 MessageBox.Show("Verification code sent! Check your email and enter code here.")
                 BtnCreate.Enabled = True
                 PnlVCode.Visible = True
+                TxtVerificationCreate.Focus()
             Catch ex As Exception
                 MessageBox.Show(ex.Message, "Error Occurred while sending verification code", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End Try
@@ -346,6 +347,7 @@ Public Class CreateLoginAccount
                         account_loggedin = reader("full_name").ToString
                         account_type_loggedin = reader("account_type").ToString
                         loggedin = 1
+                        loggedin_id = reader.GetInt32("user_id")
 
                         LblLoginMsg.Text = "Login Successfully please wait.."
                         LblLoginMsg.Visible = True
@@ -693,13 +695,6 @@ Public Class CreateLoginAccount
 
     Private Sub LogOut_Click(sender As Object, e As EventArgs) Handles LogOut.Click
         End
-    End Sub
-
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        loggedin = 1
-        account_type_loggedin = "admin"
-        account_loggedin = "Michael lester aguhob"
-        timer_fade_out_msg.Start()
     End Sub
 
 

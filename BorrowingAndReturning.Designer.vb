@@ -23,41 +23,48 @@ Partial Class BorrowingAndReturning
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle102 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle101 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle103 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle106 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle104 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle105 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle107 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle108 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle109 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle112 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle110 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle111 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle113 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle116 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle114 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle115 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle119 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle117 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle118 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle120 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle123 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle121 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle122 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle125 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle124 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle31 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle30 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle26 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle29 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle27 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle28 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle32 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle33 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle34 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle37 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle35 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle36 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle38 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle41 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle39 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle40 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle44 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle42 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle43 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle45 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle48 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle46 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle47 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle50 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle49 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.LogOut = New System.Windows.Forms.Button()
+        Me.Button15 = New System.Windows.Forms.Button()
         Me.LblStaffLoggedin = New System.Windows.Forms.Label()
         Me.Label31 = New System.Windows.Forms.Label()
+        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.Label49 = New System.Windows.Forms.Label()
         Me.TxtTime = New System.Windows.Forms.TextBox()
+        Me.Label50 = New System.Windows.Forms.Label()
         Me.Label17 = New System.Windows.Forms.Label()
+        Me.Button16 = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
         Me.TxtDate = New System.Windows.Forms.TextBox()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.BtnPrintBorrowed = New System.Windows.Forms.Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.BtnOverduesBooks = New System.Windows.Forms.Button()
         Me.BtnReturnedBooks = New System.Windows.Forms.Button()
@@ -66,6 +73,16 @@ Partial Class BorrowingAndReturning
         Me.BtnBooks = New System.Windows.Forms.Button()
         Me.TabControls = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.BtnOpenThesisFltr = New System.Windows.Forms.Button()
+        Me.PnlThesisFltr = New System.Windows.Forms.Panel()
+        Me.BtnCloseThesisFltr = New System.Windows.Forms.Button()
+        Me.Label38 = New System.Windows.Forms.Label()
+        Me.Label37 = New System.Windows.Forms.Label()
+        Me.BtnResetThesisFltr = New System.Windows.Forms.Button()
+        Me.DtThesisTo = New System.Windows.Forms.DateTimePicker()
+        Me.Label36 = New System.Windows.Forms.Label()
+        Me.BtnApplyThesisFltr = New System.Windows.Forms.Button()
+        Me.DtThesisFrom = New System.Windows.Forms.DateTimePicker()
         Me.BtnPrintBooksList = New System.Windows.Forms.Button()
         Me.BtnSearchBooks = New System.Windows.Forms.Button()
         Me.TxtSearchBooks = New System.Windows.Forms.TextBox()
@@ -97,6 +114,7 @@ Partial Class BorrowingAndReturning
         Me.Column27 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column48 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.BtnResendQr = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.BtnSearchBorrowers = New System.Windows.Forms.Button()
         Me.TxtSearchBorrowers = New System.Windows.Forms.TextBox()
@@ -113,9 +131,9 @@ Partial Class BorrowingAndReturning
         Me.Column51 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.PanelCancelled = New System.Windows.Forms.Panel()
+        Me.BtnPrintCancelled = New System.Windows.Forms.Button()
         Me.BtnSearchCancel = New System.Windows.Forms.Button()
         Me.TxtsearchCancel = New System.Windows.Forms.TextBox()
-        Me.BtnPrintCancelled = New System.Windows.Forms.Button()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.DgvCancelledBorrow = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -132,6 +150,16 @@ Partial Class BorrowingAndReturning
         Me.Column37 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column40 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.BtnReturn = New System.Windows.Forms.Button()
+        Me.BtnOpenBorrowedFltr = New System.Windows.Forms.Button()
+        Me.PnlFilterBorrowed = New System.Windows.Forms.Panel()
+        Me.BtnCloseBorrowedFltr = New System.Windows.Forms.Button()
+        Me.BtnApplyBorrowedFltr = New System.Windows.Forms.Button()
+        Me.Label39 = New System.Windows.Forms.Label()
+        Me.DtBorrowedFrom = New System.Windows.Forms.DateTimePicker()
+        Me.Label40 = New System.Windows.Forms.Label()
+        Me.Label41 = New System.Windows.Forms.Label()
+        Me.BtnResetBorrowedFltr = New System.Windows.Forms.Button()
+        Me.DtBorrowedTo = New System.Windows.Forms.DateTimePicker()
         Me.BtnCancelBorrow = New System.Windows.Forms.Button()
         Me.DgvBorrowed = New System.Windows.Forms.DataGridView()
         Me.Column25 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -151,9 +179,18 @@ Partial Class BorrowingAndReturning
         Me.BtnReturnBooks = New System.Windows.Forms.Button()
         Me.BtnSearchBorrowed = New System.Windows.Forms.Button()
         Me.TxtSearchBorrowed = New System.Windows.Forms.TextBox()
-        Me.BtnPrintBorrowed = New System.Windows.Forms.Button()
+        Me.Button10 = New System.Windows.Forms.Button()
         Me.Label21 = New System.Windows.Forms.Label()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
+        Me.Button12 = New System.Windows.Forms.Button()
+        Me.Button13 = New System.Windows.Forms.Button()
+        Me.Button9 = New System.Windows.Forms.Button()
+        Me.Button5 = New System.Windows.Forms.Button()
+        Me.Label42 = New System.Windows.Forms.Label()
+        Me.Label43 = New System.Windows.Forms.Label()
+        Me.Label44 = New System.Windows.Forms.Label()
+        Me.DtRetTo = New System.Windows.Forms.DateTimePicker()
+        Me.DtReturnedFrom = New System.Windows.Forms.DateTimePicker()
         Me.BtnPrintReturned = New System.Windows.Forms.Button()
         Me.BtnSearchReturned = New System.Windows.Forms.Button()
         Me.TxtSearchReturned = New System.Windows.Forms.TextBox()
@@ -178,6 +215,13 @@ Partial Class BorrowingAndReturning
         Me.Column42 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label28 = New System.Windows.Forms.Label()
         Me.TabPage5 = New System.Windows.Forms.TabPage()
+        Me.Button8 = New System.Windows.Forms.Button()
+        Me.Button6 = New System.Windows.Forms.Button()
+        Me.Label45 = New System.Windows.Forms.Label()
+        Me.Label46 = New System.Windows.Forms.Label()
+        Me.Label47 = New System.Windows.Forms.Label()
+        Me.DtOvrTo = New System.Windows.Forms.DateTimePicker()
+        Me.DtOvrFrom = New System.Windows.Forms.DateTimePicker()
         Me.BtnPrintOverdue = New System.Windows.Forms.Button()
         Me.BtnSearchOverdue = New System.Windows.Forms.Button()
         Me.TxtSearchOverdue = New System.Windows.Forms.TextBox()
@@ -231,6 +275,7 @@ Partial Class BorrowingAndReturning
         Me.Label4 = New System.Windows.Forms.Label()
         Me.TabPage8 = New System.Windows.Forms.TabPage()
         Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.BtnUpdateBorDetails = New System.Windows.Forms.Button()
         Me.BtnCancelAddingBorrower = New System.Windows.Forms.Button()
         Me.BtnAddBorrowerInfo = New System.Windows.Forms.Button()
         Me.Label19 = New System.Windows.Forms.Label()
@@ -253,11 +298,11 @@ Partial Class BorrowingAndReturning
         Me.Label25 = New System.Windows.Forms.Label()
         Me.Label26 = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.BtnUpdateBorDetails = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.TabControls.SuspendLayout()
         Me.TabPage1.SuspendLayout()
+        Me.PnlThesisFltr.SuspendLayout()
         Me.PnlAddingToBorrow.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DgvBooks, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -266,6 +311,7 @@ Partial Class BorrowingAndReturning
         Me.TabPage3.SuspendLayout()
         Me.PanelCancelled.SuspendLayout()
         CType(Me.DgvCancelledBorrow, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PnlFilterBorrowed.SuspendLayout()
         CType(Me.DgvBorrowed, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage4.SuspendLayout()
         CType(Me.DgvReturned, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -286,11 +332,17 @@ Partial Class BorrowingAndReturning
         Me.Panel1.BackColor = System.Drawing.SystemColors.GradientActiveCaption
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel1.Controls.Add(Me.LogOut)
+        Me.Panel1.Controls.Add(Me.Button15)
         Me.Panel1.Controls.Add(Me.LblStaffLoggedin)
         Me.Panel1.Controls.Add(Me.Label31)
+        Me.Panel1.Controls.Add(Me.DateTimePicker1)
+        Me.Panel1.Controls.Add(Me.Label49)
         Me.Panel1.Controls.Add(Me.TxtTime)
+        Me.Panel1.Controls.Add(Me.Label50)
         Me.Panel1.Controls.Add(Me.Label17)
+        Me.Panel1.Controls.Add(Me.Button16)
         Me.Panel1.Controls.Add(Me.Label2)
+        Me.Panel1.Controls.Add(Me.DateTimePicker2)
         Me.Panel1.Controls.Add(Me.TxtDate)
         Me.Panel1.Controls.Add(Me.Label15)
         Me.Panel1.Controls.Add(Me.Label1)
@@ -319,10 +371,27 @@ Partial Class BorrowingAndReturning
         Me.LogOut.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.LogOut.UseVisualStyleBackColor = False
         '
+        'Button15
+        '
+        Me.Button15.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button15.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.Button15.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button15.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button15.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.Button15.ImageAlign = System.Drawing.ContentAlignment.TopLeft
+        Me.Button15.Location = New System.Drawing.Point(952, 11)
+        Me.Button15.Name = "Button15"
+        Me.Button15.Size = New System.Drawing.Size(84, 23)
+        Me.Button15.TabIndex = 47
+        Me.Button15.Text = "Apply Filter"
+        Me.Button15.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Button15.UseVisualStyleBackColor = False
+        '
         'LblStaffLoggedin
         '
         Me.LblStaffLoggedin.AutoSize = True
-        Me.LblStaffLoggedin.Location = New System.Drawing.Point(159, 78)
+        Me.LblStaffLoggedin.Location = New System.Drawing.Point(160, 76)
         Me.LblStaffLoggedin.Name = "LblStaffLoggedin"
         Me.LblStaffLoggedin.Size = New System.Drawing.Size(19, 13)
         Me.LblStaffLoggedin.TabIndex = 23
@@ -331,12 +400,31 @@ Partial Class BorrowingAndReturning
         'Label31
         '
         Me.Label31.AutoSize = True
+        Me.Label31.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Label31.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_account_20__1_
-        Me.Label31.Location = New System.Drawing.Point(133, 78)
+        Me.Label31.Location = New System.Drawing.Point(134, 76)
         Me.Label31.Name = "Label31"
         Me.Label31.Size = New System.Drawing.Size(16, 13)
         Me.Label31.TabIndex = 22
         Me.Label31.Text = "---"
+        '
+        'DateTimePicker1
+        '
+        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.DateTimePicker1.Location = New System.Drawing.Point(787, 11)
+        Me.DateTimePicker1.Name = "DateTimePicker1"
+        Me.DateTimePicker1.Size = New System.Drawing.Size(146, 20)
+        Me.DateTimePicker1.TabIndex = 42
+        '
+        'Label49
+        '
+        Me.Label49.AutoSize = True
+        Me.Label49.BackColor = System.Drawing.Color.Transparent
+        Me.Label49.Location = New System.Drawing.Point(758, 52)
+        Me.Label49.Name = "Label49"
+        Me.Label49.Size = New System.Drawing.Size(20, 13)
+        Me.Label49.TabIndex = 45
+        Me.Label49.Text = "To"
         '
         'TxtTime
         '
@@ -350,6 +438,16 @@ Partial Class BorrowingAndReturning
         Me.TxtTime.Size = New System.Drawing.Size(80, 15)
         Me.TxtTime.TabIndex = 21
         '
+        'Label50
+        '
+        Me.Label50.AutoSize = True
+        Me.Label50.BackColor = System.Drawing.Color.Transparent
+        Me.Label50.Location = New System.Drawing.Point(744, 14)
+        Me.Label50.Name = "Label50"
+        Me.Label50.Size = New System.Drawing.Size(30, 13)
+        Me.Label50.TabIndex = 44
+        Me.Label50.Text = "From"
+        '
         'Label17
         '
         Me.Label17.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -359,6 +457,22 @@ Partial Class BorrowingAndReturning
         Me.Label17.Size = New System.Drawing.Size(36, 13)
         Me.Label17.TabIndex = 20
         Me.Label17.Text = "Time :"
+        '
+        'Button16
+        '
+        Me.Button16.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button16.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.Button16.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Button16.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button16.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button16.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.Button16.ImageAlign = System.Drawing.ContentAlignment.TopLeft
+        Me.Button16.Location = New System.Drawing.Point(952, 49)
+        Me.Button16.Name = "Button16"
+        Me.Button16.Size = New System.Drawing.Size(84, 22)
+        Me.Button16.TabIndex = 49
+        Me.Button16.Text = "Reset"
+        Me.Button16.UseVisualStyleBackColor = False
         '
         'Label2
         '
@@ -370,6 +484,14 @@ Partial Class BorrowingAndReturning
         Me.Label2.TabIndex = 2
         Me.Label2.Text = "CPRI Borrowing and Returning"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'DateTimePicker2
+        '
+        Me.DateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.DateTimePicker2.Location = New System.Drawing.Point(787, 49)
+        Me.DateTimePicker2.Name = "DateTimePicker2"
+        Me.DateTimePicker2.Size = New System.Drawing.Size(146, 20)
+        Me.DateTimePicker2.TabIndex = 43
         '
         'TxtDate
         '
@@ -400,6 +522,21 @@ Partial Class BorrowingAndReturning
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(104, 88)
         Me.Label1.TabIndex = 0
+        '
+        'BtnPrintBorrowed
+        '
+        Me.BtnPrintBorrowed.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnPrintBorrowed.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnPrintBorrowed.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnPrintBorrowed.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnPrintBorrowed.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.BtnPrintBorrowed.ImageAlign = System.Drawing.ContentAlignment.TopLeft
+        Me.BtnPrintBorrowed.Location = New System.Drawing.Point(308, 50)
+        Me.BtnPrintBorrowed.Name = "BtnPrintBorrowed"
+        Me.BtnPrintBorrowed.Size = New System.Drawing.Size(138, 21)
+        Me.BtnPrintBorrowed.TabIndex = 34
+        Me.BtnPrintBorrowed.Text = " Print Borrowed Thesis"
+        Me.BtnPrintBorrowed.UseVisualStyleBackColor = False
         '
         'Panel2
         '
@@ -542,6 +679,8 @@ Partial Class BorrowingAndReturning
         'TabPage1
         '
         Me.TabPage1.BackColor = System.Drawing.Color.Transparent
+        Me.TabPage1.Controls.Add(Me.BtnOpenThesisFltr)
+        Me.TabPage1.Controls.Add(Me.PnlThesisFltr)
         Me.TabPage1.Controls.Add(Me.BtnPrintBooksList)
         Me.TabPage1.Controls.Add(Me.BtnSearchBooks)
         Me.TabPage1.Controls.Add(Me.TxtSearchBooks)
@@ -555,6 +694,135 @@ Partial Class BorrowingAndReturning
         Me.TabPage1.Size = New System.Drawing.Size(1128, 600)
         Me.TabPage1.TabIndex = 0
         '
+        'BtnOpenThesisFltr
+        '
+        Me.BtnOpenThesisFltr.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnOpenThesisFltr.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnOpenThesisFltr.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnOpenThesisFltr.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnOpenThesisFltr.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnOpenThesisFltr.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.BtnOpenThesisFltr.ImageAlign = System.Drawing.ContentAlignment.TopLeft
+        Me.BtnOpenThesisFltr.Location = New System.Drawing.Point(8, 12)
+        Me.BtnOpenThesisFltr.Name = "BtnOpenThesisFltr"
+        Me.BtnOpenThesisFltr.Size = New System.Drawing.Size(48, 21)
+        Me.BtnOpenThesisFltr.TabIndex = 53
+        Me.BtnOpenThesisFltr.Text = "Filter"
+        Me.BtnOpenThesisFltr.UseVisualStyleBackColor = False
+        '
+        'PnlThesisFltr
+        '
+        Me.PnlThesisFltr.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.PnlThesisFltr.Controls.Add(Me.BtnCloseThesisFltr)
+        Me.PnlThesisFltr.Controls.Add(Me.Label38)
+        Me.PnlThesisFltr.Controls.Add(Me.Label37)
+        Me.PnlThesisFltr.Controls.Add(Me.BtnResetThesisFltr)
+        Me.PnlThesisFltr.Controls.Add(Me.DtThesisTo)
+        Me.PnlThesisFltr.Controls.Add(Me.Label36)
+        Me.PnlThesisFltr.Controls.Add(Me.BtnApplyThesisFltr)
+        Me.PnlThesisFltr.Controls.Add(Me.DtThesisFrom)
+        Me.PnlThesisFltr.Location = New System.Drawing.Point(62, 12)
+        Me.PnlThesisFltr.Name = "PnlThesisFltr"
+        Me.PnlThesisFltr.Size = New System.Drawing.Size(317, 137)
+        Me.PnlThesisFltr.TabIndex = 52
+        Me.PnlThesisFltr.Visible = False
+        '
+        'BtnCloseThesisFltr
+        '
+        Me.BtnCloseThesisFltr.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnCloseThesisFltr.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnCloseThesisFltr.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnCloseThesisFltr.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnCloseThesisFltr.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnCloseThesisFltr.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.BtnCloseThesisFltr.ImageAlign = System.Drawing.ContentAlignment.TopLeft
+        Me.BtnCloseThesisFltr.Location = New System.Drawing.Point(288, 6)
+        Me.BtnCloseThesisFltr.Name = "BtnCloseThesisFltr"
+        Me.BtnCloseThesisFltr.Size = New System.Drawing.Size(20, 20)
+        Me.BtnCloseThesisFltr.TabIndex = 50
+        Me.BtnCloseThesisFltr.Text = "X"
+        Me.BtnCloseThesisFltr.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.BtnCloseThesisFltr.UseVisualStyleBackColor = False
+        '
+        'Label38
+        '
+        Me.Label38.AutoSize = True
+        Me.Label38.BackColor = System.Drawing.Color.Transparent
+        Me.Label38.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label38.Location = New System.Drawing.Point(7, 8)
+        Me.Label38.Name = "Label38"
+        Me.Label38.Size = New System.Drawing.Size(190, 16)
+        Me.Label38.TabIndex = 34
+        Me.Label38.Text = "Filter by Publication Year :"
+        '
+        'Label37
+        '
+        Me.Label37.AutoSize = True
+        Me.Label37.BackColor = System.Drawing.Color.Transparent
+        Me.Label37.Location = New System.Drawing.Point(30, 86)
+        Me.Label37.Name = "Label37"
+        Me.Label37.Size = New System.Drawing.Size(25, 16)
+        Me.Label37.TabIndex = 33
+        Me.Label37.Text = "To"
+        '
+        'BtnResetThesisFltr
+        '
+        Me.BtnResetThesisFltr.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnResetThesisFltr.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnResetThesisFltr.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnResetThesisFltr.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnResetThesisFltr.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnResetThesisFltr.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.BtnResetThesisFltr.ImageAlign = System.Drawing.ContentAlignment.TopLeft
+        Me.BtnResetThesisFltr.Location = New System.Drawing.Point(224, 83)
+        Me.BtnResetThesisFltr.Name = "BtnResetThesisFltr"
+        Me.BtnResetThesisFltr.Size = New System.Drawing.Size(84, 23)
+        Me.BtnResetThesisFltr.TabIndex = 36
+        Me.BtnResetThesisFltr.Text = "Reset"
+        Me.BtnResetThesisFltr.UseVisualStyleBackColor = False
+        '
+        'DtThesisTo
+        '
+        Me.DtThesisTo.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.DtThesisTo.Location = New System.Drawing.Point(61, 83)
+        Me.DtThesisTo.Name = "DtThesisTo"
+        Me.DtThesisTo.Size = New System.Drawing.Size(146, 22)
+        Me.DtThesisTo.TabIndex = 31
+        '
+        'Label36
+        '
+        Me.Label36.AutoSize = True
+        Me.Label36.BackColor = System.Drawing.Color.Transparent
+        Me.Label36.Location = New System.Drawing.Point(16, 57)
+        Me.Label36.Name = "Label36"
+        Me.Label36.Size = New System.Drawing.Size(39, 16)
+        Me.Label36.TabIndex = 32
+        Me.Label36.Text = "From"
+        '
+        'BtnApplyThesisFltr
+        '
+        Me.BtnApplyThesisFltr.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnApplyThesisFltr.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnApplyThesisFltr.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnApplyThesisFltr.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnApplyThesisFltr.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnApplyThesisFltr.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.BtnApplyThesisFltr.ImageAlign = System.Drawing.ContentAlignment.TopLeft
+        Me.BtnApplyThesisFltr.Location = New System.Drawing.Point(224, 54)
+        Me.BtnApplyThesisFltr.Name = "BtnApplyThesisFltr"
+        Me.BtnApplyThesisFltr.Size = New System.Drawing.Size(84, 23)
+        Me.BtnApplyThesisFltr.TabIndex = 35
+        Me.BtnApplyThesisFltr.Text = "Apply Filter"
+        Me.BtnApplyThesisFltr.UseVisualStyleBackColor = False
+        '
+        'DtThesisFrom
+        '
+        Me.DtThesisFrom.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.DtThesisFrom.Location = New System.Drawing.Point(61, 55)
+        Me.DtThesisFrom.Name = "DtThesisFrom"
+        Me.DtThesisFrom.Size = New System.Drawing.Size(146, 22)
+        Me.DtThesisFrom.TabIndex = 30
+        '
         'BtnPrintBooksList
         '
         Me.BtnPrintBooksList.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -564,7 +832,7 @@ Partial Class BorrowingAndReturning
         Me.BtnPrintBooksList.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnPrintBooksList.ForeColor = System.Drawing.SystemColors.WindowText
         Me.BtnPrintBooksList.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.BtnPrintBooksList.Location = New System.Drawing.Point(1013, 33)
+        Me.BtnPrintBooksList.Location = New System.Drawing.Point(1010, 42)
         Me.BtnPrintBooksList.Name = "BtnPrintBooksList"
         Me.BtnPrintBooksList.Size = New System.Drawing.Size(107, 21)
         Me.BtnPrintBooksList.TabIndex = 29
@@ -580,7 +848,7 @@ Partial Class BorrowingAndReturning
         Me.BtnSearchBooks.ForeColor = System.Drawing.SystemColors.WindowText
         Me.BtnSearchBooks.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_search_13
         Me.BtnSearchBooks.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.BtnSearchBooks.Location = New System.Drawing.Point(242, 31)
+        Me.BtnSearchBooks.Location = New System.Drawing.Point(242, 43)
         Me.BtnSearchBooks.Name = "BtnSearchBooks"
         Me.BtnSearchBooks.Size = New System.Drawing.Size(65, 21)
         Me.BtnSearchBooks.TabIndex = 27
@@ -592,7 +860,7 @@ Partial Class BorrowingAndReturning
         '
         Me.TxtSearchBooks.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtSearchBooks.ForeColor = System.Drawing.Color.Gray
-        Me.TxtSearchBooks.Location = New System.Drawing.Point(8, 31)
+        Me.TxtSearchBooks.Location = New System.Drawing.Point(8, 43)
         Me.TxtSearchBooks.Name = "TxtSearchBooks"
         Me.TxtSearchBooks.Size = New System.Drawing.Size(228, 21)
         Me.TxtSearchBooks.TabIndex = 26
@@ -617,7 +885,7 @@ Partial Class BorrowingAndReturning
         Me.Label30.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.Label30.Location = New System.Drawing.Point(3, 3)
         Me.Label30.Name = "Label30"
-        Me.Label30.Size = New System.Drawing.Size(1122, 54)
+        Me.Label30.Size = New System.Drawing.Size(1122, 67)
         Me.Label30.TabIndex = 21
         Me.Label30.Text = "THESIS"
         Me.Label30.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -777,8 +1045,8 @@ Partial Class BorrowingAndReturning
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.RowHeadersVisible = False
-        DataGridViewCellStyle102.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
-        Me.DataGridView1.RowsDefaultCellStyle = DataGridViewCellStyle102
+        DataGridViewCellStyle31.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
+        Me.DataGridView1.RowsDefaultCellStyle = DataGridViewCellStyle31
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridView1.Size = New System.Drawing.Size(426, 158)
         Me.DataGridView1.TabIndex = 3
@@ -806,8 +1074,8 @@ Partial Class BorrowingAndReturning
         '
         Me.DataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
         Me.DataGridViewTextBoxColumn5.DataPropertyName = "books_id"
-        DataGridViewCellStyle101.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridViewTextBoxColumn5.DefaultCellStyle = DataGridViewCellStyle101
+        DataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridViewTextBoxColumn5.DefaultCellStyle = DataGridViewCellStyle30
         Me.DataGridViewTextBoxColumn5.FillWeight = 449.2386!
         Me.DataGridViewTextBoxColumn5.HeaderText = "THESIS ID"
         Me.DataGridViewTextBoxColumn5.MinimumWidth = 100
@@ -848,26 +1116,26 @@ Partial Class BorrowingAndReturning
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DgvBooks.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DgvBooks.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption
-        DataGridViewCellStyle103.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle103.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle103.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle103.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle103.Padding = New System.Windows.Forms.Padding(0, 10, 0, 10)
-        DataGridViewCellStyle103.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle103.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle103.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DgvBooks.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle103
+        DataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle26.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle26.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle26.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle26.Padding = New System.Windows.Forms.Padding(0, 10, 0, 10)
+        DataGridViewCellStyle26.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DgvBooks.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle26
         Me.DgvBooks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DgvBooks.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column27, Me.Column48})
         Me.DgvBooks.ImeMode = System.Windows.Forms.ImeMode.Hiragana
-        Me.DgvBooks.Location = New System.Drawing.Point(3, 60)
+        Me.DgvBooks.Location = New System.Drawing.Point(3, 73)
         Me.DgvBooks.Name = "DgvBooks"
         Me.DgvBooks.ReadOnly = True
         Me.DgvBooks.RowHeadersVisible = False
-        DataGridViewCellStyle106.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
-        Me.DgvBooks.RowsDefaultCellStyle = DataGridViewCellStyle106
+        DataGridViewCellStyle29.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
+        Me.DgvBooks.RowsDefaultCellStyle = DataGridViewCellStyle29
         Me.DgvBooks.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvBooks.Size = New System.Drawing.Size(1122, 537)
+        Me.DgvBooks.Size = New System.Drawing.Size(1122, 524)
         Me.DgvBooks.TabIndex = 0
         '
         'Column1
@@ -885,8 +1153,8 @@ Partial Class BorrowingAndReturning
         '
         Me.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
         Me.Column2.DataPropertyName = "title"
-        DataGridViewCellStyle104.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.Column2.DefaultCellStyle = DataGridViewCellStyle104
+        DataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Column2.DefaultCellStyle = DataGridViewCellStyle27
         Me.Column2.FillWeight = 449.2386!
         Me.Column2.HeaderText = "TITLE"
         Me.Column2.MinimumWidth = 370
@@ -931,8 +1199,8 @@ Partial Class BorrowingAndReturning
         '
         Me.Column27.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
         Me.Column27.DataPropertyName = "quantity"
-        DataGridViewCellStyle105.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.Column27.DefaultCellStyle = DataGridViewCellStyle105
+        DataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Column27.DefaultCellStyle = DataGridViewCellStyle28
         Me.Column27.HeaderText = "COPIES"
         Me.Column27.MinimumWidth = 70
         Me.Column27.Name = "Column27"
@@ -952,6 +1220,7 @@ Partial Class BorrowingAndReturning
         'TabPage2
         '
         Me.TabPage2.BackColor = System.Drawing.Color.Transparent
+        Me.TabPage2.Controls.Add(Me.BtnResendQr)
         Me.TabPage2.Controls.Add(Me.Button2)
         Me.TabPage2.Controls.Add(Me.BtnSearchBorrowers)
         Me.TabPage2.Controls.Add(Me.TxtSearchBorrowers)
@@ -965,6 +1234,20 @@ Partial Class BorrowingAndReturning
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage2.Size = New System.Drawing.Size(1128, 600)
         Me.TabPage2.TabIndex = 1
+        '
+        'BtnResendQr
+        '
+        Me.BtnResendQr.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnResendQr.BackColor = System.Drawing.Color.Transparent
+        Me.BtnResendQr.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnResendQr.Enabled = False
+        Me.BtnResendQr.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnResendQr.Location = New System.Drawing.Point(233, 550)
+        Me.BtnResendQr.Name = "BtnResendQr"
+        Me.BtnResendQr.Size = New System.Drawing.Size(206, 44)
+        Me.BtnResendQr.TabIndex = 31
+        Me.BtnResendQr.Text = "RESEND QR CODE ID"
+        Me.BtnResendQr.UseVisualStyleBackColor = False
         '
         'Button2
         '
@@ -1069,23 +1352,23 @@ Partial Class BorrowingAndReturning
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DgvBorrowers.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption
-        DataGridViewCellStyle107.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle107.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle107.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle107.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle107.Padding = New System.Windows.Forms.Padding(0, 10, 0, 10)
-        DataGridViewCellStyle107.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle107.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle107.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DgvBorrowers.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle107
+        DataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle32.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle32.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle32.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle32.Padding = New System.Windows.Forms.Padding(0, 10, 0, 10)
+        DataGridViewCellStyle32.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle32.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle32.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DgvBorrowers.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle32
         Me.DgvBorrowers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DgvBorrowers.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column6, Me.Column7, Me.Column8, Me.Column9, Me.Column10, Me.Column51})
         Me.DgvBorrowers.Location = New System.Drawing.Point(3, 60)
         Me.DgvBorrowers.Name = "DgvBorrowers"
         Me.DgvBorrowers.ReadOnly = True
         Me.DgvBorrowers.RowHeadersVisible = False
-        DataGridViewCellStyle108.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
-        Me.DgvBorrowers.RowsDefaultCellStyle = DataGridViewCellStyle108
+        DataGridViewCellStyle33.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
+        Me.DgvBorrowers.RowsDefaultCellStyle = DataGridViewCellStyle33
         Me.DgvBorrowers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DgvBorrowers.Size = New System.Drawing.Size(1122, 484)
         Me.DgvBorrowers.TabIndex = 1
@@ -1159,6 +1442,8 @@ Partial Class BorrowingAndReturning
         '
         Me.TabPage3.BackColor = System.Drawing.Color.Transparent
         Me.TabPage3.Controls.Add(Me.PanelCancelled)
+        Me.TabPage3.Controls.Add(Me.BtnOpenBorrowedFltr)
+        Me.TabPage3.Controls.Add(Me.PnlFilterBorrowed)
         Me.TabPage3.Controls.Add(Me.BtnCancelBorrow)
         Me.TabPage3.Controls.Add(Me.DgvBorrowed)
         Me.TabPage3.Controls.Add(Me.Button1)
@@ -1166,6 +1451,7 @@ Partial Class BorrowingAndReturning
         Me.TabPage3.Controls.Add(Me.BtnSearchBorrowed)
         Me.TabPage3.Controls.Add(Me.TxtSearchBorrowed)
         Me.TabPage3.Controls.Add(Me.BtnPrintBorrowed)
+        Me.TabPage3.Controls.Add(Me.Button10)
         Me.TabPage3.Controls.Add(Me.Label21)
         Me.TabPage3.Location = New System.Drawing.Point(4, 4)
         Me.TabPage3.Name = "TabPage3"
@@ -1177,17 +1463,32 @@ Partial Class BorrowingAndReturning
         Me.PanelCancelled.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.PanelCancelled.Controls.Add(Me.BtnPrintCancelled)
         Me.PanelCancelled.Controls.Add(Me.BtnSearchCancel)
         Me.PanelCancelled.Controls.Add(Me.TxtsearchCancel)
-        Me.PanelCancelled.Controls.Add(Me.BtnPrintCancelled)
         Me.PanelCancelled.Controls.Add(Me.Label20)
         Me.PanelCancelled.Controls.Add(Me.DgvCancelledBorrow)
         Me.PanelCancelled.Controls.Add(Me.BtnReturn)
         Me.PanelCancelled.Location = New System.Drawing.Point(0, 0)
         Me.PanelCancelled.Name = "PanelCancelled"
-        Me.PanelCancelled.Size = New System.Drawing.Size(1126, 597)
+        Me.PanelCancelled.Size = New System.Drawing.Size(1128, 597)
         Me.PanelCancelled.TabIndex = 5
         Me.PanelCancelled.Visible = False
+        '
+        'BtnPrintCancelled
+        '
+        Me.BtnPrintCancelled.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnPrintCancelled.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnPrintCancelled.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnPrintCancelled.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnPrintCancelled.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.BtnPrintCancelled.ImageAlign = System.Drawing.ContentAlignment.TopLeft
+        Me.BtnPrintCancelled.Location = New System.Drawing.Point(984, 46)
+        Me.BtnPrintCancelled.Name = "BtnPrintCancelled"
+        Me.BtnPrintCancelled.Size = New System.Drawing.Size(138, 24)
+        Me.BtnPrintCancelled.TabIndex = 34
+        Me.BtnPrintCancelled.Text = "Print Cancelled Record"
+        Me.BtnPrintCancelled.UseVisualStyleBackColor = False
         '
         'BtnSearchCancel
         '
@@ -1197,7 +1498,7 @@ Partial Class BorrowingAndReturning
         Me.BtnSearchCancel.ForeColor = System.Drawing.SystemColors.WindowText
         Me.BtnSearchCancel.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_search_13
         Me.BtnSearchCancel.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.BtnSearchCancel.Location = New System.Drawing.Point(237, 30)
+        Me.BtnSearchCancel.Location = New System.Drawing.Point(237, 48)
         Me.BtnSearchCancel.Name = "BtnSearchCancel"
         Me.BtnSearchCancel.Size = New System.Drawing.Size(65, 21)
         Me.BtnSearchCancel.TabIndex = 31
@@ -1209,27 +1510,11 @@ Partial Class BorrowingAndReturning
         '
         Me.TxtsearchCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtsearchCancel.ForeColor = System.Drawing.Color.Gray
-        Me.TxtsearchCancel.Location = New System.Drawing.Point(5, 30)
+        Me.TxtsearchCancel.Location = New System.Drawing.Point(5, 48)
         Me.TxtsearchCancel.Name = "TxtsearchCancel"
         Me.TxtsearchCancel.Size = New System.Drawing.Size(226, 21)
         Me.TxtsearchCancel.TabIndex = 30
         Me.TxtsearchCancel.Text = "Search IDs, Title Etc."
-        '
-        'BtnPrintCancelled
-        '
-        Me.BtnPrintCancelled.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.BtnPrintCancelled.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.BtnPrintCancelled.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnPrintCancelled.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnPrintCancelled.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnPrintCancelled.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.BtnPrintCancelled.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.BtnPrintCancelled.Location = New System.Drawing.Point(985, 27)
-        Me.BtnPrintCancelled.Name = "BtnPrintCancelled"
-        Me.BtnPrintCancelled.Size = New System.Drawing.Size(138, 24)
-        Me.BtnPrintCancelled.TabIndex = 34
-        Me.BtnPrintCancelled.Text = "Print Cancelled Record"
-        Me.BtnPrintCancelled.UseVisualStyleBackColor = False
         '
         'Label20
         '
@@ -1239,7 +1524,7 @@ Partial Class BorrowingAndReturning
         Me.Label20.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.Label20.Location = New System.Drawing.Point(0, 0)
         Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(1126, 54)
+        Me.Label20.Size = New System.Drawing.Size(1128, 74)
         Me.Label20.TabIndex = 19
         Me.Label20.Text = "CANCELLED"
         Me.Label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1253,25 +1538,25 @@ Partial Class BorrowingAndReturning
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DgvCancelledBorrow.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader
         Me.DgvCancelledBorrow.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption
-        DataGridViewCellStyle109.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle109.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle109.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle109.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle109.Padding = New System.Windows.Forms.Padding(0, 10, 0, 10)
-        DataGridViewCellStyle109.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle109.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle109.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DgvCancelledBorrow.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle109
+        DataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle34.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle34.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle34.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle34.Padding = New System.Windows.Forms.Padding(0, 10, 0, 10)
+        DataGridViewCellStyle34.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle34.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle34.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DgvCancelledBorrow.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle34
         Me.DgvCancelledBorrow.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DgvCancelledBorrow.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn11, Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn13, Me.DataGridViewTextBoxColumn14, Me.DataGridViewTextBoxColumn15, Me.Column33, Me.Column24, Me.Column37, Me.Column40})
-        Me.DgvCancelledBorrow.Location = New System.Drawing.Point(0, 55)
+        Me.DgvCancelledBorrow.Location = New System.Drawing.Point(0, 77)
         Me.DgvCancelledBorrow.Name = "DgvCancelledBorrow"
         Me.DgvCancelledBorrow.ReadOnly = True
         Me.DgvCancelledBorrow.RowHeadersVisible = False
-        DataGridViewCellStyle112.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
-        Me.DgvCancelledBorrow.RowsDefaultCellStyle = DataGridViewCellStyle112
+        DataGridViewCellStyle37.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
+        Me.DgvCancelledBorrow.RowsDefaultCellStyle = DataGridViewCellStyle37
         Me.DgvCancelledBorrow.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvCancelledBorrow.Size = New System.Drawing.Size(1125, 468)
+        Me.DgvCancelledBorrow.Size = New System.Drawing.Size(1127, 446)
         Me.DgvCancelledBorrow.TabIndex = 3
         '
         'DataGridViewTextBoxColumn7
@@ -1298,8 +1583,8 @@ Partial Class BorrowingAndReturning
         '
         Me.DataGridViewTextBoxColumn9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
         Me.DataGridViewTextBoxColumn9.DataPropertyName = "book_ids"
-        DataGridViewCellStyle110.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridViewTextBoxColumn9.DefaultCellStyle = DataGridViewCellStyle110
+        DataGridViewCellStyle35.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridViewTextBoxColumn9.DefaultCellStyle = DataGridViewCellStyle35
         Me.DataGridViewTextBoxColumn9.HeaderText = "THESIS ID"
         Me.DataGridViewTextBoxColumn9.MinimumWidth = 120
         Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
@@ -1310,8 +1595,8 @@ Partial Class BorrowingAndReturning
         '
         Me.DataGridViewTextBoxColumn10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
         Me.DataGridViewTextBoxColumn10.DataPropertyName = "title"
-        DataGridViewCellStyle111.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridViewTextBoxColumn10.DefaultCellStyle = DataGridViewCellStyle111
+        DataGridViewCellStyle36.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridViewTextBoxColumn10.DefaultCellStyle = DataGridViewCellStyle36
         Me.DataGridViewTextBoxColumn10.HeaderText = "TITLE"
         Me.DataGridViewTextBoxColumn10.MinimumWidth = 380
         Me.DataGridViewTextBoxColumn10.Name = "DataGridViewTextBoxColumn10"
@@ -1409,12 +1694,142 @@ Partial Class BorrowingAndReturning
         Me.BtnReturn.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.BtnReturn.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnReturn.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnReturn.Location = New System.Drawing.Point(504, 539)
+        Me.BtnReturn.Location = New System.Drawing.Point(506, 539)
         Me.BtnReturn.Name = "BtnReturn"
         Me.BtnReturn.Size = New System.Drawing.Size(129, 44)
         Me.BtnReturn.TabIndex = 20
         Me.BtnReturn.Text = "BACK"
         Me.BtnReturn.UseVisualStyleBackColor = True
+        '
+        'BtnOpenBorrowedFltr
+        '
+        Me.BtnOpenBorrowedFltr.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnOpenBorrowedFltr.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnOpenBorrowedFltr.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnOpenBorrowedFltr.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnOpenBorrowedFltr.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnOpenBorrowedFltr.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.BtnOpenBorrowedFltr.ImageAlign = System.Drawing.ContentAlignment.TopLeft
+        Me.BtnOpenBorrowedFltr.Location = New System.Drawing.Point(6, 7)
+        Me.BtnOpenBorrowedFltr.Name = "BtnOpenBorrowedFltr"
+        Me.BtnOpenBorrowedFltr.Size = New System.Drawing.Size(48, 21)
+        Me.BtnOpenBorrowedFltr.TabIndex = 51
+        Me.BtnOpenBorrowedFltr.Text = "Filter"
+        Me.BtnOpenBorrowedFltr.UseVisualStyleBackColor = False
+        '
+        'PnlFilterBorrowed
+        '
+        Me.PnlFilterBorrowed.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.PnlFilterBorrowed.Controls.Add(Me.BtnCloseBorrowedFltr)
+        Me.PnlFilterBorrowed.Controls.Add(Me.BtnApplyBorrowedFltr)
+        Me.PnlFilterBorrowed.Controls.Add(Me.Label39)
+        Me.PnlFilterBorrowed.Controls.Add(Me.DtBorrowedFrom)
+        Me.PnlFilterBorrowed.Controls.Add(Me.Label40)
+        Me.PnlFilterBorrowed.Controls.Add(Me.Label41)
+        Me.PnlFilterBorrowed.Controls.Add(Me.BtnResetBorrowedFltr)
+        Me.PnlFilterBorrowed.Controls.Add(Me.DtBorrowedTo)
+        Me.PnlFilterBorrowed.Location = New System.Drawing.Point(60, 7)
+        Me.PnlFilterBorrowed.Name = "PnlFilterBorrowed"
+        Me.PnlFilterBorrowed.Size = New System.Drawing.Size(317, 137)
+        Me.PnlFilterBorrowed.TabIndex = 49
+        Me.PnlFilterBorrowed.Visible = False
+        '
+        'BtnCloseBorrowedFltr
+        '
+        Me.BtnCloseBorrowedFltr.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnCloseBorrowedFltr.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnCloseBorrowedFltr.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnCloseBorrowedFltr.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnCloseBorrowedFltr.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnCloseBorrowedFltr.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.BtnCloseBorrowedFltr.ImageAlign = System.Drawing.ContentAlignment.TopLeft
+        Me.BtnCloseBorrowedFltr.Location = New System.Drawing.Point(288, 6)
+        Me.BtnCloseBorrowedFltr.Name = "BtnCloseBorrowedFltr"
+        Me.BtnCloseBorrowedFltr.Size = New System.Drawing.Size(20, 20)
+        Me.BtnCloseBorrowedFltr.TabIndex = 50
+        Me.BtnCloseBorrowedFltr.Text = "X"
+        Me.BtnCloseBorrowedFltr.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.BtnCloseBorrowedFltr.UseVisualStyleBackColor = False
+        '
+        'BtnApplyBorrowedFltr
+        '
+        Me.BtnApplyBorrowedFltr.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnApplyBorrowedFltr.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnApplyBorrowedFltr.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnApplyBorrowedFltr.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnApplyBorrowedFltr.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnApplyBorrowedFltr.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.BtnApplyBorrowedFltr.ImageAlign = System.Drawing.ContentAlignment.TopLeft
+        Me.BtnApplyBorrowedFltr.Location = New System.Drawing.Point(222, 51)
+        Me.BtnApplyBorrowedFltr.Name = "BtnApplyBorrowedFltr"
+        Me.BtnApplyBorrowedFltr.Size = New System.Drawing.Size(84, 23)
+        Me.BtnApplyBorrowedFltr.TabIndex = 47
+        Me.BtnApplyBorrowedFltr.Text = "Apply Filter"
+        Me.BtnApplyBorrowedFltr.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.BtnApplyBorrowedFltr.UseVisualStyleBackColor = False
+        '
+        'Label39
+        '
+        Me.Label39.AutoSize = True
+        Me.Label39.BackColor = System.Drawing.Color.Transparent
+        Me.Label39.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label39.Location = New System.Drawing.Point(12, 9)
+        Me.Label39.Name = "Label39"
+        Me.Label39.Size = New System.Drawing.Size(153, 16)
+        Me.Label39.TabIndex = 46
+        Me.Label39.Text = "Filter by Borrow Date"
+        '
+        'DtBorrowedFrom
+        '
+        Me.DtBorrowedFrom.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.DtBorrowedFrom.Location = New System.Drawing.Point(57, 51)
+        Me.DtBorrowedFrom.Name = "DtBorrowedFrom"
+        Me.DtBorrowedFrom.Size = New System.Drawing.Size(146, 22)
+        Me.DtBorrowedFrom.TabIndex = 42
+        '
+        'Label40
+        '
+        Me.Label40.AutoSize = True
+        Me.Label40.BackColor = System.Drawing.Color.Transparent
+        Me.Label40.Location = New System.Drawing.Point(28, 92)
+        Me.Label40.Name = "Label40"
+        Me.Label40.Size = New System.Drawing.Size(25, 16)
+        Me.Label40.TabIndex = 45
+        Me.Label40.Text = "To"
+        '
+        'Label41
+        '
+        Me.Label41.AutoSize = True
+        Me.Label41.BackColor = System.Drawing.Color.Transparent
+        Me.Label41.Location = New System.Drawing.Point(14, 54)
+        Me.Label41.Name = "Label41"
+        Me.Label41.Size = New System.Drawing.Size(39, 16)
+        Me.Label41.TabIndex = 44
+        Me.Label41.Text = "From"
+        '
+        'BtnResetBorrowedFltr
+        '
+        Me.BtnResetBorrowedFltr.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnResetBorrowedFltr.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnResetBorrowedFltr.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnResetBorrowedFltr.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnResetBorrowedFltr.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnResetBorrowedFltr.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.BtnResetBorrowedFltr.ImageAlign = System.Drawing.ContentAlignment.TopLeft
+        Me.BtnResetBorrowedFltr.Location = New System.Drawing.Point(222, 89)
+        Me.BtnResetBorrowedFltr.Name = "BtnResetBorrowedFltr"
+        Me.BtnResetBorrowedFltr.Size = New System.Drawing.Size(84, 22)
+        Me.BtnResetBorrowedFltr.TabIndex = 49
+        Me.BtnResetBorrowedFltr.Text = "Reset"
+        Me.BtnResetBorrowedFltr.UseVisualStyleBackColor = False
+        '
+        'DtBorrowedTo
+        '
+        Me.DtBorrowedTo.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.DtBorrowedTo.Location = New System.Drawing.Point(57, 89)
+        Me.DtBorrowedTo.Name = "DtBorrowedTo"
+        Me.DtBorrowedTo.Size = New System.Drawing.Size(146, 22)
+        Me.DtBorrowedTo.TabIndex = 43
         '
         'BtnCancelBorrow
         '
@@ -1439,25 +1854,25 @@ Partial Class BorrowingAndReturning
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DgvBorrowed.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader
         Me.DgvBorrowed.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption
-        DataGridViewCellStyle113.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle113.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle113.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle113.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle113.Padding = New System.Windows.Forms.Padding(0, 10, 0, 10)
-        DataGridViewCellStyle113.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle113.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle113.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DgvBorrowed.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle113
+        DataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle38.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle38.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle38.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle38.Padding = New System.Windows.Forms.Padding(0, 10, 0, 10)
+        DataGridViewCellStyle38.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle38.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle38.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DgvBorrowed.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle38
         Me.DgvBorrowed.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DgvBorrowed.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column25, Me.Column12, Me.Column18, Me.Column11, Me.Column32, Me.Column28, Me.Column14, Me.Column13, Me.Column29, Me.Column34, Me.Column36, Me.Column38, Me.Column41})
-        Me.DgvBorrowed.Location = New System.Drawing.Point(0, 57)
+        Me.DgvBorrowed.Location = New System.Drawing.Point(0, 82)
         Me.DgvBorrowed.Name = "DgvBorrowed"
         Me.DgvBorrowed.ReadOnly = True
         Me.DgvBorrowed.RowHeadersVisible = False
-        DataGridViewCellStyle116.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
-        Me.DgvBorrowed.RowsDefaultCellStyle = DataGridViewCellStyle116
+        DataGridViewCellStyle41.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
+        Me.DgvBorrowed.RowsDefaultCellStyle = DataGridViewCellStyle41
         Me.DgvBorrowed.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvBorrowed.Size = New System.Drawing.Size(1125, 466)
+        Me.DgvBorrowed.Size = New System.Drawing.Size(1125, 441)
         Me.DgvBorrowed.TabIndex = 2
         '
         'Column25
@@ -1484,8 +1899,8 @@ Partial Class BorrowingAndReturning
         '
         Me.Column18.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
         Me.Column18.DataPropertyName = "book_ids"
-        DataGridViewCellStyle114.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.Column18.DefaultCellStyle = DataGridViewCellStyle114
+        DataGridViewCellStyle39.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Column18.DefaultCellStyle = DataGridViewCellStyle39
         Me.Column18.HeaderText = "THESIS ID"
         Me.Column18.MinimumWidth = 120
         Me.Column18.Name = "Column18"
@@ -1496,8 +1911,8 @@ Partial Class BorrowingAndReturning
         '
         Me.Column11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
         Me.Column11.DataPropertyName = "title"
-        DataGridViewCellStyle115.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.Column11.DefaultCellStyle = DataGridViewCellStyle115
+        DataGridViewCellStyle40.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Column11.DefaultCellStyle = DataGridViewCellStyle40
         Me.Column11.HeaderText = "TITLE"
         Me.Column11.MinimumWidth = 300
         Me.Column11.Name = "Column11"
@@ -1625,7 +2040,7 @@ Partial Class BorrowingAndReturning
         Me.BtnSearchBorrowed.ForeColor = System.Drawing.SystemColors.WindowText
         Me.BtnSearchBorrowed.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_search_13
         Me.BtnSearchBorrowed.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.BtnSearchBorrowed.Location = New System.Drawing.Point(239, 30)
+        Me.BtnSearchBorrowed.Location = New System.Drawing.Point(237, 50)
         Me.BtnSearchBorrowed.Name = "BtnSearchBorrowed"
         Me.BtnSearchBorrowed.Size = New System.Drawing.Size(65, 21)
         Me.BtnSearchBorrowed.TabIndex = 33
@@ -1637,27 +2052,27 @@ Partial Class BorrowingAndReturning
         '
         Me.TxtSearchBorrowed.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtSearchBorrowed.ForeColor = System.Drawing.Color.Gray
-        Me.TxtSearchBorrowed.Location = New System.Drawing.Point(5, 30)
+        Me.TxtSearchBorrowed.Location = New System.Drawing.Point(3, 50)
         Me.TxtSearchBorrowed.Name = "TxtSearchBorrowed"
         Me.TxtSearchBorrowed.Size = New System.Drawing.Size(228, 21)
         Me.TxtSearchBorrowed.TabIndex = 32
         Me.TxtSearchBorrowed.Text = "Search Title, Author Etc."
         '
-        'BtnPrintBorrowed
+        'Button10
         '
-        Me.BtnPrintBorrowed.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.BtnPrintBorrowed.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.BtnPrintBorrowed.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnPrintBorrowed.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnPrintBorrowed.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnPrintBorrowed.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.BtnPrintBorrowed.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.BtnPrintBorrowed.Location = New System.Drawing.Point(987, 27)
-        Me.BtnPrintBorrowed.Name = "BtnPrintBorrowed"
-        Me.BtnPrintBorrowed.Size = New System.Drawing.Size(138, 24)
-        Me.BtnPrintBorrowed.TabIndex = 34
-        Me.BtnPrintBorrowed.Text = " Print Borrowed Thesis"
-        Me.BtnPrintBorrowed.UseVisualStyleBackColor = False
+        Me.Button10.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button10.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.Button10.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button10.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button10.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.Button10.ImageAlign = System.Drawing.ContentAlignment.TopLeft
+        Me.Button10.Location = New System.Drawing.Point(1534, 20)
+        Me.Button10.Name = "Button10"
+        Me.Button10.Size = New System.Drawing.Size(49, 21)
+        Me.Button10.TabIndex = 48
+        Me.Button10.Text = "Reset"
+        Me.Button10.UseVisualStyleBackColor = False
         '
         'Label21
         '
@@ -1667,13 +2082,22 @@ Partial Class BorrowingAndReturning
         Me.Label21.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.Label21.Location = New System.Drawing.Point(0, 0)
         Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(1128, 54)
+        Me.Label21.Size = New System.Drawing.Size(1128, 79)
         Me.Label21.TabIndex = 23
         Me.Label21.Text = "BORROWED THESIS"
         Me.Label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'TabPage4
         '
+        Me.TabPage4.Controls.Add(Me.Button12)
+        Me.TabPage4.Controls.Add(Me.Button13)
+        Me.TabPage4.Controls.Add(Me.Button9)
+        Me.TabPage4.Controls.Add(Me.Button5)
+        Me.TabPage4.Controls.Add(Me.Label42)
+        Me.TabPage4.Controls.Add(Me.Label43)
+        Me.TabPage4.Controls.Add(Me.Label44)
+        Me.TabPage4.Controls.Add(Me.DtRetTo)
+        Me.TabPage4.Controls.Add(Me.DtReturnedFrom)
         Me.TabPage4.Controls.Add(Me.BtnPrintReturned)
         Me.TabPage4.Controls.Add(Me.BtnSearchReturned)
         Me.TabPage4.Controls.Add(Me.TxtSearchReturned)
@@ -1685,16 +2109,126 @@ Partial Class BorrowingAndReturning
         Me.TabPage4.TabIndex = 3
         Me.TabPage4.UseVisualStyleBackColor = True
         '
+        'Button12
+        '
+        Me.Button12.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button12.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.Button12.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button12.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button12.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.Button12.ImageAlign = System.Drawing.ContentAlignment.TopLeft
+        Me.Button12.Location = New System.Drawing.Point(1038, 13)
+        Me.Button12.Name = "Button12"
+        Me.Button12.Size = New System.Drawing.Size(49, 21)
+        Me.Button12.TabIndex = 45
+        Me.Button12.Text = "Reset"
+        Me.Button12.UseVisualStyleBackColor = False
+        '
+        'Button13
+        '
+        Me.Button13.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button13.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.Button13.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button13.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button13.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.Button13.ImageAlign = System.Drawing.ContentAlignment.TopLeft
+        Me.Button13.Location = New System.Drawing.Point(983, 13)
+        Me.Button13.Name = "Button13"
+        Me.Button13.Size = New System.Drawing.Size(49, 21)
+        Me.Button13.TabIndex = 44
+        Me.Button13.Text = "Filter"
+        Me.Button13.UseVisualStyleBackColor = False
+        '
+        'Button9
+        '
+        Me.Button9.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button9.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.Button9.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button9.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button9.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.Button9.ImageAlign = System.Drawing.ContentAlignment.TopLeft
+        Me.Button9.Location = New System.Drawing.Point(1511, 12)
+        Me.Button9.Name = "Button9"
+        Me.Button9.Size = New System.Drawing.Size(49, 21)
+        Me.Button9.TabIndex = 43
+        Me.Button9.Text = "Reset"
+        Me.Button9.UseVisualStyleBackColor = False
+        '
+        'Button5
+        '
+        Me.Button5.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button5.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.Button5.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button5.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.Button5.ImageAlign = System.Drawing.ContentAlignment.TopLeft
+        Me.Button5.Location = New System.Drawing.Point(1456, 12)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(49, 21)
+        Me.Button5.TabIndex = 42
+        Me.Button5.Text = "Filter"
+        Me.Button5.UseVisualStyleBackColor = False
+        '
+        'Label42
+        '
+        Me.Label42.AutoSize = True
+        Me.Label42.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.Label42.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label42.Location = New System.Drawing.Point(802, 14)
+        Me.Label42.Name = "Label42"
+        Me.Label42.Size = New System.Drawing.Size(176, 16)
+        Me.Label42.TabIndex = 41
+        Me.Label42.Text = "Filter by Returned Date :"
+        '
+        'Label43
+        '
+        Me.Label43.AutoSize = True
+        Me.Label43.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.Label43.Location = New System.Drawing.Point(967, 45)
+        Me.Label43.Name = "Label43"
+        Me.Label43.Size = New System.Drawing.Size(25, 16)
+        Me.Label43.TabIndex = 40
+        Me.Label43.Text = "To"
+        '
+        'Label44
+        '
+        Me.Label44.AutoSize = True
+        Me.Label44.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.Label44.Location = New System.Drawing.Point(803, 45)
+        Me.Label44.Name = "Label44"
+        Me.Label44.Size = New System.Drawing.Size(39, 16)
+        Me.Label44.TabIndex = 39
+        Me.Label44.Text = "From"
+        '
+        'DtRetTo
+        '
+        Me.DtRetTo.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.DtRetTo.Location = New System.Drawing.Point(996, 42)
+        Me.DtRetTo.Name = "DtRetTo"
+        Me.DtRetTo.Size = New System.Drawing.Size(116, 22)
+        Me.DtRetTo.TabIndex = 38
+        '
+        'DtReturnedFrom
+        '
+        Me.DtReturnedFrom.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.DtReturnedFrom.Location = New System.Drawing.Point(847, 42)
+        Me.DtReturnedFrom.Name = "DtReturnedFrom"
+        Me.DtReturnedFrom.Size = New System.Drawing.Size(116, 22)
+        Me.DtReturnedFrom.TabIndex = 37
+        '
         'BtnPrintReturned
         '
-        Me.BtnPrintReturned.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.BtnPrintReturned.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.BtnPrintReturned.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnPrintReturned.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnPrintReturned.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnPrintReturned.ForeColor = System.Drawing.SystemColors.WindowText
         Me.BtnPrintReturned.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.BtnPrintReturned.Location = New System.Drawing.Point(987, 27)
+        Me.BtnPrintReturned.Location = New System.Drawing.Point(5, 6)
         Me.BtnPrintReturned.Name = "BtnPrintReturned"
         Me.BtnPrintReturned.Size = New System.Drawing.Size(138, 24)
         Me.BtnPrintReturned.TabIndex = 36
@@ -1709,7 +2243,7 @@ Partial Class BorrowingAndReturning
         Me.BtnSearchReturned.ForeColor = System.Drawing.SystemColors.WindowText
         Me.BtnSearchReturned.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_search_13
         Me.BtnSearchReturned.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.BtnSearchReturned.Location = New System.Drawing.Point(239, 30)
+        Me.BtnSearchReturned.Location = New System.Drawing.Point(239, 46)
         Me.BtnSearchReturned.Name = "BtnSearchReturned"
         Me.BtnSearchReturned.Size = New System.Drawing.Size(65, 21)
         Me.BtnSearchReturned.TabIndex = 35
@@ -1721,7 +2255,7 @@ Partial Class BorrowingAndReturning
         '
         Me.TxtSearchReturned.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtSearchReturned.ForeColor = System.Drawing.Color.Gray
-        Me.TxtSearchReturned.Location = New System.Drawing.Point(5, 30)
+        Me.TxtSearchReturned.Location = New System.Drawing.Point(5, 46)
         Me.TxtSearchReturned.Name = "TxtSearchReturned"
         Me.TxtSearchReturned.Size = New System.Drawing.Size(228, 21)
         Me.TxtSearchReturned.TabIndex = 34
@@ -1738,14 +2272,14 @@ Partial Class BorrowingAndReturning
         Me.DgvReturned.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption
         Me.DgvReturned.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DgvReturned.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column15, Me.Column16, Me.Column19, Me.DataGridViewTextBoxColumn17, Me.DataGridViewTextBoxColumn16, Me.DataGridViewTextBoxColumn18, Me.DataGridViewTextBoxColumn19, Me.DataGridViewTextBoxColumn20, Me.DataGridViewTextBoxColumn21, Me.DataGridViewTextBoxColumn22, Me.DataGridViewTextBoxColumn23, Me.DataGridViewTextBoxColumn24, Me.Column50, Me.DataGridViewTextBoxColumn25, Me.Column17, Me.Column35, Me.Column39, Me.Column42})
-        Me.DgvReturned.Location = New System.Drawing.Point(0, 57)
+        Me.DgvReturned.Location = New System.Drawing.Point(0, 76)
         Me.DgvReturned.Name = "DgvReturned"
         Me.DgvReturned.ReadOnly = True
         Me.DgvReturned.RowHeadersVisible = False
-        DataGridViewCellStyle119.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
-        Me.DgvReturned.RowsDefaultCellStyle = DataGridViewCellStyle119
+        DataGridViewCellStyle44.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
+        Me.DgvReturned.RowsDefaultCellStyle = DataGridViewCellStyle44
         Me.DgvReturned.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvReturned.Size = New System.Drawing.Size(1125, 540)
+        Me.DgvReturned.Size = New System.Drawing.Size(1588, 521)
         Me.DgvReturned.TabIndex = 21
         '
         'Column15
@@ -1802,8 +2336,8 @@ Partial Class BorrowingAndReturning
         '
         Me.DataGridViewTextBoxColumn18.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
         Me.DataGridViewTextBoxColumn18.DataPropertyName = "book_ids"
-        DataGridViewCellStyle117.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridViewTextBoxColumn18.DefaultCellStyle = DataGridViewCellStyle117
+        DataGridViewCellStyle42.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridViewTextBoxColumn18.DefaultCellStyle = DataGridViewCellStyle42
         Me.DataGridViewTextBoxColumn18.HeaderText = "THESIS ID"
         Me.DataGridViewTextBoxColumn18.MinimumWidth = 120
         Me.DataGridViewTextBoxColumn18.Name = "DataGridViewTextBoxColumn18"
@@ -1814,8 +2348,8 @@ Partial Class BorrowingAndReturning
         '
         Me.DataGridViewTextBoxColumn19.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
         Me.DataGridViewTextBoxColumn19.DataPropertyName = "title"
-        DataGridViewCellStyle118.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridViewTextBoxColumn19.DefaultCellStyle = DataGridViewCellStyle118
+        DataGridViewCellStyle43.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridViewTextBoxColumn19.DefaultCellStyle = DataGridViewCellStyle43
         Me.DataGridViewTextBoxColumn19.HeaderText = "TITLE"
         Me.DataGridViewTextBoxColumn19.MinimumWidth = 300
         Me.DataGridViewTextBoxColumn19.Name = "DataGridViewTextBoxColumn19"
@@ -1935,7 +2469,7 @@ Partial Class BorrowingAndReturning
         Me.Label28.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.Label28.Location = New System.Drawing.Point(0, 0)
         Me.Label28.Name = "Label28"
-        Me.Label28.Size = New System.Drawing.Size(1128, 54)
+        Me.Label28.Size = New System.Drawing.Size(1128, 73)
         Me.Label28.TabIndex = 20
         Me.Label28.Text = "RETURNED"
         Me.Label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1943,6 +2477,13 @@ Partial Class BorrowingAndReturning
         'TabPage5
         '
         Me.TabPage5.BackColor = System.Drawing.Color.Transparent
+        Me.TabPage5.Controls.Add(Me.Button8)
+        Me.TabPage5.Controls.Add(Me.Button6)
+        Me.TabPage5.Controls.Add(Me.Label45)
+        Me.TabPage5.Controls.Add(Me.Label46)
+        Me.TabPage5.Controls.Add(Me.Label47)
+        Me.TabPage5.Controls.Add(Me.DtOvrTo)
+        Me.TabPage5.Controls.Add(Me.DtOvrFrom)
         Me.TabPage5.Controls.Add(Me.BtnPrintOverdue)
         Me.TabPage5.Controls.Add(Me.BtnSearchOverdue)
         Me.TabPage5.Controls.Add(Me.TxtSearchOverdue)
@@ -1953,6 +2494,85 @@ Partial Class BorrowingAndReturning
         Me.TabPage5.Size = New System.Drawing.Size(1128, 600)
         Me.TabPage5.TabIndex = 4
         '
+        'Button8
+        '
+        Me.Button8.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button8.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.Button8.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button8.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.Button8.ImageAlign = System.Drawing.ContentAlignment.TopLeft
+        Me.Button8.Location = New System.Drawing.Point(1057, 9)
+        Me.Button8.Name = "Button8"
+        Me.Button8.Size = New System.Drawing.Size(49, 21)
+        Me.Button8.TabIndex = 42
+        Me.Button8.Text = "Reset"
+        Me.Button8.UseVisualStyleBackColor = False
+        '
+        'Button6
+        '
+        Me.Button6.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button6.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.Button6.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button6.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.Button6.ImageAlign = System.Drawing.ContentAlignment.TopLeft
+        Me.Button6.Location = New System.Drawing.Point(1002, 9)
+        Me.Button6.Name = "Button6"
+        Me.Button6.Size = New System.Drawing.Size(49, 21)
+        Me.Button6.TabIndex = 41
+        Me.Button6.Text = "Filter"
+        Me.Button6.UseVisualStyleBackColor = False
+        '
+        'Label45
+        '
+        Me.Label45.AutoSize = True
+        Me.Label45.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.Label45.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label45.Location = New System.Drawing.Point(811, 11)
+        Me.Label45.Name = "Label45"
+        Me.Label45.Size = New System.Drawing.Size(190, 16)
+        Me.Label45.TabIndex = 40
+        Me.Label45.Text = "Filter by Publication Year :"
+        '
+        'Label46
+        '
+        Me.Label46.AutoSize = True
+        Me.Label46.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.Label46.Location = New System.Drawing.Point(976, 42)
+        Me.Label46.Name = "Label46"
+        Me.Label46.Size = New System.Drawing.Size(25, 16)
+        Me.Label46.TabIndex = 39
+        Me.Label46.Text = "To"
+        '
+        'Label47
+        '
+        Me.Label47.AutoSize = True
+        Me.Label47.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.Label47.Location = New System.Drawing.Point(815, 42)
+        Me.Label47.Name = "Label47"
+        Me.Label47.Size = New System.Drawing.Size(39, 16)
+        Me.Label47.TabIndex = 38
+        Me.Label47.Text = "From"
+        '
+        'DtOvrTo
+        '
+        Me.DtOvrTo.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.DtOvrTo.Location = New System.Drawing.Point(1005, 39)
+        Me.DtOvrTo.Name = "DtOvrTo"
+        Me.DtOvrTo.Size = New System.Drawing.Size(116, 22)
+        Me.DtOvrTo.TabIndex = 37
+        '
+        'DtOvrFrom
+        '
+        Me.DtOvrFrom.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.DtOvrFrom.Location = New System.Drawing.Point(858, 39)
+        Me.DtOvrFrom.Name = "DtOvrFrom"
+        Me.DtOvrFrom.Size = New System.Drawing.Size(116, 22)
+        Me.DtOvrFrom.TabIndex = 36
+        '
         'BtnPrintOverdue
         '
         Me.BtnPrintOverdue.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -1962,7 +2582,7 @@ Partial Class BorrowingAndReturning
         Me.BtnPrintOverdue.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnPrintOverdue.ForeColor = System.Drawing.SystemColors.WindowText
         Me.BtnPrintOverdue.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.BtnPrintOverdue.Location = New System.Drawing.Point(1004, 30)
+        Me.BtnPrintOverdue.Location = New System.Drawing.Point(6, 6)
         Me.BtnPrintOverdue.Name = "BtnPrintOverdue"
         Me.BtnPrintOverdue.Size = New System.Drawing.Size(121, 21)
         Me.BtnPrintOverdue.TabIndex = 32
@@ -1978,7 +2598,7 @@ Partial Class BorrowingAndReturning
         Me.BtnSearchOverdue.ForeColor = System.Drawing.SystemColors.WindowText
         Me.BtnSearchOverdue.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_search_13
         Me.BtnSearchOverdue.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.BtnSearchOverdue.Location = New System.Drawing.Point(239, 30)
+        Me.BtnSearchOverdue.Location = New System.Drawing.Point(239, 46)
         Me.BtnSearchOverdue.Name = "BtnSearchOverdue"
         Me.BtnSearchOverdue.Size = New System.Drawing.Size(65, 21)
         Me.BtnSearchOverdue.TabIndex = 31
@@ -1990,7 +2610,7 @@ Partial Class BorrowingAndReturning
         '
         Me.TxtSearchOverdue.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtSearchOverdue.ForeColor = System.Drawing.Color.Gray
-        Me.TxtSearchOverdue.Location = New System.Drawing.Point(5, 30)
+        Me.TxtSearchOverdue.Location = New System.Drawing.Point(5, 46)
         Me.TxtSearchOverdue.Name = "TxtSearchOverdue"
         Me.TxtSearchOverdue.Size = New System.Drawing.Size(228, 21)
         Me.TxtSearchOverdue.TabIndex = 30
@@ -2004,7 +2624,7 @@ Partial Class BorrowingAndReturning
         Me.Label29.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.Label29.Location = New System.Drawing.Point(0, 0)
         Me.Label29.Name = "Label29"
-        Me.Label29.Size = New System.Drawing.Size(1128, 54)
+        Me.Label29.Size = New System.Drawing.Size(1128, 74)
         Me.Label29.TabIndex = 20
         Me.Label29.Text = "OVERDUES"
         Me.Label29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -2016,25 +2636,25 @@ Partial Class BorrowingAndReturning
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DgvOverdues.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption
-        DataGridViewCellStyle120.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle120.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle120.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle120.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle120.Padding = New System.Windows.Forms.Padding(0, 10, 0, 10)
-        DataGridViewCellStyle120.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle120.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle120.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DgvOverdues.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle120
+        DataGridViewCellStyle45.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle45.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle45.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle45.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle45.Padding = New System.Windows.Forms.Padding(0, 10, 0, 10)
+        DataGridViewCellStyle45.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle45.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle45.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DgvOverdues.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle45
         Me.DgvOverdues.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DgvOverdues.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column20, Me.Column26, Me.Column22, Me.Column23, Me.Column49, Me.Column45, Me.Column21, Me.Column43, Me.Column44, Me.Column46, Me.Column47})
-        Me.DgvOverdues.Location = New System.Drawing.Point(0, 57)
+        Me.DgvOverdues.Location = New System.Drawing.Point(0, 77)
         Me.DgvOverdues.Name = "DgvOverdues"
         Me.DgvOverdues.ReadOnly = True
         Me.DgvOverdues.RowHeadersVisible = False
-        DataGridViewCellStyle123.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
-        Me.DgvOverdues.RowsDefaultCellStyle = DataGridViewCellStyle123
+        DataGridViewCellStyle48.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
+        Me.DgvOverdues.RowsDefaultCellStyle = DataGridViewCellStyle48
         Me.DgvOverdues.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvOverdues.Size = New System.Drawing.Size(1125, 540)
+        Me.DgvOverdues.Size = New System.Drawing.Size(1125, 520)
         Me.DgvOverdues.TabIndex = 3
         '
         'Column20
@@ -2061,9 +2681,9 @@ Partial Class BorrowingAndReturning
         '
         Me.Column22.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
         Me.Column22.DataPropertyName = "due_date"
-        DataGridViewCellStyle121.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle121.ForeColor = System.Drawing.Color.Red
-        Me.Column22.DefaultCellStyle = DataGridViewCellStyle121
+        DataGridViewCellStyle46.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle46.ForeColor = System.Drawing.Color.Red
+        Me.Column22.DefaultCellStyle = DataGridViewCellStyle46
         Me.Column22.HeaderText = "DUE DATE"
         Me.Column22.MinimumWidth = 110
         Me.Column22.Name = "Column22"
@@ -2074,9 +2694,9 @@ Partial Class BorrowingAndReturning
         '
         Me.Column23.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
         Me.Column23.DataPropertyName = "overdue_days"
-        DataGridViewCellStyle122.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle122.ForeColor = System.Drawing.Color.Red
-        Me.Column23.DefaultCellStyle = DataGridViewCellStyle122
+        DataGridViewCellStyle47.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle47.ForeColor = System.Drawing.Color.Red
+        Me.Column23.DefaultCellStyle = DataGridViewCellStyle47
         Me.Column23.HeaderText = "OVERDUE DAYS"
         Me.Column23.MinimumWidth = 140
         Me.Column23.Name = "Column23"
@@ -2188,7 +2808,7 @@ Partial Class BorrowingAndReturning
         Me.BtnRemoveToBorrow.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnRemoveToBorrow.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnRemoveToBorrow.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnRemoveToBorrow.Location = New System.Drawing.Point(970, 522)
+        Me.BtnRemoveToBorrow.Location = New System.Drawing.Point(1433, 522)
         Me.BtnRemoveToBorrow.Name = "BtnRemoveToBorrow"
         Me.BtnRemoveToBorrow.Size = New System.Drawing.Size(145, 28)
         Me.BtnRemoveToBorrow.TabIndex = 28
@@ -2236,7 +2856,7 @@ Partial Class BorrowingAndReturning
         Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox2.Location = New System.Drawing.Point(463, 65)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(657, 454)
+        Me.GroupBox2.Size = New System.Drawing.Size(1120, 454)
         Me.GroupBox2.TabIndex = 20
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "To Borrow Thesis Details"
@@ -2268,10 +2888,10 @@ Partial Class BorrowingAndReturning
         Me.DgvToBorrow.Name = "DgvToBorrow"
         Me.DgvToBorrow.ReadOnly = True
         Me.DgvToBorrow.RowHeadersVisible = False
-        DataGridViewCellStyle125.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
-        Me.DgvToBorrow.RowsDefaultCellStyle = DataGridViewCellStyle125
+        DataGridViewCellStyle50.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
+        Me.DgvToBorrow.RowsDefaultCellStyle = DataGridViewCellStyle50
         Me.DgvToBorrow.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvToBorrow.Size = New System.Drawing.Size(648, 395)
+        Me.DgvToBorrow.Size = New System.Drawing.Size(1111, 395)
         Me.DgvToBorrow.TabIndex = 1
         '
         'Column30
@@ -2297,8 +2917,8 @@ Partial Class BorrowingAndReturning
         '
         Me.DataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
         Me.DataGridViewTextBoxColumn2.DataPropertyName = "books_id"
-        DataGridViewCellStyle124.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridViewTextBoxColumn2.DefaultCellStyle = DataGridViewCellStyle124
+        DataGridViewCellStyle49.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridViewTextBoxColumn2.DefaultCellStyle = DataGridViewCellStyle49
         Me.DataGridViewTextBoxColumn2.FillWeight = 449.2386!
         Me.DataGridViewTextBoxColumn2.HeaderText = "THESIS ID"
         Me.DataGridViewTextBoxColumn2.MinimumWidth = 150
@@ -2591,8 +3211,22 @@ Partial Class BorrowingAndReturning
         Me.Panel4.Controls.Add(Me.GroupBox3)
         Me.Panel4.Location = New System.Drawing.Point(236, 72)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(606, 433)
+        Me.Panel4.Size = New System.Drawing.Size(652, 433)
         Me.Panel4.TabIndex = 0
+        '
+        'BtnUpdateBorDetails
+        '
+        Me.BtnUpdateBorDetails.Anchor = System.Windows.Forms.AnchorStyles.Bottom
+        Me.BtnUpdateBorDetails.BackColor = System.Drawing.Color.Transparent
+        Me.BtnUpdateBorDetails.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnUpdateBorDetails.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnUpdateBorDetails.Location = New System.Drawing.Point(216, 378)
+        Me.BtnUpdateBorDetails.Name = "BtnUpdateBorDetails"
+        Me.BtnUpdateBorDetails.Size = New System.Drawing.Size(106, 25)
+        Me.BtnUpdateBorDetails.TabIndex = 21
+        Me.BtnUpdateBorDetails.Text = "UPDATE"
+        Me.BtnUpdateBorDetails.UseVisualStyleBackColor = False
+        Me.BtnUpdateBorDetails.Visible = False
         '
         'BtnCancelAddingBorrower
         '
@@ -2600,7 +3234,7 @@ Partial Class BorrowingAndReturning
         Me.BtnCancelAddingBorrower.BackColor = System.Drawing.Color.Transparent
         Me.BtnCancelAddingBorrower.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnCancelAddingBorrower.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnCancelAddingBorrower.Location = New System.Drawing.Point(312, 378)
+        Me.BtnCancelAddingBorrower.Location = New System.Drawing.Point(335, 378)
         Me.BtnCancelAddingBorrower.Name = "BtnCancelAddingBorrower"
         Me.BtnCancelAddingBorrower.Size = New System.Drawing.Size(106, 25)
         Me.BtnCancelAddingBorrower.TabIndex = 20
@@ -2613,7 +3247,7 @@ Partial Class BorrowingAndReturning
         Me.BtnAddBorrowerInfo.BackColor = System.Drawing.Color.Transparent
         Me.BtnAddBorrowerInfo.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnAddBorrowerInfo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnAddBorrowerInfo.Location = New System.Drawing.Point(193, 378)
+        Me.BtnAddBorrowerInfo.Location = New System.Drawing.Point(216, 378)
         Me.BtnAddBorrowerInfo.Name = "BtnAddBorrowerInfo"
         Me.BtnAddBorrowerInfo.Size = New System.Drawing.Size(106, 25)
         Me.BtnAddBorrowerInfo.TabIndex = 19
@@ -2628,7 +3262,7 @@ Partial Class BorrowingAndReturning
         Me.Label19.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.Label19.Location = New System.Drawing.Point(0, 0)
         Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(604, 47)
+        Me.Label19.Size = New System.Drawing.Size(650, 47)
         Me.Label19.TabIndex = 18
         Me.Label19.Text = "ADD BORROWER"
         Me.Label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -2659,7 +3293,7 @@ Partial Class BorrowingAndReturning
         Me.GroupBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox3.Location = New System.Drawing.Point(30, 65)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(545, 307)
+        Me.GroupBox3.Size = New System.Drawing.Size(591, 307)
         Me.GroupBox3.TabIndex = 13
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "ENTER BORROWER'S INFORMATION:"
@@ -2702,7 +3336,7 @@ Partial Class BorrowingAndReturning
         Me.TxtEditAddress.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtEditAddress.Location = New System.Drawing.Point(117, 210)
         Me.TxtEditAddress.Name = "TxtEditAddress"
-        Me.TxtEditAddress.Size = New System.Drawing.Size(392, 26)
+        Me.TxtEditAddress.Size = New System.Drawing.Size(438, 26)
         Me.TxtEditAddress.TabIndex = 13
         Me.TxtEditAddress.Visible = False
         '
@@ -2711,9 +3345,9 @@ Partial Class BorrowingAndReturning
         Me.TxtEditEmail.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TxtEditEmail.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtEditEmail.Location = New System.Drawing.Point(186, 146)
+        Me.TxtEditEmail.Location = New System.Drawing.Point(117, 146)
         Me.TxtEditEmail.Name = "TxtEditEmail"
-        Me.TxtEditEmail.Size = New System.Drawing.Size(323, 26)
+        Me.TxtEditEmail.Size = New System.Drawing.Size(438, 26)
         Me.TxtEditEmail.TabIndex = 12
         Me.TxtEditEmail.Visible = False
         '
@@ -2724,7 +3358,7 @@ Partial Class BorrowingAndReturning
         Me.TxtEditName.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtEditName.Location = New System.Drawing.Point(117, 95)
         Me.TxtEditName.Name = "TxtEditName"
-        Me.TxtEditName.Size = New System.Drawing.Size(392, 26)
+        Me.TxtEditName.Size = New System.Drawing.Size(438, 26)
         Me.TxtEditName.TabIndex = 11
         Me.TxtEditName.Visible = False
         '
@@ -2747,7 +3381,7 @@ Partial Class BorrowingAndReturning
         Me.TxtAddBorName.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtAddBorName.Location = New System.Drawing.Point(116, 95)
         Me.TxtAddBorName.Name = "TxtAddBorName"
-        Me.TxtAddBorName.Size = New System.Drawing.Size(393, 26)
+        Me.TxtAddBorName.Size = New System.Drawing.Size(439, 26)
         Me.TxtAddBorName.TabIndex = 0
         '
         'TxtAddBorEmail
@@ -2757,7 +3391,7 @@ Partial Class BorrowingAndReturning
         Me.TxtAddBorEmail.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtAddBorEmail.Location = New System.Drawing.Point(116, 146)
         Me.TxtAddBorEmail.Name = "TxtAddBorEmail"
-        Me.TxtAddBorEmail.Size = New System.Drawing.Size(393, 26)
+        Me.TxtAddBorEmail.Size = New System.Drawing.Size(439, 26)
         Me.TxtAddBorEmail.TabIndex = 1
         '
         'TxtAddBorPhone
@@ -2794,7 +3428,7 @@ Partial Class BorrowingAndReturning
         Me.TxtAddBorAddress.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtAddBorAddress.Location = New System.Drawing.Point(116, 210)
         Me.TxtAddBorAddress.Name = "TxtAddBorAddress"
-        Me.TxtAddBorAddress.Size = New System.Drawing.Size(393, 26)
+        Me.TxtAddBorAddress.Size = New System.Drawing.Size(439, 26)
         Me.TxtAddBorAddress.TabIndex = 3
         '
         'TxtAddBorId
@@ -2838,20 +3472,6 @@ Partial Class BorrowingAndReturning
         'Timer1
         '
         '
-        'BtnUpdateBorDetails
-        '
-        Me.BtnUpdateBorDetails.Anchor = System.Windows.Forms.AnchorStyles.Bottom
-        Me.BtnUpdateBorDetails.BackColor = System.Drawing.Color.Transparent
-        Me.BtnUpdateBorDetails.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnUpdateBorDetails.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnUpdateBorDetails.Location = New System.Drawing.Point(193, 378)
-        Me.BtnUpdateBorDetails.Name = "BtnUpdateBorDetails"
-        Me.BtnUpdateBorDetails.Size = New System.Drawing.Size(106, 25)
-        Me.BtnUpdateBorDetails.TabIndex = 21
-        Me.BtnUpdateBorDetails.Text = "UPDATE"
-        Me.BtnUpdateBorDetails.UseVisualStyleBackColor = False
-        Me.BtnUpdateBorDetails.Visible = False
-        '
         'BorrowingAndReturning
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -2871,6 +3491,8 @@ Partial Class BorrowingAndReturning
         Me.TabControls.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage1.PerformLayout()
+        Me.PnlThesisFltr.ResumeLayout(False)
+        Me.PnlThesisFltr.PerformLayout()
         Me.PnlAddingToBorrow.ResumeLayout(False)
         Me.PnlAddingToBorrow.PerformLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -2883,6 +3505,8 @@ Partial Class BorrowingAndReturning
         Me.PanelCancelled.ResumeLayout(False)
         Me.PanelCancelled.PerformLayout()
         CType(Me.DgvCancelledBorrow, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.PnlFilterBorrowed.ResumeLayout(False)
+        Me.PnlFilterBorrowed.PerformLayout()
         CType(Me.DgvBorrowed, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage4.ResumeLayout(False)
         Me.TabPage4.PerformLayout()
@@ -2997,10 +3621,6 @@ Partial Class BorrowingAndReturning
     Friend WithEvents TxtEditEmail As TextBox
     Friend WithEvents TxtEditName As TextBox
     Friend WithEvents TxtEditId As TextBox
-    Friend WithEvents PanelCancelled As Panel
-    Friend WithEvents Label20 As Label
-    Friend WithEvents DgvCancelledBorrow As DataGridView
-    Friend WithEvents BtnReturn As Button
     Friend WithEvents Button1 As Button
     Friend WithEvents Label27 As Label
     Friend WithEvents Label28 As Label
@@ -3023,8 +3643,6 @@ Partial Class BorrowingAndReturning
     Friend WithEvents LblStaffLoggedin As Label
     Friend WithEvents Label31 As Label
     Friend WithEvents LogOut As Button
-    Friend WithEvents BtnSearchCancel As Button
-    Friend WithEvents TxtsearchCancel As TextBox
     Friend WithEvents BtnSearchBorrowed As Button
     Friend WithEvents TxtSearchBorrowed As TextBox
     Friend WithEvents BtnSearchReturned As Button
@@ -3033,7 +3651,6 @@ Partial Class BorrowingAndReturning
     Friend WithEvents Button2 As Button
     Friend WithEvents BtnPrintBorrowed As Button
     Friend WithEvents BtnPrintReturned As Button
-    Friend WithEvents BtnPrintCancelled As Button
     Friend WithEvents BtnPrintOverdue As Button
     Friend WithEvents BtnSearchOverdue As Button
     Friend WithEvents TxtSearchOverdue As TextBox
@@ -3048,19 +3665,6 @@ Partial Class BorrowingAndReturning
     Friend WithEvents Column5 As DataGridViewTextBoxColumn
     Friend WithEvents Column27 As DataGridViewTextBoxColumn
     Friend WithEvents Column48 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn8 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn9 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn10 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn11 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn12 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn13 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn14 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn15 As DataGridViewTextBoxColumn
-    Friend WithEvents Column33 As DataGridViewTextBoxColumn
-    Friend WithEvents Column24 As DataGridViewTextBoxColumn
-    Friend WithEvents Column37 As DataGridViewTextBoxColumn
-    Friend WithEvents Column40 As DataGridViewTextBoxColumn
     Friend WithEvents Column25 As DataGridViewTextBoxColumn
     Friend WithEvents Column12 As DataGridViewTextBoxColumn
     Friend WithEvents Column18 As DataGridViewTextBoxColumn
@@ -3112,4 +3716,68 @@ Partial Class BorrowingAndReturning
     Friend WithEvents Label34 As Label
     Friend WithEvents Label35 As Label
     Friend WithEvents BtnUpdateBorDetails As Button
+    Friend WithEvents BtnResendQr As Button
+    Friend WithEvents Label37 As Label
+    Friend WithEvents Label36 As Label
+    Friend WithEvents DtThesisTo As DateTimePicker
+    Friend WithEvents DtThesisFrom As DateTimePicker
+    Friend WithEvents Label38 As Label
+    Friend WithEvents BtnApplyThesisFltr As Button
+    Friend WithEvents BtnApplyBorrowedFltr As Button
+    Friend WithEvents Label39 As Label
+    Friend WithEvents Label40 As Label
+    Friend WithEvents Label41 As Label
+    Friend WithEvents DtBorrowedTo As DateTimePicker
+    Friend WithEvents DtBorrowedFrom As DateTimePicker
+    Friend WithEvents Button5 As Button
+    Friend WithEvents Label42 As Label
+    Friend WithEvents Label43 As Label
+    Friend WithEvents Label44 As Label
+    Friend WithEvents DtRetTo As DateTimePicker
+    Friend WithEvents DtReturnedFrom As DateTimePicker
+    Friend WithEvents Button6 As Button
+    Friend WithEvents Label45 As Label
+    Friend WithEvents Label46 As Label
+    Friend WithEvents Label47 As Label
+    Friend WithEvents DtOvrTo As DateTimePicker
+    Friend WithEvents DtOvrFrom As DateTimePicker
+    Friend WithEvents Button8 As Button
+    Friend WithEvents Button9 As Button
+    Friend WithEvents Button10 As Button
+    Friend WithEvents BtnResetThesisFltr As Button
+    Friend WithEvents PanelCancelled As Panel
+    Friend WithEvents BtnPrintCancelled As Button
+    Friend WithEvents BtnSearchCancel As Button
+    Friend WithEvents TxtsearchCancel As TextBox
+    Friend WithEvents Label20 As Label
+    Friend WithEvents DgvCancelledBorrow As DataGridView
+    Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn8 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn9 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn10 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn11 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn12 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn13 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn14 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn15 As DataGridViewTextBoxColumn
+    Friend WithEvents Column33 As DataGridViewTextBoxColumn
+    Friend WithEvents Column24 As DataGridViewTextBoxColumn
+    Friend WithEvents Column37 As DataGridViewTextBoxColumn
+    Friend WithEvents Column40 As DataGridViewTextBoxColumn
+    Friend WithEvents BtnReturn As Button
+    Friend WithEvents Button12 As Button
+    Friend WithEvents Button13 As Button
+    Friend WithEvents BtnResetBorrowedFltr As Button
+    Friend WithEvents BtnOpenBorrowedFltr As Button
+    Friend WithEvents PnlFilterBorrowed As Panel
+    Friend WithEvents BtnCloseBorrowedFltr As Button
+    Friend WithEvents Button15 As Button
+    Friend WithEvents DateTimePicker1 As DateTimePicker
+    Friend WithEvents Label49 As Label
+    Friend WithEvents Label50 As Label
+    Friend WithEvents Button16 As Button
+    Friend WithEvents DateTimePicker2 As DateTimePicker
+    Friend WithEvents BtnOpenThesisFltr As Button
+    Friend WithEvents PnlThesisFltr As Panel
+    Friend WithEvents BtnCloseThesisFltr As Button
 End Class

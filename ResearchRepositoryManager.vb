@@ -927,6 +927,7 @@ Public Class ResearchRepoManager
             isDateToSet = False
             SetQuery()
             MessageBox.Show("You can't pick date earlier than starting date", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            DtTo.Value = Date.Now
         Else
             isDateToSet = True
             SetQuery()
@@ -953,7 +954,7 @@ Public Class ResearchRepoManager
     Private Sub DtTo2_ValueChanged(sender As Object, e As EventArgs) Handles DtTo2.ValueChanged
         If DtTo2.Value.Date < DtFrom2.Value.Date Then
             MessageBox.Show("You can't pick date earlier than starting date", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-
+            DtTo2.Value = Date.Now
         Else
             isDateToSet2 = True
             SetQuery()
@@ -978,7 +979,7 @@ Public Class ResearchRepoManager
     Private Sub DtTo3_ValueChanged(sender As Object, e As EventArgs) Handles DtTo3.ValueChanged
         If DtTo3.Value.Date < DtFrom3.Value.Date Then
             MessageBox.Show("You can't pick date earlier than starting date", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-
+            DtTo3.Value = Date.Now
         Else
             isDateToSet3 = True
             SetQuery()

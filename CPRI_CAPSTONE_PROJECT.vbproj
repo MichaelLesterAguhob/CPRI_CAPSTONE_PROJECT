@@ -231,6 +231,12 @@
     <Compile Include="BorrowingAndReturning.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="MyAccounts.Designer.vb">
+      <DependentUpon>MyAccounts.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MyAccounts.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="QrCodeGenerator.Designer.vb">
       <DependentUpon>QrCodeGenerator.vb</DependentUpon>
     </Compile>
@@ -418,6 +424,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BorrowingAndReturning.resx">
       <DependentUpon>BorrowingAndReturning.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyAccounts.resx">
+      <DependentUpon>MyAccounts.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="QrCodeGenerator.resx">
       <DependentUpon>QrCodeGenerator.vb</DependentUpon>

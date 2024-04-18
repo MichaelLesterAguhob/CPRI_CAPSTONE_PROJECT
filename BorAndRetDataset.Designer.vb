@@ -1123,6 +1123,12 @@ Partial Public Class BorAndRetDataset
         
         Private columnis_overdue As Global.System.Data.DataColumn
         
+        Private columnname As Global.System.Data.DataColumn
+        
+        Private columnphone As Global.System.Data.DataColumn
+        
+        Private columnemail As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub New()
@@ -1231,6 +1237,30 @@ Partial Public Class BorAndRetDataset
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property nameColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnname
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property phoneColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnphone
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property emailColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnemail
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -1267,9 +1297,9 @@ Partial Public Class BorAndRetDataset
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function Addborrowed_booksRow(ByVal borrow_id As Integer, ByVal book_ids As Integer, ByVal title As String, ByVal borrower_id As Integer, ByVal type As String, ByVal due_date As String, ByVal borrow_date As String, ByVal time As String, ByVal is_overdue As String) As borrowed_booksRow
+        Public Overloads Function Addborrowed_booksRow(ByVal borrow_id As Integer, ByVal book_ids As Integer, ByVal title As String, ByVal borrower_id As Integer, ByVal type As String, ByVal due_date As String, ByVal borrow_date As String, ByVal time As String, ByVal is_overdue As String, ByVal name As String, ByVal phone As Integer, ByVal email As String) As borrowed_booksRow
             Dim rowborrowed_booksRow As borrowed_booksRow = CType(Me.NewRow,borrowed_booksRow)
-            Dim columnValuesArray() As Object = New Object() {borrow_id, book_ids, title, borrower_id, type, due_date, borrow_date, time, is_overdue}
+            Dim columnValuesArray() As Object = New Object() {borrow_id, book_ids, title, borrower_id, type, due_date, borrow_date, time, is_overdue, name, phone, email}
             rowborrowed_booksRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowborrowed_booksRow)
             Return rowborrowed_booksRow
@@ -1301,6 +1331,9 @@ Partial Public Class BorAndRetDataset
             Me.columnborrow_date = MyBase.Columns("borrow_date")
             Me.columntime = MyBase.Columns("time")
             Me.columnis_overdue = MyBase.Columns("is_overdue")
+            Me.columnname = MyBase.Columns("name")
+            Me.columnphone = MyBase.Columns("phone")
+            Me.columnemail = MyBase.Columns("email")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1324,6 +1357,12 @@ Partial Public Class BorAndRetDataset
             MyBase.Columns.Add(Me.columntime)
             Me.columnis_overdue = New Global.System.Data.DataColumn("is_overdue", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnis_overdue)
+            Me.columnname = New Global.System.Data.DataColumn("name", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnname)
+            Me.columnphone = New Global.System.Data.DataColumn("phone", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnphone)
+            Me.columnemail = New Global.System.Data.DataColumn("email", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnemail)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -3148,6 +3187,51 @@ Partial Public Class BorAndRetDataset
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property name() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableborrowed_books.nameColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'name' in table 'borrowed_books' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableborrowed_books.nameColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property phone() As Integer
+            Get
+                Try 
+                    Return CType(Me(Me.tableborrowed_books.phoneColumn),Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'phone' in table 'borrowed_books' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableborrowed_books.phoneColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property email() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableborrowed_books.emailColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'email' in table 'borrowed_books' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableborrowed_books.emailColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function Isborrow_idNull() As Boolean
             Return Me.IsNull(Me.tableborrowed_books.borrow_idColumn)
         End Function
@@ -3252,6 +3336,42 @@ Partial Public Class BorAndRetDataset
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub Setis_overdueNull()
             Me(Me.tableborrowed_books.is_overdueColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsnameNull() As Boolean
+            Return Me.IsNull(Me.tableborrowed_books.nameColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetnameNull()
+            Me(Me.tableborrowed_books.nameColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsphoneNull() As Boolean
+            Return Me.IsNull(Me.tableborrowed_books.phoneColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetphoneNull()
+            Me(Me.tableborrowed_books.phoneColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsemailNull() As Boolean
+            Return Me.IsNull(Me.tableborrowed_books.emailColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetemailNull()
+            Me(Me.tableborrowed_books.emailColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     

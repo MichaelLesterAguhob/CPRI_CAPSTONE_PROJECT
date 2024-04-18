@@ -10,6 +10,7 @@ Module public_variables
     Public account_loggedin As String
     Public account_type_loggedin As String
     Public loggedin As Integer = 0
+    Public loggedin_id As Integer = 0
 
     Public isForm1Closed As Boolean = False
 

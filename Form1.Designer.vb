@@ -25,57 +25,56 @@ Partial Class Form1
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
-        Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.TxtTimeNow = New System.Windows.Forms.Label()
-        Me.TxtDateNow = New System.Windows.Forms.Label()
-        Me.Label17 = New System.Windows.Forms.Label()
-        Me.Label15 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.LblWelcome = New System.Windows.Forms.Label()
-        Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.Panel5 = New System.Windows.Forms.Panel()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label13 = New System.Windows.Forms.Label()
-        Me.Panel4 = New System.Windows.Forms.Panel()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.Label14 = New System.Windows.Forms.Label()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.LblTotalArchives = New System.Windows.Forms.Label()
-        Me.LblPub = New System.Windows.Forms.Label()
-        Me.lblUnpub = New System.Windows.Forms.Label()
-        Me.LblDueToday = New System.Windows.Forms.Label()
-        Me.LblOverdues = New System.Windows.Forms.Label()
-        Me.LblReturnedBooks = New System.Windows.Forms.Label()
-        Me.LblBorrowedBooks = New System.Windows.Forms.Label()
         Me.MenuToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.MyAccountToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.StaffAccountToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LogOutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ResearchRepositoryManagerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ResearchCourseFacilitatorAndAdviserMonitoringStatusToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BorrowingAndReturningToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.TxtTimeNow = New System.Windows.Forms.Label()
+        Me.TxtDateNow = New System.Windows.Forms.Label()
+        Me.LogOut = New System.Windows.Forms.Button()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
+        Me.LblWelcome = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.LogOut = New System.Windows.Forms.Button()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.LblTotalArchives = New System.Windows.Forms.Label()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.LblPub = New System.Windows.Forms.Label()
+        Me.lblUnpub = New System.Windows.Forms.Label()
+        Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.LblDueToday = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.LblOverdues = New System.Windows.Forms.Label()
+        Me.LblReturnedBooks = New System.Windows.Forms.Label()
+        Me.LblBorrowedBooks = New System.Windows.Forms.Label()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.MenuStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel3.SuspendLayout()
         Me.Panel5.SuspendLayout()
         Me.Panel4.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MenuStrip1
@@ -89,6 +88,69 @@ Partial Class Form1
         Me.MenuStrip1.Size = New System.Drawing.Size(1079, 33)
         Me.MenuStrip1.TabIndex = 0
         Me.MenuStrip1.Text = "MenuStrip1"
+        '
+        'MenuToolStripMenuItem1
+        '
+        Me.MenuToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MyAccountToolStripMenuItem, Me.LogOutToolStripMenuItem, Me.ExitToolStripMenuItem})
+        Me.MenuToolStripMenuItem1.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.MenuToolStripMenuItem1.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_menu_button_26
+        Me.MenuToolStripMenuItem1.Name = "MenuToolStripMenuItem1"
+        Me.MenuToolStripMenuItem1.Padding = New System.Windows.Forms.Padding(4, 0, 10, 0)
+        Me.MenuToolStripMenuItem1.Size = New System.Drawing.Size(72, 29)
+        Me.MenuToolStripMenuItem1.Text = "Menu"
+        '
+        'MyAccountToolStripMenuItem
+        '
+        Me.MyAccountToolStripMenuItem.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_account_20
+        Me.MyAccountToolStripMenuItem.Name = "MyAccountToolStripMenuItem"
+        Me.MyAccountToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.MyAccountToolStripMenuItem.Text = "My Account"
+        '
+        'LogOutToolStripMenuItem
+        '
+        Me.LogOutToolStripMenuItem.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_logout_20
+        Me.LogOutToolStripMenuItem.Name = "LogOutToolStripMenuItem"
+        Me.LogOutToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.LogOutToolStripMenuItem.Text = "Log Out"
+        '
+        'ExitToolStripMenuItem
+        '
+        Me.ExitToolStripMenuItem.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_exit_20
+        Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ExitToolStripMenuItem.Text = "Exit"
+        '
+        'MenuToolStripMenuItem
+        '
+        Me.MenuToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ResearchRepositoryManagerToolStripMenuItem, Me.ResearchCourseFacilitatorAndAdviserMonitoringStatusToolStripMenuItem, Me.BorrowingAndReturningToolStripMenuItem1})
+        Me.MenuToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.MenuToolStripMenuItem.ForeColor = System.Drawing.Color.Black
+        Me.MenuToolStripMenuItem.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_management_26
+        Me.MenuToolStripMenuItem.Name = "MenuToolStripMenuItem"
+        Me.MenuToolStripMenuItem.Size = New System.Drawing.Size(78, 29)
+        Me.MenuToolStripMenuItem.Text = "Manage"
+        Me.MenuToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'ResearchRepositoryManagerToolStripMenuItem
+        '
+        Me.ResearchRepositoryManagerToolStripMenuItem.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_book_shelf_20
+        Me.ResearchRepositoryManagerToolStripMenuItem.Name = "ResearchRepositoryManagerToolStripMenuItem"
+        Me.ResearchRepositoryManagerToolStripMenuItem.Size = New System.Drawing.Size(447, 22)
+        Me.ResearchRepositoryManagerToolStripMenuItem.Text = "Open Research Repository Manager"
+        '
+        'ResearchCourseFacilitatorAndAdviserMonitoringStatusToolStripMenuItem
+        '
+        Me.ResearchCourseFacilitatorAndAdviserMonitoringStatusToolStripMenuItem.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_papers_20
+        Me.ResearchCourseFacilitatorAndAdviserMonitoringStatusToolStripMenuItem.Name = "ResearchCourseFacilitatorAndAdviserMonitoringStatusToolStripMenuItem"
+        Me.ResearchCourseFacilitatorAndAdviserMonitoringStatusToolStripMenuItem.Size = New System.Drawing.Size(447, 22)
+        Me.ResearchCourseFacilitatorAndAdviserMonitoringStatusToolStripMenuItem.Text = "Open Research Course Facilitator and Group Adviser Monitoring Status"
+        '
+        'BorrowingAndReturningToolStripMenuItem1
+        '
+        Me.BorrowingAndReturningToolStripMenuItem1.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_books_emoji_20
+        Me.BorrowingAndReturningToolStripMenuItem1.Name = "BorrowingAndReturningToolStripMenuItem1"
+        Me.BorrowingAndReturningToolStripMenuItem1.Size = New System.Drawing.Size(447, 22)
+        Me.BorrowingAndReturningToolStripMenuItem1.Text = "Open Book Borrowing and Returning"
         '
         'Panel1
         '
@@ -127,6 +189,25 @@ Partial Class Form1
         Me.TxtDateNow.Size = New System.Drawing.Size(0, 16)
         Me.TxtDateNow.TabIndex = 31
         '
+        'LogOut
+        '
+        Me.LogOut.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.LogOut.BackColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.LogOut.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.LogOut.FlatAppearance.BorderSize = 0
+        Me.LogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.LogOut.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LogOut.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.LogOut.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_logout_20
+        Me.LogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.LogOut.Location = New System.Drawing.Point(1260, 11)
+        Me.LogOut.Name = "LogOut"
+        Me.LogOut.Size = New System.Drawing.Size(77, 30)
+        Me.LogOut.TabIndex = 30
+        Me.LogOut.Text = "LogOut"
+        Me.LogOut.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.LogOut.UseVisualStyleBackColor = False
+        '
         'Label17
         '
         Me.Label17.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -157,6 +238,14 @@ Partial Class Form1
         Me.Label2.TabIndex = 2
         Me.Label2.Text = "Center for Publication, Research and Innovation"
         '
+        'Label1
+        '
+        Me.Label1.Image = CType(resources.GetObject("Label1.Image"), System.Drawing.Image)
+        Me.Label1.Location = New System.Drawing.Point(7, 10)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(109, 90)
+        Me.Label1.TabIndex = 0
+        '
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.SystemColors.GradientActiveCaption
@@ -171,6 +260,42 @@ Partial Class Form1
         Me.Panel2.Size = New System.Drawing.Size(274, 616)
         Me.Panel2.TabIndex = 3
         '
+        'Button3
+        '
+        Me.Button3.BackColor = System.Drawing.Color.Transparent
+        Me.Button3.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Button3.FlatAppearance.BorderSize = 0
+        Me.Button3.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.InactiveCaption
+        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button3.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_papers_80
+        Me.Button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button3.Location = New System.Drawing.Point(3, 429)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(258, 100)
+        Me.Button3.TabIndex = 3
+        Me.Button3.Text = "Monitor " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "RCF and RGA Status"
+        Me.Button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Button3.UseVisualStyleBackColor = False
+        '
+        'Button2
+        '
+        Me.Button2.BackColor = System.Drawing.Color.Transparent
+        Me.Button2.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Button2.FlatAppearance.BorderSize = 0
+        Me.Button2.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.InactiveCaption
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_books_emoji_80
+        Me.Button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button2.Location = New System.Drawing.Point(3, 308)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(258, 100)
+        Me.Button2.TabIndex = 2
+        Me.Button2.Text = "Manage " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Borrow and Return"
+        Me.Button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Button2.UseVisualStyleBackColor = False
+        '
         'LblWelcome
         '
         Me.LblWelcome.FlatStyle = System.Windows.Forms.FlatStyle.Flat
@@ -181,6 +306,33 @@ Partial Class Form1
         Me.LblWelcome.TabIndex = 1
         Me.LblWelcome.Text = "WELCOME | NAME OF ADMIN HERE"
         Me.LblWelcome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.Color.Transparent
+        Me.Button1.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Button1.FlatAppearance.BorderSize = 0
+        Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.InactiveCaption
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_book_shelf_80
+        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button1.Location = New System.Drawing.Point(3, 194)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(258, 100)
+        Me.Button1.TabIndex = 1
+        Me.Button1.Text = "Manage " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Research Repository"
+        Me.Button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Button1.UseVisualStyleBackColor = False
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_test_account_1001
+        Me.PictureBox1.Location = New System.Drawing.Point(88, 5)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(96, 109)
+        Me.PictureBox1.TabIndex = 1
+        Me.PictureBox1.TabStop = False
         '
         'Panel3
         '
@@ -220,6 +372,21 @@ Partial Class Form1
         Me.Label6.TabIndex = 12
         Me.Label6.Text = "TOTAL ARCHIVES"
         '
+        'LblTotalArchives
+        '
+        Me.LblTotalArchives.BackColor = System.Drawing.Color.Cornsilk
+        Me.LblTotalArchives.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.LblTotalArchives.Cursor = System.Windows.Forms.Cursors.Default
+        Me.LblTotalArchives.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.LblTotalArchives.Font = New System.Drawing.Font("Microsoft Sans Serif", 30.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblTotalArchives.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_binder_85
+        Me.LblTotalArchives.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.LblTotalArchives.Location = New System.Drawing.Point(12, 33)
+        Me.LblTotalArchives.Name = "LblTotalArchives"
+        Me.LblTotalArchives.Size = New System.Drawing.Size(202, 100)
+        Me.LblTotalArchives.TabIndex = 11
+        Me.LblTotalArchives.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'Label12
         '
         Me.Label12.AutoSize = True
@@ -251,6 +418,36 @@ Partial Class Form1
         Me.Label13.Size = New System.Drawing.Size(84, 13)
         Me.Label13.TabIndex = 9
         Me.Label13.Text = "UNPUBLISHED"
+        '
+        'LblPub
+        '
+        Me.LblPub.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.LblPub.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.LblPub.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.LblPub.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.LblPub.Font = New System.Drawing.Font("Microsoft Sans Serif", 30.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblPub.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_books_85__2_
+        Me.LblPub.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.LblPub.Location = New System.Drawing.Point(236, 33)
+        Me.LblPub.Name = "LblPub"
+        Me.LblPub.Size = New System.Drawing.Size(202, 100)
+        Me.LblPub.TabIndex = 3
+        Me.LblPub.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'lblUnpub
+        '
+        Me.lblUnpub.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.lblUnpub.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lblUnpub.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.lblUnpub.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.lblUnpub.Font = New System.Drawing.Font("Microsoft Sans Serif", 30.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblUnpub.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_books_85__3_
+        Me.lblUnpub.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.lblUnpub.Location = New System.Drawing.Point(461, 33)
+        Me.lblUnpub.Name = "lblUnpub"
+        Me.lblUnpub.Size = New System.Drawing.Size(202, 100)
+        Me.lblUnpub.TabIndex = 1
+        Me.lblUnpub.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Panel4
         '
@@ -302,6 +499,21 @@ Partial Class Form1
         Me.Label3.TabIndex = 14
         Me.Label3.Text = "DUE TODAY"
         '
+        'LblDueToday
+        '
+        Me.LblDueToday.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.LblDueToday.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.LblDueToday.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.LblDueToday.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.LblDueToday.Font = New System.Drawing.Font("Microsoft Sans Serif", 30.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblDueToday.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_today_85__1_
+        Me.LblDueToday.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.LblDueToday.Location = New System.Drawing.Point(12, 164)
+        Me.LblDueToday.Name = "LblDueToday"
+        Me.LblDueToday.Size = New System.Drawing.Size(202, 100)
+        Me.LblDueToday.TabIndex = 13
+        Me.LblDueToday.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'Label9
         '
         Me.Label9.AutoSize = True
@@ -333,69 +545,6 @@ Partial Class Form1
         Me.Label10.Size = New System.Drawing.Size(67, 13)
         Me.Label10.TabIndex = 7
         Me.Label10.Text = "OVERDUES"
-        '
-        'Timer1
-        '
-        '
-        'LblTotalArchives
-        '
-        Me.LblTotalArchives.BackColor = System.Drawing.Color.Cornsilk
-        Me.LblTotalArchives.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.LblTotalArchives.Cursor = System.Windows.Forms.Cursors.Default
-        Me.LblTotalArchives.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.LblTotalArchives.Font = New System.Drawing.Font("Microsoft Sans Serif", 30.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LblTotalArchives.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_binder_85
-        Me.LblTotalArchives.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.LblTotalArchives.Location = New System.Drawing.Point(12, 33)
-        Me.LblTotalArchives.Name = "LblTotalArchives"
-        Me.LblTotalArchives.Size = New System.Drawing.Size(202, 100)
-        Me.LblTotalArchives.TabIndex = 11
-        Me.LblTotalArchives.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'LblPub
-        '
-        Me.LblPub.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.LblPub.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.LblPub.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.LblPub.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.LblPub.Font = New System.Drawing.Font("Microsoft Sans Serif", 30.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LblPub.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_books_85__2_
-        Me.LblPub.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.LblPub.Location = New System.Drawing.Point(236, 33)
-        Me.LblPub.Name = "LblPub"
-        Me.LblPub.Size = New System.Drawing.Size(202, 100)
-        Me.LblPub.TabIndex = 3
-        Me.LblPub.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'lblUnpub
-        '
-        Me.lblUnpub.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.lblUnpub.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.lblUnpub.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.lblUnpub.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.lblUnpub.Font = New System.Drawing.Font("Microsoft Sans Serif", 30.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblUnpub.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_books_85__3_
-        Me.lblUnpub.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.lblUnpub.Location = New System.Drawing.Point(461, 33)
-        Me.lblUnpub.Name = "lblUnpub"
-        Me.lblUnpub.Size = New System.Drawing.Size(202, 100)
-        Me.lblUnpub.TabIndex = 1
-        Me.lblUnpub.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'LblDueToday
-        '
-        Me.LblDueToday.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.LblDueToday.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.LblDueToday.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.LblDueToday.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.LblDueToday.Font = New System.Drawing.Font("Microsoft Sans Serif", 30.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LblDueToday.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_today_85__1_
-        Me.LblDueToday.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.LblDueToday.Location = New System.Drawing.Point(12, 164)
-        Me.LblDueToday.Name = "LblDueToday"
-        Me.LblDueToday.Size = New System.Drawing.Size(202, 100)
-        Me.LblDueToday.TabIndex = 13
-        Me.LblDueToday.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'LblOverdues
         '
@@ -442,165 +591,8 @@ Partial Class Form1
         Me.LblBorrowedBooks.TabIndex = 5
         Me.LblBorrowedBooks.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'MenuToolStripMenuItem1
+        'Timer1
         '
-        Me.MenuToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MyAccountToolStripMenuItem, Me.StaffAccountToolStripMenuItem, Me.LogOutToolStripMenuItem, Me.ExitToolStripMenuItem})
-        Me.MenuToolStripMenuItem1.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.MenuToolStripMenuItem1.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_menu_button_26
-        Me.MenuToolStripMenuItem1.Name = "MenuToolStripMenuItem1"
-        Me.MenuToolStripMenuItem1.Padding = New System.Windows.Forms.Padding(4, 0, 10, 0)
-        Me.MenuToolStripMenuItem1.Size = New System.Drawing.Size(72, 29)
-        Me.MenuToolStripMenuItem1.Text = "Menu"
-        '
-        'MyAccountToolStripMenuItem
-        '
-        Me.MyAccountToolStripMenuItem.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_account_20
-        Me.MyAccountToolStripMenuItem.Name = "MyAccountToolStripMenuItem"
-        Me.MyAccountToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.MyAccountToolStripMenuItem.Text = "My Account"
-        '
-        'StaffAccountToolStripMenuItem
-        '
-        Me.StaffAccountToolStripMenuItem.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_account_20__1_
-        Me.StaffAccountToolStripMenuItem.Name = "StaffAccountToolStripMenuItem"
-        Me.StaffAccountToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.StaffAccountToolStripMenuItem.Text = "Staff Account"
-        '
-        'LogOutToolStripMenuItem
-        '
-        Me.LogOutToolStripMenuItem.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_logout_20
-        Me.LogOutToolStripMenuItem.Name = "LogOutToolStripMenuItem"
-        Me.LogOutToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.LogOutToolStripMenuItem.Text = "Log Out"
-        '
-        'ExitToolStripMenuItem
-        '
-        Me.ExitToolStripMenuItem.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_exit_20
-        Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.ExitToolStripMenuItem.Text = "Exit"
-        '
-        'MenuToolStripMenuItem
-        '
-        Me.MenuToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ResearchRepositoryManagerToolStripMenuItem, Me.ResearchCourseFacilitatorAndAdviserMonitoringStatusToolStripMenuItem, Me.BorrowingAndReturningToolStripMenuItem1})
-        Me.MenuToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.MenuToolStripMenuItem.ForeColor = System.Drawing.Color.Black
-        Me.MenuToolStripMenuItem.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_management_26
-        Me.MenuToolStripMenuItem.Name = "MenuToolStripMenuItem"
-        Me.MenuToolStripMenuItem.Size = New System.Drawing.Size(78, 29)
-        Me.MenuToolStripMenuItem.Text = "Manage"
-        Me.MenuToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'ResearchRepositoryManagerToolStripMenuItem
-        '
-        Me.ResearchRepositoryManagerToolStripMenuItem.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_book_shelf_20
-        Me.ResearchRepositoryManagerToolStripMenuItem.Name = "ResearchRepositoryManagerToolStripMenuItem"
-        Me.ResearchRepositoryManagerToolStripMenuItem.Size = New System.Drawing.Size(447, 22)
-        Me.ResearchRepositoryManagerToolStripMenuItem.Text = "Open Research Repository Manager"
-        '
-        'ResearchCourseFacilitatorAndAdviserMonitoringStatusToolStripMenuItem
-        '
-        Me.ResearchCourseFacilitatorAndAdviserMonitoringStatusToolStripMenuItem.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_papers_20
-        Me.ResearchCourseFacilitatorAndAdviserMonitoringStatusToolStripMenuItem.Name = "ResearchCourseFacilitatorAndAdviserMonitoringStatusToolStripMenuItem"
-        Me.ResearchCourseFacilitatorAndAdviserMonitoringStatusToolStripMenuItem.Size = New System.Drawing.Size(447, 22)
-        Me.ResearchCourseFacilitatorAndAdviserMonitoringStatusToolStripMenuItem.Text = "Open Research Course Facilitator and Group Adviser Monitoring Status"
-        '
-        'BorrowingAndReturningToolStripMenuItem1
-        '
-        Me.BorrowingAndReturningToolStripMenuItem1.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_books_emoji_20
-        Me.BorrowingAndReturningToolStripMenuItem1.Name = "BorrowingAndReturningToolStripMenuItem1"
-        Me.BorrowingAndReturningToolStripMenuItem1.Size = New System.Drawing.Size(447, 22)
-        Me.BorrowingAndReturningToolStripMenuItem1.Text = "Open Book Borrowing and Returning"
-        '
-        'Button3
-        '
-        Me.Button3.BackColor = System.Drawing.Color.Transparent
-        Me.Button3.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Button3.FlatAppearance.BorderSize = 0
-        Me.Button3.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.InactiveCaption
-        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_papers_80
-        Me.Button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button3.Location = New System.Drawing.Point(3, 429)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(258, 100)
-        Me.Button3.TabIndex = 3
-        Me.Button3.Text = "Monitor " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "RCF and RGA Status"
-        Me.Button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button3.UseVisualStyleBackColor = False
-        '
-        'Button2
-        '
-        Me.Button2.BackColor = System.Drawing.Color.Transparent
-        Me.Button2.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Button2.FlatAppearance.BorderSize = 0
-        Me.Button2.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.InactiveCaption
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_books_emoji_80
-        Me.Button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button2.Location = New System.Drawing.Point(3, 308)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(258, 100)
-        Me.Button2.TabIndex = 2
-        Me.Button2.Text = "Manage " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Borrow and Return"
-        Me.Button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button2.UseVisualStyleBackColor = False
-        '
-        'Button1
-        '
-        Me.Button1.BackColor = System.Drawing.Color.Transparent
-        Me.Button1.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Button1.FlatAppearance.BorderSize = 0
-        Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.InactiveCaption
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_book_shelf_80
-        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button1.Location = New System.Drawing.Point(3, 194)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(258, 100)
-        Me.Button1.TabIndex = 1
-        Me.Button1.Text = "Manage " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Research Repository"
-        Me.Button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button1.UseVisualStyleBackColor = False
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_test_account_1001
-        Me.PictureBox1.Location = New System.Drawing.Point(88, 5)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(96, 109)
-        Me.PictureBox1.TabIndex = 1
-        Me.PictureBox1.TabStop = False
-        '
-        'LogOut
-        '
-        Me.LogOut.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.LogOut.BackColor = System.Drawing.SystemColors.GradientActiveCaption
-        Me.LogOut.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.LogOut.FlatAppearance.BorderSize = 0
-        Me.LogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.LogOut.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LogOut.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.LogOut.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_logout_20
-        Me.LogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.LogOut.Location = New System.Drawing.Point(1260, 11)
-        Me.LogOut.Name = "LogOut"
-        Me.LogOut.Size = New System.Drawing.Size(77, 30)
-        Me.LogOut.TabIndex = 30
-        Me.LogOut.Text = "LogOut"
-        Me.LogOut.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.LogOut.UseVisualStyleBackColor = False
-        '
-        'Label1
-        '
-        Me.Label1.Image = CType(resources.GetObject("Label1.Image"), System.Drawing.Image)
-        Me.Label1.Location = New System.Drawing.Point(7, 10)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(109, 90)
-        Me.Label1.TabIndex = 0
         '
         'Form1
         '
@@ -623,12 +615,12 @@ Partial Class Form1
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         Me.Panel2.ResumeLayout(False)
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel3.ResumeLayout(False)
         Me.Panel5.ResumeLayout(False)
         Me.Panel5.PerformLayout()
         Me.Panel4.ResumeLayout(False)
         Me.Panel4.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -637,7 +629,6 @@ Partial Class Form1
     Friend WithEvents MenuStrip1 As MenuStrip
     Friend WithEvents MenuToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents MyAccountToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents StaffAccountToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents LogOutToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ExitToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents BorrowingAndReturningToolStripMenuItem1 As ToolStripMenuItem
