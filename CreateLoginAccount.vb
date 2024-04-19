@@ -17,6 +17,9 @@ Public Class CreateLoginAccount
     Private Sub BtnGoToCreateAcct_Click(sender As Object, e As EventArgs) Handles BtnGoToCreateAcct.Click
         GbxCreate.Visible = True
         GbxLogin.Visible = False
+
+        TxtNameCreate.Focus()
+
     End Sub
 
     'GENERATE UNIQUE ACCOUNT ID
@@ -53,6 +56,9 @@ Public Class CreateLoginAccount
         Else
             BtnGoToStudentViewing.Visible = False
         End If
+
+        TxtUnameEmailLogin.Select()
+
     End Sub
 
     'CHECKING IF USERNAME OF EMAIL ALREADY EXISTS
@@ -309,6 +315,9 @@ Public Class CreateLoginAccount
     Private Sub BtnGoToLogin_Click(sender As Object, e As EventArgs) Handles BtnGoToLogin.Click
         GbxCreate.Visible = False
         GbxLogin.Visible = True
+
+        TxtUnameEmailLogin.Focus()
+
     End Sub
 
     Private Sub BtnLogin_Click(sender As Object, e As EventArgs) Handles BtnLogin.Click

@@ -827,5 +827,44 @@
   <ItemGroup>
     <None Include="Resources\icons8-binder-85.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-eye-44.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-login-44.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-login-44 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-send-28.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-close-window-19.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-filter-19.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-filter-20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-filter-20 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-print-19.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-books-28.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-cancel-28.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-remove-28.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-next-step-28.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

@@ -2955,11 +2955,13 @@ Public Class BorrowingAndReturning
         End Try
     End Function
 
+    'ACCOUNT ICON CLICK
     Private Sub Label31_Click(sender As Object, e As EventArgs) Handles Label31.Click
         Dim my_account As New MyAccounts
         my_account.Show()
     End Sub
 
+    'BUTTON RESENDING QR CODE WHEN THERE ARE UNSUCCESSFULL SENDING OF QR
     Private Sub BtnResendQr_Click(sender As Object, e As EventArgs) Handles BtnResendQr.Click
         If selected_borrower_id <> 0 And selected_borrower_email <> "" Then
             isResendQrToBorrower = True
@@ -2971,7 +2973,7 @@ Public Class BorrowingAndReturning
 
     End Sub
 
-    '===========================================================================================================
+    '===========================================TAB FILTERS================================================================
 
     '//FILTERING THESIS
     Dim thesisFrom As String
@@ -2986,7 +2988,7 @@ Public Class BorrowingAndReturning
     End Sub
 
     Private Sub FilterThesis()
-        Dim hasDates As Boolean = False
+        Dim hasDates As Boolean
         If thesisFrom <> "" And thesisTo <> "" Then
             thesisQuery = " STR_TO_DATE(date_published, '%m-%d-%Y') >= STR_TO_DATE(@start_date, '%m-%d-%Y')
                             AND STR_TO_DATE(date_published, '%m-%d-%Y') <= STR_TO_DATE(@end_date, '%m-%d-%Y') "
@@ -3084,7 +3086,7 @@ Public Class BorrowingAndReturning
         borrowedTo = DtBorrowedTo.Value.Date.ToString("MM-dd-yyyy")
     End Sub
     Private Sub FilterBorrowed()
-        Dim hasDates As Boolean = False
+        Dim hasDates As Boolean
         If borrowedFrom <> "" And borrowedTo <> "" Then
             borrowedQuery = " STR_TO_DATE(borrow_date, '%m-%d-%Y') >= STR_TO_DATE(@start_date, '%m-%d-%Y')
                             AND STR_TO_DATE(borrow_date, '%m-%d-%Y') <= STR_TO_DATE(@end_date, '%m-%d-%Y') "
@@ -3142,18 +3144,7 @@ Public Class BorrowingAndReturning
 
     '===========================================================================================================
 
-
-
-
-
-
-
-
-
-    'returned
-    Private Sub Button13_Click(sender As Object, e As EventArgs) Handles Button13.Click
-        FilterReturned()
-    End Sub
+    'FILTER RETURNED
     Dim retFrom As String = ""
     Dim retTo As String = ""
     Dim retQuery As String
@@ -3166,7 +3157,7 @@ Public Class BorrowingAndReturning
     End Sub
 
     Private Sub FilterReturned()
-        Dim hasDates As Boolean = False
+        Dim hasDates As Boolean
         If retFrom <> "" And retTo <> "" Then
             retQuery = " STR_TO_DATE(returned_date, '%m-%d-%Y') >= STR_TO_DATE(@start_date, '%m-%d-%Y')
                             AND STR_TO_DATE(returned_date, '%m-%d-%Y') <= STR_TO_DATE(@end_date, '%m-%d-%Y') "
@@ -3233,14 +3224,22 @@ Public Class BorrowingAndReturning
             End Try
         End If
     End Sub
-
-    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+    Private Sub BtnApplyRetFltr_Click(sender As Object, e As EventArgs) Handles BtnApplyRetFltr.Click
         FilterReturned()
+    End Sub
+    Private Sub BtnResetRetFltr_Click(sender As Object, e As EventArgs) Handles BtnResetRetFltr.Click
+        LoadReturnedBooksList()
+    End Sub
+    Private Sub BtnOpenRetFltr_Click(sender As Object, e As EventArgs) Handles BtnOpenRetFltr.Click
+        PnlRetFltr.Visible = True
+    End Sub
+    Private Sub BtnCloseRefFiltr_Click(sender As Object, e As EventArgs) Handles BtnCloseRefFiltr.Click
+        PnlRetFltr.Visible = False
     End Sub
 
     '=========================================================================================
 
-    '// FILTERING BORROWED RECORDS BASED ON DATE RANGE
+    ' FILTER OVERDUE
     Dim ovrFrom As String
     Dim ovrTo As String
     Dim ovrQuery As String
@@ -3253,7 +3252,7 @@ Public Class BorrowingAndReturning
     End Sub
 
     Private Sub FilterOverdue()
-        Dim hasDates As Boolean = False
+        Dim hasDates As Boolean
         If ovrFrom <> "" And ovrTo <> "" Then
             ovrQuery = " STR_TO_DATE(overdues.due_date, '%m-%d-%Y') >= STR_TO_DATE(@start_date, '%m-%d-%Y')
                             AND STR_TO_DATE(overdues.due_date, '%m-%d-%Y') <= STR_TO_DATE(@end_date, '%m-%d-%Y') "
@@ -3314,33 +3313,20 @@ Public Class BorrowingAndReturning
             End Try
         End If
     End Sub
-
-    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+    Private Sub BtnOvrdApplyFltr_Click(sender As Object, e As EventArgs) Handles BtnOvrdApplyFltr.Click
         FilterOverdue()
     End Sub
-
-    Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
+    Private Sub BtnOvrdResetFltr_Click(sender As Object, e As EventArgs) Handles BtnOvrdResetFltr.Click
         LoadOverDues()
     End Sub
-
-    Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
-        LoadReturnedBooksList()
+    Private Sub BtnOvrdOpenFltr_Click(sender As Object, e As EventArgs) Handles BtnOvrdOpenFltr.Click
+        PnlOvrdFltr.Visible = True
+    End Sub
+    Private Sub BtnOvrdCloseFltr_Click(sender As Object, e As EventArgs) Handles BtnOvrdCloseFltr.Click
+        PnlOvrdFltr.Visible = False
     End Sub
 
-    Private Sub Button10_Click(sender As Object, e As EventArgs) Handles Button10.Click
-        LoadBorrowedBooksList()
-    End Sub
-
-
-
-
-
-    Private Sub Button12_Click(sender As Object, e As EventArgs) Handles Button12.Click
-        LoadReturnedBooksList()
-    End Sub
-
-
-
+    '=========================================================================================
 
 
 
