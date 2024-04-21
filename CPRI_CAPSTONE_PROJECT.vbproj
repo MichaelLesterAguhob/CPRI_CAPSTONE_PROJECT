@@ -866,5 +866,38 @@
   <ItemGroup>
     <None Include="Resources\icons8-next-step-28.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-qr-code-38.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-group-38.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-group-38 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-group-38 %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-return-38.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-cancel-30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-check-30 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-books-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-books-40 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-eye-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-save-25.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

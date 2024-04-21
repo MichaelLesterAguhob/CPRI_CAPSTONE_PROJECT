@@ -1365,6 +1365,8 @@ Public Class BorrowingAndReturning
                             DgvBorrowed.Rows(i).Height = 70
                         Next
                         DgvBorrowed.ClearSelection()
+                        OrderedBorrowedColumn()
+
                     Else
                         DgvBorrowed.DataSource = dt_borrowed
                         DgvBorrowed.Refresh()
@@ -1379,6 +1381,20 @@ Public Class BorrowingAndReturning
         End Try
     End Sub
 
+    Private Sub OrderedBorrowedColumn()
+        DgvBorrowed.Columns("B_ID").DisplayIndex = 0
+        DgvBorrowed.Columns("T_ID").DisplayIndex = 1
+        DgvBorrowed.Columns("TITLE").DisplayIndex = 2
+        DgvBorrowed.Columns("DUE").DisplayIndex = 3
+        DgvBorrowed.Columns("BWER_ID").DisplayIndex = 4
+        DgvBorrowed.Columns("B_NAME").DisplayIndex = 5
+        DgvBorrowed.Columns("PHONE").DisplayIndex = 6
+        DgvBorrowed.Columns("EMAIL").DisplayIndex = 7
+        DgvBorrowed.Columns("TOTAL").DisplayIndex = 8
+        DgvBorrowed.Columns("TYPE").DisplayIndex = 9
+        DgvBorrowed.Columns("B_DATE").DisplayIndex = 10
+        DgvBorrowed.Columns("B_TIME").DisplayIndex = 11
+    End Sub
     Private Sub DgvBorrowed_ColumnHeaderMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DgvBorrowed.ColumnHeaderMouseClick
         For i = 0 To DgvBorrowed.Rows.Count - 1
             DgvBorrowed.Rows(i).Height = 70
@@ -1415,19 +1431,26 @@ Public Class BorrowingAndReturning
             con.Open()
             Dim query As String = "
                         SELECT 
-                            * 
-                        FROM 
-                            borrowed_books 
+                            borrowed_books.*,
+                            borrowers.name,
+                            borrowers.phone,
+                            borrowers.email
+                        FROM borrowed_books 
+                        INNER JOIN borrowers 
+                         ON borrowers.borrower_id = borrowed_books.borrower_id
                         WHERE  
                             is_cancel = 'NO' AND is_returned = 'NO' 
                             AND (           
                                 borrow_id LIKE @to_search 
                                 OR book_ids LIKE @to_search 
                                 OR title LIKE @to_search 
-                                OR borrower_id LIKE @to_search 
+                                OR borrowed_books.borrower_id LIKE @to_search 
                                 OR due_date LIKE @to_search 
                                 OR borrow_date LIKE @to_search 
                                 OR time LIKE @to_search
+                                OR name LIKE @to_search
+                                OR email LIKE @to_search
+                                OR phone LIKE @to_search
                             )
                     "
             Using cmd As New MySqlCommand(query, con)
@@ -3054,7 +3077,7 @@ Public Class BorrowingAndReturning
                 con.Close()
             End Try
         Else
-            MsgBox("Pick Started date and End date")
+            MessageBox.Show("Select a Started date and End date", "No selected Dates", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
 
     End Sub
@@ -3098,8 +3121,15 @@ Public Class BorrowingAndReturning
             con.Close()
             Try
                 con.Open()
-                Dim query As String = "SELECT * 
+                Dim query As String = "  
+                                    SELECT 
+                                        borrowed_books.*,
+                                        borrowers.name,
+                                        borrowers.phone,
+                                        borrowers.email
                                     FROM borrowed_books 
+                                    INNER JOIN borrowers 
+                                        ON borrowers.borrower_id = borrowed_books.borrower_id 
                                     WHERE " & borrowedQuery & " AND is_cancel='NO' AND is_returned='NO'" & " ORDER BY borrow_date DESC, time DESC"
                 Using cmd As New MySqlCommand(query, con)
                     cmd.Parameters.AddWithValue("@start_date", borrowedFrom)
@@ -3115,6 +3145,7 @@ Public Class BorrowingAndReturning
                                 DgvBorrowed.Rows(i).Height = 70
                             Next
                             DgvBorrowed.ClearSelection()
+                            OrderedBorrowedColumn()
                         Else
                             DgvBorrowed.DataSource = dt_borrowed
                             DgvBorrowed.Refresh()

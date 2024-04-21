@@ -530,13 +530,14 @@ Partial Class EditRCF_RGA
         'BtnCancel
         '
         Me.BtnCancel.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.BtnCancel.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.BtnCancel.BackColor = System.Drawing.Color.WhiteSmoke
         Me.BtnCancel.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnCancel.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.BtnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnCancel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.BtnCancel.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_cancel_30
         Me.BtnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnCancel.Location = New System.Drawing.Point(676, 682)
+        Me.BtnCancel.Location = New System.Drawing.Point(729, 682)
         Me.BtnCancel.Name = "BtnCancel"
         Me.BtnCancel.Size = New System.Drawing.Size(143, 35)
         Me.BtnCancel.TabIndex = 116
@@ -546,15 +547,16 @@ Partial Class EditRCF_RGA
         'BtnUpdate
         '
         Me.BtnUpdate.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.BtnUpdate.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.BtnUpdate.BackColor = System.Drawing.Color.WhiteSmoke
         Me.BtnUpdate.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.BtnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnUpdate.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnUpdate.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.BtnUpdate.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_save_25
         Me.BtnUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnUpdate.Location = New System.Drawing.Point(491, 682)
+        Me.BtnUpdate.Location = New System.Drawing.Point(531, 682)
         Me.BtnUpdate.Name = "BtnUpdate"
-        Me.BtnUpdate.Size = New System.Drawing.Size(143, 35)
+        Me.BtnUpdate.Size = New System.Drawing.Size(166, 35)
         Me.BtnUpdate.TabIndex = 115
         Me.BtnUpdate.Text = "Save Changes"
         Me.BtnUpdate.UseVisualStyleBackColor = False

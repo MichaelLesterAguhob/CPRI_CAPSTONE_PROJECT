@@ -52,14 +52,18 @@ Partial Class MyAccounts
         '
         'BTN_EDIT
         '
+        Me.BTN_EDIT.BackColor = System.Drawing.Color.WhiteSmoke
         Me.BTN_EDIT.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BTN_EDIT.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BTN_EDIT.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BTN_EDIT.Location = New System.Drawing.Point(563, 108)
+        Me.BTN_EDIT.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_edit_21
+        Me.BTN_EDIT.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BTN_EDIT.Location = New System.Drawing.Point(558, 108)
         Me.BTN_EDIT.Name = "BTN_EDIT"
-        Me.BTN_EDIT.Size = New System.Drawing.Size(116, 36)
+        Me.BTN_EDIT.Size = New System.Drawing.Size(121, 36)
         Me.BTN_EDIT.TabIndex = 0
         Me.BTN_EDIT.Text = "EDIT"
-        Me.BTN_EDIT.UseVisualStyleBackColor = True
+        Me.BTN_EDIT.UseVisualStyleBackColor = False
         '
         'TXT_FNAME
         '
@@ -164,26 +168,34 @@ Partial Class MyAccounts
         '
         'BTN_UPDT
         '
+        Me.BTN_UPDT.BackColor = System.Drawing.Color.WhiteSmoke
         Me.BTN_UPDT.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BTN_UPDT.Enabled = False
+        Me.BTN_UPDT.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BTN_UPDT.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BTN_UPDT.Location = New System.Drawing.Point(563, 155)
+        Me.BTN_UPDT.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_update_done_21__1_
+        Me.BTN_UPDT.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BTN_UPDT.Location = New System.Drawing.Point(558, 155)
         Me.BTN_UPDT.Name = "BTN_UPDT"
-        Me.BTN_UPDT.Size = New System.Drawing.Size(116, 36)
+        Me.BTN_UPDT.Size = New System.Drawing.Size(121, 36)
         Me.BTN_UPDT.TabIndex = 12
         Me.BTN_UPDT.Text = "UPDATE"
-        Me.BTN_UPDT.UseVisualStyleBackColor = True
+        Me.BTN_UPDT.UseVisualStyleBackColor = False
         '
         'BTN_CLOSE
         '
+        Me.BTN_CLOSE.BackColor = System.Drawing.Color.WhiteSmoke
         Me.BTN_CLOSE.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BTN_CLOSE.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BTN_CLOSE.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BTN_CLOSE.Location = New System.Drawing.Point(563, 275)
+        Me.BTN_CLOSE.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_cancel_28
+        Me.BTN_CLOSE.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BTN_CLOSE.Location = New System.Drawing.Point(558, 275)
         Me.BTN_CLOSE.Name = "BTN_CLOSE"
-        Me.BTN_CLOSE.Size = New System.Drawing.Size(116, 36)
+        Me.BTN_CLOSE.Size = New System.Drawing.Size(121, 36)
         Me.BTN_CLOSE.TabIndex = 13
         Me.BTN_CLOSE.Text = "CLOSE"
-        Me.BTN_CLOSE.UseVisualStyleBackColor = True
+        Me.BTN_CLOSE.UseVisualStyleBackColor = False
         '
         'Label8
         '
@@ -230,15 +242,19 @@ Partial Class MyAccounts
         '
         'BTN_CANCEL
         '
+        Me.BTN_CANCEL.BackColor = System.Drawing.Color.WhiteSmoke
         Me.BTN_CANCEL.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BTN_CANCEL.Enabled = False
+        Me.BTN_CANCEL.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BTN_CANCEL.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BTN_CANCEL.Location = New System.Drawing.Point(563, 200)
+        Me.BTN_CANCEL.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_cancel_30
+        Me.BTN_CANCEL.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BTN_CANCEL.Location = New System.Drawing.Point(558, 200)
         Me.BTN_CANCEL.Name = "BTN_CANCEL"
-        Me.BTN_CANCEL.Size = New System.Drawing.Size(116, 36)
+        Me.BTN_CANCEL.Size = New System.Drawing.Size(121, 36)
         Me.BTN_CANCEL.TabIndex = 17
         Me.BTN_CANCEL.Text = "CANCEL"
-        Me.BTN_CANCEL.UseVisualStyleBackColor = True
+        Me.BTN_CANCEL.UseVisualStyleBackColor = False
         '
         'Label7
         '
@@ -246,9 +262,9 @@ Partial Class MyAccounts
         Me.Label7.ForeColor = System.Drawing.Color.Maroon
         Me.Label7.Location = New System.Drawing.Point(156, 317)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(206, 13)
+        Me.Label7.Size = New System.Drawing.Size(237, 13)
         Me.Label7.TabIndex = 18
-        Me.Label7.Text = "Leave this blank if not changing password"
+        Me.Label7.Text = "Leave this blank if you're not changing password"
         Me.Label7.Visible = False
         '
         'LblPassMsg
@@ -280,34 +296,40 @@ Partial Class MyAccounts
         Me.Panel1.Controls.Add(Me.Label9)
         Me.Panel1.Location = New System.Drawing.Point(153, 112)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(368, 100)
+        Me.Panel1.Size = New System.Drawing.Size(368, 116)
         Me.Panel1.TabIndex = 21
         Me.Panel1.Visible = False
         '
         'BTN_ENTER_UPDT
         '
+        Me.BTN_ENTER_UPDT.BackColor = System.Drawing.Color.WhiteSmoke
         Me.BTN_ENTER_UPDT.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BTN_ENTER_UPDT.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BTN_ENTER_UPDT.Location = New System.Drawing.Point(91, 63)
+        Me.BTN_ENTER_UPDT.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BTN_ENTER_UPDT.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BTN_ENTER_UPDT.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_update_done_21__1_
+        Me.BTN_ENTER_UPDT.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BTN_ENTER_UPDT.Location = New System.Drawing.Point(114, 74)
         Me.BTN_ENTER_UPDT.Name = "BTN_ENTER_UPDT"
-        Me.BTN_ENTER_UPDT.Size = New System.Drawing.Size(172, 25)
+        Me.BTN_ENTER_UPDT.Size = New System.Drawing.Size(149, 32)
         Me.BTN_ENTER_UPDT.TabIndex = 22
         Me.BTN_ENTER_UPDT.Text = "ENTER AND UPDATE"
-        Me.BTN_ENTER_UPDT.UseVisualStyleBackColor = True
+        Me.BTN_ENTER_UPDT.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.BTN_ENTER_UPDT.UseVisualStyleBackColor = False
         '
         'TXT_VCODE
         '
-        Me.TXT_VCODE.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TXT_VCODE.Location = New System.Drawing.Point(117, 31)
+        Me.TXT_VCODE.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TXT_VCODE.Location = New System.Drawing.Point(12, 36)
         Me.TXT_VCODE.Name = "TXT_VCODE"
-        Me.TXT_VCODE.Size = New System.Drawing.Size(119, 26)
+        Me.TXT_VCODE.Size = New System.Drawing.Size(342, 31)
         Me.TXT_VCODE.TabIndex = 22
+        Me.TXT_VCODE.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label9
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(72, 7)
+        Me.Label9.Location = New System.Drawing.Point(8, 8)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(238, 20)
         Me.Label9.TabIndex = 22

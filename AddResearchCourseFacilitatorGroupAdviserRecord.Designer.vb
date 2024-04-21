@@ -96,9 +96,9 @@ Partial Class AddResearchCourseFacilitatorGroupAdviserRecord
         Me.Label24 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.BtnCancel = New System.Windows.Forms.Button()
-        Me.BtnSaveRecord = New System.Windows.Forms.Button()
         Me.PnlInfo = New System.Windows.Forms.Panel()
         Me.TxtSchoolYear = New System.Windows.Forms.ComboBox()
+        Me.BtnSaveRecord = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
@@ -984,34 +984,19 @@ Partial Class AddResearchCourseFacilitatorGroupAdviserRecord
         'BtnCancel
         '
         Me.BtnCancel.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.BtnCancel.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.BtnCancel.BackColor = System.Drawing.Color.WhiteSmoke
         Me.BtnCancel.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnCancel.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.BtnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnCancel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.BtnCancel.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_cancel_28
         Me.BtnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnCancel.Location = New System.Drawing.Point(676, 682)
+        Me.BtnCancel.Location = New System.Drawing.Point(698, 682)
         Me.BtnCancel.Name = "BtnCancel"
-        Me.BtnCancel.Size = New System.Drawing.Size(143, 29)
+        Me.BtnCancel.Size = New System.Drawing.Size(121, 29)
         Me.BtnCancel.TabIndex = 99
         Me.BtnCancel.Text = "Close"
         Me.BtnCancel.UseVisualStyleBackColor = False
-        '
-        'BtnSaveRecord
-        '
-        Me.BtnSaveRecord.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.BtnSaveRecord.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.BtnSaveRecord.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnSaveRecord.FlatStyle = System.Windows.Forms.FlatStyle.System
-        Me.BtnSaveRecord.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnSaveRecord.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.BtnSaveRecord.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnSaveRecord.Location = New System.Drawing.Point(491, 682)
-        Me.BtnSaveRecord.Name = "BtnSaveRecord"
-        Me.BtnSaveRecord.Size = New System.Drawing.Size(143, 29)
-        Me.BtnSaveRecord.TabIndex = 98
-        Me.BtnSaveRecord.Text = "Save"
-        Me.BtnSaveRecord.UseVisualStyleBackColor = False
         '
         'PnlInfo
         '
@@ -1042,6 +1027,23 @@ Partial Class AddResearchCourseFacilitatorGroupAdviserRecord
         Me.TxtSchoolYear.Name = "TxtSchoolYear"
         Me.TxtSchoolYear.Size = New System.Drawing.Size(139, 21)
         Me.TxtSchoolYear.TabIndex = 101
+        '
+        'BtnSaveRecord
+        '
+        Me.BtnSaveRecord.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.BtnSaveRecord.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.BtnSaveRecord.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnSaveRecord.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnSaveRecord.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnSaveRecord.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.BtnSaveRecord.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_save_25
+        Me.BtnSaveRecord.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnSaveRecord.Location = New System.Drawing.Point(543, 682)
+        Me.BtnSaveRecord.Name = "BtnSaveRecord"
+        Me.BtnSaveRecord.Size = New System.Drawing.Size(129, 29)
+        Me.BtnSaveRecord.TabIndex = 98
+        Me.BtnSaveRecord.Text = "Save"
+        Me.BtnSaveRecord.UseVisualStyleBackColor = False
         '
         'AddResearchCourseFacilitatorGroupAdviserRecord
         '
