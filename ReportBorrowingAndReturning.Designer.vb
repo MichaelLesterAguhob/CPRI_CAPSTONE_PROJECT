@@ -44,7 +44,7 @@ Partial Class ReportBorrowingAndReturning
         Me.ClientSize = New System.Drawing.Size(1042, 526)
         Me.Controls.Add(Me.CrvBaR)
         Me.Name = "ReportBorrowingAndReturning"
-        Me.Text = "ReportBorrowingAndReturning"
+        Me.Text = "Borrowing And Returning Report"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.ResumeLayout(False)
 

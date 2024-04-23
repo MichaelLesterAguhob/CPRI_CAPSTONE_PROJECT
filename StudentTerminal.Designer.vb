@@ -141,9 +141,9 @@ Partial Class StudentTerminal
         Me.Button3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.Button3.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_view_21
         Me.Button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button3.Location = New System.Drawing.Point(560, 674)
+        Me.Button3.Location = New System.Drawing.Point(623, 674)
         Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(162, 43)
+        Me.Button3.Size = New System.Drawing.Size(105, 43)
         Me.Button3.TabIndex = 35
         Me.Button3.Text = "VIEW"
         Me.Button3.UseVisualStyleBackColor = True

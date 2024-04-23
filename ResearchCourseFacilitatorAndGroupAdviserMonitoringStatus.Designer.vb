@@ -917,6 +917,7 @@ Partial Class ResearchCourseFacilitatorAndGroupAdviserMonitoringStatus
         Me.BtReport.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtReport.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtReport.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.BtReport.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_print_19
         Me.BtReport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.BtReport.Location = New System.Drawing.Point(9, 686)
         Me.BtReport.Name = "BtReport"

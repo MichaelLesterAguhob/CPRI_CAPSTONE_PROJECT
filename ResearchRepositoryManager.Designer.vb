@@ -1068,6 +1068,7 @@ Partial Class ResearchRepoManager
         Me.BtnReport.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnReport.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnReport.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.BtnReport.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_print_19
         Me.BtnReport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.BtnReport.Location = New System.Drawing.Point(14, 683)
         Me.BtnReport.Name = "BtnReport"

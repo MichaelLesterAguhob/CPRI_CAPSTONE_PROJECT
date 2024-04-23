@@ -771,16 +771,17 @@ Partial Class ViewWorks
         '
         'BtnPrint
         '
-        Me.BtnPrint.BackColor = System.Drawing.Color.LightGray
+        Me.BtnPrint.BackColor = System.Drawing.Color.WhiteSmoke
         Me.BtnPrint.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnPrint.Enabled = False
         Me.BtnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnPrint.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnPrint.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.BtnPrint.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_print_19
         Me.BtnPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.BtnPrint.Location = New System.Drawing.Point(425, 9)
         Me.BtnPrint.Name = "BtnPrint"
-        Me.BtnPrint.Size = New System.Drawing.Size(157, 36)
+        Me.BtnPrint.Size = New System.Drawing.Size(165, 36)
         Me.BtnPrint.TabIndex = 93
         Me.BtnPrint.Text = "Print Clearance"
         Me.BtnPrint.UseVisualStyleBackColor = False

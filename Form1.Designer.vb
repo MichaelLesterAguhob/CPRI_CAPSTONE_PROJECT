@@ -265,7 +265,7 @@ Partial Class Form1
         Me.Panel4.Controls.Add(Me.LblBorrowedBooks)
         Me.Panel4.Location = New System.Drawing.Point(16, 231)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(755, 287)
+        Me.Panel4.Size = New System.Drawing.Size(679, 287)
         Me.Panel4.TabIndex = 13
         '
         'Label4

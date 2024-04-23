@@ -237,12 +237,6 @@
     <Compile Include="MyAccounts.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="QrCodeGenerator.Designer.vb">
-      <DependentUpon>QrCodeGenerator.vb</DependentUpon>
-    </Compile>
-    <Compile Include="QrCodeGenerator.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="ReportRcf.Designer.vb">
       <DependentUpon>ReportRcf.vb</DependentUpon>
     </Compile>
@@ -427,9 +421,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MyAccounts.resx">
       <DependentUpon>MyAccounts.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="QrCodeGenerator.resx">
-      <DependentUpon>QrCodeGenerator.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportRcf.resx">
       <DependentUpon>ReportRcf.vb</DependentUpon>
@@ -898,6 +889,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-save-25.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-add-28.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-update-28.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-qr-code-35.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

@@ -227,7 +227,6 @@ Partial Class BorrowingAndReturning
         Me.Label4 = New System.Windows.Forms.Label()
         Me.TabPage8 = New System.Windows.Forms.TabPage()
         Me.Panel4 = New System.Windows.Forms.Panel()
-        Me.BtnAddBorrowerInfo = New System.Windows.Forms.Button()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.Label35 = New System.Windows.Forms.Label()
@@ -291,8 +290,10 @@ Partial Class BorrowingAndReturning
         Me.BtnSearchOverdue = New System.Windows.Forms.Button()
         Me.BtnCancelBorrowingTrans = New System.Windows.Forms.Button()
         Me.BtnConfirm = New System.Windows.Forms.Button()
+        Me.Label45 = New System.Windows.Forms.Label()
         Me.BtnUpdateBorDetails = New System.Windows.Forms.Button()
         Me.BtnCancelAddingBorrower = New System.Windows.Forms.Button()
+        Me.BtnAddBorrowerInfo = New System.Windows.Forms.Button()
         Me.BtnOverduesBooks = New System.Windows.Forms.Button()
         Me.BtnReturnedBooks = New System.Windows.Forms.Button()
         Me.BtnBorrowedBooks = New System.Windows.Forms.Button()
@@ -833,11 +834,11 @@ Partial Class BorrowingAndReturning
         Me.TabPage2.Controls.Add(Me.Button2)
         Me.TabPage2.Controls.Add(Me.TxtSearchBorrowers)
         Me.TabPage2.Controls.Add(Me.DgvBorrowers)
-        Me.TabPage2.Controls.Add(Me.Label27)
         Me.TabPage2.Controls.Add(Me.BtnEditBorrower)
         Me.TabPage2.Controls.Add(Me.BtnDeleteBorrower)
         Me.TabPage2.Controls.Add(Me.BtnGoToAddingBorrower)
         Me.TabPage2.Controls.Add(Me.BtnSearchBorrowers)
+        Me.TabPage2.Controls.Add(Me.Label27)
         Me.TabPage2.Location = New System.Drawing.Point(4, 4)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
@@ -965,12 +966,12 @@ Partial Class BorrowingAndReturning
         Me.TabPage3.BackColor = System.Drawing.Color.Transparent
         Me.TabPage3.Controls.Add(Me.PanelCancelled)
         Me.TabPage3.Controls.Add(Me.PnlFilterBorrowed)
-        Me.TabPage3.Controls.Add(Me.BtnCancelBorrow)
         Me.TabPage3.Controls.Add(Me.DgvBorrowed)
-        Me.TabPage3.Controls.Add(Me.Button1)
-        Me.TabPage3.Controls.Add(Me.BtnReturnBooks)
         Me.TabPage3.Controls.Add(Me.TxtSearchBorrowed)
         Me.TabPage3.Controls.Add(Me.Button10)
+        Me.TabPage3.Controls.Add(Me.BtnCancelBorrow)
+        Me.TabPage3.Controls.Add(Me.Button1)
+        Me.TabPage3.Controls.Add(Me.BtnReturnBooks)
         Me.TabPage3.Controls.Add(Me.BtnOpenBorrowedFltr)
         Me.TabPage3.Controls.Add(Me.BtnPrintBorrowed)
         Me.TabPage3.Controls.Add(Me.BtnSearchBorrowed)
@@ -988,9 +989,9 @@ Partial Class BorrowingAndReturning
         Me.PanelCancelled.Controls.Add(Me.BtnPrintCancelled)
         Me.PanelCancelled.Controls.Add(Me.BtnSearchCancel)
         Me.PanelCancelled.Controls.Add(Me.TxtsearchCancel)
-        Me.PanelCancelled.Controls.Add(Me.Label20)
         Me.PanelCancelled.Controls.Add(Me.DgvCancelledBorrow)
         Me.PanelCancelled.Controls.Add(Me.BtnReturn)
+        Me.PanelCancelled.Controls.Add(Me.Label20)
         Me.PanelCancelled.Location = New System.Drawing.Point(0, 0)
         Me.PanelCancelled.Name = "PanelCancelled"
         Me.PanelCancelled.Size = New System.Drawing.Size(1128, 597)
@@ -1481,9 +1482,9 @@ Partial Class BorrowingAndReturning
         Me.TabPage4.Controls.Add(Me.Button9)
         Me.TabPage4.Controls.Add(Me.TxtSearchReturned)
         Me.TabPage4.Controls.Add(Me.DgvReturned)
-        Me.TabPage4.Controls.Add(Me.Label28)
         Me.TabPage4.Controls.Add(Me.BtnPrintReturned)
         Me.TabPage4.Controls.Add(Me.BtnSearchReturned)
+        Me.TabPage4.Controls.Add(Me.Label28)
         Me.TabPage4.Location = New System.Drawing.Point(4, 4)
         Me.TabPage4.Name = "TabPage4"
         Me.TabPage4.Size = New System.Drawing.Size(1128, 600)
@@ -1803,9 +1804,9 @@ Partial Class BorrowingAndReturning
         Me.TabPage5.Controls.Add(Me.PnlOvrdFltr)
         Me.TabPage5.Controls.Add(Me.TxtSearchOverdue)
         Me.TabPage5.Controls.Add(Me.DgvOverdues)
-        Me.TabPage5.Controls.Add(Me.Label29)
         Me.TabPage5.Controls.Add(Me.BtnPrintOverdue)
         Me.TabPage5.Controls.Add(Me.BtnSearchOverdue)
+        Me.TabPage5.Controls.Add(Me.Label29)
         Me.TabPage5.Location = New System.Drawing.Point(4, 4)
         Me.TabPage5.Name = "TabPage5"
         Me.TabPage5.Size = New System.Drawing.Size(1128, 600)
@@ -2134,7 +2135,7 @@ Partial Class BorrowingAndReturning
         DataGridViewCellStyle25.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
         Me.DgvToBorrow.RowsDefaultCellStyle = DataGridViewCellStyle25
         Me.DgvToBorrow.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvToBorrow.Size = New System.Drawing.Size(1111, 395)
+        Me.DgvToBorrow.Size = New System.Drawing.Size(649, 395)
         Me.DgvToBorrow.TabIndex = 1
         '
         'Column30
@@ -2183,7 +2184,7 @@ Partial Class BorrowingAndReturning
         '
         Me.DtDueDate.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DtDueDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DtDueDate.Location = New System.Drawing.Point(115, 23)
+        Me.DtDueDate.Location = New System.Drawing.Point(140, 26)
         Me.DtDueDate.Name = "DtDueDate"
         Me.DtDueDate.Size = New System.Drawing.Size(116, 20)
         Me.DtDueDate.TabIndex = 20
@@ -2201,10 +2202,11 @@ Partial Class BorrowingAndReturning
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.ForeColor = System.Drawing.Color.Maroon
         Me.Label11.Location = New System.Drawing.Point(4, 26)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(103, 13)
+        Me.Label11.Size = New System.Drawing.Size(130, 17)
         Me.Label11.TabIndex = 17
         Me.Label11.Text = "To Return Date :"
         '
@@ -2246,6 +2248,7 @@ Partial Class BorrowingAndReturning
         '
         Me.GroupBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox1.Controls.Add(Me.Label45)
         Me.GroupBox1.Controls.Add(Me.Label34)
         Me.GroupBox1.Controls.Add(Me.Label32)
         Me.GroupBox1.Controls.Add(Me.TxtName)
@@ -2345,7 +2348,7 @@ Partial Class BorrowingAndReturning
         'TxtPhoneNo
         '
         Me.TxtPhoneNo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtPhoneNo.Location = New System.Drawing.Point(24, 380)
+        Me.TxtPhoneNo.Location = New System.Drawing.Point(24, 385)
         Me.TxtPhoneNo.Name = "TxtPhoneNo"
         Me.TxtPhoneNo.Size = New System.Drawing.Size(179, 26)
         Me.TxtPhoneNo.TabIndex = 2
@@ -2358,7 +2361,7 @@ Partial Class BorrowingAndReturning
         Me.TxtExistingBorrowerId.BackColor = System.Drawing.Color.WhiteSmoke
         Me.TxtExistingBorrowerId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.TxtExistingBorrowerId.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtExistingBorrowerId.Location = New System.Drawing.Point(111, 127)
+        Me.TxtExistingBorrowerId.Location = New System.Drawing.Point(78, 128)
         Me.TxtExistingBorrowerId.Name = "TxtExistingBorrowerId"
         Me.TxtExistingBorrowerId.Size = New System.Drawing.Size(237, 35)
         Me.TxtExistingBorrowerId.TabIndex = 13
@@ -2424,7 +2427,7 @@ Partial Class BorrowingAndReturning
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(21, 364)
+        Me.Label4.Location = New System.Drawing.Point(21, 369)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(44, 13)
         Me.Label4.TabIndex = 5
@@ -2456,19 +2459,6 @@ Partial Class BorrowingAndReturning
         Me.Panel4.Name = "Panel4"
         Me.Panel4.Size = New System.Drawing.Size(652, 433)
         Me.Panel4.TabIndex = 0
-        '
-        'BtnAddBorrowerInfo
-        '
-        Me.BtnAddBorrowerInfo.Anchor = System.Windows.Forms.AnchorStyles.Bottom
-        Me.BtnAddBorrowerInfo.BackColor = System.Drawing.Color.Transparent
-        Me.BtnAddBorrowerInfo.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnAddBorrowerInfo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnAddBorrowerInfo.Location = New System.Drawing.Point(216, 378)
-        Me.BtnAddBorrowerInfo.Name = "BtnAddBorrowerInfo"
-        Me.BtnAddBorrowerInfo.Size = New System.Drawing.Size(106, 25)
-        Me.BtnAddBorrowerInfo.TabIndex = 19
-        Me.BtnAddBorrowerInfo.Text = "ADD"
-        Me.BtnAddBorrowerInfo.UseVisualStyleBackColor = False
         '
         'Label19
         '
@@ -2767,7 +2757,7 @@ Partial Class BorrowingAndReturning
         Me.BtnPrintBooksList.ForeColor = System.Drawing.SystemColors.WindowText
         Me.BtnPrintBooksList.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_print_19
         Me.BtnPrintBooksList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnPrintBooksList.Location = New System.Drawing.Point(1007, 42)
+        Me.BtnPrintBooksList.Location = New System.Drawing.Point(1008, 39)
         Me.BtnPrintBooksList.Name = "BtnPrintBooksList"
         Me.BtnPrintBooksList.Size = New System.Drawing.Size(110, 25)
         Me.BtnPrintBooksList.TabIndex = 29
@@ -2900,11 +2890,11 @@ Partial Class BorrowingAndReturning
         Me.Button2.ForeColor = System.Drawing.SystemColors.WindowText
         Me.Button2.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_print_19
         Me.Button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button2.Location = New System.Drawing.Point(971, 27)
+        Me.Button2.Location = New System.Drawing.Point(1024, 27)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(149, 24)
+        Me.Button2.Size = New System.Drawing.Size(96, 24)
         Me.Button2.TabIndex = 30
-        Me.Button2.Text = "Print Borrower's Record"
+        Me.Button2.Text = "Print Record"
         Me.Button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.Button2.UseVisualStyleBackColor = False
         '
@@ -3392,7 +3382,7 @@ Partial Class BorrowingAndReturning
         Me.BtnCancelBorrowingTrans.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnCancelBorrowingTrans.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_cancel_30
         Me.BtnCancelBorrowingTrans.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnCancelBorrowingTrans.Location = New System.Drawing.Point(207, 540)
+        Me.BtnCancelBorrowingTrans.Location = New System.Drawing.Point(603, 541)
         Me.BtnCancelBorrowingTrans.Name = "BtnCancelBorrowingTrans"
         Me.BtnCancelBorrowingTrans.Size = New System.Drawing.Size(167, 33)
         Me.BtnCancelBorrowingTrans.TabIndex = 2
@@ -3407,12 +3397,20 @@ Partial Class BorrowingAndReturning
         Me.BtnConfirm.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnConfirm.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_check_30__1_
         Me.BtnConfirm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnConfirm.Location = New System.Drawing.Point(16, 540)
+        Me.BtnConfirm.Location = New System.Drawing.Point(332, 541)
         Me.BtnConfirm.Name = "BtnConfirm"
         Me.BtnConfirm.Size = New System.Drawing.Size(185, 33)
         Me.BtnConfirm.TabIndex = 3
         Me.BtnConfirm.Text = "CONFIRM"
         Me.BtnConfirm.UseVisualStyleBackColor = False
+        '
+        'Label45
+        '
+        Me.Label45.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_qr_code_35
+        Me.Label45.Location = New System.Drawing.Point(321, 127)
+        Me.Label45.Name = "Label45"
+        Me.Label45.Size = New System.Drawing.Size(47, 35)
+        Me.Label45.TabIndex = 18
         '
         'BtnUpdateBorDetails
         '
@@ -3420,9 +3418,9 @@ Partial Class BorrowingAndReturning
         Me.BtnUpdateBorDetails.BackColor = System.Drawing.Color.Transparent
         Me.BtnUpdateBorDetails.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnUpdateBorDetails.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnUpdateBorDetails.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_update_done_21__1_
+        Me.BtnUpdateBorDetails.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_update_28
         Me.BtnUpdateBorDetails.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnUpdateBorDetails.Location = New System.Drawing.Point(205, 378)
+        Me.BtnUpdateBorDetails.Location = New System.Drawing.Point(203, 378)
         Me.BtnUpdateBorDetails.Name = "BtnUpdateBorDetails"
         Me.BtnUpdateBorDetails.Size = New System.Drawing.Size(117, 36)
         Me.BtnUpdateBorDetails.TabIndex = 21
@@ -3446,6 +3444,21 @@ Partial Class BorrowingAndReturning
         Me.BtnCancelAddingBorrower.Text = "CANCEL"
         Me.BtnCancelAddingBorrower.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.BtnCancelAddingBorrower.UseVisualStyleBackColor = False
+        '
+        'BtnAddBorrowerInfo
+        '
+        Me.BtnAddBorrowerInfo.Anchor = System.Windows.Forms.AnchorStyles.Bottom
+        Me.BtnAddBorrowerInfo.BackColor = System.Drawing.Color.Transparent
+        Me.BtnAddBorrowerInfo.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnAddBorrowerInfo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnAddBorrowerInfo.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_add_28
+        Me.BtnAddBorrowerInfo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnAddBorrowerInfo.Location = New System.Drawing.Point(203, 378)
+        Me.BtnAddBorrowerInfo.Name = "BtnAddBorrowerInfo"
+        Me.BtnAddBorrowerInfo.Size = New System.Drawing.Size(117, 36)
+        Me.BtnAddBorrowerInfo.TabIndex = 19
+        Me.BtnAddBorrowerInfo.Text = "ADD"
+        Me.BtnAddBorrowerInfo.UseVisualStyleBackColor = False
         '
         'BtnOverduesBooks
         '
@@ -3902,4 +3915,5 @@ Partial Class BorrowingAndReturning
     Friend WithEvents ISRET As DataGridViewTextBoxColumn
     Friend WithEvents ISOVD As DataGridViewTextBoxColumn
     Friend WithEvents B_COUNT As DataGridViewTextBoxColumn
+    Friend WithEvents Label45 As Label
 End Class
