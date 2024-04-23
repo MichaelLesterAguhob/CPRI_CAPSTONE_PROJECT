@@ -62,12 +62,15 @@ Partial Class EditWorkRecord
         Me.TxtAuthToAddCount = New System.Windows.Forms.TextBox()
         Me.Label28 = New System.Windows.Forms.Label()
         Me.LblTotalCoAuthFlds = New System.Windows.Forms.Label()
+        Me.BtnSubOnTxt = New System.Windows.Forms.Button()
+        Me.BtnAddOnTxt = New System.Windows.Forms.Button()
         Me.TxtEditAuthRole = New System.Windows.Forms.TextBox()
         Me.Label21 = New System.Windows.Forms.Label()
         Me.TxtEditAuthDeg = New System.Windows.Forms.TextBox()
         Me.Label26 = New System.Windows.Forms.Label()
         Me.TxtEditAuthName = New System.Windows.Forms.TextBox()
         Me.Label27 = New System.Windows.Forms.Label()
+        Me.BtnRemoveField = New System.Windows.Forms.Button()
         Me.RdEdtStatCmpltd = New System.Windows.Forms.RadioButton()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
@@ -112,6 +115,7 @@ Partial Class EditWorkRecord
         Me.CbxSem = New System.Windows.Forms.ComboBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label29 = New System.Windows.Forms.Label()
+        Me.BtnBrwsWhl = New System.Windows.Forms.Button()
         Me.PnlPublished = New System.Windows.Forms.Panel()
         Me.Panel5 = New System.Windows.Forms.Panel()
         Me.DtPubDateEdtMode = New System.Windows.Forms.DateTimePicker()
@@ -119,6 +123,7 @@ Partial Class EditWorkRecord
         Me.TxtPubDoiUrlEdtMode = New System.Windows.Forms.TextBox()
         Me.TxtPubAcadJournalEdtMode = New System.Windows.Forms.TextBox()
         Me.TxtPubVolNumEdtMode = New System.Windows.Forms.TextBox()
+        Me.BtnBrwsAbstrct = New System.Windows.Forms.Button()
         Me.BtnCancel = New System.Windows.Forms.Button()
         Me.TxtLoc = New System.Windows.Forms.TextBox()
         Me.Label31 = New System.Windows.Forms.Label()
@@ -126,11 +131,6 @@ Partial Class EditWorkRecord
         Me.Label32 = New System.Windows.Forms.Label()
         Me.Btn_Update = New System.Windows.Forms.Button()
         Me.BtnAddCoAuthFldEdt = New System.Windows.Forms.Button()
-        Me.BtnSubOnTxt = New System.Windows.Forms.Button()
-        Me.BtnAddOnTxt = New System.Windows.Forms.Button()
-        Me.BtnRemoveField = New System.Windows.Forms.Button()
-        Me.BtnBrwsWhl = New System.Windows.Forms.Button()
-        Me.BtnBrwsAbstrct = New System.Windows.Forms.Button()
         Me.Panel3.SuspendLayout()
         Me.PnlStatCmpltdEdtMode.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
@@ -154,15 +154,16 @@ Partial Class EditWorkRecord
         Me.BtnThssClrnc.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnThssClrnc.Enabled = False
         Me.BtnThssClrnc.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnThssClrnc.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnThssClrnc.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnThssClrnc.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.BtnThssClrnc.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_print_19
         Me.BtnThssClrnc.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.BtnThssClrnc.Location = New System.Drawing.Point(8, 91)
         Me.BtnThssClrnc.Name = "BtnThssClrnc"
-        Me.BtnThssClrnc.Size = New System.Drawing.Size(90, 23)
+        Me.BtnThssClrnc.Size = New System.Drawing.Size(107, 24)
         Me.BtnThssClrnc.TabIndex = 48
         Me.BtnThssClrnc.Text = "Print Clearance"
-        Me.BtnThssClrnc.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.BtnThssClrnc.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.BtnThssClrnc.UseVisualStyleBackColor = False
         '
         'DtRgaSbmttdDateEdtMode
@@ -638,6 +639,32 @@ Partial Class EditWorkRecord
         Me.LblTotalCoAuthFlds.TabIndex = 75
         Me.LblTotalCoAuthFlds.Text = "0"
         '
+        'BtnSubOnTxt
+        '
+        Me.BtnSubOnTxt.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnSubOnTxt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnSubOnTxt.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnSubOnTxt.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.BtnSubOnTxt.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_minus_13
+        Me.BtnSubOnTxt.Location = New System.Drawing.Point(242, 48)
+        Me.BtnSubOnTxt.Name = "BtnSubOnTxt"
+        Me.BtnSubOnTxt.Size = New System.Drawing.Size(16, 16)
+        Me.BtnSubOnTxt.TabIndex = 74
+        Me.BtnSubOnTxt.UseVisualStyleBackColor = True
+        '
+        'BtnAddOnTxt
+        '
+        Me.BtnAddOnTxt.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnAddOnTxt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnAddOnTxt.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnAddOnTxt.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.BtnAddOnTxt.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_add_131
+        Me.BtnAddOnTxt.Location = New System.Drawing.Point(302, 48)
+        Me.BtnAddOnTxt.Name = "BtnAddOnTxt"
+        Me.BtnAddOnTxt.Size = New System.Drawing.Size(16, 16)
+        Me.BtnAddOnTxt.TabIndex = 73
+        Me.BtnAddOnTxt.UseVisualStyleBackColor = True
+        '
         'TxtEditAuthRole
         '
         Me.TxtEditAuthRole.BackColor = System.Drawing.Color.WhiteSmoke
@@ -700,6 +727,23 @@ Partial Class EditWorkRecord
         Me.Label27.Size = New System.Drawing.Size(52, 16)
         Me.Label27.TabIndex = 66
         Me.Label27.Text = "Author :"
+        '
+        'BtnRemoveField
+        '
+        Me.BtnRemoveField.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnRemoveField.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnRemoveField.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnRemoveField.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnRemoveField.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.BtnRemoveField.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_x_10
+        Me.BtnRemoveField.ImageAlign = System.Drawing.ContentAlignment.TopLeft
+        Me.BtnRemoveField.Location = New System.Drawing.Point(434, 47)
+        Me.BtnRemoveField.Name = "BtnRemoveField"
+        Me.BtnRemoveField.Size = New System.Drawing.Size(104, 20)
+        Me.BtnRemoveField.TabIndex = 65
+        Me.BtnRemoveField.Text = "Remove  last Field"
+        Me.BtnRemoveField.TextAlign = System.Drawing.ContentAlignment.TopRight
+        Me.BtnRemoveField.UseVisualStyleBackColor = False
         '
         'RdEdtStatCmpltd
         '
@@ -1215,6 +1259,22 @@ Partial Class EditWorkRecord
         Me.Label29.TabIndex = 77
         Me.Label29.Text = "School Year :"
         '
+        'BtnBrwsWhl
+        '
+        Me.BtnBrwsWhl.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnBrwsWhl.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnBrwsWhl.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnBrwsWhl.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.BtnBrwsWhl.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_browse_18
+        Me.BtnBrwsWhl.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnBrwsWhl.Location = New System.Drawing.Point(265, 12)
+        Me.BtnBrwsWhl.Name = "BtnBrwsWhl"
+        Me.BtnBrwsWhl.Size = New System.Drawing.Size(71, 21)
+        Me.BtnBrwsWhl.TabIndex = 71
+        Me.BtnBrwsWhl.Text = "Change"
+        Me.BtnBrwsWhl.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.BtnBrwsWhl.UseVisualStyleBackColor = False
+        '
         'PnlPublished
         '
         Me.PnlPublished.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
@@ -1289,6 +1349,22 @@ Partial Class EditWorkRecord
         Me.TxtPubVolNumEdtMode.Size = New System.Drawing.Size(133, 20)
         Me.TxtPubVolNumEdtMode.TabIndex = 48
         '
+        'BtnBrwsAbstrct
+        '
+        Me.BtnBrwsAbstrct.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnBrwsAbstrct.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnBrwsAbstrct.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnBrwsAbstrct.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.BtnBrwsAbstrct.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_browse_18
+        Me.BtnBrwsAbstrct.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnBrwsAbstrct.Location = New System.Drawing.Point(265, 37)
+        Me.BtnBrwsAbstrct.Name = "BtnBrwsAbstrct"
+        Me.BtnBrwsAbstrct.Size = New System.Drawing.Size(71, 21)
+        Me.BtnBrwsAbstrct.TabIndex = 60
+        Me.BtnBrwsAbstrct.Text = "Change"
+        Me.BtnBrwsAbstrct.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.BtnBrwsAbstrct.UseVisualStyleBackColor = False
+        '
         'BtnCancel
         '
         Me.BtnCancel.Anchor = System.Windows.Forms.AnchorStyles.Bottom
@@ -1358,7 +1434,7 @@ Partial Class EditWorkRecord
         Me.Btn_Update.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Btn_Update.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Btn_Update.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Btn_Update.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_update_done_21__1_
+        Me.Btn_Update.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_update_28
         Me.Btn_Update.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Btn_Update.Location = New System.Drawing.Point(560, 655)
         Me.Btn_Update.Name = "Btn_Update"
@@ -1383,81 +1459,6 @@ Partial Class EditWorkRecord
         Me.BtnAddCoAuthFldEdt.Text = "Add Co-Author"
         Me.BtnAddCoAuthFldEdt.TextAlign = System.Drawing.ContentAlignment.TopRight
         Me.BtnAddCoAuthFldEdt.UseVisualStyleBackColor = False
-        '
-        'BtnSubOnTxt
-        '
-        Me.BtnSubOnTxt.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnSubOnTxt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnSubOnTxt.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnSubOnTxt.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.BtnSubOnTxt.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_minus_13
-        Me.BtnSubOnTxt.Location = New System.Drawing.Point(242, 48)
-        Me.BtnSubOnTxt.Name = "BtnSubOnTxt"
-        Me.BtnSubOnTxt.Size = New System.Drawing.Size(16, 16)
-        Me.BtnSubOnTxt.TabIndex = 74
-        Me.BtnSubOnTxt.UseVisualStyleBackColor = True
-        '
-        'BtnAddOnTxt
-        '
-        Me.BtnAddOnTxt.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnAddOnTxt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnAddOnTxt.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnAddOnTxt.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.BtnAddOnTxt.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_add_131
-        Me.BtnAddOnTxt.Location = New System.Drawing.Point(302, 48)
-        Me.BtnAddOnTxt.Name = "BtnAddOnTxt"
-        Me.BtnAddOnTxt.Size = New System.Drawing.Size(16, 16)
-        Me.BtnAddOnTxt.TabIndex = 73
-        Me.BtnAddOnTxt.UseVisualStyleBackColor = True
-        '
-        'BtnRemoveField
-        '
-        Me.BtnRemoveField.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.BtnRemoveField.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnRemoveField.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnRemoveField.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnRemoveField.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.BtnRemoveField.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_x_10
-        Me.BtnRemoveField.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.BtnRemoveField.Location = New System.Drawing.Point(434, 47)
-        Me.BtnRemoveField.Name = "BtnRemoveField"
-        Me.BtnRemoveField.Size = New System.Drawing.Size(104, 20)
-        Me.BtnRemoveField.TabIndex = 65
-        Me.BtnRemoveField.Text = "Remove  last Field"
-        Me.BtnRemoveField.TextAlign = System.Drawing.ContentAlignment.TopRight
-        Me.BtnRemoveField.UseVisualStyleBackColor = False
-        '
-        'BtnBrwsWhl
-        '
-        Me.BtnBrwsWhl.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.BtnBrwsWhl.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnBrwsWhl.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnBrwsWhl.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.BtnBrwsWhl.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_browse_18
-        Me.BtnBrwsWhl.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnBrwsWhl.Location = New System.Drawing.Point(265, 12)
-        Me.BtnBrwsWhl.Name = "BtnBrwsWhl"
-        Me.BtnBrwsWhl.Size = New System.Drawing.Size(71, 21)
-        Me.BtnBrwsWhl.TabIndex = 71
-        Me.BtnBrwsWhl.Text = "Change"
-        Me.BtnBrwsWhl.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.BtnBrwsWhl.UseVisualStyleBackColor = False
-        '
-        'BtnBrwsAbstrct
-        '
-        Me.BtnBrwsAbstrct.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.BtnBrwsAbstrct.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnBrwsAbstrct.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnBrwsAbstrct.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.BtnBrwsAbstrct.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_browse_18
-        Me.BtnBrwsAbstrct.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnBrwsAbstrct.Location = New System.Drawing.Point(265, 37)
-        Me.BtnBrwsAbstrct.Name = "BtnBrwsAbstrct"
-        Me.BtnBrwsAbstrct.Size = New System.Drawing.Size(71, 21)
-        Me.BtnBrwsAbstrct.TabIndex = 60
-        Me.BtnBrwsAbstrct.Text = "Change"
-        Me.BtnBrwsAbstrct.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.BtnBrwsAbstrct.UseVisualStyleBackColor = False
         '
         'EditWorkRecord
         '

@@ -45,7 +45,7 @@ Partial Class ReportRepositoryManager
         Me.Controls.Add(Me.CrvRRM)
         Me.Name = "ReportRepositoryManager"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "ReportRepositoryManager"
+        Me.Text = "Research Repository Manager Report"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.ResumeLayout(False)
 

@@ -1056,15 +1056,16 @@ Partial Class AddWorks
         Me.BtnThssClrnc.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnThssClrnc.Enabled = False
         Me.BtnThssClrnc.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnThssClrnc.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnThssClrnc.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnThssClrnc.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.BtnThssClrnc.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_print_19
         Me.BtnThssClrnc.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnThssClrnc.Location = New System.Drawing.Point(9, 91)
+        Me.BtnThssClrnc.Location = New System.Drawing.Point(9, 90)
         Me.BtnThssClrnc.Name = "BtnThssClrnc"
-        Me.BtnThssClrnc.Size = New System.Drawing.Size(90, 22)
+        Me.BtnThssClrnc.Size = New System.Drawing.Size(107, 24)
         Me.BtnThssClrnc.TabIndex = 48
         Me.BtnThssClrnc.Text = "Print Clearance"
-        Me.BtnThssClrnc.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.BtnThssClrnc.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.BtnThssClrnc.UseVisualStyleBackColor = False
         '
         'Label8
@@ -1169,11 +1170,12 @@ Partial Class AddWorks
         'BtnSaveResearch
         '
         Me.BtnSaveResearch.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.BtnSaveResearch.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.BtnSaveResearch.BackColor = System.Drawing.Color.WhiteSmoke
         Me.BtnSaveResearch.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnSaveResearch.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.BtnSaveResearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnSaveResearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnSaveResearch.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.BtnSaveResearch.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_save_25
         Me.BtnSaveResearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.BtnSaveResearch.Location = New System.Drawing.Point(531, 691)
         Me.BtnSaveResearch.Name = "BtnSaveResearch"
@@ -1185,11 +1187,12 @@ Partial Class AddWorks
         'BtnCancel
         '
         Me.BtnCancel.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.BtnCancel.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.BtnCancel.BackColor = System.Drawing.Color.WhiteSmoke
         Me.BtnCancel.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnCancel.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.BtnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnCancel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.BtnCancel.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_cancel_28
         Me.BtnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.BtnCancel.Location = New System.Drawing.Point(723, 691)
         Me.BtnCancel.Name = "BtnCancel"

@@ -25,23 +25,17 @@ Partial Class CreateLoginAccount
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(CreateLoginAccount))
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.LogOut = New System.Windows.Forms.Button()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.GbxCreate = New System.Windows.Forms.GroupBox()
         Me.Label24 = New System.Windows.Forms.Label()
         Me.PnlVCode = New System.Windows.Forms.Panel()
         Me.LblVcodeMsg = New System.Windows.Forms.Label()
-        Me.BtnEnterVCode = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.TxtVerificationCreate = New System.Windows.Forms.TextBox()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.TxtUsernameCreate = New System.Windows.Forms.TextBox()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.BtnGoToLogin = New System.Windows.Forms.Button()
-        Me.BtnCreate = New System.Windows.Forms.Button()
         Me.TxtConfirmPassCreate = New System.Windows.Forms.TextBox()
         Me.TxtPasswordCreate = New System.Windows.Forms.TextBox()
         Me.TxtEmailCreate = New System.Windows.Forms.TextBox()
@@ -57,7 +51,6 @@ Partial Class CreateLoginAccount
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label25 = New System.Windows.Forms.Label()
         Me.GbxLogin = New System.Windows.Forms.GroupBox()
-        Me.BtnGoToStudentViewing = New System.Windows.Forms.Button()
         Me.PnlForgotPass = New System.Windows.Forms.Panel()
         Me.PnlFpCode = New System.Windows.Forms.Panel()
         Me.Label27 = New System.Windows.Forms.Label()
@@ -75,13 +68,10 @@ Partial Class CreateLoginAccount
         Me.Label29 = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.TxtFpEmail = New System.Windows.Forms.TextBox()
-        Me.BtnFpSendCode = New System.Windows.Forms.Button()
         Me.Label23 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
-        Me.BtnClosePnlForgotPass = New System.Windows.Forms.Button()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.BtnGoToCreateAcct = New System.Windows.Forms.Button()
-        Me.BtnLogin = New System.Windows.Forms.Button()
         Me.TxtPassLogin = New System.Windows.Forms.TextBox()
         Me.TxtUnameEmailLogin = New System.Windows.Forms.TextBox()
         Me.Label18 = New System.Windows.Forms.Label()
@@ -91,6 +81,16 @@ Partial Class CreateLoginAccount
         Me.Label14 = New System.Windows.Forms.Label()
         Me.LblLoginMsg = New System.Windows.Forms.Label()
         Me.timer_fade_out_msg = New System.Windows.Forms.Timer(Me.components)
+        Me.BtnGoToStudentViewing = New System.Windows.Forms.Button()
+        Me.BtnFpSendCode = New System.Windows.Forms.Button()
+        Me.BtnClosePnlForgotPass = New System.Windows.Forms.Button()
+        Me.BtnLogin = New System.Windows.Forms.Button()
+        Me.BtnEnterVCode = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.BtnCreate = New System.Windows.Forms.Button()
+        Me.LogOut = New System.Windows.Forms.Button()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.GbxCreate.SuspendLayout()
         Me.PnlVCode.SuspendLayout()
@@ -116,31 +116,6 @@ Partial Class CreateLoginAccount
         Me.Panel1.Size = New System.Drawing.Size(237, 561)
         Me.Panel1.TabIndex = 3
         '
-        'LogOut
-        '
-        Me.LogOut.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.LogOut.BackColor = System.Drawing.Color.MistyRose
-        Me.LogOut.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.LogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.LogOut.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LogOut.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.LogOut.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_logout_20
-        Me.LogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.LogOut.Location = New System.Drawing.Point(35, 518)
-        Me.LogOut.Name = "LogOut"
-        Me.LogOut.Size = New System.Drawing.Size(151, 30)
-        Me.LogOut.TabIndex = 30
-        Me.LogOut.Text = "EXIT"
-        Me.LogOut.UseVisualStyleBackColor = False
-        '
-        'Label3
-        '
-        Me.Label3.Image = CType(resources.GetObject("Label3.Image"), System.Drawing.Image)
-        Me.Label3.Location = New System.Drawing.Point(47, 220)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(139, 155)
-        Me.Label3.TabIndex = 0
-        '
         'Label2
         '
         Me.Label2.Font = New System.Drawing.Font("Times New Roman", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -150,14 +125,6 @@ Partial Class CreateLoginAccount
         Me.Label2.Size = New System.Drawing.Size(233, 59)
         Me.Label2.TabIndex = 2
         Me.Label2.Text = "CPRI - CDSGA"
-        '
-        'Label1
-        '
-        Me.Label1.Image = CType(resources.GetObject("Label1.Image"), System.Drawing.Image)
-        Me.Label1.Location = New System.Drawing.Point(65, 26)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(109, 90)
-        Me.Label1.TabIndex = 0
         '
         'GbxCreate
         '
@@ -221,30 +188,6 @@ Partial Class CreateLoginAccount
         Me.LblVcodeMsg.Name = "LblVcodeMsg"
         Me.LblVcodeMsg.Size = New System.Drawing.Size(0, 13)
         Me.LblVcodeMsg.TabIndex = 19
-        '
-        'BtnEnterVCode
-        '
-        Me.BtnEnterVCode.BackColor = System.Drawing.SystemColors.ControlLight
-        Me.BtnEnterVCode.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnEnterVCode.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnEnterVCode.Location = New System.Drawing.Point(139, 171)
-        Me.BtnEnterVCode.Name = "BtnEnterVCode"
-        Me.BtnEnterVCode.Size = New System.Drawing.Size(95, 28)
-        Me.BtnEnterVCode.TabIndex = 18
-        Me.BtnEnterVCode.Text = "ENTER"
-        Me.BtnEnterVCode.UseVisualStyleBackColor = False
-        '
-        'Button1
-        '
-        Me.Button1.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.System
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(345, 11)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(23, 19)
-        Me.Button1.TabIndex = 18
-        Me.Button1.Text = "X"
-        Me.Button1.UseVisualStyleBackColor = True
         '
         'Label9
         '
@@ -310,18 +253,6 @@ Partial Class CreateLoginAccount
         Me.BtnGoToLogin.TabIndex = 13
         Me.BtnGoToLogin.Text = "LOGIN"
         Me.BtnGoToLogin.UseVisualStyleBackColor = True
-        '
-        'BtnCreate
-        '
-        Me.BtnCreate.BackColor = System.Drawing.SystemColors.ControlLight
-        Me.BtnCreate.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnCreate.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnCreate.Location = New System.Drawing.Point(54, 445)
-        Me.BtnCreate.Name = "BtnCreate"
-        Me.BtnCreate.Size = New System.Drawing.Size(355, 44)
-        Me.BtnCreate.TabIndex = 12
-        Me.BtnCreate.Text = "CREATE !"
-        Me.BtnCreate.UseVisualStyleBackColor = False
         '
         'TxtConfirmPassCreate
         '
@@ -495,22 +426,6 @@ Partial Class CreateLoginAccount
         Me.GbxLogin.Size = New System.Drawing.Size(450, 541)
         Me.GbxLogin.TabIndex = 5
         Me.GbxLogin.TabStop = False
-        '
-        'BtnGoToStudentViewing
-        '
-        Me.BtnGoToStudentViewing.BackColor = System.Drawing.SystemColors.ControlLight
-        Me.BtnGoToStudentViewing.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnGoToStudentViewing.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnGoToStudentViewing.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_eye_44
-        Me.BtnGoToStudentViewing.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnGoToStudentViewing.Location = New System.Drawing.Point(131, 415)
-        Me.BtnGoToStudentViewing.Name = "BtnGoToStudentViewing"
-        Me.BtnGoToStudentViewing.Size = New System.Drawing.Size(195, 44)
-        Me.BtnGoToStudentViewing.TabIndex = 21
-        Me.BtnGoToStudentViewing.Text = "STUDENT VIEWING"
-        Me.BtnGoToStudentViewing.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.BtnGoToStudentViewing.UseVisualStyleBackColor = False
-        Me.BtnGoToStudentViewing.Visible = False
         '
         'PnlForgotPass
         '
@@ -704,21 +619,6 @@ Partial Class CreateLoginAccount
         Me.TxtFpEmail.Size = New System.Drawing.Size(302, 26)
         Me.TxtFpEmail.TabIndex = 9
         '
-        'BtnFpSendCode
-        '
-        Me.BtnFpSendCode.BackColor = System.Drawing.SystemColors.ControlLight
-        Me.BtnFpSendCode.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnFpSendCode.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnFpSendCode.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_send_28
-        Me.BtnFpSendCode.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnFpSendCode.Location = New System.Drawing.Point(93, 116)
-        Me.BtnFpSendCode.Name = "BtnFpSendCode"
-        Me.BtnFpSendCode.Size = New System.Drawing.Size(162, 35)
-        Me.BtnFpSendCode.TabIndex = 18
-        Me.BtnFpSendCode.Text = "Send Reset Code"
-        Me.BtnFpSendCode.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.BtnFpSendCode.UseVisualStyleBackColor = False
-        '
         'Label23
         '
         Me.Label23.Font = New System.Drawing.Font("Times New Roman", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -738,19 +638,6 @@ Partial Class CreateLoginAccount
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(0, 13)
         Me.Label11.TabIndex = 19
-        '
-        'BtnClosePnlForgotPass
-        '
-        Me.BtnClosePnlForgotPass.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnClosePnlForgotPass.FlatAppearance.BorderSize = 0
-        Me.BtnClosePnlForgotPass.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnClosePnlForgotPass.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnClosePnlForgotPass.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_close_window_19
-        Me.BtnClosePnlForgotPass.Location = New System.Drawing.Point(345, 11)
-        Me.BtnClosePnlForgotPass.Name = "BtnClosePnlForgotPass"
-        Me.BtnClosePnlForgotPass.Size = New System.Drawing.Size(23, 19)
-        Me.BtnClosePnlForgotPass.TabIndex = 18
-        Me.BtnClosePnlForgotPass.UseVisualStyleBackColor = True
         '
         'Label13
         '
@@ -774,20 +661,6 @@ Partial Class CreateLoginAccount
         Me.BtnGoToCreateAcct.TabIndex = 13
         Me.BtnGoToCreateAcct.Text = "CREATE"
         Me.BtnGoToCreateAcct.UseVisualStyleBackColor = True
-        '
-        'BtnLogin
-        '
-        Me.BtnLogin.BackColor = System.Drawing.SystemColors.ControlLight
-        Me.BtnLogin.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnLogin.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnLogin.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_login_44__1_
-        Me.BtnLogin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnLogin.Location = New System.Drawing.Point(131, 362)
-        Me.BtnLogin.Name = "BtnLogin"
-        Me.BtnLogin.Size = New System.Drawing.Size(195, 44)
-        Me.BtnLogin.TabIndex = 12
-        Me.BtnLogin.Text = "LOGIN !"
-        Me.BtnLogin.UseVisualStyleBackColor = False
         '
         'TxtPassLogin
         '
@@ -881,6 +754,140 @@ Partial Class CreateLoginAccount
         'timer_fade_out_msg
         '
         Me.timer_fade_out_msg.Interval = 1000
+        '
+        'BtnGoToStudentViewing
+        '
+        Me.BtnGoToStudentViewing.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.BtnGoToStudentViewing.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnGoToStudentViewing.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnGoToStudentViewing.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_arrow_44
+        Me.BtnGoToStudentViewing.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnGoToStudentViewing.Location = New System.Drawing.Point(131, 415)
+        Me.BtnGoToStudentViewing.Name = "BtnGoToStudentViewing"
+        Me.BtnGoToStudentViewing.Size = New System.Drawing.Size(195, 44)
+        Me.BtnGoToStudentViewing.TabIndex = 21
+        Me.BtnGoToStudentViewing.Text = "STUDENT VIEWING"
+        Me.BtnGoToStudentViewing.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.BtnGoToStudentViewing.UseVisualStyleBackColor = False
+        Me.BtnGoToStudentViewing.Visible = False
+        '
+        'BtnFpSendCode
+        '
+        Me.BtnFpSendCode.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.BtnFpSendCode.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnFpSendCode.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnFpSendCode.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_send_28
+        Me.BtnFpSendCode.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnFpSendCode.Location = New System.Drawing.Point(93, 116)
+        Me.BtnFpSendCode.Name = "BtnFpSendCode"
+        Me.BtnFpSendCode.Size = New System.Drawing.Size(162, 35)
+        Me.BtnFpSendCode.TabIndex = 18
+        Me.BtnFpSendCode.Text = "Send Reset Code"
+        Me.BtnFpSendCode.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.BtnFpSendCode.UseVisualStyleBackColor = False
+        '
+        'BtnClosePnlForgotPass
+        '
+        Me.BtnClosePnlForgotPass.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnClosePnlForgotPass.FlatAppearance.BorderSize = 0
+        Me.BtnClosePnlForgotPass.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnClosePnlForgotPass.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnClosePnlForgotPass.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_close_window_19
+        Me.BtnClosePnlForgotPass.Location = New System.Drawing.Point(345, 11)
+        Me.BtnClosePnlForgotPass.Name = "BtnClosePnlForgotPass"
+        Me.BtnClosePnlForgotPass.Size = New System.Drawing.Size(23, 19)
+        Me.BtnClosePnlForgotPass.TabIndex = 18
+        Me.BtnClosePnlForgotPass.UseVisualStyleBackColor = True
+        '
+        'BtnLogin
+        '
+        Me.BtnLogin.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.BtnLogin.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnLogin.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnLogin.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_login_44__1_
+        Me.BtnLogin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnLogin.Location = New System.Drawing.Point(131, 362)
+        Me.BtnLogin.Name = "BtnLogin"
+        Me.BtnLogin.Size = New System.Drawing.Size(195, 44)
+        Me.BtnLogin.TabIndex = 12
+        Me.BtnLogin.Text = "LOGIN !"
+        Me.BtnLogin.UseVisualStyleBackColor = False
+        '
+        'BtnEnterVCode
+        '
+        Me.BtnEnterVCode.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.BtnEnterVCode.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnEnterVCode.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnEnterVCode.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_check_30__1_
+        Me.BtnEnterVCode.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnEnterVCode.Location = New System.Drawing.Point(139, 171)
+        Me.BtnEnterVCode.Name = "BtnEnterVCode"
+        Me.BtnEnterVCode.Size = New System.Drawing.Size(102, 33)
+        Me.BtnEnterVCode.TabIndex = 18
+        Me.BtnEnterVCode.Text = "ENTER"
+        Me.BtnEnterVCode.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.BtnEnterVCode.UseVisualStyleBackColor = False
+        '
+        'Button1
+        '
+        Me.Button1.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Button1.FlatAppearance.BorderSize = 0
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_close_window_19
+        Me.Button1.Location = New System.Drawing.Point(345, 11)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(23, 19)
+        Me.Button1.TabIndex = 18
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'BtnCreate
+        '
+        Me.BtnCreate.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.BtnCreate.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnCreate.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnCreate.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_create_44
+        Me.BtnCreate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnCreate.Location = New System.Drawing.Point(54, 445)
+        Me.BtnCreate.Name = "BtnCreate"
+        Me.BtnCreate.Size = New System.Drawing.Size(355, 44)
+        Me.BtnCreate.TabIndex = 12
+        Me.BtnCreate.Text = "CREATE !"
+        Me.BtnCreate.UseVisualStyleBackColor = False
+        '
+        'LogOut
+        '
+        Me.LogOut.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.LogOut.BackColor = System.Drawing.Color.MistyRose
+        Me.LogOut.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.LogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.LogOut.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LogOut.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.LogOut.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_exit_20
+        Me.LogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.LogOut.Location = New System.Drawing.Point(35, 518)
+        Me.LogOut.Name = "LogOut"
+        Me.LogOut.Size = New System.Drawing.Size(151, 30)
+        Me.LogOut.TabIndex = 30
+        Me.LogOut.Text = "EXIT"
+        Me.LogOut.UseVisualStyleBackColor = False
+        '
+        'Label3
+        '
+        Me.Label3.Image = CType(resources.GetObject("Label3.Image"), System.Drawing.Image)
+        Me.Label3.Location = New System.Drawing.Point(47, 220)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(139, 155)
+        Me.Label3.TabIndex = 0
+        '
+        'Label1
+        '
+        Me.Label1.Image = CType(resources.GetObject("Label1.Image"), System.Drawing.Image)
+        Me.Label1.Location = New System.Drawing.Point(65, 26)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(109, 90)
+        Me.Label1.TabIndex = 0
         '
         'CreateLoginAccount
         '

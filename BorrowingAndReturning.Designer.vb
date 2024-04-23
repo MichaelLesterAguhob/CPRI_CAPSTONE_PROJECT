@@ -42,35 +42,53 @@ Partial Class BorrowingAndReturning
         Dim DataGridViewCellStyle19 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle17 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle18 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(BorrowingAndReturning))
         Dim DataGridViewCellStyle20 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle23 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle21 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle22 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle25 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle24 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(BorrowingAndReturning))
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.LogOut = New System.Windows.Forms.Button()
         Me.LblStaffLoggedin = New System.Windows.Forms.Label()
+        Me.Label31 = New System.Windows.Forms.Label()
         Me.TxtTime = New System.Windows.Forms.TextBox()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.TxtDate = New System.Windows.Forms.TextBox()
         Me.Label15 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.BtnOverduesBooks = New System.Windows.Forms.Button()
+        Me.BtnReturnedBooks = New System.Windows.Forms.Button()
+        Me.BtnBorrowedBooks = New System.Windows.Forms.Button()
+        Me.BtnBorrower = New System.Windows.Forms.Button()
+        Me.BtnBooks = New System.Windows.Forms.Button()
         Me.TabControls = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.BtnOpenThesisFltr = New System.Windows.Forms.Button()
         Me.PnlThesisFltr = New System.Windows.Forms.Panel()
+        Me.BtnCloseThesisFltr = New System.Windows.Forms.Button()
         Me.Label38 = New System.Windows.Forms.Label()
         Me.Label37 = New System.Windows.Forms.Label()
+        Me.BtnResetThesisFltr = New System.Windows.Forms.Button()
         Me.DtThesisTo = New System.Windows.Forms.DateTimePicker()
         Me.Label36 = New System.Windows.Forms.Label()
+        Me.BtnApplyThesisFltr = New System.Windows.Forms.Button()
         Me.DtThesisFrom = New System.Windows.Forms.DateTimePicker()
+        Me.BtnPrintBooksList = New System.Windows.Forms.Button()
+        Me.BtnSearchBooks = New System.Windows.Forms.Button()
         Me.TxtSearchBooks = New System.Windows.Forms.TextBox()
         Me.LblSrchFnd = New System.Windows.Forms.Label()
         Me.Label30 = New System.Windows.Forms.Label()
         Me.PnlAddingToBorrow = New System.Windows.Forms.Panel()
+        Me.BtnNext = New System.Windows.Forms.Button()
+        Me.BtnCancelAddedToBorrow = New System.Windows.Forms.Button()
+        Me.BtnRemoveTempInfo = New System.Windows.Forms.Button()
         Me.TxtToBorrowType = New System.Windows.Forms.TextBox()
         Me.Label18 = New System.Windows.Forms.Label()
+        Me.Button7 = New System.Windows.Forms.Button()
         Me.TxtBookId = New System.Windows.Forms.TextBox()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.TxtTitle = New System.Windows.Forms.TextBox()
@@ -80,6 +98,7 @@ Partial Class BorrowingAndReturning
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.AddToBorrow = New System.Windows.Forms.Button()
         Me.DgvBooks = New System.Windows.Forms.DataGridView()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -89,6 +108,8 @@ Partial Class BorrowingAndReturning
         Me.Column27 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column48 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.BtnResendQr = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.TxtSearchBorrowers = New System.Windows.Forms.TextBox()
         Me.DgvBorrowers = New System.Windows.Forms.DataGridView()
         Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -97,11 +118,16 @@ Partial Class BorrowingAndReturning
         Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column51 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BtnEditBorrower = New System.Windows.Forms.Button()
+        Me.BtnDeleteBorrower = New System.Windows.Forms.Button()
+        Me.BtnGoToAddingBorrower = New System.Windows.Forms.Button()
+        Me.BtnSearchBorrowers = New System.Windows.Forms.Button()
         Me.Label27 = New System.Windows.Forms.Label()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.PanelCancelled = New System.Windows.Forms.Panel()
+        Me.BtnPrintCancelled = New System.Windows.Forms.Button()
+        Me.BtnSearchCancel = New System.Windows.Forms.Button()
         Me.TxtsearchCancel = New System.Windows.Forms.TextBox()
-        Me.Label20 = New System.Windows.Forms.Label()
         Me.DgvCancelledBorrow = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -116,11 +142,16 @@ Partial Class BorrowingAndReturning
         Me.Column24 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column37 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column40 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BtnReturn = New System.Windows.Forms.Button()
+        Me.Label20 = New System.Windows.Forms.Label()
         Me.PnlFilterBorrowed = New System.Windows.Forms.Panel()
+        Me.BtnCloseBorrowedFltr = New System.Windows.Forms.Button()
+        Me.BtnApplyBorrowedFltr = New System.Windows.Forms.Button()
         Me.Label39 = New System.Windows.Forms.Label()
         Me.DtBorrowedFrom = New System.Windows.Forms.DateTimePicker()
         Me.Label40 = New System.Windows.Forms.Label()
         Me.Label41 = New System.Windows.Forms.Label()
+        Me.BtnResetBorrowedFltr = New System.Windows.Forms.Button()
         Me.DtBorrowedTo = New System.Windows.Forms.DateTimePicker()
         Me.DgvBorrowed = New System.Windows.Forms.DataGridView()
         Me.B_ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -141,11 +172,21 @@ Partial Class BorrowingAndReturning
         Me.B_COUNT = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TxtSearchBorrowed = New System.Windows.Forms.TextBox()
         Me.Button10 = New System.Windows.Forms.Button()
+        Me.BtnCancelBorrow = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.BtnReturnBooks = New System.Windows.Forms.Button()
+        Me.BtnOpenBorrowedFltr = New System.Windows.Forms.Button()
+        Me.BtnPrintBorrowed = New System.Windows.Forms.Button()
+        Me.BtnSearchBorrowed = New System.Windows.Forms.Button()
         Me.Label21 = New System.Windows.Forms.Label()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
+        Me.BtnOpenRetFltr = New System.Windows.Forms.Button()
         Me.PnlRetFltr = New System.Windows.Forms.Panel()
+        Me.BtnCloseRefFiltr = New System.Windows.Forms.Button()
         Me.Label48 = New System.Windows.Forms.Label()
+        Me.BtnResetRetFltr = New System.Windows.Forms.Button()
         Me.Label49 = New System.Windows.Forms.Label()
+        Me.BtnApplyRetFltr = New System.Windows.Forms.Button()
         Me.Label50 = New System.Windows.Forms.Label()
         Me.DtReturnedFrom = New System.Windows.Forms.DateTimePicker()
         Me.DtRetTo = New System.Windows.Forms.DateTimePicker()
@@ -170,11 +211,17 @@ Partial Class BorrowingAndReturning
         Me.Column35 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column39 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column42 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BtnPrintReturned = New System.Windows.Forms.Button()
+        Me.BtnSearchReturned = New System.Windows.Forms.Button()
         Me.Label28 = New System.Windows.Forms.Label()
         Me.TabPage5 = New System.Windows.Forms.TabPage()
+        Me.BtnOvrdOpenFltr = New System.Windows.Forms.Button()
         Me.PnlOvrdFltr = New System.Windows.Forms.Panel()
+        Me.BtnOvrdCloseFltr = New System.Windows.Forms.Button()
         Me.Label42 = New System.Windows.Forms.Label()
+        Me.BtnOvrdResetFltr = New System.Windows.Forms.Button()
         Me.Label43 = New System.Windows.Forms.Label()
+        Me.BtnOvrdApplyFltr = New System.Windows.Forms.Button()
         Me.Label44 = New System.Windows.Forms.Label()
         Me.DtOvrFrom = New System.Windows.Forms.DateTimePicker()
         Me.DtOvrTo = New System.Windows.Forms.DateTimePicker()
@@ -191,10 +238,14 @@ Partial Class BorrowingAndReturning
         Me.Column44 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column46 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column47 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BtnPrintOverdue = New System.Windows.Forms.Button()
+        Me.BtnSearchOverdue = New System.Windows.Forms.Button()
         Me.Label29 = New System.Windows.Forms.Label()
         Me.TabPage6 = New System.Windows.Forms.TabPage()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.BtnRemoveToBorrow = New System.Windows.Forms.Button()
+        Me.BtnCancelBorrowingTrans = New System.Windows.Forms.Button()
+        Me.BtnConfirm = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.TxtType = New System.Windows.Forms.TextBox()
         Me.DgvToBorrow = New System.Windows.Forms.DataGridView()
@@ -209,6 +260,7 @@ Partial Class BorrowingAndReturning
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label45 = New System.Windows.Forms.Label()
         Me.Label34 = New System.Windows.Forms.Label()
         Me.Label32 = New System.Windows.Forms.Label()
         Me.TxtName = New System.Windows.Forms.TextBox()
@@ -227,6 +279,9 @@ Partial Class BorrowingAndReturning
         Me.Label4 = New System.Windows.Forms.Label()
         Me.TabPage8 = New System.Windows.Forms.TabPage()
         Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.BtnUpdateBorDetails = New System.Windows.Forms.Button()
+        Me.BtnCancelAddingBorrower = New System.Windows.Forms.Button()
+        Me.BtnAddBorrowerInfo = New System.Windows.Forms.Button()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.Label35 = New System.Windows.Forms.Label()
@@ -247,61 +302,6 @@ Partial Class BorrowingAndReturning
         Me.Label25 = New System.Windows.Forms.Label()
         Me.Label26 = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.BtnOpenThesisFltr = New System.Windows.Forms.Button()
-        Me.BtnCloseThesisFltr = New System.Windows.Forms.Button()
-        Me.BtnResetThesisFltr = New System.Windows.Forms.Button()
-        Me.BtnApplyThesisFltr = New System.Windows.Forms.Button()
-        Me.BtnPrintBooksList = New System.Windows.Forms.Button()
-        Me.BtnSearchBooks = New System.Windows.Forms.Button()
-        Me.BtnNext = New System.Windows.Forms.Button()
-        Me.BtnCancelAddedToBorrow = New System.Windows.Forms.Button()
-        Me.BtnRemoveTempInfo = New System.Windows.Forms.Button()
-        Me.Button7 = New System.Windows.Forms.Button()
-        Me.AddToBorrow = New System.Windows.Forms.Button()
-        Me.BtnResendQr = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.BtnEditBorrower = New System.Windows.Forms.Button()
-        Me.BtnDeleteBorrower = New System.Windows.Forms.Button()
-        Me.BtnGoToAddingBorrower = New System.Windows.Forms.Button()
-        Me.BtnSearchBorrowers = New System.Windows.Forms.Button()
-        Me.BtnPrintCancelled = New System.Windows.Forms.Button()
-        Me.BtnSearchCancel = New System.Windows.Forms.Button()
-        Me.BtnReturn = New System.Windows.Forms.Button()
-        Me.BtnCloseBorrowedFltr = New System.Windows.Forms.Button()
-        Me.BtnApplyBorrowedFltr = New System.Windows.Forms.Button()
-        Me.BtnResetBorrowedFltr = New System.Windows.Forms.Button()
-        Me.BtnCancelBorrow = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.BtnReturnBooks = New System.Windows.Forms.Button()
-        Me.BtnOpenBorrowedFltr = New System.Windows.Forms.Button()
-        Me.BtnPrintBorrowed = New System.Windows.Forms.Button()
-        Me.BtnSearchBorrowed = New System.Windows.Forms.Button()
-        Me.BtnOpenRetFltr = New System.Windows.Forms.Button()
-        Me.BtnCloseRefFiltr = New System.Windows.Forms.Button()
-        Me.BtnResetRetFltr = New System.Windows.Forms.Button()
-        Me.BtnApplyRetFltr = New System.Windows.Forms.Button()
-        Me.BtnPrintReturned = New System.Windows.Forms.Button()
-        Me.BtnSearchReturned = New System.Windows.Forms.Button()
-        Me.BtnOvrdOpenFltr = New System.Windows.Forms.Button()
-        Me.BtnOvrdCloseFltr = New System.Windows.Forms.Button()
-        Me.BtnOvrdResetFltr = New System.Windows.Forms.Button()
-        Me.BtnOvrdApplyFltr = New System.Windows.Forms.Button()
-        Me.BtnPrintOverdue = New System.Windows.Forms.Button()
-        Me.BtnSearchOverdue = New System.Windows.Forms.Button()
-        Me.BtnCancelBorrowingTrans = New System.Windows.Forms.Button()
-        Me.BtnConfirm = New System.Windows.Forms.Button()
-        Me.Label45 = New System.Windows.Forms.Label()
-        Me.BtnUpdateBorDetails = New System.Windows.Forms.Button()
-        Me.BtnCancelAddingBorrower = New System.Windows.Forms.Button()
-        Me.BtnAddBorrowerInfo = New System.Windows.Forms.Button()
-        Me.BtnOverduesBooks = New System.Windows.Forms.Button()
-        Me.BtnReturnedBooks = New System.Windows.Forms.Button()
-        Me.BtnBorrowedBooks = New System.Windows.Forms.Button()
-        Me.BtnBorrower = New System.Windows.Forms.Button()
-        Me.BtnBooks = New System.Windows.Forms.Button()
-        Me.LogOut = New System.Windows.Forms.Button()
-        Me.Label31 = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.TabControls.SuspendLayout()
@@ -352,6 +352,25 @@ Partial Class BorrowingAndReturning
         Me.Panel1.Size = New System.Drawing.Size(1350, 100)
         Me.Panel1.TabIndex = 2
         '
+        'LogOut
+        '
+        Me.LogOut.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.LogOut.BackColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.LogOut.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.LogOut.FlatAppearance.BorderSize = 0
+        Me.LogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.LogOut.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LogOut.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.LogOut.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_logout_20
+        Me.LogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.LogOut.Location = New System.Drawing.Point(1265, 7)
+        Me.LogOut.Name = "LogOut"
+        Me.LogOut.Size = New System.Drawing.Size(77, 30)
+        Me.LogOut.TabIndex = 29
+        Me.LogOut.Text = "LogOut"
+        Me.LogOut.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.LogOut.UseVisualStyleBackColor = False
+        '
         'LblStaffLoggedin
         '
         Me.LblStaffLoggedin.AutoSize = True
@@ -360,6 +379,17 @@ Partial Class BorrowingAndReturning
         Me.LblStaffLoggedin.Size = New System.Drawing.Size(19, 13)
         Me.LblStaffLoggedin.TabIndex = 23
         Me.LblStaffLoggedin.Text = "----"
+        '
+        'Label31
+        '
+        Me.Label31.AutoSize = True
+        Me.Label31.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Label31.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_account_20__1_
+        Me.Label31.Location = New System.Drawing.Point(134, 76)
+        Me.Label31.Name = "Label31"
+        Me.Label31.Size = New System.Drawing.Size(16, 13)
+        Me.Label31.TabIndex = 22
+        Me.Label31.Text = "---"
         '
         'TxtTime
         '
@@ -416,6 +446,14 @@ Partial Class BorrowingAndReturning
         Me.Label15.TabIndex = 18
         Me.Label15.Text = "Date :"
         '
+        'Label1
+        '
+        Me.Label1.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.logo
+        Me.Label1.Location = New System.Drawing.Point(7, 7)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(104, 88)
+        Me.Label1.TabIndex = 0
+        '
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.SystemColors.GradientActiveCaption
@@ -429,6 +467,109 @@ Partial Class BorrowingAndReturning
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(214, 629)
         Me.Panel2.TabIndex = 3
+        '
+        'BtnOverduesBooks
+        '
+        Me.BtnOverduesBooks.BackColor = System.Drawing.Color.Transparent
+        Me.BtnOverduesBooks.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnOverduesBooks.Dock = System.Windows.Forms.DockStyle.Top
+        Me.BtnOverduesBooks.FlatAppearance.BorderSize = 0
+        Me.BtnOverduesBooks.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnOverduesBooks.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnOverduesBooks.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.overdue__1_
+        Me.BtnOverduesBooks.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnOverduesBooks.Location = New System.Drawing.Point(0, 456)
+        Me.BtnOverduesBooks.Name = "BtnOverduesBooks"
+        Me.BtnOverduesBooks.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
+        Me.BtnOverduesBooks.Size = New System.Drawing.Size(214, 114)
+        Me.BtnOverduesBooks.TabIndex = 6
+        Me.BtnOverduesBooks.Text = "     OVERDUE" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "     THESIS"
+        Me.BtnOverduesBooks.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnOverduesBooks.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.BtnOverduesBooks.UseVisualStyleBackColor = False
+        '
+        'BtnReturnedBooks
+        '
+        Me.BtnReturnedBooks.BackColor = System.Drawing.Color.Transparent
+        Me.BtnReturnedBooks.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnReturnedBooks.Dock = System.Windows.Forms.DockStyle.Top
+        Me.BtnReturnedBooks.FlatAppearance.BorderSize = 0
+        Me.BtnReturnedBooks.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnReturnedBooks.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnReturnedBooks.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.book
+        Me.BtnReturnedBooks.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnReturnedBooks.Location = New System.Drawing.Point(0, 342)
+        Me.BtnReturnedBooks.Name = "BtnReturnedBooks"
+        Me.BtnReturnedBooks.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
+        Me.BtnReturnedBooks.Size = New System.Drawing.Size(214, 114)
+        Me.BtnReturnedBooks.TabIndex = 5
+        Me.BtnReturnedBooks.Text = "    RETURNED        THESIS"
+        Me.BtnReturnedBooks.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnReturnedBooks.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.BtnReturnedBooks.UseVisualStyleBackColor = False
+        '
+        'BtnBorrowedBooks
+        '
+        Me.BtnBorrowedBooks.BackColor = System.Drawing.Color.Transparent
+        Me.BtnBorrowedBooks.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.BtnBorrowedBooks.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnBorrowedBooks.Dock = System.Windows.Forms.DockStyle.Top
+        Me.BtnBorrowedBooks.FlatAppearance.BorderSize = 0
+        Me.BtnBorrowedBooks.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnBorrowedBooks.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnBorrowedBooks.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.delivering
+        Me.BtnBorrowedBooks.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnBorrowedBooks.Location = New System.Drawing.Point(0, 228)
+        Me.BtnBorrowedBooks.Name = "BtnBorrowedBooks"
+        Me.BtnBorrowedBooks.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
+        Me.BtnBorrowedBooks.Size = New System.Drawing.Size(214, 114)
+        Me.BtnBorrowedBooks.TabIndex = 4
+        Me.BtnBorrowedBooks.Text = "    BORROWED      THESIS"
+        Me.BtnBorrowedBooks.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnBorrowedBooks.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.BtnBorrowedBooks.UseVisualStyleBackColor = False
+        '
+        'BtnBorrower
+        '
+        Me.BtnBorrower.BackColor = System.Drawing.Color.Transparent
+        Me.BtnBorrower.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.BtnBorrower.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnBorrower.Dock = System.Windows.Forms.DockStyle.Top
+        Me.BtnBorrower.FlatAppearance.BorderSize = 0
+        Me.BtnBorrower.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnBorrower.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnBorrower.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.group
+        Me.BtnBorrower.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnBorrower.Location = New System.Drawing.Point(0, 114)
+        Me.BtnBorrower.Name = "BtnBorrower"
+        Me.BtnBorrower.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
+        Me.BtnBorrower.Size = New System.Drawing.Size(214, 114)
+        Me.BtnBorrower.TabIndex = 3
+        Me.BtnBorrower.Text = "    BORROWER"
+        Me.BtnBorrower.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.BtnBorrower.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.BtnBorrower.UseVisualStyleBackColor = False
+        '
+        'BtnBooks
+        '
+        Me.BtnBooks.BackColor = System.Drawing.Color.PowderBlue
+        Me.BtnBooks.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.BtnBooks.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnBooks.Dock = System.Windows.Forms.DockStyle.Top
+        Me.BtnBooks.FlatAppearance.BorderSize = 0
+        Me.BtnBooks.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnBooks.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnBooks.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.archive
+        Me.BtnBooks.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnBooks.Location = New System.Drawing.Point(0, 0)
+        Me.BtnBooks.Name = "BtnBooks"
+        Me.BtnBooks.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
+        Me.BtnBooks.Size = New System.Drawing.Size(214, 114)
+        Me.BtnBooks.TabIndex = 2
+        Me.BtnBooks.Text = "    THESIS"
+        Me.BtnBooks.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.BtnBooks.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.BtnBooks.UseVisualStyleBackColor = False
         '
         'TabControls
         '
@@ -469,6 +610,23 @@ Partial Class BorrowingAndReturning
         Me.TabPage1.Size = New System.Drawing.Size(1128, 600)
         Me.TabPage1.TabIndex = 0
         '
+        'BtnOpenThesisFltr
+        '
+        Me.BtnOpenThesisFltr.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnOpenThesisFltr.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnOpenThesisFltr.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnOpenThesisFltr.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnOpenThesisFltr.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.BtnOpenThesisFltr.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_filter_19
+        Me.BtnOpenThesisFltr.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnOpenThesisFltr.Location = New System.Drawing.Point(8, 12)
+        Me.BtnOpenThesisFltr.Name = "BtnOpenThesisFltr"
+        Me.BtnOpenThesisFltr.Size = New System.Drawing.Size(56, 21)
+        Me.BtnOpenThesisFltr.TabIndex = 53
+        Me.BtnOpenThesisFltr.Text = "Filter"
+        Me.BtnOpenThesisFltr.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.BtnOpenThesisFltr.UseVisualStyleBackColor = False
+        '
         'PnlThesisFltr
         '
         Me.PnlThesisFltr.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
@@ -485,6 +643,23 @@ Partial Class BorrowingAndReturning
         Me.PnlThesisFltr.Size = New System.Drawing.Size(323, 105)
         Me.PnlThesisFltr.TabIndex = 52
         Me.PnlThesisFltr.Visible = False
+        '
+        'BtnCloseThesisFltr
+        '
+        Me.BtnCloseThesisFltr.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnCloseThesisFltr.BackColor = System.Drawing.Color.Transparent
+        Me.BtnCloseThesisFltr.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnCloseThesisFltr.FlatAppearance.BorderSize = 0
+        Me.BtnCloseThesisFltr.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnCloseThesisFltr.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnCloseThesisFltr.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.BtnCloseThesisFltr.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_close_window_19
+        Me.BtnCloseThesisFltr.Location = New System.Drawing.Point(294, 6)
+        Me.BtnCloseThesisFltr.Name = "BtnCloseThesisFltr"
+        Me.BtnCloseThesisFltr.Size = New System.Drawing.Size(23, 19)
+        Me.BtnCloseThesisFltr.TabIndex = 50
+        Me.BtnCloseThesisFltr.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.BtnCloseThesisFltr.UseVisualStyleBackColor = False
         '
         'Label38
         '
@@ -507,6 +682,23 @@ Partial Class BorrowingAndReturning
         Me.Label37.TabIndex = 33
         Me.Label37.Text = "To"
         '
+        'BtnResetThesisFltr
+        '
+        Me.BtnResetThesisFltr.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnResetThesisFltr.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnResetThesisFltr.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnResetThesisFltr.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnResetThesisFltr.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnResetThesisFltr.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.BtnResetThesisFltr.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_filter_20__1_
+        Me.BtnResetThesisFltr.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnResetThesisFltr.Location = New System.Drawing.Point(215, 63)
+        Me.BtnResetThesisFltr.Name = "BtnResetThesisFltr"
+        Me.BtnResetThesisFltr.Size = New System.Drawing.Size(90, 23)
+        Me.BtnResetThesisFltr.TabIndex = 36
+        Me.BtnResetThesisFltr.Text = "Reset"
+        Me.BtnResetThesisFltr.UseVisualStyleBackColor = False
+        '
         'DtThesisTo
         '
         Me.DtThesisTo.Cursor = System.Windows.Forms.Cursors.Hand
@@ -526,6 +718,24 @@ Partial Class BorrowingAndReturning
         Me.Label36.TabIndex = 32
         Me.Label36.Text = "From"
         '
+        'BtnApplyThesisFltr
+        '
+        Me.BtnApplyThesisFltr.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnApplyThesisFltr.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnApplyThesisFltr.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnApplyThesisFltr.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnApplyThesisFltr.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnApplyThesisFltr.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.BtnApplyThesisFltr.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_filter_20
+        Me.BtnApplyThesisFltr.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnApplyThesisFltr.Location = New System.Drawing.Point(215, 34)
+        Me.BtnApplyThesisFltr.Name = "BtnApplyThesisFltr"
+        Me.BtnApplyThesisFltr.Size = New System.Drawing.Size(90, 23)
+        Me.BtnApplyThesisFltr.TabIndex = 35
+        Me.BtnApplyThesisFltr.Text = "Apply Filter"
+        Me.BtnApplyThesisFltr.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.BtnApplyThesisFltr.UseVisualStyleBackColor = False
+        '
         'DtThesisFrom
         '
         Me.DtThesisFrom.Cursor = System.Windows.Forms.Cursors.Hand
@@ -534,6 +744,41 @@ Partial Class BorrowingAndReturning
         Me.DtThesisFrom.Name = "DtThesisFrom"
         Me.DtThesisFrom.Size = New System.Drawing.Size(146, 22)
         Me.DtThesisFrom.TabIndex = 30
+        '
+        'BtnPrintBooksList
+        '
+        Me.BtnPrintBooksList.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnPrintBooksList.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnPrintBooksList.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnPrintBooksList.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnPrintBooksList.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnPrintBooksList.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.BtnPrintBooksList.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_print_19
+        Me.BtnPrintBooksList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnPrintBooksList.Location = New System.Drawing.Point(1008, 39)
+        Me.BtnPrintBooksList.Name = "BtnPrintBooksList"
+        Me.BtnPrintBooksList.Size = New System.Drawing.Size(110, 25)
+        Me.BtnPrintBooksList.TabIndex = 29
+        Me.BtnPrintBooksList.Text = "Print Thesis List"
+        Me.BtnPrintBooksList.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.BtnPrintBooksList.UseVisualStyleBackColor = False
+        '
+        'BtnSearchBooks
+        '
+        Me.BtnSearchBooks.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnSearchBooks.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnSearchBooks.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnSearchBooks.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnSearchBooks.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.BtnSearchBooks.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_search_13
+        Me.BtnSearchBooks.ImageAlign = System.Drawing.ContentAlignment.TopLeft
+        Me.BtnSearchBooks.Location = New System.Drawing.Point(242, 43)
+        Me.BtnSearchBooks.Name = "BtnSearchBooks"
+        Me.BtnSearchBooks.Size = New System.Drawing.Size(65, 21)
+        Me.BtnSearchBooks.TabIndex = 27
+        Me.BtnSearchBooks.Text = "Search"
+        Me.BtnSearchBooks.TextAlign = System.Drawing.ContentAlignment.TopRight
+        Me.BtnSearchBooks.UseVisualStyleBackColor = False
         '
         'TxtSearchBooks
         '
@@ -592,6 +837,56 @@ Partial Class BorrowingAndReturning
         Me.PnlAddingToBorrow.TabIndex = 3
         Me.PnlAddingToBorrow.Visible = False
         '
+        'BtnNext
+        '
+        Me.BtnNext.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnNext.BackColor = System.Drawing.Color.Transparent
+        Me.BtnNext.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnNext.Enabled = False
+        Me.BtnNext.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnNext.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_next_step_28
+        Me.BtnNext.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnNext.Location = New System.Drawing.Point(252, 331)
+        Me.BtnNext.Name = "BtnNext"
+        Me.BtnNext.Size = New System.Drawing.Size(190, 30)
+        Me.BtnNext.TabIndex = 29
+        Me.BtnNext.Text = "NEXT"
+        Me.BtnNext.UseVisualStyleBackColor = False
+        '
+        'BtnCancelAddedToBorrow
+        '
+        Me.BtnCancelAddedToBorrow.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnCancelAddedToBorrow.BackColor = System.Drawing.Color.Transparent
+        Me.BtnCancelAddedToBorrow.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnCancelAddedToBorrow.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnCancelAddedToBorrow.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_cancel_28
+        Me.BtnCancelAddedToBorrow.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnCancelAddedToBorrow.Location = New System.Drawing.Point(16, 331)
+        Me.BtnCancelAddedToBorrow.Name = "BtnCancelAddedToBorrow"
+        Me.BtnCancelAddedToBorrow.Size = New System.Drawing.Size(190, 30)
+        Me.BtnCancelAddedToBorrow.TabIndex = 28
+        Me.BtnCancelAddedToBorrow.Text = "CANCEL AND CLOSE"
+        Me.BtnCancelAddedToBorrow.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.BtnCancelAddedToBorrow.UseVisualStyleBackColor = False
+        '
+        'BtnRemoveTempInfo
+        '
+        Me.BtnRemoveTempInfo.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnRemoveTempInfo.BackColor = System.Drawing.Color.Transparent
+        Me.BtnRemoveTempInfo.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnRemoveTempInfo.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnRemoveTempInfo.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_remove_28
+        Me.BtnRemoveTempInfo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnRemoveTempInfo.Location = New System.Drawing.Point(252, 298)
+        Me.BtnRemoveTempInfo.Name = "BtnRemoveTempInfo"
+        Me.BtnRemoveTempInfo.Size = New System.Drawing.Size(190, 30)
+        Me.BtnRemoveTempInfo.TabIndex = 27
+        Me.BtnRemoveTempInfo.Text = "REMOVE"
+        Me.BtnRemoveTempInfo.UseVisualStyleBackColor = False
+        Me.BtnRemoveTempInfo.Visible = False
+        '
         'TxtToBorrowType
         '
         Me.TxtToBorrowType.BackColor = System.Drawing.Color.WhiteSmoke
@@ -612,6 +907,21 @@ Partial Class BorrowingAndReturning
         Me.Label18.Size = New System.Drawing.Size(43, 13)
         Me.Label18.TabIndex = 25
         Me.Label18.Text = "Type :"
+        '
+        'Button7
+        '
+        Me.Button7.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button7.BackColor = System.Drawing.Color.Transparent
+        Me.Button7.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Button7.FlatAppearance.BorderSize = 0
+        Me.Button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button7.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button7.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_close_window_19
+        Me.Button7.Location = New System.Drawing.Point(427, 6)
+        Me.Button7.Name = "Button7"
+        Me.Button7.Size = New System.Drawing.Size(23, 21)
+        Me.Button7.TabIndex = 24
+        Me.Button7.UseVisualStyleBackColor = False
         '
         'TxtBookId
         '
@@ -714,6 +1024,22 @@ Partial Class BorrowingAndReturning
         Me.DataGridViewTextBoxColumn6.MinimumWidth = 400
         Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
         Me.DataGridViewTextBoxColumn6.ReadOnly = True
+        '
+        'AddToBorrow
+        '
+        Me.AddToBorrow.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.AddToBorrow.BackColor = System.Drawing.Color.Transparent
+        Me.AddToBorrow.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.AddToBorrow.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.AddToBorrow.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_books_28
+        Me.AddToBorrow.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.AddToBorrow.Location = New System.Drawing.Point(16, 297)
+        Me.AddToBorrow.Name = "AddToBorrow"
+        Me.AddToBorrow.Size = New System.Drawing.Size(190, 30)
+        Me.AddToBorrow.TabIndex = 2
+        Me.AddToBorrow.Text = "ADD TO BORROW"
+        Me.AddToBorrow.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.AddToBorrow.UseVisualStyleBackColor = False
         '
         'DgvBooks
         '
@@ -845,6 +1171,41 @@ Partial Class BorrowingAndReturning
         Me.TabPage2.Size = New System.Drawing.Size(1128, 600)
         Me.TabPage2.TabIndex = 1
         '
+        'BtnResendQr
+        '
+        Me.BtnResendQr.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnResendQr.BackColor = System.Drawing.Color.Transparent
+        Me.BtnResendQr.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnResendQr.Enabled = False
+        Me.BtnResendQr.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnResendQr.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_qr_code_38
+        Me.BtnResendQr.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnResendQr.Location = New System.Drawing.Point(285, 552)
+        Me.BtnResendQr.Name = "BtnResendQr"
+        Me.BtnResendQr.Size = New System.Drawing.Size(206, 42)
+        Me.BtnResendQr.TabIndex = 31
+        Me.BtnResendQr.Text = "RESEND QR CODE ID"
+        Me.BtnResendQr.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.BtnResendQr.UseVisualStyleBackColor = False
+        '
+        'Button2
+        '
+        Me.Button2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button2.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.Button2.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.Button2.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_print_19
+        Me.Button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button2.Location = New System.Drawing.Point(1024, 27)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(96, 24)
+        Me.Button2.TabIndex = 30
+        Me.Button2.Text = "Print Record"
+        Me.Button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Button2.UseVisualStyleBackColor = False
+        '
         'TxtSearchBorrowers
         '
         Me.TxtSearchBorrowers.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -948,6 +1309,73 @@ Partial Class BorrowingAndReturning
         Me.Column51.ReadOnly = True
         Me.Column51.Width = 130
         '
+        'BtnEditBorrower
+        '
+        Me.BtnEditBorrower.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnEditBorrower.BackColor = System.Drawing.Color.Transparent
+        Me.BtnEditBorrower.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnEditBorrower.Enabled = False
+        Me.BtnEditBorrower.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnEditBorrower.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_group_38__1_
+        Me.BtnEditBorrower.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnEditBorrower.Location = New System.Drawing.Point(710, 552)
+        Me.BtnEditBorrower.Name = "BtnEditBorrower"
+        Me.BtnEditBorrower.Size = New System.Drawing.Size(193, 42)
+        Me.BtnEditBorrower.TabIndex = 4
+        Me.BtnEditBorrower.Text = "EDIT INFORMATION"
+        Me.BtnEditBorrower.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.BtnEditBorrower.UseVisualStyleBackColor = False
+        '
+        'BtnDeleteBorrower
+        '
+        Me.BtnDeleteBorrower.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnDeleteBorrower.BackColor = System.Drawing.Color.Transparent
+        Me.BtnDeleteBorrower.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnDeleteBorrower.Enabled = False
+        Me.BtnDeleteBorrower.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnDeleteBorrower.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_group_38__2_
+        Me.BtnDeleteBorrower.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnDeleteBorrower.Location = New System.Drawing.Point(916, 552)
+        Me.BtnDeleteBorrower.Name = "BtnDeleteBorrower"
+        Me.BtnDeleteBorrower.Size = New System.Drawing.Size(206, 42)
+        Me.BtnDeleteBorrower.TabIndex = 3
+        Me.BtnDeleteBorrower.Text = "DELETE BORROWER"
+        Me.BtnDeleteBorrower.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.BtnDeleteBorrower.UseVisualStyleBackColor = False
+        '
+        'BtnGoToAddingBorrower
+        '
+        Me.BtnGoToAddingBorrower.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnGoToAddingBorrower.BackColor = System.Drawing.Color.Transparent
+        Me.BtnGoToAddingBorrower.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnGoToAddingBorrower.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnGoToAddingBorrower.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_group_38
+        Me.BtnGoToAddingBorrower.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnGoToAddingBorrower.Location = New System.Drawing.Point(504, 552)
+        Me.BtnGoToAddingBorrower.Name = "BtnGoToAddingBorrower"
+        Me.BtnGoToAddingBorrower.Size = New System.Drawing.Size(191, 42)
+        Me.BtnGoToAddingBorrower.TabIndex = 2
+        Me.BtnGoToAddingBorrower.Text = "ADD BORROWERS"
+        Me.BtnGoToAddingBorrower.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.BtnGoToAddingBorrower.UseVisualStyleBackColor = False
+        '
+        'BtnSearchBorrowers
+        '
+        Me.BtnSearchBorrowers.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnSearchBorrowers.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnSearchBorrowers.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnSearchBorrowers.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnSearchBorrowers.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.BtnSearchBorrowers.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_search_13
+        Me.BtnSearchBorrowers.ImageAlign = System.Drawing.ContentAlignment.TopLeft
+        Me.BtnSearchBorrowers.Location = New System.Drawing.Point(243, 30)
+        Me.BtnSearchBorrowers.Name = "BtnSearchBorrowers"
+        Me.BtnSearchBorrowers.Size = New System.Drawing.Size(65, 21)
+        Me.BtnSearchBorrowers.TabIndex = 29
+        Me.BtnSearchBorrowers.Text = "Search"
+        Me.BtnSearchBorrowers.TextAlign = System.Drawing.ContentAlignment.TopRight
+        Me.BtnSearchBorrowers.UseVisualStyleBackColor = False
+        '
         'Label27
         '
         Me.Label27.BackColor = System.Drawing.SystemColors.ActiveCaption
@@ -998,6 +1426,41 @@ Partial Class BorrowingAndReturning
         Me.PanelCancelled.TabIndex = 5
         Me.PanelCancelled.Visible = False
         '
+        'BtnPrintCancelled
+        '
+        Me.BtnPrintCancelled.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnPrintCancelled.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnPrintCancelled.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnPrintCancelled.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnPrintCancelled.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnPrintCancelled.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.BtnPrintCancelled.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_print_19
+        Me.BtnPrintCancelled.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnPrintCancelled.Location = New System.Drawing.Point(977, 45)
+        Me.BtnPrintCancelled.Name = "BtnPrintCancelled"
+        Me.BtnPrintCancelled.Size = New System.Drawing.Size(145, 24)
+        Me.BtnPrintCancelled.TabIndex = 34
+        Me.BtnPrintCancelled.Text = "Print Cancelled Record"
+        Me.BtnPrintCancelled.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.BtnPrintCancelled.UseVisualStyleBackColor = False
+        '
+        'BtnSearchCancel
+        '
+        Me.BtnSearchCancel.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnSearchCancel.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnSearchCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnSearchCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnSearchCancel.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.BtnSearchCancel.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_search_13
+        Me.BtnSearchCancel.ImageAlign = System.Drawing.ContentAlignment.TopLeft
+        Me.BtnSearchCancel.Location = New System.Drawing.Point(237, 48)
+        Me.BtnSearchCancel.Name = "BtnSearchCancel"
+        Me.BtnSearchCancel.Size = New System.Drawing.Size(65, 21)
+        Me.BtnSearchCancel.TabIndex = 31
+        Me.BtnSearchCancel.Text = "Search"
+        Me.BtnSearchCancel.TextAlign = System.Drawing.ContentAlignment.TopRight
+        Me.BtnSearchCancel.UseVisualStyleBackColor = False
+        '
         'TxtsearchCancel
         '
         Me.TxtsearchCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -1007,19 +1470,6 @@ Partial Class BorrowingAndReturning
         Me.TxtsearchCancel.Size = New System.Drawing.Size(226, 21)
         Me.TxtsearchCancel.TabIndex = 30
         Me.TxtsearchCancel.Text = "Search IDs, Title Etc."
-        '
-        'Label20
-        '
-        Me.Label20.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.Label20.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Label20.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label20.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.Label20.Location = New System.Drawing.Point(0, 0)
-        Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(1128, 74)
-        Me.Label20.TabIndex = 19
-        Me.Label20.Text = "CANCELLED"
-        Me.Label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'DgvCancelledBorrow
         '
@@ -1181,6 +1631,33 @@ Partial Class BorrowingAndReturning
         Me.Column40.Visible = False
         Me.Column40.Width = 65
         '
+        'BtnReturn
+        '
+        Me.BtnReturn.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnReturn.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnReturn.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnReturn.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_return_38
+        Me.BtnReturn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnReturn.Location = New System.Drawing.Point(506, 539)
+        Me.BtnReturn.Name = "BtnReturn"
+        Me.BtnReturn.Size = New System.Drawing.Size(129, 44)
+        Me.BtnReturn.TabIndex = 20
+        Me.BtnReturn.Text = "BACK"
+        Me.BtnReturn.UseVisualStyleBackColor = True
+        '
+        'Label20
+        '
+        Me.Label20.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.Label20.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Label20.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label20.ForeColor = System.Drawing.SystemColors.HotTrack
+        Me.Label20.Location = New System.Drawing.Point(0, 0)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(1128, 74)
+        Me.Label20.TabIndex = 19
+        Me.Label20.Text = "CANCELLED"
+        Me.Label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'PnlFilterBorrowed
         '
         Me.PnlFilterBorrowed.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
@@ -1197,6 +1674,41 @@ Partial Class BorrowingAndReturning
         Me.PnlFilterBorrowed.Size = New System.Drawing.Size(317, 105)
         Me.PnlFilterBorrowed.TabIndex = 49
         Me.PnlFilterBorrowed.Visible = False
+        '
+        'BtnCloseBorrowedFltr
+        '
+        Me.BtnCloseBorrowedFltr.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnCloseBorrowedFltr.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnCloseBorrowedFltr.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnCloseBorrowedFltr.FlatAppearance.BorderSize = 0
+        Me.BtnCloseBorrowedFltr.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnCloseBorrowedFltr.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnCloseBorrowedFltr.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.BtnCloseBorrowedFltr.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_close_window_19
+        Me.BtnCloseBorrowedFltr.Location = New System.Drawing.Point(288, 6)
+        Me.BtnCloseBorrowedFltr.Name = "BtnCloseBorrowedFltr"
+        Me.BtnCloseBorrowedFltr.Size = New System.Drawing.Size(20, 20)
+        Me.BtnCloseBorrowedFltr.TabIndex = 50
+        Me.BtnCloseBorrowedFltr.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.BtnCloseBorrowedFltr.UseVisualStyleBackColor = False
+        '
+        'BtnApplyBorrowedFltr
+        '
+        Me.BtnApplyBorrowedFltr.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnApplyBorrowedFltr.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnApplyBorrowedFltr.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnApplyBorrowedFltr.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnApplyBorrowedFltr.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnApplyBorrowedFltr.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.BtnApplyBorrowedFltr.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_filter_20
+        Me.BtnApplyBorrowedFltr.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnApplyBorrowedFltr.Location = New System.Drawing.Point(209, 35)
+        Me.BtnApplyBorrowedFltr.Name = "BtnApplyBorrowedFltr"
+        Me.BtnApplyBorrowedFltr.Size = New System.Drawing.Size(90, 23)
+        Me.BtnApplyBorrowedFltr.TabIndex = 47
+        Me.BtnApplyBorrowedFltr.Text = "Apply Filter"
+        Me.BtnApplyBorrowedFltr.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.BtnApplyBorrowedFltr.UseVisualStyleBackColor = False
         '
         'Label39
         '
@@ -1237,6 +1749,24 @@ Partial Class BorrowingAndReturning
         Me.Label41.Size = New System.Drawing.Size(39, 16)
         Me.Label41.TabIndex = 44
         Me.Label41.Text = "From"
+        '
+        'BtnResetBorrowedFltr
+        '
+        Me.BtnResetBorrowedFltr.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnResetBorrowedFltr.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnResetBorrowedFltr.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnResetBorrowedFltr.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnResetBorrowedFltr.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnResetBorrowedFltr.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.BtnResetBorrowedFltr.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_filter_20__1_
+        Me.BtnResetBorrowedFltr.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnResetBorrowedFltr.Location = New System.Drawing.Point(209, 67)
+        Me.BtnResetBorrowedFltr.Name = "BtnResetBorrowedFltr"
+        Me.BtnResetBorrowedFltr.Size = New System.Drawing.Size(90, 23)
+        Me.BtnResetBorrowedFltr.TabIndex = 49
+        Me.BtnResetBorrowedFltr.Text = "Reset"
+        Me.BtnResetBorrowedFltr.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.BtnResetBorrowedFltr.UseVisualStyleBackColor = False
         '
         'DtBorrowedTo
         '
@@ -1462,6 +1992,105 @@ Partial Class BorrowingAndReturning
         Me.Button10.Text = "Reset"
         Me.Button10.UseVisualStyleBackColor = False
         '
+        'BtnCancelBorrow
+        '
+        Me.BtnCancelBorrow.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnCancelBorrow.BackColor = System.Drawing.Color.Transparent
+        Me.BtnCancelBorrow.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnCancelBorrow.Enabled = False
+        Me.BtnCancelBorrow.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnCancelBorrow.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_books_40__1_
+        Me.BtnCancelBorrow.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnCancelBorrow.Location = New System.Drawing.Point(726, 540)
+        Me.BtnCancelBorrow.Name = "BtnCancelBorrow"
+        Me.BtnCancelBorrow.Size = New System.Drawing.Size(206, 44)
+        Me.BtnCancelBorrow.TabIndex = 4
+        Me.BtnCancelBorrow.Text = "CANCEL"
+        Me.BtnCancelBorrow.UseVisualStyleBackColor = False
+        '
+        'Button1
+        '
+        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button1.BackColor = System.Drawing.Color.Transparent
+        Me.Button1.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_eye_40
+        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button1.Location = New System.Drawing.Point(948, 540)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(177, 43)
+        Me.Button1.TabIndex = 21
+        Me.Button1.Text = "VIEW CANCELLED"
+        Me.Button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Button1.UseVisualStyleBackColor = False
+        '
+        'BtnReturnBooks
+        '
+        Me.BtnReturnBooks.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnReturnBooks.BackColor = System.Drawing.Color.Transparent
+        Me.BtnReturnBooks.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnReturnBooks.Enabled = False
+        Me.BtnReturnBooks.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnReturnBooks.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_books_40
+        Me.BtnReturnBooks.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnReturnBooks.Location = New System.Drawing.Point(504, 540)
+        Me.BtnReturnBooks.Name = "BtnReturnBooks"
+        Me.BtnReturnBooks.Size = New System.Drawing.Size(206, 44)
+        Me.BtnReturnBooks.TabIndex = 24
+        Me.BtnReturnBooks.Text = "RETURN"
+        Me.BtnReturnBooks.UseVisualStyleBackColor = False
+        '
+        'BtnOpenBorrowedFltr
+        '
+        Me.BtnOpenBorrowedFltr.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnOpenBorrowedFltr.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnOpenBorrowedFltr.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnOpenBorrowedFltr.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnOpenBorrowedFltr.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.BtnOpenBorrowedFltr.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_filter_19
+        Me.BtnOpenBorrowedFltr.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnOpenBorrowedFltr.Location = New System.Drawing.Point(6, 7)
+        Me.BtnOpenBorrowedFltr.Name = "BtnOpenBorrowedFltr"
+        Me.BtnOpenBorrowedFltr.Size = New System.Drawing.Size(57, 21)
+        Me.BtnOpenBorrowedFltr.TabIndex = 51
+        Me.BtnOpenBorrowedFltr.Text = "Filter"
+        Me.BtnOpenBorrowedFltr.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.BtnOpenBorrowedFltr.UseVisualStyleBackColor = False
+        '
+        'BtnPrintBorrowed
+        '
+        Me.BtnPrintBorrowed.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnPrintBorrowed.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnPrintBorrowed.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnPrintBorrowed.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnPrintBorrowed.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnPrintBorrowed.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.BtnPrintBorrowed.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_print_19
+        Me.BtnPrintBorrowed.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnPrintBorrowed.Location = New System.Drawing.Point(985, 50)
+        Me.BtnPrintBorrowed.Name = "BtnPrintBorrowed"
+        Me.BtnPrintBorrowed.Size = New System.Drawing.Size(138, 24)
+        Me.BtnPrintBorrowed.TabIndex = 34
+        Me.BtnPrintBorrowed.Text = " Print Borrowed Thesis"
+        Me.BtnPrintBorrowed.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.BtnPrintBorrowed.UseVisualStyleBackColor = False
+        '
+        'BtnSearchBorrowed
+        '
+        Me.BtnSearchBorrowed.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnSearchBorrowed.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnSearchBorrowed.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnSearchBorrowed.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.BtnSearchBorrowed.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_search_13
+        Me.BtnSearchBorrowed.ImageAlign = System.Drawing.ContentAlignment.TopLeft
+        Me.BtnSearchBorrowed.Location = New System.Drawing.Point(237, 50)
+        Me.BtnSearchBorrowed.Name = "BtnSearchBorrowed"
+        Me.BtnSearchBorrowed.Size = New System.Drawing.Size(65, 21)
+        Me.BtnSearchBorrowed.TabIndex = 33
+        Me.BtnSearchBorrowed.Text = "Search"
+        Me.BtnSearchBorrowed.TextAlign = System.Drawing.ContentAlignment.TopRight
+        Me.BtnSearchBorrowed.UseVisualStyleBackColor = False
+        '
         'Label21
         '
         Me.Label21.BackColor = System.Drawing.SystemColors.ActiveCaption
@@ -1491,6 +2120,23 @@ Partial Class BorrowingAndReturning
         Me.TabPage4.TabIndex = 3
         Me.TabPage4.UseVisualStyleBackColor = True
         '
+        'BtnOpenRetFltr
+        '
+        Me.BtnOpenRetFltr.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnOpenRetFltr.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnOpenRetFltr.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnOpenRetFltr.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnOpenRetFltr.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.BtnOpenRetFltr.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_filter_19
+        Me.BtnOpenRetFltr.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnOpenRetFltr.Location = New System.Drawing.Point(5, 5)
+        Me.BtnOpenRetFltr.Name = "BtnOpenRetFltr"
+        Me.BtnOpenRetFltr.Size = New System.Drawing.Size(55, 21)
+        Me.BtnOpenRetFltr.TabIndex = 55
+        Me.BtnOpenRetFltr.Text = "Filter"
+        Me.BtnOpenRetFltr.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.BtnOpenRetFltr.UseVisualStyleBackColor = False
+        '
         'PnlRetFltr
         '
         Me.PnlRetFltr.BackColor = System.Drawing.SystemColors.ButtonFace
@@ -1509,6 +2155,23 @@ Partial Class BorrowingAndReturning
         Me.PnlRetFltr.TabIndex = 54
         Me.PnlRetFltr.Visible = False
         '
+        'BtnCloseRefFiltr
+        '
+        Me.BtnCloseRefFiltr.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnCloseRefFiltr.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnCloseRefFiltr.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnCloseRefFiltr.FlatAppearance.BorderSize = 0
+        Me.BtnCloseRefFiltr.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnCloseRefFiltr.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnCloseRefFiltr.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.BtnCloseRefFiltr.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_close_window_19
+        Me.BtnCloseRefFiltr.Location = New System.Drawing.Point(288, 6)
+        Me.BtnCloseRefFiltr.Name = "BtnCloseRefFiltr"
+        Me.BtnCloseRefFiltr.Size = New System.Drawing.Size(20, 20)
+        Me.BtnCloseRefFiltr.TabIndex = 50
+        Me.BtnCloseRefFiltr.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.BtnCloseRefFiltr.UseVisualStyleBackColor = False
+        '
         'Label48
         '
         Me.Label48.AutoSize = True
@@ -1520,6 +2183,23 @@ Partial Class BorrowingAndReturning
         Me.Label48.TabIndex = 34
         Me.Label48.Text = "Filter by Returned Date :"
         '
+        'BtnResetRetFltr
+        '
+        Me.BtnResetRetFltr.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnResetRetFltr.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnResetRetFltr.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnResetRetFltr.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnResetRetFltr.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnResetRetFltr.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.BtnResetRetFltr.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_filter_20__1_
+        Me.BtnResetRetFltr.ImageAlign = System.Drawing.ContentAlignment.TopLeft
+        Me.BtnResetRetFltr.Location = New System.Drawing.Point(218, 63)
+        Me.BtnResetRetFltr.Name = "BtnResetRetFltr"
+        Me.BtnResetRetFltr.Size = New System.Drawing.Size(90, 23)
+        Me.BtnResetRetFltr.TabIndex = 45
+        Me.BtnResetRetFltr.Text = "Reset"
+        Me.BtnResetRetFltr.UseVisualStyleBackColor = False
+        '
         'Label49
         '
         Me.Label49.AutoSize = True
@@ -1529,6 +2209,24 @@ Partial Class BorrowingAndReturning
         Me.Label49.Size = New System.Drawing.Size(25, 16)
         Me.Label49.TabIndex = 33
         Me.Label49.Text = "To"
+        '
+        'BtnApplyRetFltr
+        '
+        Me.BtnApplyRetFltr.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnApplyRetFltr.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnApplyRetFltr.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnApplyRetFltr.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnApplyRetFltr.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnApplyRetFltr.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.BtnApplyRetFltr.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_filter_20
+        Me.BtnApplyRetFltr.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnApplyRetFltr.Location = New System.Drawing.Point(218, 34)
+        Me.BtnApplyRetFltr.Name = "BtnApplyRetFltr"
+        Me.BtnApplyRetFltr.Size = New System.Drawing.Size(90, 23)
+        Me.BtnApplyRetFltr.TabIndex = 44
+        Me.BtnApplyRetFltr.Text = "Apply Filter"
+        Me.BtnApplyRetFltr.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.BtnApplyRetFltr.UseVisualStyleBackColor = False
         '
         'Label50
         '
@@ -1784,6 +2482,40 @@ Partial Class BorrowingAndReturning
         Me.Column42.Visible = False
         Me.Column42.Width = 79
         '
+        'BtnPrintReturned
+        '
+        Me.BtnPrintReturned.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnPrintReturned.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnPrintReturned.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnPrintReturned.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnPrintReturned.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnPrintReturned.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.BtnPrintReturned.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_print_19
+        Me.BtnPrintReturned.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnPrintReturned.Location = New System.Drawing.Point(983, 45)
+        Me.BtnPrintReturned.Name = "BtnPrintReturned"
+        Me.BtnPrintReturned.Size = New System.Drawing.Size(142, 24)
+        Me.BtnPrintReturned.TabIndex = 36
+        Me.BtnPrintReturned.Text = "Print Returned Record"
+        Me.BtnPrintReturned.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.BtnPrintReturned.UseVisualStyleBackColor = False
+        '
+        'BtnSearchReturned
+        '
+        Me.BtnSearchReturned.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnSearchReturned.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnSearchReturned.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnSearchReturned.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.BtnSearchReturned.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_search_13
+        Me.BtnSearchReturned.ImageAlign = System.Drawing.ContentAlignment.TopLeft
+        Me.BtnSearchReturned.Location = New System.Drawing.Point(239, 46)
+        Me.BtnSearchReturned.Name = "BtnSearchReturned"
+        Me.BtnSearchReturned.Size = New System.Drawing.Size(65, 21)
+        Me.BtnSearchReturned.TabIndex = 35
+        Me.BtnSearchReturned.Text = "Search"
+        Me.BtnSearchReturned.TextAlign = System.Drawing.ContentAlignment.TopRight
+        Me.BtnSearchReturned.UseVisualStyleBackColor = False
+        '
         'Label28
         '
         Me.Label28.BackColor = System.Drawing.SystemColors.ActiveCaption
@@ -1812,6 +2544,23 @@ Partial Class BorrowingAndReturning
         Me.TabPage5.Size = New System.Drawing.Size(1128, 600)
         Me.TabPage5.TabIndex = 4
         '
+        'BtnOvrdOpenFltr
+        '
+        Me.BtnOvrdOpenFltr.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnOvrdOpenFltr.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnOvrdOpenFltr.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnOvrdOpenFltr.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnOvrdOpenFltr.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.BtnOvrdOpenFltr.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_filter_19
+        Me.BtnOvrdOpenFltr.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnOvrdOpenFltr.Location = New System.Drawing.Point(6, 7)
+        Me.BtnOvrdOpenFltr.Name = "BtnOvrdOpenFltr"
+        Me.BtnOvrdOpenFltr.Size = New System.Drawing.Size(55, 21)
+        Me.BtnOvrdOpenFltr.TabIndex = 57
+        Me.BtnOvrdOpenFltr.Text = "Filter"
+        Me.BtnOvrdOpenFltr.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.BtnOvrdOpenFltr.UseVisualStyleBackColor = False
+        '
         'PnlOvrdFltr
         '
         Me.PnlOvrdFltr.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
@@ -1829,6 +2578,23 @@ Partial Class BorrowingAndReturning
         Me.PnlOvrdFltr.TabIndex = 56
         Me.PnlOvrdFltr.Visible = False
         '
+        'BtnOvrdCloseFltr
+        '
+        Me.BtnOvrdCloseFltr.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnOvrdCloseFltr.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnOvrdCloseFltr.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnOvrdCloseFltr.FlatAppearance.BorderSize = 0
+        Me.BtnOvrdCloseFltr.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnOvrdCloseFltr.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnOvrdCloseFltr.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.BtnOvrdCloseFltr.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_close_window_19
+        Me.BtnOvrdCloseFltr.Location = New System.Drawing.Point(288, 6)
+        Me.BtnOvrdCloseFltr.Name = "BtnOvrdCloseFltr"
+        Me.BtnOvrdCloseFltr.Size = New System.Drawing.Size(20, 20)
+        Me.BtnOvrdCloseFltr.TabIndex = 50
+        Me.BtnOvrdCloseFltr.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.BtnOvrdCloseFltr.UseVisualStyleBackColor = False
+        '
         'Label42
         '
         Me.Label42.AutoSize = True
@@ -1840,6 +2606,24 @@ Partial Class BorrowingAndReturning
         Me.Label42.TabIndex = 34
         Me.Label42.Text = "Filter by Due Date :"
         '
+        'BtnOvrdResetFltr
+        '
+        Me.BtnOvrdResetFltr.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnOvrdResetFltr.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnOvrdResetFltr.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnOvrdResetFltr.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnOvrdResetFltr.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnOvrdResetFltr.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.BtnOvrdResetFltr.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_filter_20__1_
+        Me.BtnOvrdResetFltr.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnOvrdResetFltr.Location = New System.Drawing.Point(204, 65)
+        Me.BtnOvrdResetFltr.Name = "BtnOvrdResetFltr"
+        Me.BtnOvrdResetFltr.Size = New System.Drawing.Size(90, 23)
+        Me.BtnOvrdResetFltr.TabIndex = 42
+        Me.BtnOvrdResetFltr.Text = "Reset"
+        Me.BtnOvrdResetFltr.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.BtnOvrdResetFltr.UseVisualStyleBackColor = False
+        '
         'Label43
         '
         Me.Label43.AutoSize = True
@@ -1849,6 +2633,24 @@ Partial Class BorrowingAndReturning
         Me.Label43.Size = New System.Drawing.Size(25, 16)
         Me.Label43.TabIndex = 33
         Me.Label43.Text = "To"
+        '
+        'BtnOvrdApplyFltr
+        '
+        Me.BtnOvrdApplyFltr.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnOvrdApplyFltr.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnOvrdApplyFltr.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnOvrdApplyFltr.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnOvrdApplyFltr.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnOvrdApplyFltr.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.BtnOvrdApplyFltr.Image = CType(resources.GetObject("BtnOvrdApplyFltr.Image"), System.Drawing.Image)
+        Me.BtnOvrdApplyFltr.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnOvrdApplyFltr.Location = New System.Drawing.Point(204, 34)
+        Me.BtnOvrdApplyFltr.Name = "BtnOvrdApplyFltr"
+        Me.BtnOvrdApplyFltr.Size = New System.Drawing.Size(90, 23)
+        Me.BtnOvrdApplyFltr.TabIndex = 41
+        Me.BtnOvrdApplyFltr.Text = "Apply Filter"
+        Me.BtnOvrdApplyFltr.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.BtnOvrdApplyFltr.UseVisualStyleBackColor = False
         '
         'Label44
         '
@@ -2030,6 +2832,41 @@ Partial Class BorrowingAndReturning
         Me.Column47.ReadOnly = True
         Me.Column47.Width = 140
         '
+        'BtnPrintOverdue
+        '
+        Me.BtnPrintOverdue.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnPrintOverdue.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnPrintOverdue.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnPrintOverdue.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnPrintOverdue.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnPrintOverdue.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.BtnPrintOverdue.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_print_19
+        Me.BtnPrintOverdue.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnPrintOverdue.Location = New System.Drawing.Point(985, 47)
+        Me.BtnPrintOverdue.Name = "BtnPrintOverdue"
+        Me.BtnPrintOverdue.Size = New System.Drawing.Size(136, 24)
+        Me.BtnPrintOverdue.TabIndex = 32
+        Me.BtnPrintOverdue.Text = "Print Overdue Thesis"
+        Me.BtnPrintOverdue.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.BtnPrintOverdue.UseVisualStyleBackColor = False
+        '
+        'BtnSearchOverdue
+        '
+        Me.BtnSearchOverdue.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnSearchOverdue.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnSearchOverdue.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnSearchOverdue.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnSearchOverdue.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.BtnSearchOverdue.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_search_13
+        Me.BtnSearchOverdue.ImageAlign = System.Drawing.ContentAlignment.TopLeft
+        Me.BtnSearchOverdue.Location = New System.Drawing.Point(239, 46)
+        Me.BtnSearchOverdue.Name = "BtnSearchOverdue"
+        Me.BtnSearchOverdue.Size = New System.Drawing.Size(65, 21)
+        Me.BtnSearchOverdue.TabIndex = 31
+        Me.BtnSearchOverdue.Text = "Search"
+        Me.BtnSearchOverdue.TextAlign = System.Drawing.ContentAlignment.TopRight
+        Me.BtnSearchOverdue.UseVisualStyleBackColor = False
+        '
         'Label29
         '
         Me.Label29.BackColor = System.Drawing.SystemColors.ActiveCaption
@@ -2086,6 +2923,36 @@ Partial Class BorrowingAndReturning
         Me.BtnRemoveToBorrow.TextAlign = System.Drawing.ContentAlignment.TopCenter
         Me.BtnRemoveToBorrow.UseVisualStyleBackColor = False
         Me.BtnRemoveToBorrow.Visible = False
+        '
+        'BtnCancelBorrowingTrans
+        '
+        Me.BtnCancelBorrowingTrans.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.BtnCancelBorrowingTrans.BackColor = System.Drawing.Color.Transparent
+        Me.BtnCancelBorrowingTrans.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnCancelBorrowingTrans.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnCancelBorrowingTrans.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_cancel_30
+        Me.BtnCancelBorrowingTrans.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnCancelBorrowingTrans.Location = New System.Drawing.Point(603, 541)
+        Me.BtnCancelBorrowingTrans.Name = "BtnCancelBorrowingTrans"
+        Me.BtnCancelBorrowingTrans.Size = New System.Drawing.Size(167, 33)
+        Me.BtnCancelBorrowingTrans.TabIndex = 2
+        Me.BtnCancelBorrowingTrans.Text = "CANCEL"
+        Me.BtnCancelBorrowingTrans.UseVisualStyleBackColor = False
+        '
+        'BtnConfirm
+        '
+        Me.BtnConfirm.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.BtnConfirm.BackColor = System.Drawing.Color.Transparent
+        Me.BtnConfirm.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnConfirm.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnConfirm.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_check_30__1_
+        Me.BtnConfirm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnConfirm.Location = New System.Drawing.Point(332, 541)
+        Me.BtnConfirm.Name = "BtnConfirm"
+        Me.BtnConfirm.Size = New System.Drawing.Size(185, 33)
+        Me.BtnConfirm.TabIndex = 3
+        Me.BtnConfirm.Text = "CONFIRM"
+        Me.BtnConfirm.UseVisualStyleBackColor = False
         '
         'GroupBox2
         '
@@ -2273,6 +3140,14 @@ Partial Class BorrowingAndReturning
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Borrower's Information :"
         '
+        'Label45
+        '
+        Me.Label45.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_qr_code_35
+        Me.Label45.Location = New System.Drawing.Point(321, 127)
+        Me.Label45.Name = "Label45"
+        Me.Label45.Size = New System.Drawing.Size(47, 35)
+        Me.Label45.TabIndex = 18
+        '
         'Label34
         '
         Me.Label34.AutoSize = True
@@ -2459,6 +3334,54 @@ Partial Class BorrowingAndReturning
         Me.Panel4.Name = "Panel4"
         Me.Panel4.Size = New System.Drawing.Size(652, 433)
         Me.Panel4.TabIndex = 0
+        '
+        'BtnUpdateBorDetails
+        '
+        Me.BtnUpdateBorDetails.Anchor = System.Windows.Forms.AnchorStyles.Bottom
+        Me.BtnUpdateBorDetails.BackColor = System.Drawing.Color.Transparent
+        Me.BtnUpdateBorDetails.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnUpdateBorDetails.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnUpdateBorDetails.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_update_28
+        Me.BtnUpdateBorDetails.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnUpdateBorDetails.Location = New System.Drawing.Point(203, 378)
+        Me.BtnUpdateBorDetails.Name = "BtnUpdateBorDetails"
+        Me.BtnUpdateBorDetails.Size = New System.Drawing.Size(117, 36)
+        Me.BtnUpdateBorDetails.TabIndex = 21
+        Me.BtnUpdateBorDetails.Text = "UPDATE"
+        Me.BtnUpdateBorDetails.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.BtnUpdateBorDetails.UseVisualStyleBackColor = False
+        Me.BtnUpdateBorDetails.Visible = False
+        '
+        'BtnCancelAddingBorrower
+        '
+        Me.BtnCancelAddingBorrower.Anchor = System.Windows.Forms.AnchorStyles.Bottom
+        Me.BtnCancelAddingBorrower.BackColor = System.Drawing.Color.Transparent
+        Me.BtnCancelAddingBorrower.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnCancelAddingBorrower.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnCancelAddingBorrower.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_cancel_28
+        Me.BtnCancelAddingBorrower.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnCancelAddingBorrower.Location = New System.Drawing.Point(335, 378)
+        Me.BtnCancelAddingBorrower.Name = "BtnCancelAddingBorrower"
+        Me.BtnCancelAddingBorrower.Size = New System.Drawing.Size(117, 36)
+        Me.BtnCancelAddingBorrower.TabIndex = 20
+        Me.BtnCancelAddingBorrower.Text = "CANCEL"
+        Me.BtnCancelAddingBorrower.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.BtnCancelAddingBorrower.UseVisualStyleBackColor = False
+        '
+        'BtnAddBorrowerInfo
+        '
+        Me.BtnAddBorrowerInfo.Anchor = System.Windows.Forms.AnchorStyles.Bottom
+        Me.BtnAddBorrowerInfo.BackColor = System.Drawing.Color.Transparent
+        Me.BtnAddBorrowerInfo.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnAddBorrowerInfo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnAddBorrowerInfo.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_add_28
+        Me.BtnAddBorrowerInfo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnAddBorrowerInfo.Location = New System.Drawing.Point(203, 378)
+        Me.BtnAddBorrowerInfo.Name = "BtnAddBorrowerInfo"
+        Me.BtnAddBorrowerInfo.Size = New System.Drawing.Size(117, 36)
+        Me.BtnAddBorrowerInfo.TabIndex = 19
+        Me.BtnAddBorrowerInfo.Text = "ADD"
+        Me.BtnAddBorrowerInfo.UseVisualStyleBackColor = False
         '
         'Label19
         '
@@ -2677,929 +3600,6 @@ Partial Class BorrowingAndReturning
         '
         'Timer1
         '
-        '
-        'BtnOpenThesisFltr
-        '
-        Me.BtnOpenThesisFltr.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.BtnOpenThesisFltr.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnOpenThesisFltr.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnOpenThesisFltr.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnOpenThesisFltr.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.BtnOpenThesisFltr.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_filter_19
-        Me.BtnOpenThesisFltr.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnOpenThesisFltr.Location = New System.Drawing.Point(8, 12)
-        Me.BtnOpenThesisFltr.Name = "BtnOpenThesisFltr"
-        Me.BtnOpenThesisFltr.Size = New System.Drawing.Size(56, 21)
-        Me.BtnOpenThesisFltr.TabIndex = 53
-        Me.BtnOpenThesisFltr.Text = "Filter"
-        Me.BtnOpenThesisFltr.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.BtnOpenThesisFltr.UseVisualStyleBackColor = False
-        '
-        'BtnCloseThesisFltr
-        '
-        Me.BtnCloseThesisFltr.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.BtnCloseThesisFltr.BackColor = System.Drawing.Color.Transparent
-        Me.BtnCloseThesisFltr.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnCloseThesisFltr.FlatAppearance.BorderSize = 0
-        Me.BtnCloseThesisFltr.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnCloseThesisFltr.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnCloseThesisFltr.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.BtnCloseThesisFltr.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_close_window_19
-        Me.BtnCloseThesisFltr.Location = New System.Drawing.Point(294, 6)
-        Me.BtnCloseThesisFltr.Name = "BtnCloseThesisFltr"
-        Me.BtnCloseThesisFltr.Size = New System.Drawing.Size(23, 19)
-        Me.BtnCloseThesisFltr.TabIndex = 50
-        Me.BtnCloseThesisFltr.TextAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.BtnCloseThesisFltr.UseVisualStyleBackColor = False
-        '
-        'BtnResetThesisFltr
-        '
-        Me.BtnResetThesisFltr.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.BtnResetThesisFltr.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.BtnResetThesisFltr.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnResetThesisFltr.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnResetThesisFltr.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnResetThesisFltr.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.BtnResetThesisFltr.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_filter_20__1_
-        Me.BtnResetThesisFltr.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnResetThesisFltr.Location = New System.Drawing.Point(215, 63)
-        Me.BtnResetThesisFltr.Name = "BtnResetThesisFltr"
-        Me.BtnResetThesisFltr.Size = New System.Drawing.Size(90, 23)
-        Me.BtnResetThesisFltr.TabIndex = 36
-        Me.BtnResetThesisFltr.Text = "Reset"
-        Me.BtnResetThesisFltr.UseVisualStyleBackColor = False
-        '
-        'BtnApplyThesisFltr
-        '
-        Me.BtnApplyThesisFltr.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.BtnApplyThesisFltr.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.BtnApplyThesisFltr.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnApplyThesisFltr.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnApplyThesisFltr.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnApplyThesisFltr.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.BtnApplyThesisFltr.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_filter_20
-        Me.BtnApplyThesisFltr.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnApplyThesisFltr.Location = New System.Drawing.Point(215, 34)
-        Me.BtnApplyThesisFltr.Name = "BtnApplyThesisFltr"
-        Me.BtnApplyThesisFltr.Size = New System.Drawing.Size(90, 23)
-        Me.BtnApplyThesisFltr.TabIndex = 35
-        Me.BtnApplyThesisFltr.Text = "Apply Filter"
-        Me.BtnApplyThesisFltr.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.BtnApplyThesisFltr.UseVisualStyleBackColor = False
-        '
-        'BtnPrintBooksList
-        '
-        Me.BtnPrintBooksList.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.BtnPrintBooksList.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.BtnPrintBooksList.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnPrintBooksList.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnPrintBooksList.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnPrintBooksList.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.BtnPrintBooksList.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_print_19
-        Me.BtnPrintBooksList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnPrintBooksList.Location = New System.Drawing.Point(1008, 39)
-        Me.BtnPrintBooksList.Name = "BtnPrintBooksList"
-        Me.BtnPrintBooksList.Size = New System.Drawing.Size(110, 25)
-        Me.BtnPrintBooksList.TabIndex = 29
-        Me.BtnPrintBooksList.Text = "Print Thesis List"
-        Me.BtnPrintBooksList.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.BtnPrintBooksList.UseVisualStyleBackColor = False
-        '
-        'BtnSearchBooks
-        '
-        Me.BtnSearchBooks.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.BtnSearchBooks.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnSearchBooks.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnSearchBooks.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnSearchBooks.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.BtnSearchBooks.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_search_13
-        Me.BtnSearchBooks.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.BtnSearchBooks.Location = New System.Drawing.Point(242, 43)
-        Me.BtnSearchBooks.Name = "BtnSearchBooks"
-        Me.BtnSearchBooks.Size = New System.Drawing.Size(65, 21)
-        Me.BtnSearchBooks.TabIndex = 27
-        Me.BtnSearchBooks.Text = "Search"
-        Me.BtnSearchBooks.TextAlign = System.Drawing.ContentAlignment.TopRight
-        Me.BtnSearchBooks.UseVisualStyleBackColor = False
-        '
-        'BtnNext
-        '
-        Me.BtnNext.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.BtnNext.BackColor = System.Drawing.Color.Transparent
-        Me.BtnNext.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnNext.Enabled = False
-        Me.BtnNext.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnNext.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_next_step_28
-        Me.BtnNext.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnNext.Location = New System.Drawing.Point(252, 331)
-        Me.BtnNext.Name = "BtnNext"
-        Me.BtnNext.Size = New System.Drawing.Size(190, 30)
-        Me.BtnNext.TabIndex = 29
-        Me.BtnNext.Text = "NEXT"
-        Me.BtnNext.UseVisualStyleBackColor = False
-        '
-        'BtnCancelAddedToBorrow
-        '
-        Me.BtnCancelAddedToBorrow.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.BtnCancelAddedToBorrow.BackColor = System.Drawing.Color.Transparent
-        Me.BtnCancelAddedToBorrow.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnCancelAddedToBorrow.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnCancelAddedToBorrow.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_cancel_28
-        Me.BtnCancelAddedToBorrow.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnCancelAddedToBorrow.Location = New System.Drawing.Point(16, 331)
-        Me.BtnCancelAddedToBorrow.Name = "BtnCancelAddedToBorrow"
-        Me.BtnCancelAddedToBorrow.Size = New System.Drawing.Size(190, 30)
-        Me.BtnCancelAddedToBorrow.TabIndex = 28
-        Me.BtnCancelAddedToBorrow.Text = "CANCEL AND CLOSE"
-        Me.BtnCancelAddedToBorrow.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.BtnCancelAddedToBorrow.UseVisualStyleBackColor = False
-        '
-        'BtnRemoveTempInfo
-        '
-        Me.BtnRemoveTempInfo.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.BtnRemoveTempInfo.BackColor = System.Drawing.Color.Transparent
-        Me.BtnRemoveTempInfo.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnRemoveTempInfo.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnRemoveTempInfo.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_remove_28
-        Me.BtnRemoveTempInfo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnRemoveTempInfo.Location = New System.Drawing.Point(252, 298)
-        Me.BtnRemoveTempInfo.Name = "BtnRemoveTempInfo"
-        Me.BtnRemoveTempInfo.Size = New System.Drawing.Size(190, 30)
-        Me.BtnRemoveTempInfo.TabIndex = 27
-        Me.BtnRemoveTempInfo.Text = "REMOVE"
-        Me.BtnRemoveTempInfo.UseVisualStyleBackColor = False
-        Me.BtnRemoveTempInfo.Visible = False
-        '
-        'Button7
-        '
-        Me.Button7.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button7.BackColor = System.Drawing.Color.Transparent
-        Me.Button7.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Button7.FlatAppearance.BorderSize = 0
-        Me.Button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button7.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button7.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_close_window_19
-        Me.Button7.Location = New System.Drawing.Point(427, 6)
-        Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(23, 21)
-        Me.Button7.TabIndex = 24
-        Me.Button7.UseVisualStyleBackColor = False
-        '
-        'AddToBorrow
-        '
-        Me.AddToBorrow.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.AddToBorrow.BackColor = System.Drawing.Color.Transparent
-        Me.AddToBorrow.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.AddToBorrow.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.AddToBorrow.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_books_28
-        Me.AddToBorrow.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.AddToBorrow.Location = New System.Drawing.Point(16, 297)
-        Me.AddToBorrow.Name = "AddToBorrow"
-        Me.AddToBorrow.Size = New System.Drawing.Size(190, 30)
-        Me.AddToBorrow.TabIndex = 2
-        Me.AddToBorrow.Text = "ADD TO BORROW"
-        Me.AddToBorrow.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.AddToBorrow.UseVisualStyleBackColor = False
-        '
-        'BtnResendQr
-        '
-        Me.BtnResendQr.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.BtnResendQr.BackColor = System.Drawing.Color.Transparent
-        Me.BtnResendQr.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnResendQr.Enabled = False
-        Me.BtnResendQr.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnResendQr.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_qr_code_38
-        Me.BtnResendQr.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnResendQr.Location = New System.Drawing.Point(285, 552)
-        Me.BtnResendQr.Name = "BtnResendQr"
-        Me.BtnResendQr.Size = New System.Drawing.Size(206, 42)
-        Me.BtnResendQr.TabIndex = 31
-        Me.BtnResendQr.Text = "RESEND QR CODE ID"
-        Me.BtnResendQr.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.BtnResendQr.UseVisualStyleBackColor = False
-        '
-        'Button2
-        '
-        Me.Button2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button2.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.Button2.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.Button2.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_print_19
-        Me.Button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button2.Location = New System.Drawing.Point(1024, 27)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(96, 24)
-        Me.Button2.TabIndex = 30
-        Me.Button2.Text = "Print Record"
-        Me.Button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button2.UseVisualStyleBackColor = False
-        '
-        'BtnEditBorrower
-        '
-        Me.BtnEditBorrower.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.BtnEditBorrower.BackColor = System.Drawing.Color.Transparent
-        Me.BtnEditBorrower.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnEditBorrower.Enabled = False
-        Me.BtnEditBorrower.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnEditBorrower.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_group_38__1_
-        Me.BtnEditBorrower.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnEditBorrower.Location = New System.Drawing.Point(710, 552)
-        Me.BtnEditBorrower.Name = "BtnEditBorrower"
-        Me.BtnEditBorrower.Size = New System.Drawing.Size(193, 42)
-        Me.BtnEditBorrower.TabIndex = 4
-        Me.BtnEditBorrower.Text = "EDIT INFORMATION"
-        Me.BtnEditBorrower.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.BtnEditBorrower.UseVisualStyleBackColor = False
-        '
-        'BtnDeleteBorrower
-        '
-        Me.BtnDeleteBorrower.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.BtnDeleteBorrower.BackColor = System.Drawing.Color.Transparent
-        Me.BtnDeleteBorrower.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnDeleteBorrower.Enabled = False
-        Me.BtnDeleteBorrower.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnDeleteBorrower.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_group_38__2_
-        Me.BtnDeleteBorrower.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnDeleteBorrower.Location = New System.Drawing.Point(916, 552)
-        Me.BtnDeleteBorrower.Name = "BtnDeleteBorrower"
-        Me.BtnDeleteBorrower.Size = New System.Drawing.Size(206, 42)
-        Me.BtnDeleteBorrower.TabIndex = 3
-        Me.BtnDeleteBorrower.Text = "DELETE BORROWER"
-        Me.BtnDeleteBorrower.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.BtnDeleteBorrower.UseVisualStyleBackColor = False
-        '
-        'BtnGoToAddingBorrower
-        '
-        Me.BtnGoToAddingBorrower.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.BtnGoToAddingBorrower.BackColor = System.Drawing.Color.Transparent
-        Me.BtnGoToAddingBorrower.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnGoToAddingBorrower.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnGoToAddingBorrower.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_group_38
-        Me.BtnGoToAddingBorrower.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnGoToAddingBorrower.Location = New System.Drawing.Point(504, 552)
-        Me.BtnGoToAddingBorrower.Name = "BtnGoToAddingBorrower"
-        Me.BtnGoToAddingBorrower.Size = New System.Drawing.Size(191, 42)
-        Me.BtnGoToAddingBorrower.TabIndex = 2
-        Me.BtnGoToAddingBorrower.Text = "ADD BORROWERS"
-        Me.BtnGoToAddingBorrower.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.BtnGoToAddingBorrower.UseVisualStyleBackColor = False
-        '
-        'BtnSearchBorrowers
-        '
-        Me.BtnSearchBorrowers.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.BtnSearchBorrowers.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnSearchBorrowers.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnSearchBorrowers.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnSearchBorrowers.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.BtnSearchBorrowers.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_search_13
-        Me.BtnSearchBorrowers.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.BtnSearchBorrowers.Location = New System.Drawing.Point(243, 30)
-        Me.BtnSearchBorrowers.Name = "BtnSearchBorrowers"
-        Me.BtnSearchBorrowers.Size = New System.Drawing.Size(65, 21)
-        Me.BtnSearchBorrowers.TabIndex = 29
-        Me.BtnSearchBorrowers.Text = "Search"
-        Me.BtnSearchBorrowers.TextAlign = System.Drawing.ContentAlignment.TopRight
-        Me.BtnSearchBorrowers.UseVisualStyleBackColor = False
-        '
-        'BtnPrintCancelled
-        '
-        Me.BtnPrintCancelled.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.BtnPrintCancelled.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.BtnPrintCancelled.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnPrintCancelled.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnPrintCancelled.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnPrintCancelled.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.BtnPrintCancelled.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_print_19
-        Me.BtnPrintCancelled.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnPrintCancelled.Location = New System.Drawing.Point(977, 45)
-        Me.BtnPrintCancelled.Name = "BtnPrintCancelled"
-        Me.BtnPrintCancelled.Size = New System.Drawing.Size(145, 24)
-        Me.BtnPrintCancelled.TabIndex = 34
-        Me.BtnPrintCancelled.Text = "Print Cancelled Record"
-        Me.BtnPrintCancelled.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.BtnPrintCancelled.UseVisualStyleBackColor = False
-        '
-        'BtnSearchCancel
-        '
-        Me.BtnSearchCancel.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.BtnSearchCancel.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnSearchCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnSearchCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnSearchCancel.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.BtnSearchCancel.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_search_13
-        Me.BtnSearchCancel.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.BtnSearchCancel.Location = New System.Drawing.Point(237, 48)
-        Me.BtnSearchCancel.Name = "BtnSearchCancel"
-        Me.BtnSearchCancel.Size = New System.Drawing.Size(65, 21)
-        Me.BtnSearchCancel.TabIndex = 31
-        Me.BtnSearchCancel.Text = "Search"
-        Me.BtnSearchCancel.TextAlign = System.Drawing.ContentAlignment.TopRight
-        Me.BtnSearchCancel.UseVisualStyleBackColor = False
-        '
-        'BtnReturn
-        '
-        Me.BtnReturn.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.BtnReturn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnReturn.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnReturn.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_return_38
-        Me.BtnReturn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnReturn.Location = New System.Drawing.Point(506, 539)
-        Me.BtnReturn.Name = "BtnReturn"
-        Me.BtnReturn.Size = New System.Drawing.Size(129, 44)
-        Me.BtnReturn.TabIndex = 20
-        Me.BtnReturn.Text = "BACK"
-        Me.BtnReturn.UseVisualStyleBackColor = True
-        '
-        'BtnCloseBorrowedFltr
-        '
-        Me.BtnCloseBorrowedFltr.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.BtnCloseBorrowedFltr.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.BtnCloseBorrowedFltr.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnCloseBorrowedFltr.FlatAppearance.BorderSize = 0
-        Me.BtnCloseBorrowedFltr.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnCloseBorrowedFltr.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnCloseBorrowedFltr.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.BtnCloseBorrowedFltr.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_close_window_19
-        Me.BtnCloseBorrowedFltr.Location = New System.Drawing.Point(288, 6)
-        Me.BtnCloseBorrowedFltr.Name = "BtnCloseBorrowedFltr"
-        Me.BtnCloseBorrowedFltr.Size = New System.Drawing.Size(20, 20)
-        Me.BtnCloseBorrowedFltr.TabIndex = 50
-        Me.BtnCloseBorrowedFltr.TextAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.BtnCloseBorrowedFltr.UseVisualStyleBackColor = False
-        '
-        'BtnApplyBorrowedFltr
-        '
-        Me.BtnApplyBorrowedFltr.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.BtnApplyBorrowedFltr.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.BtnApplyBorrowedFltr.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnApplyBorrowedFltr.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnApplyBorrowedFltr.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnApplyBorrowedFltr.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.BtnApplyBorrowedFltr.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_filter_20
-        Me.BtnApplyBorrowedFltr.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnApplyBorrowedFltr.Location = New System.Drawing.Point(209, 35)
-        Me.BtnApplyBorrowedFltr.Name = "BtnApplyBorrowedFltr"
-        Me.BtnApplyBorrowedFltr.Size = New System.Drawing.Size(90, 23)
-        Me.BtnApplyBorrowedFltr.TabIndex = 47
-        Me.BtnApplyBorrowedFltr.Text = "Apply Filter"
-        Me.BtnApplyBorrowedFltr.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.BtnApplyBorrowedFltr.UseVisualStyleBackColor = False
-        '
-        'BtnResetBorrowedFltr
-        '
-        Me.BtnResetBorrowedFltr.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.BtnResetBorrowedFltr.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.BtnResetBorrowedFltr.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnResetBorrowedFltr.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnResetBorrowedFltr.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnResetBorrowedFltr.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.BtnResetBorrowedFltr.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_filter_20__1_
-        Me.BtnResetBorrowedFltr.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnResetBorrowedFltr.Location = New System.Drawing.Point(209, 67)
-        Me.BtnResetBorrowedFltr.Name = "BtnResetBorrowedFltr"
-        Me.BtnResetBorrowedFltr.Size = New System.Drawing.Size(90, 23)
-        Me.BtnResetBorrowedFltr.TabIndex = 49
-        Me.BtnResetBorrowedFltr.Text = "Reset"
-        Me.BtnResetBorrowedFltr.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.BtnResetBorrowedFltr.UseVisualStyleBackColor = False
-        '
-        'BtnCancelBorrow
-        '
-        Me.BtnCancelBorrow.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.BtnCancelBorrow.BackColor = System.Drawing.Color.Transparent
-        Me.BtnCancelBorrow.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnCancelBorrow.Enabled = False
-        Me.BtnCancelBorrow.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnCancelBorrow.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_books_40__1_
-        Me.BtnCancelBorrow.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnCancelBorrow.Location = New System.Drawing.Point(726, 540)
-        Me.BtnCancelBorrow.Name = "BtnCancelBorrow"
-        Me.BtnCancelBorrow.Size = New System.Drawing.Size(206, 44)
-        Me.BtnCancelBorrow.TabIndex = 4
-        Me.BtnCancelBorrow.Text = "CANCEL"
-        Me.BtnCancelBorrow.UseVisualStyleBackColor = False
-        '
-        'Button1
-        '
-        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button1.BackColor = System.Drawing.Color.Transparent
-        Me.Button1.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_eye_40
-        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button1.Location = New System.Drawing.Point(948, 540)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(177, 43)
-        Me.Button1.TabIndex = 21
-        Me.Button1.Text = "VIEW CANCELLED"
-        Me.Button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button1.UseVisualStyleBackColor = False
-        '
-        'BtnReturnBooks
-        '
-        Me.BtnReturnBooks.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.BtnReturnBooks.BackColor = System.Drawing.Color.Transparent
-        Me.BtnReturnBooks.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnReturnBooks.Enabled = False
-        Me.BtnReturnBooks.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnReturnBooks.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_books_40
-        Me.BtnReturnBooks.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnReturnBooks.Location = New System.Drawing.Point(504, 540)
-        Me.BtnReturnBooks.Name = "BtnReturnBooks"
-        Me.BtnReturnBooks.Size = New System.Drawing.Size(206, 44)
-        Me.BtnReturnBooks.TabIndex = 24
-        Me.BtnReturnBooks.Text = "RETURN"
-        Me.BtnReturnBooks.UseVisualStyleBackColor = False
-        '
-        'BtnOpenBorrowedFltr
-        '
-        Me.BtnOpenBorrowedFltr.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.BtnOpenBorrowedFltr.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnOpenBorrowedFltr.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnOpenBorrowedFltr.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnOpenBorrowedFltr.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.BtnOpenBorrowedFltr.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_filter_19
-        Me.BtnOpenBorrowedFltr.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnOpenBorrowedFltr.Location = New System.Drawing.Point(6, 7)
-        Me.BtnOpenBorrowedFltr.Name = "BtnOpenBorrowedFltr"
-        Me.BtnOpenBorrowedFltr.Size = New System.Drawing.Size(57, 21)
-        Me.BtnOpenBorrowedFltr.TabIndex = 51
-        Me.BtnOpenBorrowedFltr.Text = "Filter"
-        Me.BtnOpenBorrowedFltr.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.BtnOpenBorrowedFltr.UseVisualStyleBackColor = False
-        '
-        'BtnPrintBorrowed
-        '
-        Me.BtnPrintBorrowed.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.BtnPrintBorrowed.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.BtnPrintBorrowed.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnPrintBorrowed.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnPrintBorrowed.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnPrintBorrowed.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.BtnPrintBorrowed.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_print_19
-        Me.BtnPrintBorrowed.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnPrintBorrowed.Location = New System.Drawing.Point(985, 50)
-        Me.BtnPrintBorrowed.Name = "BtnPrintBorrowed"
-        Me.BtnPrintBorrowed.Size = New System.Drawing.Size(138, 24)
-        Me.BtnPrintBorrowed.TabIndex = 34
-        Me.BtnPrintBorrowed.Text = " Print Borrowed Thesis"
-        Me.BtnPrintBorrowed.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.BtnPrintBorrowed.UseVisualStyleBackColor = False
-        '
-        'BtnSearchBorrowed
-        '
-        Me.BtnSearchBorrowed.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.BtnSearchBorrowed.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnSearchBorrowed.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnSearchBorrowed.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.BtnSearchBorrowed.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_search_13
-        Me.BtnSearchBorrowed.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.BtnSearchBorrowed.Location = New System.Drawing.Point(237, 50)
-        Me.BtnSearchBorrowed.Name = "BtnSearchBorrowed"
-        Me.BtnSearchBorrowed.Size = New System.Drawing.Size(65, 21)
-        Me.BtnSearchBorrowed.TabIndex = 33
-        Me.BtnSearchBorrowed.Text = "Search"
-        Me.BtnSearchBorrowed.TextAlign = System.Drawing.ContentAlignment.TopRight
-        Me.BtnSearchBorrowed.UseVisualStyleBackColor = False
-        '
-        'BtnOpenRetFltr
-        '
-        Me.BtnOpenRetFltr.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.BtnOpenRetFltr.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnOpenRetFltr.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnOpenRetFltr.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnOpenRetFltr.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.BtnOpenRetFltr.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_filter_19
-        Me.BtnOpenRetFltr.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnOpenRetFltr.Location = New System.Drawing.Point(5, 5)
-        Me.BtnOpenRetFltr.Name = "BtnOpenRetFltr"
-        Me.BtnOpenRetFltr.Size = New System.Drawing.Size(55, 21)
-        Me.BtnOpenRetFltr.TabIndex = 55
-        Me.BtnOpenRetFltr.Text = "Filter"
-        Me.BtnOpenRetFltr.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.BtnOpenRetFltr.UseVisualStyleBackColor = False
-        '
-        'BtnCloseRefFiltr
-        '
-        Me.BtnCloseRefFiltr.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.BtnCloseRefFiltr.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.BtnCloseRefFiltr.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnCloseRefFiltr.FlatAppearance.BorderSize = 0
-        Me.BtnCloseRefFiltr.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnCloseRefFiltr.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnCloseRefFiltr.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.BtnCloseRefFiltr.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_close_window_19
-        Me.BtnCloseRefFiltr.Location = New System.Drawing.Point(288, 6)
-        Me.BtnCloseRefFiltr.Name = "BtnCloseRefFiltr"
-        Me.BtnCloseRefFiltr.Size = New System.Drawing.Size(20, 20)
-        Me.BtnCloseRefFiltr.TabIndex = 50
-        Me.BtnCloseRefFiltr.TextAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.BtnCloseRefFiltr.UseVisualStyleBackColor = False
-        '
-        'BtnResetRetFltr
-        '
-        Me.BtnResetRetFltr.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.BtnResetRetFltr.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.BtnResetRetFltr.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnResetRetFltr.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnResetRetFltr.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnResetRetFltr.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.BtnResetRetFltr.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_filter_20__1_
-        Me.BtnResetRetFltr.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.BtnResetRetFltr.Location = New System.Drawing.Point(218, 63)
-        Me.BtnResetRetFltr.Name = "BtnResetRetFltr"
-        Me.BtnResetRetFltr.Size = New System.Drawing.Size(90, 23)
-        Me.BtnResetRetFltr.TabIndex = 45
-        Me.BtnResetRetFltr.Text = "Reset"
-        Me.BtnResetRetFltr.UseVisualStyleBackColor = False
-        '
-        'BtnApplyRetFltr
-        '
-        Me.BtnApplyRetFltr.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.BtnApplyRetFltr.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.BtnApplyRetFltr.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnApplyRetFltr.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnApplyRetFltr.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnApplyRetFltr.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.BtnApplyRetFltr.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_filter_20
-        Me.BtnApplyRetFltr.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnApplyRetFltr.Location = New System.Drawing.Point(218, 34)
-        Me.BtnApplyRetFltr.Name = "BtnApplyRetFltr"
-        Me.BtnApplyRetFltr.Size = New System.Drawing.Size(90, 23)
-        Me.BtnApplyRetFltr.TabIndex = 44
-        Me.BtnApplyRetFltr.Text = "Apply Filter"
-        Me.BtnApplyRetFltr.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.BtnApplyRetFltr.UseVisualStyleBackColor = False
-        '
-        'BtnPrintReturned
-        '
-        Me.BtnPrintReturned.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.BtnPrintReturned.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.BtnPrintReturned.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnPrintReturned.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnPrintReturned.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnPrintReturned.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.BtnPrintReturned.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_print_19
-        Me.BtnPrintReturned.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnPrintReturned.Location = New System.Drawing.Point(983, 45)
-        Me.BtnPrintReturned.Name = "BtnPrintReturned"
-        Me.BtnPrintReturned.Size = New System.Drawing.Size(142, 24)
-        Me.BtnPrintReturned.TabIndex = 36
-        Me.BtnPrintReturned.Text = "Print Returned Record"
-        Me.BtnPrintReturned.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.BtnPrintReturned.UseVisualStyleBackColor = False
-        '
-        'BtnSearchReturned
-        '
-        Me.BtnSearchReturned.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.BtnSearchReturned.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnSearchReturned.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnSearchReturned.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.BtnSearchReturned.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_search_13
-        Me.BtnSearchReturned.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.BtnSearchReturned.Location = New System.Drawing.Point(239, 46)
-        Me.BtnSearchReturned.Name = "BtnSearchReturned"
-        Me.BtnSearchReturned.Size = New System.Drawing.Size(65, 21)
-        Me.BtnSearchReturned.TabIndex = 35
-        Me.BtnSearchReturned.Text = "Search"
-        Me.BtnSearchReturned.TextAlign = System.Drawing.ContentAlignment.TopRight
-        Me.BtnSearchReturned.UseVisualStyleBackColor = False
-        '
-        'BtnOvrdOpenFltr
-        '
-        Me.BtnOvrdOpenFltr.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.BtnOvrdOpenFltr.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnOvrdOpenFltr.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnOvrdOpenFltr.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnOvrdOpenFltr.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.BtnOvrdOpenFltr.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_filter_19
-        Me.BtnOvrdOpenFltr.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnOvrdOpenFltr.Location = New System.Drawing.Point(6, 7)
-        Me.BtnOvrdOpenFltr.Name = "BtnOvrdOpenFltr"
-        Me.BtnOvrdOpenFltr.Size = New System.Drawing.Size(55, 21)
-        Me.BtnOvrdOpenFltr.TabIndex = 57
-        Me.BtnOvrdOpenFltr.Text = "Filter"
-        Me.BtnOvrdOpenFltr.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.BtnOvrdOpenFltr.UseVisualStyleBackColor = False
-        '
-        'BtnOvrdCloseFltr
-        '
-        Me.BtnOvrdCloseFltr.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.BtnOvrdCloseFltr.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.BtnOvrdCloseFltr.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnOvrdCloseFltr.FlatAppearance.BorderSize = 0
-        Me.BtnOvrdCloseFltr.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnOvrdCloseFltr.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnOvrdCloseFltr.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.BtnOvrdCloseFltr.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_close_window_19
-        Me.BtnOvrdCloseFltr.Location = New System.Drawing.Point(288, 6)
-        Me.BtnOvrdCloseFltr.Name = "BtnOvrdCloseFltr"
-        Me.BtnOvrdCloseFltr.Size = New System.Drawing.Size(20, 20)
-        Me.BtnOvrdCloseFltr.TabIndex = 50
-        Me.BtnOvrdCloseFltr.TextAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.BtnOvrdCloseFltr.UseVisualStyleBackColor = False
-        '
-        'BtnOvrdResetFltr
-        '
-        Me.BtnOvrdResetFltr.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.BtnOvrdResetFltr.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.BtnOvrdResetFltr.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnOvrdResetFltr.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnOvrdResetFltr.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnOvrdResetFltr.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.BtnOvrdResetFltr.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_filter_20__1_
-        Me.BtnOvrdResetFltr.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnOvrdResetFltr.Location = New System.Drawing.Point(204, 65)
-        Me.BtnOvrdResetFltr.Name = "BtnOvrdResetFltr"
-        Me.BtnOvrdResetFltr.Size = New System.Drawing.Size(90, 23)
-        Me.BtnOvrdResetFltr.TabIndex = 42
-        Me.BtnOvrdResetFltr.Text = "Reset"
-        Me.BtnOvrdResetFltr.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.BtnOvrdResetFltr.UseVisualStyleBackColor = False
-        '
-        'BtnOvrdApplyFltr
-        '
-        Me.BtnOvrdApplyFltr.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.BtnOvrdApplyFltr.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.BtnOvrdApplyFltr.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnOvrdApplyFltr.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnOvrdApplyFltr.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnOvrdApplyFltr.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.BtnOvrdApplyFltr.Image = CType(resources.GetObject("BtnOvrdApplyFltr.Image"), System.Drawing.Image)
-        Me.BtnOvrdApplyFltr.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnOvrdApplyFltr.Location = New System.Drawing.Point(204, 34)
-        Me.BtnOvrdApplyFltr.Name = "BtnOvrdApplyFltr"
-        Me.BtnOvrdApplyFltr.Size = New System.Drawing.Size(90, 23)
-        Me.BtnOvrdApplyFltr.TabIndex = 41
-        Me.BtnOvrdApplyFltr.Text = "Apply Filter"
-        Me.BtnOvrdApplyFltr.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.BtnOvrdApplyFltr.UseVisualStyleBackColor = False
-        '
-        'BtnPrintOverdue
-        '
-        Me.BtnPrintOverdue.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.BtnPrintOverdue.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.BtnPrintOverdue.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnPrintOverdue.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnPrintOverdue.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnPrintOverdue.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.BtnPrintOverdue.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_print_19
-        Me.BtnPrintOverdue.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnPrintOverdue.Location = New System.Drawing.Point(985, 47)
-        Me.BtnPrintOverdue.Name = "BtnPrintOverdue"
-        Me.BtnPrintOverdue.Size = New System.Drawing.Size(136, 24)
-        Me.BtnPrintOverdue.TabIndex = 32
-        Me.BtnPrintOverdue.Text = "Print Overdue Thesis"
-        Me.BtnPrintOverdue.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.BtnPrintOverdue.UseVisualStyleBackColor = False
-        '
-        'BtnSearchOverdue
-        '
-        Me.BtnSearchOverdue.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.BtnSearchOverdue.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnSearchOverdue.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnSearchOverdue.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnSearchOverdue.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.BtnSearchOverdue.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_search_13
-        Me.BtnSearchOverdue.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.BtnSearchOverdue.Location = New System.Drawing.Point(239, 46)
-        Me.BtnSearchOverdue.Name = "BtnSearchOverdue"
-        Me.BtnSearchOverdue.Size = New System.Drawing.Size(65, 21)
-        Me.BtnSearchOverdue.TabIndex = 31
-        Me.BtnSearchOverdue.Text = "Search"
-        Me.BtnSearchOverdue.TextAlign = System.Drawing.ContentAlignment.TopRight
-        Me.BtnSearchOverdue.UseVisualStyleBackColor = False
-        '
-        'BtnCancelBorrowingTrans
-        '
-        Me.BtnCancelBorrowingTrans.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.BtnCancelBorrowingTrans.BackColor = System.Drawing.Color.Transparent
-        Me.BtnCancelBorrowingTrans.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnCancelBorrowingTrans.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnCancelBorrowingTrans.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_cancel_30
-        Me.BtnCancelBorrowingTrans.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnCancelBorrowingTrans.Location = New System.Drawing.Point(603, 541)
-        Me.BtnCancelBorrowingTrans.Name = "BtnCancelBorrowingTrans"
-        Me.BtnCancelBorrowingTrans.Size = New System.Drawing.Size(167, 33)
-        Me.BtnCancelBorrowingTrans.TabIndex = 2
-        Me.BtnCancelBorrowingTrans.Text = "CANCEL"
-        Me.BtnCancelBorrowingTrans.UseVisualStyleBackColor = False
-        '
-        'BtnConfirm
-        '
-        Me.BtnConfirm.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.BtnConfirm.BackColor = System.Drawing.Color.Transparent
-        Me.BtnConfirm.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnConfirm.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnConfirm.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_check_30__1_
-        Me.BtnConfirm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnConfirm.Location = New System.Drawing.Point(332, 541)
-        Me.BtnConfirm.Name = "BtnConfirm"
-        Me.BtnConfirm.Size = New System.Drawing.Size(185, 33)
-        Me.BtnConfirm.TabIndex = 3
-        Me.BtnConfirm.Text = "CONFIRM"
-        Me.BtnConfirm.UseVisualStyleBackColor = False
-        '
-        'Label45
-        '
-        Me.Label45.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_qr_code_35
-        Me.Label45.Location = New System.Drawing.Point(321, 127)
-        Me.Label45.Name = "Label45"
-        Me.Label45.Size = New System.Drawing.Size(47, 35)
-        Me.Label45.TabIndex = 18
-        '
-        'BtnUpdateBorDetails
-        '
-        Me.BtnUpdateBorDetails.Anchor = System.Windows.Forms.AnchorStyles.Bottom
-        Me.BtnUpdateBorDetails.BackColor = System.Drawing.Color.Transparent
-        Me.BtnUpdateBorDetails.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnUpdateBorDetails.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnUpdateBorDetails.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_update_28
-        Me.BtnUpdateBorDetails.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnUpdateBorDetails.Location = New System.Drawing.Point(203, 378)
-        Me.BtnUpdateBorDetails.Name = "BtnUpdateBorDetails"
-        Me.BtnUpdateBorDetails.Size = New System.Drawing.Size(117, 36)
-        Me.BtnUpdateBorDetails.TabIndex = 21
-        Me.BtnUpdateBorDetails.Text = "UPDATE"
-        Me.BtnUpdateBorDetails.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.BtnUpdateBorDetails.UseVisualStyleBackColor = False
-        Me.BtnUpdateBorDetails.Visible = False
-        '
-        'BtnCancelAddingBorrower
-        '
-        Me.BtnCancelAddingBorrower.Anchor = System.Windows.Forms.AnchorStyles.Bottom
-        Me.BtnCancelAddingBorrower.BackColor = System.Drawing.Color.Transparent
-        Me.BtnCancelAddingBorrower.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnCancelAddingBorrower.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnCancelAddingBorrower.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_cancel_28
-        Me.BtnCancelAddingBorrower.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnCancelAddingBorrower.Location = New System.Drawing.Point(335, 378)
-        Me.BtnCancelAddingBorrower.Name = "BtnCancelAddingBorrower"
-        Me.BtnCancelAddingBorrower.Size = New System.Drawing.Size(117, 36)
-        Me.BtnCancelAddingBorrower.TabIndex = 20
-        Me.BtnCancelAddingBorrower.Text = "CANCEL"
-        Me.BtnCancelAddingBorrower.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.BtnCancelAddingBorrower.UseVisualStyleBackColor = False
-        '
-        'BtnAddBorrowerInfo
-        '
-        Me.BtnAddBorrowerInfo.Anchor = System.Windows.Forms.AnchorStyles.Bottom
-        Me.BtnAddBorrowerInfo.BackColor = System.Drawing.Color.Transparent
-        Me.BtnAddBorrowerInfo.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnAddBorrowerInfo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnAddBorrowerInfo.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_add_28
-        Me.BtnAddBorrowerInfo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnAddBorrowerInfo.Location = New System.Drawing.Point(203, 378)
-        Me.BtnAddBorrowerInfo.Name = "BtnAddBorrowerInfo"
-        Me.BtnAddBorrowerInfo.Size = New System.Drawing.Size(117, 36)
-        Me.BtnAddBorrowerInfo.TabIndex = 19
-        Me.BtnAddBorrowerInfo.Text = "ADD"
-        Me.BtnAddBorrowerInfo.UseVisualStyleBackColor = False
-        '
-        'BtnOverduesBooks
-        '
-        Me.BtnOverduesBooks.BackColor = System.Drawing.Color.Transparent
-        Me.BtnOverduesBooks.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnOverduesBooks.Dock = System.Windows.Forms.DockStyle.Top
-        Me.BtnOverduesBooks.FlatAppearance.BorderSize = 0
-        Me.BtnOverduesBooks.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnOverduesBooks.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnOverduesBooks.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.overdue__1_
-        Me.BtnOverduesBooks.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnOverduesBooks.Location = New System.Drawing.Point(0, 456)
-        Me.BtnOverduesBooks.Name = "BtnOverduesBooks"
-        Me.BtnOverduesBooks.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
-        Me.BtnOverduesBooks.Size = New System.Drawing.Size(214, 114)
-        Me.BtnOverduesBooks.TabIndex = 6
-        Me.BtnOverduesBooks.Text = "     OVERDUE" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "     THESIS"
-        Me.BtnOverduesBooks.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnOverduesBooks.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.BtnOverduesBooks.UseVisualStyleBackColor = False
-        '
-        'BtnReturnedBooks
-        '
-        Me.BtnReturnedBooks.BackColor = System.Drawing.Color.Transparent
-        Me.BtnReturnedBooks.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnReturnedBooks.Dock = System.Windows.Forms.DockStyle.Top
-        Me.BtnReturnedBooks.FlatAppearance.BorderSize = 0
-        Me.BtnReturnedBooks.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnReturnedBooks.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnReturnedBooks.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.book
-        Me.BtnReturnedBooks.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnReturnedBooks.Location = New System.Drawing.Point(0, 342)
-        Me.BtnReturnedBooks.Name = "BtnReturnedBooks"
-        Me.BtnReturnedBooks.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
-        Me.BtnReturnedBooks.Size = New System.Drawing.Size(214, 114)
-        Me.BtnReturnedBooks.TabIndex = 5
-        Me.BtnReturnedBooks.Text = "    RETURNED        THESIS"
-        Me.BtnReturnedBooks.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnReturnedBooks.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.BtnReturnedBooks.UseVisualStyleBackColor = False
-        '
-        'BtnBorrowedBooks
-        '
-        Me.BtnBorrowedBooks.BackColor = System.Drawing.Color.Transparent
-        Me.BtnBorrowedBooks.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.BtnBorrowedBooks.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnBorrowedBooks.Dock = System.Windows.Forms.DockStyle.Top
-        Me.BtnBorrowedBooks.FlatAppearance.BorderSize = 0
-        Me.BtnBorrowedBooks.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnBorrowedBooks.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnBorrowedBooks.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.delivering
-        Me.BtnBorrowedBooks.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnBorrowedBooks.Location = New System.Drawing.Point(0, 228)
-        Me.BtnBorrowedBooks.Name = "BtnBorrowedBooks"
-        Me.BtnBorrowedBooks.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
-        Me.BtnBorrowedBooks.Size = New System.Drawing.Size(214, 114)
-        Me.BtnBorrowedBooks.TabIndex = 4
-        Me.BtnBorrowedBooks.Text = "    BORROWED      THESIS"
-        Me.BtnBorrowedBooks.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnBorrowedBooks.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.BtnBorrowedBooks.UseVisualStyleBackColor = False
-        '
-        'BtnBorrower
-        '
-        Me.BtnBorrower.BackColor = System.Drawing.Color.Transparent
-        Me.BtnBorrower.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.BtnBorrower.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnBorrower.Dock = System.Windows.Forms.DockStyle.Top
-        Me.BtnBorrower.FlatAppearance.BorderSize = 0
-        Me.BtnBorrower.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnBorrower.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnBorrower.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.group
-        Me.BtnBorrower.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnBorrower.Location = New System.Drawing.Point(0, 114)
-        Me.BtnBorrower.Name = "BtnBorrower"
-        Me.BtnBorrower.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
-        Me.BtnBorrower.Size = New System.Drawing.Size(214, 114)
-        Me.BtnBorrower.TabIndex = 3
-        Me.BtnBorrower.Text = "    BORROWER"
-        Me.BtnBorrower.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.BtnBorrower.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.BtnBorrower.UseVisualStyleBackColor = False
-        '
-        'BtnBooks
-        '
-        Me.BtnBooks.BackColor = System.Drawing.Color.PowderBlue
-        Me.BtnBooks.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.BtnBooks.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnBooks.Dock = System.Windows.Forms.DockStyle.Top
-        Me.BtnBooks.FlatAppearance.BorderSize = 0
-        Me.BtnBooks.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnBooks.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnBooks.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.archive
-        Me.BtnBooks.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnBooks.Location = New System.Drawing.Point(0, 0)
-        Me.BtnBooks.Name = "BtnBooks"
-        Me.BtnBooks.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
-        Me.BtnBooks.Size = New System.Drawing.Size(214, 114)
-        Me.BtnBooks.TabIndex = 2
-        Me.BtnBooks.Text = "    THESIS"
-        Me.BtnBooks.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.BtnBooks.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.BtnBooks.UseVisualStyleBackColor = False
-        '
-        'LogOut
-        '
-        Me.LogOut.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.LogOut.BackColor = System.Drawing.SystemColors.GradientActiveCaption
-        Me.LogOut.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.LogOut.FlatAppearance.BorderSize = 0
-        Me.LogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.LogOut.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LogOut.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.LogOut.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_logout_20
-        Me.LogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.LogOut.Location = New System.Drawing.Point(1265, 7)
-        Me.LogOut.Name = "LogOut"
-        Me.LogOut.Size = New System.Drawing.Size(77, 30)
-        Me.LogOut.TabIndex = 29
-        Me.LogOut.Text = "LogOut"
-        Me.LogOut.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.LogOut.UseVisualStyleBackColor = False
-        '
-        'Label31
-        '
-        Me.Label31.AutoSize = True
-        Me.Label31.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Label31.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_account_20__1_
-        Me.Label31.Location = New System.Drawing.Point(134, 76)
-        Me.Label31.Name = "Label31"
-        Me.Label31.Size = New System.Drawing.Size(16, 13)
-        Me.Label31.TabIndex = 22
-        Me.Label31.Text = "---"
-        '
-        'Label1
-        '
-        Me.Label1.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.logo
-        Me.Label1.Location = New System.Drawing.Point(7, 7)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(104, 88)
-        Me.Label1.TabIndex = 0
         '
         'BorrowingAndReturning
         '

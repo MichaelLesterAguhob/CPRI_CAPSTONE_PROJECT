@@ -899,5 +899,11 @@
   <ItemGroup>
     <None Include="Resources\icons8-qr-code-35.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-arrow-44.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-create-44.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
