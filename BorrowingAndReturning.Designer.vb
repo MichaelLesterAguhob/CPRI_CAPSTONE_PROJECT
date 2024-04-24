@@ -3082,7 +3082,7 @@ Partial Class BorrowingAndReturning
         Me.TxtBorrowTransId.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.TxtBorrowTransId.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TxtBorrowTransId.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtBorrowTransId.Location = New System.Drawing.Point(127, 20)
+        Me.TxtBorrowTransId.Location = New System.Drawing.Point(127, 27)
         Me.TxtBorrowTransId.Name = "TxtBorrowTransId"
         Me.TxtBorrowTransId.ReadOnly = True
         Me.TxtBorrowTransId.Size = New System.Drawing.Size(143, 14)
@@ -3194,7 +3194,7 @@ Partial Class BorrowingAndReturning
         '
         Me.Lbl1.AutoSize = True
         Me.Lbl1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Lbl1.Location = New System.Drawing.Point(107, 165)
+        Me.Lbl1.Location = New System.Drawing.Point(190, 165)
         Me.Lbl1.Name = "Lbl1"
         Me.Lbl1.Size = New System.Drawing.Size(0, 20)
         Me.Lbl1.TabIndex = 15

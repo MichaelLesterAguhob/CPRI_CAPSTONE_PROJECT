@@ -374,7 +374,7 @@ Public Class Form1
         LogOut.TextAlign = ContentAlignment.MiddleRight
     End Sub
 
-    '//
+
     Private Sub MenuToolStripMenuItem1_MouseEnter(sender As Object, e As EventArgs) Handles MenuToolStripMenuItem1.MouseEnter
         MenuToolStripMenuItem1.ImageAlign = ContentAlignment.TopLeft
         MenuToolStripMenuItem1.Font = myFont2
