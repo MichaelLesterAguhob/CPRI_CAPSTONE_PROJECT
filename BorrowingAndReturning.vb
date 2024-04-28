@@ -573,8 +573,8 @@ Public Class BorrowingAndReturning
     Private Sub TxtExistingBorrowerId_TextChanged(sender As Object, e As EventArgs) Handles TxtExistingBorrowerId.TextChanged
         If TxtExistingBorrowerId.Text.Trim <> "" Then
             If IsNumeric(TxtExistingBorrowerId.Text.Trim) Then
+                isExistingIDEntered = True 'prevent CheckBorrowerInfoToAdd() from checking existing record when pasting, typing, and scanning borrower ID
                 Check_borrower_record()
-                isExistingIDEntered = True
             Else
                 MessageBox.Show("Please enter 9-digit Borrower's ID. Ex.202402573", "Input Invalid!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                 Lbl1.Text = ""
@@ -1626,17 +1626,27 @@ Public Class BorrowingAndReturning
 
     'CONFIRM BORROWING BUTTON
     Private Sub BtnConfirm_Click(sender As Object, e As EventArgs) Handles BtnConfirm.Click
-
+        IsBorrowerHasViolation()
         If TxtName.Text.Trim = "" Or TxtPhoneNo.Text.Trim = "" Or TxtEmail.Text.Trim = "" Or TxtPhoneNo.Text.Trim = "" Then
             MessageBox.Show("Please fill in the blank(s)", "No Input(s)", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         Else
             If isEmailValid(TxtEmail.Text.Trim) Then
                 If IsPhoneNumberValid(TxtPhoneNo.Text.Trim) Then
-                    Dim confirmation As DialogResult = MessageBox.Show("Save this borrowing transaction?.", "Confirm Saving?", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-                    If confirmation = DialogResult.Yes Then
-                        Save_borrowing_info()
-                        isAddingPanelVisible = False
+                    'determine if borrower has a late return violation and notify the admin before borrowing
+                    If IsBorrowerHasViolation() Then
+                        Dim confirmation As DialogResult = MessageBox.Show("The system detected that the borrower has violation. Are you sure you want to let this borrower to borrow and Save this borrowing transaction?.", "Borrower has violation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
+                        If confirmation = DialogResult.Yes Then
+                            Save_borrowing_info()
+                            isAddingPanelVisible = False
+                        End If
+                    Else
+                        Dim confirmation As DialogResult = MessageBox.Show("Save this borrowing transaction?.", "Confirm Saving?", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                        If confirmation = DialogResult.Yes Then
+                            Save_borrowing_info()
+                            isAddingPanelVisible = False
+                        End If
                     End If
+
                 Else
                     MessageBox.Show("Phone number must be 11-digit and starts with '09'", "Invalid Phone Number!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                 End If
@@ -1647,6 +1657,28 @@ Public Class BorrowingAndReturning
         End If
 
     End Sub
+
+    Function IsBorrowerHasViolation() As Boolean
+        con.Close()
+        Dim has_violation As Boolean
+        Try
+            con.Open()
+            Using cmd As New MySqlCommand("SELECT * FROM borrowers WHERE borrower_id=@id AND violations != 'NONE'", con)
+                cmd.Parameters.AddWithValue("@id", TxtExistingBorrowerId.Text.Trim)
+                Dim reader As MySqlDataReader = cmd.ExecuteReader
+                If reader.HasRows Then
+                    has_violation = True
+                Else
+                    has_violation = False
+                End If
+            End Using
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Error Occurred while checking if borrower has violation", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            con.Close()
+        End Try
+        Return has_violation
+    End Function
 
     'SAVING BORROW INFORMATION
     Private Sub Save_borrowing_info()
@@ -1670,6 +1702,7 @@ Public Class BorrowingAndReturning
                 reader.Close()
             End Using
 
+
             Dim row_cntr As Integer = 0
             Dim nmbrng As Integer = 1
             While row_cntr <= max_no_books_to_bor
@@ -1679,6 +1712,7 @@ Public Class BorrowingAndReturning
                 Dim title As String = DgvToBorrow.Item(3, row_cntr).Value.ToString
                 books_title &= nmbrng & ".) " & title & Environment.NewLine
 
+                'inserting book id and title to borrow book id table
                 Dim qry As String = "
                     INSERT INTO borrowed_books_id(`borrow_id`,`books_count`,`book_id`,`title`)
                     VALUES(@borrow_trans_id, @count, @book_id, @title)
@@ -1691,6 +1725,7 @@ Public Class BorrowingAndReturning
                     cmd3.ExecuteNonQuery()
                 End Using
 
+                'get the current quantity of books and update it
                 Dim current_book_qnty As Integer = 0
                 Using cmd_get_book_qnty As New MySqlCommand("SELECT MAX(quantity) FROM `qnty_loc` WHERE `sw_id`=@id", con)
                     cmd_get_book_qnty.Parameters.AddWithValue("@id", id)
@@ -1717,6 +1752,7 @@ Public Class BorrowingAndReturning
             isThereAvailableBorrowSelected = False
             isThereInternalBorrowSelected = False
             con.Close()
+
             If account_type_loggedin <> "staff" Then
                 Me.frm1.LoadAllDisplayData()
             End If
@@ -1752,7 +1788,7 @@ Public Class BorrowingAndReturning
                 cmd.ExecuteNonQuery()
             End Using
 
-            'save new borrowers record if do not have record yet
+            'save borrowers info if no record yet
             If TxtExistingBorrowerId.Text.Trim = "" And Lbl1.Text.Trim <> "Record found" Then
                 Save_borrower_info()
             End If
@@ -3356,10 +3392,5 @@ Public Class BorrowingAndReturning
     Private Sub BtnOvrdCloseFltr_Click(sender As Object, e As EventArgs) Handles BtnOvrdCloseFltr.Click
         PnlOvrdFltr.Visible = False
     End Sub
-
-    '=========================================================================================
-
-
-
 
 End Class

@@ -112,12 +112,6 @@ Partial Class BorrowingAndReturning
         Me.Button2 = New System.Windows.Forms.Button()
         Me.TxtSearchBorrowers = New System.Windows.Forms.TextBox()
         Me.DgvBorrowers = New System.Windows.Forms.DataGridView()
-        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column51 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.BtnEditBorrower = New System.Windows.Forms.Button()
         Me.BtnDeleteBorrower = New System.Windows.Forms.Button()
         Me.BtnGoToAddingBorrower = New System.Windows.Forms.Button()
@@ -302,6 +296,12 @@ Partial Class BorrowingAndReturning
         Me.Label25 = New System.Windows.Forms.Label()
         Me.Label26 = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column51 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.TabControls.SuspendLayout()
@@ -1065,6 +1065,7 @@ Partial Class BorrowingAndReturning
         Me.DgvBooks.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column27, Me.Column48})
         Me.DgvBooks.ImeMode = System.Windows.Forms.ImeMode.Hiragana
         Me.DgvBooks.Location = New System.Drawing.Point(3, 73)
+        Me.DgvBooks.MultiSelect = False
         Me.DgvBooks.Name = "DgvBooks"
         Me.DgvBooks.ReadOnly = True
         Me.DgvBooks.RowHeadersVisible = False
@@ -1219,6 +1220,7 @@ Partial Class BorrowingAndReturning
         'DgvBorrowers
         '
         Me.DgvBorrowers.AllowUserToAddRows = False
+        Me.DgvBorrowers.AllowUserToDeleteRows = False
         Me.DgvBorrowers.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -1235,6 +1237,7 @@ Partial Class BorrowingAndReturning
         Me.DgvBorrowers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DgvBorrowers.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column6, Me.Column7, Me.Column8, Me.Column9, Me.Column10, Me.Column51})
         Me.DgvBorrowers.Location = New System.Drawing.Point(3, 60)
+        Me.DgvBorrowers.MultiSelect = False
         Me.DgvBorrowers.Name = "DgvBorrowers"
         Me.DgvBorrowers.ReadOnly = True
         Me.DgvBorrowers.RowHeadersVisible = False
@@ -1243,71 +1246,6 @@ Partial Class BorrowingAndReturning
         Me.DgvBorrowers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DgvBorrowers.Size = New System.Drawing.Size(1122, 484)
         Me.DgvBorrowers.TabIndex = 1
-        '
-        'Column6
-        '
-        Me.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
-        Me.Column6.DataPropertyName = "borrower_id"
-        Me.Column6.FillWeight = 51.28205!
-        Me.Column6.HeaderText = "BORROWERS ID"
-        Me.Column6.MinimumWidth = 140
-        Me.Column6.Name = "Column6"
-        Me.Column6.ReadOnly = True
-        Me.Column6.Width = 140
-        '
-        'Column7
-        '
-        Me.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
-        Me.Column7.DataPropertyName = "name"
-        Me.Column7.FillWeight = 78.26998!
-        Me.Column7.HeaderText = "NAME"
-        Me.Column7.MinimumWidth = 250
-        Me.Column7.Name = "Column7"
-        Me.Column7.ReadOnly = True
-        Me.Column7.Width = 250
-        '
-        'Column8
-        '
-        Me.Column8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
-        Me.Column8.DataPropertyName = "email"
-        Me.Column8.FillWeight = 102.4899!
-        Me.Column8.HeaderText = "EMAIL"
-        Me.Column8.MinimumWidth = 290
-        Me.Column8.Name = "Column8"
-        Me.Column8.ReadOnly = True
-        Me.Column8.Width = 290
-        '
-        'Column9
-        '
-        Me.Column9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
-        Me.Column9.DataPropertyName = "phone"
-        Me.Column9.FillWeight = 124.2258!
-        Me.Column9.HeaderText = "PHONE"
-        Me.Column9.MinimumWidth = 170
-        Me.Column9.Name = "Column9"
-        Me.Column9.ReadOnly = True
-        Me.Column9.Width = 170
-        '
-        'Column10
-        '
-        Me.Column10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
-        Me.Column10.DataPropertyName = "address"
-        Me.Column10.FillWeight = 143.7323!
-        Me.Column10.HeaderText = "ADDRESS"
-        Me.Column10.MinimumWidth = 300
-        Me.Column10.Name = "Column10"
-        Me.Column10.ReadOnly = True
-        Me.Column10.Width = 300
-        '
-        'Column51
-        '
-        Me.Column51.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
-        Me.Column51.DataPropertyName = "violations"
-        Me.Column51.HeaderText = "VIOLATIONS"
-        Me.Column51.MinimumWidth = 130
-        Me.Column51.Name = "Column51"
-        Me.Column51.ReadOnly = True
-        Me.Column51.Width = 130
         '
         'BtnEditBorrower
         '
@@ -1492,6 +1430,7 @@ Partial Class BorrowingAndReturning
         Me.DgvCancelledBorrow.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DgvCancelledBorrow.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn11, Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn13, Me.DataGridViewTextBoxColumn14, Me.DataGridViewTextBoxColumn15, Me.Column33, Me.Column24, Me.Column37, Me.Column40})
         Me.DgvCancelledBorrow.Location = New System.Drawing.Point(0, 77)
+        Me.DgvCancelledBorrow.MultiSelect = False
         Me.DgvCancelledBorrow.Name = "DgvCancelledBorrow"
         Me.DgvCancelledBorrow.ReadOnly = True
         Me.DgvCancelledBorrow.RowHeadersVisible = False
@@ -1798,6 +1737,7 @@ Partial Class BorrowingAndReturning
         Me.DgvBorrowed.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DgvBorrowed.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.B_ID, Me.T_ID, Me.TITLE, Me.DUE, Me.BWER_ID, Me.B_NAME, Me.PHONE, Me.EMAIL, Me.TOTAL, Me.TYPE, Me.B_DATE, Me.B_TIME, Me.ISCANCEL, Me.ISRET, Me.ISOVD, Me.B_COUNT})
         Me.DgvBorrowed.Location = New System.Drawing.Point(0, 82)
+        Me.DgvBorrowed.MultiSelect = False
         Me.DgvBorrowed.Name = "DgvBorrowed"
         Me.DgvBorrowed.ReadOnly = True
         Me.DgvBorrowed.RowHeadersVisible = False
@@ -2294,6 +2234,7 @@ Partial Class BorrowingAndReturning
         Me.DgvReturned.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DgvReturned.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column15, Me.Column16, Me.Column19, Me.DataGridViewTextBoxColumn17, Me.DataGridViewTextBoxColumn16, Me.DataGridViewTextBoxColumn18, Me.DataGridViewTextBoxColumn19, Me.DataGridViewTextBoxColumn20, Me.DataGridViewTextBoxColumn21, Me.DataGridViewTextBoxColumn22, Me.DataGridViewTextBoxColumn23, Me.DataGridViewTextBoxColumn24, Me.Column50, Me.DataGridViewTextBoxColumn25, Me.Column17, Me.Column35, Me.Column39, Me.Column42})
         Me.DgvReturned.Location = New System.Drawing.Point(0, 76)
+        Me.DgvReturned.MultiSelect = False
         Me.DgvReturned.Name = "DgvReturned"
         Me.DgvReturned.ReadOnly = True
         Me.DgvReturned.RowHeadersVisible = False
@@ -2707,6 +2648,7 @@ Partial Class BorrowingAndReturning
         Me.DgvOverdues.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DgvOverdues.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column20, Me.Column26, Me.Column22, Me.Column23, Me.Column49, Me.Column45, Me.Column21, Me.Column43, Me.Column44, Me.Column46, Me.Column47})
         Me.DgvOverdues.Location = New System.Drawing.Point(0, 77)
+        Me.DgvOverdues.MultiSelect = False
         Me.DgvOverdues.Name = "DgvOverdues"
         Me.DgvOverdues.ReadOnly = True
         Me.DgvOverdues.RowHeadersVisible = False
@@ -2996,6 +2938,7 @@ Partial Class BorrowingAndReturning
         Me.DgvToBorrow.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DgvToBorrow.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column30, Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3})
         Me.DgvToBorrow.Location = New System.Drawing.Point(5, 56)
+        Me.DgvToBorrow.MultiSelect = False
         Me.DgvToBorrow.Name = "DgvToBorrow"
         Me.DgvToBorrow.ReadOnly = True
         Me.DgvToBorrow.RowHeadersVisible = False
@@ -3143,7 +3086,7 @@ Partial Class BorrowingAndReturning
         'Label45
         '
         Me.Label45.Image = Global.CPRI_CAPSTONE_PROJECT.My.Resources.Resources.icons8_qr_code_35
-        Me.Label45.Location = New System.Drawing.Point(321, 127)
+        Me.Label45.Location = New System.Drawing.Point(305, 127)
         Me.Label45.Name = "Label45"
         Me.Label45.Size = New System.Drawing.Size(47, 35)
         Me.Label45.TabIndex = 18
@@ -3203,7 +3146,7 @@ Partial Class BorrowingAndReturning
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(74, 104)
+        Me.Label9.Location = New System.Drawing.Point(57, 107)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(306, 20)
         Me.Label9.TabIndex = 14
@@ -3238,7 +3181,7 @@ Partial Class BorrowingAndReturning
         Me.TxtExistingBorrowerId.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtExistingBorrowerId.Location = New System.Drawing.Point(78, 128)
         Me.TxtExistingBorrowerId.Name = "TxtExistingBorrowerId"
-        Me.TxtExistingBorrowerId.Size = New System.Drawing.Size(237, 35)
+        Me.TxtExistingBorrowerId.Size = New System.Drawing.Size(221, 35)
         Me.TxtExistingBorrowerId.TabIndex = 13
         Me.TxtExistingBorrowerId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -3601,6 +3544,71 @@ Partial Class BorrowingAndReturning
         'Timer1
         '
         '
+        'Column6
+        '
+        Me.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.Column6.DataPropertyName = "borrower_id"
+        Me.Column6.FillWeight = 51.28205!
+        Me.Column6.HeaderText = "BORROWERS ID"
+        Me.Column6.MinimumWidth = 140
+        Me.Column6.Name = "Column6"
+        Me.Column6.ReadOnly = True
+        Me.Column6.Width = 140
+        '
+        'Column7
+        '
+        Me.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.Column7.DataPropertyName = "name"
+        Me.Column7.FillWeight = 78.26998!
+        Me.Column7.HeaderText = "NAME"
+        Me.Column7.MinimumWidth = 250
+        Me.Column7.Name = "Column7"
+        Me.Column7.ReadOnly = True
+        Me.Column7.Width = 250
+        '
+        'Column8
+        '
+        Me.Column8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.Column8.DataPropertyName = "email"
+        Me.Column8.FillWeight = 102.4899!
+        Me.Column8.HeaderText = "EMAIL"
+        Me.Column8.MinimumWidth = 290
+        Me.Column8.Name = "Column8"
+        Me.Column8.ReadOnly = True
+        Me.Column8.Width = 290
+        '
+        'Column9
+        '
+        Me.Column9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.Column9.DataPropertyName = "phone"
+        Me.Column9.FillWeight = 124.2258!
+        Me.Column9.HeaderText = "PHONE"
+        Me.Column9.MinimumWidth = 170
+        Me.Column9.Name = "Column9"
+        Me.Column9.ReadOnly = True
+        Me.Column9.Width = 170
+        '
+        'Column10
+        '
+        Me.Column10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.Column10.DataPropertyName = "address"
+        Me.Column10.FillWeight = 143.7323!
+        Me.Column10.HeaderText = "ADDRESS"
+        Me.Column10.MinimumWidth = 300
+        Me.Column10.Name = "Column10"
+        Me.Column10.ReadOnly = True
+        Me.Column10.Width = 300
+        '
+        'Column51
+        '
+        Me.Column51.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.Column51.DataPropertyName = "violations"
+        Me.Column51.HeaderText = "VIOLATIONS"
+        Me.Column51.MinimumWidth = 130
+        Me.Column51.Name = "Column51"
+        Me.Column51.ReadOnly = True
+        Me.Column51.Width = 130
+        '
         'BorrowingAndReturning
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -3762,12 +3770,6 @@ Partial Class BorrowingAndReturning
     Friend WithEvents BtnReturnBooks As Button
     Friend WithEvents DgvReturned As DataGridView
     Friend WithEvents Label30 As Label
-    Friend WithEvents Column6 As DataGridViewTextBoxColumn
-    Friend WithEvents Column7 As DataGridViewTextBoxColumn
-    Friend WithEvents Column8 As DataGridViewTextBoxColumn
-    Friend WithEvents Column9 As DataGridViewTextBoxColumn
-    Friend WithEvents Column10 As DataGridViewTextBoxColumn
-    Friend WithEvents Column51 As DataGridViewTextBoxColumn
     Friend WithEvents BtnSearchBooks As Button
     Friend WithEvents TxtSearchBooks As TextBox
     Friend WithEvents LblSrchFnd As Label
@@ -3916,4 +3918,10 @@ Partial Class BorrowingAndReturning
     Friend WithEvents ISOVD As DataGridViewTextBoxColumn
     Friend WithEvents B_COUNT As DataGridViewTextBoxColumn
     Friend WithEvents Label45 As Label
+    Friend WithEvents Column6 As DataGridViewTextBoxColumn
+    Friend WithEvents Column7 As DataGridViewTextBoxColumn
+    Friend WithEvents Column8 As DataGridViewTextBoxColumn
+    Friend WithEvents Column9 As DataGridViewTextBoxColumn
+    Friend WithEvents Column10 As DataGridViewTextBoxColumn
+    Friend WithEvents Column51 As DataGridViewTextBoxColumn
 End Class
