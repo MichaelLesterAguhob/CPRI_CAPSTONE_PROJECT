@@ -3048,7 +3048,7 @@ Public Class BorrowingAndReturning
 
     Private Sub FilterThesis()
         Dim hasDates As Boolean
-        If thesisFrom <> "" And thesisTo <> "" Then
+        If thesisFrom.ToString <> "" And thesisTo.ToString <> "" Then
             thesisQuery = " STR_TO_DATE(date_published, '%m-%d-%Y') >= STR_TO_DATE(@start_date, '%m-%d-%Y')
                             AND STR_TO_DATE(date_published, '%m-%d-%Y') <= STR_TO_DATE(@end_date, '%m-%d-%Y') "
             hasDates = True
@@ -3146,7 +3146,7 @@ Public Class BorrowingAndReturning
     End Sub
     Private Sub FilterBorrowed()
         Dim hasDates As Boolean
-        If borrowedFrom <> "" And borrowedTo <> "" Then
+        If borrowedFrom.ToString <> "" And borrowedTo.ToString <> "" Then
             borrowedQuery = " STR_TO_DATE(borrow_date, '%m-%d-%Y') >= STR_TO_DATE(@start_date, '%m-%d-%Y')
                             AND STR_TO_DATE(borrow_date, '%m-%d-%Y') <= STR_TO_DATE(@end_date, '%m-%d-%Y') "
             hasDates = True
@@ -3214,7 +3214,8 @@ Public Class BorrowingAndReturning
     'FILTER RETURNED
     Dim retFrom As String = ""
     Dim retTo As String = ""
-    Dim retQuery As String
+    Dim retQuery As String = ""
+
     Private Sub DtReturnedFrom_ValueChanged(sender As Object, e As EventArgs) Handles DtReturnedFrom.ValueChanged
         retFrom = DtReturnedFrom.Value.Date.ToString("MM-dd-yyyy")
     End Sub
@@ -3225,7 +3226,7 @@ Public Class BorrowingAndReturning
 
     Private Sub FilterReturned()
         Dim hasDates As Boolean
-        If retFrom <> "" And retTo <> "" Then
+        If retFrom.ToString <> "" And retTo.ToString <> "" Then
             retQuery = " STR_TO_DATE(returned_date, '%m-%d-%Y') >= STR_TO_DATE(@start_date, '%m-%d-%Y')
                             AND STR_TO_DATE(returned_date, '%m-%d-%Y') <= STR_TO_DATE(@end_date, '%m-%d-%Y') "
             hasDates = True
@@ -3291,9 +3292,11 @@ Public Class BorrowingAndReturning
             End Try
         End If
     End Sub
+
     Private Sub BtnApplyRetFltr_Click(sender As Object, e As EventArgs) Handles BtnApplyRetFltr.Click
         FilterReturned()
     End Sub
+
     Private Sub BtnResetRetFltr_Click(sender As Object, e As EventArgs) Handles BtnResetRetFltr.Click
         LoadReturnedBooksList()
     End Sub
@@ -3320,7 +3323,7 @@ Public Class BorrowingAndReturning
 
     Private Sub FilterOverdue()
         Dim hasDates As Boolean
-        If ovrFrom <> "" And ovrTo <> "" Then
+        If ovrFrom.ToString <> "" And ovrTo.ToString <> "" Then
             ovrQuery = " STR_TO_DATE(overdues.due_date, '%m-%d-%Y') >= STR_TO_DATE(@start_date, '%m-%d-%Y')
                             AND STR_TO_DATE(overdues.due_date, '%m-%d-%Y') <= STR_TO_DATE(@end_date, '%m-%d-%Y') "
             hasDates = True

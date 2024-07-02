@@ -112,6 +112,12 @@ Partial Class BorrowingAndReturning
         Me.Button2 = New System.Windows.Forms.Button()
         Me.TxtSearchBorrowers = New System.Windows.Forms.TextBox()
         Me.DgvBorrowers = New System.Windows.Forms.DataGridView()
+        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column51 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.BtnEditBorrower = New System.Windows.Forms.Button()
         Me.BtnDeleteBorrower = New System.Windows.Forms.Button()
         Me.BtnGoToAddingBorrower = New System.Windows.Forms.Button()
@@ -296,12 +302,6 @@ Partial Class BorrowingAndReturning
         Me.Label25 = New System.Windows.Forms.Label()
         Me.Label26 = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column51 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.TabControls.SuspendLayout()
@@ -1246,6 +1246,71 @@ Partial Class BorrowingAndReturning
         Me.DgvBorrowers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DgvBorrowers.Size = New System.Drawing.Size(1122, 484)
         Me.DgvBorrowers.TabIndex = 1
+        '
+        'Column6
+        '
+        Me.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.Column6.DataPropertyName = "borrower_id"
+        Me.Column6.FillWeight = 51.28205!
+        Me.Column6.HeaderText = "BORROWERS ID"
+        Me.Column6.MinimumWidth = 140
+        Me.Column6.Name = "Column6"
+        Me.Column6.ReadOnly = True
+        Me.Column6.Width = 140
+        '
+        'Column7
+        '
+        Me.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.Column7.DataPropertyName = "name"
+        Me.Column7.FillWeight = 78.26998!
+        Me.Column7.HeaderText = "NAME"
+        Me.Column7.MinimumWidth = 250
+        Me.Column7.Name = "Column7"
+        Me.Column7.ReadOnly = True
+        Me.Column7.Width = 250
+        '
+        'Column8
+        '
+        Me.Column8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.Column8.DataPropertyName = "email"
+        Me.Column8.FillWeight = 102.4899!
+        Me.Column8.HeaderText = "EMAIL"
+        Me.Column8.MinimumWidth = 290
+        Me.Column8.Name = "Column8"
+        Me.Column8.ReadOnly = True
+        Me.Column8.Width = 290
+        '
+        'Column9
+        '
+        Me.Column9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.Column9.DataPropertyName = "phone"
+        Me.Column9.FillWeight = 124.2258!
+        Me.Column9.HeaderText = "PHONE"
+        Me.Column9.MinimumWidth = 170
+        Me.Column9.Name = "Column9"
+        Me.Column9.ReadOnly = True
+        Me.Column9.Width = 170
+        '
+        'Column10
+        '
+        Me.Column10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.Column10.DataPropertyName = "address"
+        Me.Column10.FillWeight = 143.7323!
+        Me.Column10.HeaderText = "ADDRESS"
+        Me.Column10.MinimumWidth = 300
+        Me.Column10.Name = "Column10"
+        Me.Column10.ReadOnly = True
+        Me.Column10.Width = 300
+        '
+        'Column51
+        '
+        Me.Column51.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.Column51.DataPropertyName = "violations"
+        Me.Column51.HeaderText = "VIOLATIONS"
+        Me.Column51.MinimumWidth = 130
+        Me.Column51.Name = "Column51"
+        Me.Column51.ReadOnly = True
+        Me.Column51.Width = 130
         '
         'BtnEditBorrower
         '
@@ -3543,71 +3608,6 @@ Partial Class BorrowingAndReturning
         '
         'Timer1
         '
-        '
-        'Column6
-        '
-        Me.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
-        Me.Column6.DataPropertyName = "borrower_id"
-        Me.Column6.FillWeight = 51.28205!
-        Me.Column6.HeaderText = "BORROWERS ID"
-        Me.Column6.MinimumWidth = 140
-        Me.Column6.Name = "Column6"
-        Me.Column6.ReadOnly = True
-        Me.Column6.Width = 140
-        '
-        'Column7
-        '
-        Me.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
-        Me.Column7.DataPropertyName = "name"
-        Me.Column7.FillWeight = 78.26998!
-        Me.Column7.HeaderText = "NAME"
-        Me.Column7.MinimumWidth = 250
-        Me.Column7.Name = "Column7"
-        Me.Column7.ReadOnly = True
-        Me.Column7.Width = 250
-        '
-        'Column8
-        '
-        Me.Column8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
-        Me.Column8.DataPropertyName = "email"
-        Me.Column8.FillWeight = 102.4899!
-        Me.Column8.HeaderText = "EMAIL"
-        Me.Column8.MinimumWidth = 290
-        Me.Column8.Name = "Column8"
-        Me.Column8.ReadOnly = True
-        Me.Column8.Width = 290
-        '
-        'Column9
-        '
-        Me.Column9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
-        Me.Column9.DataPropertyName = "phone"
-        Me.Column9.FillWeight = 124.2258!
-        Me.Column9.HeaderText = "PHONE"
-        Me.Column9.MinimumWidth = 170
-        Me.Column9.Name = "Column9"
-        Me.Column9.ReadOnly = True
-        Me.Column9.Width = 170
-        '
-        'Column10
-        '
-        Me.Column10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
-        Me.Column10.DataPropertyName = "address"
-        Me.Column10.FillWeight = 143.7323!
-        Me.Column10.HeaderText = "ADDRESS"
-        Me.Column10.MinimumWidth = 300
-        Me.Column10.Name = "Column10"
-        Me.Column10.ReadOnly = True
-        Me.Column10.Width = 300
-        '
-        'Column51
-        '
-        Me.Column51.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
-        Me.Column51.DataPropertyName = "violations"
-        Me.Column51.HeaderText = "VIOLATIONS"
-        Me.Column51.MinimumWidth = 130
-        Me.Column51.Name = "Column51"
-        Me.Column51.ReadOnly = True
-        Me.Column51.Width = 130
         '
         'BorrowingAndReturning
         '
