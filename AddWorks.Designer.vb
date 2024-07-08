@@ -49,6 +49,8 @@ Partial Class AddWorks
         Me.Label19 = New System.Windows.Forms.Label()
         Me.BtnBrowseWholeFile = New System.Windows.Forms.Button()
         Me.PnlPresented = New System.Windows.Forms.Panel()
+        Me.Label28 = New System.Windows.Forms.Label()
+        Me.SavePresentedDet = New System.Windows.Forms.Button()
         Me.Panel7 = New System.Windows.Forms.Panel()
         Me.DtPrsntdDate = New System.Windows.Forms.DateTimePicker()
         Me.TxtPrePlace = New System.Windows.Forms.TextBox()
@@ -121,6 +123,7 @@ Partial Class AddWorks
         Me.Label26 = New System.Windows.Forms.Label()
         Me.TxtLoc = New System.Windows.Forms.TextBox()
         Me.Label27 = New System.Windows.Forms.Label()
+        Me.Label29 = New System.Windows.Forms.Label()
         Me.PnlTxtCont.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.PnlPresented.SuspendLayout()
@@ -447,6 +450,9 @@ Partial Class AddWorks
         'PnlPresented
         '
         Me.PnlPresented.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.PnlPresented.Controls.Add(Me.Label29)
+        Me.PnlPresented.Controls.Add(Me.Label28)
+        Me.PnlPresented.Controls.Add(Me.SavePresentedDet)
         Me.PnlPresented.Controls.Add(Me.Panel7)
         Me.PnlPresented.Controls.Add(Me.Panel8)
         Me.PnlPresented.Controls.Add(Me.TableLayoutPanel2)
@@ -456,6 +462,32 @@ Partial Class AddWorks
         Me.PnlPresented.Name = "PnlPresented"
         Me.PnlPresented.Size = New System.Drawing.Size(964, 235)
         Me.PnlPresented.TabIndex = 70
+        '
+        'Label28
+        '
+        Me.Label28.AutoSize = True
+        Me.Label28.Location = New System.Drawing.Point(693, 166)
+        Me.Label28.Name = "Label28"
+        Me.Label28.Size = New System.Drawing.Size(259, 13)
+        Me.Label28.TabIndex = 58
+        Me.Label28.Text = "Save Presented Details first and you can add another"
+        '
+        'SavePresentedDet
+        '
+        Me.SavePresentedDet.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.SavePresentedDet.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.SavePresentedDet.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.SavePresentedDet.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.SavePresentedDet.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SavePresentedDet.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.SavePresentedDet.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.SavePresentedDet.Location = New System.Drawing.Point(839, 190)
+        Me.SavePresentedDet.Name = "SavePresentedDet"
+        Me.SavePresentedDet.Size = New System.Drawing.Size(109, 29)
+        Me.SavePresentedDet.TabIndex = 57
+        Me.SavePresentedDet.Text = "Save Details"
+        Me.SavePresentedDet.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.SavePresentedDet.UseVisualStyleBackColor = False
         '
         'Panel7
         '
@@ -1330,6 +1362,17 @@ Partial Class AddWorks
         Me.Label27.TabIndex = 68
         Me.Label27.Text = "Location :"
         '
+        'Label29
+        '
+        Me.Label29.AutoSize = True
+        Me.Label29.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.Label29.Location = New System.Drawing.Point(134, 206)
+        Me.Label29.Name = "Label29"
+        Me.Label29.Size = New System.Drawing.Size(136, 13)
+        Me.Label29.TabIndex = 59
+        Me.Label29.Text = "Unsaved Presented Details"
+        Me.Label29.Visible = False
+        '
         'AddWorks
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1376,6 +1419,7 @@ Partial Class AddWorks
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.PnlPresented.ResumeLayout(False)
+        Me.PnlPresented.PerformLayout()
         Me.Panel7.ResumeLayout(False)
         Me.Panel7.PerformLayout()
         Me.Panel8.ResumeLayout(False)
@@ -1500,4 +1544,7 @@ Partial Class AddWorks
     Friend WithEvents TxtLoc As TextBox
     Friend WithEvents Label27 As Label
     Friend WithEvents TxtSchoolYear As ComboBox
+    Friend WithEvents SavePresentedDet As Button
+    Friend WithEvents Label28 As Label
+    Friend WithEvents Label29 As Label
 End Class

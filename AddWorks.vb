@@ -107,6 +107,11 @@ Public Class AddWorks
     End Sub
 
     'SAVING INFORMATION ENETERED
+    Dim isPresentedDetailsSaved As Boolean = False
+    Dim isPreDetHasInpts As Boolean = False
+
+
+
     Dim print_clearance As Boolean = False
     Private Sub BtnSaveResearch_Click(sender As Object, e As EventArgs) Handles BtnSaveResearch.Click
         BtnSaveResearch.Enabled = False
@@ -162,6 +167,7 @@ Public Class AddWorks
             If isDynamicFieldsNotBlanks Then
 
                 'check if addtional info- published is checked
+                'determine if not yet save 
                 If isPublished = "Published" Then
                     If publish_level <> "" And TxtPubAcadJournal.Text.Trim <> "" And TxtPubVolNum.Text.Trim <> "" And TxtPubIssueNo.Text.Trim <> "" And TxtPubPageRange.Text.Trim <> "" And TxtPubDoiUrl.Text.Trim <> "" Then
                         If IsNumeric(TxtPubVolNum.Text) And IsNumeric(TxtPubIssueNo.Text.Trim) And TxtPubDoiUrl.Text.Trim <> "" Then
@@ -184,7 +190,7 @@ Public Class AddWorks
                     End If
 
                     'check if additonal info-presented is checked
-                ElseIf isPresented = "Presented" Then
+                ElseIf isPresented = "Presented" And Not isPresentedDetailsSaved Then
 
                     If TxtPreResConfName.Text.Trim <> "" And TxtPrePlace.Text.Trim <> "" And presented_level <> "" Then
 
@@ -193,8 +199,12 @@ Public Class AddWorks
                         date_prsntd = DtPrsntdDate.Value.Date.ToString("MM-dd-yyyy")
                         place_prsnttn = TxtPrePlace.Text.Trim
 
+                        Dim confirmSaving As DialogResult = MessageBox.Show("The presented details you've entered is unsaved." & Environment.NewLine & "Save it? Click YES.", "Save the unsaved Presented Details?", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                        If confirmSaving = DialogResult.Yes Then
+                            SavePresentedInfo()
+                            isPresentedDetailsSaved = True
+                        End If
                         SaveUpperInputs()
-                        SavePresentedInfo()
                     Else
                         MessageBox.Show("Fill in the blank(s)", "No Input | Check Additional Info", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                     End If
@@ -213,7 +223,6 @@ Public Class AddWorks
         frm1.LoadAllDisplayData()
         rrm.BtnRemoveSelection.PerformClick()
     End Sub
-
 
     Private Sub SaveUpperInputs()
         con.Close()
@@ -700,7 +709,10 @@ Public Class AddWorks
         RdStatCmpltd.Checked = False
         RdStatOngng.Checked = False
         status = ""
+        CbxSem.Text = "Select Semester"
+        TxtSchoolYear.Text = ""
         BtnCancelSelection.PerformClick()
+        TxtCopies.Text = "1"
     End Sub
 
 
@@ -721,15 +733,19 @@ Public Class AddWorks
     'PRESENTED LEVEL RADIO BUTTON EVENT
     Private Sub RdPreLevelInsti_MouseClick(sender As Object, e As MouseEventArgs) Handles RdPreLevelInsti.MouseClick
         presented_level = "Institutional"
+        PresDetHasInpts()
     End Sub
     Private Sub RdPreLevelInter_MouseClick(sender As Object, e As MouseEventArgs) Handles RdPreLevelInter.MouseClick
         presented_level = "International"
+        PresDetHasInpts()
     End Sub
     Private Sub RdPreLevelLoc_MouseClick(sender As Object, e As MouseEventArgs) Handles RdPreLevelLoc.MouseClick
         presented_level = "Local"
+        PresDetHasInpts()
     End Sub
     Private Sub RdPreLevelNat_MouseClick(sender As Object, e As MouseEventArgs) Handles RdPreLevelNat.MouseClick
         presented_level = "National"
+        PresDetHasInpts()
     End Sub
 
 
@@ -1054,6 +1070,11 @@ Public Class AddWorks
         RdPreLevelInter.Checked = False
         RdPreLevelLoc.Checked = False
         RdPreLevelNat.Checked = False
+
+        presented_level = ""
+        publish_level = ""
+        isPreDetHasInpts = False
+        Label29.Visible = False
     End Sub
 
     Private Sub CbxSem_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CbxSem.SelectedIndexChanged
@@ -1189,6 +1210,32 @@ Public Class AddWorks
             DtPubDate.Value = DateTime.Now
             MessageBox.Show("You selected ahead of present date", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End If
+    End Sub
+
+
+
+    'handles presented details input for detection
+    Private Sub PresDetHasInpts()
+        If RdPreLevelInsti.Checked = True Or RdPreLevelInter.Checked = True Or RdPreLevelLoc.Checked = True Or RdPreLevelNat.Checked = True Or TxtPreResConfName.Text <> "" Or TxtPrePlace.Text <> "" Then
+            isPresentedDetailsSaved = False
+            Label29.Visible = True
+        Else
+            isPresentedDetailsSaved = True
+            Label29.Visible = False
+        End If
+    End Sub
+
+    Private Sub TxtPreResConfName_TextChanged(sender As Object, e As EventArgs) Handles TxtPreResConfName.TextChanged
+        PresDetHasInpts()
+    End Sub
+
+    Private Sub TxtPrePlace_TextChanged(sender As Object, e As EventArgs) Handles TxtPrePlace.TextChanged
+        PresDetHasInpts()
+    End Sub
+
+    Private Sub SavePresentedDet_Click(sender As Object, e As EventArgs) Handles SavePresentedDet.Click
+
+
     End Sub
 End Class
 
